@@ -117,9 +117,9 @@ header{
     .navbar{
         position: absolute;
         top: 100%;
-        right: 2%;
+        right: -100%;
         width: 170px;
-        height: 41vh;
+        height: auto;
         background: var(--bg-color);
         display: flex;
         flex-direction: column;
@@ -141,7 +141,7 @@ header{
     .navbar a.active{
         color: var(--text-color);
     }
-    .navbar .open{
+    .navbar.open{
         right: 2%;
     }
     .logo{
@@ -194,9 +194,9 @@ header{
     .navbar{
         position: absolute;
         top: 100%;
-        right: 2%;
+        right: -100%;
         width: 100px;
-        height: 26vh;
+        height: auto;
         background: var(--bg-color);
         display: flex;
         flex-direction: column;
@@ -219,8 +219,9 @@ header{
     .navbar a.active{
         color: var(--text-color);
     }
-    .navbar .open{
+    .navbar.open{
         right: 2%;
+
     }
     .main{
         display: flex;
