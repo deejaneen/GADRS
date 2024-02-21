@@ -23,27 +23,19 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarColor01">
-            <ul class="navbar-nav me-auto">
-                <li class="nav-item">
-                    <a class="nav-link active" href="#">HOME
-                    <span class="visually-hidden">(current)</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('gym') }}">GYM</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('dorm') }}">DORM</a>
-                </li>
-            </ul>
-            <ul class="navbar-nav me-auto">
-                <li class="nav-item">
-                    <a href="#" class="user active no-underline"><i class="ri-user-line"></i>LOGIN</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="no-underline">SIGNUP</a>
-                </li>
-            </ul>
+            <div class="centered">
+              
+            </div>
+            <div class="main">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a href="#" class="user active no-underline"><i class="ri-user-line"></i>LOGIN</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="no-underline">SIGNUP</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </nav>

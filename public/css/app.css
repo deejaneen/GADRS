@@ -32,7 +32,14 @@ header{
     padding: 12px 2%;
     transition: all .50s ease;
 }
-
+.centered{
+    margin-left: auto;
+    margin-right: auto;
+}
+.main{
+    display: flex;
+    align-items: flex-end;
+}
 .navbar a.navbar-brand img{
     height: 4rem;
 }
@@ -68,11 +75,6 @@ header{
     display: flex;
     align-items: center;
 }
-.navbar .centered{
-    margin-left: auto;
-    margin-right: auto;
-}
-
 .user{
     display: flex;
     align-items: center;
@@ -196,4 +198,227 @@ header{
     background-color: #003049;
     color: #FCBF49;
     /* Change to your desired hover color */
+}
+@media (max-width: 1024px) {
+    .centered{
+        display: flex;
+        align-items: flex-end;
+    }
+    .banner-dorm h1.banner-name{
+        font-size: 5rem;
+        color: #eae2b7;
+        transition: all .50s ease;
+    }
+    .banner-gym h1.banner-name{
+        font-size: 5rem;
+        color: #eae2b7;
+        transition: all .50s ease;
+    }
+    .banner-dorm .btn {
+        color: #003049  ;
+        padding: 10px 15px;
+        border-width: 5px;
+        border-color: #FCBF49 !important;
+        /* Adjust the padding for your desired button size */
+        font-weight: 700;
+        background-color: #FCBF49;
+        /* Bold */
+        font-size: 1.5rem;
+        text-decoration: none;
+        border-radius: 20px;
+        font-family: 'Poppins', sans-serif;
+        /* Use Poppins font for the button */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add a subtle drop shadow */
+        transition: all .50s ease;
+    }
+    .banner-gym .btn {
+        color: #d62828;
+        padding: 10px 15px;
+        border-width: 5px;
+        border-color: #FCBF49 !important;
+        /* Adjust the padding for your desired button size */
+        font-weight: 700;
+        background-color: #FCBF49;
+        /* Bold */
+        font-size: 1.5rem;
+        text-decoration: none;
+        border-radius: 20px;
+        font-family: 'Poppins', sans-serif;
+        /* Use Poppins font for the button */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add a subtle drop shadow */
+        transition: all .50s ease;
+    }
+    .banner-gym {
+        position: relative;
+        text-align: center;
+        color: #fff;
+        background: url('../images/Gym\ Banner\ Reservation.png') center/cover no-repeat;
+        height: 360px;
+        /* Set the desired height */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .banner-dorm {
+        position: relative;
+        text-align: center;
+        color: #fff;
+        background: url('../images/Dorm\ Banner\ Reservation.png') center/cover no-repeat;
+        height: 360px;
+        /* Set the desired height */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+}
+@media (max-width: 768px) {
+   
+    .banner-dorm h1.banner-name{
+        font-size: 3rem;
+        color: #eae2b7;
+        transition: all .50s ease;
+    }
+    .banner-gym h1.banner-name{
+        font-size: 3rem;
+        color: #eae2b7;
+        transition: all .50s ease;
+    }
+    .banner-dorm .btn {
+        color: #003049  ;
+        padding: 10px 15px;
+        border-width: 5px;
+        border-color: #FCBF49 !important;
+        /* Adjust the padding for your desired button size */
+        font-weight: 700;
+        background-color: #FCBF49;
+        /* Bold */
+        font-size: 0.9rem;
+        text-decoration: none;
+        border-radius: 20px;
+        font-family: 'Poppins', sans-serif;
+        /* Use Poppins font for the button */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add a subtle drop shadow */
+        transition: all .50s ease;
+    }
+    .banner-gym .btn {
+        color: #d62828;
+        padding: 10px 15px;
+        border-width: 5px;
+        border-color: #FCBF49 !important;
+        /* Adjust the padding for your desired button size */
+        font-weight: 700;
+        background-color: #FCBF49;
+        /* Bold */
+        font-size: 0.9rem;
+        text-decoration: none;
+        border-radius: 20px;
+        font-family: 'Poppins', sans-serif;
+        /* Use Poppins font for the button */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add a subtle drop shadow */
+        transition: all .50s ease;
+    }
+    .banner-gym {
+        position: relative;
+        text-align: center;
+        color: #fff;
+        background: url('../images/Gym\ Banner\ Reservation.png') center/cover no-repeat;
+        height: 250px;
+        /* Set the desired height */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .banner-dorm {
+        position: relative;
+        text-align: center;
+        color: #fff;
+        background: url('../images/Dorm\ Banner\ Reservation.png') center/cover no-repeat;
+        height: 250px;
+        /* Set the desired height */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
+@media (max-width: 480px) {
+    .banner-dorm h1.banner-name{
+        font-size: 2.5rem;
+        color: #eae2b7;
+        transition: all .50s ease;
+    }
+    .banner-gym h1.banner-name{
+        font-size: 2.5rem;
+        color: #eae2b7;
+        transition: all .50s ease;
+    }
+    .banner-dorm .btn {
+        color: #003049  ;
+        padding: 10px 15px;
+        border-width: 5px;
+        border-color: #FCBF49 !important;
+        /* Adjust the padding for your desired button size */
+        font-weight: 700;
+        background-color: #FCBF49;
+        /* Bold */
+        font-size: 0.7rem;
+        text-decoration: none;
+        border-radius: 20px;
+        font-family: 'Poppins', sans-serif;
+        /* Use Poppins font for the button */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add a subtle drop shadow */
+        transition: all .50s ease;
+    }
+    .banner-gym .btn {
+        color: #d62828;
+        padding: 10px 15px;
+        border-width: 5px;
+        border-color: #FCBF49 !important;
+        /* Adjust the padding for your desired button size */
+        font-weight: 700;
+        background-color: #FCBF49;
+        /* Bold */
+        font-size: 0.7rem;
+        text-decoration: none;
+        border-radius: 20px;
+        font-family: 'Poppins', sans-serif;
+        /* Use Poppins font for the button */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add a subtle drop shadow */
+        transition: all .50s ease;
+    }
+    .banner-gym {
+        position: relative;
+        text-align: center;
+        color: #fff;
+        background: url('../images/Gym\ Banner\ Reservation.png') center/cover no-repeat;
+        height: 250px;
+        /* Set the desired height */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .banner-dorm {
+        position: relative;
+        text-align: center;
+        color: #fff;
+        background: url('../images/Dorm\ Banner\ Reservation.png') center/cover no-repeat;
+        height: 250px;
+        /* Set the desired height */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .navbar a.navbar-brand img{
+        height: 3rem;
+    }
+    .navbar a.navbar-brand{
+        display: flex;
+        align-items: center;
+        color: var(--text-color);
+        font-size: 1.8rem;
+        font-weight: 900;
+        padding-left: 1px;
+        letter-spacing: 6px;
+        text-decoration: none;
+    }
 }
