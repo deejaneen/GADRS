@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,26 +8,40 @@
     <title>{{ config('app.name') }}</title>
 
     <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
-     
-    {{-- Stylesheet for icons--}}
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.3.2/flatly/bootstrap.rtl.min.css" rel="stylesheet" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    {{-- Stylesheet for icons --}}
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet" />
 
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
-    
-    {{-- Stylesheet for font from google fonts--}}
+
+    {{-- Stylesheet for font from google fonts --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@700&display=swap" rel="stylesheet">
 
 </head>
+
 <body>
 
-    <header>
-        {{-- Navbar--}}
-        @include('layout.nav')          
-    </header>
+    {{-- Navbar --}}
+    @include('layout.loginnav')
 
-    {{-- Stylesheet for font from google fonts--}}
-    <script type="text/javascript" src="{{ asset('js/app.js')}}"></script>
+    @yield('banner')
+
+    <div class="container py-4">
+        @yield('content')
+    </div>
+    {{-- Stylesheet for font from google fonts --}}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha512-OHjihgg30GxixxblIXS4qhcH+fVIoPaRi5iNE014ptjC5KQyBlteeZ2PKsJh5RMFWYeV8Y++UBxGhO7HQGgG0Q==" crossorigin="anonymous">
+    </script>
+    <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
+
 </body>
+
 </html>

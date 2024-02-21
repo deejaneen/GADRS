@@ -16,3 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/gym', function () {
+    return view('gym');
+})->name('gym');
+Route::get('/dorm', function () {
+    return view('dorm');
+})->name('dorm');
