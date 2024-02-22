@@ -471,10 +471,6 @@ header{
     margin-top: 5px;
 }
 
-.hour-divider {
-    border-top: 4px solid #F77F00;
-    margin: 0;
-}
 
 /* Add styles for unreserved hours */
 .day-box .hour.unreserved {
@@ -495,6 +491,26 @@ header{
 
 #month-heading {
     text-transform: uppercase;
+}
+
+
+.day-box ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.day-box li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #F77F00; /* Adjust the color as needed */
+}
+
+.hour-divider {
+    width: 100%; /* Adjust the width as needed */
+    border-top: 4px solid #F77F00;
+    margin: 10px 0;
 }
 
 /* Gym Table */
