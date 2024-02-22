@@ -10,7 +10,7 @@
 
 <div class="main">
     <a href="#" class="user active no-underline"><i class="ri-user-line"></i>LOGIN</a>
-    <a href="{{ route('gym') }}" class="no-underline">SIGNUP</a>
+    <a href="{{ route('gym') }}" class="no-underline">Register</a>
     <div class="bx bx-menu" id="menu-icon"></div>
 </div>
 
@@ -29,10 +29,10 @@
             <div class="main">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a href="#" class="user active no-underline"><i class="ri-user-line"></i>LOGIN</a>
+                        <a href="{{ route('login')}}" class="user active no-underline"><i class="ri-user-line"></i>LOGIN</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="no-underline">SIGNUP</a>
+                        <a href="{{ route('register')}}" class="no-underline">REGISTER</a>
                     </li>
                 </ul>
             </div>
