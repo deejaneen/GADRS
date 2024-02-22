@@ -38,6 +38,8 @@
     
     <div class="container py-4">
         @yield('content')
+        @yield('loginform')
+        @yield('registerform')
     </div>
 
     @yield('gym_table')
