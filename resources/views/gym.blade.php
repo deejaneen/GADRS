@@ -11,3 +11,6 @@
     </div>
     
 @endsection
+@section('gym_table')
+    @include('gym.gym_table')
+@endsection
