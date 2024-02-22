@@ -36,6 +36,11 @@ header{
     margin-left: auto;
     margin-right: auto;
 }
+.column{
+    display: flex;
+    width: 50%;
+    height: auto;
+}
 .main{
     display: flex;
     align-items: flex-end;
@@ -199,6 +204,209 @@ header{
     color: #FCBF49;
     /* Change to your desired hover color */
 }
+
+.wrapper {
+    position: fixed;
+    top: 60%;
+    left: 50%;
+    min-height: 65vh;
+    max-width: 1200px;
+    width: 1200px;
+    background: #eae2b7;
+    border: 3px solid #003049;
+    transform: translate(-50%, -50%);
+}
+.wrapper h1{
+    font-size: 36px;
+    text-align: center;
+    color: #003049;
+}
+.wrapper .form-box {
+    display: flex;
+
+}
+.wrapper .input-field {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    background:#eae2b7;
+    margin: 30px 0;
+}
+.input-field input{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: #003049 1px;
+    outline: #003049 1px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    font-size: 16px;
+    color: #003049;
+    border-radius: 40px;
+    padding: 20px 45px 20px 20px;
+}
+.input-field input::placeholder{
+    color: #003049;
+}
+.input-field i{
+    position: absolute;
+    right: 20px;
+    top: 20%;
+    transform: translate(-50%);
+    font-size: 20px;
+    color: #003049;
+    
+}
+.wrapper .forgot {
+    display:flex;
+    font-size: 14.5px;
+    margin: -15px 0 15px;
+}
+.wrapper .btn{
+    width: 100%;
+    height: 45px;
+    background: #003049;
+    border-width: 3px;
+    border-color: #003049;
+    outline: none;
+    border-radius: 40px;
+    color: #eae2b7;
+}
+.wrapper .btn:hover{
+    width: 100%;
+    height: 45px;
+    background: #eae2b7;
+    border-width: 3px;
+    border-color: #003049;
+    outline: none;
+    border-radius: 40px;
+    color: #003049;
+}
+
+.form-box .form-details {
+    max-width: auto;
+    width: 130%;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex start;
+    background: url('../images/Login\ photo.png') center/cover no-repeat;
+    background-position: center top;
+}
+.form-box .form-content {
+    width: 70%;
+    padding: 11% 35px 11% 35px;
+    display: flex;
+    flex-direction: column; 
+}
+.form-box a{
+    color: #f77f00;
+    text-decoration: none;
+}
+.form-box a:hover{
+    text-decoration: underline;
+}
+.wrapper .bottom-link {
+    font-size: 14.5px;
+    text-align: center;
+    margin-top: 20px;
+}
+.bottom-link p a{
+    text-decoration: none;
+}
+
+/* Gym Table */
+.day-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 30px 10;
+    background-color: #003049;
+    /* Blue background color */
+    border: 4px solid #ffffff;
+    /* Border color */
+    border-radius: 20px;
+    /* Optional: Add border-radius for rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 2);
+}
+
+.day-box {
+    flex: 1;
+    border: 3px solid #F77F00;
+    padding: 10px;
+    text-align: center;
+    margin: 10px;
+    font-family: 'Poppins', sans-serif;
+    background-color: #EAE2B7;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+}
+
+
+.day-box h4 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    color: #F77F00;
+    text-transform: uppercase;
+}
+
+#calendar_container .h1 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 800;
+    color: #fffefe;
+    font-size: 3.2em;
+}
+
+.schedule {
+    border-top: 1px solid #ddd;
+    padding-top: 5px;
+    margin-top: 5px;
+}
+
+
+/* Add styles for unreserved hours */
+.day-box .hour.unreserved {
+    color: #003049;
+    /* Change to your desired color for unreserved hours */
+}
+
+/* Add styles for reserved hours */
+.day-box .hour.reserved {
+    color: rgb(156, 2, 2);
+    /* Change to your desired color for reserved hours */
+}
+
+#reservation-section {
+    background-color: #003049;
+    margin-top: 20px;
+}
+
+#month-heading {
+    text-transform: uppercase;
+}
+
+
+.day-box ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.day-box li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #F77F00; /* Adjust the color as needed */
+}
+
+.hour-divider {
+    width: 100%; /* Adjust the width as needed */
+    border-top: 4px solid #F77F00;
+    margin: 10px 0;
+}
+
+/* Gym Table */
+
 @media (max-width: 1024px) {
     .centered{
         display: flex;
@@ -270,7 +478,6 @@ header{
         flex-direction: column;
         justify-content: center;
     }
-
 }
 @media (max-width: 768px) {
    
@@ -422,95 +629,3 @@ header{
         text-decoration: none;
     }
 }
-
-/* Gym Table */
-.day-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    margin: 30px 10;
-    background-color: #003049;
-    /* Blue background color */
-    border: 4px solid #ffffff;
-    /* Border color */
-    border-radius: 20px;
-    /* Optional: Add border-radius for rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 2);
-}
-
-.day-box {
-    flex: 1;
-    border: 3px solid #F77F00;
-    padding: 10px;
-    text-align: center;
-    margin: 10px;
-    font-family: 'Poppins', sans-serif;
-    background-color: #EAE2B7;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    border-radius: 20px;
-}
-
-
-.day-box h4 {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 800;
-    color: #F77F00;
-    text-transform: uppercase;
-}
-
-#calendar_container .h1 {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 800;
-    color: #fffefe;
-    font-size: 3.2em;
-}
-
-.schedule {
-    border-top: 1px solid #ddd;
-    padding-top: 5px;
-    margin-top: 5px;
-}
-
-
-/* Add styles for unreserved hours */
-.day-box .hour.unreserved {
-    color: #003049;
-    /* Change to your desired color for unreserved hours */
-}
-
-/* Add styles for reserved hours */
-.day-box .hour.reserved {
-    color: rgb(156, 2, 2);
-    /* Change to your desired color for reserved hours */
-}
-
-#reservation-section {
-    background-color: #003049;
-    margin-top: 20px;
-}
-
-#month-heading {
-    text-transform: uppercase;
-}
-
-
-.day-box ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.day-box li {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #F77F00; /* Adjust the color as needed */
-}
-
-.hour-divider {
-    width: 100%; /* Adjust the width as needed */
-    border-top: 4px solid #F77F00;
-    margin: 10px 0;
-}
-
-/* Gym Table */

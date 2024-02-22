@@ -16,9 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('login');
 });
-Route::get('/signup', function () {
-    return view('signup');
-})->name('signup');
+Route::get('/register', function () {
+    return view('register');
+})->name('register');
 Route::get('/gym', function () {
     return view('gym');
 })->name('gym');
@@ -26,5 +26,8 @@ Route::get('/dorm', function () {
     return view('dorm');
 })->name('dorm');
 Route::get('/logout', function () {
-    return view('logout');
+    return view('login');
 })->name('logout');
+Route::get('/login', function () {
+    return view('login');
+})->name('login');
