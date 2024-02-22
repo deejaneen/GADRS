@@ -1,4 +1,5 @@
-@extends('layout.weblayout')
+@extends('layout.loginlayout')
+
 @section('loginform')
     <div class="wrapper">
         <div class="form-box">
@@ -23,7 +24,7 @@
                 </form>
                 <div class="bottom-link">
                     <p>
-                        Don't have an account? <a href="#"> Register</a>
+                        Don't have an account? <a href="{{route('register')}}"> Register</a>
                     </p>
                 </div>
             </div>
