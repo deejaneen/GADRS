@@ -25,3 +25,6 @@ Route::get('/gym', function () {
 Route::get('/dorm', function () {
     return view('dorm');
 })->name('dorm');
+Route::get('/logout', function () {
+    return view('logout');
+})->name('logout');

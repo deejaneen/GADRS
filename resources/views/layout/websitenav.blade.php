@@ -44,7 +44,7 @@
                         <a href="#" class="user active no-underline"><i class="ri-user-fill"></i>NAME</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="no-underline">LOGOUT<i class="ri-logout-circle-r-line"></i></a>
+                        <a href="{{ route('logout') }}" class="no-underline">LOGOUT<i class="ri-logout-circle-r-line"></i></a>
                     </li>
                 </ul>
             </div>
