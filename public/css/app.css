@@ -422,3 +422,95 @@ header{
         text-decoration: none;
     }
 }
+
+/* Gym Table */
+.day-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 30px 10;
+    background-color: #003049;
+    /* Blue background color */
+    border: 4px solid #ffffff;
+    /* Border color */
+    border-radius: 20px;
+    /* Optional: Add border-radius for rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 2);
+}
+
+.day-box {
+    flex: 1;
+    border: 3px solid #F77F00;
+    padding: 10px;
+    text-align: center;
+    margin: 10px;
+    font-family: 'Poppins', sans-serif;
+    background-color: #EAE2B7;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+}
+
+
+.day-box h4 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    color: #F77F00;
+    text-transform: uppercase;
+}
+
+#calendar_container .h1 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 800;
+    color: #fffefe;
+    font-size: 3.2em;
+}
+
+.schedule {
+    border-top: 1px solid #ddd;
+    padding-top: 5px;
+    margin-top: 5px;
+}
+
+
+/* Add styles for unreserved hours */
+.day-box .hour.unreserved {
+    color: #003049;
+    /* Change to your desired color for unreserved hours */
+}
+
+/* Add styles for reserved hours */
+.day-box .hour.reserved {
+    color: rgb(156, 2, 2);
+    /* Change to your desired color for reserved hours */
+}
+
+#reservation-section {
+    background-color: #003049;
+    margin-top: 20px;
+}
+
+#month-heading {
+    text-transform: uppercase;
+}
+
+
+.day-box ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.day-box li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #F77F00; /* Adjust the color as needed */
+}
+
+.hour-divider {
+    width: 100%; /* Adjust the width as needed */
+    border-top: 4px solid #F77F00;
+    margin: 10px 0;
+}
+
+/* Gym Table */
