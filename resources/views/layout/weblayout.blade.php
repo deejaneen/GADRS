@@ -39,6 +39,7 @@
     <div class="container py-4">
         @yield('content')
         @yield('loginform')
+        @yield('profileview')
         @yield('registerform')
     </div>
 

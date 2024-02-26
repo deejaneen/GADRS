@@ -73,9 +73,15 @@ header{
     color: var(--main-color);
 }
 
-.navbar a.active{
-    color: var(--main-color) !important;
+.navbar a.active {
+    color: var(--main-color);
+    border: 1px solid var(--text-color); /* Specify border style */
+    border-radius: 8px;
+    transition: all .3s ease;
+    padding: 10px 20px; /* Adjust padding to increase the width of the border */
+    
 }
+
 .navbar .navbar-nav{
     display: flex;
     align-items: center;
@@ -444,6 +450,37 @@ header{
 }
 
 /* Gym Table */
+
+/* Profile View */
+
+.profileview-container {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.left-column {
+    flex: 0 0 calc(30% - 15px); /* Adjust the width as needed */
+    background-color: #f0f0f0;
+    padding: 20px;
+    box-sizing: border-box;
+    margin-right: 15px; /* Adjust the margin as needed */
+}
+
+.right-column {
+    flex: 0 0 calc(70% - 15px);
+    /* Adjust the width as needed */
+    background-color: #dcdcdc;
+    padding: 20px;
+    box-sizing: border-box;
+    margin-left: 15px;
+    /* Adjust the margin as needed */
+    position: absolute;
+    top: 0;
+    left: calc(30% + 20px);
+    border: 2px solid #003049; /* Add solid border with specified color */
+}
+/* Profile View */
 
 @media (max-width: 1024px) {
     .centered{
