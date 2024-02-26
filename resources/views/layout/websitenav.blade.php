@@ -23,7 +23,7 @@
                 <div class="main">
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a href="{{ route('profile') }}" class="{{(Route::is('profile')) ? 'active' : '' }} user no-underline"><i class="ri-user-fill"></i>NAME</a>
+                            <a href="{{ route('profile') }}" class="{{(Route::is('profile')) ? 'active' : '' }}{{(Route::is('passwordprofile')) ? 'active' : '' }}{{(Route::is('reservationhistoryprofile')) ? 'active' : '' }} user no-underline"><i class="ri-user-fill"></i>NAME</a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('logout') }}" class="{{(Route::is('logout')) ? 'active' : '' }} no-underline">LOGOUT<i class="ri-logout-circle-r-line"></i></a>

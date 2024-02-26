@@ -460,7 +460,6 @@ header{
 
 .left-column {
     flex: 0 0 calc(30% - 15px); /* Adjust the width as needed */
-    background-color: #f0f0f0;
     padding: 20px;
     box-sizing: border-box;
     margin-right: 15px; /* Adjust the margin as needed */
@@ -479,6 +478,32 @@ header{
     left: calc(30% + 20px);
     border: 2px solid #003049; /* Add solid border with specified color */
 }
+
+
+.nav-item a.profile-active {
+    color: #003049; /* Text color */
+    background-color: #eae2b7; /* Background color */
+    border-radius: 5px; /* Rounded corners */
+    font-weight: bold; /* Bold text */
+    border: 2px solid #003049; 
+     transition: all 0.3s ease;
+}
+
+.profileview-container .left-column{
+    background-color: #003049;
+}
+.nav-link-profile .nav-link{
+    font-size: 1.2em;
+    color: #EAE2B7;
+    transition: all 0.3s ease;
+} 
+.nav-link-profile .nav-link:hover{
+    font-size: 1.2em;
+    color: #003049;
+    background-color: #EAE2B7;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+} 
 /* Profile View */
 
 @media (max-width: 1024px) {

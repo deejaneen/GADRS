@@ -4,7 +4,7 @@
     <div class="profileview-container">
         <div class="left-column">
            <div class="card-body pt-3">
-            <ul class="nav nav-link-secondary flex-column fw-bold gap-2">
+            <ul class="nav nav-link-profile flex-column fw-bold gap-2">
                 <li class="nav-item">
                     <a href="{{route('profile')}}" class="nav-link">ACCOUNT DETAILS</a>
                 </li>
@@ -12,7 +12,7 @@
                     <a href="{{route('passwordprofile')}}" class="nav-link">PRIVACY AND SECURITY</a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{route('reservationhistoryprofile')}}" class="{{(Route::is('reservationhistoryprofile')) ? 'text-white bg-primary rounded' : ''}} nav-link">RESERVATION HISTORY</a>
+                    <a href="{{route('reservationhistoryprofile')}}" class="{{(Route::is('reservationhistoryprofile')) ? 'profile-active' : ''}} nav-link">RESERVATION HISTORY</a>
                 </li>
             </ul>
            </div>
