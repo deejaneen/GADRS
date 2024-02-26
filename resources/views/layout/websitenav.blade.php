@@ -8,25 +8,25 @@
                 <div class="centered">
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('profile') }}">HOME
+                            <a class="{{(Route::is('home')) ? 'active' : '' }} nav-link" href="{{ route('home') }}">HOME
                             <span class="visually-hidden">(current)</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('gym') }}">GYM</a>
+                            <a class="{{(Route::is('gym')) ? 'active' : '' }} nav-link" href="{{ route('gym') }}">GYM</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('dorm') }}">DORM</a>
+                            <a class=" {{(Route::is('dorm')) ? 'active' : '' }} nav-link" href="{{ route('dorm') }}">DORM</a>
                         </li>
                     </ul>
                 </div>
                 <div class="main">
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a href="{{ route('profile') }}" class="user no-underline"><i class="ri-user-fill"></i>NAME</a>
+                            <a href="{{ route('profile') }}" class="{{(Route::is('profile')) ? 'active' : '' }} user no-underline"><i class="ri-user-fill"></i>NAME</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('logout') }}" class="no-underline">LOGOUT<i class="ri-logout-circle-r-line"></i></a>
+                            <a href="{{ route('logout') }}" class="{{(Route::is('logout')) ? 'active' : '' }} no-underline">LOGOUT<i class="ri-logout-circle-r-line"></i></a>
                         </li>
                     </ul>
                 </div>
