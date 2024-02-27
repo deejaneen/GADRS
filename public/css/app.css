@@ -565,6 +565,48 @@ header {
     transition: all 0.3s ease;
 }
 
+/* Cart */
+#root-cart{
+    width: 60%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+}
+
+.sidebar-cart{
+    width: 100%;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+}
+
+.head{
+    background-color: goldenrod;
+    border-radius: 3px;
+    height: 40px;
+    padding: 10px;
+    margin-bottom: 20px;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+.foot{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0px;
+    padding: 10px 0px;
+    border-top: 1px solid #333;
+}
+
+
+#myModal{
+    font-family: 'Poppins', sans-serif;
+}
+.modal-title{
+    font-family: 'Poppins', sans-serif;
+}
+/* Cart End */
+
 /* Profile View */
 
 @media (max-width: 1024px) {
