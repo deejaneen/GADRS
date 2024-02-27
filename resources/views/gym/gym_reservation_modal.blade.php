@@ -14,7 +14,7 @@
                                 Dropdown
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="min-width: 100%;" id="date-dropdown">
-                                <li><a class="dropdown-item" href="#">Menu item</a></li>
+                                <li><a class="dropdown-item" >Menu item</a></li>
                             </ul>
                         </div>
                     </div>
@@ -31,9 +31,9 @@
                                     Dropdown
                                 </button>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="min-width: 100%;">
-                                    <li><a class="dropdown-item" href="#">Menu item</a></li>
-                                    <li><a class="dropdown-item" href="#">Menu item</a></li>
-                                    <li><a class="dropdown-item" href="#">Menu item</a></li>
+                                    <li><a class="dropdown-item">Menu item</a></li>
+                                    <li><a class="dropdown-item">Menu item</a></li>
+                                    <li><a class="dropdown-item">Menu item</a></li>
                                 </ul>
                             </div>
                             <hr>
@@ -59,9 +59,9 @@
                                     Dropdown
                                 </button>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="min-width: 100%;">
-                                    <li><a class="dropdown-item" href="#">Menu item</a></li>
-                                    <li><a class="dropdown-item" href="#">Menu item</a></li>
-                                    <li><a class="dropdown-item" href="#">Menu item</a></li>
+                                    <li><a class="dropdown-item">Menu item</a></li>
+                                    <li><a class="dropdown-item">Menu item</a></li>
+                                    <li><a class="dropdown-item">Menu item</a></li>
                                 </ul>
                             </div>
                             <hr>
@@ -71,9 +71,9 @@
                                     Employee
                                 </button>
                                 <ul class="dropdown-menu " aria-labelledby="dropdownMenuButton" style="min-width: 100%;">
-                                    <li><a class="dropdown-item" href="#">Menu item</a></li>
-                                    <li><a class="dropdown-item" href="#">Menu item</a></li>
-                                    <li><a class="dropdown-item" href="#">Menu item</a></li>
+                                    <li><a class="dropdown-item">Menu item</a></li>
+                                    <li><a class="dropdown-item">Menu item</a></li>
+                                    <li><a class="dropdown-item">Menu item</a></li>
                                 </ul>
                             </div>
                         </div>

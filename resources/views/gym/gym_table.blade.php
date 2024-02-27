@@ -1,8 +1,8 @@
 <section id="reservation-section" class="mt-4">
     <div>
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
-        Book Reservation
-    </button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
+            Book Reservation
+        </button>
     </div>
     <div class="container" id="calendar_container">
         <hr>
@@ -15,6 +15,7 @@
 </section>
 @include('gym.gym_reservation_modal')
 @include('cart_sidebar')
+
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         // Get today's date
@@ -26,6 +27,8 @@
         // Get the container elements
         let weekContainer = document.getElementById("week-container");
         let monthHeading = document.getElementById("month-heading");
+        let dateDropdown = document.getElementById("date-dropdown");
+        let modalTitle = document.getElementById("exampleModalLabel");
 
         // Set the heading to the current month
         let monthOptions = {
@@ -35,7 +38,7 @@
         monthHeading.textContent = currentMonth;
 
         // Days of the week
-        let daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+        let daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
         // Loop through the next 7 days
         for (let i = 0; i < 7; i++) {
@@ -43,22 +46,30 @@
             let currentDay = new Date();
             currentDay.setDate(currentDate.getDate() + i);
 
+            // Format the date with the desired format for the day-box
+            let formattedDateDayBox = daysOfWeek[currentDay.getDay()] + ', ' +
+                (currentDay.getMonth() + 1) + '/' + currentDay.getDate();
+
+            // Format the date with the previous format for the dropdown
+            let formattedDateDropdown = currentDay.toLocaleDateString('en-US', {
+                month: 'numeric',
+                day: 'numeric',
+                year: 'numeric'
+            });
+
+            // Create a new option element for the date-dropdown
+            let option = document.createElement("li");
+            option.innerHTML = `<a class="dropdown-item">${formattedDateDropdown}</a>`;
+
+            // Add the option to the date-dropdown
+            dateDropdown.appendChild(option);
+
             // Create a new day-box element
             let dayBox = document.createElement("div");
             dayBox.classList.add("day-box");
 
-            // Format the date and get the day of the week
-            let formattedDate = currentDay.toLocaleDateString('en-US', {
-                month: 'numeric',
-                day: 'numeric',
-                weekday: 'short'
-            });
-
-            // Check if there's a line break character in the formattedDate
-            let hasLineBreak = formattedDate.includes('\n');
-
             // Create content for the day-box
-            let content = `<h4>${hasLineBreak ? formattedDate : formattedDate.replace(' ', '\n')}</h4><ul>`;
+            let content = `<h4>${formattedDateDayBox}</h4><ul>`;
 
             for (let hour = startTime; hour <= endTime; hour++) {
                 // Check if the hour is reserved (you need to implement this logic)
@@ -88,6 +99,15 @@
             weekContainer.appendChild(dayBox);
         }
 
+        // Add an event listener to the date-dropdown
+        dateDropdown.addEventListener("click", function(event) {
+            // Check if the clicked element is a dropdown-item
+            if (event.target.classList.contains("dropdown-item")) {
+                // Get the selected date and update the modal title
+                let selectedDate = event.target.textContent;
+                modalTitle.textContent = `Reservation for ${selectedDate}`;
+            }
+        });
     });
 
     function formatHour(hour) {
