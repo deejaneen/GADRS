@@ -1,24 +1,27 @@
-*{
-    padding:0 ;
-    margin:0 ;
+* {
+    padding: 0;
+    margin: 0;
     box-sizing: border-box;
     font-family: "IBM Plex Mono", monospace;
     font-weight: 700;
     font-style: normal;
     list-style: none;
 }
-:root{
+
+:root {
     --bg-color: #003049;
     --text-color: #eae2b7;
     --main-color: #f77f00;
 }
-body{
+
+body {
     min-height: 100vh;
     background: var(--bg-bolor);
     color: var(--text-color);
     background-color: var(--text-color) !important;
 }
-header{
+
+header {
     color: var(--bg-color);
     position: fixed;
     width: 100%;
@@ -26,29 +29,34 @@ header{
     right: 0;
     z-index: 1000;
     display: flex;
-    align-items:center;
+    align-items: center;
     justify-content: space-between;
     background: var(--bg-color);
     padding: 12px 2%;
     transition: all .50s ease;
 }
-.centered{
+
+.centered {
     margin-left: auto;
     margin-right: auto;
 }
-.column{
+
+.column {
     display: flex;
     width: 50%;
     height: auto;
 }
-.main{
+
+.main {
     display: flex;
     align-items: flex-end;
 }
-.navbar a.navbar-brand img{
+
+.navbar a.navbar-brand img {
     height: 4rem;
 }
-.navbar a.navbar-brand{
+
+.navbar a.navbar-brand {
     display: flex;
     align-items: center;
     color: var(--text-color);
@@ -58,57 +66,67 @@ header{
     letter-spacing: 6px;
     text-decoration: none;
 }
-.navbar{
+
+.navbar {
     display: flex;
     background-color: #003049;
 }
-.navbar a{
+
+.navbar a {
     color: var(--text-color);
     font-size: 1.6rem;
     padding: 5px 0;
     margin: 0px 30px;
     transition: all .50s ease;
 }
-.navbar a:hover{
+
+.navbar a:hover {
     color: var(--main-color);
 }
 
 .navbar a.active {
     color: var(--main-color) !important;
-    border: 1px solid var(--text-color); /* Specify border style */
+    border: 1px solid var(--text-color);
+    /* Specify border style */
     border-radius: 8px;
     transition: all .3s ease;
-    padding: 10px 20px; /* Adjust padding to increase the width of the border */
+    padding: 10px 20px;
+    /* Adjust padding to increase the width of the border */
 }
 
-.navbar .navbar-nav{
+.navbar .navbar-nav {
     display: flex;
     align-items: center;
 }
-.user{
+
+.user {
     display: flex;
     align-items: center;
 }
-.user i{
+
+.user i {
     color: var(--main-color);
     font-size: 28px;
     margin-right: 7px;
 }
 
-#menu-icon{
+#menu-icon {
     font-size: 35px;
     color: var(--text-color);
     cursor: pointer;
     z-index: 10001;
     display: none;
 }
+
 .no-underline {
     text-decoration: none;
 }
-.banner-gym h1.banner-name{
+
+.banner-gym h1.banner-name {
     font-size: 7.5rem;
     color: #eae2b7;
 }
+
 .banner-gym {
     position: relative;
     text-align: center;
@@ -149,7 +167,8 @@ header{
     border-radius: 20px;
     font-family: 'Poppins', sans-serif;
     /* Use Poppins font for the button */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add a subtle drop shadow */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    /* Add a subtle drop shadow */
 }
 
 .banner-gym .btn:hover {
@@ -157,6 +176,7 @@ header{
     color: #eae2b7;
     /* Change to your desired hover color */
 }
+
 .banner-dorm {
     position: relative;
     text-align: center;
@@ -168,7 +188,8 @@ header{
     flex-direction: column;
     justify-content: center;
 }
-.banner-dorm h1.banner-name{
+
+.banner-dorm h1.banner-name {
     font-size: 7.5rem;
     color: #eae2b7;
 }
@@ -188,7 +209,7 @@ header{
 }
 
 .banner-dorm .btn {
-    color: #003049  ;
+    color: #003049;
     padding: 10px 15px;
     border-width: 5px;
     border-color: #FCBF49 !important;
@@ -201,7 +222,8 @@ header{
     border-radius: 20px;
     font-family: 'Poppins', sans-serif;
     /* Use Poppins font for the button */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add a subtle drop shadow */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    /* Add a subtle drop shadow */
 }
 
 .banner-dorm .btn:hover {
@@ -211,53 +233,43 @@ header{
 }
 
 .wrapper {
-    position: fixed;
-    top: 60%;
-    left: 50%;
+    position: relative;
     min-height: 65vh;
     max-width: 1200px;
-    width: 1200px;
     background: #eae2b7;
     border: 3px solid #003049;
-    transform: translate(-50%, -50%);
+    margin: 60px auto 0; /* This will center the wrapper horizontally */
 }
-.wrapper h1{
+
+.wrapper h1 {
     font-size: 36px;
     text-align: center;
     color: #003049;
 }
+
 .wrapper .form-box {
     display: flex;
 
 }
+
 .wrapper .input-field {
     position: relative;
     width: 100%;
     height: 50px;
-    background:#eae2b7;
+    background: #eae2b7;
     margin: 30px 0;
 }
+
 .wrapper .input-field-name {
     display: flex;
     position: relative;
     width: 100%;
     height: 50px;
-    background:#eae2b7;
+    background: #eae2b7;
     margin: 30px 0;
 }
-.input-field-name input{
-    width: 100%;
-    height: 100%;
-    background: transparent;
-    border: #003049 1px;
-    outline: #003049 1px;
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    font-size: 16px;
-    color: #003049;
-    border-radius: 40px;
-    padding: 20px 45px 20px 20px;
-}
-.input-field input{
+
+.input-field-name input {
     width: 100%;
     height: 100%;
     background: transparent;
@@ -270,24 +282,40 @@ header{
     padding: 20px 45px 20px 20px;
 }
 
-.input-field input::placeholder{
+.input-field input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: #003049 1px;
+    outline: #003049 1px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    font-size: 16px;
+    color: #003049;
+    border-radius: 40px;
+    padding: 20px 45px 20px 20px;
+}
+
+.input-field input::placeholder {
     color: #003049;
 }
-.input-field i{
+
+.input-field i {
     position: absolute;
     right: 20px;
     top: 20%;
     transform: translate(-50%);
     font-size: 20px;
     color: #003049;
-    
+
 }
+
 .wrapper .forgot {
-    display:flex;
+    display: flex;
     font-size: 14.5px;
     margin: -15px 0 15px;
 }
-.wrapper .btn{
+
+.wrapper .btn {
     width: 100%;
     height: 45px;
     background: #003049;
@@ -297,7 +325,8 @@ header{
     border-radius: 40px;
     color: #eae2b7;
 }
-.wrapper .btn:hover{
+
+.wrapper .btn:hover {
     width: 100%;
     height: 45px;
     background: #eae2b7;
@@ -319,6 +348,7 @@ header{
     background: url('../images/Login\ photo.png') center/cover no-repeat;
     background-position: center top;
 }
+
 .form-box .form-details-register {
     max-width: auto;
     width: 120%;
@@ -330,31 +360,37 @@ header{
     background: url('../images/Login\ photo.png') center/cover no-repeat;
     background-position: center top;
 }
+
 .form-box .form-content-register {
     width: 70%;
     padding: 1.2% 35px 1.2% 35px;
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
 }
+
 .form-box .form-content {
     width: 70%;
     padding: 11% 35px 11% 35px;
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
 }
-.form-box a{
+
+.form-box a {
     color: #f77f00;
     text-decoration: none;
 }
-.form-box a:hover{
+
+.form-box a:hover {
     text-decoration: underline;
 }
+
 .wrapper .bottom-link {
     font-size: 14.5px;
     text-align: center;
     margin-top: 20px;
 }
-.bottom-link p a{
+
+.bottom-link p a {
     text-decoration: none;
 }
 
@@ -439,11 +475,13 @@ header{
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #F77F00; /* Adjust the color as needed */
+    color: #F77F00;
+    /* Adjust the color as needed */
 }
 
 .hour-divider {
-    width: 100%; /* Adjust the width as needed */
+    width: 100%;
+    /* Adjust the width as needed */
     border-top: 4px solid #F77F00;
     margin: 10px 0;
 }
@@ -459,10 +497,12 @@ header{
 }
 
 .left-column {
-    flex: 0 0 calc(30% - 15px); /* Adjust the width as needed */
+    flex: 0 0 calc(30% - 15px);
+    /* Adjust the width as needed */
     padding: 20px;
     box-sizing: border-box;
-    margin-right: 15px; /* Adjust the margin as needed */
+    margin-right: 15px;
+    /* Adjust the margin as needed */
 }
 
 .right-column {
@@ -476,53 +516,77 @@ header{
     position: absolute;
     top: 0;
     left: calc(30% + 20px);
-    border: 2px solid #003049; /* Add solid border with specified color */
+    border: 2px solid #003049;
+    /* Add solid border with specified color */
 }
 
-
-.nav-item a.profile-active {
-    color: #003049; /* Text color */
-    background-color: #eae2b7; /* Background color */
-    border-radius: 5px; /* Rounded corners */
-    font-weight: bold; /* Bold text */
-    border: 2px solid #003049; 
-     transition: all 0.3s ease;
+.navbar-nav .nav-item a{ 
+    text-decoration: none;
+}
+ .navbar-nav .nav-item a.profile-active {
+    color: #003049;
+    /* Text color */
+    background-color: #eae2b7;
+    /* Background color */
+    border-radius: 5px;
+    /* Rounded corners */
+    font-weight: bold;
+    /* Bold text */
+    border: 2px solid #003049;
+    transition: all 0.3s ease;
 }
 
-.profileview-container .left-column{
+.nav-item a.login-active {
+    color: var(--main-color) !important;
+    border: 1px solid var(--text-color);
+    /* Specify border style */
+    border-radius: 8px;
+    transition: all .3s ease;
+    padding: 10px 20px;
+    /* Adjust padding to increase the width of the border */
+    text-decoration: none !important;
+}
+
+.profileview-container .left-column {
     background-color: #003049;
 }
-.nav-link-profile .nav-link{
+
+.nav-link-profile .nav-link {
     font-size: 1.2em;
     color: #EAE2B7;
     transition: all 0.3s ease;
-} 
-.nav-link-profile .nav-link:hover{
+}
+
+.nav-link-profile .nav-link:hover {
     font-size: 1.2em;
     color: #003049;
     background-color: #EAE2B7;
     border-radius: 5px;
     transition: all 0.3s ease;
-} 
+}
+
 /* Profile View */
 
 @media (max-width: 1024px) {
-    .centered{
+    .centered {
         display: flex;
         align-items: flex-end;
     }
-    .banner-dorm h1.banner-name{
+
+    .banner-dorm h1.banner-name {
         font-size: 5rem;
         color: #eae2b7;
         transition: all .50s ease;
     }
-    .banner-gym h1.banner-name{
+
+    .banner-gym h1.banner-name {
         font-size: 5rem;
         color: #eae2b7;
         transition: all .50s ease;
     }
+
     .banner-dorm .btn {
-        color: #003049  ;
+        color: #003049;
         padding: 10px 15px;
         border-width: 5px;
         border-color: #FCBF49 !important;
@@ -535,9 +599,11 @@ header{
         border-radius: 20px;
         font-family: 'Poppins', sans-serif;
         /* Use Poppins font for the button */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add a subtle drop shadow */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        /* Add a subtle drop shadow */
         transition: all .50s ease;
     }
+
     .banner-gym .btn {
         color: #d62828;
         padding: 10px 15px;
@@ -552,9 +618,11 @@ header{
         border-radius: 20px;
         font-family: 'Poppins', sans-serif;
         /* Use Poppins font for the button */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add a subtle drop shadow */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        /* Add a subtle drop shadow */
         transition: all .50s ease;
     }
+
     .banner-gym {
         position: relative;
         text-align: center;
@@ -566,6 +634,7 @@ header{
         flex-direction: column;
         justify-content: center;
     }
+
     .banner-dorm {
         position: relative;
         text-align: center;
@@ -577,21 +646,67 @@ header{
         flex-direction: column;
         justify-content: center;
     }
+    .form-box .form-details {
+        max-width: auto; /* Remove max-width to allow the div to expand as needed */
+        width: 60%; /* Set width to 100% to fill the parent container */
+        height: 0; /* Set initial height to 0 */
+        padding-top: 75%; /* Set padding-top based on the aspect ratio of the background image (e.g., if the image has a height of 768px and a width of 1024px, the aspect ratio is 768/1024 = 0.75 or 75%) */
+        display: flex;
+        text-align: center;
+        flex-direction: column;
+        align-items: center;
+        background: url('../images/Login\ page\ 1\ 768px.png') center/cover no-repeat;
+        background-size: cover; /* Ensure the background image covers the entire div */
+        transition: all .5s ease;
+    }
+    .form-box .form-details-register {
+        max-width: auto; /* Remove max-width to allow the div to expand as needed */
+        width: 40%; /* Set width to 100% to fill the parent container */
+        height: 0; /* Set initial height to 0 */
+        padding-top: 75%; /* Set padding-top based on the aspect ratio of the background image */
+        display: flex;
+        text-align: center;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        background: url('../images/Login\ page\ 768px.png') center/cover no-repeat;
+        background-size: cover; /* Ensure the background image covers the entire div */
+        transition: all .5s ease;
+    }
+    
+    .form-content-register {
+        padding: 10% 10px 0% 10px !important;
+    }
+    
+    .form-content {
+        padding: 10% 5% 10% 5% !important;
+    }
+    .wrapper {
+        position: relative;
+        min-height: 65vh;
+        max-width: 1200px;
+        width: auto;
+        background: #eae2b7;
+        border: 3px solid #003049;
+    }
 }
+
 @media (max-width: 768px) {
-   
-    .banner-dorm h1.banner-name{
+
+    .banner-dorm h1.banner-name {
         font-size: 3rem;
         color: #eae2b7;
         transition: all .50s ease;
     }
-    .banner-gym h1.banner-name{
+
+    .banner-gym h1.banner-name {
         font-size: 3rem;
         color: #eae2b7;
         transition: all .50s ease;
     }
+
     .banner-dorm .btn {
-        color: #003049  ;
+        color: #003049;
         padding: 10px 15px;
         border-width: 5px;
         border-color: #FCBF49 !important;
@@ -604,9 +719,11 @@ header{
         border-radius: 20px;
         font-family: 'Poppins', sans-serif;
         /* Use Poppins font for the button */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add a subtle drop shadow */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        /* Add a subtle drop shadow */
         transition: all .50s ease;
     }
+
     .banner-gym .btn {
         color: #d62828;
         padding: 10px 15px;
@@ -621,9 +738,11 @@ header{
         border-radius: 20px;
         font-family: 'Poppins', sans-serif;
         /* Use Poppins font for the button */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add a subtle drop shadow */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        /* Add a subtle drop shadow */
         transition: all .50s ease;
     }
+
     .banner-gym {
         position: relative;
         text-align: center;
@@ -635,6 +754,7 @@ header{
         flex-direction: column;
         justify-content: center;
     }
+
     .banner-dorm {
         position: relative;
         text-align: center;
@@ -646,85 +766,259 @@ header{
         flex-direction: column;
         justify-content: center;
     }
-}
-@media (max-width: 480px) {
-    .banner-dorm h1.banner-name{
-        font-size: 2.5rem;
-        color: #eae2b7;
-        transition: all .50s ease;
+
+    .navbar a.navbar-brand img {
+        height: 2rem;
     }
-    .banner-gym h1.banner-name{
-        font-size: 2.5rem;
-        color: #eae2b7;
-        transition: all .50s ease;
-    }
-    .banner-dorm .btn {
-        color: #003049  ;
-        padding: 10px 15px;
-        border-width: 5px;
-        border-color: #FCBF49 !important;
-        /* Adjust the padding for your desired button size */
-        font-weight: 700;
-        background-color: #FCBF49;
-        /* Bold */
-        font-size: 0.7rem;
-        text-decoration: none;
-        border-radius: 20px;
-        font-family: 'Poppins', sans-serif;
-        /* Use Poppins font for the button */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add a subtle drop shadow */
-        transition: all .50s ease;
-    }
-    .banner-gym .btn {
-        color: #d62828;
-        padding: 10px 15px;
-        border-width: 5px;
-        border-color: #FCBF49 !important;
-        /* Adjust the padding for your desired button size */
-        font-weight: 700;
-        background-color: #FCBF49;
-        /* Bold */
-        font-size: 0.7rem;
-        text-decoration: none;
-        border-radius: 20px;
-        font-family: 'Poppins', sans-serif;
-        /* Use Poppins font for the button */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add a subtle drop shadow */
-        transition: all .50s ease;
-    }
-    .banner-gym {
-        position: relative;
-        text-align: center;
-        color: #fff;
-        background: url('../images/Gym\ Banner\ Reservation.png') center/cover no-repeat;
-        height: 250px;
-        /* Set the desired height */
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-    .banner-dorm {
-        position: relative;
-        text-align: center;
-        color: #fff;
-        background: url('../images/Dorm\ Banner\ Reservation.png') center/cover no-repeat;
-        height: 250px;
-        /* Set the desired height */
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-    .navbar a.navbar-brand img{
-        height: 3rem;
-    }
-    .navbar a.navbar-brand{
+
+    .navbar a.navbar-brand {
         display: flex;
         align-items: center;
         color: var(--text-color);
-        font-size: 1.8rem;
+        font-size: 1.1rem;
         font-weight: 900;
         padding-left: 1px;
-        letter-spacing: 6px;
+
         text-decoration: none;
     }
+
+    .navbar {
+        display: flex;
+        background-color: #003049;
+    }
+
+    .main .navbar-nav .nav-item a {
+        color: var(--text-color);
+        font-size: 1.4rem;
+        padding: 5px 0;
+        margin: 20px 30px;
+        transition: all .50s ease;
+        text-decoration: none;
+        letter-spacing: 2px;
+    }
+
+    .main .navbar-nav .nav-item i {
+        display: none;
+    }
+
+    .navbar a:hover {
+        color: var(--main-color);
+    }
+
+    .ri-user-fill {
+        display: none;
+    }
+
+    .form-box .form-details {
+        display: none;
+    }
+    .form-box .form-details-register {
+        display: none;
+    }
+    
+    .form-box .form-content-register {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .form-box .form-content {
+        width: 100%;
+        padding: 11% 35px 11% 35px;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .wrapper {
+        position: relative;
+        min-height: 65vh;
+        max-width: 1200px;
+        width: auto;
+        background: #eae2b7;
+        border: 3px solid #003049;
+    }
+    
+    .input-field input::placeholder {
+        font-size: 0.7em;
+    }
+    
+    .input-field-name input::placeholder {
+        font-size: 0.7em;
+    }
+    
+    .form-content-register {
+        padding: 10% 10px 0% 10px !important;
+    }
+    
+    .form-content {
+        padding: 10% 10px 0% 10px !important;
+    }
+}
+
+
+
+@media (max-width: 480px) {
+    .banner-dorm h1.banner-name {
+        font-size: 2.5rem;
+        color: #eae2b7;
+        transition: all .50s ease;
+    }
+
+    .banner-gym h1.banner-name {
+        font-size: 2.5rem;
+        color: #eae2b7;
+        transition: all .50s ease;
+    }
+
+    .banner-dorm .btn {
+        color: #003049;
+        padding: 10px 15px;
+        border-width: 5px;
+        border-color: #FCBF49 !important;
+        /* Adjust the padding for your desired button size */
+        font-weight: 700;
+        background-color: #FCBF49;
+        /* Bold */
+        font-size: 0.7rem;
+        text-decoration: none;
+        border-radius: 20px;
+        font-family: 'Poppins', sans-serif;
+        /* Use Poppins font for the button */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        /* Add a subtle drop shadow */
+        transition: all .50s ease;
+    }
+
+    .banner-gym .btn {
+        color: #d62828;
+        padding: 10px 15px;
+        border-width: 5px;
+        border-color: #FCBF49 !important;
+        /* Adjust the padding for your desired button size */
+        font-weight: 700;
+        background-color: #FCBF49;
+        /* Bold */
+        font-size: 0.7rem;
+        text-decoration: none;
+        border-radius: 20px;
+        font-family: 'Poppins', sans-serif;
+        /* Use Poppins font for the button */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        /* Add a subtle drop shadow */
+        transition: all .50s ease;
+    }
+
+    .banner-gym {
+        position: relative;
+        text-align: center;
+        color: #fff;
+        background: url('../images/Gym\ Banner\ Reservation.png') center/cover no-repeat;
+        height: 250px;
+        /* Set the desired height */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .banner-dorm {
+        position: relative;
+        text-align: center;
+        color: #fff;
+        background: url('../images/Dorm\ Banner\ Reservation.png') center/cover no-repeat;
+        height: 250px;
+        /* Set the desired height */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .navbar a.navbar-brand img {
+        height: 2rem;
+    }
+
+    .navbar a.navbar-brand {
+        display: flex;
+        align-items: center;
+        color: var(--text-color);
+        font-size: 1.1rem;
+        font-weight: 900;
+        padding-left: 1px;
+
+        text-decoration: none;
+    }
+
+    .navbar {
+        display: flex;
+        background-color: #003049;
+    }
+
+    .main .navbar-nav .nav-item a {
+        color: var(--text-color);
+        font-size: 1.4rem;
+        padding: 5px 0;
+        margin: 20px 30px;
+        transition: all .50s ease;
+        text-decoration: none;
+        letter-spacing: 2px;
+    }
+
+    .main .navbar-nav .nav-item i {
+        display: none;
+    }
+
+    .navbar a:hover {
+        color: var(--main-color);
+    }
+
+    .ri-user-fill {
+        display: none;
+    }
+
+    .form-box .form-details {
+        display: none;
+    }
+
+    .form-box .form-details-register {
+        display: none;
+    }
+
+    .form-box .form-content-register {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .form-box .form-content {
+        width: 100%;
+        padding: 11% 35px 11% 35px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .wrapper {
+        position: relative;
+
+        min-height: 65vh;
+        max-width: 1200px;
+        width: auto;
+        background: #eae2b7;
+        border: 3px solid #003049;
+    }
+
+    .input-field input::placeholder {
+        font-size: 0.7em;
+    }
+
+    .input-field-name input::placeholder {
+        font-size: 0.7em;
+    }
+
+    .form-content-register {
+        padding: 10% 10px 0% 10px !important;
+    }
+
+    .form-content {
+        padding: 10% 10px 0% 10px !important;
+    }
+
 }

@@ -27,12 +27,12 @@
               
             </div>
             <div class="main">
-                <ul class="navbar-nav me-auto">
+                <ul class="navbar-nav mx-auto">
                     <li class="nav-item">
-                        <a href="/login" class="user active no-underline"><i class="ri-user-line"></i>LOGIN</a>
+                        <a href="{{ route('login') }}" class="{{(Route::is('login')) ? 'login-active' : '' }}"><i class="ri-user-line"></i>LOGIN</a>
                     </li>
                     <li class="nav-item">
-                        <a href="/register" class="no-underline">REGISTER</a>
+                        <a href="{{ route('register') }}" class="{{(Route::is('register')) ? 'login-active' : '' }}">REGISTER</a>
                     </li>
                 </ul>
             </div>

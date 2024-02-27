@@ -6,7 +6,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarColor01">
                 <div class="centered">
-                    <ul class="navbar-nav me-auto">
+                    <ul class="navbar-nav mx-auto">
                         <li class="nav-item">
                             <a class="{{(Route::is('home')) ? 'active' : '' }} nav-link" href="{{ route('home') }}">HOME
                             <span class="visually-hidden">(current)</span>
@@ -21,7 +21,7 @@
                     </ul>
                 </div>
                 <div class="main">
-                    <ul class="navbar-nav me-auto">
+                    <ul class="navbar-nav mx-auto">
                         <li class="nav-item">
                             <a href="{{ route('profile') }}" class="{{(Route::is('profile')) ? 'active' : '' }}{{(Route::is('passwordprofile')) ? 'active' : '' }}{{(Route::is('reservationhistoryprofile')) ? 'active' : '' }} user no-underline"><i class="ri-user-fill"></i>NAME</a>
                         </li>
