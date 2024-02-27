@@ -522,8 +522,10 @@ header {
 
 .navbar-nav .nav-item a{ 
     text-decoration: none;
+    
 }
- .navbar-nav .nav-item a.profile-active {
+
+.navbar-nav .nav-item a.profile-active {
     color: #003049;
     /* Text color */
     background-color: #eae2b7;
@@ -535,7 +537,11 @@ header {
     border: 2px solid #003049;
     transition: all 0.3s ease;
 }
-
+.navbar .navbar-nav .nav-item {
+    /* Adjusting margin to create more space between nav-items */
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
 .nav-item a.login-active {
     color: var(--main-color) !important;
     border: 1px solid var(--text-color);
@@ -544,7 +550,6 @@ header {
     transition: all .3s ease;
     padding: 10px 20px;
     /* Adjust padding to increase the width of the border */
-    text-decoration: none !important;
 }
 
 .profileview-container .left-column {
@@ -567,6 +572,100 @@ header {
 
 /* Profile View */
 
+/* Home View */
+.home-container {
+    min-height: 25vh; /* Set minimum height to cover the entire viewport height */
+    max-width: calc(100vw - 50px); /* Set maximum width to cover the entire viewport width minus total margin width */
+    width: 100%; /* Ensure the container fills the entire viewport width */
+    height: 10%;
+    margin: 5px 25px; /* Add margin 25px top and bottom, 15px left and right */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    overflow-x: hidden; /* Hide horizontal overflow */
+    overflow-y: auto; /* Enable vertical scrolling if needed */
+    padding: 2% 5%;
+}
+
+.row-top {
+    border: #F77F00 2px;
+    display: flex; /* Flexbox layout for row items */
+    
+}
+.row-bottom {
+    border: #F77F00 2px;
+    display: flex; /* Flexbox layout for row items */
+}
+
+.column-left {
+    flex: 1;
+    border: #003049 2px;
+    color: #EAE2B7  ;
+   
+    background-color: #003049;
+    padding: 2%;
+    border-radius: 50px;
+    max-width: calc(30% - 30px); /* Set max-width to half of the available size of the row minus padding */
+    margin: 0 15px; /* Margin specified by user */
+    box-sizing: border-box; /* Include padding and border in the element's total width */
+    display: flex; /* Use flexbox */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+}
+.column-right {
+    border: 2px solid var(--bg-color);
+    display: flex;
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    background-color: #FCBF49;
+    flex: 1;
+    color: #EAE2B7;
+    padding: 2%;
+    border-radius: 50px;
+    margin: 0 15px; /* Margin specified by user */
+    box-sizing: border-box; /* Include padding and border in the element's total width */
+    text-align: justify; /* Justify text */
+
+}
+.column-right .welcome-to-gadrs {
+    width: 100%; /* Ensure the ul spans the entire width */
+    padding: 0; /* Remove default padding */
+    letter-spacing: 10px;
+    margin-right: 15px;
+}
+.column-right .welcome-text1 {
+    color: #EAE2B7;
+    /* Text color */
+    background-color: #d62828;
+    /* Background color */
+
+    font-weight: bold;
+    /* Bold text */
+    transition: all 0.3s ease;
+    font-size: 2em;
+    width: 100%; /* Ensure h1 elements span the entire width */
+    text-align: center; /* Center the text horizontally */
+    margin: 10px; /* Remove default margins */
+
+}
+.column-right ul{
+    margin-bottom: 0;
+    padding-right: 0;
+}
+.column-right .welcome-text2 {
+    
+    font-size: 2em;
+    color: #EAE2B7;
+    /* Text color */
+    background-color: #003049;
+    /* Background color */
+    font-weight: bold;
+    /* Bold text */
+    transition: all 0.3s ease;
+    width: 100%; /* Ensure h1 elements span the entire width */
+    text-align: center; /* Center the text horizontally */
+    margin: 10px; /* Remove default margins */
+}
+
+/* Home View */
 @media (max-width: 1024px) {
     .centered {
         display: flex;
@@ -670,6 +769,128 @@ header {
         align-items: center;
         justify-content: flex-start;
         background: url('../images/Login\ page\ 768px.png') center/cover no-repeat;
+        background-size: cover; /* Ensure the background image covers the entire div */
+        transition: all .5s ease;
+    }
+    
+    .form-content-register {
+        padding: 10% 10px 0% 10px !important;
+    }
+    
+    .form-content {
+        padding: 10% 5% 10% 5% !important;
+    }
+    .wrapper {
+        position: relative;
+        min-height: 65vh;
+        max-width: 1200px;
+        width: auto;
+        background: #eae2b7;
+        border: 3px solid #003049;
+    }
+}
+@media (max-width: 992px) {
+    .centered {
+        display: flex;
+        align-items: flex-end;
+    }
+
+    .banner-dorm h1.banner-name {
+        font-size: 5rem;
+        color: #eae2b7;
+        transition: all .50s ease;
+    }
+
+    .banner-gym h1.banner-name {
+        font-size: 5rem;
+        color: #eae2b7;
+        transition: all .50s ease;
+    }
+
+    .banner-dorm .btn {
+        color: #003049;
+        padding: 10px 15px;
+        border-width: 5px;
+        border-color: #FCBF49 !important;
+        /* Adjust the padding for your desired button size */
+        font-weight: 700;
+        background-color: #FCBF49;
+        /* Bold */
+        font-size: 1.5rem;
+        text-decoration: none;
+        border-radius: 20px;
+        font-family: 'Poppins', sans-serif;
+        /* Use Poppins font for the button */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        /* Add a subtle drop shadow */
+        transition: all .50s ease;
+    }
+
+    .banner-gym .btn {
+        color: #d62828;
+        padding: 10px 15px;
+        border-width: 5px;
+        border-color: #FCBF49 !important;
+        /* Adjust the padding for your desired button size */
+        font-weight: 700;
+        background-color: #FCBF49;
+        /* Bold */
+        font-size: 1.5rem;
+        text-decoration: none;
+        border-radius: 20px;
+        font-family: 'Poppins', sans-serif;
+        /* Use Poppins font for the button */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        /* Add a subtle drop shadow */
+        transition: all .50s ease;
+    }
+
+    .banner-gym {
+        position: relative;
+        text-align: center;
+        color: #fff;
+        background: url('../images/Gym\ Banner\ Reservation.png') center/cover no-repeat;
+        height: 360px;
+        /* Set the desired height */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .banner-dorm {
+        position: relative;
+        text-align: center;
+        color: #fff;
+        background: url('../images/Dorm\ Banner\ Reservation.png') center/cover no-repeat;
+        height: 360px;
+        /* Set the desired height */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .form-box .form-details {
+        max-width: auto; /* Remove max-width to allow the div to expand as needed */
+        width: 60%; /* Set width to 100% to fill the parent container */
+        height: 70vh; /* Set initial height to 0 */
+        padding-top: 75%; /* Set padding-top based on the aspect ratio of the background image (e.g., if the image has a height of 768px and a width of 1024px, the aspect ratio is 768/1024 = 0.75 or 75%) */
+        display: flex;
+        text-align: center;
+        flex-direction: column;
+        align-items: center;
+        background: url('../images/Login\ page\ 1\ 992px.png') center/cover no-repeat;
+        transition: all .5s ease;
+    }
+    .form-box .form-details-register {
+        max-width: auto; /* Remove max-width to allow the div to expand as needed */
+        width: 40%; /* Set width to 100% to fill the parent container */
+        height: 70vh; /* Set initial height to 0 */
+        padding-top: 75%; /* Set padding-top based on the aspect ratio of the background image */
+        display: flex;
+        text-align: center;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        background: url('../images/Login\ page\ 992px.png') center/contain no-repeat;
         background-size: cover; /* Ensure the background image covers the entire div */
         transition: all .5s ease;
     }

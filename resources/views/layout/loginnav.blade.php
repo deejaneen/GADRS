@@ -26,7 +26,7 @@
             <div class="centered">
               
             </div>
-            <div class="main">
+            <div class="main-login">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item">
                         <a href="{{ route('login') }}" class="{{(Route::is('login')) ? 'login-active' : '' }}"><i class="ri-user-line"></i>LOGIN</a>
