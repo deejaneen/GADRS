@@ -14,6 +14,13 @@
     --main-color: #f77f00;
 }
 
+.container{
+    width: 95% !important;
+    margin: auto;
+    height: 100%;
+    border: 1px solid var(--main-color);
+}
+
 body {
     min-height: 100vh;
     background: var(--bg-bolor);
@@ -21,18 +28,11 @@ body {
     background-color: var(--text-color) !important;
 }
 
-header {
-    color: var(--bg-color);
-    position: fixed;
-    width: 100%;
-    top: 0;
-    right: 0;
-    z-index: 1000;
+.header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: var(--bg-color);
-    padding: 12px 2%;
+    background-color: var(--bg-color);
     transition: all .50s ease;
 }
 
@@ -62,22 +62,23 @@ header {
     color: var(--text-color);
     font-size: 2.5rem;
     font-weight: 900;
-    padding-left: 14px;
     letter-spacing: 6px;
     text-decoration: none;
 }
 
 .navbar {
-    display: flex;
     background-color: #003049;
 }
 
 .navbar a {
     color: var(--text-color);
     font-size: 1.6rem;
-    padding: 5px 0;
-    margin: 0px 30px;
+    margin: 0px 30px 0px 0px;
     transition: all .50s ease;
+}
+
+.navbar .logout{
+    margin: 0%;
 }
 
 .navbar a:hover {
@@ -98,6 +99,7 @@ header {
     display: flex;
     align-items: center;
 }
+
 
 .user {
     display: flex;
@@ -573,17 +575,6 @@ header {
 /* Profile View */
 
 /* Home View */
-.home-container {
-    min-height: 25vh; /* Set minimum height to cover the entire viewport height */
-    max-width: calc(100vw - 50px); /* Set maximum width to cover the entire viewport width minus total margin width */
-    width: 100%; /* Ensure the container fills the entire viewport width */
-    height: 10%;
-    margin: 5px 25px; /* Add margin 25px top and bottom, 15px left and right */
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
-    overflow-x: hidden; /* Hide horizontal overflow */
-    overflow-y: auto; /* Enable vertical scrolling if needed */
-    padding: 2% 5%;
-}
 
 .row-top {
     border: #F77F00 2px;
@@ -601,10 +592,10 @@ header {
     color: #EAE2B7  ;
    
     background-color: #003049;
-    padding: 2%;
+    margin-top: 15px;
     border-radius: 50px;
     max-width: calc(30% - 30px); /* Set max-width to half of the available size of the row minus padding */
-    margin: 0 15px; /* Margin specified by user */
+    /* Margin specified by user */
     box-sizing: border-box; /* Include padding and border in the element's total width */
     display: flex; /* Use flexbox */
     justify-content: center; /* Center content horizontally */
@@ -620,7 +611,8 @@ header {
     color: #EAE2B7;
     padding: 2%;
     border-radius: 50px;
-    margin: 0 15px; /* Margin specified by user */
+    margin-left: 15px; /* Margin specified by user */
+    margin-top: 15px;
     box-sizing: border-box; /* Include padding and border in the element's total width */
     text-align: justify; /* Justify text */
 
@@ -664,7 +656,61 @@ header {
     text-align: center; /* Center the text horizontally */
     margin: 10px; /* Remove default margins */
 }
+.column-bottom {
+    border: #003049 2px;
+    color: #EAE2B7  ;
+    background-color: #003049;
+    margin-top: 15px;
+    border-radius: 50px;
+    max-width: calc(80%); /* Set max-width to half of the available size of the row minus padding */
+    /* Margin specified by user */
+    box-sizing: border-box; /* Include padding and border in the element's total width */
+    display: flex; /* Use flexbox */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+}
+.column-bottom .home-reservation-table {
+    width: 100%; /* Ensure the ul spans the entire width */
+    padding: 0; /* Remove default padding */
 
+    margin: 30px 30px 30px 30px;
+      border-collapse: collapse; /* Ensure cells share borders */
+  width: 100%;
+    
+}
+.row-bottom{
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+}
+.home-reservation-table .test-home{
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+}
+.home-reservation-table h1{
+    display: flex; /* Use flexbox */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+}
+.home-reservation-table h1 i{
+    display: flex; /* Use flexbox */
+    color: #F77F00;
+}
+.home-reservation-table .table-home{
+    border-collapse: collapse; /* Ensure cells share borders */
+    width: 100%;
+}
+.home-reservation-table .table-home th{
+    color: #EAE2B7;
+    background-color: #003049;
+    border: 4px solid #EAE2B7; /* Custom border color (#ff0000 is red) and width */
+    padding: 10px;
+}
+.home-reservation-table .table-home td{
+    color: #EAE2B7;
+    background-color: #003049;
+    border: 4px solid #EAE2B7; /* Custom border color (#ff0000 is red) and width */
+    padding: 10px;
+}
 /* Home View */
 @media (max-width: 1024px) {
     .centered {
@@ -675,6 +721,7 @@ header {
     .banner-dorm h1.banner-name {
         font-size: 5rem;
         color: #eae2b7;
+        margin-top: 75px !important;
         transition: all .50s ease;
     }
 
@@ -682,6 +729,7 @@ header {
         font-size: 5rem;
         color: #eae2b7;
         transition: all .50s ease;
+        margin-top: 75px !important;
     }
 
     .banner-dorm .btn {
@@ -787,6 +835,12 @@ header {
         width: auto;
         background: #eae2b7;
         border: 3px solid #003049;
+    }
+}
+
+@media (min-width:1400px){
+    .container{
+        max-width: 1700px !important;
     }
 }
 @media (max-width: 992px) {
@@ -1004,7 +1058,6 @@ header {
     }
 
     .navbar {
-        display: flex;
         background-color: #003049;
     }
 
