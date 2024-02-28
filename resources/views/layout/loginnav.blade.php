@@ -17,7 +17,7 @@
 --}}
 
 <nav class="navbar navbar-expand-lg ">
-    <div class="container-fluid">
+    <div class="container">
         <a class="navbar-brand" href="#"><img src="{{asset('images/COA CAR logo.png')}}" alt="">&nbsp;COA-CAR</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -26,13 +26,13 @@
             <div class="centered">
               
             </div>
-            <div class="main">
-                <ul class="navbar-nav me-auto">
+            <div class="main-login">
+                <ul class="navbar-nav mx-auto">
                     <li class="nav-item">
-                        <a href="{{ route('login')}}" class="user active no-underline"><i class="ri-user-line"></i>LOGIN</a>
+                        <a href="{{ route('login') }}" class="{{(Route::is('login')) ? 'login-active' : '' }}"><i class="ri-user-line"></i>LOGIN</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('register')}}" class="no-underline">REGISTER</a>
+                        <a href="#" class="no-underline">SIGNUP</a>
                     </li>
                 </ul>
             </div>

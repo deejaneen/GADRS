@@ -31,3 +31,16 @@ Route::get('/logout', function () {
 Route::get('/login', function () {
     return view('login');
 })->name('login');
+Route::get('/profile', function () {
+    return view('../profile/profile');
+})->name('profile');
+Route::get('/passwordprofile', function () {
+    return view('../profile/passwordprofile');
+})->name('passwordprofile');
+Route::get('/reservationhistoryprofile', function () {
+    return view('../profile/reservationhistoryprofile');
+})->name('reservationhistoryprofile');
+Route::get('/home', function () {
+    return view('home');
+})->name('home');
+
