@@ -10,7 +10,7 @@
 
 <div class="main">
     <a href="#" class="user active no-underline"><i class="ri-user-line"></i>LOGIN</a>
-    <a href="{{ route('gym') }}" class="no-underline">Register</a>
+    <a href="{{ route('gym') }}" class="no-underline">SIGNUP</a>
     <div class="bx bx-menu" id="menu-icon"></div>
 </div>
 
@@ -32,7 +32,7 @@
                         <a href="{{ route('login') }}" class="{{(Route::is('login')) ? 'login-active' : '' }}"><i class="ri-user-line"></i>LOGIN</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="no-underline">SIGNUP</a>
+                        <a href="{{ route('register') }}" class="{{(Route::is('register')) ? 'login-active' : '' }}">REGISTER</a>
                     </li>
                 </ul>
             </div>
