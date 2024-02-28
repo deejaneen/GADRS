@@ -8,7 +8,7 @@
                         <i class="fas fa-mars"></i>
                         Male
                     </div>
-                    <button class="btn btn-primary btn-lg rounded toogle-btn" data-mdb-ripple-init>
+                    <button class="btn btn-primary btn-lg rounded-pill toogle-btn" data-mdb-ripple-init>
                         <i class="fa-solid fa-repeat"></i>
                         Female
                     </button>
