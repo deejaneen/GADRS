@@ -9,7 +9,7 @@
 
     <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.3.2/flatly/bootstrap.rtl.min.css" rel="stylesheet" crossorigin="anonymous">
-    
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     {{-- Stylesheet for icons --}}
@@ -35,7 +35,7 @@
 
     @yield('banner')
 
-    
+
     <div class="container py-4">
         @yield('content')
         @yield('loginform')
@@ -44,13 +44,26 @@
     </div>
 
     @yield('gym_table')
+    @yield('dorm_reservation_card')
 
-    
+
     {{-- Stylesheet for font from google fonts --}}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-    </script>
     <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            // toogle button click event
+            $('.btn-primary.btn-lg.toogle-btn').click(function(e) {
+                e.preventDefault();
+
+                // Toggle between Male and Female cards
+                $('#maleCard').toggle();
+                $('#femaleCard').toggle();
+            });
+        });
+    </script>
     <script>
         // Wait for the document to be ready
         $(document).ready(function() {
@@ -61,7 +74,9 @@
             });
         });
     </script>
-    
+
+
+
 </body>
 
 </html>

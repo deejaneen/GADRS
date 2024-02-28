@@ -607,6 +607,26 @@ header {
 }
 /* Cart End */
 
+
+/* Dorm Reservation Card Start */
+#maleCard{
+    border: 3px solid #D62828;
+    background-color: #EAE2B7;
+    font-family: 'Poppins', sans-serif;
+    background-color: #EAE2B7;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+}
+
+#femaleCard{
+    border: 3px solid #F77F00;
+    font-family: 'Poppins', sans-serif;
+    background-color: #EAE2B7;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+}
+/* Dorm Reservation Card End*/
+
 /* Profile View */
 
 @media (max-width: 1024px) {
