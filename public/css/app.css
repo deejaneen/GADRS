@@ -2,7 +2,6 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: "IBM Plex Mono", monospace;
     font-weight: 700;
     font-style: normal;
     list-style: none;
@@ -14,7 +13,7 @@
     --main-color: #f77f00;
 }
 
-.container{
+.container {
     width: 95% !important;
     margin: auto;
     height: 100%;
@@ -77,7 +76,7 @@ body {
     transition: all .50s ease;
 }
 
-.navbar .logout{
+.navbar .logout {
     margin: 0%;
 }
 
@@ -167,8 +166,6 @@ body {
     font-size: 2.2em;
     text-decoration: none;
     border-radius: 20px;
-    font-family: 'Poppins', sans-serif;
-    /* Use Poppins font for the button */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     /* Add a subtle drop shadow */
 }
@@ -222,8 +219,6 @@ body {
     font-size: 2.2em;
     text-decoration: none;
     border-radius: 20px;
-    font-family: 'Poppins', sans-serif;
-    /* Use Poppins font for the button */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     /* Add a subtle drop shadow */
 }
@@ -240,7 +235,8 @@ body {
     max-width: 1200px;
     background: #eae2b7;
     border: 3px solid #003049;
-    margin: 60px auto 0; /* This will center the wrapper horizontally */
+    margin: 60px auto 0;
+    /* This will center the wrapper horizontally */
 }
 
 .wrapper h1 {
@@ -401,14 +397,12 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    margin: 30px 10;
     background-color: #003049;
     /* Blue background color */
-    border: 4px solid #ffffff;
-    /* Border color */
-    border-radius: 20px;
     /* Optional: Add border-radius for rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 2);
+    padding: 1%;
+    padding-top: 0%;
+
 }
 
 .day-box {
@@ -417,15 +411,13 @@ body {
     padding: 10px;
     text-align: center;
     margin: 10px;
-    font-family: 'Poppins', sans-serif;
     background-color: #EAE2B7;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+
 }
 
 
 .day-box h4 {
-    font-family: 'Poppins', sans-serif;
     font-weight: 800;
     color: #F77F00;
     text-transform: uppercase;
@@ -434,14 +426,87 @@ body {
 #calendar_container .h1 {
     font-family: 'Open Sans', sans-serif;
     font-weight: 800;
-    color: #fffefe;
-    font-size: 3.2em;
+    color: #EAE2B7;
+    font-size: 5em;
 }
+
+
 
 .schedule {
     border-top: 1px solid #ddd;
     padding-top: 5px;
     margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.container-gym-table {
+    background-color: #003049;
+    position: relative;
+    /* Ensure positioning context for absolute positioning */
+}
+
+.container-gym-table .btn-reservation-gym {
+    color: #003049;
+    background-color: #FCBF49;
+    border: 3px solid #eae2b7;
+    border-radius: 18px;
+    font-size: 1.5em;
+    padding: 5px 15px;
+    /* Adjust padding as needed */
+    margin: 0 15px;
+
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+}
+
+.container-gym-table .btn-calendar-gym {
+    color: #eae2b7;
+    background-color: #003049;
+    border: 3px solid #eae2b7;
+    border-radius: 18px;
+    font-size: 1.5em;
+    padding: 5px 45px;
+    /* Adjust padding as needed */
+    margin: 0 5px;
+
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+}
+
+.button-container {
+    position: absolute;
+    top: 35px;
+    /* Adjust top spacing as needed */
+    right: 20px;
+    /* Adjust right spacing as needed */
+    display: flex;
+    justify-content: flex-end;
+    /* Align buttons to the right */
+    margin-bottom: 20px;
+}
+
+.container-gym-table .btn-calendar-gym:hover {
+    color: #003049;
+    background-color: #eae2b7;
+    border: 3px solid #F77F00;
+    border-radius: 18px;
+    font-size: 1.5em;
+    padding: 5px 45px;
+    /* Adjust padding as needed */
+    margin: 0 5px;
+
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+}
+
+.container-gym-table .btn-reservation-gym:hover {
+    color: #003049;
+    background-color: #FCBF49;
+    border: 3px solid #F77F00;
+    border-radius: 18px;
+    font-size: 1.5em;
+    padding: 5px 15px;
+    /* Adjust padding as needed */
+    margin: 0 15px;
+
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
 }
 
 
@@ -458,7 +523,6 @@ body {
 }
 
 #reservation-section {
-    background-color: #003049;
     margin-top: 20px;
 }
 
@@ -487,6 +551,68 @@ body {
     border-top: 4px solid #F77F00;
     margin: 10px 0;
 }
+
+/* Gym Modal */
+.gym-modal-header {
+    color: #003049;
+    padding-top: 4%;
+    padding-left: 4%;
+}
+
+.gym-modal-header .gym-modal-close {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    padding: 10px;
+    /* Padding around the button */
+    color: #003049;
+}
+
+.gym-modal {
+    background-color: #EAE2B7 !important;
+    /* Desired background color */
+    font-family: "Poppins", sans-serif;
+}
+
+.gym-modal-body {
+    color: #003049;
+}
+
+.gym-modal-body .btn-dropdown-modal {
+    background-color: #FCBF49;
+    color: #003049;
+}
+
+.btn-dropdown-modal li a {
+    color: #003049;
+}
+
+.modal-footer .btn.btn-add-cart-gym {
+    color: #003049;
+    border: 2px solid var(--main-color);
+    background-color: #FCBF49;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.modal-footer .btn.btn-clear-cart-gym {
+    color: #003049;
+    border: 2px solid #d62828;
+    background-color: #f77f00;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.modal-footer .btn.btn-add-cart-gym:hover {
+    color: #eae2b7;
+    border: 2px solid var(--main-color);
+    background-color: #003049;
+}
+
+.modal-footer .btn.btn-clear-cart-gym:hover {
+    color: #eae2b7;
+    border: 2px solid #d62828;
+    background-color: #003049;
+}
+/* Gym Modal */
 
 /* Gym Table */
 
@@ -522,9 +648,9 @@ body {
     /* Add solid border with specified color */
 }
 
-.navbar-nav .nav-item a{ 
+.navbar-nav .nav-item a {
     text-decoration: none;
-    
+
 }
 
 .navbar-nav .nav-item a.profile-active {
@@ -539,11 +665,13 @@ body {
     border: 2px solid #003049;
     transition: all 0.3s ease;
 }
+
 .navbar .navbar-nav .nav-item {
     /* Adjusting margin to create more space between nav-items */
     margin-top: 10px;
     margin-bottom: 10px;
 }
+
 .nav-item a.login-active {
     color: var(--main-color) !important;
     border: 1px solid var(--text-color);
@@ -573,21 +701,21 @@ body {
 }
 
 /* Cart */
-#root-cart{
+#root-cart {
     width: 60%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 20px;
 }
 
-.sidebar-cart{
+.sidebar-cart {
     width: 100%;
     border-radius: 5px;
     padding: 10px;
     text-align: center;
 }
 
-.head{
+.head {
     background-color: goldenrod;
     border-radius: 3px;
     height: 40px;
@@ -597,7 +725,8 @@ body {
     display: flex;
     align-items: center;
 }
-.foot{
+
+.foot {
     display: flex;
     justify-content: space-between;
     margin: 20px 0px;
@@ -605,33 +734,24 @@ body {
     border-top: 1px solid #333;
 }
 
-
-#myModal{
-    font-family: 'Poppins', sans-serif;
-}
-.modal-title{
-    font-family: 'Poppins', sans-serif;
-}
 /* Cart End */
 
 
 /* Dorm Reservation Card Start */
-#maleCard{
+#maleCard {
     border: 3px solid #D62828;
-    background-color: #EAE2B7;
-    font-family: 'Poppins', sans-serif;
     background-color: #EAE2B7;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     border-radius: 20px;
 }
 
-#femaleCard{
+#femaleCard {
     border: 3px solid #F77F00;
-    font-family: 'Poppins', sans-serif;
     background-color: #EAE2B7;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     border-radius: 20px;
 }
+
 /* Dorm Reservation Card End*/
 
 /* Profile View */
@@ -640,51 +760,69 @@ body {
 
 .row-top {
     border: #F77F00 2px;
-    display: flex; /* Flexbox layout for row items */
-    
+    display: flex;
+    /* Flexbox layout for row items */
+
 }
+
 .row-bottom {
     border: #F77F00 2px;
-    display: flex; /* Flexbox layout for row items */
+    display: flex;
+    /* Flexbox layout for row items */
 }
 
 .column-left {
     flex: 1;
     border: #003049 2px;
-    color: #EAE2B7  ;
-   
+    color: #EAE2B7;
+
     background-color: #003049;
     margin-top: 15px;
     border-radius: 50px;
-    max-width: calc(30% - 30px); /* Set max-width to half of the available size of the row minus padding */
+    max-width: calc(30% - 30px);
+    /* Set max-width to half of the available size of the row minus padding */
     /* Margin specified by user */
-    box-sizing: border-box; /* Include padding and border in the element's total width */
-    display: flex; /* Use flexbox */
-    justify-content: center; /* Center content horizontally */
-    align-items: center; /* Center content vertically */
+    box-sizing: border-box;
+    /* Include padding and border in the element's total width */
+    display: flex;
+    /* Use flexbox */
+    justify-content: center;
+    /* Center content horizontally */
+    align-items: center;
+    /* Center content vertically */
 }
+
 .column-right {
     border: 2px solid var(--bg-color);
     display: flex;
-    justify-content: center; /* Center content horizontally */
-    align-items: center; /* Center content vertically */
+    justify-content: center;
+    /* Center content horizontally */
+    align-items: center;
+    /* Center content vertically */
     background-color: #FCBF49;
     flex: 1;
     color: #EAE2B7;
     padding: 2%;
     border-radius: 50px;
-    margin-left: 15px; /* Margin specified by user */
+    margin-left: 15px;
+    /* Margin specified by user */
     margin-top: 15px;
-    box-sizing: border-box; /* Include padding and border in the element's total width */
-    text-align: justify; /* Justify text */
+    box-sizing: border-box;
+    /* Include padding and border in the element's total width */
+    text-align: justify;
+    /* Justify text */
 
 }
+
 .column-right .welcome-to-gadrs {
-    width: 100%; /* Ensure the ul spans the entire width */
-    padding: 0; /* Remove default padding */
+    width: 100%;
+    /* Ensure the ul spans the entire width */
+    padding: 0;
+    /* Remove default padding */
     letter-spacing: 10px;
     margin-right: 15px;
 }
+
 .column-right .welcome-text1 {
     color: #EAE2B7;
     /* Text color */
@@ -695,17 +833,22 @@ body {
     /* Bold text */
     transition: all 0.3s ease;
     font-size: 2em;
-    width: 100%; /* Ensure h1 elements span the entire width */
-    text-align: center; /* Center the text horizontally */
-    margin: 10px; /* Remove default margins */
+    width: 100%;
+    /* Ensure h1 elements span the entire width */
+    text-align: center;
+    /* Center the text horizontally */
+    margin: 10px;
+    /* Remove default margins */
 
 }
-.column-right ul{
+
+.column-right ul {
     margin-bottom: 0;
     padding-right: 0;
 }
+
 .column-right .welcome-text2 {
-    
+
     font-size: 2em;
     color: #EAE2B7;
     /* Text color */
@@ -714,65 +857,97 @@ body {
     font-weight: bold;
     /* Bold text */
     transition: all 0.3s ease;
-    width: 100%; /* Ensure h1 elements span the entire width */
-    text-align: center; /* Center the text horizontally */
-    margin: 10px; /* Remove default margins */
+    width: 100%;
+    /* Ensure h1 elements span the entire width */
+    text-align: center;
+    /* Center the text horizontally */
+    margin: 10px;
+    /* Remove default margins */
 }
+
 .column-bottom {
     border: #003049 2px;
-    color: #EAE2B7  ;
+    color: #EAE2B7;
     background-color: #003049;
     margin-top: 15px;
     border-radius: 50px;
-    max-width: calc(80%); /* Set max-width to half of the available size of the row minus padding */
+    max-width: calc(80%);
+    /* Set max-width to half of the available size of the row minus padding */
     /* Margin specified by user */
-    box-sizing: border-box; /* Include padding and border in the element's total width */
-    display: flex; /* Use flexbox */
-    justify-content: center; /* Center content horizontally */
-    align-items: center; /* Center content vertically */
+    box-sizing: border-box;
+    /* Include padding and border in the element's total width */
+    display: flex;
+    /* Use flexbox */
+    justify-content: center;
+    /* Center content horizontally */
+    align-items: center;
+    /* Center content vertically */
 }
+
 .column-bottom .home-reservation-table {
-    width: 100%; /* Ensure the ul spans the entire width */
-    padding: 0; /* Remove default padding */
+    width: 100%;
+    /* Ensure the ul spans the entire width */
+    padding: 0;
+    /* Remove default padding */
 
     margin: 30px 30px 30px 30px;
-      border-collapse: collapse; /* Ensure cells share borders */
-  width: 100%;
-    
+    border-collapse: collapse;
+    /* Ensure cells share borders */
+    width: 100%;
+
 }
-.row-bottom{
-    justify-content: center; /* Center content horizontally */
-    align-items: center; /* Center content vertically */
+
+.row-bottom {
+    justify-content: center;
+    /* Center content horizontally */
+    align-items: center;
+    /* Center content vertically */
 }
-.home-reservation-table .test-home{
-    justify-content: center; /* Center content horizontally */
-    align-items: center; /* Center content vertically */
+
+.home-reservation-table .test-home {
+    justify-content: center;
+    /* Center content horizontally */
+    align-items: center;
+    /* Center content vertically */
 }
-.home-reservation-table h1{
-    display: flex; /* Use flexbox */
-    justify-content: center; /* Center content horizontally */
-    align-items: center; /* Center content vertically */
+
+.home-reservation-table h1 {
+    display: flex;
+    /* Use flexbox */
+    justify-content: center;
+    /* Center content horizontally */
+    align-items: center;
+    /* Center content vertically */
 }
-.home-reservation-table h1 i{
-    display: flex; /* Use flexbox */
+
+.home-reservation-table h1 i {
+    display: flex;
+    /* Use flexbox */
     color: #F77F00;
 }
-.home-reservation-table .table-home{
-    border-collapse: collapse; /* Ensure cells share borders */
+
+.home-reservation-table .table-home {
+    border-collapse: collapse;
+    /* Ensure cells share borders */
     width: 100%;
 }
-.home-reservation-table .table-home th{
+
+.home-reservation-table .table-home th {
     color: #EAE2B7;
     background-color: #003049;
-    border: 4px solid #EAE2B7; /* Custom border color (#ff0000 is red) and width */
+    border: 4px solid #EAE2B7;
+    /* Custom border color (#ff0000 is red) and width */
     padding: 10px;
 }
-.home-reservation-table .table-home td{
+
+.home-reservation-table .table-home td {
     color: #EAE2B7;
     background-color: #003049;
-    border: 4px solid #EAE2B7; /* Custom border color (#ff0000 is red) and width */
+    border: 4px solid #EAE2B7;
+    /* Custom border color (#ff0000 is red) and width */
     padding: 10px;
 }
+
 /* Home View */
 @media (max-width: 1024px) {
     .centered {
@@ -806,8 +981,6 @@ body {
         font-size: 1.5rem;
         text-decoration: none;
         border-radius: 20px;
-        font-family: 'Poppins', sans-serif;
-        /* Use Poppins font for the button */
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         /* Add a subtle drop shadow */
         transition: all .50s ease;
@@ -825,8 +998,6 @@ body {
         font-size: 1.5rem;
         text-decoration: none;
         border-radius: 20px;
-        font-family: 'Poppins', sans-serif;
-        /* Use Poppins font for the button */
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         /* Add a subtle drop shadow */
         transition: all .50s ease;
@@ -855,41 +1026,54 @@ body {
         flex-direction: column;
         justify-content: center;
     }
+
     .form-box .form-details {
-        max-width: auto; /* Remove max-width to allow the div to expand as needed */
-        width: 60%; /* Set width to 100% to fill the parent container */
-        height: 0; /* Set initial height to 0 */
-        padding-top: 75%; /* Set padding-top based on the aspect ratio of the background image (e.g., if the image has a height of 768px and a width of 1024px, the aspect ratio is 768/1024 = 0.75 or 75%) */
+        max-width: auto;
+        /* Remove max-width to allow the div to expand as needed */
+        width: 60%;
+        /* Set width to 100% to fill the parent container */
+        height: 0;
+        /* Set initial height to 0 */
+        padding-top: 75%;
+        /* Set padding-top based on the aspect ratio of the background image (e.g., if the image has a height of 768px and a width of 1024px, the aspect ratio is 768/1024 = 0.75 or 75%) */
         display: flex;
         text-align: center;
         flex-direction: column;
         align-items: center;
         background: url('../images/Login\ page\ 1\ 768px.png') center/cover no-repeat;
-        background-size: cover; /* Ensure the background image covers the entire div */
+        background-size: cover;
+        /* Ensure the background image covers the entire div */
         transition: all .5s ease;
     }
+
     .form-box .form-details-register {
-        max-width: auto; /* Remove max-width to allow the div to expand as needed */
-        width: 40%; /* Set width to 100% to fill the parent container */
-        height: 0; /* Set initial height to 0 */
-        padding-top: 75%; /* Set padding-top based on the aspect ratio of the background image */
+        max-width: auto;
+        /* Remove max-width to allow the div to expand as needed */
+        width: 40%;
+        /* Set width to 100% to fill the parent container */
+        height: 0;
+        /* Set initial height to 0 */
+        padding-top: 75%;
+        /* Set padding-top based on the aspect ratio of the background image */
         display: flex;
         text-align: center;
         flex-direction: column;
         align-items: center;
         justify-content: flex-start;
         background: url('../images/Login\ page\ 768px.png') center/cover no-repeat;
-        background-size: cover; /* Ensure the background image covers the entire div */
+        background-size: cover;
+        /* Ensure the background image covers the entire div */
         transition: all .5s ease;
     }
-    
+
     .form-content-register {
         padding: 10% 10px 0% 10px !important;
     }
-    
+
     .form-content {
         padding: 10% 5% 10% 5% !important;
     }
+
     .wrapper {
         position: relative;
         min-height: 65vh;
@@ -900,11 +1084,12 @@ body {
     }
 }
 
-@media (min-width:1400px){
-    .container{
+@media (min-width:1400px) {
+    .container {
         max-width: 1700px !important;
     }
 }
+
 @media (max-width: 992px) {
     .centered {
         display: flex;
@@ -935,8 +1120,6 @@ body {
         font-size: 1.5rem;
         text-decoration: none;
         border-radius: 20px;
-        font-family: 'Poppins', sans-serif;
-        /* Use Poppins font for the button */
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         /* Add a subtle drop shadow */
         transition: all .50s ease;
@@ -954,8 +1137,6 @@ body {
         font-size: 1.5rem;
         text-decoration: none;
         border-radius: 20px;
-        font-family: 'Poppins', sans-serif;
-        /* Use Poppins font for the button */
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         /* Add a subtle drop shadow */
         transition: all .50s ease;
@@ -984,11 +1165,16 @@ body {
         flex-direction: column;
         justify-content: center;
     }
+
     .form-box .form-details {
-        max-width: auto; /* Remove max-width to allow the div to expand as needed */
-        width: 60%; /* Set width to 100% to fill the parent container */
-        height: 70vh; /* Set initial height to 0 */
-        padding-top: 75%; /* Set padding-top based on the aspect ratio of the background image (e.g., if the image has a height of 768px and a width of 1024px, the aspect ratio is 768/1024 = 0.75 or 75%) */
+        max-width: auto;
+        /* Remove max-width to allow the div to expand as needed */
+        width: 60%;
+        /* Set width to 100% to fill the parent container */
+        height: 70vh;
+        /* Set initial height to 0 */
+        padding-top: 75%;
+        /* Set padding-top based on the aspect ratio of the background image (e.g., if the image has a height of 768px and a width of 1024px, the aspect ratio is 768/1024 = 0.75 or 75%) */
         display: flex;
         text-align: center;
         flex-direction: column;
@@ -996,28 +1182,35 @@ body {
         background: url('../images/Login\ page\ 1\ 992px.png') center/cover no-repeat;
         transition: all .5s ease;
     }
+
     .form-box .form-details-register {
-        max-width: auto; /* Remove max-width to allow the div to expand as needed */
-        width: 40%; /* Set width to 100% to fill the parent container */
-        height: 70vh; /* Set initial height to 0 */
-        padding-top: 75%; /* Set padding-top based on the aspect ratio of the background image */
+        max-width: auto;
+        /* Remove max-width to allow the div to expand as needed */
+        width: 40%;
+        /* Set width to 100% to fill the parent container */
+        height: 70vh;
+        /* Set initial height to 0 */
+        padding-top: 75%;
+        /* Set padding-top based on the aspect ratio of the background image */
         display: flex;
         text-align: center;
         flex-direction: column;
         align-items: center;
         justify-content: flex-start;
         background: url('../images/Login\ page\ 992px.png') center/contain no-repeat;
-        background-size: cover; /* Ensure the background image covers the entire div */
+        background-size: cover;
+        /* Ensure the background image covers the entire div */
         transition: all .5s ease;
     }
-    
+
     .form-content-register {
         padding: 10% 10px 0% 10px !important;
     }
-    
+
     .form-content {
         padding: 10% 5% 10% 5% !important;
     }
+
     .wrapper {
         position: relative;
         min-height: 65vh;
@@ -1054,8 +1247,6 @@ body {
         font-size: 0.9rem;
         text-decoration: none;
         border-radius: 20px;
-        font-family: 'Poppins', sans-serif;
-        /* Use Poppins font for the button */
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         /* Add a subtle drop shadow */
         transition: all .50s ease;
@@ -1073,8 +1264,6 @@ body {
         font-size: 0.9rem;
         text-decoration: none;
         border-radius: 20px;
-        font-family: 'Poppins', sans-serif;
-        /* Use Poppins font for the button */
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         /* Add a subtle drop shadow */
         transition: all .50s ease;
@@ -1148,23 +1337,24 @@ body {
     .form-box .form-details {
         display: none;
     }
+
     .form-box .form-details-register {
         display: none;
     }
-    
+
     .form-box .form-content-register {
         width: 100%;
         display: flex;
         flex-direction: column;
     }
-    
+
     .form-box .form-content {
         width: 100%;
         padding: 11% 35px 11% 35px;
         display: flex;
         flex-direction: column;
     }
-    
+
     .wrapper {
         position: relative;
         min-height: 65vh;
@@ -1173,19 +1363,19 @@ body {
         background: #eae2b7;
         border: 3px solid #003049;
     }
-    
+
     .input-field input::placeholder {
         font-size: 0.7em;
     }
-    
+
     .input-field-name input::placeholder {
         font-size: 0.7em;
     }
-    
+
     .form-content-register {
         padding: 10% 10px 0% 10px !important;
     }
-    
+
     .form-content {
         padding: 10% 10px 0% 10px !important;
     }
@@ -1218,8 +1408,6 @@ body {
         font-size: 0.7rem;
         text-decoration: none;
         border-radius: 20px;
-        font-family: 'Poppins', sans-serif;
-        /* Use Poppins font for the button */
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         /* Add a subtle drop shadow */
         transition: all .50s ease;
@@ -1237,8 +1425,6 @@ body {
         font-size: 0.7rem;
         text-decoration: none;
         border-radius: 20px;
-        font-family: 'Poppins', sans-serif;
-        /* Use Poppins font for the button */
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         /* Add a subtle drop shadow */
         transition: all .50s ease;

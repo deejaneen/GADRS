@@ -1,17 +1,21 @@
 <section id="reservation-section" class="mt-4">
-    <div>
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
-            Book Reservation
-        </button>
-    </div>
-    <div class="container" id="calendar_container">
-        <hr>
-        <h1 id="month-heading" class="h1 text-center"></h1>
-        <div class="day-container" id="week-container">
-            <!-- Days will be dynamically added here using JavaScript -->
+    <div class="container">
+        <div class="container-gym-table" id="calendar_container">
+            <div class="button-container">
+                <button type="button" class="btn btn-reservation-gym" data-bs-toggle="modal" data-bs-target="#myModal">
+                    Book Reservation
+                </button>
+                <button type="button" class="btn btn-calendar-gym">
+                    mm/dd/yyyy
+                </button>
+            </div>
+            <h1 id="month-heading" class="h1 text-center"></h1>
+            <div class="day-container" id="week-container">
+                <!-- Days will be dynamically added here using JavaScript -->
+            </div>
         </div>
-        <hr>
     </div>
+
 </section>
 @include('gym.gym_reservation_modal')
 @include('cart_sidebar')
@@ -22,7 +26,7 @@
         let currentDate = new Date();
         // Adjust the start time and end time
         let startTime = 6;
-        let endTime = 20;
+        let endTime = 21;
 
         // Get the container elements
         let weekContainer = document.getElementById("week-container");
@@ -38,7 +42,7 @@
         monthHeading.textContent = currentMonth;
 
         // Days of the week
-        let daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        let daysOfWeek = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SUN'];
 
         // Loop through the next 7 days
         for (let i = 0; i < 7; i++) {
@@ -82,7 +86,8 @@
                     let timeSlot = `${formatHour(startHour)}-${formatHour(endHour)} ${hour < 12 ? 'AM' : 'PM'}`;
                     let reservationStatus = 'reserved';
 
-                    content += `<li class="hour ${reservationStatus}">${timeSlot} \n ${reservationStatus.charAt(0).toUpperCase() + reservationStatus.slice(1)}</li>`;
+                    content +=
+                        `<li class="hour ${reservationStatus}">${timeSlot} \n ${reservationStatus.charAt(0).toUpperCase() + reservationStatus.slice(1)}</li>`;
                     // Add a line between hours (except for the last hour)
                     if (hour < endTime) {
                         content += `<hr class="hour-divider" >`;
