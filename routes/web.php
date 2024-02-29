@@ -30,4 +30,24 @@ Route::get('/logout', function () {
 })->name('logout');
 Route::get('/login', function () {
     return view('login');
+<<<<<<< Updated upstream
 })->name('login');
+=======
+})->name('login');
+Route::get('/profile', function () {
+    return view('../profile/profile');
+})->name('profile');
+Route::get('/passwordprofile', function () {
+    return view('../profile/passwordprofile');
+})->name('passwordprofile');
+Route::get('/reservationhistoryprofile', function () {
+    return view('../profile/reservationhistoryprofile');
+})->name('reservationhistoryprofile');
+Route::get('/home', function () {
+    return view('home');
+})->name('home');
+Route::get('/adminhome', function () {
+    return view('../admin/navbar/adminnav');
+})->name('adminhome');
+
+>>>>>>> Stashed changes
