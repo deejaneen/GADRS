@@ -30,13 +30,16 @@ class AuthController extends Controller
         ]);
 
         //create the user
-        User::create([
+        $user = User::create([
             'last_name' => $validated['last_name'],
             'first_name' => $validated['first_name'],
             'middle_name' => $validated['middle_name'],
             'email' => $validated['email'],
             'password' => Hash::make($validated['password']),
         ]);
+
+        // log in the user
+        auth()->login($user);
 
         //redirect to dashboard
         return redirect()->route('home')->with('success', "Account created successfully!");
@@ -54,7 +57,7 @@ class AuthController extends Controller
 
             request()->session()->regenerate();
             //redirect to dashboard
-            return redirect()->route('dashboard')->with('success', "Logged in succesfully!");
+            return redirect()->route('home')->with('success', "Logged in succesfully!");
         }
 
 

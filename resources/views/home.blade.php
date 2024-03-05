@@ -11,10 +11,15 @@
     </div>
     @endif
   </div>
+
   <div class="row-top">
+    @auth
+
+
     <div class="column-left">
-      <p class="user-name-home">Hi, Name</p>
+      <p class="user-name-home">Hi, {{ Auth::user()->first_name }}</p>
     </div>
+    @endauth
     <div class="column-right">
       <ul class="welcome-to-gadrs">
         <li>
