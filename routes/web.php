@@ -38,6 +38,9 @@ Route::get('/home', function () {
     return view('home');
 })->name('home');
 
+Route::get('/adminhome', function () {
+    return view('../admin/navbar/adminnav');
+})->name('home');
 
 Route::get('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/register', [AuthController::class, 'store']);

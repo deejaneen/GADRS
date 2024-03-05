@@ -5,15 +5,13 @@
             <div>
                 <h1 class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
                     <div>
-                        <i class="fas fa-mars"></i>
-                        Male
+                        MALE DORM
                     </div>
                     <button class="btn btn-primary btn-lg rounded-pill toogle-btn" data-mdb-ripple-init>
-                        <i class="fa-solid fa-repeat"></i>
-                        Female
+                        <span class="fa-solid fa-repeat"></span>
+                        Female Dorm
                     </button>
                 </h1>
-
             </div>
             <div class="card-body">
                 <div class="row">
@@ -123,11 +121,10 @@
             <div>
                 <h1 class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
                     <div>
-                        <i class="fas fa-venus"></i>
-                        Female
+                        FEMALE DORM
                     </div>
                     <button class="btn btn-primary btn-lg rounded-pill toogle-btn" data-mdb-ripple-init>
-                        <i class="fa-solid fa-repeat"></i> Male
+                        <span class="fa-solid fa-repeat"></span> Male Dorm
                     </button>
                 </h1>
 
