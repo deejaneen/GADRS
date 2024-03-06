@@ -273,7 +273,59 @@
             </div>
              {{-- ------------------ END OF RECENT UPDATES ------------------ --}}
             <div class="sales-analytics">
-                
+                <h2>Sales Analytics</h2>
+                <div class="item online">
+                    <div class="icon">
+                        <span class="ri-shopping-cart-2-line"></span>
+                    </div>
+                    <div class="right">
+                        <div class="info">
+                            <h3>ONLINE ORDERS</h3>
+                            <small class="text-muted">Last 24 Hours</small>
+                        </div>
+                        <h5 class="success">+39%</h5>
+                        <h3>3849</h3>
+                    </div>
+                </div>
+                <div class="item offline">
+                    <div class="icon">
+                        <span class="ri-shopping-bag-line"></span>
+                    </div>
+                    <div class="right">
+                        <div class="info">
+                            <h3>OFFLINE ORDERS</h3>
+                            <small class="text-muted">Last 24 Hours</small>
+                        </div>
+                        <h5 class="danger">-17%</h5>
+                        <h3>3849</h3>
+                    </div>
+                </div>
+                <div class="item customers">
+                    <div class="icon">
+                        <span class="ri-user-fill"></span>
+                    </div>
+                    <div class="right">
+                        <div class="info">
+                            <h3>NEW CUSTOMERS</h3>
+                            <small class="text-muted">Last 24 Hours</small>
+                        </div>
+                        <h5 class="success">+225%</h5>
+                        <h3>3849</h3>
+                    </div>
+                </div>
+                <div class="item add-product">
+                    <div class="icon">
+                        <span class="ri-add-line"></span>
+                    </div>
+                    <div class="right">
+                        <div class="info">
+                            <h3>ADD PRODUCT</h3>
+                            <small class="text-muted">Last 24 Hours</small>
+                        </div>
+                        <h5 class="success">+225%</h5>
+                        <h3>3849</h3>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
