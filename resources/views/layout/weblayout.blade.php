@@ -39,7 +39,7 @@
 
     {{-- Navbar --}}
     @include('layout.websitenav')
-
+    @yield('secondary_nav')
     @yield('banner')
 
 
@@ -52,6 +52,9 @@
 
     @yield('gym_table')
     @yield('dorm_reservation_card')
+    <footer>
+        @yield('bottom_nav')
+    </footer>
 
 
     {{-- Stylesheet for font from google fonts --}}
