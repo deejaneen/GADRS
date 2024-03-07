@@ -53,3 +53,6 @@ Route::post('/login', [AuthController::class, 'authenticate']);
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 
+Route::get('/cart_check', function () {
+    return view('cart_checkout');
+})->name('cart_check');

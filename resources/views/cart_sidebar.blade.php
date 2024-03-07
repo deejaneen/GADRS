@@ -20,7 +20,10 @@
     </div>
     <hr>
     <div class="offcanvas-footer d-flex justify-content-center">
-        <button href="#" class="btn btn-info btn-lg rounded" data-mdb-ripple-init>Proceed With Reservation</button>
+        <a href="{{ route('cart_check') }}">
+            <button class="btn btn-info btn-lg rounded" data-mdb-ripple-init>Proceed With Reservation</button>
+        </a>
+
     </div>
 
 </div>
