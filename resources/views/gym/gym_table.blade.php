@@ -5,9 +5,8 @@
                 <button type="button" class="btn btn-reservation-gym" data-bs-toggle="modal" data-bs-target="#myModal">
                     Book Reservation
                 </button>
-                <button type="button" class="btn btn-calendar-gym">
-                    mm/dd/yyyy
-                </button>
+                <input type="date" class="btn btn-calendar-gym">
+                </input>
             </div>
             <h1 id="month-heading" class="h1 text-center"></h1>
             <div class="day-container" id="week-container">

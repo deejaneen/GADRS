@@ -486,14 +486,15 @@ main .recent-orders a{
 
 .right.sales-analytics .item .icon {
     padding: 0.6rem;
-    color: var(--color-primary);
+    color: var(--color-background);
     border-radius: 50%;
-    background: var(--color-primary);
+    background-color: var(--color-primary);
     display: flex;
 }
 
 .right .sales-analytics .item.offline .icon {
     background-color: var(--color-danger);
+
 }
 
 .right .sales-analytics .item.customers .icon {
