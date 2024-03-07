@@ -8,30 +8,55 @@
 }
 
 :root {
-    --bg-color: #003049;
-    --text-color: #eae2b7;
-    --main-color: #f77f00;
+    --color-primary: #003049;
+    --color-danger: #d62828;
+    --color-success: #18a999;
+    --color-warning: #fcbf49;
+    --color-orange: #f77f00;
+    --color-white: #fff;
+    --color-info-dark: #363949;
+    --color-info-light: #dce1eb;
+    --color-dark: #363949;
+    --color-light: rgba(132, 139, 200, 0.18);
+    --color-primary-variant: #1b9aaa;
+    --color-dark-variant: #677483;
+    --color-background: #eae2b7;
+
+    --color-border-radius: 2rem;
+    --border-radius-1: 0.4rem;
+    --border-radius-1: 0.8rem;
+    --border-radius-1: 1.2rem;
+
+    --card-padding: 1.8rem;
+    --padding-1: 1.2rem;
+
+    --box-shadow: 0 1rem 2.5rem var(--color-dark-variant);
+    --border-solid: 1px solid var(--color-primary);
+    
 }
 
 .container {
     width: 95% !important;
     margin: auto;
     height: 100%;
+<<<<<<< Updated upstream
     border: 1px solid var(--main-color);
+=======
+>>>>>>> Stashed changes
 }
 
 body {
     min-height: 100vh;
     background: var(--bg-bolor);
-    color: var(--text-color);
-    background-color: var(--text-color) !important;
+    color: var(--color-background);
+    background-color: var(--color-background) !important;
 }
 
 .header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: var(--bg-color);
+    background-color: var(--color-primary);
     transition: all .50s ease;
 }
 
@@ -51,6 +76,17 @@ body {
     align-items: flex-end;
 }
 
+<<<<<<< Updated upstream
+=======
+.main .navbar-nav li button {
+    background-color: var(--color-primary);
+    font-size: 1.5em;
+    color: var(--color-background);
+    border: none;
+    font-weight: bold;
+}
+
+>>>>>>> Stashed changes
 .navbar a.navbar-brand img {
     height: 4rem;
 }
@@ -58,7 +94,7 @@ body {
 .navbar a.navbar-brand {
     display: flex;
     align-items: center;
-    color: var(--text-color);
+    color: var(--color-background);
     font-size: 2.5rem;
     font-weight: 900;
     letter-spacing: 6px;
@@ -66,11 +102,15 @@ body {
 }
 
 .navbar {
+<<<<<<< Updated upstream
     background-color: #003049;
+=======
+    background-color: var(--color-primary);
+>>>>>>> Stashed changes
 }
 
 .navbar a {
-    color: var(--text-color);
+    color: var(--color-background);
     font-size: 1.6rem;
     margin: 0px 30px 0px 0px;
     transition: all .50s ease;
@@ -81,12 +121,12 @@ body {
 }
 
 .navbar a:hover {
-    color: var(--main-color);
+    color: var(--color-orange);
 }
 
 .navbar a.active {
-    color: var(--main-color) !important;
-    border: 1px solid var(--text-color);
+    color: var(--color-orange) !important;
+    border: 1px solid var(--color-background);
     /* Specify border style */
     border-radius: 8px;
     transition: all .3s ease;
@@ -106,14 +146,14 @@ body {
 }
 
 .user i {
-    color: var(--main-color);
+    color: var(--color-orange);
     font-size: 28px;
     margin-right: 7px;
 }
 
 #menu-icon {
     font-size: 35px;
-    color: var(--text-color);
+    color: var(--color-background);
     cursor: pointer;
     z-index: 10001;
     display: none;
@@ -125,13 +165,17 @@ body {
 
 .banner-gym h1.banner-name {
     font-size: 7.5rem;
+<<<<<<< Updated upstream
     color: #eae2b7;
+=======
+    color: var(--color-background);
+>>>>>>> Stashed changes
 }
 
 .banner-gym {
     position: relative;
     text-align: center;
-    color: #fff;
+    color: var(--color-white);
     background: url('../images/Gym\ Banner\ Reservation.png') center/cover no-repeat;
     height: 550px;
     /* Set the desired height */
@@ -155,13 +199,13 @@ body {
 }
 
 .banner-gym .btn {
-    color: #d62828;
+    color: var(--color-danger);
     padding: 10px 15px;
     border-width: 5px;
-    border-color: #FCBF49 !important;
+    border-color: var(--color-warning) !important;
     /* Adjust the padding for your desired button size */
     font-weight: 700;
-    background-color: #FCBF49;
+    background-color: var(--color-warning);
     /* Bold */
     font-size: 2.2em;
     text-decoration: none;
@@ -171,15 +215,20 @@ body {
 }
 
 .banner-gym .btn:hover {
+<<<<<<< Updated upstream
     background-color: #003049;
     color: #eae2b7;
+=======
+    background-color: var(--color-primary);
+    color: var(--color-background);
+>>>>>>> Stashed changes
     /* Change to your desired hover color */
 }
 
 .banner-dorm {
     position: relative;
     text-align: center;
-    color: #fff;
+    color: var(--color-white);
     background: url('../images/Dorm\ Banner\ Reservation.png') center/cover no-repeat;
     height: 550px;
     /* Set the desired height */
@@ -190,7 +239,11 @@ body {
 
 .banner-dorm h1.banner-name {
     font-size: 7.5rem;
+<<<<<<< Updated upstream
     color: #eae2b7;
+=======
+    color: var(--color-background);
+>>>>>>> Stashed changes
 }
 
 .banner-dorm h2 {
@@ -208,13 +261,17 @@ body {
 }
 
 .banner-dorm .btn {
+<<<<<<< Updated upstream
     color: #003049;
+=======
+    color: var(--color-primary);
+>>>>>>> Stashed changes
     padding: 10px 15px;
     border-width: 5px;
-    border-color: #FCBF49 !important;
+    border-color: var(--color-warning) !important;
     /* Adjust the padding for your desired button size */
     font-weight: 700;
-    background-color: #FCBF49;
+    background-color: var(--color-warning);
     /* Bold */
     font-size: 2.2em;
     text-decoration: none;
@@ -224,8 +281,13 @@ body {
 }
 
 .banner-dorm .btn:hover {
+<<<<<<< Updated upstream
     background-color: #003049;
     color: #FCBF49;
+=======
+    background-color: var(--color-primary);
+    color: var(--color-warning);
+>>>>>>> Stashed changes
     /* Change to your desired hover color */
 }
 
@@ -233,8 +295,13 @@ body {
     position: relative;
     min-height: 65vh;
     max-width: 1200px;
+<<<<<<< Updated upstream
     background: #eae2b7;
     border: 3px solid #003049;
+=======
+    background: var(--color-background);
+    border: 3px solid var(--color-primary);
+>>>>>>> Stashed changes
     margin: 60px auto 0;
     /* This will center the wrapper horizontally */
 }
@@ -242,7 +309,11 @@ body {
 .wrapper h1 {
     font-size: 36px;
     text-align: center;
+<<<<<<< Updated upstream
     color: #003049;
+=======
+    color: var(--color-primary);
+>>>>>>> Stashed changes
 }
 
 .wrapper .form-box {
@@ -254,7 +325,11 @@ body {
     position: relative;
     width: 100%;
     height: 50px;
+<<<<<<< Updated upstream
     background: #eae2b7;
+=======
+    background: var(--color-background);
+>>>>>>> Stashed changes
     margin: 30px 0;
 }
 
@@ -263,7 +338,11 @@ body {
     position: relative;
     width: 100%;
     height: 50px;
+<<<<<<< Updated upstream
     background: #eae2b7;
+=======
+    background: var(--color-background);
+>>>>>>> Stashed changes
     margin: 30px 0;
 }
 
@@ -271,11 +350,19 @@ body {
     width: 100%;
     height: 100%;
     background: transparent;
+<<<<<<< Updated upstream
     border: #003049 1px;
     outline: #003049 1px;
     border: 2px solid rgba(255, 255, 255, 0.2);
     font-size: 16px;
     color: #003049;
+=======
+    border: var(--color-primary) 1px;
+    outline: var(--color-primary) 1px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    font-size: 16px;
+    color: var(--color-primary);
+>>>>>>> Stashed changes
     border-radius: 40px;
     padding: 20px 45px 20px 20px;
 }
@@ -284,17 +371,29 @@ body {
     width: 100%;
     height: 100%;
     background: transparent;
+<<<<<<< Updated upstream
     border: #003049 1px;
     outline: #003049 1px;
     border: 2px solid rgba(255, 255, 255, 0.2);
     font-size: 16px;
     color: #003049;
+=======
+    border: var(--color-primary) 1px;
+    outline: var(--color-primary) 1px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    font-size: 16px;
+    color: var(--color-primary);
+>>>>>>> Stashed changes
     border-radius: 40px;
     padding: 20px 45px 20px 20px;
 }
 
 .input-field input::placeholder {
+<<<<<<< Updated upstream
     color: #003049;
+=======
+    color: var(--color-primary);
+>>>>>>> Stashed changes
 }
 
 .input-field i {
@@ -303,7 +402,11 @@ body {
     top: 20%;
     transform: translate(-50%);
     font-size: 20px;
+<<<<<<< Updated upstream
     color: #003049;
+=======
+    color: var(--color-primary);
+>>>>>>> Stashed changes
 
 }
 
@@ -316,23 +419,41 @@ body {
 .wrapper .btn {
     width: 100%;
     height: 45px;
+<<<<<<< Updated upstream
     background: #003049;
     border-width: 3px;
     border-color: #003049;
     outline: none;
     border-radius: 40px;
     color: #eae2b7;
+=======
+    background: var(--color-primary);
+    border-width: 3px;
+    border-color: var(--color-primary);
+    outline: none;
+    border-radius: 40px;
+    color: var(--color-background);
+>>>>>>> Stashed changes
 }
 
 .wrapper .btn:hover {
     width: 100%;
     height: 45px;
+<<<<<<< Updated upstream
     background: #eae2b7;
     border-width: 3px;
     border-color: #003049;
     outline: none;
     border-radius: 40px;
     color: #003049;
+=======
+    background: var(--color-background);
+    border-width: 3px;
+    border-color: var(--color-primary);
+    outline: none;
+    border-radius: 40px;
+    color: var(--color-primary);
+>>>>>>> Stashed changes
 }
 
 .form-box .form-details {
@@ -374,7 +495,11 @@ body {
 }
 
 .form-box a {
+<<<<<<< Updated upstream
     color: #f77f00;
+=======
+    color: var(--color-orange);
+>>>>>>> Stashed changes
     text-decoration: none;
 }
 
@@ -397,7 +522,11 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+<<<<<<< Updated upstream
     background-color: #003049;
+=======
+    background-color: var(--color-primary);
+>>>>>>> Stashed changes
     /* Blue background color */
     /* Optional: Add border-radius for rounded corners */
     padding: 1%;
@@ -407,11 +536,19 @@ body {
 
 .day-box {
     flex: 1;
+<<<<<<< Updated upstream
     border: 3px solid #F77F00;
     padding: 10px;
     text-align: center;
     margin: 10px;
     background-color: #EAE2B7;
+=======
+    border: 3px solid var(--color-orange);
+    padding: 10px;
+    text-align: center;
+    margin: 10px;
+    background-color: var(--color-background);
+>>>>>>> Stashed changes
     box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
 
 }
@@ -419,14 +556,22 @@ body {
 
 .day-box h4 {
     font-weight: 800;
+<<<<<<< Updated upstream
     color: #F77F00;
+=======
+    color: var(--color-orange);
+>>>>>>> Stashed changes
     text-transform: uppercase;
 }
 
 #calendar_container .h1 {
     font-family: 'Open Sans', sans-serif;
     font-weight: 800;
+<<<<<<< Updated upstream
     color: #EAE2B7;
+=======
+    color: var(--color-background);
+>>>>>>> Stashed changes
     font-size: 5em;
 }
 
@@ -440,15 +585,39 @@ body {
 }
 
 .container-gym-table {
+<<<<<<< Updated upstream
     background-color: #003049;
+=======
+    background-color: var(--color-primary);
+>>>>>>> Stashed changes
     position: relative;
     /* Ensure positioning context for absolute positioning */
 }
 
+<<<<<<< Updated upstream
 .container-gym-table .btn-reservation-gym {
     color: #003049;
     background-color: #FCBF49;
     border: 3px solid #eae2b7;
+=======
+.container-gym-table input[type='date'] {
+    color: var(--color-primary);
+    background-color: var(--color-warning);
+    border: 3px solid var(--color-background);
+    border-radius: 18px;
+    font-size: 1.5em;
+    padding: 5px 15px;
+    /* Adjust padding as needed */
+    margin: 0 15px;
+
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+}
+
+.container-gym-table .btn-reservation-gym {
+    color: var(--color-primary);
+    background-color: var(--color-warning);
+    border: 3px solid var(--color-background);
+>>>>>>> Stashed changes
     border-radius: 18px;
     font-size: 1.5em;
     padding: 5px 15px;
@@ -459,9 +628,15 @@ body {
 }
 
 .container-gym-table .btn-calendar-gym {
+<<<<<<< Updated upstream
     color: #eae2b7;
     background-color: #003049;
     border: 3px solid #eae2b7;
+=======
+    color: var(--color-background);
+    background-color: var(--color-primary);
+    border: 3px solid var(--color-background);
+>>>>>>> Stashed changes
     border-radius: 18px;
     font-size: 1.5em;
     padding: 5px 45px;
@@ -484,9 +659,15 @@ body {
 }
 
 .container-gym-table .btn-calendar-gym:hover {
+<<<<<<< Updated upstream
     color: #003049;
     background-color: #eae2b7;
     border: 3px solid #F77F00;
+=======
+    color: var(--color-primary);
+    background-color: var(--color-background);
+    border: 3px solid var(--color-orange);
+>>>>>>> Stashed changes
     border-radius: 18px;
     font-size: 1.5em;
     padding: 5px 45px;
@@ -497,9 +678,15 @@ body {
 }
 
 .container-gym-table .btn-reservation-gym:hover {
+<<<<<<< Updated upstream
     color: #003049;
     background-color: #FCBF49;
     border: 3px solid #F77F00;
+=======
+    color: var(--color-primary);
+    background-color: var(--color-background);
+    border: 3px solid var(--color-orange);
+>>>>>>> Stashed changes
     border-radius: 18px;
     font-size: 1.5em;
     padding: 5px 15px;
@@ -512,7 +699,11 @@ body {
 
 /* Add styles for unreserved hours */
 .day-box .hour.unreserved {
+<<<<<<< Updated upstream
     color: #003049;
+=======
+    color: var(--color-primary);
+>>>>>>> Stashed changes
     /* Change to your desired color for unreserved hours */
 }
 
@@ -541,20 +732,32 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+<<<<<<< Updated upstream
     color: #F77F00;
+=======
+    color: var(--color-orange);
+>>>>>>> Stashed changes
     /* Adjust the color as needed */
 }
 
 .hour-divider {
     width: 100%;
     /* Adjust the width as needed */
+<<<<<<< Updated upstream
     border-top: 4px solid #F77F00;
+=======
+    border-top: 4px solid var(--color-orange);
+>>>>>>> Stashed changes
     margin: 10px 0;
 }
 
 /* Gym Modal */
 .gym-modal-header {
+<<<<<<< Updated upstream
     color: #003049;
+=======
+    color: var(--color-primary);
+>>>>>>> Stashed changes
     padding-top: 4%;
     padding-left: 4%;
 }
@@ -565,16 +768,25 @@ body {
     right: 50px;
     padding: 10px;
     /* Padding around the button */
+<<<<<<< Updated upstream
     color: #003049;
 }
 
 .gym-modal {
     background-color: #EAE2B7 !important;
+=======
+    color: var(--color-primary);
+}
+
+.gym-modal {
+    background-color: var(--color-background) !important;
+>>>>>>> Stashed changes
     /* Desired background color */
     font-family: "Poppins", sans-serif;
 }
 
 .gym-modal-body {
+<<<<<<< Updated upstream
     color: #003049;
 }
 
@@ -591,17 +803,42 @@ body {
     color: #003049;
     border: 2px solid var(--main-color);
     background-color: #FCBF49;
+=======
+    color: var(--color-primary);
+}
+
+.gym-modal-body .btn-dropdown-modal {
+    background-color: var(--color-warning);
+    color: var(--color-primary);
+}
+
+.btn-dropdown-modal li a {
+    color: var(--color-primary);
+}
+
+.modal-footer .btn.btn-add-cart-gym {
+    color: var(--color-primary);
+    border: 2px solid var(--color-orange);
+    background-color: var(--color-warning);
+>>>>>>> Stashed changes
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .modal-footer .btn.btn-clear-cart-gym {
+<<<<<<< Updated upstream
     color: #003049;
     border: 2px solid #d62828;
     background-color: #f77f00;
+=======
+    color: var(--color-primary);
+    border: 2px solid var(--color-danger);
+    background-color: var(--color-orange);
+>>>>>>> Stashed changes
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .modal-footer .btn.btn-add-cart-gym:hover {
+<<<<<<< Updated upstream
     color: #eae2b7;
     border: 2px solid var(--main-color);
     background-color: #003049;
@@ -611,6 +848,17 @@ body {
     color: #eae2b7;
     border: 2px solid #d62828;
     background-color: #003049;
+=======
+    color: var(--color-background);
+    border: 2px solid var(--color-orange);
+    background-color: var(--color-primary);
+}
+
+.modal-footer .btn.btn-clear-cart-gym:hover {
+    color: var(--color-background);
+    border: 2px solid var(--color-danger);
+    background-color: var(--color-primary);
+>>>>>>> Stashed changes
 }
 /* Gym Modal */
 
@@ -644,7 +892,11 @@ body {
     position: absolute;
     top: 0;
     left: calc(30% + 20px);
+<<<<<<< Updated upstream
     border: 2px solid #003049;
+=======
+    border: 2px solid var(--color-primary);
+>>>>>>> Stashed changes
     /* Add solid border with specified color */
 }
 
@@ -654,15 +906,25 @@ body {
 }
 
 .navbar-nav .nav-item a.profile-active {
+<<<<<<< Updated upstream
     color: #003049;
     /* Text color */
     background-color: #eae2b7;
+=======
+    color: var(--color-primary);
+    /* Text color */
+    background-color: var(--color-background);
+>>>>>>> Stashed changes
     /* Background color */
     border-radius: 5px;
     /* Rounded corners */
     font-weight: bold;
     /* Bold text */
+<<<<<<< Updated upstream
     border: 2px solid #003049;
+=======
+    border: 2px solid var(--color-primary);
+>>>>>>> Stashed changes
     transition: all 0.3s ease;
 }
 
@@ -673,8 +935,8 @@ body {
 }
 
 .nav-item a.login-active {
-    color: var(--main-color) !important;
-    border: 1px solid var(--text-color);
+    color: var(--color-orange) !important;
+    border: 1px solid var(--color-background);
     /* Specify border style */
     border-radius: 8px;
     transition: all .3s ease;
@@ -683,19 +945,32 @@ body {
 }
 
 .profileview-container .left-column {
+<<<<<<< Updated upstream
     background-color: #003049;
+=======
+    background-color: var(--color-primary);
+>>>>>>> Stashed changes
 }
 
 .nav-link-profile .nav-link {
     font-size: 1.2em;
+<<<<<<< Updated upstream
     color: #EAE2B7;
+=======
+    color: var(--color-background);
+>>>>>>> Stashed changes
     transition: all 0.3s ease;
 }
 
 .nav-link-profile .nav-link:hover {
     font-size: 1.2em;
+<<<<<<< Updated upstream
     color: #003049;
     background-color: #EAE2B7;
+=======
+    color: var(--color-primary);
+    background-color: var(--color-background);
+>>>>>>> Stashed changes
     border-radius: 5px;
     transition: all 0.3s ease;
 }
@@ -759,24 +1034,39 @@ body {
 /* Home View */
 
 .row-top {
+<<<<<<< Updated upstream
     border: #F77F00 2px;
+=======
+    border: var(--color-orange) 2px;
+>>>>>>> Stashed changes
     display: flex;
     /* Flexbox layout for row items */
 
 }
 
 .row-bottom {
+<<<<<<< Updated upstream
     border: #F77F00 2px;
+=======
+    border: var(--color-orange) 2px;
+>>>>>>> Stashed changes
     display: flex;
     /* Flexbox layout for row items */
 }
 
 .column-left {
     flex: 1;
+<<<<<<< Updated upstream
     border: #003049 2px;
     color: #EAE2B7;
 
     background-color: #003049;
+=======
+    border: var(--color-primary) 2px;
+    color: var(--color-background);
+
+    background-color: var(--color-primary);
+>>>>>>> Stashed changes
     margin-top: 15px;
     border-radius: 50px;
     max-width: calc(30% - 30px);
@@ -793,15 +1083,19 @@ body {
 }
 
 .column-right {
-    border: 2px solid var(--bg-color);
+    border: 2px solid var(--color-primary);
     display: flex;
     justify-content: center;
     /* Center content horizontally */
     align-items: center;
     /* Center content vertically */
-    background-color: #FCBF49;
+    background-color: var(--color-warning);
     flex: 1;
+<<<<<<< Updated upstream
     color: #EAE2B7;
+=======
+    color: var(--color-background);
+>>>>>>> Stashed changes
     padding: 2%;
     border-radius: 50px;
     margin-left: 15px;
@@ -824,9 +1118,13 @@ body {
 }
 
 .column-right .welcome-text1 {
+<<<<<<< Updated upstream
     color: #EAE2B7;
+=======
+    color: var(--color-background);
+>>>>>>> Stashed changes
     /* Text color */
-    background-color: #d62828;
+    background-color: var(--color-danger);
     /* Background color */
 
     font-weight: bold;
@@ -850,9 +1148,15 @@ body {
 .column-right .welcome-text2 {
 
     font-size: 2em;
+<<<<<<< Updated upstream
     color: #EAE2B7;
     /* Text color */
     background-color: #003049;
+=======
+    color: var(--color-background);
+    /* Text color */
+    background-color: var(--color-primary);
+>>>>>>> Stashed changes
     /* Background color */
     font-weight: bold;
     /* Bold text */
@@ -866,9 +1170,15 @@ body {
 }
 
 .column-bottom {
+<<<<<<< Updated upstream
     border: #003049 2px;
     color: #EAE2B7;
     background-color: #003049;
+=======
+    border: var(--color-primary) 2px;
+    color: var(--color-background);
+    background-color: var(--color-primary);
+>>>>>>> Stashed changes
     margin-top: 15px;
     border-radius: 50px;
     max-width: calc(80%);
@@ -923,7 +1233,11 @@ body {
 .home-reservation-table h1 i {
     display: flex;
     /* Use flexbox */
+<<<<<<< Updated upstream
     color: #F77F00;
+=======
+    color: var(--color-orange);
+>>>>>>> Stashed changes
 }
 
 .home-reservation-table .table-home {
@@ -933,22 +1247,149 @@ body {
 }
 
 .home-reservation-table .table-home th {
+<<<<<<< Updated upstream
     color: #EAE2B7;
     background-color: #003049;
     border: 4px solid #EAE2B7;
+=======
+    color: var(--color-background);
+    background-color: var(--color-primary);
+    border: 4px solid var(--color-background);
+>>>>>>> Stashed changes
     /* Custom border color (#ff0000 is red) and width */
     padding: 10px;
 }
 
 .home-reservation-table .table-home td {
+<<<<<<< Updated upstream
     color: #EAE2B7;
     background-color: #003049;
     border: 4px solid #EAE2B7;
+=======
+    color: var(--color-background);
+    background-color: var(--color-primary);
+    border: 4px solid var(--color-background);
+>>>>>>> Stashed changes
     /* Custom border color (#ff0000 is red) and width */
     padding: 10px;
 }
 
 /* Home View */
+<<<<<<< Updated upstream
+=======
+
+/* ========================= CART SIDEBAR ============================*/
+.offcanvas-body,
+.offcanvas-header,
+.offcanvas-footer {
+    background-color: var(--color-background);
+}
+.offcanvas-footer {
+    justify-content: center;
+    align-items: center;
+}
+.offcanvas hr {
+    background: var(--color-background);
+    color: var(--color-orange);
+    border-width: 3px;
+    margin: 0px;
+}
+
+.offcanvas-footer button{
+    background-color: var(--color-primary);
+    color: var(--color-background);
+    margin-bottom: 1rem;
+}
+
+.offcanvas-footer button:hover{
+    background-color: var(--color-warning);
+    color: var(--color-primary);
+    border: 1px solid var(--color-orange);
+   
+}
+/* ========================= CART SIDEBAR ============================*/
+/* ======================= DORM RESERVATION CARD ========================*/
+#maleCard .card-header, #femaleCard .card-header{ 
+    color: var(--color-warning);
+    transition: all 300ms ease;
+}
+#maleCard, #femaleCard {  
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+    color: var(--color-background);
+}
+
+#maleCard{
+    background-color: var(--color-primary);
+}
+
+#femaleCard {
+    background-color: var(--color-primary);
+}
+#maleCard .text-center a, #femaleCard .text-center a{ 
+    background-color: var(--color-primary);
+    color: var(--color-background);
+    border: 1px solid var(--color-background);
+    margin: 1rem;
+    transition: all 300ms ease;
+}
+#maleCard .text-center a:hover, #femaleCard .text-center a:hover{ 
+    background-color: var(--color-primary);
+    color: var(--color-warning);
+    border: 1px solid var(--color-orange);
+    margin-top: 0.5rem;
+}
+.section .card-body button{
+    background-color: var(--color-warning);
+    color: var(--color-primary);
+    border: 1px solid var(--color-orange);
+}
+.section .card-header button {
+    color: var(--color-background);
+    background-color: var(--color-primary);
+}
+.section .card-header button:hover {
+    color: var(--color-warning);
+    background-color: var(--color-primary);
+    border: 1px solid var(--color-orange);
+}
+#maleCard:hover, #femaleCard:hover{  
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+    color: var(--color-background);
+}
+
+/* ======================= DORM RESERVATION CARD ========================*/
+
+/* ======================= DORM CALENDAR ========================*/
+.calendar-section .header {
+    background: var(--color-dark);
+    align-items: center;
+    justify-content: center;
+}
+.calendar-section {
+    display: grid;
+    grid-template-rows: auto auto auto;
+}
+.calendar-section .main {
+    display: grid;
+    grid-template-rows: 80px, 180px, 180px, 180px, 180px, 180px;
+    grid-template-columns: repeat(7, 180px);
+    align-items: center;
+    justify-content: center;
+}
+.calendar-section .week.item {
+    grid-template-columns: repeat(7, 180px);
+}
+.calendar-section .day.item {
+    grid-row-start: 2;
+    width: 100%;
+    height: 100%;
+    background: var(--color-dark);
+    border: 2px solid var(--color-primary);
+    align-items: center;
+    justify-content: center;
+}
+
+>>>>>>> Stashed changes
 @media (max-width: 1024px) {
     .centered {
         display: flex;
@@ -957,26 +1398,38 @@ body {
 
     .banner-dorm h1.banner-name {
         font-size: 5rem;
+<<<<<<< Updated upstream
         color: #eae2b7;
+=======
+        color: var(--color-background);
+>>>>>>> Stashed changes
         margin-top: 75px !important;
         transition: all .50s ease;
     }
 
     .banner-gym h1.banner-name {
         font-size: 5rem;
+<<<<<<< Updated upstream
         color: #eae2b7;
+=======
+        color: var(--color-background);
+>>>>>>> Stashed changes
         transition: all .50s ease;
         margin-top: 75px !important;
     }
 
     .banner-dorm .btn {
+<<<<<<< Updated upstream
         color: #003049;
+=======
+        color: var(--color-primary);
+>>>>>>> Stashed changes
         padding: 10px 15px;
         border-width: 5px;
-        border-color: #FCBF49 !important;
+        border-color: var(--color-warning) !important;
         /* Adjust the padding for your desired button size */
         font-weight: 700;
-        background-color: #FCBF49;
+        background-color: var(--color-warning);
         /* Bold */
         font-size: 1.5rem;
         text-decoration: none;
@@ -987,13 +1440,13 @@ body {
     }
 
     .banner-gym .btn {
-        color: #d62828;
+        color: var(--color-danger);
         padding: 10px 15px;
         border-width: 5px;
-        border-color: #FCBF49 !important;
+        border-color: var(--color-warning) !important;
         /* Adjust the padding for your desired button size */
         font-weight: 700;
-        background-color: #FCBF49;
+        background-color: var(--color-warning);
         /* Bold */
         font-size: 1.5rem;
         text-decoration: none;
@@ -1006,7 +1459,7 @@ body {
     .banner-gym {
         position: relative;
         text-align: center;
-        color: #fff;
+        color: var(--color-white);
         background: url('../images/Gym\ Banner\ Reservation.png') center/cover no-repeat;
         height: 360px;
         /* Set the desired height */
@@ -1018,7 +1471,7 @@ body {
     .banner-dorm {
         position: relative;
         text-align: center;
-        color: #fff;
+        color: var(--color-white);
         background: url('../images/Dorm\ Banner\ Reservation.png') center/cover no-repeat;
         height: 360px;
         /* Set the desired height */
@@ -1079,8 +1532,13 @@ body {
         min-height: 65vh;
         max-width: 1200px;
         width: auto;
+<<<<<<< Updated upstream
         background: #eae2b7;
         border: 3px solid #003049;
+=======
+        background: var(--color-background);
+        border: 3px solid var(--color-primary);
+>>>>>>> Stashed changes
     }
 }
 
@@ -1098,24 +1556,36 @@ body {
 
     .banner-dorm h1.banner-name {
         font-size: 5rem;
+<<<<<<< Updated upstream
         color: #eae2b7;
+=======
+        color: var(--color-background);
+>>>>>>> Stashed changes
         transition: all .50s ease;
     }
 
     .banner-gym h1.banner-name {
         font-size: 5rem;
+<<<<<<< Updated upstream
         color: #eae2b7;
+=======
+        color: var(--color-background);
+>>>>>>> Stashed changes
         transition: all .50s ease;
     }
 
     .banner-dorm .btn {
+<<<<<<< Updated upstream
         color: #003049;
+=======
+        color: var(--color-primary);
+>>>>>>> Stashed changes
         padding: 10px 15px;
         border-width: 5px;
-        border-color: #FCBF49 !important;
+        border-color: var(--color-warning) !important;
         /* Adjust the padding for your desired button size */
         font-weight: 700;
-        background-color: #FCBF49;
+        background-color: var(--color-warning);
         /* Bold */
         font-size: 1.5rem;
         text-decoration: none;
@@ -1126,13 +1596,13 @@ body {
     }
 
     .banner-gym .btn {
-        color: #d62828;
+        color: var(--color-danger);
         padding: 10px 15px;
         border-width: 5px;
-        border-color: #FCBF49 !important;
+        border-color: var(--color-warning) !important;
         /* Adjust the padding for your desired button size */
         font-weight: 700;
-        background-color: #FCBF49;
+        background-color: var(--color-warning);
         /* Bold */
         font-size: 1.5rem;
         text-decoration: none;
@@ -1145,7 +1615,7 @@ body {
     .banner-gym {
         position: relative;
         text-align: center;
-        color: #fff;
+        color: var(--color-white);
         background: url('../images/Gym\ Banner\ Reservation.png') center/cover no-repeat;
         height: 360px;
         /* Set the desired height */
@@ -1157,7 +1627,7 @@ body {
     .banner-dorm {
         position: relative;
         text-align: center;
-        color: #fff;
+        color: var(--color-white);
         background: url('../images/Dorm\ Banner\ Reservation.png') center/cover no-repeat;
         height: 360px;
         /* Set the desired height */
@@ -1216,8 +1686,13 @@ body {
         min-height: 65vh;
         max-width: 1200px;
         width: auto;
+<<<<<<< Updated upstream
         background: #eae2b7;
         border: 3px solid #003049;
+=======
+        background: var(--color-background);
+        border: 3px solid var(--color-primary);
+>>>>>>> Stashed changes
     }
 }
 
@@ -1225,24 +1700,36 @@ body {
 
     .banner-dorm h1.banner-name {
         font-size: 3rem;
+<<<<<<< Updated upstream
         color: #eae2b7;
+=======
+        color: var(--color-background);
+>>>>>>> Stashed changes
         transition: all .50s ease;
     }
 
     .banner-gym h1.banner-name {
         font-size: 3rem;
+<<<<<<< Updated upstream
         color: #eae2b7;
+=======
+        color: var(--color-background);
+>>>>>>> Stashed changes
         transition: all .50s ease;
     }
 
     .banner-dorm .btn {
+<<<<<<< Updated upstream
         color: #003049;
+=======
+        color: var(--color-primary);
+>>>>>>> Stashed changes
         padding: 10px 15px;
         border-width: 5px;
-        border-color: #FCBF49 !important;
+        border-color: var(--color-warning) !important;
         /* Adjust the padding for your desired button size */
         font-weight: 700;
-        background-color: #FCBF49;
+        background-color: var(--color-warning);
         /* Bold */
         font-size: 0.9rem;
         text-decoration: none;
@@ -1253,13 +1740,13 @@ body {
     }
 
     .banner-gym .btn {
-        color: #d62828;
+        color: var(--color-danger);
         padding: 10px 15px;
         border-width: 5px;
-        border-color: #FCBF49 !important;
+        border-color: var(--color-warning) !important;
         /* Adjust the padding for your desired button size */
         font-weight: 700;
-        background-color: #FCBF49;
+        background-color: var(--color-warning);
         /* Bold */
         font-size: 0.9rem;
         text-decoration: none;
@@ -1272,7 +1759,7 @@ body {
     .banner-gym {
         position: relative;
         text-align: center;
-        color: #fff;
+        color: var(--color-white);
         background: url('../images/Gym\ Banner\ Reservation.png') center/cover no-repeat;
         height: 250px;
         /* Set the desired height */
@@ -1284,7 +1771,7 @@ body {
     .banner-dorm {
         position: relative;
         text-align: center;
-        color: #fff;
+        color: var(--color-white);
         background: url('../images/Dorm\ Banner\ Reservation.png') center/cover no-repeat;
         height: 250px;
         /* Set the desired height */
@@ -1300,7 +1787,7 @@ body {
     .navbar a.navbar-brand {
         display: flex;
         align-items: center;
-        color: var(--text-color);
+        color: var(--color-background);
         font-size: 1.1rem;
         font-weight: 900;
         padding-left: 1px;
@@ -1309,11 +1796,15 @@ body {
     }
 
     .navbar {
+<<<<<<< Updated upstream
         background-color: #003049;
+=======
+        background-color: var(--color-primary);
+>>>>>>> Stashed changes
     }
 
     .main .navbar-nav .nav-item a {
-        color: var(--text-color);
+        color: var(--color-background);
         font-size: 1.4rem;
         padding: 5px 0;
         margin: 20px 30px;
@@ -1327,7 +1818,7 @@ body {
     }
 
     .navbar a:hover {
-        color: var(--main-color);
+        color: var(--color-orange);
     }
 
     .ri-user-fill {
@@ -1360,8 +1851,13 @@ body {
         min-height: 65vh;
         max-width: 1200px;
         width: auto;
+<<<<<<< Updated upstream
         background: #eae2b7;
         border: 3px solid #003049;
+=======
+        background: var(--color-background);
+        border: 3px solid var(--color-primary);
+>>>>>>> Stashed changes
     }
 
     .input-field input::placeholder {
@@ -1386,24 +1882,36 @@ body {
 @media (max-width: 480px) {
     .banner-dorm h1.banner-name {
         font-size: 2.5rem;
+<<<<<<< Updated upstream
         color: #eae2b7;
+=======
+        color: var(--color-background);
+>>>>>>> Stashed changes
         transition: all .50s ease;
     }
 
     .banner-gym h1.banner-name {
         font-size: 2.5rem;
+<<<<<<< Updated upstream
         color: #eae2b7;
+=======
+        color: var(--color-background);
+>>>>>>> Stashed changes
         transition: all .50s ease;
     }
 
     .banner-dorm .btn {
+<<<<<<< Updated upstream
         color: #003049;
+=======
+        color: var(--color-primary);
+>>>>>>> Stashed changes
         padding: 10px 15px;
         border-width: 5px;
-        border-color: #FCBF49 !important;
+        border-color: var(--color-warning) !important;
         /* Adjust the padding for your desired button size */
         font-weight: 700;
-        background-color: #FCBF49;
+        background-color: var(--color-warning);
         /* Bold */
         font-size: 0.7rem;
         text-decoration: none;
@@ -1414,13 +1922,13 @@ body {
     }
 
     .banner-gym .btn {
-        color: #d62828;
+        color: var(--color-danger);
         padding: 10px 15px;
         border-width: 5px;
-        border-color: #FCBF49 !important;
+        border-color: var(--color-warning) !important;
         /* Adjust the padding for your desired button size */
         font-weight: 700;
-        background-color: #FCBF49;
+        background-color: var(--color-warning);
         /* Bold */
         font-size: 0.7rem;
         text-decoration: none;
@@ -1433,7 +1941,7 @@ body {
     .banner-gym {
         position: relative;
         text-align: center;
-        color: #fff;
+        color: var(--color-white);
         background: url('../images/Gym\ Banner\ Reservation.png') center/cover no-repeat;
         height: 250px;
         /* Set the desired height */
@@ -1445,7 +1953,7 @@ body {
     .banner-dorm {
         position: relative;
         text-align: center;
-        color: #fff;
+        color: var(--color-white);
         background: url('../images/Dorm\ Banner\ Reservation.png') center/cover no-repeat;
         height: 250px;
         /* Set the desired height */
@@ -1461,7 +1969,7 @@ body {
     .navbar a.navbar-brand {
         display: flex;
         align-items: center;
-        color: var(--text-color);
+        color: var(--color-background);
         font-size: 1.1rem;
         font-weight: 900;
         padding-left: 1px;
@@ -1471,11 +1979,15 @@ body {
 
     .navbar {
         display: flex;
+<<<<<<< Updated upstream
         background-color: #003049;
+=======
+        background-color: var(--color-primary);
+>>>>>>> Stashed changes
     }
 
     .main .navbar-nav .nav-item a {
-        color: var(--text-color);
+        color: var(--color-background);
         font-size: 1.4rem;
         padding: 5px 0;
         margin: 20px 30px;
@@ -1489,7 +2001,7 @@ body {
     }
 
     .navbar a:hover {
-        color: var(--main-color);
+        color: var(--color-orange);
     }
 
     .ri-user-fill {
@@ -1523,8 +2035,13 @@ body {
         min-height: 65vh;
         max-width: 1200px;
         width: auto;
+<<<<<<< Updated upstream
         background: #eae2b7;
         border: 3px solid #003049;
+=======
+        background: var(--color-background);
+        border: 3px solid var(--color-primary);
+>>>>>>> Stashed changes
     }
 
     .input-field input::placeholder {
