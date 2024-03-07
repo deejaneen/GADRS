@@ -22,7 +22,7 @@
                                 <h5>Check In</h5>
                                 <div class="dropdown-center">
                                     <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="min-width: 100%;">
-                                        Centered dropdown
+                                        da dropdown
                                     </button>
                                     <ul class="dropdown-menu" style="min-width: 100%;">
                                         <li><a class="dropdown-item" href="#">Action</a></li>

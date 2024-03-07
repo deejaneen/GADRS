@@ -1007,6 +1007,32 @@ body {
 }
 
 /* Home View */
+
+/*======================= DORM RESERVATION ==========================================*/
+
+.container .section .card {
+    color: var(--color-background);
+    background: var(--color-primary);
+}
+
+.container .section .card button{
+    color: var(--color-background);
+}
+.container .section .card button:hover{ 
+    color: var(--color-primary);
+    border: 1px solid var(--color-orange);
+    background: var(--color-background);
+    transition: all 300ms ease;
+}
+.container .section .card .card-body button {
+    color: var(--color-primary);
+    background: var(--color-warning);
+}
+.container .section .card .card-body .dropdown-menu, .container .section .card .card-body .dropdown-menu li {
+    background: var(--color-warning);
+    color: var(--color-primary);
+}
+
 @media (max-width: 1024px) {
     .centered {
         display: flex;
