@@ -73,17 +73,17 @@ body {
 }
 
 .main .navbar-nav li button {
-    background-color: var(--bg-color);
+    background-color: var(--color-primary);
     font-size: 1.5em;
-    color: var(--text-color);
+    color: var(--color-background);
     border: none;
     font-weight: bold;
 }
 
 .main .navbar-nav li button {
-    background-color: var(--bg-color);
+    background-color: var(--color-primary);
     font-size: 1.5em;
-    color: var(--text-color);
+    color: var(--color-background);
     border: none;
     font-weight: bold;
 }
@@ -111,7 +111,7 @@ body {
 }
 
 .navbar {
-    background-color: #003049;
+    background-color: var(--color-primary);
 }
 
 .navbar a {
@@ -170,7 +170,7 @@ body {
 
 .banner-gym h1.banner-name {
     font-size: 7.5rem;
-    color: #eae2b7;
+    color: var(--color-background);
 }
 
 .banner-gym {
@@ -216,8 +216,8 @@ body {
 }
 
 .banner-gym .btn:hover {
-    background-color: #003049;
-    color: #eae2b7;
+    background-color: var(--color-primary);
+    color: var(--color-background);
     /* Change to your desired hover color */
 }
 
@@ -235,7 +235,7 @@ body {
 
 .banner-dorm h1.banner-name {
     font-size: 7.5rem;
-    color: #eae2b7;
+    color: var(--color-background);
 }
 
 .banner-dorm h2 {
@@ -253,7 +253,7 @@ body {
 }
 
 .banner-dorm .btn {
-    color: #003049;
+    color: var(--color-primary);
     padding: 10px 15px;
     border-width: 5px;
     border-color: var(--color-warning) !important;
@@ -270,8 +270,8 @@ body {
 }
 
 .banner-dorm .btn:hover {
-    background-color: #003049;
-    color: #FCBF49;
+    background-color: var(--color-primary);
+    color: var(--color-warning);
     background-color: var(--color-primary);
     color: var(--color-warning);
     /* Change to your desired hover color */
@@ -281,8 +281,8 @@ body {
     position: relative;
     min-height: 65vh;
     max-width: 1200px;
-    background: #eae2b7;
-    border: 3px solid #003049;
+    background: var(--color-background);
+    border: 3px solid var(--color-primary);
     margin: 60px auto 0;
     /* This will center the wrapper horizontally */
 }
@@ -290,7 +290,7 @@ body {
 .wrapper h1 {
     font-size: 36px;
     text-align: center;
-    color: #003049;
+    color: var(--color-primary);
 }
 
 .wrapper .form-box {
@@ -302,7 +302,7 @@ body {
     position: relative;
     width: 100%;
     height: 50px;
-    background: #eae2b7;
+    background: var(--color-background);
     margin: 30px 0;
 }
 
@@ -311,7 +311,7 @@ body {
     position: relative;
     width: 100%;
     height: 50px;
-    background: #eae2b7;
+    background: var(--color-background);
     margin: 30px 0;
 }
 
@@ -319,11 +319,11 @@ body {
     width: 100%;
     height: 100%;
     background: transparent;
-    border: #003049 1px;
-    outline: #003049 1px;
+    border: var(--color-primary) 1px;
+    outline: var(--color-primary) 1px;
     border: 2px solid rgba(255, 255, 255, 0.2);
     font-size: 16px;
-    color: #003049;
+    color: var(--color-primary);
     border-radius: 40px;
     padding: 20px 45px 20px 20px;
 }
@@ -332,17 +332,17 @@ body {
     width: 100%;
     height: 100%;
     background: transparent;
-    border: #003049 1px;
-    outline: #003049 1px;
+    border: var(--color-primary) 1px;
+    outline: var(--color-primary) 1px;
     border: 2px solid rgba(255, 255, 255, 0.2);
     font-size: 16px;
-    color: #003049;
+    color: var(--color-primary);
     border-radius: 40px;
     padding: 20px 45px 20px 20px;
 }
 
 .input-field input::placeholder {
-    color: #003049;
+    color: var(--color-primary);
 }
 
 .input-field i {
@@ -351,7 +351,7 @@ body {
     top: 20%;
     transform: translate(-50%);
     font-size: 20px;
-    color: #003049;
+    color: var(--color-primary);
 
 }
 
@@ -364,23 +364,23 @@ body {
 .wrapper .btn {
     width: 100%;
     height: 45px;
-    background: #003049;
+    background: var(--color-primary);
     border-width: 3px;
-    border-color: var(--bg-color);
+    border-color: var(--color-primary);
     outline: none;
     border-radius: 40px;
-    color: #eae2b7;
+    color: var(--color-background);
 }
 
 .wrapper .btn:hover {
     width: 100%;
     height: 45px;
-    background: #eae2b7;
+    background: var(--color-background);
     border-width: 3px;
-    border-color: var(--bg-color);
+    border-color: var(--color-primary);
     outline: none;
     border-radius: 40px;
-    color: #003049;
+    color: var(--color-primary);
 }
 
 .form-box .form-details {
@@ -422,7 +422,7 @@ body {
 }
 
 .form-box a {
-    color: #f77f00;
+    color: var(--color-orange);
     text-decoration: none;
 }
 
@@ -445,7 +445,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    background-color: #003049;
+    background-color: var(--color-primary);
     /* Blue background color */
     /* Optional: Add border-radius for rounded corners */
     padding: 1%;
@@ -455,11 +455,11 @@ body {
 
 .day-box {
     flex: 1;
-    border: 3px solid #F77F00;
+    border: 3px solid var(--color-orange);
     padding: 10px;
     text-align: center;
     margin: 10px;
-    background-color: #EAE2B7;
+    background-color: var(--color-background);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
 
 }
@@ -467,14 +467,14 @@ body {
 
 .day-box h4 {
     font-weight: 800;
-    color: #F77F00;
+    color: var(--color-orange);
     text-transform: uppercase;
 }
 
 #calendar_container .h1 {
     font-family: 'Open Sans', sans-serif;
     font-weight: 800;
-    color: #EAE2B7;
+    color: var(--color-background);
     font-size: 5em;
 }
 
@@ -488,15 +488,15 @@ body {
 }
 
 .container-gym-table {
-    background-color: #003049;
+    background-color: var(--color-primary);
     position: relative;
     /* Ensure positioning context for absolute positioning */
 }
 
 .container-gym-table .btn-reservation-gym {
-    color: #003049;
-    background-color: #FCBF49;
-    border: 3px solid #eae2b7;
+    color: var(--color-primary);
+    background-color: var(--color-warning);
+    border: 3px solid var(--color-background);
     border-radius: 18px;
     font-size: 1.5em;
     padding: 5px 15px;
@@ -504,31 +504,17 @@ body {
     margin: 0 15px;
 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
-}
-
-.container-gym-table .btn-reservation-gym {
-    color: var(--bg-color);
-    background-color: #FCBF49;
-    border: 3px solid var(--text-color);
-    border-radius: 18px;
-    font-size: 1.5em;
-    padding: 5px 15px;
-    /* Adjust padding as needed */
-    margin: 0 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+    transform: translate(-12px);
 }
 
 .container-gym-table .btn-calendar-gym {
-    color: #eae2b7;
-    background-color: #003049;
-    border: 3px solid #eae2b7;
+    color: var(--color-background);
+    background-color: var(--color-primary);
+    border: 3px solid var(--color-background);
     border-radius: 18px;
     font-size: 1.5em;
-    padding: 5px 45px;
-    /* Adjust padding as needed */
-    margin: 0 5px;
-
     box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+    transform: translate(-10px);
 }
 
 .button-container {
@@ -542,36 +528,31 @@ body {
     /* Align buttons to the right */
     margin-bottom: 20px;
 }
-
-.container-gym-table .btn-calendar-gym:hover {
-    color: #003049;
-    background-color: #eae2b7;
-    border: 3px solid #F77F00;
+.container-gym-table .btn-calendar-gym:valid {
+    color: var(--color-background);
+    background-color: var(--color-primary);
+    border: 3px solid var(--color-background);
     border-radius: 18px;
     font-size: 1.5em;
-    padding: 5px 15px;
-    /* Adjust padding as needed */
-    margin: 0 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
 }
 
 .container-gym-table .btn-reservation-gym:hover {
-    color: #003049;
-    background-color: #FCBF49;
-    border: 3px solid #F77F00;
+    color: var(--color-primary);
+    background-color: var(--color-warning);
+    border: 3px solid var(--color-orange);
     border-radius: 18px;
     font-size: 1.5em;
     padding: 5px 15px;
     /* Adjust padding as needed */
     margin: 0 15px;
-
     box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
 }
 
 
 /* Add styles for unreserved hours */
 .day-box .hour.unreserved {
-    color: #003049;
+    color: var(--color-primary);
     /* Change to your desired color for unreserved hours */
 }
 
@@ -600,20 +581,20 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #F77F00;
+    color: var(--color-orange);
     /* Adjust the color as needed */
 }
 
 .hour-divider {
     width: 100%;
     /* Adjust the width as needed */
-    border-top: 4px solid #F77F00;
+    border-top: 4px solid var(--color-orange);
     margin: 10px 0;
 }
 
 /* Gym Modal */
 .gym-modal-header {
-    color: #003049;
+    color: var(--color-primary);
     padding-top: 4%;
     padding-left: 4%;
 }
@@ -624,32 +605,32 @@ body {
     right: 50px;
     padding: 10px;
     /* Padding around the button */
-    color: #003049;
+    color: var(--color-primary);
 }
 
 .gym-modal {
-    background-color: #EAE2B7 !important;
+    background-color: var(--color-background) !important;
     /* Desired background color */
     font-family: "Poppins", sans-serif;
 }
 
 .gym-modal-body {
-    color: #003049;
+    color: var(--color-primary);
 }
 
 .gym-modal-body .btn-dropdown-modal {
-    background-color: #FCBF49;
-    color: var(--bg-color);
+    background-color: var(--color-warning);
+    color: var(--color-primary);
 }
 
 .btn-dropdown-modal li a {
-    color: var(--bg-color);
+    color: var(--color-primary);
 }
 
 .modal-footer .btn.btn-add-cart-gym {
-    color: var(--bg-color);
+    color: var(--color-primary);
     border: 2px solid var(--main-color);
-    background-color: #FCBF49;
+    background-color: var(--color-warning);
     color: var(--color-primary);
 }
 
@@ -670,22 +651,22 @@ body {
 }
 
 .modal-footer .btn.btn-clear-cart-gym {
-    color: #003049;
-    border: 2px solid #d62828;
-    background-color: #f77f00;
+    color: var(--color-primary);
+    border: 2px solid var(--color-danger);
+    background-color: var(--color-orange);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .modal-footer .btn.btn-add-cart-gym:hover {
-    color: #eae2b7;
+    color: var(--color-background);
     border: 2px solid var(--main-color);
-    background-color: var(--bg-color);
+    background-color: var(--color-primary);
 }
 
 .modal-footer .btn.btn-clear-cart-gym:hover {
-    color: var(--text-color);
-    border: 2px solid #d62828;
-    background-color: #003049;
+    color: var(--color-background);
+    border: 2px solid var(--color-danger);
+    background-color: var(--color-primary);
 }
 
 /* Gym Modal */
@@ -712,7 +693,7 @@ body {
 .right-column {
     flex: 0 0 calc(70% - 15px);
     /* Adjust the width as needed */
-    background-color: #dcdcdc;
+    background-color: var(--color-white);
     padding: 20px;
     box-sizing: border-box;
     margin-left: 15px;
@@ -720,7 +701,7 @@ body {
     position: absolute;
     top: 0;
     left: calc(30% + 20px);
-    border: 2px solid #003049;
+    border: 2px solid var(--color-primary);
     /* Add solid border with specified color */
 }
 
@@ -730,15 +711,15 @@ body {
 }
 
 .navbar-nav .nav-item a.profile-active {
-    color: #003049;
+    color: var(--color-primary);
     /* Text color */
-    background-color: #eae2b7;
+    background-color: var(--color-background);
     /* Background color */
     border-radius: 5px;
     /* Rounded corners */
     font-weight: bold;
     /* Bold text */
-    border: 2px solid #003049;
+    border: 2px solid var(--color-primary);
     transition: all 0.3s ease;
 }
 
@@ -759,19 +740,19 @@ body {
 }
 
 .profileview-container .left-column {
-    background-color: #003049;
+    background-color: var(--color-primary);
 }
 
 .nav-link-profile .nav-link {
     font-size: 1.2em;
-    color: #EAE2B7;
+    color: var(--color-background);
     transition: all 0.3s ease;
 }
 
 .nav-link-profile .nav-link:hover {
     font-size: 1.2em;
-    color: #003049;
-    background-color: #EAE2B7;
+    color: var(--color-primary);
+    background-color: var(--color-background);
     border-radius: 5px;
     transition: all 0.3s ease;
 }
@@ -792,12 +773,12 @@ body {
 }
 
 .head {
-    background-color: goldenrod;
+    background-color: var(--color-background);
     border-radius: 3px;
     height: 40px;
     padding: 10px;
     margin-bottom: 20px;
-    color: white;
+    color: var(--color-white);
     display: flex;
     align-items: center;
 }
@@ -807,7 +788,7 @@ body {
     justify-content: space-between;
     margin: 20px 0px;
     padding: 10px 0px;
-    border-top: 1px solid #333;
+    border-top: 1px solid var(--color-info-dark);
 }
 
 /* Cart End */
@@ -817,24 +798,24 @@ body {
 /* Home View */
 
 .row-top {
-    border: #F77F00 2px;
+    border: var(--color-orange) 2px;
     display: flex;
     /* Flexbox layout for row items */
 
 }
 
 .row-bottom {
-    border: #F77F00 2px;
+    border: var(--color-orange) 2px;
     display: flex;
     /* Flexbox layout for row items */
 }
 
 .column-left {
     flex: 1;
-    border: #003049 2px;
-    color: #EAE2B7;
+    border: var(--color-primary) 2px;
+    color: var(--color-background);
 
-    background-color: #003049;
+    background-color: var(--color-primary);
     margin-top: 15px;
     border-radius: 50px;
     max-width: calc(30% - 30px);
@@ -859,7 +840,7 @@ body {
     /* Center content vertically */
     background-color: var(--color-warning);
     flex: 1;
-    color: #EAE2B7;
+    color: var(--color-background);
     padding: 2%;
     border-radius: 50px;
     margin-left: 15px;
@@ -882,7 +863,7 @@ body {
 }
 
 .column-right .welcome-text1 {
-    color: #EAE2B7;
+    color: var(--color-background);
     /* Text color */
     background-color: var(--color-danger);
     /* Background color */
@@ -908,9 +889,9 @@ body {
 .column-right .welcome-text2 {
 
     font-size: 2em;
-    color: #EAE2B7;
+    color: var(--color-background);
     /* Text color */
-    background-color: #003049;
+    background-color: var(--color-primary);
     /* Background color */
     font-weight: bold;
     /* Bold text */
@@ -924,9 +905,9 @@ body {
 }
 
 .column-bottom {
-    border: #003049 2px;
-    color: #EAE2B7;
-    background-color: #003049;
+    border: var(--color-primary) 2px;
+    color: var(--color-background);
+    background-color: var(--color-primary);
     margin-top: 15px;
     border-radius: 50px;
     max-width: calc(80%);
@@ -981,7 +962,7 @@ body {
 .home-reservation-table h1 i {
     display: flex;
     /* Use flexbox */
-    color: #F77F00;
+    color: var(--color-orange);
 }
 
 .home-reservation-table .table-home {
@@ -991,17 +972,17 @@ body {
 }
 
 .home-reservation-table .table-home th {
-    color: #EAE2B7;
-    background-color: #003049;
-    border: 4px solid #EAE2B7;
+    color: var(--color-background);
+    background-color: var(--color-primary);
+    border: 4px solid var(--color-background);
     /* Custom border color (#ff0000 is red) and width */
     padding: 10px;
 }
 
 .home-reservation-table .table-home td {
-    color: #EAE2B7;
-    background-color: #003049;
-    border: 4px solid #EAE2B7;
+    color: var(--color-background);
+    background-color: var(--color-primary);
+    border: 4px solid var(--color-background);
     /* Custom border color (#ff0000 is red) and width */
     padding: 10px;
 }
@@ -1106,9 +1087,48 @@ li {
     color: var(--color-primary);
     background: var(--color-warning);
 }
-.container .section .card .card-body .dropdown-menu, .container .section .card .card-body .dropdown-menu li {
+.container .section .card .card-body .dropdown-menu, .container .section .card .card-body .dropdown-menu a{
     background: var(--color-warning);
     color: var(--color-primary);
+    overflow: hidden;
+}
+.container .section .card .card-body .dropdown-menu a:hover {
+    background: var(--color-background);
+    color: var(--color-primary);
+    /* border: 1px solid var(--color-primary); */
+    transform: translate(-5px);
+    transition: all 300ms ease;
+}
+.container .section .card .footer.button a{
+    padding: auto;
+}
+.container .section .card .footer.button a.btn-clear{
+    color: var(--color-primary);
+    background-color: var(--color-orange);
+    border: 3px solid var(--color-danger);
+    transform: translate(-5px);
+}
+
+.container .section .card .footer.button a.btn-clear:hover{
+    color: var(--color-background);
+    background-color: var(--color-primary);
+    border: 3px solid var(--color-background);
+    transform: translate(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+}
+
+.container .section .card .footer.button a.btn-add{
+    color: var(--color-primary);
+    background-color: var(--color-warning);
+    border: 3px solid var(--color-orange);
+    transform: translate(5px);
+}
+.container .section .card .footer.button a.btn-add:hover{
+    color: var(--color-background);
+    background-color: var(--color-primary);
+    border: 3px solid var(--color-background);
+    transform: translate(5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
 }
 
 @media (max-width: 1024px) {
@@ -1119,20 +1139,20 @@ li {
 
     .banner-dorm h1.banner-name {
         font-size: 5rem;
-        color: #eae2b7;
+        color: var(--color-background);
         margin-top: 75px !important;
         transition: all .50s ease;
     }
 
     .banner-gym h1.banner-name {
         font-size: 5rem;
-        color: #eae2b7;
+        color: var(--color-background);
         transition: all .50s ease;
         margin-top: 75px !important;
     }
 
     .banner-dorm .btn {
-        color: #003049;
+        color: var(--color-primary);
         padding: 10px 15px;
         border-width: 5px;
         border-color: var(--color-warning) !important;
@@ -1241,8 +1261,8 @@ li {
         min-height: 65vh;
         max-width: 1200px;
         width: auto;
-        background: #eae2b7;
-        border: 3px solid #003049;
+        background: var(--color-background);
+        border: 3px solid var(--color-primary);
     }
 }
 
@@ -1260,18 +1280,18 @@ li {
 
     .banner-dorm h1.banner-name {
         font-size: 5rem;
-        color: #eae2b7;
+        color: var(--color-background);
         transition: all .50s ease;
     }
 
     .banner-gym h1.banner-name {
         font-size: 5rem;
-        color: #eae2b7;
+        color: var(--color-background);
         transition: all .50s ease;
     }
 
     .banner-dorm .btn {
-        color: #003049;
+        color: var(--color-primary);
         padding: 10px 15px;
         border-width: 5px;
         border-color: var(--color-warning) !important;
@@ -1378,8 +1398,8 @@ li {
         min-height: 65vh;
         max-width: 1200px;
         width: auto;
-        background: #eae2b7;
-        border: 3px solid #003049;
+        background: var(--color-background);
+        border: 3px solid var(--color-primary);
     }
 }
 
@@ -1387,18 +1407,18 @@ li {
 
     .banner-dorm h1.banner-name {
         font-size: 3rem;
-        color: #eae2b7;
+        color: var(--color-background);
         transition: all .50s ease;
     }
 
     .banner-gym h1.banner-name {
         font-size: 3rem;
-        color: #eae2b7;
+        color: var(--color-background);
         transition: all .50s ease;
     }
 
     .banner-dorm .btn {
-        color: #003049;
+        color: var(--color-primary);
         padding: 10px 15px;
         border-width: 5px;
         border-color: var(--color-warning) !important;
@@ -1471,7 +1491,7 @@ li {
     }
 
     .navbar {
-        background-color: #003049;
+        background-color: var(--color-primary);
     }
 
     .main .navbar-nav .nav-item a {
@@ -1522,8 +1542,8 @@ li {
         min-height: 65vh;
         max-width: 1200px;
         width: auto;
-        background: #eae2b7;
-        border: 3px solid #003049;
+        background: var(--color-background);
+        border: 3px solid var(--color-primary);
     }
 
     .input-field input::placeholder {
@@ -1548,18 +1568,18 @@ li {
 @media (max-width: 480px) {
     .banner-dorm h1.banner-name {
         font-size: 2.5rem;
-        color: #eae2b7;
+        color: var(--color-background);
         transition: all .50s ease;
     }
 
     .banner-gym h1.banner-name {
         font-size: 2.5rem;
-        color: #eae2b7;
+        color: var(--color-background);
         transition: all .50s ease;
     }
 
     .banner-dorm .btn {
-        color: #003049;
+        color: var(--color-primary);
         padding: 10px 15px;
         border-width: 5px;
         border-color: var(--color-warning) !important;
@@ -1633,7 +1653,7 @@ li {
 
     .navbar {
         display: flex;
-        background-color: #003049;
+        background-color: var(--color-primary);
     }
 
     .main .navbar-nav .nav-item a {
@@ -1685,8 +1705,8 @@ li {
         min-height: 65vh;
         max-width: 1200px;
         width: auto;
-        background: #eae2b7;
-        border: 3px solid #003049;
+        background: var(--color-background);
+        border: 3px solid var(--color-primary);
     }
 
     .input-field input::placeholder {

@@ -77,7 +77,7 @@
                         <!-- Availability -->
                         <div class="row mt-1">
                             <div class="col-md-6">
-                                <p>Availability: 8 beds</p>
+                                <p>Availability: <b style="color: #f77f00">8 beds</b></p>
                             </div>
                         </div>
                     </div>
@@ -108,9 +108,9 @@
                 </div>
             </div>
             <hr>
-            <div class="text-center">
-                <a class="btn btn-info btn-lg rounded btn-block mb-3" data-mdb-ripple-init>Clear</a>
-                <a class="btn btn-info btn-lg rounded btn-block mb-3" data-mdb-ripple-init data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight">Add to Cart</a>
+            <div class="text-center footer button">
+                <a class="btn btn-info btn-lg rounded btn-block mb-3 btn-clear" data-mdb-ripple-init>Clear</a>
+                <a class="btn btn-info btn-lg rounded btn-block mb-3 btn-add" data-mdb-ripple-init data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight">Add to Cart</a>
             </div>
         </div>
 
@@ -193,7 +193,7 @@
                         <!-- Availability -->
                         <div class="row mt-1">
                             <div class="col-md-6">
-                                <p>Availability: 8 beds</p>
+                                <p>Availability: <b style="color: #f77f00">8 beds</b></p>
                             </div>
                         </div>
                     </div>
@@ -224,9 +224,9 @@
                 </div>
             </div>
             <hr>
-            <div class="text-center">
-                <a class="btn btn-info btn-lg rounded btn-block mb-3" data-mdb-ripple-init>Clear</a>
-                <a class="btn btn-info btn-lg rounded btn-block mb-3" data-mdb-ripple-init data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight">Add to Cart</a>
+            <div class="text-center footer button">
+                <a class="btn btn-info btn-lg rounded btn-block mb-3 btn-clear" data-mdb-ripple-init>Clear</a>
+                <a class="btn btn-info btn-lg rounded btn-block mb-3 btn-add" data-mdb-ripple-init data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight">Add to Cart</a>
             </div>
         </div>
 
