@@ -144,6 +144,11 @@ body {
     align-items: center;
 }
 
+.custom-toggler {
+    background-color: var(--color-background) !important; 
+    border-color: var(--color-background) !important; 
+  
+}
 
 .user {
     display: flex;
@@ -500,11 +505,9 @@ body {
     border-radius: 18px;
     font-size: 1.5em;
     padding: 5px 15px;
-    /* Adjust padding as needed */
     margin: 0 15px;
-
     box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
-    transform: translate(-12px);
+    justify-content: flex-start;
 }
 
 .container-gym-table .btn-calendar-gym {
@@ -514,20 +517,17 @@ body {
     border-radius: 18px;
     font-size: 1.5em;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
-    transform: translate(-10px);
+    justify-content: flex-end;
 }
 
 .button-container {
     position: absolute;
     top: 35px;
-    /* Adjust top spacing as needed */
     right: 20px;
-    /* Adjust right spacing as needed */
     display: flex;
-    justify-content: flex-end;
-    /* Align buttons to the right */
     margin-bottom: 20px;
 }
+
 .container-gym-table .btn-calendar-gym:valid {
     color: var(--color-background);
     background-color: var(--color-primary);

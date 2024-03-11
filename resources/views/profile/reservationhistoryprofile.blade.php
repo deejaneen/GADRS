@@ -3,7 +3,7 @@
 @section('profileview')
     <div class="profileview-container">
         <div class="left-column">
-           <div class="card-body pt-3">
+           <div class="card-body pt-3">z
             <ul class="nav nav-link-profile flex-column fw-bold gap-2">
                 <li class="nav-item">
                     <a href="{{route('profile')}}" class="nav-link">ACCOUNT DETAILS</a>
