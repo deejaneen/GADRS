@@ -451,8 +451,6 @@ body {
     flex-wrap: wrap;
     justify-content: space-around;
     background-color: var(--color-primary);
-    /* Blue background color */
-    /* Optional: Add border-radius for rounded corners */
     padding: 1%;
     padding-top: 0%;
 
@@ -544,22 +542,17 @@ body {
     border-radius: 18px;
     font-size: 1.5em;
     padding: 5px 15px;
-    /* Adjust padding as needed */
     margin: 0 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
 }
 
 
-/* Add styles for unreserved hours */
 .day-box .hour.unreserved {
     color: var(--color-primary);
-    /* Change to your desired color for unreserved hours */
 }
 
-/* Add styles for reserved hours */
 .day-box .hour.reserved {
     color: rgb(156, 2, 2);
-    /* Change to your desired color for reserved hours */
 }
 
 #reservation-section {
@@ -591,8 +584,8 @@ body {
     border-top: 4px solid var(--color-orange);
     margin: 10px 0;
 }
+/* ======================= Gym Modal =======================*/
 
-/* Gym Modal */
 .gym-modal-header {
     color: var(--color-primary);
     padding-top: 4%;
@@ -604,13 +597,11 @@ body {
     top: 50px;
     right: 50px;
     padding: 10px;
-    /* Padding around the button */
     color: var(--color-primary);
 }
 
 .gym-modal {
     background-color: var(--color-background) !important;
-    /* Desired background color */
     font-family: "Poppins", sans-serif;
 }
 
@@ -669,12 +660,11 @@ body {
     background-color: var(--color-primary);
 }
 
-/* Gym Modal */
+/* ======================= Profile View =======================*/
 
 /* Gym Table */
 
-/* Profile View */
-
+/* ======================= Profile View =======================*/
 .profileview-container {
     display: flex;
     flex-wrap: wrap;
@@ -682,28 +672,113 @@ body {
 }
 
 .left-column {
-    flex: 0 0 calc(30% - 15px);
-    /* Adjust the width as needed */
+    /* width: 400px;
+    background-color: var(--color-primary);
+    font-family: "Poppins", sans-serif;
+    height: 45vh; */
+    flex: 0 0 calc(35% - 15px);
     padding: 20px;
     box-sizing: border-box;
     margin-right: 15px;
-    /* Adjust the margin as needed */
+    height: auto;
+}
+
+.left-column .logo{
+  display: flex;
+  gap: 0.8rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.left-column .close{
+    display: none;
+}
+.left-column .sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    top: 3rem;
+}
+.left-column h3 {
+    font-size: 1.8rem;
+    font-family: "Poppins", sans-serif;
+    margin-bottom: 0;
+}
+
+.sidebar a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    height: 5.5rem;
+    transition: all 300ms ease;
+
+}
+.sidebar a .ri-key-2-line,
+.sidebar a .ri-user-line,
+.sidebar a .ri-receipt-line,
+.sidebar a .ri-logout-box-r-line {
+    display: flex;
+    align-items: center;
+    margin-left: 2rem;
+    color: var(--color-background);
+    gap: 1rem;
+    text-decoration: none;
+    height: 5.5rem;
+    transition: all 300ms ease;
+    position: relative;
+    transition: all 300ms ease;
+}
+.left-column .sidebar a span {
+    font-size: 3rem;
+    transition: all 300ms ease;
+}
+
+.left-column .sidebar a.active{
+    background:var(--color-light);
+    color: var(--color-primary);
+}
+.left-column .sidebar a.active:before {
+    content: "";
+    margin-left: 2px;
+    width: 6px;
+    height: 100%;
+    background: var(--color-background);
+}
+.left-column .sidebar a.active span {
+    color: var(--color-background);
+    margin-left: calc(1rem-3px);
+}
+.left-column .sidebar a:hover {
+    color: var(--color-danger);
+}
+.left-column .sidebar a:hover span {
+    margin-left: 0.5rem;
 }
 
 .right-column {
-    flex: 0 0 calc(70% - 15px);
-    /* Adjust the width as needed */
-    background-color: var(--color-white);
+    display: grid;
+    flex: 0 0 calc(65% - 15px);
+    background-color: var(--color-background);
     padding: 20px;
     box-sizing: border-box;
     margin-left: 15px;
-    /* Adjust the margin as needed */
-    position: absolute;
     top: 0;
     left: calc(30% + 20px);
     border: 2px solid var(--color-primary);
-    /* Add solid border with specified color */
 }
+.right-column .img-circle {
+    margin-bottom: 0;
+}
+.right-column .img-circle img{
+    border: 12px solid var(--color-primary);
+    border-radius: 50%;
+    width: 10rem;
+    height: 10rem;
+ 
+}
+
+/* ======================= Profile View =======================*/
 
 .navbar-nav .nav-item a {
     text-decoration: none;
@@ -792,8 +867,6 @@ body {
 }
 
 /* Cart End */
-
-/* Profile View */
 
 /* Home View */
 
