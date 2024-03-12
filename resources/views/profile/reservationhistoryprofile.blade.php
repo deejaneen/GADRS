@@ -27,35 +27,66 @@
         </div>
     </div>
     <div class="right-column reservation">
-        <div class="img-circle text-center">
-            <img src="{{ asset('images/avatar.png') }}" alt="">
-        </div>
-        <hr>
-        <button class="btn btn-primary btn-edit-profile">
-            <span class="ri-pencil-line"></span>Edit
-        </button>
+        <div class="recent-orders">
+            <h2>Recent Orders</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Product Number</th>
+                        <th>Payment</th>
+                        <th>Status</th>
+                        <th></th>
 
-        <div class="inputBox firstname">
-            <input type="text">
-            <span>First Name</span>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Fdhsajkdakdh</td>
+                        <td>Adska</td>
+                        <td>Due</td>
+                        <td class="warning">Pending</td>
+                        <td class="warning-orange">Details</td>
+                    </tr>
+                    <tr>
+                        <td>Fdhsajkdakdh</td>
+                        <td>Adska</td>
+                        <td>Due</td>
+                        <td class="warning">Pending</td>
+                        <td class="warning-orange">Details</td>
+                    </tr>
+                    <tr>
+                        <td>Fdhsajkdakdh</td>
+                        <td>Adska</td>
+                        <td>Due</td>
+                        <td class="warning">Pending</td>
+                        <td class="warning-orange">Details</td>
+                    </tr>
+                    <tr>
+                        <td>Fdhsajkdakdh</td>
+                        <td>Adska</td>
+                        <td>Due</td>
+                        <td class="warning">Pending</td>
+                        <td class="warning-orange">Details</td>
+                    </tr>
+                    <tr>
+                        <td>Fdhsajkdakdh</td>
+                        <td>Adska</td>
+                        <td>Due</td>
+                        <td class="warning">Pending</td>
+                        <td class="warning-orange">Details</td>
+                    </tr>
+                    <tr>
+                        <td>Fdhsajkdakdh</td>
+                        <td>Adska</td>
+                        <td>Due</td>
+                        <td class="warning">Pending</td>
+                        <td class="warning-orange">Details</td>
+                    </tr>
+                </tbody>
+            </table>
+            <a href="#">Show All</a>
         </div>
-        <div class="inputBox middlename">
-            <input type="text">
-            <span>Middle Name</span>
-        </div>
-        <div class="inputBox lastname">
-            <input type="text">
-            <span>Last Name</span>
-        </div>
-        <div class="inputBox email">
-            <input type="text">
-            <span>Email</span>
-        </div>
-        <div class="inputBox contact-number">
-            <input type="text">
-            <span>Contact Number</span>
-        </div>
-        <button class="btn-save-profile-changes btn btn-primary">Save Changes</button>
     </div>
 
 </div>

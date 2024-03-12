@@ -30,17 +30,17 @@
             <h3 class="profile-title">Change your password</h3>
 
             <div class="inputBox current-password">
-                <input type="text">
+                <input type="password">
                 <span>Current Password</span>
             </div>
             <hr>
             <a href="#" class="forgot-password">Forgot Password?</a>
             <div class="inputBox new-password">
-                <input type="text">
+                <input type="password">
                 <span>New Password</span>
             </div>
             <div class="inputBox confirm-password">
-                <input type="text">
+                <input type="password">
                 <span>Confirm Password</span>
             </div>
             <button class="btn-save-password-changes btn btn-primary">Save</button>
