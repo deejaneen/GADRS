@@ -890,7 +890,7 @@ body {
 
 /* ======================= Profile Password View =======================*/
 .right-column.password {
-    grid-template-rows: 60px 60px 30px 60px 60px;
+    grid-template-rows: 60px 60px 30px 60px 70px 30px;
 }
 .right-column.password h3{
     grid-row: 1;
@@ -942,6 +942,7 @@ body {
     background: var(--color-primary);
     color: var(--color-background);
     width: fit-content;
+    height: min-content;
 
 }
 .right-column .btn-save-password-changes:hover {
