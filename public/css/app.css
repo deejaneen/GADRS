@@ -199,6 +199,32 @@ b {
     align-items: center;
 }
 
+.navbar-nav .nav-item a {
+    text-decoration: none;
+
+}
+.navbar-nav .nav-item a.profile-active {
+    color: var(--color-primary);
+    /* Text color */
+    background-color: var(--color-background);
+    /* Background color */
+    border-radius: 5px;
+    /* Rounded corners */
+    font-weight: bold;
+    /* Bold text */
+    border: 2px solid var(--color-primary);
+    transition: all 0.3s ease;
+}
+.nav-item a.login-active {
+    color: var(--color-orange) !important;
+    border: 1px solid var(--color-background);
+    /* Specify border style */
+    border-radius: 8px;
+    transition: all .3s ease;
+    padding: 10px 20px;
+    /* Adjust padding to increase the width of the border */
+}
+
 .custom-toggler {
     background-color: var(--color-background) !important;
     border-color: var(--color-background) !important;
@@ -214,14 +240,6 @@ b {
     color: var(--color-orange);
     font-size: 28px;
     margin-right: 7px;
-}
-
-#menu-icon {
-    font-size: 35px;
-    color: var(--color-background);
-    cursor: pointer;
-    z-index: 10001;
-    display: none;
 }
 
 .no-underline {
