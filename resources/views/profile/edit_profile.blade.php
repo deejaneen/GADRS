@@ -30,9 +30,15 @@
             @csrf
             @method('put')
             <div class="right-column profile">
-                <div class="img-circle text-center">
-                    <img src="{{ asset('images/avatar.png') }}" alt="">
+                <input id="imageUpload" name="profile_image" type="file" class="form-control" style="display: none;">
+                <div class="img-circle text-center" onclick="document.getElementById('imageUpload').click()">
+                    <img id="previewImage" src="{{ $user->getImageURL() }}" alt="">
+                    <span class="ri-camera-line"></span>
                 </div>
+
+                @error('profile_image')
+                    <span class="text-danger fs-6">{{ $message }}</span>
+                @enderror
                 <hr>
 
                 <div class="inputBox firstname">
@@ -42,7 +48,7 @@
                         <span class="text-danger fs-6">{{ $message }}</span>
                     @enderror
                 </div>
-                <div class="inputBox middlename" >
+                <div class="inputBox middlename">
                     <input type="text" value="{{ $user->middle_name }}" name="middle_name">
                     <span>Middle Name</span>
                     @error('middle_name')
@@ -72,7 +78,20 @@
                 </div>
                 <button class="btn-save-profile-changes btn btn-primary">Save Changes</button>
             </div>
-
+        </form>
     </div>
-    </form>
 @endsection
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#imageUpload').change(function(e) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                $('#previewImage').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(this.files[0]);
+        });
+    });
+</script>

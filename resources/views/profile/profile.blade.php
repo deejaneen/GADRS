@@ -28,8 +28,8 @@
         </div>
         <div class="right-column profile" @readonly(true)>
             <div class="img-circle text-center">
-                <img src="{{ asset('images/avatar.png') }}" alt="">
-                <span class="ri-camera-line"></span>
+                 <img src="{{ $user->getImageURL() }}" alt="">
+
             </div>
             <hr>
             <a href="{{ route('users.edit', $user->id) }}" class="btn btn-primary btn-edit-profile">

@@ -46,4 +46,12 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function getImageURL(){
+        if($this->profile_image){
+            return url('storage/'.$this->profile_image);
+        }
+
+        return 'https://api.dicebear.com/6.x/fun-emoji/svg?seed={$this->first_name}';
+    }
 }
