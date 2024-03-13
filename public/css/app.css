@@ -929,8 +929,10 @@ b {
     text-transform: uppercase;
 }
 
-.right-column .inputBox input:valid ~ span, 
-.right-column .inputBox input:focus ~ span {
+/* Apply styles to valid or focused input and disabled input */
+.right-column .inputBox input:valid ~ span,
+.right-column .inputBox input:focus ~ span,
+.right-column .inputBox input:disabled ~ span {
     color: var(--color-primary);
     transform: translateX(10px) translateY(-7px);
     font-size: 0.65em;
@@ -940,7 +942,7 @@ b {
     border-right: 1px solid var(--color-primary);
     letter-spacing: 0.2em;
 }
-.right-column .inputBox input:valid, 
+.right-column .inputBox input:valid,
 .right-column .inputBox input:focus {
 
     border: 1px solid var(--color-primary);
