@@ -832,14 +832,15 @@ b {
 }
 
 .right-column .img-circle {
-
     margin-bottom: 0;
     grid-row: 1;
     grid-column: 3 / span 2;
     position: relative;
     width: 10rem; 
     height: 10rem;
-    
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);   
 }
 
 .right-column .img-circle img {
