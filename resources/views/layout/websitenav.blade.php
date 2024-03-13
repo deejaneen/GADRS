@@ -25,19 +25,20 @@
                  <ul class="navbar-nav mx-auto">
                      @auth()
                      <li class="nav-item">
-                         <a href="{{ route('profile') }}" class="{{(Route::is('profile')) ? 'active' : '' }}{{(Route::is('passwordprofile')) ? 'active' : '' }}{{(Route::is('reservationhistoryprofile')) ? 'active' : '' }} user no-underline"><i class="ri-user-fill"></i>{{ Auth::user()->first_name }}</a>
+                         <a href="{{ route('profile') }}" class="{{(Route::is('profile')) ? 'active' : '' }}{{(Route::is('passwordprofile')) ? 'active' : '' }}{{(Route::is('reservationhistoryprofile')) ? 'active' : '' }}{{(Route::is('users.edit')) ? 'active' : '' }} user no-underline"><i class="ri-user-fill"></i>{{ Auth::user()->first_name }}</a>
                      </li>
+                     @endauth
                      <li class="nav-item ">
                          <form action="{{ route('logout')}}" method="POST">
                              @csrf
-                             <!-- <a href="{{ route('logout') }}" class="{{(Route::is('logout')) ? 'active' : '' }} no-underline logout">LOGOUT<i class="ri-logout-circle-r-line"></i></a> -->
+
                              <button class="no-underline logout btn btn-danger btn-md" type="submit">
                                  LOGOUT<i class="ri-logout-circle-r-line"></i>
                              </button>
                          </form>
 
                      </li>
-                     @endauth
+
                  </ul>
              </div>
          </div>
