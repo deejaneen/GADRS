@@ -1,0 +1,101 @@
+.main .navbar-nav li button {
+    background-color: var(--color-primary);
+    font-size: 1.5em;
+    color: var(--color-background);
+    border: none;
+    font-weight: bold;
+}
+
+.main .navbar-nav li button {
+    background-color: var(--color-primary);
+    font-size: 1.5em;
+    color: var(--color-background);
+    border: none;
+    font-weight: bold;
+}
+
+.main .navbar-nav li button {
+    background-color: var(--color-primary);
+    font-size: 1.5em;
+    color: var(--color-background);
+    border: none;
+    font-weight: bold;
+}
+
+.navbar a.navbar-brand img {
+    height: 4rem;
+}
+
+.navbar a.navbar-brand {
+    display: flex;
+    align-items: center;
+    color: var(--color-background);
+    font-size: 2.5rem;
+    font-weight: 900;
+    letter-spacing: 6px;
+    text-decoration: none;
+}
+
+.navbar {
+    background-color: var(--color-primary);
+}
+
+.navbar a {
+    color: var(--color-background);
+    font-size: 1.6rem;
+    margin: 0px 30px 0px 0px;
+    transition: all .50s ease;
+}
+
+.navbar .logout {
+    margin: 0%;
+}
+
+.navbar a:hover {
+    color: var(--color-orange);
+}
+
+.navbar a.active {
+    color: var(--color-orange) !important;
+    border: 1px solid var(--color-background);
+    /* Specify border style */
+    border-radius: 8px;
+    transition: all .3s ease;
+    padding: 10px 20px;
+    /* Adjust padding to increase the width of the border */
+}
+
+.navbar .navbar-nav {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-nav .nav-item a {
+    text-decoration: none;
+
+}
+.navbar-nav .nav-item a.profile-active {
+    color: var(--color-primary);
+    /* Text color */
+    background-color: var(--color-background);
+    /* Background color */
+    border-radius: 5px;
+    /* Rounded corners */
+    font-weight: bold;
+    /* Bold text */
+    border: 2px solid var(--color-primary);
+    transition: all 0.3s ease;
+}
+.nav-item a.login-active {
+    color: var(--color-orange) !important;
+    border: 1px solid var(--color-background);
+    border-radius: 8px;
+    transition: all .3s ease;
+    padding: 10px 20px;
+ }
+
+.custom-toggler {
+    background-color: var(--color-background) !important;
+    border-color: var(--color-background) !important;
+
+}
