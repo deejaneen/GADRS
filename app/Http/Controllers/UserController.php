@@ -4,7 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
+
+use function Laravel\Prompts\password;
 
 class UserController extends Controller
 {
@@ -53,5 +57,29 @@ class UserController extends Controller
     public function profile()
     {
         return $this->show(auth()->user());
+    }
+
+    public function updatePassword(Request $request)
+    {
+        // Validate the request data
+        $request->validate([
+            'current_password' => 'required',
+            'new_password' => 'required|min:8', 
+            'confirm_password' => 'required|same:new_password',
+        ]);
+
+        // Get the authenticated user
+        $user = Auth::user();
+
+        // Check if the current password matches the one provided
+        if (!Hash::check($request->current_password, $user->password)) {
+            return redirect()->back()->withErrors(['current_password' => 'The current password is incorrect.']);
+        }
+
+        $user->password = Hash::make($request->new_password);
+        $user->save();
+
+
+        return redirect()->route('passwordprofile')->with('success', 'Password updated successfully.');
     }
 }
