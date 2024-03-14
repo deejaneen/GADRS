@@ -26,9 +26,7 @@ Route::get('/dorm', function () {
     return view('dorm');
 })->name('dorm');
 
-Route::get('/passwordprofile', function () {
-    return view('../profile/passwordprofile');
-})->name('passwordprofile');
+
 Route::get('/reservationhistoryprofile', function () {
     return view('../profile/reservationhistoryprofile');
 })->name('reservationhistoryprofile');
@@ -58,3 +56,9 @@ Route::get('/cart_check', function () {
 Route::resource('users', UserController::class)->only('show', 'edit', 'update')->middleware('auth');
 
 Route::get('profile', [UserController::class, 'profile'])->middleware('auth')->name('profile');
+
+Route::get('/passwordprofile', function () {
+    return view('profile.passwordprofile');
+})->name('passwordprofile');
+
+Route::post('/passwordprofile/update-password', [UserController::class, 'updatePassword'])->name('update_password');
