@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,12 +26,7 @@ Route::get('/dorm', function () {
     return view('dorm');
 })->name('dorm');
 
-Route::get('/profile', function () {
-    return view('../profile/profile');
-})->name('profile');
-Route::get('/passwordprofile', function () {
-    return view('../profile/passwordprofile');
-})->name('passwordprofile');
+
 Route::get('/reservationhistoryprofile', function () {
     return view('../profile/reservationhistoryprofile');
 })->name('reservationhistoryprofile');
@@ -52,7 +48,6 @@ Route::post('/login', [AuthController::class, 'authenticate']);
 
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-
 Route::get('/cart_check', function () {
     return view('cart_checkout');
 })->name('cart_check');
@@ -61,3 +56,13 @@ Route::get('/newloginlayout', function () {
     return view('auth.newlogin');
 })->name('newloginlayout');
 
+
+Route::resource('users', UserController::class)->only('show', 'edit', 'update')->middleware('auth');
+
+Route::get('profile', [UserController::class, 'profile'])->middleware('auth')->name('profile');
+
+Route::get('/passwordprofile', function () {
+    return view('profile.passwordprofile');
+})->name('passwordprofile');
+
+Route::post('/passwordprofile/update-password', [UserController::class, 'updatePassword'])->name('update_password');

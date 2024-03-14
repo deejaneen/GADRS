@@ -26,50 +26,42 @@
                 </a>
             </div>
         </div>
-        <div class="right-column password">
-            <h3 class="profile-title">Change your password</h3>
+        @auth
+            <form action="{{ route('update_password') }}" id="change_password_form" method="post">
+                @csrf
+                @method('post')
+                <div class="right-column password">
+                    <h3 class="profile-title">Change your password</h3>
 
-            <div class="inputBox current-password">
-                <input type="password">
-                <span>Current Password</span>
-            </div>
-            <hr>
-            <a href="#" class="forgot-password">Forgot Password?</a>
-            <div class="inputBox new-password">
-                <input type="password">
-                <span>New Password</span>
-            </div>
-            <div class="inputBox confirm-password">
-                <input type="password">
-                <span>Confirm Password</span>
-            </div>
-            <button class="btn-save-password-changes btn btn-primary">Save</button>
-        </div>
+                    <div class="inputBox current-password">
+                        <input type="password" name="current_password" id="current_password">
+                        <span>Current Password</span>
+                        @if ($errors->any('current_password'))
+                            <span>{{ $errors->first('current_password') }}</span>
+                        @endif
+                    </div>
+                    <hr>
+                    <a href="#" class="forgot-password">Forgot Password?</a>
+                    <div class="inputBox new-password">
+                        <input type="password" name="new_password" id="new_password">
+                        <span>New Password</span>
+                        @if ($errors->any('new_password'))
+                            <span>{{ $errors->first('new_password') }}</span>
+                        @endif
+                    </div>
 
-        {{-- <div class="left-column">
-           <div class="card-body pt-3">
-            <ul class="nav nav-link-profile flex-column fw-bold gap-4">
-                <li class="nav-item">
-                    <a href="{{route('profile')}}" class="nav-link">ACCOUNT DETAILS</a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{route('passwordprofile')}}" class="{{(Route::is('passwordprofile')) ? 'profile-active' : '' }} nav-link">PRIVACY AND SECURITY</a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{route('reservationhistoryprofile')}}" class="nav-link">RESERVATION HISTORY</a>
-                </li>
-            </ul>
-           </div>
-        </div>
-        <div class="right-column">
-            <!-- Content for the right column goes here -->
-            <h2>Right Column</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec velit eu est eleifend viverra. Nullam
-                euismod nulla id bibendum accumsan. Mauris suscipit consectetur tellus.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec velit eu est eleifend viverra. Nullam
-                euismod nulla id bibendum accumsan. Mauris suscipit consectetur tellus.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec velit eu est eleifend viverra. Nullam
-                euismod nulla id bibendum accumsan. Mauris suscipit consectetur tellus.</p>
-        </div> --}}
+                    <div class="inputBox confirm-password">
+                        <input type="password" name="confirm_password" id="confirm_password">
+                        <span>Confirm Password</span>
+                        @if ($errors->any('confirm_password'))
+                            <span>{{ $errors->first('confirm_password') }}</span>
+                        @endif
+                    </div>
+                    <button class="btn-save-password-changes btn btn-primary" type="submit">Save</button>
+                </div>
+            </form>
+
+        @endauth
+
     </div>
 @endsection

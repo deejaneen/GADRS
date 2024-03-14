@@ -914,23 +914,49 @@ b {
 }
 .right-column.profile {
     grid-template-rows: auto 20px 20px 30px 40px 20px 40px 30px 50px 20px 50px;
+
 }
 
 .right-column .img-circle {
     margin-bottom: 0;
     grid-row: 1;
     grid-column: 3 / span 2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: relative;
+    width: 10rem; 
+    height: 10rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);   
 }
 
 .right-column .img-circle img {
     border: 12px solid var(--color-primary);
     border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the image covers the entire container */
+}
+
+.right-column .img-circle span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    color: var(--color-background); 
+    background: rgba(0, 0, 0, 0.5); 
+    border-radius: 50%; 
     width: 10rem;
     height: 10rem;
+    font-size: 6em;
+}
 
+.right-column .img-circle:hover span {
+    opacity: 1;
 }
 
 .right-column hr {
@@ -1015,8 +1041,10 @@ b {
     text-transform: uppercase;
 }
 
-.right-column .inputBox input:valid ~ span, 
-.right-column .inputBox input:focus ~ span {
+/* Apply styles to valid or focused input and disabled input */
+.right-column .inputBox input:valid ~ span,
+.right-column .inputBox input:focus ~ span,
+.right-column .inputBox input:disabled ~ span {
     color: var(--color-primary);
     transform: translateX(10px) translateY(-7px);
     font-size: 0.65em;
@@ -1026,7 +1054,7 @@ b {
     border-right: 1px solid var(--color-primary);
     letter-spacing: 0.2em;
 }
-.right-column .inputBox input:valid, 
+.right-column .inputBox input:valid,
 .right-column .inputBox input:focus {
 
     border: 1px solid var(--color-primary);

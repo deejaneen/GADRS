@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use Illuminate\Support\Facades\Hash;
+
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -22,7 +24,9 @@ class User extends Authenticatable
         'first_name',
         'middle_name',
         'email',
+        'contact_number',
         'password',
+        'profile_image',
     ];
 
     /**
@@ -44,4 +48,19 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function getImageURL()
+    {
+        if ($this->profile_image) {
+            return url('storage/' . $this->profile_image);
+        }
+
+        return 'https://api.dicebear.com/6.x/fun-emoji/svg?seed={$this->first_name}';
+    }
+
+    public function updatePassword(string $newPassword)
+    {
+        $this->password = Hash::make($newPassword);
+        $this->save();
+    }
 }

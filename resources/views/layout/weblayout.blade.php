@@ -37,9 +37,21 @@
 
 <body>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     {{-- Navbar --}}
     @include('layout.websitenav')
     @yield('secondary_nav')
+    @if (session('success'))
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Success!',
+                text: '{{ session('success') }}',
+                showConfirmButton: false,
+                timer: 1500
+            });
+        </script>
+    @endif
     @yield('banner')
 
 
@@ -63,7 +75,20 @@
     </script>
     <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script type="text/javascript">
+        window.baseUrl = "{{ URL::to('/') }}";
+        @if (session('success'))
+            toastr.success('{{ session('success') }}', 'Success', {
+                timeOut: 5000
+            });
+        @endif
 
+        @if (session('error'))
+            toastr.error('{{ session('error') }}', 'Error', {
+                timeOut: 5000
+            });
+        @endif
+    </script>
     <script>
         $(document).ready(function() {
             // toogle button click event
