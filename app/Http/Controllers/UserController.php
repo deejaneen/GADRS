@@ -64,7 +64,7 @@ class UserController extends Controller
         // Validate the request data
         $request->validate([
             'current_password' => 'required',
-            'new_password' => 'required|min:8', 
+            'new_password' => 'required|min:8',
             'confirm_password' => 'required|same:new_password',
         ]);
 

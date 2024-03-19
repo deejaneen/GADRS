@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\GymController;
 use App\Http\Controllers\UserController;
 
 /*
@@ -19,9 +21,7 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-Route::get('/gym', function () {
-    return view('gym');
-})->name('gym');
+
 Route::get('/dorm', function () {
     return view('dorm');
 })->name('dorm');
@@ -62,3 +62,10 @@ Route::get('/passwordprofile', function () {
 })->name('passwordprofile');
 
 Route::post('/passwordprofile/update-password', [UserController::class, 'updatePassword'])->name('update_password');
+
+Route::get('/gym', function () {
+    return view('gym');
+})->name('gym');
+
+
+Route::post('/cart', [CartController::class, 'addToCart'])->name('cart.add');

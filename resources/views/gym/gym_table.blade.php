@@ -5,8 +5,7 @@
                 <button type="button" class="btn btn-reservation-gym" data-bs-toggle="modal" data-bs-target="#myModal">
                     Book Reservation
                 </button>
-                <input type="date" class="btn btn-calendar-gym">
-                </input>
+                <input type="date" id="datePicker" class="btn btn-calendar-gym" min="<?php echo date('Y-m-d'); ?>">
             </div>
             <h1 id="month-heading" class="h1 text-center"></h1>
             <div class="day-container" id="week-container">
@@ -30,8 +29,9 @@
         // Get the container elements
         let weekContainer = document.getElementById("week-container");
         let monthHeading = document.getElementById("month-heading");
-        let dateDropdown = document.getElementById("date-dropdown");
+        let dateInput = document.querySelector(".btn-calendar-gym");
         let modalTitle = document.getElementById("exampleModalLabel");
+        let selectedDateInput = document.getElementById("selectedDateText");
 
         // Set the heading to the current month
         let monthOptions = {
@@ -40,82 +40,130 @@
         let currentMonth = currentDate.toLocaleDateString('en-US', monthOptions);
         monthHeading.textContent = currentMonth;
 
-        // Days of the week
-        let daysOfWeek = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SUN'];
+        // Function to update the table based on selected date
+        function updateTable(selectedDate) {
+            // Clear the week container
+            weekContainer.innerHTML = '';
 
-        // Loop through the next 7 days
-        for (let i = 0; i < 7; i++) {
-            // Calculate the date for the current day
-            let currentDay = new Date();
-            currentDay.setDate(currentDate.getDate() + i);
+            // Days of the week
+            let daysOfWeek = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SUN'];
 
-            // Format the date with the desired format for the day-box
-            let formattedDateDayBox = daysOfWeek[currentDay.getDay()] + ', ' +
-                (currentDay.getMonth() + 1) + '/' + currentDay.getDate();
+            // Loop through the next 7 days starting from the selected date
+            for (let i = 0; i < 7; i++) {
+                // Calculate the date for the current day
+                let currentDay = new Date(selectedDate);
+                currentDay.setDate(currentDay.getDate() + i);
 
-            // Format the date with the previous format for the dropdown
-            let formattedDateDropdown = currentDay.toLocaleDateString('en-US', {
-                month: 'numeric',
-                day: 'numeric',
-                year: 'numeric'
-            });
+                // Format the date with the desired format for the day-box
+                let formattedDateDayBox = daysOfWeek[currentDay.getDay()] + ', ' +
+                    (currentDay.getMonth() + 1) + '/' + currentDay.getDate();
 
-            // Create a new option element for the date-dropdown
-            let option = document.createElement("li");
-            option.innerHTML = `<a class="dropdown-item">${formattedDateDropdown}</a>`;
+                // Create a new day-box element
+                let dayBox = document.createElement("div");
+                dayBox.classList.add("day-box");
 
-            // Add the option to the date-dropdown
-            dateDropdown.appendChild(option);
+                // Create content for the day-box
+                let content = `<h4>${formattedDateDayBox}</h4><ul>`;
 
-            // Create a new day-box element
-            let dayBox = document.createElement("div");
-            dayBox.classList.add("day-box");
+                for (let hour = startTime; hour <= endTime; hour++) {
+                    // Check if the hour is reserved (you need to implement this logic)
+                    // Example: If the current hour is reserved, display it
+                    // Replace this with your actual logic to determine reservation status
+                    // For demonstration purposes, I'm assuming all hours are unreserved initially
+                    if (hour % 2 === 0) {
+                        let startHour = hour;
+                        let endHour = hour + 1;
+                        let timeSlot =
+                            `${formatHour(startHour)}-${formatHour(endHour)} ${hour < 12 ? 'AM' : 'PM'}`;
+                        let reservationStatus = 'reserved';
 
-            // Create content for the day-box
-            let content = `<h4>${formattedDateDayBox}</h4><ul>`;
-
-            for (let hour = startTime; hour <= endTime; hour++) {
-                // Check if the hour is reserved (you need to implement this logic)
-                // Example: If the current hour is reserved, display it
-                // Replace this with your actual logic to determine reservation status
-                // For demonstration purposes, I'm assuming all hours are unreserved initially
-                if (hour % 2 === 0) {
-                    let startHour = hour;
-                    let endHour = hour + 1;
-                    let timeSlot = `${formatHour(startHour)}-${formatHour(endHour)} ${hour < 12 ? 'AM' : 'PM'}`;
-                    let reservationStatus = 'reserved';
-
-                    content +=
-                        `<li class="hour ${reservationStatus}">${timeSlot} \n ${reservationStatus.charAt(0).toUpperCase() + reservationStatus.slice(1)}</li>`;
-                    // Add a line between hours (except for the last hour)
-                    if (hour < endTime) {
-                        content += `<hr class="hour-divider" >`;
+                        content +=
+                            `<li class="hour ${reservationStatus}">${timeSlot} \n ${reservationStatus.charAt(0).toUpperCase() + reservationStatus.slice(1)}</li>`;
+                        // Add a line between hours (except for the last hour)
+                        if (hour < endTime) {
+                            content += `<hr class="hour-divider" >`;
+                        }
                     }
                 }
+
+                content += "</ul>";
+
+                // Set the innerHTML of the day-box
+                dayBox.innerHTML = content;
+
+                // Append the day-box to the week container
+                weekContainer.appendChild(dayBox);
             }
-
-            content += "</ul>";
-
-            // Set the innerHTML of the day-box
-            dayBox.innerHTML = content;
-
-            // Append the day-box to the week container
-            weekContainer.appendChild(dayBox);
         }
 
-        // Add an event listener to the date-dropdown
-        dateDropdown.addEventListener("click", function(event) {
-            // Check if the clicked element is a dropdown-item
-            if (event.target.classList.contains("dropdown-item")) {
-                // Get the selected date and update the modal title
-                let selectedDate = event.target.textContent;
-                modalTitle.textContent = `Reservation for ${selectedDate}`;
-            }
-        });
-    });
+        // Add an event listener to the date input field
+        dateInput.addEventListener("change", function(event) {
+            // Get the selected date and update the table
+            let selectedDate = event.target.value;
+            updateTable(selectedDate);
 
-    function formatHour(hour) {
-        // Format hour to 12-hour format
-        return hour % 12 === 0 ? 12 : hour % 12;
-    }
+            // Update the modal title
+            modalTitle.textContent = `Reservation for ${selectedDate}`;
+            selectedDateInput.value = `${selectedDate}`;
+        });
+
+        // Function to format hour to 12-hour format
+        function formatHour(hour) {
+            return hour % 12 === 0 ? 12 : hour % 12;
+        }
+
+        // Reset date input content on page load
+        dateInput.value = '';
+
+        // Initialize the table with the current date
+        updateTable(currentDate.toLocaleDateString('en-US'));
+
+    });
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+
+        const addToCartButton = document.querySelector('.btn-add-to-cart');
+
+        addToCartButton.addEventListener('click', function() {
+            const selectedDate = document.getElementById('selectedDateText').value;
+            const startTime = document.getElementById('timepicker-am').value;
+            const endTime = document.getElementById('timepicker-pm').value;
+            const reservorElement = document.getElementById('reservorDropdownButton');
+            const reservor = reservorElement.textContent.trim();
+
+            const item = {
+                selectedDate: selectedDate,
+                startTime: startTime,
+                endTime: endTime,
+                reservor: reservor,
+            };
+
+            addToCart(item);
+        });
+
+        function addToCart(item) {
+            // Send an AJAX request to your server to add the item to the cart
+            fetch('{{ route('cart.add') }}', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                    },
+                    body: JSON.stringify(item)
+                })
+                .then(response => {
+                    if (response.ok) {
+                        console.log('Item added to cart:', item);
+                    } else {
+                        console.error('Failed to add item to cart:', response.status);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error adding item to cart:', error);
+                });
+        }
+
+    });
 </script>
