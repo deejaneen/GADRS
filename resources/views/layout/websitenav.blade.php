@@ -1,6 +1,6 @@
  <nav class="navbar navbar-expand-lg ">
      <div class="container">
-         <a class="navbar-brand" href="#"><img src="{{asset('images/COA CAR logo.png')}}" alt="">&nbsp;COA-CAR</a>
+         <a class="navbar-brand" href="#"><img src="{{asset('images/COA CAR logo.png')}}" alt="">&nbsp;COA- <span style="color: var(--color-warning)">CAR</span></a>
          <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
              <span class="navbar-toggler-icon"></span>
          </button>
@@ -24,16 +24,16 @@
              <div class="main">
                  <ul class="navbar-nav mx-auto">
                      @auth()
-                     <li class="nav-item">
+                     <li class="nav-item profile">
                          <a href="{{ route('profile') }}" class="{{(Route::is('profile')) ? 'active' : '' }}{{(Route::is('passwordprofile')) ? 'active' : '' }}{{(Route::is('reservationhistoryprofile')) ? 'active' : '' }}{{(Route::is('users.edit')) ? 'active' : '' }} user no-underline"><i class="ri-user-fill"></i>{{ Auth::user()->first_name }}</a>
                      </li>
                      @endauth
-                     <li class="nav-item ">
+                     <li class="nav-item button">
                          <form action="{{ route('logout')}}" method="POST">
                              @csrf
 
                              <button class="no-underline logout btn btn-danger btn-md" type="submit">
-                                 LOGOUT<i class="ri-logout-circle-r-line"></i>
+                                 LOGOUT<i class="ri-logout-box-r-line" style="color: var(--color-danger)"></i>
                              </button>
                          </form>
 

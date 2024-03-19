@@ -4,7 +4,7 @@
 <div class="wrapper">
     <div class="form-box">
         <div class="form-content">
-            <h1>
+            <h1 style="color: var(--color-orange)">
                 LOGIN
             </h1>
             <form action="{{ route('login') }}" method="post">

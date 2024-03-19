@@ -53,22 +53,28 @@ img {
     width: 100%;
     /* Adjust the size of your logo */
 }
+
 h1 {
     font-weight: 800;
     font-size: 1.8rem;
 }
+
 h2 {
     font-size: 1.4rem;
 }
+
 h3 {
     font-size: 0.87rem;
 }
+
 h4 {
     font-size: 0.8rem;
 }
+
 small {
     font-size: 0.77rem;
 }
+
 .profile-photo {
     width: 2.8rem;
     height: 2.8rem;
@@ -79,30 +85,39 @@ small {
 .text-muted {
     color: var(--color-info-dark);
 }
+
 p {
     color: var(--color-dark-variant);
 }
+
 b {
     color: var(--color-dark);
 }
-.primary{
+
+.primary {
     color: var(--color-primary);
 }
-.primary-light{
+
+.primary-light {
     color: var(--color-background);
 }
-.warning-orange{
+
+.warning-orange {
     color: var(--color-orange);
 }
-.danger{
+
+.danger {
     color: var(--color-danger);
 }
-.success{
+
+.success {
     color: var(--color-success);
 }
-.warning{
+
+.warning {
     color: var(--color-warning);
 }
+
 .header {
     display: flex;
     align-items: center;
@@ -125,7 +140,8 @@ b {
 .main {
     display: flex;
     align-items: flex-end;
-}   
+}
+
 * {
     padding: 0;
     margin: 0;
@@ -278,6 +294,39 @@ b {
     background: var(--color-primary);
 }
 
+.navbar .navbar-nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+
+}
+
+.navbar .navbar-nav a {
+    color: var(--color-background);
+    text-decoration: none;
+    font-size: 2rem;
+    margin: 0px 0px 0px 30px;
+    transition: all .50s ease;
+}
+
+.navbar .navbar-nav .profile a {
+    margin-right: 30px;
+}
+
+.navbar .navbar-nav .button button {
+    background: var(--color-primary);
+    border: none;
+    color: var(--color-background);
+    font-size: 1.8rem;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-item a.active {
+    color: var(--color-warning) !important;
+    transition: all .3s ease;
+}
+
 .navbar a.navbar-brand img {
     height: 4rem;
 }
@@ -292,6 +341,7 @@ b {
     text-decoration: none;
     margin: 0;
 }
+
 .navbar .navbar-toggler {
     background: var(--color-background) !important;
 }
@@ -300,10 +350,10 @@ b {
     display: flex;
     justify-content: space-around;
     align-items: flex-end;
-    
+
 }
 
-.navbar .main-login a{
+.navbar .main-login a {
     color: var(--color-background);
     text-decoration: none;
     font-size: 2rem;
@@ -314,7 +364,6 @@ b {
 .nav-item a.login-active {
     color: var(--color-warning) !important;
     transition: all .3s ease;
-    padding: 10px 20px;
 }
 
 .user {
@@ -323,7 +372,7 @@ b {
 }
 
 .user i {
-    color: var(--color-orange);
+    color: var(--color-warning);
     font-size: 28px;
     margin-right: 7px;
 }
@@ -331,116 +380,216 @@ b {
 .no-underline {
     text-decoration: none;
 }
-
-.banner-gym h1.banner-name {
-    font-size: 7.5rem;
-    color: var(--color-background);
+.banner-gym-top {
+    position: absolute;
+    background: var(--color-danger);
+    height: 45%;
+    width: 100%;
+    z-index: -1;
+    transform: skewY(-3deg);
+    right: -1px;
+    transform-origin: -40% 0;
+    box-shadow: none;
+    
+}
+.volleyball {
+    position: absolute;
+    height: 350px;
+    width: auto;
+    z-index: 1;
+    left: 4%;
+    top: 15%;
+}
+.basketball {
+    height: 350px;
+    width: auto;
+    position: absolute;
+    right: 4%;
+    top: 12%;
+    z-index: 1;
+}
+.banner-gym-bottom {
+    position: absolute;
+    background: var(--color-warning);
+    height: 40%;
+    width: 100%;
+    z-index: -2;
+    transform: skewY(-3deg);
+    right: -1px;
+    transform-origin: 80% 0;
+    box-shadow: none;
 }
 
 .banner-gym {
-    position: relative;
-    text-align: center;
-    color: var(--color-white);
-    background: url('../images/Gym\ Banner\ Reservation.png') center/cover no-repeat;
-    height: 550px;
-    /* Set the desired height */
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    position: relative;
+}
+
+.banner-gym-text {
+    text-align: center;
+}
+
+.column-bar-gym {
+    background: var(--color-orange);
+    position: absolute;
+    width: 80%;
+    height: 4px;
+    top: 11.2%;
+}
+.container .hero-section {
+    display: flex;
     justify-content: center;
 }
 
-.banner-gym h2 {
-    font-weight: 700;
-    /* Bold */
-    font-size: 4em;
-    margin-bottom: 10px;
-    font-family: 'Montserrat', sans-serif;
-    /* Use Montserrat font */
+.banner-gym-text h1.banner-name {
+    font-size: 7rem;
+    color: var(--color-background);
+    font-family: 'IBM Plex Mono', sans-serif;
+    margin-top: 75px;
 }
-
-.banner-gym p {
-    font-size: 1.2em;
-    margin-bottom: 20px;
-}
-
-.banner-gym .btn {
+.banner-gym-text .btn {
     color: var(--color-danger);
     padding: 10px 15px;
     border-width: 5px;
     border-color: var(--color-warning) !important;
-    /* Adjust the padding for your desired button size */
     font-weight: 700;
     background-color: var(--color-warning);
-    /* Bold */
-    font-size: 2.2em;
+    font-size: 1.8em;
     text-decoration: none;
     border-radius: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    /* Add a subtle drop shadow */
 }
 
-.banner-gym .btn:hover {
+.banner-gym-text .btn:hover {
     background-color: var(--color-primary);
     color: var(--color-background);
-    /* Change to your desired hover color */
+}
+.banner-gym-top {
+    position: absolute;
+    background: var(--color-danger);
+    height: 45%;
+    width: 100%;
+    z-index: -1;
+    transform: skewY(-3deg);
+    right: -1px;
+    transform-origin: -40% 0;
+    box-shadow: none;
+    
 }
 
-.banner-dorm {
-    position: relative;
+.banner-gym-bottom {
+    position: absolute;
+    background: var(--color-warning);
+    height: 40%;
+    width: 100%;
+    z-index: -2;
+    transform: skewY(-3deg);
+    right: -1px;
+    transform-origin: 80% 0;
+    box-shadow: none;
+}
+
+.banner-dorm-text {
     text-align: center;
-    color: var(--color-white);
-    background: url('../images/Dorm\ Banner\ Reservation.png') center/cover no-repeat;
-    height: 550px;
-    /* Set the desired height */
+}
+
+.column-bar-dorm {
+    background: var(--color-orange);
+    position: absolute;
+    width: 80%;
+    height: 4px;
+    top: 11.2%;
+}
+.container .hero-section {
     display: flex;
-    flex-direction: column;
     justify-content: center;
 }
 
-.banner-dorm h1.banner-name {
-    font-size: 7.5rem;
+.banner-dorm-text h1.banner-name {
+    font-size: 7rem;
     color: var(--color-background);
+    margin-top: 75px;
+    font-family: 'IBM Plex Mono', sans-serif;
 }
-
-.banner-dorm h2 {
-    font-weight: 700;
-    /* Bold */
-    font-size: 4em;
-    margin-bottom: 10px;
-    font-family: 'Montserrat', sans-serif;
-    /* Use Montserrat font */
-}
-
-.banner-dorm p {
-    font-size: 1.2em;
-    margin-bottom: 20px;
-}
-
-.banner-dorm .btn {
+.banner-dorm-text .btn {
     color: var(--color-primary);
     padding: 10px 15px;
     border-width: 5px;
     border-color: var(--color-warning) !important;
-    /* Adjust the padding for your desired button size */
     font-weight: 700;
     background-color: var(--color-warning);
-    /* Bold */
-    font-size: 2.2em;
+    font-size: 1.8em;
     text-decoration: none;
     border-radius: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    /* Add a subtle drop shadow */
-
 }
 
-.banner-dorm .btn:hover {
+.banner-dorm-text .btn:hover {
     background-color: var(--color-primary);
     color: var(--color-warning);
-    background-color: var(--color-primary);
-    color: var(--color-warning);
-    /* Change to your desired hover color */
+}
+.banner-dorm-top {
+    position: absolute;
+    background: var(--color-primary);
+    height: 45%;
+    width: 100%;
+    z-index: -1;
+    transform: skewY(-3deg);
+    right: -1px;
+    transform-origin: -40% 0;
+    box-shadow: none;
+    
+}
+.pillow1 {
+    position: absolute;
+    height: 450px;
+    width: auto;
+    z-index: 1;
+    left: 0;
+}
+.pillow2 {
+    height: 350px;
+    width: auto;
+    position: absolute;
+    right: 4%;
+    top: 12%;
+    z-index: 1;
+}
+.banner-dorm-bottom {
+    position: absolute;
+    background: var(--color-warning);
+    height: 40%;
+    width: 100%;
+    z-index: -2;
+    transform: skewY(-3deg);
+    right: -1px;
+    transform-origin: 80% 0;
+    box-shadow: none;
 }
 
+.container .card-body .btn-calendar-dorm {
+    color: var(--color-background);
+    background-color: var(--color-primary);
+    border: 3px solid var(--color-background);
+    border-radius: 18px;
+    font-size: 1.5em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+    justify-content: flex-end;
+}
+.container .card-body .btn-calendar-dorm:hover {
+    border: 3px solid var(--color-warning);
+}
+.container .card-body .btn-calendar-dorm:valid {
+    color: var(--color-background);
+    background-color: var(--color-primary);
+    border: 3px solid var(--color-background);
+    border-radius: 18px;
+    font-size: 1.5em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+}
 .wrapper {
     position: relative;
     min-height: 65vh;
@@ -479,6 +628,14 @@ b {
     margin: 30px 0;
 }
 
+.wrapper .form-content-register .input-field {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    background: var(--color-background);
+    margin: 19px 0;
+}
+
 .input-field-name input {
     width: 100%;
     height: 100%;
@@ -495,12 +652,13 @@ b {
 .input-field input {
     width: 100%;
     height: 100%;
-    background: transparent;
-    border: var(--color-primary) 1px;
-    outline: var(--color-primary) 1px;
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    font-size: 16px;
+    display: flex;
     color: var(--color-primary);
+    background: var(--color-background);
+    width: 100%;
+    background: transparent;
+    border: 2px solid var(--color-primary);
+    font-size: 14px;
     border-radius: 40px;
     padding: 20px 45px 20px 20px;
 }
@@ -715,7 +873,8 @@ b {
 }
 
 #reservation-section {
-    margin-top: 20px;
+    margin-top: 8%;
+   
 }
 
 #month-heading {
@@ -912,6 +1071,7 @@ b {
     margin-left: 15px;
     border: 2px solid var(--color-primary);
 }
+
 .right-column.profile {
     grid-template-rows: auto 20px 20px 30px 40px 20px 40px 30px 50px 20px 50px;
 
@@ -922,11 +1082,11 @@ b {
     grid-row: 1;
     grid-column: 3 / span 2;
     position: relative;
-    width: 10rem; 
+    width: 10rem;
     height: 10rem;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);   
+    transform: translate(-50%, -50%);
 }
 
 .right-column .img-circle img {
@@ -934,7 +1094,8 @@ b {
     border-radius: 50%;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ensure the image covers the entire container */
+    object-fit: cover;
+    /* Ensure the image covers the entire container */
 }
 
 .right-column .img-circle span {
@@ -947,9 +1108,9 @@ b {
     align-items: center;
     opacity: 0;
     transition: opacity 0.3s ease;
-    color: var(--color-background); 
-    background: rgba(0, 0, 0, 0.5); 
-    border-radius: 50%; 
+    color: var(--color-background);
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
     width: 10rem;
     height: 10rem;
     font-size: 6em;
@@ -979,6 +1140,7 @@ b {
     color: var(--color-background);
     width: fit-content;
 }
+
 .right-column .btn-edit-profile:hover {
     background: var(--color-background);
     color: var(--color-primary);
@@ -1042,9 +1204,9 @@ b {
 }
 
 /* Apply styles to valid or focused input and disabled input */
-.right-column .inputBox input:valid ~ span,
-.right-column .inputBox input:focus ~ span,
-.right-column .inputBox input:disabled ~ span {
+.right-column .inputBox input:valid~span,
+.right-column .inputBox input:focus~span,
+.right-column .inputBox input:disabled~span {
     color: var(--color-primary);
     transform: translateX(10px) translateY(-7px);
     font-size: 0.65em;
@@ -1054,11 +1216,13 @@ b {
     border-right: 1px solid var(--color-primary);
     letter-spacing: 0.2em;
 }
+
 .right-column .inputBox input:valid,
 .right-column .inputBox input:focus {
 
     border: 1px solid var(--color-primary);
 }
+
 .right-column .btn-save-profile-changes {
     background: var(--color-primary);
     color: var(--color-background);
@@ -1068,6 +1232,7 @@ b {
     margin-left: 5px;
     border-radius: var(--border-radius-1);
 }
+
 .right-column .btn-save-profile-changes:hover {
     background: var(--color-background);
     color: var(--color-primary);
@@ -1081,13 +1246,15 @@ b {
 .right-column.password {
     grid-template-rows: 60px 60px 30px 60px 70px 30px;
 }
-.right-column.password h3{
+
+.right-column.password h3 {
     grid-row: 1;
     grid-column: 2 / span 2;
     font-size: 1.5rem;
     margin-left: 5px;
     color: var(--color-primary);
 }
+
 .right-column.password a {
     grid-row: 3;
     grid-column: 2 / span 2;
@@ -1095,6 +1262,7 @@ b {
     color: var(--color-orange);
     font-size: 12px;
 }
+
 .right-column.password hr {
     grid-row-start: 4;
     align-items: center;
@@ -1108,18 +1276,22 @@ b {
     color: var(--color-primary);
     border: 1px solid var(--color-primary);
 }
+
 .right-column .inputBox.current-password {
     grid-row: 2;
     grid-column: 2 / span 2;
 }
+
 .right-column .inputBox.new-password {
     grid-row: 5;
     grid-column: 2 / span 2;
 }
+
 .right-column .inputBox.confirm-password {
     grid-row: 5;
     grid-column: 4 / span 2;
 }
+
 .right-column .btn-save-password-changes {
     display: flex;
     justify-content: flex-end;
@@ -1134,6 +1306,7 @@ b {
     height: min-content;
 
 }
+
 .right-column .btn-save-password-changes:hover {
     background: var(--color-background);
     color: var(--color-primary);
@@ -1149,12 +1322,12 @@ b {
 }
 
 
-.right-column .recent-orders h2{
+.right-column .recent-orders h2 {
     mask-border: 0.8rem;
     color: var(--color-primary);
 }
 
-.right-column .recent-orders table{
+.right-column .recent-orders table {
     color: var(--color-background);
     background-color: var(--color-primary);
     width: 100%;
@@ -1164,7 +1337,8 @@ b {
     box-shadow: var(--box-shadow);
     transition: all 300ms ease;
 }
-.right-column .recent-orders table:hover{
+
+.right-column .recent-orders table:hover {
     box-shadow: none;
 }
 
@@ -1177,7 +1351,7 @@ b {
     border: none;
 }
 
-.right-column .recent-orders a{
+.right-column .recent-orders a {
     text-align: center;
     display: block;
     margin: 1rem auto;
@@ -1226,8 +1400,9 @@ b {
 /* Home View */
 
 .row-top {
-    border: var(--color-orange) 2px;
     display: flex;
+    align-items: center;
+    justify-content: center;
     /* Flexbox layout for row items */
 
 }
@@ -1259,77 +1434,91 @@ b {
     /* Center content vertically */
 }
 
-.column-right {
-    border: 2px solid var(--color-primary);
-    display: flex;
-    justify-content: center;
-    /* Center content horizontally */
-    align-items: center;
-    /* Center content vertically */
-    background-color: var(--color-warning);
-    flex: 1;
-    color: var(--color-background);
-    padding: 2%;
-    border-radius: 50px;
-    margin-left: 15px;
-    /* Margin specified by user */
-    margin-top: 15px;
-    box-sizing: border-box;
-    /* Include padding and border in the element's total width */
-    text-align: justify;
-    /* Justify text */
-
+.column-left-bottom {
+    position: absolute;
+    width: 50.5%;
+    height: 40%;
+    left: -1px;
+    transform: skewY(5deg);
+    z-index: -2;
+    background: var(--color-warning);
+    transform-origin: -120% 0;
+    box-shadow: 0 8px 8px -4px rgba(0, 0, 0, 0.3), 0 0 0 0 transparent;
 }
 
-.column-right .welcome-to-gadrs {
-    width: 100%;
-    /* Ensure the ul spans the entire width */
-    padding: 0;
-    /* Remove default padding */
-    letter-spacing: 10px;
-    margin-right: 15px;
+.column-left-top {
+    position: absolute;
+    width: 50.5%;
+    height: 40%;
+    left: -1px;
+    transform: skewY(5deg);
+    z-index: -1;
+    background: var(--color-primary);
+    transform-origin: -50% 0;
+    box-shadow: none;
 }
 
-.column-right .welcome-text1 {
-    color: var(--color-background);
-    /* Text color */
-    background-color: var(--color-danger);
-    /* Background color */
+.column-right-top {
+    position: absolute;
+    width: 50%;
+    height: 40%;
+    right: -1px;
+    transform: skewY(-5deg);
+    z-index: -1;
+    background: var(--color-primary);
+    transform-origin: 151.5% 0;
+    box-shadow: none;
+}
 
-    font-weight: bold;
-    /* Bold text */
-    transition: all 0.3s ease;
-    font-size: 2em;
-    width: 100%;
-    /* Ensure h1 elements span the entire width */
+.column-right-bottom {
+    position: absolute;
+    width: 50%;
+    height: 40%;
+    right: -1px;
+    transform: skewY(-5deg);
+    z-index: -2;
+    background: var(--color-warning);
+    transform-origin: 222.5% 0;
+    box-shadow: 0 8px 8px -4px rgba(0, 0, 0, 0.3), 0 0 0 0 transparent;
+}
+
+.column-bar {
+    background: var(--color-orange);
+    position: absolute;
+    width: 80%;
+    height: 4px;
+}
+
+.welcome-section {
+    position: absolute;
+    z-index: 2;
+    top: 27%;
+    transform: translateY(-50%);
+    display: inline-block;
     text-align: center;
-    /* Center the text horizontally */
-    margin: 10px;
-    /* Remove default margins */
+}
+
+.welcome-section .welcome-title1 h3 {
+    font-size: 3rem;
 
 }
 
-.column-right ul {
-    margin-bottom: 0;
-    padding-right: 0;
+.welcome-section .welcome-title2 h1 {
+    font-size: 5rem;
 }
 
-.column-right .welcome-text2 {
+.welcome-section .welcome-name h3 {
+    font-size: 3rem;
+}
 
-    font-size: 2em;
+.welcome-section .welcome-title1,
+.welcome-section .welcome-title2,
+.welcome-section .welcome-name {
     color: var(--color-background);
-    /* Text color */
-    background-color: var(--color-primary);
-    /* Background color */
-    font-weight: bold;
-    /* Bold text */
-    transition: all 0.3s ease;
-    width: 100%;
-    /* Ensure h1 elements span the entire width */
-    text-align: center;
-    /* Center the text horizontally */
-    margin: 10px;
-    /* Remove default margins */
+}
+
+.welcome-section .welcome-title2 {
+    font-family: "Poppins", serif;
 }
 
 .column-bottom {
@@ -1339,63 +1528,69 @@ b {
     margin-top: 15px;
     border-radius: 50px;
     max-width: calc(80%);
-    /* Set max-width to half of the available size of the row minus padding */
-    /* Margin specified by user */
     box-sizing: border-box;
-    /* Include padding and border in the element's total width */
     display: flex;
-    /* Use flexbox */
     justify-content: center;
-    /* Center content horizontally */
     align-items: center;
-    /* Center content vertically */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+    transition: all 300ms ease;
+
+}
+
+.column-bottom:hover {
+    border: var(--color-primary) 2px;
+    color: var(--color-background);
+    background-color: var(--color-primary);
+    margin-top: 15px;
+    border-radius: 50px;
+    max-width: calc(80%);
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: none;
+}
+
+.row-bottom {
+    position: relative;
+    top: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25%;
+
 }
 
 .column-bottom .home-reservation-table {
     width: 100%;
-    /* Ensure the ul spans the entire width */
+    position: relative;
     padding: 0;
-    /* Remove default padding */
-
     margin: 30px 30px 30px 30px;
     border-collapse: collapse;
-    /* Ensure cells share borders */
     width: 100%;
 
 }
 
-.row-bottom {
-    justify-content: center;
-    /* Center content horizontally */
-    align-items: center;
-    /* Center content vertically */
-}
 
-.home-reservation-table .test-home {
+
+.home-reservation-table .reservation-table-home {
     justify-content: center;
-    /* Center content horizontally */
     align-items: center;
-    /* Center content vertically */
 }
 
 .home-reservation-table h1 {
     display: flex;
-    /* Use flexbox */
     justify-content: center;
-    /* Center content horizontally */
     align-items: center;
-    /* Center content vertically */
 }
 
 .home-reservation-table h1 i {
     display: flex;
-    /* Use flexbox */
     color: var(--color-orange);
 }
 
 .home-reservation-table .table-home {
     border-collapse: collapse;
-    /* Ensure cells share borders */
     width: 100%;
 }
 
@@ -1403,7 +1598,6 @@ b {
     color: var(--color-background);
     background-color: var(--color-primary);
     border: 4px solid var(--color-background);
-    /* Custom border color (#ff0000 is red) and width */
     padding: 10px;
 }
 
@@ -1411,13 +1605,10 @@ b {
     color: var(--color-background);
     background-color: var(--color-primary);
     border: 4px solid var(--color-background);
-    /* Custom border color (#ff0000 is red) and width */
     padding: 10px;
 }
 
 /* Home View End*/
-
-
 
 /* Cart Checkout */
 .secondary_nav {
@@ -1496,7 +1687,9 @@ li {
 /* Cart Checkout End*/
 
 /*======================= DORM RESERVATION ==========================================*/
-
+.container .section {
+    margin-top: 8%;
+}
 .container .section .card {
     color: var(--color-background);
     background: var(--color-primary);

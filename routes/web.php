@@ -36,7 +36,7 @@ Route::get('/home', function () {
 
 Route::get('/adminhome', function () {
     return view('../admin/navbar/adminnav');
-})->name('home');
+})->name('adminhome');
 
 Route::get('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/register', [AuthController::class, 'store']);
@@ -52,10 +52,12 @@ Route::get('/cart_check', function () {
     return view('cart_checkout');
 })->name('cart_check');
 
-Route::get('/newloginlayout', function () {
+Route::get('/newlogin', function () {
     return view('auth.newlogin');
-})->name('newloginlayout');
-
+})->name('newlogin');
+Route::get('/newregister', function () {
+    return view('auth.newregister');
+})->name('newregister');
 
 Route::resource('users', UserController::class)->only('show', 'edit', 'update')->middleware('auth');
 
