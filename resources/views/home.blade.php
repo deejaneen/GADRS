@@ -2,23 +2,16 @@
 
 @section('banner')
     <div class="container">
-        <div class="row">
+        {{-- <div class="row login-success">
             @if (session()->has('success'))
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                     {{ session('success') }}
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             @endif
-        </div>
+        </div> --}}
 
         <div class="row-top">
-            {{-- @auth
-
-
-                <div class="column-left">
-                    <p class="user-name-home">Hi, {{ Auth::user()->first_name }}</p>
-                </div>
-            @endauth --}}
             <div class="welcome-section">
                 <div class="welcome-title1">
                     <h3>WELCOME TO</h3>
@@ -76,5 +69,13 @@
                 </ul>
             </div>
         </div>
+        {{-- <div class="row">
+            @if (session()->has('success'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{ session('success') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
+        </div> --}}
     </div>
 @endsection
