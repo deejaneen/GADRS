@@ -2,50 +2,51 @@
     <div class="section" id="dorm_reservation_section">
         <!-- Male Card Start -->
         <div class="card" id="maleCard">
-            <div>
-                <h1 class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
-                    <div>
-                        MALE DORM
-                    </div>
-                    <button class="btn btn-primary btn-lg rounded-pill toogle-btn" data-mdb-ripple-init>
-                        <span class="fa-solid fa-repeat"></span>
-                        Female Dorm
-                    </button>
-                </h1>
-            </div>
+
             <div class="card-body">
                 <div class="row">
-                    <!-- Check In, Check Out -->
                     <div class="col-md-6">
                         <div class="row">
+                            <h1 class="card-header"
+                                style="display: flex; justify-content: space-between; align-items: center;">
+                                <div>
+                                    MALE DORM
+                                </div>
+                                <button class="btn btn-primary btn-lg rounded-pill toogle-btn" data-mdb-ripple-init>
+                                    <span class="fa-solid fa-repeat"></span>
+                                    Female Dorm
+                                </button>
+                            </h1>
+                        </div>
+                        <!-- Date input -->
+                        <div class="row date">
+                            <div class="col-md-6 date">
+                                <div class="date-container">
+                                    <h5>Check bed availability on this date:</h5>
+                                    <input type="date" class="btn btn-calendar-dorm" id="availabilityDate">
+                                </div>
+                            </div>
+                            <div class="col-md-6 availability">
+                                <h3 class="availability">Availability: <b style="color: var(--color-orange)">8 beds</b>
+                                </h3>
+                            </div>
+                        </div>
+                        <!-- Check In, Check Out -->
+                        <div class="row">
                             <div class="col-md-6" style="text-align: center;">
-                                <input type="date" class="btn btn-calendar-dorm">
-                                </input>
                                 <h5>Check In</h5>
                                 <div class="dropdown-center">
-                                    <button class="btn btn-secondary dropdown-toggle" type="button"
-                                        data-bs-toggle="dropdown" aria-expanded="false" style="min-width: 100%;">
-                                        da dropdown
-                                    </button>
-                                    <ul class="dropdown-menu" style="min-width: 100%;">
-                                        <li><a class="dropdown-item" href="#">Action</a></li>
-                                        <li><a class="dropdown-item" href="#">Action two</a></li>
-                                        <li><a class="dropdown-item" href="#">Action three</a></li>
-                                    </ul>
+                                    <input type="date" class="btn btn-calendar-datetime">
+                                    <input type="time" class="btn btn-calendar-datetime time" value="14:00"
+                                        autocomplete="off" readonly>
                                 </div>
                             </div>
                             <div class="col-md-6" style="text-align: center;">
                                 <h5>Check Out</h5>
                                 <div class="dropdown-center">
-                                    <button class="btn btn-secondary dropdown-toggle" type="button"
-                                        data-bs-toggle="dropdown" aria-expanded="false" style="min-width: 100%;">
-                                        Centered dropdown
-                                    </button>
-                                    <ul class="dropdown-menu" style="min-width: 100%;">
-                                        <li><a class="dropdown-item" href="#">Action</a></li>
-                                        <li><a class="dropdown-item" href="#">Action two</a></li>
-                                        <li><a class="dropdown-item" href="#">Action three</a></li>
-                                    </ul>
+                                    <input type="date" class="btn btn-calendar-datetime">
+                                    <input type="time" class="btn btn-calendar-datetime time" value="12:00"
+                                        autocomplete="off" readonly>
                                 </div>
                             </div>
                         </div>
@@ -54,38 +55,36 @@
                             <div class="col-md-6" style="text-align: center;">
                                 <h5>Number of Beds</h5>
                                 <div class="dropdown-center">
-                                    <button class="btn btn-secondary dropdown-toggle" type="button"
-                                        data-bs-toggle="dropdown" aria-expanded="false" style="min-width: 100%;">
-                                        Centered dropdown
-                                    </button>
-                                    <ul class="dropdown-menu" style="min-width: 100%;">
-                                        <li><a class="dropdown-item" href="#">Action</a></li>
-                                        <li><a class="dropdown-item" href="#">Action two</a></li>
-                                        <li><a class="dropdown-item" href="#">Action three</a></li>
-                                    </ul>
+                                    <div class="number-input">
+                                        <span class="ri-subtract-fill"></span>
+                                        <input type="text" class="btn btn-calendar-datetime" value="0"
+                                            max="8">
+                                        <span class="ri-add-line"></span>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-6" style="text-align: center;">
-                                <h5>Dormer</h5>
+                                <h5>Reservor</h5>
                                 <div class="dropdown-center">
-                                    <button class="btn btn-secondary dropdown-toggle" type="button"
+                                    <button id="dropdownToggle" class="btn btn-secondary dropdown-toggle" type="button"
                                         data-bs-toggle="dropdown" aria-expanded="false" style="min-width: 100%;">
-                                        Centered dropdown
+                                        COA/Non-COA
                                     </button>
                                     <ul class="dropdown-menu" style="min-width: 100%;">
-                                        <li><a class="dropdown-item" href="#">Action</a></li>
-                                        <li><a class="dropdown-item" href="#">Action two</a></li>
-                                        <li><a class="dropdown-item" href="#">Action three</a></li>
+                                        <li><a class="dropdown-item" href="javascript:void(0);"
+                                                data-value="COA Employee">COA Employee</a></li>
+                                        <li><a class="dropdown-item" href="javascript:void(0);"
+                                                data-value="Non - COA">Non - COA</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                         <!-- Availability -->
-                        <div class="row mt-1">
+                        {{-- <div class="row mt-1">
                             <div class="col-md-6">
-                                <p>Availability: <b style="color: #f77f00">8 beds</b></p>
+                                <p>Availability: <b style="color: var(--color-orange)">8 beds</b></p>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                     <!-- Image -->
                     <div class="col-md-6">
@@ -130,50 +129,51 @@
 
         <!-- Female Card Start -->
         <div class="card" id="femaleCard" style="display: none;">
-            <div>
-                <h1 class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
-                    <div>
-                        FEMALE DORM
-                    </div>
-                    <button class="btn btn-primary btn-lg rounded-pill toogle-btn" data-mdb-ripple-init>
-                        <span class="fa-solid fa-repeat"></span> Male Dorm
-                    </button>
-                </h1>
-
-            </div>
             <div class="card-body">
                 <div class="row">
-                    <!-- Check In, Check Out -->
                     <div class="col-md-6">
                         <div class="row">
+                            <h1 class="card-header"
+                                style="display: flex; justify-content: space-between; align-items: center;">
+                                <div>
+                                    FEMALE DORM
+                                </div>
+                                <button class="btn btn-primary btn-lg rounded-pill toogle-btn" data-mdb-ripple-init>
+                                    <span class="fa-solid fa-repeat"></span>
+                                    Male Dorm
+                                </button>
+                            </h1>
+                        </div>
+                        <!-- Date input -->
+                        <div class="row date">
+                            <div class="col-md-6 date">
+                                <div class="date-container">
+                                    <h5>Check bed availability on this date:</h5>
+                                    <input type="date" class="btn btn-calendar-dorm" id="availabilityDateFemale">
+                                </div>
+                            </div>
+                            <div class="col-md-6 availability">
+                                <h3 class="availability">Availability: <b style="color: var(--color-orange)">11
+                                        beds</b>
+                                </h3>
+                            </div>
+                        </div>
+                        <!-- Check In, Check Out -->
+                        <div class="row">
                             <div class="col-md-6" style="text-align: center;">
-                                <input type="date" class="btn btn-calendar-dorm">
-                            </input>
                                 <h5>Check In</h5>
                                 <div class="dropdown-center">
-                                    <button class="btn btn-secondary dropdown-toggle" type="button"
-                                        data-bs-toggle="dropdown" aria-expanded="false" style="min-width: 100%;">
-                                        Centered dropdown
-                                    </button>
-                                    <ul class="dropdown-menu" style="min-width: 100%;">
-                                        <li><a class="dropdown-item" href="#">Action</a></li>
-                                        <li><a class="dropdown-item" href="#">Action two</a></li>
-                                        <li><a class="dropdown-item" href="#">Action three</a></li>
-                                    </ul>
+                                    <input type="date" class="btn btn-calendar-datetime">
+                                    <input type="time" class="btn btn-calendar-datetime time" value="14:00"
+                                        autocomplete="off" readonly>
                                 </div>
                             </div>
                             <div class="col-md-6" style="text-align: center;">
                                 <h5>Check Out</h5>
                                 <div class="dropdown-center">
-                                    <button class="btn btn-secondary dropdown-toggle" type="button"
-                                        data-bs-toggle="dropdown" aria-expanded="false" style="min-width: 100%;">
-                                        Centered dropdown
-                                    </button>
-                                    <ul class="dropdown-menu" style="min-width: 100%;">
-                                        <li><a class="dropdown-item" href="#">Action</a></li>
-                                        <li><a class="dropdown-item" href="#">Action two</a></li>
-                                        <li><a class="dropdown-item" href="#">Action three</a></li>
-                                    </ul>
+                                    <input type="date" class="btn btn-calendar-datetime">
+                                    <input type="time" class="btn btn-calendar-datetime time" value="12:00"
+                                        autocomplete="off" readonly>
                                 </div>
                             </div>
                         </div>
@@ -182,53 +182,52 @@
                             <div class="col-md-6" style="text-align: center;">
                                 <h5>Number of Beds</h5>
                                 <div class="dropdown-center">
-                                    <button class="btn btn-secondary dropdown-toggle" type="button"
-                                        data-bs-toggle="dropdown" aria-expanded="false" style="min-width: 100%;">
-                                        Centered dropdown
-                                    </button>
-                                    <ul class="dropdown-menu" style="min-width: 100%;">
-                                        <li><a class="dropdown-item" href="#">Action</a></li>
-                                        <li><a class="dropdown-item" href="#">Action two</a></li>
-                                        <li><a class="dropdown-item" href="#">Action three</a></li>
-                                    </ul>
+                                    <div class="number-input-female">
+                                        <span class="ri-subtract-fill"></span>
+                                        <input type="text" class="btn btn-calendar-datetime" value="0"
+                                            max="11">
+                                        <span class="ri-add-line"></span>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-6" style="text-align: center;">
-                                <h5>Dormer</h5>
+                                <h5>Reservor</h5>
                                 <div class="dropdown-center">
-                                    <button class="btn btn-secondary dropdown-toggle" type="button"
-                                        data-bs-toggle="dropdown" aria-expanded="false" style="min-width: 100%;">
-                                        Centered dropdown
+                                    <button id="dropdownToggleFemale" class="btn btn-secondary dropdown-toggle"
+                                        type="button" data-bs-toggle="dropdown" aria-expanded="false"
+                                        style="min-width: 100%;">
+                                        COA/Non-COA
                                     </button>
                                     <ul class="dropdown-menu" style="min-width: 100%;">
-                                        <li><a class="dropdown-item" href="#">Action</a></li>
-                                        <li><a class="dropdown-item" href="#">Action two</a></li>
-                                        <li><a class="dropdown-item" href="#">Action three</a></li>
+                                        <li><a class="dropdown-item" href="javascript:void(0);"
+                                                data-value="COA Employee">COA Employee</a></li>
+                                        <li><a class="dropdown-item" href="javascript:void(0);"
+                                                data-value="Non - COA">Non - COA</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                         <!-- Availability -->
-                        <div class="row mt-1">
-                            <div class="col-md-6">
-                                <p>Availability: <b style="color: #f77f00">8 beds</b></p>
-                            </div>
-                        </div>
+                        {{-- <div class="row mt-1">
+                    <div class="col-md-6">
+                        <p>Availability: <b style="color: var(--color-orange)">8 beds</b></p>
+                    </div>
+                </div> --}}
                     </div>
                     <!-- Image -->
                     <div class="col-md-6">
                         <div id="carouselFemale" class="carousel slide">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img src="https://www.thetwizt.com/img/rooms/female-dorm/female-dorm.jpg"
+                                    <img src="https://justorganized.org/wp-content/uploads/2019/08/guys-dorm-room-1024x675.jpg"
                                         class="d-block w-100" alt="...">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="https://www.thetwizt.com/img/rooms/female-dorm/female-dorm.jpg"
+                                    <img src="https://justorganized.org/wp-content/uploads/2019/08/guys-dorm-room-1024x675.jpg"
                                         class="d-block w-100" alt="...">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="https://www.thetwizt.com/img/rooms/female-dorm/female-dorm.jpg"
+                                    <img src="https://justorganized.org/wp-content/uploads/2019/08/guys-dorm-room-1024x675.jpg"
                                         class="d-block w-100" alt="...">
                                 </div>
                             </div>
@@ -257,3 +256,84 @@
         <!-- Female Card End -->
     </div>
 </div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Set default value for number input to 0
+    const input = document.querySelector('.number-input input');
+    input.value = '0';
+
+    const plusBtn = document.querySelector('.number-input .ri-add-line');
+    const minusBtn = document.querySelector('.number-input .ri-subtract-fill');
+    const availability = parseInt(document.querySelector('.availability b').textContent);
+
+    plusBtn.addEventListener('click', function() {
+        if (parseInt(input.value) < availability) {
+            input.value = parseInt(input.value) + 1;
+        }
+    });
+
+    minusBtn.addEventListener('click', function() {
+        if (parseInt(input.value) > 0) {
+            input.value = parseInt(input.value) - 1;
+        }
+    });
+
+    // Set default value for dropdown toggle to empty
+    const dropdownToggle = document.getElementById('dropdownToggle');
+    dropdownToggle.textContent = '';
+
+    const dropdownItems = document.querySelectorAll('.dropdown-item');
+    dropdownItems.forEach(item => {
+        item.addEventListener('click', function() {
+            const selectedValue = this.getAttribute('data-value');
+            dropdownToggle.textContent = selectedValue;
+        });
+    });
+
+    // Set default value for date inputs to empty
+    const availabilityDateInputs = document.querySelectorAll('.btn-calendar-datetime[type="date"]');
+    availabilityDateInputs.forEach(input => {
+        input.value = '';
+    });
+
+});
+
+// Set default value for number input to 0
+const input = document.querySelector('.number-input-female input');
+    input.value = '0';
+
+    const plusBtn = document.querySelector('.number-input-female .ri-add-line');
+    const minusBtn = document.querySelector('.number-input-female .ri-subtract-fill');
+    const availability = parseInt(document.querySelector('#femaleCard .availability b').textContent);
+
+    plusBtn.addEventListener('click', function() {
+        if (parseInt(input.value) < availability) {
+            input.value = parseInt(input.value) + 1;
+        }
+    });
+
+    minusBtn.addEventListener('click', function() {
+        if (parseInt(input.value) > 0) {
+            input.value = parseInt(input.value) - 1;
+        }
+    });
+
+     // Set default value for dropdown toggle to empty
+     const dropdownToggle = document.getElementById('dropdownToggleFemale');
+    dropdownToggle.textContent = '';
+
+    const dropdownItems = document.querySelectorAll('#femaleCard .dropdown-item');
+    dropdownItems.forEach(item => {
+        item.addEventListener('click', function() {
+            const selectedValue = this.getAttribute('data-value');
+            dropdownToggle.textContent = selectedValue;
+        });
+    });
+
+    // Set default value for date inputs to empty
+    const availabilityDateInputs = document.querySelectorAll('#femaleCard .btn-calendar-datetime[type="date"]');
+    availabilityDateInputs.forEach(input => {
+        input.value = '';
+    });
+
+</script>

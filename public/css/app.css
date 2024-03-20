@@ -428,7 +428,24 @@ b {
     transform-origin: 80% 0;
     box-shadow: none;
 }
+.container .row.date {
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+}
+.date-container {
+    text-align: center;
+}
 
+.date-container h5 {
+    margin-top: 20px; 
+}
+.container .row.date .col-md-6.date,
+.container .row.date .col-md-6.availability{
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+}
 .container .card-body .btn-calendar-dorm {
     color: var(--color-background);
     background-color: var(--color-primary);
@@ -436,7 +453,9 @@ b {
     border-radius: 18px;
     font-size: 1.5em;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
-    justify-content: flex-end;
+    width: fit-content;
+    margin: 20px auto;
+    margin-top: 10px;
 }
 
 .container .card-body .btn-calendar-dorm:hover {
@@ -450,6 +469,68 @@ b {
     border-radius: 18px;
     font-size: 1.5em;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+}
+.container .card-body .btn-calendar-datetime {
+    color: var(--color-background);
+    background-color: var(--color-primary);
+    border: 3px solid var(--color-primary);
+    border-radius: 18px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+    width: fit-content;
+    margin: 20px auto;
+    margin-top: 10px;
+}
+
+.container .card-body .btn-calendar-datetime:valid {
+    color: var(--color-background);
+    background-color: var(--color-primary);
+    border: 3px solid var(--color-background);
+    border-radius: 18px;
+    font-size: 1em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+}
+.container .card-body .btn-calendar-datetime.time:valid {
+    color: var(--color-background);
+    background-color: var(--color-primary);
+    border: 3px solid var(--color-primary);
+    border-radius: 18px;
+    font-size: 1em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+}
+
+.date-container .availability h1{
+    color: var(--color-background);
+    background-color: var(--color-primary);
+    
+}
+.number-input-female, 
+.number-input {
+    display: flex;
+    align-items: center;
+}
+.number-input-female input,
+.number-input input {
+    width: 50px;
+    text-align: center;
+}
+.number-input-female span:hover,
+.number-input span:hover {
+    background-color: var(--color-warning);
+    color: var(--color-primary);
+}
+.number-input-female .ri-subtract-fill,
+.number-input-female .ri-add-line,
+.number-input .ri-subtract-fill,
+.number-input .ri-add-line{
+    border-radius: 50%;
+    color: var(--color-primary);
+    background: var(--color-background);
+    width: 25px;
+    height: 25px;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2em;
+    display: flex;
 }
 
 .wrapper {
@@ -1515,17 +1596,23 @@ ul.list-unstyled {
     transition: all 300ms ease;
 }
 
-.container .section .card .card-body button,
+.container .section .card .card-body button{
+    color: var(--color-primary);
+    background: var(--color-background);
+    margin: 10px;
+}
 .container .section .card .card-body .dropdown-menu,
 .container .section .card .card-body .dropdown-menu a {
     color: var(--color-primary);
-    background: var(--color-warning);
+    background: var(--color-background);
+    width: 95%;
 }
 
 .container .section .card .card-body .dropdown-menu a:hover {
     background: var(--color-background);
-    transform: translate(-5px);
+    transform: translate(5px);
     transition: all 300ms ease;
+    color: var(--color-orange);
 }
 
 .container .section .card .footer.button a {
