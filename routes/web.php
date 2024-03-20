@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\CartController;
+use App\Http\Controllers\GymCartController;
 use App\Http\Controllers\GymController;
 use App\Http\Controllers\UserController;
 
@@ -36,7 +36,7 @@ Route::get('/home', function () {
 
 Route::get('/adminhome', function () {
     return view('../admin/navbar/adminnav');
-})->name('home');
+})->name('adminhome');
 
 Route::get('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/register', [AuthController::class, 'store']);
@@ -68,4 +68,5 @@ Route::get('/gym', function () {
 })->name('gym');
 
 
-Route::post('/cart', [CartController::class, 'addToCart'])->name('cart.add');
+Route::post('/gym-cart', [GymCartController::class, 'store'])->name('gym_cart.store');
+

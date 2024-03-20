@@ -1,131 +1,102 @@
-<div class="modal fade " id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-xl d-flex align-items-center justify-content-center ">
-        <form id="reservationForm" class="modal-content gym-modal">
-            <div class="gym-modal-header">
-                <h1 class="gym-modal-title" id="exampleModalLabel">GYM RESERVATION</h1>
-                <button type="button" class="btn-close gym-modal-close" data-bs-dismiss="modal"
-                    aria-label="Close"></button>
+<!-- Modal -->
+<div class="modal fade" id="gymReservationModal" tabindex="-1" aria-labelledby="gymReservationModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="gymReservationModalLabel">Gym Reservation</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="{{ route('cart.add') }}" method="post">
+            <form id="gymReservationForm" action="{{ route('gym_cart.store') }}" method="POST">
                 @csrf
-                <div class="gym-modal-body">
-                    <!-- Your form content goes here -->
-
-                    <div class="container">
-                        <div class="row" style="justify-content: center;">
-                            <h5>Date</h5>
-                            <input type="text" name="selectedDateText" id="selectedDateText"
-                                placeholder="No date selected" disabled>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="reservationDate" class="form-label">Date</label>
+                        <input type="date" class="form-control" id="reservationDate" name="selectedDateText"
+                            required>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label for="startTime" class="form-label">Start Time</label>
+                            <input type="time" class="form-control" id="startTime" name="timepicker-am" required
+                                min="06:00" max="12:00">
                         </div>
-                        <hr>
-                        <div class="row">
-                            <p>Note: The gym can only be used for sports events such as basketball, volleyball, or
-                                badminton. The gym must be booked for a minimum of 2 hours</p>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <!-- Left Column Content -->
-                                <h5>Start Time</h5>
-                                <div class="time-picker-container">
-                                    <label for="timepicker-am">AM Time</label>
-                                    <input type="text" id="timepicker-am" name="timepicker-am">
-                                    <div class="flatpickr-calendar"></div>
-                                </div>
-                                <hr>
-                                <p>
-                                    Minimum of 2 hours
-                                </p>
-
-                                <p>
-                                    Input a valid time for reservation
-                                </p>
-                            </div>
-                            <div class="col-md-6">
-                                <!-- Right Column Content -->
-                                <h5>End Time</h5>
-                                <div class="time-picker-container">
-                                    <label for="timepicker-pm">PM Time</label>
-                                    <input type="text" id="timepicker-pm" name="timepicker-pm">
-                                    <div class="flatpickr-calendar"></div>
-                                </div>
-                                <hr>
-                                <h5>Reservor</h5>
-                                <div class="btn-group" style="min-width: 100%;">
-                                    <button class="btn btn-dropdown-modal" type="button" id="reservorDropdownButton"
-                                        data-bs-toggle="dropdown" aria-expanded="false">
-                                        Employee
-                                    </button>
-                                    <ul class="dropdown-menu btn-dropdown-modal"
-                                        aria-labelledby="reservorDropdownButton" style="min-width: 100%;">
-                                        <li><a class="dropdown-item" data-value="COA Employee">COA
-                                                Employee</a></li>
-                                        <li><a class="dropdown-item" data-value="Non-COA">Non-COA</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
+                        <div class="col">
+                            <label for="endTime" class="form-label">End Time</label>
+                            <input type="time" class="form-control" id="endTime" name="timepicker-pm" required
+                                max="21:00">
                         </div>
                     </div>
-
+                    <div class="mb-3">
+                        <label for="employeeType" class="form-label">Employee Type</label>
+                        <select class="form-select" id="employeeType" name="employee_type" required>
+                            <option value="COA Employee">COA Employee</option>
+                            <option value="Non-COA">Non-COA</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="modal-footer" style="justify-content: center;">
-                    <!-- Use type="reset" to reset the form -->
-                    <button type="reset" class="btn btn-clear-cart-gym rounded-btn">Clear</button>
-                    <button type="button" class="btn btn-add-cart-gym rounded-btn btn-add-to-cart"
-                        data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight">Add to Cart</button>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                        onclick="resetForm()">Clear</button>
+                    <button type="submit" class="btn btn-primary">Add to Cart</button>
                 </div>
             </form>
+        </div>
     </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script>
-    // Get the current time in AM
-    var currentTimeAM = new Date();
-    currentTimeAM.setHours(currentTimeAM.getHours() % 12); // Convert to AM time format
-
-    // Initialize the AM time picker with default value, 12-hour format, and min/max times
-    var timePickerAM = flatpickr("#timepicker-am", {
-        enableTime: true,
-        noCalendar: true,
-        dateFormat: "h:i K", // Use 12-hour format
-        defaultDate: currentTimeAM,
-        minTime: "6:00",
-        maxTime: "11:59",
-    });
-
-    // Initialize the PM time picker with default value and 12-hour format
-    var timePickerPM = flatpickr("#timepicker-pm", {
-        enableTime: true,
-        noCalendar: true,
-        dateFormat: "h:i K", // Use 12-hour format
-        defaultDate: "12:00",
-    });
-
-    // Function to reset the form
     function resetForm() {
-        document.getElementById("reservationForm").reset();
-        timePickerAM.setDate(currentTimeAM); // Set the AM time picker to default value
-        timePickerPM.setDate("12:00"); // Set the PM time picker to default value
+        document.getElementById("gymReservationForm").reset();
     }
 
-    // Add an event listener to window.onload to execute the resetForm function when the page is loaded
-    window.onload = function() {
-        resetForm();
-    };
+    // Set minimum date to the present day
+    document.getElementById("reservationDate").min = new Date().toISOString().split('T')[0];
 
-
-    // Get the dropdown button and dropdown items
-    const dropdownButton = document.getElementById('reservorDropdownButton');
-    const dropdownItems = document.querySelectorAll('#reservorDropdownButton + .dropdown-menu .dropdown-item');
-
-    // Add click event listener to each dropdown item
-    dropdownItems.forEach(item => {
-        item.addEventListener('click', function(event) {
-            event.preventDefault(); // Prevent the default link behavior
-            const selectedValue = this.getAttribute('data-value');
-            dropdownButton.textContent = selectedValue; // Update the dropdown button text
-        });
+    // Ensure start time is AM and end time is at least 2 hours ahead
+    document.getElementById("startTime").addEventListener("change", function() {
+        this.value = this.value.replace(/^([0-9]|0[0-5]):([0-5][0-9])/, "06:00");
+        validateDuration();
+        // Update minimum value for end time
+        updateMinEndTime();
     });
-</script>
 
+    document.getElementById("endTime").addEventListener("change", function() {
+        if (this.value <= document.getElementById("startTime").value) {
+            this.value = "";
+            alert("End time must be after the start time.");
+            return;
+        }
+        validateDuration();
+    });
+
+    // Update minimum value for end time based on selected start time
+    function updateMinEndTime() {
+        var startTime = document.getElementById("startTime").value;
+        var minEndTime = addHours(startTime, 2); // Adding 2 hours to the start time
+        document.getElementById("endTime").min = minEndTime;
+    }
+
+    // Function to add hours to a given time
+    function addHours(time, hours) {
+        var parts = time.split(':');
+        var hour = parseInt(parts[0], 10);
+        var minute = parseInt(parts[1], 10);
+        hour += hours;
+        if (hour >= 24) hour -= 24;
+        return (hour < 10 ? '0' : '') + hour + ':' + (minute < 10 ? '0' : '') + minute;
+    }
+
+    // Validate duration
+    function validateDuration() {
+        var startTime = document.getElementById("startTime").valueAsDate;
+        var endTime = document.getElementById("endTime").valueAsDate;
+        if (startTime && endTime && startTime < endTime) {
+            var duration = (endTime - startTime) / (1000 * 60 * 60); // Duration in hours
+            if (duration < 2) {
+                alert("The reservation must be at least 2 hours long. Please select a valid end time.");
+                document.getElementById("endTime").value = ""; // Reset end time
+            }
+        }
+    }
+</script>

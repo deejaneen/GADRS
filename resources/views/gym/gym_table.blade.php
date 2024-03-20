@@ -2,7 +2,8 @@
     <div class="container">
         <div class="container-gym-table" id="calendar_container">
             <div class="button-container">
-                <button type="button" class="btn btn-reservation-gym" data-bs-toggle="modal" data-bs-target="#myModal">
+                <button type="button" class="btn btn-reservation-gym" data-bs-toggle="modal"
+                    data-bs-target="#gymReservationModal">
                     Book Reservation
                 </button>
                 <input type="date" id="datePicker" class="btn btn-calendar-gym" min="<?php echo date('Y-m-d'); ?>">
@@ -29,9 +30,9 @@
         // Get the container elements
         let weekContainer = document.getElementById("week-container");
         let monthHeading = document.getElementById("month-heading");
-        let dateInput = document.querySelector(".btn-calendar-gym");
-        let modalTitle = document.getElementById("exampleModalLabel");
-        let selectedDateInput = document.getElementById("selectedDateText");
+        let dateInput = document.getElementById("datePicker");
+        let modalTitle = document.getElementById("gymReservationModalLabel");
+        let selectedDateInput = document.getElementById("reservationDate");
 
         // Set the heading to the current month
         let monthOptions = {
@@ -46,7 +47,7 @@
             weekContainer.innerHTML = '';
 
             // Days of the week
-            let daysOfWeek = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SUN'];
+            let daysOfWeek = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
 
             // Loop through the next 7 days starting from the selected date
             for (let i = 0; i < 7; i++) {
@@ -103,7 +104,7 @@
             updateTable(selectedDate);
 
             // Update the modal title
-            modalTitle.textContent = `Reservation for ${selectedDate}`;
+            modalTitle.textContent = `Gym Reservation for ${selectedDate}`;
             selectedDateInput.value = `${selectedDate}`;
         });
 
@@ -117,53 +118,6 @@
 
         // Initialize the table with the current date
         updateTable(currentDate.toLocaleDateString('en-US'));
-
-    });
-</script>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-
-        const addToCartButton = document.querySelector('.btn-add-to-cart');
-
-        addToCartButton.addEventListener('click', function() {
-            const selectedDate = document.getElementById('selectedDateText').value;
-            const startTime = document.getElementById('timepicker-am').value;
-            const endTime = document.getElementById('timepicker-pm').value;
-            const reservorElement = document.getElementById('reservorDropdownButton');
-            const reservor = reservorElement.textContent.trim();
-
-            const item = {
-                selectedDate: selectedDate,
-                startTime: startTime,
-                endTime: endTime,
-                reservor: reservor,
-            };
-
-            addToCart(item);
-        });
-
-        function addToCart(item) {
-            // Send an AJAX request to your server to add the item to the cart
-            fetch('{{ route('cart.add') }}', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                    },
-                    body: JSON.stringify(item)
-                })
-                .then(response => {
-                    if (response.ok) {
-                        console.log('Item added to cart:', item);
-                    } else {
-                        console.error('Failed to add item to cart:', response.status);
-                    }
-                })
-                .catch(error => {
-                    console.error('Error adding item to cart:', error);
-                });
-        }
 
     });
 </script>

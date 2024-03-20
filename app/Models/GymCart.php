@@ -5,15 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Cart extends Model
+class GymCart extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'selected_date',
-        'start_time',
-        'end_time',
-        'reservor',
+        'reservation_date',
+        'reservation_time_start',
+        'reservation_time_end',
+        'occupant_type',
+        'employee_id',
     ];
-
 }
