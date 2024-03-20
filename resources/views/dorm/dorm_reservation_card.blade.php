@@ -257,49 +257,50 @@
     </div>
 </div>
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    // Set default value for number input to 0
-    const input = document.querySelector('.number-input input');
-    input.value = '0';
+    document.addEventListener('DOMContentLoaded', function() {
+        // Handling male dorm fields
+        const input = document.querySelector('.number-input input');
+        input.value = '0';
 
-    const plusBtn = document.querySelector('.number-input .ri-add-line');
-    const minusBtn = document.querySelector('.number-input .ri-subtract-fill');
-    const availability = parseInt(document.querySelector('.availability b').textContent);
+        const plusBtn = document.querySelector('.number-input .ri-add-line');
+        const minusBtn = document.querySelector('.number-input .ri-subtract-fill');
+        const availability = parseInt(document.querySelector('.availability b').textContent);
 
-    plusBtn.addEventListener('click', function() {
-        if (parseInt(input.value) < availability) {
-            input.value = parseInt(input.value) + 1;
-        }
-    });
-
-    minusBtn.addEventListener('click', function() {
-        if (parseInt(input.value) > 0) {
-            input.value = parseInt(input.value) - 1;
-        }
-    });
-
-    // Set default value for dropdown toggle to empty
-    const dropdownToggle = document.getElementById('dropdownToggle');
-    dropdownToggle.textContent = '';
-
-    const dropdownItems = document.querySelectorAll('.dropdown-item');
-    dropdownItems.forEach(item => {
-        item.addEventListener('click', function() {
-            const selectedValue = this.getAttribute('data-value');
-            dropdownToggle.textContent = selectedValue;
+        plusBtn.addEventListener('click', function() {
+            if (parseInt(input.value) < availability) {
+                input.value = parseInt(input.value) + 1;
+            }
         });
+
+        minusBtn.addEventListener('click', function() {
+            if (parseInt(input.value) > 0) {
+                input.value = parseInt(input.value) - 1;
+            }
+        });
+
+        // Set default value for dropdown toggle to empty
+        const dropdownToggle = document.getElementById('dropdownToggle');
+        dropdownToggle.textContent = '';
+
+        const dropdownItems = document.querySelectorAll('.dropdown-item');
+        dropdownItems.forEach(item => {
+            item.addEventListener('click', function() {
+                const selectedValue = this.getAttribute('data-value');
+                dropdownToggle.textContent = selectedValue;
+            });
+        });
+
+        // Set default value for date inputs to empty
+        const availabilityDateInputs = document.querySelectorAll('.btn-calendar-datetime[type="date"]');
+        availabilityDateInputs.forEach(input => {
+            input.value = '';
+        });
+
+
     });
 
-    // Set default value for date inputs to empty
-    const availabilityDateInputs = document.querySelectorAll('.btn-calendar-datetime[type="date"]');
-    availabilityDateInputs.forEach(input => {
-        input.value = '';
-    });
-
-});
-
-// Set default value for number input to 0
-const input = document.querySelector('.number-input-female input');
+    // Handling only female dorm fields
+    const input = document.querySelector('.number-input-female input');
     input.value = '0';
 
     const plusBtn = document.querySelector('.number-input-female .ri-add-line');
@@ -318,8 +319,8 @@ const input = document.querySelector('.number-input-female input');
         }
     });
 
-     // Set default value for dropdown toggle to empty
-     const dropdownToggle = document.getElementById('dropdownToggleFemale');
+    // Set default value for dropdown toggle to empty
+    const dropdownToggle = document.getElementById('dropdownToggleFemale');
     dropdownToggle.textContent = '';
 
     const dropdownItems = document.querySelectorAll('#femaleCard .dropdown-item');
@@ -335,5 +336,4 @@ const input = document.querySelector('.number-input-female input');
     availabilityDateInputs.forEach(input => {
         input.value = '';
     });
-
 </script>
