@@ -488,14 +488,8 @@ b {
     border-radius: 18px;
     font-size: 1em;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
-}
-.container .card-body .btn-calendar-datetime.time:valid {
-    color: var(--color-background);
-    background-color: var(--color-primary);
-    border: 3px solid var(--color-primary);
-    border-radius: 18px;
-    font-size: 1em;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .date-container .availability h1{
@@ -507,6 +501,8 @@ b {
 .number-input {
     display: flex;
     align-items: center;
+    
+    
 }
 .number-input-female input,
 .number-input input {
@@ -532,7 +528,18 @@ b {
     font-size: 1.2em;
     display: flex;
 }
+.custom-dropdown-menu {
+    color: var(--color-primary);
+    background: var(--color-background);
+    font-size: 1em;
+}
 
+.custom-dropdown-item {
+    color: var(--color-primary);
+    font-size: 1em;
+}
+
+/*============================================================================*/
 .wrapper {
     position: relative;
     min-height: 65vh;
@@ -1583,6 +1590,9 @@ ul.list-unstyled {
 .container .section .card {
     color: var(--color-background);
     background: var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .container .section .card button {
@@ -1644,8 +1654,30 @@ ul.list-unstyled {
     background-color: var(--color-warning);
     border-color: var(--color-orange);
 }
+.container .section .card .row.dorm-align-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container .section .card .card-header .card-title{
+    font-size: 1.8em;
+}
+.container .section .card .row.mt-2 .col-md-6 .dropdown-center{
+   display: flex;
+   align-items: center;
+   justify-content: space-evenly;
+}
+.reservor {
+    width: 80%; 
+    display: flex;
+    justify-content: center; 
+    margin-left: 10%;
+}
 
-
+.dropdown-menu {
+    width: 100%;
+    text-align: center; 
+}
 @media (max-width: 1024px) {
     .centered {
         display: flex;

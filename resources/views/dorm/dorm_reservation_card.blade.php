@@ -4,12 +4,12 @@
         <div class="card" id="maleCard">
 
             <div class="card-body">
-                <div class="row">
-                    <div class="col-md-6">
+                <div class="row dorm-align-container">
+                    <div class="col-md-6 dorm-align-container">
                         <div class="row">
                             <h1 class="card-header"
                                 style="display: flex; justify-content: space-between; align-items: center;">
-                                <div>
+                                <div class="card-title">
                                     MALE DORM
                                 </div>
                                 <button class="btn btn-primary btn-lg rounded-pill toogle-btn" data-mdb-ripple-init>
@@ -18,7 +18,7 @@
                                 </button>
                             </h1>
                         </div>
-                        <!-- Date input -->
+                        <!-- Date input/availability -->
                         <div class="row date">
                             <div class="col-md-6 date">
                                 <div class="date-container">
@@ -62,10 +62,10 @@
                                         <span class="ri-add-line"></span>
                                     </div>
                                 </div>
-                            </div>
+                            </div>                   
                             <div class="col-md-6" style="text-align: center;">
                                 <h5>Reservor</h5>
-                                <div class="dropdown-center">
+                                <div class="dropdown-center reservor">
                                     <button id="dropdownToggle" class="btn btn-secondary dropdown-toggle" type="button"
                                         data-bs-toggle="dropdown" aria-expanded="false" style="min-width: 100%;">
                                         COA/Non-COA
@@ -79,12 +79,6 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- Availability -->
-                        {{-- <div class="row mt-1">
-                            <div class="col-md-6">
-                                <p>Availability: <b style="color: var(--color-orange)">8 beds</b></p>
-                            </div>
-                        </div> --}}
                     </div>
                     <!-- Image -->
                     <div class="col-md-6">
@@ -130,12 +124,12 @@
         <!-- Female Card Start -->
         <div class="card" id="femaleCard" style="display: none;">
             <div class="card-body">
-                <div class="row">
+                <div class="row dorm-align-container">
                     <div class="col-md-6">
                         <div class="row">
                             <h1 class="card-header"
                                 style="display: flex; justify-content: space-between; align-items: center;">
-                                <div>
+                                <div class="card-title">
                                     FEMALE DORM
                                 </div>
                                 <button class="btn btn-primary btn-lg rounded-pill toogle-btn" data-mdb-ripple-init>
@@ -192,7 +186,7 @@
                             </div>
                             <div class="col-md-6" style="text-align: center;">
                                 <h5>Reservor</h5>
-                                <div class="dropdown-center">
+                                <div class="dropdown-center reservor">
                                     <button id="dropdownToggleFemale" class="btn btn-secondary dropdown-toggle"
                                         type="button" data-bs-toggle="dropdown" aria-expanded="false"
                                         style="min-width: 100%;">
@@ -257,6 +251,102 @@
     </div>
 </div>
 <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Function to format the date to 'YYYY-MM-DD' format
+        function formatDate(date) {
+            const year = date.getFullYear();
+            const month = String(date.getMonth() + 1).padStart(2, '0');
+            const day = String(date.getDate()).padStart(2, '0');
+            return `${year}-${month}-${day}`;
+        }
+
+        // Set default value for availabilityDate input
+        const availabilityDateInput = document.getElementById('availabilityDate');
+        availabilityDateInput.value = formatDate(new Date());
+
+        // Set default value for availabilityDateFemale input
+        const availabilityDateFemaleInput = document.getElementById('availabilityDateFemale');
+        availabilityDateFemaleInput.value = formatDate(new Date());
+
+        // Handling male dorm fields
+        const input = document.querySelector('.number-input input');
+        input.value = '0';
+
+        const plusBtn = document.querySelector('.number-input .ri-add-line');
+        const minusBtn = document.querySelector('.number-input .ri-subtract-fill');
+        const availability = parseInt(document.querySelector('.availability b').textContent);
+
+        plusBtn.addEventListener('click', function() {
+            if (parseInt(input.value) < availability) {
+                input.value = parseInt(input.value) + 1;
+            }
+        });
+
+        minusBtn.addEventListener('click', function() {
+            if (parseInt(input.value) > 0) {
+                input.value = parseInt(input.value) - 1;
+            }
+        });
+
+        // Set default value for dropdown toggle to empty
+        const dropdownToggle = document.getElementById('dropdownToggle');
+        dropdownToggle.textContent = '';
+
+        const dropdownItems = document.querySelectorAll('.dropdown-item');
+        dropdownItems.forEach(item => {
+            item.addEventListener('click', function() {
+                const selectedValue = this.getAttribute('data-value');
+                dropdownToggle.textContent = selectedValue;
+            });
+        });
+
+        // Set default value for date inputs to empty
+        const availabilityDateInputs = document.querySelectorAll('.btn-calendar-datetime[type="date"]');
+        availabilityDateInputs.forEach(input => {
+            input.value = '';
+        });
+    });
+
+    // Handling only female dorm fields
+    const input = document.querySelector('.number-input-female input');
+    input.value = '0';
+
+    const plusBtn = document.querySelector('.number-input-female .ri-add-line');
+    const minusBtn = document.querySelector('.number-input-female .ri-subtract-fill');
+    const availability = parseInt(document.querySelector('#femaleCard .availability b').textContent);
+
+    plusBtn.addEventListener('click', function() {
+        if (parseInt(input.value) < availability) {
+            input.value = parseInt(input.value) + 1;
+        }
+    });
+
+    minusBtn.addEventListener('click', function() {
+        if (parseInt(input.value) > 0) {
+            input.value = parseInt(input.value) - 1;
+        }
+    });
+
+    // Set default value for dropdown toggle to empty
+    const dropdownToggle = document.getElementById('dropdownToggleFemale');
+    dropdownToggle.textContent = '';
+
+    const dropdownItems = document.querySelectorAll('#femaleCard .dropdown-item');
+    dropdownItems.forEach(item => {
+        item.addEventListener('click', function() {
+            const selectedValue = this.getAttribute('data-value');
+            dropdownToggle.textContent = selectedValue;
+        });
+    });
+
+    // Set default value for date inputs to empty
+    const availabilityDateInputs = document.querySelectorAll('#femaleCard .btn-calendar-datetime[type="date"]');
+    availabilityDateInputs.forEach(input => {
+        input.value = '';
+    });
+</script>
+
+{{-- <script>
     document.addEventListener('DOMContentLoaded', function() {
         // Handling male dorm fields
         const input = document.querySelector('.number-input input');
@@ -336,4 +426,4 @@
     availabilityDateInputs.forEach(input => {
         input.value = '';
     });
-</script>
+</script> --}}
