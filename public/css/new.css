@@ -1,0 +1,474 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-weight: 700;
+    font-style: normal;
+    list-style: none;
+}
+
+:root {
+    --color-primary: #003049;
+    --color-danger: #d62828;
+    --color-success: #18a999;
+    --color-warning: #fcbf49;
+    --color-orange: #f77f00;
+    --color-white: #fff;
+    --color-info-dark: #363949;
+    --color-info-light: #dce1eb;
+    --color-dark: #363949;
+    --color-light: rgba(132, 139, 200, 0.18);
+    --color-primary-variant: #1b9aaa;
+    --color-dark-variant: #677483;
+    --color-background: #eae2b7;
+
+    --color-border-radius: 2rem;
+    --border-radius-1: 0.4rem;
+    --border-radius-1: 0.8rem;
+    --border-radius-1: 1.2rem;
+
+    --card-padding: 1.8rem;
+    --padding-1: 1.2rem;
+
+    --box-shadow: 0 1rem 2.5rem var(--color-dark-variant);
+    --border-solid: 1px solid var(--color-primary);
+
+}
+
+.container {
+    width: 95% !important;
+    margin: auto;
+    height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    background: var(--bg-bolor);
+    color: var(--color-background);
+    background-color: var(--color-background) !important;
+}
+
+img {
+    display: block;
+    width: 100%;
+    /* Adjust the size of your logo */
+}
+
+h1 {
+    font-weight: 800;
+    font-size: 1.8rem;
+}
+
+h2 {
+    font-size: 1.4rem;
+}
+
+h3 {
+    font-size: 0.87rem;
+}
+
+h4 {
+    font-size: 0.8rem;
+}
+
+small {
+    font-size: 0.77rem;
+}
+
+.profile-photo {
+    width: 2.8rem;
+    height: 2.8rem;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.text-muted {
+    color: var(--color-info-dark);
+}
+
+p {
+    color: var(--color-dark-variant);
+}
+
+b {
+    color: var(--color-dark);
+}
+
+.primary {
+    color: var(--color-primary);
+}
+
+.primary-light {
+    color: var(--color-background);
+}
+
+.warning-orange {
+    color: var(--color-orange);
+}
+
+.danger {
+    color: var(--color-danger);
+}
+
+.success {
+    color: var(--color-success);
+}
+
+.warning {
+    color: var(--color-warning);
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--color-primary);
+    transition: all .50s ease;
+}
+
+.centered {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.column {
+    display: flex;
+    width: 50%;
+    height: auto;
+}
+
+.main {
+    display: flex;
+    align-items: flex-end;
+}
+/*====================================== NAVBAR ================================================*/
+.navbar {
+    display: grid;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    background: var(--color-primary);
+}
+
+.navbar a.navbar-brand img {
+    height: 4rem;
+}
+
+.navbar a.navbar-brand {
+    display: flex;
+    align-items: center;
+    color: var(--color-background);
+    font-size: 2.5rem;
+    font-weight: 900;
+    letter-spacing: 6px;
+    text-decoration: none;
+    margin: 0;
+}
+.navbar .navbar-toggler {
+    background: var(--color-background) !important;
+}
+
+.navbar .main-login .navbar-nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    
+}
+
+.navbar .main-login a{
+    color: var(--color-background);
+    text-decoration: none;
+    font-size: 2rem;
+    margin: 0px 0px 0px 30px;
+    transition: all .50s ease;
+}
+.nav-item a.login-active {
+    color: var(--color-warning) !important;
+    transition: all .3s ease;
+    padding: 10px 20px;
+}
+/*====================================== LOGIN ================================================*/
+
+.login-container {
+    display: grid;
+    position: relative;
+    grid-template-columns: 8.3% 8.3% 8.4% 8.3% 8.3% 8.4% 8.3% 8.3% 8.4% 8.3% 8.3% 8.4%;
+    grid-template-rows: 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5%;
+    height: 88vh;
+}
+.login-container .color01{
+    position:relative;
+    grid-column: 3 / span 3;
+    grid-row: 3 / span 8;
+    width: auto;
+    z-index: -1;
+    background: var(--color-primary);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.login-container .color02{
+    position:relative;
+    grid-column: 8 / span 3;
+    grid-row: 11 / span 8;
+    width: auto;
+    z-index: -1;
+    background: var(--color-danger);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.login-container .login-section{
+    display: grid;
+    width: auto;
+    height: auto;
+    grid-template-columns: 15% 70% 15%;
+    grid-template-rows: 10% 10% 5% 12% 5% 12% 5% 5% 12% 9% 5% 10%;
+    grid-column: 4 / span 6;
+    grid-row: 5 / span 12;
+    border: 2px solid #003049;
+    width: auto;
+    z-index: 1;
+    background: var(--color-background);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    
+}
+.login-section {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    height: 100%; 
+}
+.login-section .login-title {
+    display: flex;
+    color: var(--color-orange);
+    text-transform: uppercase;
+    justify-content: center;
+    align-items: center;
+    grid-column: 2;
+    grid-row: 2;
+}
+
+.login-section form {
+    display: inline-block;
+    grid-column-start: 2;
+    grid-row-start: 6;
+    margin-bottom: 10px;
+}
+
+
+.login-container .login-section .input-field{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.login-container .login-section .useremail, .login-section .useremail i{
+    margin-bottom: 15px;
+}
+.login-container .login-section .password, .login-section .password i{
+    margin-bottom: 15px;
+}
+.login-container .login-section .input-field input {
+    display: flex;
+    color: var(--color-primary);
+    background:var(--color-background);
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: 2px solid var(--color-primary);
+    font-size: 14px;
+    border-radius: 40px;
+    padding: 20px 45px 20px 20px;
+    
+}
+.login-container .login-section .btn-login {
+    width: 100%;
+    height: 100%;
+    background: var(--color-primary);
+    border: 3px solid var(--color-primary);
+    border-radius: 40px;
+    color: var(--color-background);
+    grid-column-start: 2;
+    grid-row-start: 9;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    
+}
+.login-container .login-section .btn-login:hover {
+    width: 100%;
+    height: 100%;
+    background: var(--color-background);
+    border-width: 3px;
+    border-color: var(--color-primary);
+    outline: none;
+    border-radius: 40px;
+    color: var(--color-primary);
+} 
+.login-container .login-section .forgot-password {
+    display: flex;
+    font-size: 14.5px;
+    margin: -15px 0 15px;
+    grid-column-start: 2;
+    justify-content: flex-start;
+    align-items: center;
+    grid-row-start: 8;
+    margin-top: 10px;
+}
+.input-field input::placeholder {
+    color: var(--color-primary);
+}
+
+.input-field i {
+    position: absolute; 
+    top: 50%;
+    right: 15px; 
+    transform: translateY(-50%);  
+    font-size: 20px;
+    color: var(--color-primary);
+    z-index: 2;
+}
+.bottom-link {
+    grid-column-start: 2;
+    grid-row-start: 10;
+    font-size: 14.5px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+ p a {
+    text-decoration: none;
+}
+p a:hover {
+    text-decoration: underline;
+}
+.bottom-link p a {
+    text-decoration: none;
+}
+.bottom-link p a:hover {
+    text-decoration: underline;
+}
+
+/*====================================== REGISTER ================================================*/
+.register-container {
+    display: grid;
+    position: relative;
+    grid-template-columns: 8.3% 8.3% 8.4% 8.3% 8.3% 8.4% 8.3% 8.3% 8.4% 8.3% 8.3% 8.4%;
+    grid-template-rows: 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5%;
+    height: 88vh;
+}
+
+.register-container .color01{
+    position:relative;
+    grid-column: 3 / span 3;
+    grid-row: 2 / span 8;
+    width: auto;
+    z-index: -1;
+    background: var(--color-danger);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.register-container .color02{
+    position:relative;
+    grid-column: 8 / span 3;
+    grid-row: 12 / span 8;
+    width: auto;
+    z-index: -1;
+    background: var(--color-primary);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.register-container .register-section{
+    display: grid;
+    width: auto;
+    height: auto;
+    grid-template-columns: 15% 70% 15%;
+    grid-template-rows: 5% 10% 5% 12% 5% 12% 5% 5% 12% 9% 5% 10%;
+    grid-column: 4 / span 6;
+    grid-row: 4 / span 14;
+    border: 2px solid var(--color-primary);
+    width: auto;
+    z-index: 1;
+    background: var(--color-background);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.register-section {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    height: 100%; 
+}
+.register-section .register-title {
+    display: flex;
+    color: var(--color-orange);
+    text-transform: uppercase;
+    justify-content: center;
+    align-items: center;
+    grid-column: 2;
+    grid-row: 2;
+}
+
+.register-section form {
+    display: inline-block;
+    grid-column-start: 2;
+    grid-row-start: 6;
+    margin-bottom: 10px;
+    margin-top: 80px;
+}
+
+.register-container .register-section .input-field{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.register-container .register-section .useremail, .register-section .useremail i, 
+.register-container .register-section .password, .register-section .password i,
+.register-container .register-section .firstname, .register-section .firstname i,
+.register-container .register-section .middlename, .register-section .middlename i,
+.register-container .register-section .lastname, .register-section .lastname i
+{
+    margin-bottom: 10px;
+}
+
+.register-container .register-section .input-field input {
+    display: flex;
+    color: var(--color-primary);
+    background:var(--color-background);
+    width: 100%;
+    background: transparent;
+    border: 2px solid var(--color-primary);
+    font-size: 14px;
+    border-radius: 40px;
+    padding: 20px 45px 20px 20px;
+    
+}
+.register-container .register-section .btn-register {
+    width: 100%;
+    height: 100%;
+    background: var(--color-primary);
+    border: 3px solid var(--color-primary);
+    border-radius: 40px;
+    color: var(--color-background);
+    grid-column-start: 2;
+    grid-row-start: 9;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    
+}
+.login-container .login-section .btn-login:hover {
+    width: 100%;
+    height: 100%;
+    background: var(--color-background);
+    border-width: 3px;
+    border-color: var(--color-primary);
+    outline: none;
+    border-radius: 40px;
+    color: var(--color-primary);
+} 
+.register-container .bottom-link {
+    grid-column-start: 2;
+    grid-row-start: 12;
+    font-size: 14.5px;
+    text-align: center;
+    margin-bottom: 10px;
+}

@@ -52,6 +52,12 @@ Route::get('/cart_check', function () {
     return view('cart_checkout');
 })->name('cart_check');
 
+Route::get('/newlogin', function () {
+    return view('auth.newlogin');
+})->name('newlogin');
+Route::get('/newregister', function () {
+    return view('auth.newregister');
+})->name('newregister');
 
 Route::resource('users', UserController::class)->only('show', 'edit', 'update')->middleware('auth');
 
