@@ -4,18 +4,23 @@
     <div class="modal-dialog modal-dialog-centered modal-xl">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="gymReservationModalLabel">Gym Reservation</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="col-6">
+                    <h1 class="modal-title" id="gymReservationModalLabel">Gym Reservation</h1>
+                </div>
+                <div class="col-6 text-end">
+                    <button type="button" class="btn-close close-modal" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
             </div>
             <form id="gymReservationForm" action="{{ route('gym_cart.store') }}" method="POST">
                 @csrf
                 <div class="modal-body">
-                    <div class="mb-3">
+                    <div class="row">
+                        <div class="col">
                         <label for="reservationDate" class="form-label">Date</label>
                         <input type="date" class="form-control" id="reservationDate" name="selectedDateText"
                             required>
-                    </div>
-                    <div class="row mb-3">
+                        </div>
                         <div class="col">
                             <label for="startTime" class="form-label">Start Time</label>
                             <input type="time" class="form-control" id="startTime" name="timepicker-am" required
@@ -27,20 +32,23 @@
                                 max="21:00">
                         </div>
                     </div>
-                    <div class="mb-3">
-                        <label for="employeeType" class="form-label">Employee Type</label>
-                        <select class="form-select" id="employeeType" name="employee_type" required>
-                            <option value="COA Employee">COA Employee</option>
-                            <option value="Non-COA">Non-COA</option>
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label for="purpose" class="form-label">Purpose</label>
-                        <select class="form-select" id="purpose" name="purpose" required>
-                            <option value="Basketball">Basketball</option>
-                            <option value="Volleyball">Volleyball</option>
-                            <option value="Badminton">Badminton</option>
-                        </select>
+
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label for="employeeType" class="form-label">Employee Type</label>
+                            <select class="form-select" id="employeeType" name="employee_type" required>
+                                <option value="COA Employee">COA Employee</option>
+                                <option value="Non-COA">Non-COA</option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <label for="purpose" class="form-label">Purpose</label>
+                            <select class="form-select" id="purpose" name="purpose" required>
+                                <option value="Basketball">Basketball</option>
+                                <option value="Volleyball">Volleyball</option>
+                                <option value="Badminton">Badminton</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">
