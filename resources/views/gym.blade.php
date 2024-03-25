@@ -27,7 +27,7 @@
             <tbody>
                 @foreach ($gymcarts as $gymcart)
                     <tr>
-                        <th scope="row">{{ $gymcart->reservation_date }}</th>
+                        <th>{{ $gymcart->reservation_date }}</th>
                         <td>{{ date('h:i A', strtotime($gymcart->reservation_time_start)) }}</td>
                         <td>{{ date('h:i A', strtotime($gymcart->reservation_time_end)) }}</td>
                         <td>{{ $gymcart->price }}</td>
@@ -44,24 +44,3 @@
     </div>
 @endsection
 
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-        const totalElement = document.getElementById('total');
-        let totalPrice = 0;
-
-        checkboxes.forEach(checkbox => {
-            checkbox.addEventListener('change', function() {
-                const checkboxPrice = parseFloat(this.value);
-
-                if (this.checked) {
-                    totalPrice += checkboxPrice;
-                } else {
-                    totalPrice -= checkboxPrice;
-                }
-
-                totalElement.textContent = 'Total: ' + totalPrice.toFixed(2);
-            });
-        });
-    });
-</script>
