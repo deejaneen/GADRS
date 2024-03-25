@@ -44,11 +44,14 @@
     @if (session('success'))
         <script>
             Swal.fire({
-                icon: 'success',
-                title: 'Success!',
-                text: '{{ session('success') }}',
+                // position: "bottom-end",
+                icon: "success",
+                title: "Logged in successfully!",
                 showConfirmButton: false,
-                timer: 1500
+                timer: 1500,
+                customClass: {
+                    popup: 'small-modal'
+                }
             });
         </script>
     @endif
