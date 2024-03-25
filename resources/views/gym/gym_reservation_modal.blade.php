@@ -34,6 +34,14 @@
                             <option value="Non-COA">Non-COA</option>
                         </select>
                     </div>
+                    <div class="mb-3">
+                        <label for="purpose" class="form-label">Purpose</label>
+                        <select class="form-select" id="purpose" name="purpose" required>
+                            <option value="Basketball">Basketball</option>
+                            <option value="Volleyball">Volleyball</option>
+                            <option value="Badminton">Badminton</option>
+                        </select>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"

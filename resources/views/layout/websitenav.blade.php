@@ -25,7 +25,7 @@
                  <ul class="navbar-nav mx-auto">
                     @auth()
                     <li class="nav-item cart">
-                        <a href="" class=""><i class="ri-shopping-cart-2-line"></i></a>
+                        <a href="{{ route('cart_check') }}" class=""><i class="ri-shopping-cart-2-line"></i></a>
                     </li>
                      <li class="nav-item profile">
                          <a href="{{ route('profile') }}" class="{{(Route::is('profile')) ? 'active' : '' }}{{(Route::is('passwordprofile')) ? 'active' : '' }}{{(Route::is('reservationhistoryprofile')) ? 'active' : '' }}{{(Route::is('users.edit')) ? 'active' : '' }} user no-underline"><i class="ri-user-fill"></i>{{ Auth::user()->first_name }}</a>

@@ -14,11 +14,7 @@ class GymCartController extends Controller
      */
     public function index()
     {
-        $userId = Auth::id(); // Get the ID of the authenticated user
-        $gymcarts = GymCart::where('employee_id', $userId)
-            ->orderBy('created_at', 'DESC')
-            ->paginate(5);
-        return view('cart_check', ['gymcarts' => $gymcarts]);
+
     }
 
     /**
@@ -40,6 +36,8 @@ class GymCartController extends Controller
             'timepicker-am' => 'required|date_format:H:i',
             'timepicker-pm' => 'required|date_format:H:i|after:timepicker-am',
             'employee_type' => 'required',
+            'purpose' => 'required',
+
         ]);
 
         // Create a new GymCart instance
@@ -48,6 +46,7 @@ class GymCartController extends Controller
         $gymCart->reservation_time_start = $validatedData['timepicker-am'];
         $gymCart->reservation_time_end = $validatedData['timepicker-pm'];
         $gymCart->occupant_type = $validatedData['employee_type'];
+        $gymCart->purpose = $validatedData['purpose'];
         $gymCart->employee_id = Auth::id(); // Use Auth::id() instead of Auth()->id()
 
         // Save the GymCart instance to the database

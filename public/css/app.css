@@ -429,7 +429,7 @@ b {
     box-shadow: none;
 }
 .container .row.date {
-    display: flex; 
+    display: flex;
     align-items: center;
     justify-content: center;
 }
@@ -438,11 +438,11 @@ b {
 }
 
 .date-container h5 {
-    margin-top: 20px; 
+    margin-top: 20px;
 }
 .container .row.date .col-md-6.date,
 .container .row.date .col-md-6.availability{
-    display: flex; 
+    display: flex;
     align-items: center;
     justify-content: center;
 }
@@ -495,14 +495,14 @@ b {
 .date-container .availability h1{
     color: var(--color-background);
     background-color: var(--color-primary);
-    
+
 }
-.number-input-female, 
+.number-input-female,
 .number-input {
     display: flex;
     align-items: center;
-    
-    
+
+
 }
 
 .number-input-female span:hover,
@@ -1416,7 +1416,7 @@ b {
 .small-modal {
     background: var(--color-background);
     content: '\f00c';
-    color: var(--color-success); 
+    color: var(--color-success);
 }
 
 .welcome-section .welcome-title1 h3 {
@@ -1530,11 +1530,12 @@ b {
 
 .fixed-bottom {
     position: fixed;
-    bottom: 0;
+    top: 90%;
     width: 100%;
     background-color: var(--color-orange);
-    color: #ffffff;
+    color: var(--color-background);
     padding: 10px;
+    height: 10vh;
     text-align: center;
     border: none !important;
 }
@@ -1664,15 +1665,15 @@ ul.list-unstyled {
    justify-content: space-evenly;
 }
 .reservor {
-    width: 80%; 
+    width: 80%;
     display: flex;
-    justify-content: center; 
+    justify-content: center;
     margin-left: 10%;
 }
 
 .dropdown-menu {
     width: 100%;
-    text-align: center; 
+    text-align: center;
 }
 @media (max-width: 1024px) {
     .centered {

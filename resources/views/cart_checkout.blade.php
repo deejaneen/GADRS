@@ -19,22 +19,25 @@
                 <div class="col-6">
                     <h1 class="text-center">GYM RESERVATIONS</h1>
                     <hr>
-                    <div class="row align-items-center">
-                        <div class="col-2">
-                            <i class="fa-solid fa-plus add-icon ms-3"></i>
-                            <i class="fa-solid fa-minus minus-icon ms-3"></i>
+                    @foreach ($gymcarts as $gymcart)
+                        <div class="row align-items-center">
+                            <div class="col-2">
+                                <i class="fa-solid fa-plus add-icon ms-3"></i>
+                                <i class="fa-solid fa-minus minus-icon ms-3"></i>
+                            </div>
+                            <div class="col-8">
+                                <ul class="list-unstyled">
+                                    <li>Date: {{ $gymcart->reservation_date }}, {{ date('g:i A', strtotime($gymcart->reservation_time_start)) }} - {{ date('g:i A', strtotime($gymcart->reservation_time_end)) }}</li>
+                                    <li>Price: {{ $gymcart->price }}</li>
+                                    <li>Purpose: {{ $gymcart->purpose }}</li>
+                                </ul>
+                            </div>
+                            <div class="col-2">
+                                <i class="fa-solid fa-trash trash-icon"></i>
+                                <input type="checkbox" class="reservation-checkbox" data-price="{{ $gymcart->price }}">
+                            </div>
                         </div>
-                        <div class="col-8">
-                            <ul class="list-unstyled">
-                                <li>Feb 22, 2024 2pm - Feb 24, 2024 12pm</li>
-                                <li>COA Employee</li>
-                                <li>Activity: Basketball</li>
-                            </ul>
-                        </div>
-                        <div class="col-2">
-                            <i class="fa-solid fa-trash trash-icon"></i>
-                        </div>
-                    </div>
+                    @endforeach
                     <hr>
 
                 </div>
@@ -69,7 +72,7 @@
 @section('bottom_nav')
     <nav class="navbar fixed-bottom">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Total:</a>
+            <a class="navbar-brand">Total:₱<span id="total-price">0</span></a>
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" id="check1" name="option1" value="something" checked>
                 <label class="form-check-label">Agree With <a data-bs-toggle="modal" data-bs-target="#GFG"><u>Terms and
@@ -135,6 +138,37 @@
     </div>
 </div>
 
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get all checkboxes
+        const checkboxes = document.querySelectorAll('.reservation-checkbox');
+        const totalPriceDisplay = document.getElementById('total-price');
+
+        let totalPrice = 0;
+
+        checkboxes.forEach(function(checkbox) {
+            checkbox.checked = false; // Uncheck the checkbox on page load
+            checkbox.addEventListener('change', function() {
+                // If checkbox is checked, add the price; otherwise, subtract it
+                const price = parseFloat(this.dataset.price);
+                if (this.checked) {
+                    totalPrice += price;
+                } else {
+                    totalPrice -= price;
+                }
+                // Update total price display
+                totalPriceDisplay.textContent = totalPrice.toFixed(2);
+            });
+        });
+
+        // Optional: Handle checkout button click
+        const checkoutBtn = document.getElementById('checkout-btn');
+        checkoutBtn.addEventListener('click', function() {
+            // Implement checkout functionality here
+            alert('Total price: $' + totalPrice.toFixed(2));
+        });
+    });
+</script>
 <script>
     function goBack() {
         window.history.back();

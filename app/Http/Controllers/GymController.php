@@ -15,11 +15,7 @@ class GymController extends Controller
      */
     public function index()
     {
-        $userId = Auth::id(); // Get the ID of the authenticated user
-        $gymcarts = GymCart::where('employee_id', $userId)
-            ->orderBy('created_at', 'DESC')
-            ->paginate(5);
-        return view('gym', ['gymcarts' => $gymcarts]);
+        return view('gym');
     }
 
     /**

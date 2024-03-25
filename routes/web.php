@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\GymCartController;
 use App\Http\Controllers\GymController;
 use App\Http\Controllers\UserController;
@@ -72,5 +73,7 @@ Route::post('/passwordprofile/update-password', [UserController::class, 'updateP
 Route::get('/gym', [GymController::class, 'index'])->name('gym');
 
 Route::post('/gym-cart', [GymCartController::class, 'store'])->name('gym_cart.store');
+Route::get('/cart_check', [CartController::class, 'index'])->name('cart_check');
+
 
 

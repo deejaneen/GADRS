@@ -21,7 +21,7 @@
 
 @section('gym_table')
     @include('gym.gym_table')
-    <div>
+    {{-- <div>
         <table class="table">
             <thead>
                 <tr>
@@ -49,8 +49,8 @@
         </table>
         <h2></h2>
         <p>Total: <span id="total-price">0</span></p> {{-- Make this be updated real-time when a user clicks the checkbox. --}}
-        <button id="checkout-btn">Checkout</button>
-    </div>
+        {{-- <button id="checkout-btn">Checkout</button> --}}
+    {{-- </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -82,5 +82,5 @@
                 alert('Total price: $' + totalPrice.toFixed(2));
             });
         });
-    </script>
+    </script>  --}}
 @endsection
