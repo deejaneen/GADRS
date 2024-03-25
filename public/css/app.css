@@ -21,18 +21,14 @@
     --color-primary-variant: #1b9aaa;
     --color-dark-variant: #677483;
     --color-background: #eae2b7;
-
     --color-border-radius: 2rem;
     --border-radius-1: 0.4rem;
     --border-radius-1: 0.8rem;
     --border-radius-1: 1.2rem;
-
     --card-padding: 1.8rem;
     --padding-1: 1.2rem;
-
     --box-shadow: 0 1rem 2.5rem var(--color-dark-variant);
     --border-solid: 1px solid var(--color-primary);
-
 }
 
 .container {
@@ -51,24 +47,29 @@ body {
 img {
     display: block;
     width: 100%;
-    /* Adjust the size of your logo */
 }
+
 h1 {
     font-weight: 800;
     font-size: 1.8rem;
 }
+
 h2 {
     font-size: 1.4rem;
 }
+
 h3 {
     font-size: 0.87rem;
 }
+
 h4 {
     font-size: 0.8rem;
 }
+
 small {
     font-size: 0.77rem;
 }
+
 .profile-photo {
     width: 2.8rem;
     height: 2.8rem;
@@ -79,30 +80,39 @@ small {
 .text-muted {
     color: var(--color-info-dark);
 }
+
 p {
     color: var(--color-dark-variant);
 }
+
 b {
     color: var(--color-dark);
 }
-.primary{
+
+.primary {
     color: var(--color-primary);
 }
-.primary-light{
+
+.primary-light {
     color: var(--color-background);
 }
-.warning-orange{
+
+.warning-orange {
     color: var(--color-orange);
 }
-.danger{
+
+.danger {
     color: var(--color-danger);
 }
-.success{
+
+.success {
     color: var(--color-success);
 }
-.warning{
+
+.warning {
     color: var(--color-warning);
 }
+
 .header {
     display: flex;
     align-items: center;
@@ -127,28 +137,44 @@ b {
     align-items: flex-end;
 }
 
-.main .navbar-nav li button {
-    background-color: var(--color-primary);
-    font-size: 1.5em;
-    color: var(--color-background);
-    border: none;
-    font-weight: bold;
+.navbar {
+    display: grid;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    background: var(--color-primary);
 }
 
-.main .navbar-nav li button {
-    background-color: var(--color-primary);
-    font-size: 1.5em;
-    color: var(--color-background);
-    border: none;
-    font-weight: bold;
+.navbar .navbar-nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
 }
 
-.main .navbar-nav li button {
-    background-color: var(--color-primary);
-    font-size: 1.5em;
+.navbar .navbar-nav a {
     color: var(--color-background);
+    text-decoration: none;
+    font-size: 2rem;
+    margin: 0px 0px 0px 30px;
+    transition: all .50s ease;
+}
+
+.navbar .navbar-nav .profile a {
+    margin-right: 30px;
+}
+
+.navbar .navbar-nav .button button {
+    background: var(--color-primary);
     border: none;
-    font-weight: bold;
+    color: var(--color-background);
+    font-size: 1.8rem;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-item a.active {
+    color: var(--color-warning) !important;
+    transition: all .3s ease;
 }
 
 .navbar a.navbar-brand img {
@@ -163,72 +189,30 @@ b {
     font-weight: 900;
     letter-spacing: 6px;
     text-decoration: none;
+    margin: 0;
 }
 
-.navbar {
-    background-color: var(--color-primary);
+.navbar .navbar-toggler {
+    background: var(--color-background) !important;
 }
 
-.navbar a {
+.navbar .main-login .navbar-nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+}
+
+.navbar .main-login a {
     color: var(--color-background);
-    font-size: 1.6rem;
-    margin: 0px 30px 0px 0px;
+    text-decoration: none;
+    font-size: 2rem;
+    margin: 0px 0px 0px 30px;
     transition: all .50s ease;
 }
 
-.navbar .logout {
-    margin: 0%;
-}
-
-.navbar a:hover {
-    color: var(--color-orange);
-}
-
-.navbar a.active {
-    color: var(--color-orange) !important;
-    border: 1px solid var(--color-background);
-    /* Specify border style */
-    border-radius: 8px;
-    transition: all .3s ease;
-    padding: 10px 20px;
-    /* Adjust padding to increase the width of the border */
-}
-
-.navbar .navbar-nav {
-    display: flex;
-    align-items: center;
-}
-
-.navbar-nav .nav-item a {
-    text-decoration: none;
-
-}
-.navbar-nav .nav-item a.profile-active {
-    color: var(--color-primary);
-    /* Text color */
-    background-color: var(--color-background);
-    /* Background color */
-    border-radius: 5px;
-    /* Rounded corners */
-    font-weight: bold;
-    /* Bold text */
-    border: 2px solid var(--color-primary);
-    transition: all 0.3s ease;
-}
 .nav-item a.login-active {
-    color: var(--color-orange) !important;
-    border: 1px solid var(--color-background);
-    /* Specify border style */
-    border-radius: 8px;
+    color: var(--color-warning) !important;
     transition: all .3s ease;
-    padding: 10px 20px;
-    /* Adjust padding to increase the width of the border */
-}
-
-.custom-toggler {
-    background-color: var(--color-background) !important;
-    border-color: var(--color-background) !important;
-
 }
 
 .user {
@@ -237,7 +221,7 @@ b {
 }
 
 .user i {
-    color: var(--color-orange);
+    color: var(--color-warning);
     font-size: 28px;
     margin-right: 7px;
 }
@@ -246,115 +230,312 @@ b {
     text-decoration: none;
 }
 
-.banner-gym h1.banner-name {
-    font-size: 7.5rem;
-    color: var(--color-background);
+.banner-gym-top {
+    position: absolute;
+    background: var(--color-danger);
+    height: 45%;
+    width: 100%;
+    z-index: -1;
+    transform: skewY(-3deg);
+    right: -1px;
+    transform-origin: -40% 0;
+    box-shadow: none;
+}
+
+.volleyball {
+    position: absolute;
+    height: 350px;
+    width: auto;
+    z-index: 1;
+    left: 4%;
+    top: 15%;
+}
+
+.basketball {
+    height: 350px;
+    width: auto;
+    position: absolute;
+    right: 4%;
+    top: 12%;
+    z-index: 1;
+}
+
+.banner-gym-bottom {
+    position: absolute;
+    background: var(--color-warning);
+    height: 40%;
+    width: 100%;
+    z-index: -2;
+    transform: skewY(-3deg);
+    right: -1px;
+    transform-origin: 80% 0;
+    box-shadow: none;
 }
 
 .banner-gym {
-    position: relative;
-    text-align: center;
-    color: var(--color-white);
-    background: url('../images/Gym\ Banner\ Reservation.png') center/cover no-repeat;
-    height: 550px;
-    /* Set the desired height */
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    position: relative;
+}
+
+.banner-gym-text {
+    text-align: center;
+}
+
+.column-bar-gym {
+    background: var(--color-orange);
+    position: absolute;
+    width: 80%;
+    height: 4px;
+    top: 11.2%;
+}
+
+.container .hero-section {
+    display: flex;
     justify-content: center;
 }
 
-.banner-gym h2 {
-    font-weight: 700;
-    /* Bold */
-    font-size: 4em;
-    margin-bottom: 10px;
-    font-family: 'Montserrat', sans-serif;
-    /* Use Montserrat font */
+.banner-gym-text h1.banner-name {
+    font-size: 7rem;
+    color: var(--color-background);
+    font-family: 'IBM Plex Mono', sans-serif;
+    margin-top: 75px;
 }
 
-.banner-gym p {
-    font-size: 1.2em;
-    margin-bottom: 20px;
-}
-
-.banner-gym .btn {
+.banner-gym-text .btn {
     color: var(--color-danger);
     padding: 10px 15px;
     border-width: 5px;
     border-color: var(--color-warning) !important;
-    /* Adjust the padding for your desired button size */
     font-weight: 700;
     background-color: var(--color-warning);
-    /* Bold */
-    font-size: 2.2em;
+    font-size: 1.8em;
     text-decoration: none;
     border-radius: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    /* Add a subtle drop shadow */
 }
 
-.banner-gym .btn:hover {
+.banner-gym-text .btn:hover {
     background-color: var(--color-primary);
     color: var(--color-background);
-    /* Change to your desired hover color */
 }
 
-.banner-dorm {
-    position: relative;
+.banner-gym-top {
+    position: absolute;
+    background: var(--color-danger);
+    height: 45%;
+    width: 100%;
+    z-index: -1;
+    transform: skewY(-3deg);
+    right: -1px;
+    transform-origin: -40% 0;
+    box-shadow: none;
+}
+
+.banner-gym-bottom {
+    position: absolute;
+    background: var(--color-warning);
+    height: 40%;
+    width: 100%;
+    z-index: -2;
+    transform: skewY(-3deg);
+    right: -1px;
+    transform-origin: 80% 0;
+    box-shadow: none;
+}
+
+.banner-dorm-text {
     text-align: center;
-    color: var(--color-white);
-    background: url('../images/Dorm\ Banner\ Reservation.png') center/cover no-repeat;
-    height: 550px;
-    /* Set the desired height */
+}
+
+.column-bar-dorm {
+    background: var(--color-orange);
+    position: absolute;
+    width: 80%;
+    height: 4px;
+    top: 11.2%;
+}
+
+.container .hero-section {
     display: flex;
-    flex-direction: column;
     justify-content: center;
 }
 
-.banner-dorm h1.banner-name {
-    font-size: 7.5rem;
+.banner-dorm-text h1.banner-name {
+    font-size: 7rem;
     color: var(--color-background);
+    margin-top: 75px;
+    font-family: 'IBM Plex Mono', sans-serif;
 }
 
-.banner-dorm h2 {
-    font-weight: 700;
-    /* Bold */
-    font-size: 4em;
-    margin-bottom: 10px;
-    font-family: 'Montserrat', sans-serif;
-    /* Use Montserrat font */
-}
-
-.banner-dorm p {
-    font-size: 1.2em;
-    margin-bottom: 20px;
-}
-
-.banner-dorm .btn {
+.banner-dorm-text .btn {
     color: var(--color-primary);
     padding: 10px 15px;
     border-width: 5px;
     border-color: var(--color-warning) !important;
-    /* Adjust the padding for your desired button size */
     font-weight: 700;
     background-color: var(--color-warning);
-    /* Bold */
-    font-size: 2.2em;
+    font-size: 1.8em;
     text-decoration: none;
     border-radius: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    /* Add a subtle drop shadow */
-
 }
 
-.banner-dorm .btn:hover {
+.banner-dorm-text .btn:hover {
     background-color: var(--color-primary);
     color: var(--color-warning);
-    background-color: var(--color-primary);
-    color: var(--color-warning);
-    /* Change to your desired hover color */
 }
 
+.banner-dorm-top {
+    position: absolute;
+    background: var(--color-primary);
+    height: 45%;
+    width: 100%;
+    z-index: -1;
+    transform: skewY(-3deg);
+    right: -1px;
+    transform-origin: -40% 0;
+    box-shadow: none;
+}
+
+.pillow1 {
+    position: absolute;
+    height: 450px;
+    width: auto;
+    z-index: 1;
+    left: 0;
+}
+
+.pillow2 {
+    height: 350px;
+    width: auto;
+    position: absolute;
+    right: 4%;
+    top: 12%;
+    z-index: 1;
+}
+
+.banner-dorm-bottom {
+    position: absolute;
+    background: var(--color-warning);
+    height: 40%;
+    width: 100%;
+    z-index: -2;
+    transform: skewY(-3deg);
+    right: -1px;
+    transform-origin: 80% 0;
+    box-shadow: none;
+}
+.container .row.date {
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+}
+.date-container {
+    text-align: center;
+}
+
+.date-container h5 {
+    margin-top: 20px; 
+}
+.container .row.date .col-md-6.date,
+.container .row.date .col-md-6.availability{
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+}
+.container .card-body .btn-calendar-dorm {
+    color: var(--color-background);
+    background-color: var(--color-primary);
+    border: 3px solid var(--color-background);
+    border-radius: 18px;
+    font-size: 1.5em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+    width: fit-content;
+    margin: 20px auto;
+    margin-top: 10px;
+}
+
+.container .card-body .btn-calendar-dorm:hover {
+    border: 3px solid var(--color-warning);
+}
+
+.container .card-body .btn-calendar-dorm:valid {
+    color: var(--color-background);
+    background-color: var(--color-primary);
+    border: 3px solid var(--color-background);
+    border-radius: 18px;
+    font-size: 1.5em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+}
+.container .card-body .btn-calendar-datetime {
+    color: var(--color-background);
+    background-color: var(--color-primary);
+    border: 3px solid var(--color-primary);
+    border-radius: 18px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+    width: fit-content;
+    margin: 10px auto;
+    margin-top: 10px;
+}
+
+.container .card-body .btn-calendar-datetime:valid {
+    color: var(--color-background);
+    background-color: var(--color-primary);
+    border: 3px solid var(--color-background);
+    border-radius: 18px;
+    font-size: 1em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.date-container .availability h1{
+    color: var(--color-background);
+    background-color: var(--color-primary);
+    
+}
+.number-input-female, 
+.number-input {
+    display: flex;
+    align-items: center;
+    
+    
+}
+
+.number-input-female span:hover,
+.number-input span:hover {
+    background-color: var(--color-warning);
+    color: var(--color-primary);
+}
+.number-input-female .ri-subtract-fill,
+.number-input-female .ri-add-line,
+.number-input .ri-subtract-fill,
+.number-input .ri-add-line{
+    border-radius: 50%;
+    color: var(--color-primary);
+    background: var(--color-background);
+    width: 25px;
+    height: 25px;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2em;
+    display: flex;
+}
+.custom-dropdown-menu {
+    color: var(--color-primary);
+    background: var(--color-background);
+    font-size: 1em;
+}
+
+.custom-dropdown-item {
+    color: var(--color-primary);
+    font-size: 1em;
+}
+
+/*============================================================================*/
 .wrapper {
     position: relative;
     min-height: 65vh;
@@ -362,7 +543,6 @@ b {
     background: var(--color-background);
     border: 3px solid var(--color-primary);
     margin: 60px auto 0;
-    /* This will center the wrapper horizontally */
 }
 
 .wrapper h1 {
@@ -373,7 +553,6 @@ b {
 
 .wrapper .form-box {
     display: flex;
-
 }
 
 .wrapper .input-field {
@@ -393,6 +572,14 @@ b {
     margin: 30px 0;
 }
 
+.wrapper .form-content-register .input-field {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    background: var(--color-background);
+    margin: 19px 0;
+}
+
 .input-field-name input {
     width: 100%;
     height: 100%;
@@ -409,12 +596,13 @@ b {
 .input-field input {
     width: 100%;
     height: 100%;
-    background: transparent;
-    border: var(--color-primary) 1px;
-    outline: var(--color-primary) 1px;
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    font-size: 16px;
+    display: flex;
     color: var(--color-primary);
+    background: var(--color-background);
+    width: 100%;
+    background: transparent;
+    border: 2px solid var(--color-primary);
+    font-size: 14px;
     border-radius: 40px;
     padding: 20px 45px 20px 20px;
 }
@@ -430,7 +618,6 @@ b {
     transform: translate(-50%);
     font-size: 20px;
     color: var(--color-primary);
-
 }
 
 .wrapper .forgot {
@@ -468,7 +655,7 @@ b {
     text-align: center;
     flex-direction: column;
     align-items: center;
-    justify-content: flex start;
+    justify-content: flex-start;
     background: url('../images/Login\ photo.png') center/cover no-repeat;
     background-position: center top;
 }
@@ -480,7 +667,7 @@ b {
     text-align: center;
     flex-direction: column;
     align-items: center;
-    justify-content: flex start;
+    justify-content: flex-start;
     background: url('../images/Login\ photo.png') center/cover no-repeat;
     background-position: center top;
 }
@@ -526,7 +713,6 @@ b {
     background-color: var(--color-primary);
     padding: 1%;
     padding-top: 0%;
-
 }
 
 .day-box {
@@ -537,9 +723,7 @@ b {
     margin: 10px;
     background-color: var(--color-background);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
-
 }
-
 
 .day-box h4 {
     font-weight: 800;
@@ -553,8 +737,6 @@ b {
     color: var(--color-background);
     font-size: 5em;
 }
-
-
 
 .schedule {
     border-top: 1px solid #ddd;
@@ -619,7 +801,6 @@ b {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
 }
 
-
 .day-box .hour.unreserved {
     color: var(--color-primary);
 }
@@ -629,13 +810,12 @@ b {
 }
 
 #reservation-section {
-    margin-top: 20px;
+    margin-top: 8%;
 }
 
 #month-heading {
     text-transform: uppercase;
 }
-
 
 .day-box ul {
     list-style: none;
@@ -658,8 +838,7 @@ b {
     margin: 10px 0;
 }
 
-/* ======================= Gym Modal =======================*/
-
+/* Gym Modal */
 .gym-modal-header {
     color: var(--color-primary);
     padding-top: 4%;
@@ -736,9 +915,6 @@ b {
 
 /* ======================= Profile View =======================*/
 
-/* Gym Table */
-
-/* ======================= Profile View =======================*/
 
 .profileview-container {
     display: grid;
@@ -826,6 +1002,7 @@ b {
     margin-left: 15px;
     border: 2px solid var(--color-primary);
 }
+
 .right-column.profile {
     grid-template-rows: auto 20px 20px 30px 40px 20px 40px 30px 50px 20px 50px;
 
@@ -836,11 +1013,11 @@ b {
     grid-row: 1;
     grid-column: 3 / span 2;
     position: relative;
-    width: 10rem; 
+    width: 10rem;
     height: 10rem;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);   
+    transform: translate(-50%, -50%);
 }
 
 .right-column .img-circle img {
@@ -848,7 +1025,8 @@ b {
     border-radius: 50%;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ensure the image covers the entire container */
+    object-fit: cover;
+    /* Ensure the image covers the entire container */
 }
 
 .right-column .img-circle span {
@@ -861,9 +1039,9 @@ b {
     align-items: center;
     opacity: 0;
     transition: opacity 0.3s ease;
-    color: var(--color-background); 
-    background: rgba(0, 0, 0, 0.5); 
-    border-radius: 50%; 
+    color: var(--color-background);
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
     width: 10rem;
     height: 10rem;
     font-size: 6em;
@@ -893,6 +1071,7 @@ b {
     color: var(--color-background);
     width: fit-content;
 }
+
 .right-column .btn-edit-profile:hover {
     background: var(--color-background);
     color: var(--color-primary);
@@ -956,9 +1135,9 @@ b {
 }
 
 /* Apply styles to valid or focused input and disabled input */
-.right-column .inputBox input:valid ~ span,
-.right-column .inputBox input:focus ~ span,
-.right-column .inputBox input:disabled ~ span {
+.right-column .inputBox input:valid~span,
+.right-column .inputBox input:focus~span,
+.right-column .inputBox input:disabled~span {
     color: var(--color-primary);
     transform: translateX(10px) translateY(-7px);
     font-size: 0.65em;
@@ -968,11 +1147,13 @@ b {
     border-right: 1px solid var(--color-primary);
     letter-spacing: 0.2em;
 }
+
 .right-column .inputBox input:valid,
 .right-column .inputBox input:focus {
 
     border: 1px solid var(--color-primary);
 }
+
 .right-column .btn-save-profile-changes {
     background: var(--color-primary);
     color: var(--color-background);
@@ -982,26 +1163,26 @@ b {
     margin-left: 5px;
     border-radius: var(--border-radius-1);
 }
+
 .right-column .btn-save-profile-changes:hover {
     background: var(--color-background);
     color: var(--color-primary);
     border: 1px solid var(--color-primary);
 }
 
-/* ======================= Profile View =======================*/
-
-
-/* ======================= Profile Password View =======================*/
+/* ======================= Profile Password View ======================= */
 .right-column.password {
     grid-template-rows: 60px 60px 30px 60px 70px 30px;
 }
-.right-column.password h3{
+
+.right-column.password h3 {
     grid-row: 1;
     grid-column: 2 / span 2;
     font-size: 1.5rem;
     margin-left: 5px;
     color: var(--color-primary);
 }
+
 .right-column.password a {
     grid-row: 3;
     grid-column: 2 / span 2;
@@ -1009,6 +1190,7 @@ b {
     color: var(--color-orange);
     font-size: 12px;
 }
+
 .right-column.password hr {
     grid-row-start: 4;
     align-items: center;
@@ -1022,18 +1204,22 @@ b {
     color: var(--color-primary);
     border: 1px solid var(--color-primary);
 }
+
 .right-column .inputBox.current-password {
     grid-row: 2;
     grid-column: 2 / span 2;
 }
+
 .right-column .inputBox.new-password {
     grid-row: 5;
     grid-column: 2 / span 2;
 }
+
 .right-column .inputBox.confirm-password {
     grid-row: 5;
     grid-column: 4 / span 2;
 }
+
 .right-column .btn-save-password-changes {
     display: flex;
     justify-content: flex-end;
@@ -1046,15 +1232,15 @@ b {
     color: var(--color-background);
     width: fit-content;
     height: min-content;
-
 }
+
 .right-column .btn-save-password-changes:hover {
     background: var(--color-background);
     color: var(--color-primary);
     border: 1px solid var(--color-primary);
 }
 
-/*========================RECENT RESERVATIONS==================*/
+/*======================== RECENT RESERVATIONS ==================*/
 .right-column.reservation {
     grid-template-rows: 20px 400px 20px;
     grid-template-columns: auto;
@@ -1062,13 +1248,12 @@ b {
     display: grid;
 }
 
-
-.right-column .recent-orders h2{
+.right-column .recent-orders h2 {
     mask-border: 0.8rem;
     color: var(--color-primary);
 }
 
-.right-column .recent-orders table{
+.right-column .recent-orders table {
     color: var(--color-background);
     background-color: var(--color-primary);
     width: 100%;
@@ -1078,7 +1263,8 @@ b {
     box-shadow: var(--box-shadow);
     transition: all 300ms ease;
 }
-.right-column .recent-orders table:hover{
+
+.right-column .recent-orders table:hover {
     box-shadow: none;
 }
 
@@ -1091,17 +1277,14 @@ b {
     border: none;
 }
 
-.right-column .recent-orders a{
+.right-column .recent-orders a {
     text-align: center;
     display: block;
     margin: 1rem auto;
     color: var(--color-primary);
 }
 
-
-
-
-/* Cart */
+/*============================= Cart ==================================*/
 #root-cart {
     width: 60%;
     display: grid;
@@ -1136,114 +1319,126 @@ b {
 }
 
 /* Cart End */
-
-/* Home View */
-
 .row-top {
-    border: var(--color-orange) 2px;
     display: flex;
-    /* Flexbox layout for row items */
-
+    align-items: center;
+    justify-content: center;
 }
 
 .row-bottom {
     border: var(--color-orange) 2px;
     display: flex;
-    /* Flexbox layout for row items */
 }
 
 .column-left {
     flex: 1;
     border: var(--color-primary) 2px;
     color: var(--color-background);
-
     background-color: var(--color-primary);
     margin-top: 15px;
     border-radius: 50px;
     max-width: calc(30% - 30px);
-    /* Set max-width to half of the available size of the row minus padding */
-    /* Margin specified by user */
     box-sizing: border-box;
-    /* Include padding and border in the element's total width */
-    display: flex;
-    /* Use flexbox */
-    justify-content: center;
-    /* Center content horizontally */
-    align-items: center;
-    /* Center content vertically */
-}
-
-.column-right {
-    border: 2px solid var(--color-primary);
     display: flex;
     justify-content: center;
-    /* Center content horizontally */
     align-items: center;
-    /* Center content vertically */
-    background-color: var(--color-warning);
-    flex: 1;
-    color: var(--color-background);
-    padding: 2%;
-    border-radius: 50px;
-    margin-left: 15px;
-    /* Margin specified by user */
-    margin-top: 15px;
-    box-sizing: border-box;
-    /* Include padding and border in the element's total width */
-    text-align: justify;
-    /* Justify text */
-
 }
 
-.column-right .welcome-to-gadrs {
-    width: 100%;
-    /* Ensure the ul spans the entire width */
-    padding: 0;
-    /* Remove default padding */
-    letter-spacing: 10px;
-    margin-right: 15px;
+.column-left-bottom {
+    position: absolute;
+    width: 50.5%;
+    height: 40%;
+    left: -1px;
+    transform: skewY(5deg);
+    z-index: -2;
+    background: var(--color-warning);
+    transform-origin: -120% 0;
+    box-shadow: 0 8px 8px -4px rgba(0, 0, 0, 0.3), 0 0 0 0 transparent;
 }
 
-.column-right .welcome-text1 {
-    color: var(--color-background);
-    /* Text color */
-    background-color: var(--color-danger);
-    /* Background color */
+.column-left-top {
+    position: absolute;
+    width: 50.5%;
+    height: 40%;
+    left: -1px;
+    transform: skewY(5deg);
+    z-index: -1;
+    background: var(--color-primary);
+    transform-origin: -50% 0;
+    box-shadow: none;
+}
 
-    font-weight: bold;
-    /* Bold text */
-    transition: all 0.3s ease;
-    font-size: 2em;
-    width: 100%;
-    /* Ensure h1 elements span the entire width */
+.column-right-top {
+    position: absolute;
+    width: 50%;
+    height: 40%;
+    right: -1px;
+    transform: skewY(-5deg);
+    z-index: -1;
+    background: var(--color-primary);
+    transform-origin: 151.5% 0;
+    box-shadow: none;
+}
+
+.column-right-bottom {
+    position: absolute;
+    width: 50%;
+    height: 40%;
+    right: -1px;
+    transform: skewY(-5deg);
+    z-index: -2;
+    background: var(--color-warning);
+    transform-origin: 222.5% 0;
+    box-shadow: 0 8px 8px -4px rgba(0, 0, 0, 0.3), 0 0 0 0 transparent;
+}
+
+.column-bar {
+    background: var(--color-orange);
+    position: absolute;
+    width: 80%;
+    height: 4px;
+    z-index: 4;
+}
+
+.login-success {
+    z-index: 2;
+}
+
+.welcome-section {
+    position: absolute;
+    z-index: 2;
+    top: 27%;
+    transform: translateY(-50%);
+    display: inline-block;
     text-align: center;
-    /* Center the text horizontally */
-    margin: 10px;
-    /* Remove default margins */
-
 }
 
-.column-right ul {
-    margin-bottom: 0;
-    padding-right: 0;
+.small-modal {
+    background: var(--color-background);
+    content: '\f00c';
+    color: var(--color-success); 
 }
 
-.column-right .welcome-text2 {
+.welcome-section .welcome-title1 h3 {
+    font-size: 3rem;
+}
 
-    font-size: 2em;
+.welcome-section .welcome-title2 h1 {
+    font-size: 5rem;
+}
+
+.welcome-section .welcome-name h3 {
+    font-size: 3rem;
+}
+
+.welcome-section .welcome-title1,
+.welcome-section .welcome-title2,
+.welcome-section .welcome-name {
     color: var(--color-background);
-    /* Text color */
-    background-color: var(--color-primary);
-    /* Background color */
-    font-weight: bold;
-    /* Bold text */
-    transition: all 0.3s ease;
-    width: 100%;
-    /* Ensure h1 elements span the entire width */
-    text-align: center;
-    /* Center the text horizontally */
-    margin: 10px;
-    /* Remove default margins */
+}
+
+.welcome-section .welcome-title2 {
+    font-family: "Poppins", serif;
 }
 
 .column-bottom {
@@ -1253,63 +1448,64 @@ b {
     margin-top: 15px;
     border-radius: 50px;
     max-width: calc(80%);
-    /* Set max-width to half of the available size of the row minus padding */
-    /* Margin specified by user */
     box-sizing: border-box;
-    /* Include padding and border in the element's total width */
     display: flex;
-    /* Use flexbox */
     justify-content: center;
-    /* Center content horizontally */
     align-items: center;
-    /* Center content vertically */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+    transition: all 300ms ease;
+}
+
+.column-bottom:hover {
+    border: var(--color-primary) 2px;
+    color: var(--color-background);
+    background-color: var(--color-primary);
+    margin-top: 15px;
+    border-radius: 50px;
+    max-width: calc(80%);
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: none;
+}
+
+.row-bottom {
+    position: relative;
+    top: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25%;
 }
 
 .column-bottom .home-reservation-table {
     width: 100%;
-    /* Ensure the ul spans the entire width */
+    position: relative;
     padding: 0;
-    /* Remove default padding */
-
     margin: 30px 30px 30px 30px;
     border-collapse: collapse;
-    /* Ensure cells share borders */
     width: 100%;
-
 }
 
-.row-bottom {
+.home-reservation-table .reservation-table-home {
     justify-content: center;
-    /* Center content horizontally */
     align-items: center;
-    /* Center content vertically */
-}
-
-.home-reservation-table .test-home {
-    justify-content: center;
-    /* Center content horizontally */
-    align-items: center;
-    /* Center content vertically */
 }
 
 .home-reservation-table h1 {
     display: flex;
-    /* Use flexbox */
     justify-content: center;
-    /* Center content horizontally */
     align-items: center;
-    /* Center content vertically */
 }
 
 .home-reservation-table h1 i {
     display: flex;
-    /* Use flexbox */
     color: var(--color-orange);
 }
 
 .home-reservation-table .table-home {
     border-collapse: collapse;
-    /* Ensure cells share borders */
     width: 100%;
 }
 
@@ -1317,7 +1513,6 @@ b {
     color: var(--color-background);
     background-color: var(--color-primary);
     border: 4px solid var(--color-background);
-    /* Custom border color (#ff0000 is red) and width */
     padding: 10px;
 }
 
@@ -1325,72 +1520,46 @@ b {
     color: var(--color-background);
     background-color: var(--color-primary);
     border: 4px solid var(--color-background);
-    /* Custom border color (#ff0000 is red) and width */
     padding: 10px;
 }
 
-/* Home View End*/
-
-
-
-/* Cart Checkout */
+/* =========================Cart Checkout ===================*/
 .secondary_nav {
-    background-color: #F77F00 !important;
+    background-color: var(--color-orange) !important;
 }
 
 .fixed-bottom {
     position: fixed;
     bottom: 0;
     width: 100%;
-    background-color: #F77F00;
-    /* Your desired background color */
+    background-color: var(--color-orange);
     color: #ffffff;
-    /* Your desired text color */
     padding: 10px;
     text-align: center;
     border: none !important;
 }
 
-
-
 .vertical-line {
     border-left: 5px solid #000000;
-    /* Adjust color and thickness as needed */
     height: auto;
     border-radius: 5px;
-    /* Adjust the border-radius value for rounded ends */
     margin-left: 5px;
-    /* Adjust margin as needed to create space */
     margin-right: 5px;
-    /* Adjust margin as needed to create space */
 }
 
-li {
+ul {
     list-style: none;
 }
 
-.list-unstyled {
+ul.list-unstyled {
     padding-left: 0;
-    list-style: none;
 }
 
-.minus-icon {
-    border-radius: 60%;
-    border: 5px solid #003049;
-    background-color: #003049;
-    color: #EAE2B7;
-}
-
-.add-icon {
-    border-radius: 60%;
-    border: 5px solid #003049;
-    background-color: #003049;
-    color: #EAE2B7;
-}
-
+.minus-icon,
+.add-icon,
 .trash-icon {
     border-radius: 60%;
-    border: 7px solid #003049;
+    border: 5px solid #003049;
     background-color: #003049;
     color: #EAE2B7;
 }
@@ -1410,10 +1579,16 @@ li {
 /* Cart Checkout End*/
 
 /*======================= DORM RESERVATION ==========================================*/
+.container .section {
+    margin-top: 8%;
+}
 
 .container .section .card {
     color: var(--color-background);
     background: var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .container .section .card button {
@@ -1427,60 +1602,78 @@ li {
     transition: all 300ms ease;
 }
 
-.container .section .card .card-body button {
+.container .section .card .card-body button{
     color: var(--color-primary);
-    background: var(--color-warning);
+    background: var(--color-background);
+    margin: 10px;
 }
-
 .container .section .card .card-body .dropdown-menu,
 .container .section .card .card-body .dropdown-menu a {
-    background: var(--color-warning);
     color: var(--color-primary);
-    overflow: hidden;
+    background: var(--color-background);
+    width: 95%;
 }
 
 .container .section .card .card-body .dropdown-menu a:hover {
     background: var(--color-background);
-    color: var(--color-primary);
-    /* border: 1px solid var(--color-primary); */
-    transform: translate(-5px);
+    transform: translate(5px);
     transition: all 300ms ease;
+    color: var(--color-orange);
 }
 
 .container .section .card .footer.button a {
     padding: auto;
 }
 
-.container .section .card .footer.button a.btn-clear {
-    color: var(--color-primary);
-    background-color: var(--color-orange);
-    border: 3px solid var(--color-danger);
-    transform: translate(-5px);
-}
-
-.container .section .card .footer.button a.btn-clear:hover {
-    color: var(--color-background);
-    background-color: var(--color-primary);
-    border: 3px solid var(--color-background);
-    transform: translate(-5px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
-}
-
+.container .section .card .footer.button a.btn-clear,
 .container .section .card .footer.button a.btn-add {
     color: var(--color-primary);
-    background-color: var(--color-warning);
+    transform: translate(-5px);
     border: 3px solid var(--color-orange);
-    transform: translate(5px);
 }
 
+.container .section .card .footer.button a.btn-clear:hover,
 .container .section .card .footer.button a.btn-add:hover {
     color: var(--color-background);
     background-color: var(--color-primary);
     border: 3px solid var(--color-background);
-    transform: translate(5px);
+    transform: translate(-5px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
 }
 
+.container .section .card .footer.button a.btn-clear {
+    background-color: var(--color-orange);
+    border-color: var(--color-danger);
+}
+
+.container .section .card .footer.button a.btn-add {
+    background-color: var(--color-warning);
+    border-color: var(--color-orange);
+}
+.container .section .card .row.dorm-align-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container .section .card .card-header .card-title{
+    font-size: 1.8em;
+}
+.container .section .card .row.mt-2 .col-md-6 .dropdown-center{
+   display: flex;
+   align-items: center;
+   justify-content: space-evenly;
+}
+.reservor {
+    width: 80%; 
+    display: flex;
+    justify-content: center; 
+    margin-left: 10%;
+}
+
+.dropdown-menu {
+    width: 100%;
+    text-align: center; 
+}
 @media (max-width: 1024px) {
     .centered {
         display: flex;
