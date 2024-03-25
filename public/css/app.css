@@ -477,7 +477,7 @@ b {
     border-radius: 18px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
     width: fit-content;
-    margin: 20px auto;
+    margin: 10px auto;
     margin-top: 10px;
 }
 
@@ -504,11 +504,7 @@ b {
     
     
 }
-.number-input-female input,
-.number-input input {
-    width: 50px;
-    text-align: center;
-}
+
 .number-input-female span:hover,
 .number-input span:hover {
     background-color: var(--color-warning);
