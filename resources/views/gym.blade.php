@@ -32,15 +32,46 @@
                         <td>{{ date('h:i A', strtotime($gymcart->reservation_time_end)) }}</td>
                         <td>{{ $gymcart->price }}</td>
                         <td>
-                            <input class="form-check-input" type="checkbox" value="{{ $gymcart->price }}"
-                                id="checkbox{{ $loop->iteration }}">
+                            <input type="checkbox" class="reservation-checkbox" data-price="{{ $gymcart->price }}">
                         </td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
-        <p id="total">Total: 0</p>
-        <button>Checkout</button>
+        <h2></h2>
+        <p>Total: <span id="total-price">0</span></p> {{-- Make this be updated real-time when a user clicks the checkbox. --}}
+        <button id="checkout-btn">Checkout</button>
     </div>
-@endsection
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Get all checkboxes
+            const checkboxes = document.querySelectorAll('.reservation-checkbox');
+            const totalPriceDisplay = document.getElementById('total-price');
+
+            let totalPrice = 0;
+
+            checkboxes.forEach(function (checkbox) {
+                checkbox.checked = false; // Uncheck the checkbox on page load
+                checkbox.addEventListener('change', function () {
+                    // If checkbox is checked, add the price; otherwise, subtract it
+                    const price = parseFloat(this.dataset.price);
+                    if (this.checked) {
+                        totalPrice += price;
+                    } else {
+                        totalPrice -= price;
+                    }
+                    // Update total price display
+                    totalPriceDisplay.textContent = totalPrice.toFixed(2);
+                });
+            });
+
+            // Optional: Handle checkout button click
+            const checkoutBtn = document.getElementById('checkout-btn');
+            checkoutBtn.addEventListener('click', function () {
+                // Implement checkout functionality here
+                alert('Total price: $' + totalPrice.toFixed(2));
+            });
+        });
+    </script>
+@endsection

@@ -67,3 +67,4 @@ Route::get('/gym', [GymController::class, 'index'])->name('gym');
 
 Route::post('/gym-cart', [GymCartController::class, 'store'])->name('gym_cart.store');
 
+
