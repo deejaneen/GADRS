@@ -23,8 +23,16 @@
 
              <div class="main">
                  <ul class="navbar-nav mx-auto">
+<<<<<<< Updated upstream
                      @auth()
                      <li class="nav-item">
+=======
+                    @auth()
+                    <li class="nav-item cart">
+                        <a href="" class=""><i class="ri-shopping-cart-2-line"></i></a>
+                    </li>
+                     <li class="nav-item profile">
+>>>>>>> Stashed changes
                          <a href="{{ route('profile') }}" class="{{(Route::is('profile')) ? 'active' : '' }}{{(Route::is('passwordprofile')) ? 'active' : '' }}{{(Route::is('reservationhistoryprofile')) ? 'active' : '' }}{{(Route::is('users.edit')) ? 'active' : '' }} user no-underline"><i class="ri-user-fill"></i>{{ Auth::user()->first_name }}</a>
                      </li>
                      @endauth
