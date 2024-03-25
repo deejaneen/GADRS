@@ -63,10 +63,7 @@ Route::get('/passwordprofile', function () {
 
 Route::post('/passwordprofile/update-password', [UserController::class, 'updatePassword'])->name('update_password');
 
-Route::get('/gym', function () {
-    return view('gym');
-})->name('gym');
-
+Route::get('/gym', [GymController::class, 'index'])->name('gym');
 
 Route::post('/gym-cart', [GymCartController::class, 'store'])->name('gym_cart.store');
 

@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Gym;
+use App\Models\GymCart;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class GymController extends Controller
 {
@@ -13,7 +15,11 @@ class GymController extends Controller
      */
     public function index()
     {
-        //
+        $userId = Auth::id(); // Get the ID of the authenticated user
+        $gymcarts = GymCart::where('employee_id', $userId)
+            ->orderBy('created_at', 'DESC')
+            ->paginate(5);
+        return view('gym', ['gymcarts' => $gymcarts]);
     }
 
     /**
@@ -29,8 +35,8 @@ class GymController extends Controller
      */
     public function store(Request $request)
     {
-         // Validate the request data
-         $validated = $request->validate([
+        // Validate the request data
+        $validated = $request->validate([
             'reservation_date' => 'required|min:3|max:40',
             'reservation_time_start' => 'required|min:3|max:40',
             'reservation_time_end' => 'required|min:3|max:40',

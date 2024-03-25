@@ -57,7 +57,7 @@ class GymCartController extends Controller
      */
     public function show(GymCart $gymCart)
     {
-        //
+        
     }
 
     /**
