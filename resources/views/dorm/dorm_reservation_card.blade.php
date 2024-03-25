@@ -63,14 +63,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6" style="text-align: center;">
-                                <h5>Reservor</h5>
-                                <div class="dropdown-center reservor">
-                                    <button id="dropdownToggle" class="btn btn-secondary dropdown-toggle" type="button"
-                                        data-bs-toggle="dropdown" aria-expanded="false" style="min-width: 100%;">
-                                        COA/Non-COA
-                               </div>
-                            </div>                   
+                                           
                             <div class="col-md-6" style="text-align: center;">
                                 <h5>Reservor</h5>
                                 <div class="dropdown-center reservor">
@@ -210,11 +203,7 @@
                             </div>
                         </div>
 
-                        <div class="row mt-1">
-                            <div class="col-md-6">
-                                <p>Availability: <b style="color: #f77f00">8 beds</b></p>
-                            </div>
-                        </div>
+                        
                     </div>
                     <!-- Image -->
                     <div class="col-md-6">

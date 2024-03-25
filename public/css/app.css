@@ -289,7 +289,7 @@ b {
     position: absolute;
     width: 80%;
     height: 4px;
-    top: 11.2%;
+    z-index: 4;
 }
 
 .container .hero-section {
@@ -355,7 +355,7 @@ b {
     position: absolute;
     width: 80%;
     height: 4px;
-    top: 11.2%;
+    z-index: 4;
 }
 
 .container .hero-section {
