@@ -289,7 +289,7 @@ b {
     position: absolute;
     width: 80%;
     height: 4px;
-    top: 11.2%;
+    z-index: 4;
 }
 
 .container .hero-section {
@@ -355,7 +355,7 @@ b {
     position: absolute;
     width: 80%;
     height: 4px;
-    top: 11.2%;
+    z-index: 4;
 }
 
 .container .hero-section {
@@ -838,79 +838,82 @@ b {
     margin: 10px 0;
 }
 
-/* Gym Modal */
-.gym-modal-header {
+/* ======================= Gym Modal ======================= */
+.modal-content {
+    color: var(--color-primary) !important;
+    background: var(--color-background) !important;
+    font-size: 1.5em !important;
+    padding: 1em;
+    
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: none !important;
+}
+.modal-header .col-6.text-end {
+    display: flex;
+    justify-content: flex-end;
+    width: auto;
+}
+.modal-title {
+    margin: 0;
+}
+
+.btn-close {
+    margin-left: auto;
+}
+
+.modal-body input[type="date"],
+.modal-body input[type="time"],
+.modal-body select {
     color: var(--color-primary);
-    padding-top: 4%;
-    padding-left: 4%;
+    background: var(--color-background);
+    border: 2px solid var(--color-primary);
+    border-radius: 5px;
+    padding: 5px;
+    width: 100%;
+    font-size: 1em;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
 }
 
-.gym-modal-header .gym-modal-close {
-    position: absolute;
-    top: 50px;
-    right: 50px;
-    padding: 10px;
-    color: var(--color-primary);
+.modal-body .row {
+    display: flex;
 }
 
-.gym-modal {
-    background-color: var(--color-background) !important;
-    font-family: "Poppins", sans-serif;
+.modal-body .col {
+    flex: 1;
 }
-
-.gym-modal-body {
-    color: var(--color-primary);
+.modal-footer{
+    justify-content: center !important;
+    border-top: none !important;
 }
-
-.gym-modal-body .btn-dropdown-modal {
+.modal-footer .btn-primary {
     background-color: var(--color-warning);
-    color: var(--color-primary);
+    border-color: var(--color-orange);
+    font-size: 1em;
 }
 
-.btn-dropdown-modal li a {
-    color: var(--color-primary);
+.modal-footer .btn-primary:hover {
+    color: var(--color-background);
+    background-color: var(--color-primary);
+    border: 1px solid var(--color-background);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-
-.modal-footer .btn.btn-add-cart-gym {
-    color: var(--color-primary);
-    border: 2px solid var(--main-color);
-    background-color: var(--color-warning);
-    color: var(--color-primary);
-}
-
-.gym-modal-body .btn-dropdown-modal {
-    background-color: var(--color-warning);
-    color: var(--color-primary);
-}
-
-.btn-dropdown-modal li a {
-    color: var(--color-primary);
-}
-
-.modal-footer .btn.btn-add-cart-gym {
-    color: var(--color-primary);
-    border: 2px solid var(--color-orange);
-    background-color: var(--color-warning);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-.modal-footer .btn.btn-clear-cart-gym {
-    color: var(--color-primary);
-    border: 2px solid var(--color-danger);
+.modal-footer .btn-secondary {
     background-color: var(--color-orange);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border-color: var(--color-warning);
+    font-size: 1em;
 }
 
-.modal-footer .btn.btn-add-cart-gym:hover {
+.modal-footer .btn-secondary:hover {
     color: var(--color-background);
-    border: 2px solid var(--main-color);
     background-color: var(--color-primary);
-}
-
-.modal-footer .btn.btn-clear-cart-gym:hover {
-    color: var(--color-background);
-    border: 2px solid var(--color-danger);
-    background-color: var(--color-primary);
+    border: 1px solid var(--color-background);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
 }
 
 /* ======================= Profile View =======================*/

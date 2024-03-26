@@ -7,13 +7,12 @@
             <div class="banner-gym-top"></div>
             <div class="banner-gym-bottom"></div>
             <div class="column-bar-gym"></div>
-
             <img class="volleyball" src="{{ asset('images/Volleyball.png') }}" alt="">
             <img class="basketball" src="{{ asset('images/Basketball.png') }}" alt="">
         </div>
 
         <div class="banner-gym-text">
-            <h1 class="banner-name ">GYM RESERVATION</h1>
+            <h1 class="banner-name">GYM RESERVATION</h1>
             <a href="#reservation-section" class="btn btn-info btn-lg btn-block mt-2" data-mdb-ripple-init>Book Now</a>
         </div>
     </div>
@@ -41,7 +40,7 @@
                         <td>{{ date('h:i A', strtotime($gymcart->reservation_time_end)) }}</td>
                         <td>{{ $gymcart->price }}</td>
                         <td>
-                            <input type="checkbox" class="reservation-checkbox" data-price="{{ $gymcart->price }}">
+                            <input type="checkbox" class="reservation-checkbox" data-price="{{ $gymcart->price }}" onclick="updateTotal()">
                         </td>
                     </tr>
                 @endforeach
@@ -84,3 +83,4 @@
         });
     </script>  --}}
 @endsection
+
