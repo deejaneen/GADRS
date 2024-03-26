@@ -70,10 +70,14 @@ Route::get('/passwordprofile', function () {
 
 Route::post('/passwordprofile/update-password', [UserController::class, 'updatePassword'])->name('update_password');
 
-Route::get('/gym', [GymController::class, 'index'])->name('gym');
+
 
 Route::post('/gym-cart', [GymCartController::class, 'store'])->name('gym_cart.store');
 Route::get('/cart_check', [CartController::class, 'index'])->name('cart_check');
+
+Route::get('/gym', [GymController::class, 'index'])->name('gym');
+Route::post('/get-reservations', [GymController::class, 'getReservations']);
+
 
 
 

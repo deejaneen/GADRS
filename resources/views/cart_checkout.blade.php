@@ -27,7 +27,9 @@
                             </div>
                             <div class="col-8">
                                 <ul class="list-unstyled">
-                                    <li>Date: {{ $gymcart->reservation_date }}, {{ date('g:i A', strtotime($gymcart->reservation_time_start)) }} - {{ date('g:i A', strtotime($gymcart->reservation_time_end)) }}</li>
+                                    <li>Date: {{ $gymcart->reservation_date }},
+                                        {{ date('g:i A', strtotime($gymcart->reservation_time_start)) }} -
+                                        {{ date('g:i A', strtotime($gymcart->reservation_time_end)) }}</li>
                                     <li>Price: {{ $gymcart->price }}</li>
                                     <li>Purpose: {{ $gymcart->purpose }}</li>
                                 </ul>
@@ -39,7 +41,9 @@
                         </div>
                     @endforeach
                     <hr>
-
+                    <div class="mt-3">
+                        {{ $gymcarts->withQueryString()->links() }}
+                    </div>
                 </div>
                 <div class="vertical-line"></div>
                 <div class="col-6">

@@ -713,6 +713,8 @@ b {
     background-color: var(--color-primary);
     padding: 1%;
     padding-top: 0%;
+    grid-row-start: 2;
+    grid-column: 1 / span 3;
 }
 
 .day-box {
@@ -746,9 +748,11 @@ b {
 }
 
 .container-gym-table {
+    display: grid;
+    grid-template-rows: 20% 20%;
+    grid-template-columns: 30% 40% 30%;
     background-color: var(--color-primary);
     position: relative;
-    /* Ensure positioning context for absolute positioning */
 }
 
 .container-gym-table .btn-reservation-gym {
@@ -774,11 +778,9 @@ b {
 }
 
 .button-container {
-    position: absolute;
-    top: 35px;
-    right: 20px;
-    display: flex;
-    margin-bottom: 20px;
+  grid-row-start: 1;
+  grid-column-start: 3;
+  padding: 10px;
 }
 
 .container-gym-table .btn-calendar-gym:valid {
@@ -844,7 +846,7 @@ b {
     background: var(--color-background) !important;
     font-size: 1.5em !important;
     padding: 1em;
-    
+
 }
 
 .modal-header {
@@ -913,7 +915,7 @@ b {
     background-color: var(--color-primary);
     border: 1px solid var(--color-background);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    
+
 }
 
 /* ======================= Profile View =======================*/

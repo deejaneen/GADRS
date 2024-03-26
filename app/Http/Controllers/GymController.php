@@ -15,13 +15,10 @@ class GymController extends Controller
      */
     public function index()
     {
-        $gymcarts = GymCart::orderBy('created_at', 'DESC')
-            ->paginate(5);
+        $gymcarts = GymCart::orderBy('created_at', 'DESC');
 
         return view('gym', ['gymcarts' => $gymcarts]);
     }
-
-
 
     /**
      * Show the form for creating a new resource.
@@ -70,4 +67,17 @@ class GymController extends Controller
         //
     }
 
+    public function getReservations(Request $request)
+    {
+        // Get the selected date from the request
+        $selectedDate = $request->input('selected_date');
+
+        // Fetch reservations with status "Reserved" for the selected date
+        $reservations = GymCart::whereDate('reservation_date', $selectedDate)
+            ->where('status', 'Reserved')
+            ->get();
+
+        // Return the reservations as JSON response
+        return response()->json($reservations);
+    }
 }

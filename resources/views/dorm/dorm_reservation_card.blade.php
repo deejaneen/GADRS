@@ -64,7 +64,11 @@
                                 </div>
                             </div>
 
+<<<<<<< Updated upstream
                             <div class="col-md-3" style="text-align: center;">
+=======
+                            <div class="col-md-6" style="text-align: center;">
+>>>>>>> Stashed changes
                                 <h5>Reservor</h5>
                                 <div class="dropdown-center reservor">
                                     <button id="dropdownToggle" class="btn btn-secondary dropdown-toggle" type="button"
@@ -349,6 +353,7 @@
     availabilityDateInputs.forEach(input => {
         input.value = '';
     });
+<<<<<<< Updated upstream
 
     document.addEventListener('DOMContentLoaded', function() {
         // Function to format the date to 'YYYY-MM-DD' format
@@ -376,4 +381,6 @@
             input.min = formatDate(new Date()); // Set minimum date to today
         });
     });
+=======
+>>>>>>> Stashed changes
 </script>

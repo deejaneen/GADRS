@@ -14,6 +14,7 @@ class Gym extends Model
         'reservation_time_start',
         'reservation_time_end',
         'occupant_type',
+        'employee_id',
+        'purpose',
     ];
-
 }

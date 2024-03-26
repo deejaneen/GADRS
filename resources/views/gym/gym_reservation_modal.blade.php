@@ -24,7 +24,7 @@
                         <div class="col">
                             <label for="startTime" class="form-label">Start Time</label>
                             <input type="time" class="form-control" id="startTime" name="timepicker-am" required
-                                min="06:00" max="12:00">
+                                min="06:00">
                         </div>
                         <div class="col">
                             <label for="endTime" class="form-label">End Time</label>
