@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('dorm_cart_reservations', function (Blueprint $table) {
+        Schema::create('dorm_carts', function (Blueprint $table) {
             $table->id();
             $table->string('Form_number')->nullable();
             $table->unsignedBigInteger('employee_id');
@@ -20,7 +20,7 @@ return new class extends Migration
             $table->date('reservation_end_date');
             $table->time('reservation_end_time');
             $table->string('gender');
-            $table->integer('quantity');
+            $table->integer('quantity')->default(0);
             $table->string('occupant_type');
             $table->string('office')->nullable();
             $table->string('office_address')->nullable();
@@ -52,6 +52,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('dorm_cart_reservations');
+        Schema::dropIfExists('dorm_carts');
     }
 };

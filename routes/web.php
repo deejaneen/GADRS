@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\DormCartController;
 use App\Http\Controllers\GymCartController;
 use App\Http\Controllers\GymController;
 use App\Http\Controllers\UserController;
@@ -77,6 +78,8 @@ Route::get('/cart_check', [CartController::class, 'index'])->name('cart_check');
 
 Route::get('/gym', [GymController::class, 'index'])->name('gym');
 Route::post('/get-reservations', [GymController::class, 'getReservations']);
+
+Route::post('/dorm', [DormCartController::class, 'store'])->name('dorm.cart');
 
 
 
