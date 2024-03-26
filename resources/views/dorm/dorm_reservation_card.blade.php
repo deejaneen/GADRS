@@ -66,12 +66,7 @@
                                         </div>
                                     </div>
                                 </div>
-
-<<<<<<< Updated upstream
                             <div class="col-md-3" style="text-align: center;">
-=======
-                            <div class="col-md-6" style="text-align: center;">
->>>>>>> Stashed changes
                                 <h5>Reservor</h5>
                                 <div class="dropdown-center reservor">
                                     <button id="dropdownToggle" class="btn btn-secondary dropdown-toggle" type="button"
@@ -86,14 +81,14 @@
                                     </ul>
                                 </div>
                             </div>
-                            <div class="col-md-3" style="text-align: center; display: inline-block;">
-                                <h5 for="myCheckbox">Senior/PWD</h5><br>
+                            <div class="col-md-3 checkbox">
+                                <h5 for="myCheckbox" class="myCheckbox">Senior/PWD</h5><br>
                                 <input type="checkbox" id="myCheckbox" checked="false">
                             </div>
                         </div>
                     </div>
                     <!-- Image -->
-                    <div class="col-md-6">
+                    <div class="col-md-6 carousel">
                         <div id="carouselMale" class="carousel slide">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
@@ -201,17 +196,23 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6" style="text-align: center;">
+                                <div class="col-md-3" style="text-align: center;">
                                     <h5>Reservor</h5>
-                                    <select class="form-select" id="occupant_type" name="occupant_type" required>
-                                        <option value="COA">COA</option>
-                                        <option value="NON COA">NON COA</option>
-                                    </select>
-                                    <input type="text" value="Female" hidden name="gender">
-                                </div>
+                                    <div class="dropdown-center reservor">
+                                        <button id="dropdownToggleFemale" class="btn btn-secondary dropdown-toggle" type="button"
+                                            data-bs-toggle="dropdownToggleFemale" aria-expanded="false" style="min-width: 100%;">
+                                            COA/Non-COA
+                                        </button>
+                                        <ul class="dropdown-menu" style="min-width: 100%;">
+                                            <li><a class="dropdown-item" href="javascript:void(0);"
+                                                    data-value="COA Employee">COA Employee</a></li>
+                                            <li><a class="dropdown-item" href="javascript:void(0);"
+                                                    data-value="Non - COA">Non - COA</a></li>
+                                        </ul>
+                                    </div>
                             </div>
-                            <div class="col-md-3" style="text-align: center; display: inline-block;">
-                                <h5 for="myCheckbox">Senior/PWD</h5><br>
+                            <div class="col-md-3 checkbox">
+                                <h5 for="myCheckbox" class="myCheckbox">Senior/PWD</h5><br>
                                 <input type="checkbox" id="myCheckbox">
                             </div>
 
@@ -377,7 +378,6 @@
         // Set default value for checkbox to unchecked
         document.getElementById('myCheckbox').checked = false;
     });
-<<<<<<< Updated upstream
 
     document.addEventListener('DOMContentLoaded', function() {
         // Function to reset all elements to their defaults
@@ -428,6 +428,4 @@
             }
         });
     });
-=======
->>>>>>> Stashed changes
 </script>

@@ -1364,7 +1364,7 @@ b {
 
 .column-left-bottom {
     position: absolute;
-    width: 51%;
+    width: 50.5%;
     height: 40%;
     left: -1px;
     transform: skewY(5deg);
@@ -1376,7 +1376,7 @@ b {
 
 .column-left-top {
     position: absolute;
-    width: 51%;
+    width: 50.5%;
     height: 40%;
     left: -1px;
     transform: skewY(5deg);
@@ -1388,7 +1388,7 @@ b {
 
 .column-right-top {
     position: absolute;
-    width: 50%;
+    width: 50.1%;
     height: 40%;
     right: -1px;
     transform: skewY(-5deg);
@@ -1400,7 +1400,7 @@ b {
 
 .column-right-bottom {
     position: absolute;
-    width: 50%;
+    width: 50.1%;
     height: 40%;
     right: -1px;
     transform: skewY(-5deg);
@@ -2302,4 +2302,35 @@ ul.list-unstyled {
         height: 100px;
         top: 5%;
     }
+    h1 {
+        font-size: 1.5em !important;
+    }
+    h2 {
+        font-size: 1.3em !important;
+    }
+    h3 {
+        font-size: 1.2em !important;
+    }
+    h4 {
+        font-size: 1.1em !important;
+    }
+    h5 {
+        font-size: 1em !important;
+    }
+    .container .card-body .btn-calendar-dorm:valid {
+        font-size: 1em;
+    }
+    .col-md-6.carousel{
+        padding-top: 20px;
+    }
+    .col-md-3.checkbox {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .myCheckbox{
+        margin-bottom: 0;
+        margin-right: 10px;
+    }
+    
 }
