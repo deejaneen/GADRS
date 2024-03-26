@@ -428,11 +428,13 @@ b {
     transform-origin: 80% 0;
     box-shadow: none;
 }
+
 .container .row.date {
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
 .date-container {
     text-align: center;
 }
@@ -440,12 +442,14 @@ b {
 .date-container h5 {
     margin-top: 20px;
 }
+
 .container .row.date .col-md-6.date,
-.container .row.date .col-md-6.availability{
+.container .row.date .col-md-6.availability {
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
 .container .card-body .btn-calendar-dorm {
     color: var(--color-background);
     background-color: var(--color-primary);
@@ -470,6 +474,7 @@ b {
     font-size: 1.5em;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
 }
+
 .container .card-body .btn-calendar-datetime {
     color: var(--color-background);
     background-color: var(--color-primary);
@@ -492,11 +497,12 @@ b {
     margin-right: 10px;
 }
 
-.date-container .availability h1{
+.date-container .availability h1 {
     color: var(--color-background);
     background-color: var(--color-primary);
 
 }
+
 .number-input-female,
 .number-input {
     display: flex;
@@ -510,10 +516,11 @@ b {
     background-color: var(--color-warning);
     color: var(--color-primary);
 }
+
 .number-input-female .ri-subtract-fill,
 .number-input-female .ri-add-line,
 .number-input .ri-subtract-fill,
-.number-input .ri-add-line{
+.number-input .ri-add-line {
     border-radius: 50%;
     color: var(--color-primary);
     background: var(--color-background);
@@ -524,6 +531,7 @@ b {
     font-size: 1.2em;
     display: flex;
 }
+
 .custom-dropdown-menu {
     color: var(--color-primary);
     background: var(--color-background);
@@ -778,9 +786,9 @@ b {
 }
 
 .button-container {
-  grid-row-start: 1;
-  grid-column-start: 3;
-  padding: 10px;
+    grid-row-start: 1;
+    grid-column-start: 3;
+    padding: 10px;
 }
 
 .container-gym-table .btn-calendar-gym:valid {
@@ -854,11 +862,13 @@ b {
     justify-content: space-between;
     border-bottom: none !important;
 }
+
 .modal-header .col-6.text-end {
     display: flex;
     justify-content: flex-end;
     width: auto;
 }
+
 .modal-title {
     margin: 0;
 }
@@ -888,10 +898,12 @@ b {
 .modal-body .col {
     flex: 1;
 }
-.modal-footer{
+
+.modal-footer {
     justify-content: center !important;
     border-top: none !important;
 }
+
 .modal-footer .btn-primary {
     background-color: var(--color-warning);
     border-color: var(--color-orange);
@@ -904,6 +916,7 @@ b {
     border: 1px solid var(--color-background);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
 .modal-footer .btn-secondary {
     background-color: var(--color-orange);
     border-color: var(--color-warning);
@@ -1351,7 +1364,7 @@ b {
 
 .column-left-bottom {
     position: absolute;
-    width: 50.5%;
+    width: 51%;
     height: 40%;
     left: -1px;
     transform: skewY(5deg);
@@ -1363,7 +1376,7 @@ b {
 
 .column-left-top {
     position: absolute;
-    width: 50.5%;
+    width: 51%;
     height: 40%;
     left: -1px;
     transform: skewY(5deg);
@@ -1411,7 +1424,6 @@ b {
 
 .welcome-section {
     position: absolute;
-    z-index: 2;
     top: 27%;
     transform: translateY(-50%);
     display: inline-block;
@@ -1608,11 +1620,12 @@ ul.list-unstyled {
     transition: all 300ms ease;
 }
 
-.container .section .card .card-body button{
+.container .section .card .card-body button {
     color: var(--color-primary);
     background: var(--color-background);
     margin: 10px;
 }
+
 .container .section .card .card-body .dropdown-menu,
 .container .section .card .card-body .dropdown-menu a {
     color: var(--color-primary);
@@ -1656,19 +1669,23 @@ ul.list-unstyled {
     background-color: var(--color-warning);
     border-color: var(--color-orange);
 }
-.container .section .card .row.dorm-align-container{
+
+.container .section .card .row.dorm-align-container {
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.container .section .card .card-header .card-title{
+
+.container .section .card .card-header .card-title {
     font-size: 1.8em;
 }
-.container .section .card .row.mt-2 .col-md-6 .dropdown-center{
-   display: flex;
-   align-items: center;
-   justify-content: space-evenly;
+
+.container .section .card .row.mt-2 .col-md-6 .dropdown-center {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
 }
+
 .reservor {
     width: 80%;
     display: flex;
@@ -1680,6 +1697,7 @@ ul.list-unstyled {
     width: 100%;
     text-align: center;
 }
+
 @media (max-width: 1024px) {
     .centered {
         display: flex;
@@ -2115,74 +2133,9 @@ ul.list-unstyled {
 
 
 @media (max-width: 480px) {
-    .banner-dorm h1.banner-name {
-        font-size: 2.5rem;
-        color: var(--color-background);
-        transition: all .50s ease;
-    }
-
-    .banner-gym h1.banner-name {
-        font-size: 2.5rem;
-        color: var(--color-background);
-        transition: all .50s ease;
-    }
-
-    .banner-dorm .btn {
-        color: var(--color-primary);
-        padding: 10px 15px;
-        border-width: 5px;
-        border-color: var(--color-warning) !important;
-        /* Adjust the padding for your desired button size */
-        font-weight: 700;
-        background-color: var(--color-warning);
-        /* Bold */
-        font-size: 0.7rem;
-        text-decoration: none;
-        border-radius: 20px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        /* Add a subtle drop shadow */
-        transition: all .50s ease;
-    }
-
-    .banner-gym .btn {
-        color: var(--color-danger);
-        padding: 10px 15px;
-        border-width: 5px;
-        border-color: var(--color-warning) !important;
-        /* Adjust the padding for your desired button size */
-        font-weight: 700;
-        background-color: var(--color-warning);
-        /* Bold */
-        font-size: 0.7rem;
-        text-decoration: none;
-        border-radius: 20px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        /* Add a subtle drop shadow */
-        transition: all .50s ease;
-    }
-
-    .banner-gym {
-        position: relative;
-        text-align: center;
-        color: var(--color-white);
-        background: url('../images/Gym\ Banner\ Reservation.png') center/cover no-repeat;
-        height: 250px;
-        /* Set the desired height */
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-
-    .banner-dorm {
-        position: relative;
-        text-align: center;
-        color: var(--color-white);
-        background: url('../images/Dorm\ Banner\ Reservation.png') center/cover no-repeat;
-        height: 250px;
-        /* Set the desired height */
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+    .container {
+        display: inline-block;
+        width: 100% !important;
     }
 
     .navbar a.navbar-brand img {
@@ -2196,13 +2149,23 @@ ul.list-unstyled {
         font-size: 1.1rem;
         font-weight: 900;
         padding-left: 1px;
-
         text-decoration: none;
+    }
+
+    .navbar .main-login .navbar-nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .navbar .navbar-nav a {
+        margin: 0 !important;
     }
 
     .navbar {
         display: flex;
         background-color: var(--color-primary);
+        z-index: 3;
     }
 
     .main .navbar-nav .nav-item a {
@@ -2223,55 +2186,120 @@ ul.list-unstyled {
         color: var(--color-orange);
     }
 
-    .ri-user-fill {
-        display: none;
-    }
-
-    .form-box .form-details {
-        display: none;
-    }
-
-    .form-box .form-details-register {
-        display: none;
-    }
-
-    .form-box .form-content-register {
-        width: 100%;
+    .centered {
         display: flex;
-        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
-    .form-box .form-content {
-        width: 100%;
-        padding: 11% 35px 11% 35px;
+    .navbar-collapse {
+        background: var(--color-primary);
+    }
+
+    .navbar .navbar-nav {
         display: flex;
-        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
-    .wrapper {
+    .welcome-section {
+        display: inline-block;
+        text-align: center;
+        top: 10%;
+        transform: translateY(0%);
+    }
+
+    .welcome-section .welcome-title1 h3,
+    .welcome-section .welcome-title2 h1,
+    .welcome-section .welcome-name h3 {
+        font-size: 1.5rem;
+    }
+
+    .row-bottom {
         position: relative;
-
-        min-height: 65vh;
-        max-width: 1200px;
-        width: auto;
-        background: var(--color-background);
-        border: 3px solid var(--color-primary);
+        top: 80%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 50% 0 0 0;
+        width: 100%;
     }
 
-    .input-field input::placeholder {
-        font-size: 0.7em;
+    .column-bottom {
+        border: var(--color-primary) 2px;
+        color: var(--color-background);
+        background-color: var(--color-primary);
+        margin-top: 15px;
+        border-radius: 50px;
+        max-width: 100%;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+        transition: all 300ms ease;
     }
 
-    .input-field-name input::placeholder {
-        font-size: 0.7em;
+    .main .navbar-nav .nav-item a {
+        font-size: 2rem;
     }
 
-    .form-content-register {
-        padding: 10% 10px 0% 10px !important;
+    .column-left-top,
+    .column-right-top,
+    .column-left-bottom,
+    .column-right-bottom {
+        height: 31%;
     }
 
-    .form-content {
-        padding: 10% 10px 0% 10px !important;
+    .banner-gym-top {
+        height: 20%;
     }
 
+    .banner-gym-bottom {
+        height: 25%;
+    }
+
+    .banner-gym-text h1.banner-name {
+        font-size: 2rem;
+    }
+
+    .banner-gym-text .btn {
+        font-size: 1em;
+    }
+
+    .volleyball {
+        height: 100px;
+        top: 20%;
+    }
+
+    .basketball {
+        height: 100px;
+        top: 20%;
+    }
+
+    .banner-dorm-text h1.banner-name {
+        font-size: 2rem;
+    }
+
+    .banner-dorm-text .btn {
+        font-size: 1em;
+    }
+
+    .banner-dorm-top {
+        height: 20%;
+    }
+
+    .banner-dorm-bottom {
+        height: 25%;
+    }
+
+    .pillow1 {
+        height: 120px;
+        top: 22%;
+    }
+
+    .pillow2 {
+        height: 100px;
+        top: 5%;
+    }
 }

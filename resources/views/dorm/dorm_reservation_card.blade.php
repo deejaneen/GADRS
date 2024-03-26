@@ -39,7 +39,7 @@
                                 <div class="col-md-6" style="text-align: center;">
                                     <h5>Check In</h5>
                                     <div class="dropdown-center">
-                                        <input type="date" class="btn btn-calendar-datetime" name="reservation_start_date">
+                                        <input type="date" class="btn btn-calendar-datetime" id="datetimeMaleIn" name="reservation_start_date">
                                         <input type="time" class="btn btn-calendar-datetime time" value="14:00"
                                             autocomplete="off" readonly name="reservation_start_time">
                                     </div>
@@ -47,7 +47,7 @@
                                 <div class="col-md-6" style="text-align: center;">
                                     <h5>Check Out</h5>
                                     <div class="dropdown-center">
-                                        <input type="date" class="btn btn-calendar-datetime" name="reservation_end_date">
+                                        <input type="date" class="btn btn-calendar-datetime" id="datetimeMaleOut" name="reservation_end_date">
                                         <input type="time" class="btn btn-calendar-datetime time" value="12:00"
                                             autocomplete="off" readonly name="reservation_end_time">
                                     </div>
@@ -67,53 +67,70 @@
                                     </div>
                                 </div>
 
-                                <div class="col-md-6" style="text-align: center;">
-                                    <h5>Reservor</h5>
-                                    <select class="form-select" id="occupant_type" name="occupant_type" required>
-                                        <option value="COA">COA</option>
-                                        <option value="NON COA">NON COA</option>
-                                    </select>
-                                    <input type="text" value="Male" hidden name="gender">
+<<<<<<< Updated upstream
+                            <div class="col-md-3" style="text-align: center;">
+=======
+                            <div class="col-md-6" style="text-align: center;">
+>>>>>>> Stashed changes
+                                <h5>Reservor</h5>
+                                <div class="dropdown-center reservor">
+                                    <button id="dropdownToggle" class="btn btn-secondary dropdown-toggle" type="button"
+                                        data-bs-toggle="dropdown" aria-expanded="false" style="min-width: 100%;">
+                                        COA/Non-COA
+                                    </button>
+                                    <ul class="dropdown-menu" style="min-width: 100%;">
+                                        <li><a class="dropdown-item" href="javascript:void(0);"
+                                                data-value="COA Employee">COA Employee</a></li>
+                                        <li><a class="dropdown-item" href="javascript:void(0);"
+                                                data-value="Non - COA">Non - COA</a></li>
+                                    </ul>
                                 </div>
                             </div>
-                        </div>
-                        <!-- Image -->
-                        <div class="col-md-6">
-                            <div id="carouselMale" class="carousel slide">
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active">
-                                        <img src="https://justorganized.org/wp-content/uploads/2019/08/guys-dorm-room-1024x675.jpg"
-                                            class="d-block w-100" alt="...">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="https://justorganized.org/wp-content/uploads/2019/08/guys-dorm-room-1024x675.jpg"
-                                            class="d-block w-100" alt="...">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="https://justorganized.org/wp-content/uploads/2019/08/guys-dorm-room-1024x675.jpg"
-                                            class="d-block w-100" alt="...">
-                                    </div>
-                                </div>
-                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselMale"
-                                    data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Previous</span>
-                                </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#carouselMale"
-                                    data-bs-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Next</span>
-                                </button>
+                            <div class="col-md-3" style="text-align: center; display: inline-block;">
+                                <h5 for="myCheckbox">Senior/PWD</h5><br>
+                                <input type="checkbox" id="myCheckbox" checked="false">
                             </div>
                         </div>
                     </div>
-                </div>
-                <hr>
-                <div class="text-center footer button">
-                    <a class="btn btn-info btn-lg rounded btn-block mb-3 btn-clear" data-mdb-ripple-init>Clear</a>
-                    <button class="btn btn-info btn-lg rounded btn-block mb-3 btn-add" type="submit"> Add to Cart
+                    <!-- Image -->
+                    <div class="col-md-6">
+                        <div id="carouselMale" class="carousel slide">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="https://justorganized.org/wp-content/uploads/2019/08/guys-dorm-room-1024x675.jpg"
+                                        class="d-block w-100" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://justorganized.org/wp-content/uploads/2019/08/guys-dorm-room-1024x675.jpg"
+                                        class="d-block w-100" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://justorganized.org/wp-content/uploads/2019/08/guys-dorm-room-1024x675.jpg"
+                                        class="d-block w-100" alt="...">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselMale"
+                                data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselMale"
+                                data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
+            <hr>
+            <div class="text-center footer button">
+                <a class="btn btn-info clearButton btn-lg rounded btn-block mb-3 btn-clear"
+                    data-mdb-ripple-init>Clear</a>
+                <a class="btn btn-info btn-lg rounded btn-block mb-3 btn-add" data-mdb-ripple-init
+                    data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight">Add to Cart</a>
+            </div>
+        </div>
 
             <!-- Male Card End -->
 
@@ -155,7 +172,7 @@
                                 <div class="col-md-6" style="text-align: center;">
                                     <h5>Check In</h5>
                                     <div class="dropdown-center">
-                                        <input type="date" class="btn btn-calendar-datetime"
+                                        <input type="date" class="btn btn-calendar-datetime" id="datetimeFemaleIn"
                                             name="reservation_start_date">
                                         <input type="time" class="btn btn-calendar-datetime time" value="14:00"
                                             autocomplete="off" readonly name="reservation_start_time">
@@ -164,7 +181,7 @@
                                 <div class="col-md-6" style="text-align: center;">
                                     <h5>Check Out</h5>
                                     <div class="dropdown-center">
-                                        <input type="date" class="btn btn-calendar-datetime"
+                                        <input type="date" class="btn btn-calendar-datetime" id="datetimeFemaleOut"
                                             name="reservation_end_date">
                                         <input type="time" class="btn btn-calendar-datetime time" value="12:00"
                                             autocomplete="off" readonly name="reservation_end_time">
@@ -193,6 +210,12 @@
                                     <input type="text" value="Female" hidden name="gender">
                                 </div>
                             </div>
+                            <div class="col-md-3" style="text-align: center; display: inline-block;">
+                                <h5 for="myCheckbox">Senior/PWD</h5><br>
+                                <input type="checkbox" id="myCheckbox">
+                            </div>
+
+                        </div>
 
 
                         </div>
@@ -229,7 +252,8 @@
                 </div>
                 <hr>
                 <div class="text-center footer button">
-                    <a class="btn btn-info btn-lg rounded btn-block mb-3 btn-clear" data-mdb-ripple-init>Clear</a>
+                    <a class="btn btn-info clearButton btn-lg rounded btn-block mb-3 btn-clear"
+                    data-mdb-ripple-init>Clear</a>
                     {{-- <a class="btn btn-info btn-lg rounded btn-block mb-3 btn-add" data-mdb-ripple-init
                         data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight">Add to Cart</a> --}}
                     <button class="btn btn-info btn-lg rounded btn-block mb-3 btn-add" type="submit"> Add to Cart
@@ -292,22 +316,31 @@
 </div> --}}
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Function to format the date to 'YYYY-MM-DD' format
-        function formatDate(date) {
-            const year = date.getFullYear();
-            const month = String(date.getMonth() + 1).padStart(2, '0');
-            const day = String(date.getDate()).padStart(2, '0');
-            return `${year}-${month}-${day}`;
-        }
+    // Define the formatDate function outside of DOMContentLoaded event listener to make it accessible
+    function formatDate(date) {
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const day = String(date.getDate()).padStart(2, '0');
+        return `${year}-${month}-${day}`;
+    }
 
+    document.addEventListener('DOMContentLoaded', function() {
         // Set default value for availabilityDate input
         const availabilityDateInput = document.getElementById('availabilityDate');
         availabilityDateInput.value = formatDate(new Date());
+        availabilityDateInput.min = formatDate(new Date()); // Set minimum date to today
 
         // Set default value for availabilityDateFemale input
         const availabilityDateFemaleInput = document.getElementById('availabilityDateFemale');
         availabilityDateFemaleInput.value = formatDate(new Date());
+        availabilityDateFemaleInput.min = formatDate(new Date()); // Set minimum date to today
+
+        // Set default value for date inputs to empty
+        const availabilityDateInputs = document.querySelectorAll('.btn-calendar-datetime[type="date"]');
+        availabilityDateInputs.forEach(input => {
+            input.value = '';
+            input.min = formatDate(new Date()); // Set minimum date to today
+        });
 
         // Handling male dorm fields
         const input = document.querySelector('.number-input input');
@@ -341,48 +374,60 @@
             });
         });
 
-        // Set default value for date inputs to empty
-        const availabilityDateInputs = document.querySelectorAll('.btn-calendar-datetime[type="date"]');
-        availabilityDateInputs.forEach(input => {
-            input.value = '';
+        // Set default value for checkbox to unchecked
+        document.getElementById('myCheckbox').checked = false;
+    });
+<<<<<<< Updated upstream
+
+    document.addEventListener('DOMContentLoaded', function() {
+        // Function to reset all elements to their defaults
+        function resetDefaults() {
+            // Uncheck the checkbox
+            document.getElementById('myCheckbox').checked = false;
+            // Reset date inputs to default
+            document.getElementById('availabilityDate').value = formatDate(new Date());
+            document.getElementById('availabilityDateFemale').value = formatDate(new Date());
+            // Reset date inputs to default
+            document.getElementById('datetimeFemaleIn').value = '';
+            document.getElementById('datetimeFemaleOut').value = '';
+            document.getElementById('datetimeMaleIn').value = '';
+            document.getElementById('datetimeMaleOut').value = '';
+            // Reset number of beds inputs to default
+            document.querySelector('.number-input input').value = '0';
+            document.querySelector('.number-input-female input').value = '0';
+            // Reset dropdown toggle text to empty
+            document.getElementById('dropdownToggle').textContent = '';
+            document.getElementById('dropdownToggleFemale').textContent = '';
+        }
+
+
+        // Add event listener to the clear button
+        document.querySelector('.clearButton').addEventListener('click', function() {
+            resetDefaults(); // Call the resetDefaults function when the clear button is clicked
+        });
+
+        // Add event listener to check-in date input for male dorm
+        document.getElementById('datetimeMaleIn').addEventListener('change', function() {
+            // Get the selected check-in date
+            const checkInDate = new Date(this.value);
+
+            // If the check-in date is valid, set the minimum date for check-out input
+            if (!isNaN(checkInDate.getTime())) {
+                const checkOutInput = document.getElementById('datetimeMaleOut');
+
+                // Set minimum date for check-out to be after the selected check-in date
+                const minimumDate = new Date(checkInDate);
+                minimumDate.setDate(minimumDate.getDate() + 1); // Set minimum to the next day
+                checkOutInput.min = formatDate(minimumDate);
+
+                // If check-out input already has a date selected and it's before the new minimum date, clear it
+                const checkOutDate = new Date(checkOutInput.value);
+                if (!isNaN(checkOutDate.getTime()) && checkOutDate < minimumDate) {
+                    checkOutInput.value = '';
+                }
+            }
         });
     });
-
-    // Handling only female dorm fields
-    const input = document.querySelector('.number-input-female input');
-    input.value = '0';
-
-    const plusBtn = document.querySelector('.number-input-female .ri-add-line');
-    const minusBtn = document.querySelector('.number-input-female .ri-subtract-fill');
-    const availability = parseInt(document.querySelector('#femaleCard .availability b').textContent);
-
-    plusBtn.addEventListener('click', function() {
-        if (parseInt(input.value) < availability) {
-            input.value = parseInt(input.value) + 1;
-        }
-    });
-
-    minusBtn.addEventListener('click', function() {
-        if (parseInt(input.value) > 0) {
-            input.value = parseInt(input.value) - 1;
-        }
-    });
-
-    // Set default value for dropdown toggle to empty
-    const dropdownToggle = document.getElementById('dropdownToggleFemale');
-    dropdownToggle.textContent = '';
-
-    const dropdownItems = document.querySelectorAll('#femaleCard .dropdown-item');
-    dropdownItems.forEach(item => {
-        item.addEventListener('click', function() {
-            const selectedValue = this.getAttribute('data-value');
-            dropdownToggle.textContent = selectedValue;
-        });
-    });
-
-    // Set default value for date inputs to empty
-    const availabilityDateInputs = document.querySelectorAll('#femaleCard .btn-calendar-datetime[type="date"]');
-    availabilityDateInputs.forEach(input => {
-        input.value = '';
-    });
+=======
+>>>>>>> Stashed changes
 </script>
