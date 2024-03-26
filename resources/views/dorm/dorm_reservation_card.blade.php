@@ -63,8 +63,8 @@
                                     </div>
                                 </div>
                             </div>
-                                           
-                            <div class="col-md-6" style="text-align: center;">
+
+                            <div class="col-md-3" style="text-align: center;">
                                 <h5>Reservor</h5>
                                 <div class="dropdown-center reservor">
                                     <button id="dropdownToggle" class="btn btn-secondary dropdown-toggle" type="button"
@@ -78,6 +78,10 @@
                                                 data-value="Non - COA">Non - COA</a></li>
                                     </ul>
                                 </div>
+                            </div>
+                            <div class="col-md-3" style="text-align: center; display: inline-block;">
+                                <h5 for="myCheckbox">Senior/PWD</h5><br>
+                                <input type="checkbox" id="myCheckbox">
                             </div>
                         </div>
                     </div>
@@ -185,7 +189,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6" style="text-align: center;">
+                            <div class="col-md-3" style="text-align: center;">
                                 <h5>Reservor</h5>
                                 <div class="dropdown-center reservor">
                                     <button id="dropdownToggleFemale" class="btn btn-secondary dropdown-toggle"
@@ -201,9 +205,14 @@
                                     </ul>
                                 </div>
                             </div>
+                            <div class="col-md-3" style="text-align: center; display: inline-block;">
+                                <h5 for="myCheckbox">Senior/PWD</h5><br>
+                                <input type="checkbox" id="myCheckbox">
+                            </div>
+                            
                         </div>
 
-                        
+
                     </div>
                     <!-- Image -->
                     <div class="col-md-6">
@@ -339,5 +348,32 @@
     const availabilityDateInputs = document.querySelectorAll('#femaleCard .btn-calendar-datetime[type="date"]');
     availabilityDateInputs.forEach(input => {
         input.value = '';
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        // Function to format the date to 'YYYY-MM-DD' format
+        function formatDate(date) {
+            const year = date.getFullYear();
+            const month = String(date.getMonth() + 1).padStart(2, '0');
+            const day = String(date.getDate()).padStart(2, '0');
+            return `${year}-${month}-${day}`;
+        }
+
+        // Set default value for availabilityDate input
+        const availabilityDateInput = document.getElementById('availabilityDate');
+        availabilityDateInput.value = formatDate(new Date());
+        availabilityDateInput.min = formatDate(new Date()); // Set minimum date to today
+
+        // Set default value for availabilityDateFemale input
+        const availabilityDateFemaleInput = document.getElementById('availabilityDateFemale');
+        availabilityDateFemaleInput.value = formatDate(new Date());
+        availabilityDateFemaleInput.min = formatDate(new Date()); // Set minimum date to today
+
+        // Set default value for date inputs to empty
+        const availabilityDateInputs = document.querySelectorAll('.btn-calendar-datetime[type="date"]');
+        availabilityDateInputs.forEach(input => {
+            input.value = '';
+            input.min = formatDate(new Date()); // Set minimum date to today
+        });
     });
 </script>
