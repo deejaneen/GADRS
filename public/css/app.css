@@ -977,7 +977,6 @@ b {
     height: 5rem;
     transition: all 300ms ease;
     position: relative;
-    transition: all 300ms ease;
 }
 
 .left-column .sidebar a span {
@@ -1044,7 +1043,6 @@ b {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    /* Ensure the image covers the entire container */
 }
 
 .right-column .img-circle span {
@@ -1687,17 +1685,31 @@ ul.list-unstyled {
 }
 
 .reservor {
-    width: 80%;
-    display: flex;
+    display: inline-block;
     justify-content: center;
-    margin-left: 10%;
+    text-align: center;
 }
+#occupant_type{
+    margin-top: 20px;
+    background: var(--color-background);
+    color: var(--color-primary);
 
+}
+.form-select option:hover{
+    background: var(--color-background);
+    font-size: 1em;
+}
 .dropdown-menu {
     width: 100%;
     text-align: center;
 }
 
+.row.discount{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
 @media (max-width: 1024px) {
     .centered {
         display: flex;
@@ -1723,15 +1735,12 @@ ul.list-unstyled {
         padding: 10px 15px;
         border-width: 5px;
         border-color: var(--color-warning) !important;
-        /* Adjust the padding for your desired button size */
         font-weight: 700;
         background-color: var(--color-warning);
-        /* Bold */
         font-size: 1.5rem;
         text-decoration: none;
         border-radius: 20px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        /* Add a subtle drop shadow */
         transition: all .50s ease;
     }
 
@@ -1740,15 +1749,12 @@ ul.list-unstyled {
         padding: 10px 15px;
         border-width: 5px;
         border-color: var(--color-warning) !important;
-        /* Adjust the padding for your desired button size */
         font-weight: 700;
         background-color: var(--color-warning);
-        /* Bold */
         font-size: 1.5rem;
         text-decoration: none;
         border-radius: 20px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        /* Add a subtle drop shadow */
         transition: all .50s ease;
     }
 
@@ -1770,7 +1776,6 @@ ul.list-unstyled {
         color: var(--color-white);
         background: url('../images/Dorm\ Banner\ Reservation.png') center/cover no-repeat;
         height: 360px;
-        /* Set the desired height */
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -1778,32 +1783,23 @@ ul.list-unstyled {
 
     .form-box .form-details {
         max-width: auto;
-        /* Remove max-width to allow the div to expand as needed */
         width: 60%;
-        /* Set width to 100% to fill the parent container */
         height: 0;
-        /* Set initial height to 0 */
         padding-top: 75%;
-        /* Set padding-top based on the aspect ratio of the background image (e.g., if the image has a height of 768px and a width of 1024px, the aspect ratio is 768/1024 = 0.75 or 75%) */
         display: flex;
         text-align: center;
         flex-direction: column;
         align-items: center;
         background: url('../images/Login\ page\ 1\ 768px.png') center/cover no-repeat;
         background-size: cover;
-        /* Ensure the background image covers the entire div */
         transition: all .5s ease;
     }
 
     .form-box .form-details-register {
         max-width: auto;
-        /* Remove max-width to allow the div to expand as needed */
         width: 40%;
-        /* Set width to 100% to fill the parent container */
         height: 0;
-        /* Set initial height to 0 */
         padding-top: 75%;
-        /* Set padding-top based on the aspect ratio of the background image */
         display: flex;
         text-align: center;
         flex-direction: column;
@@ -1811,7 +1807,6 @@ ul.list-unstyled {
         justify-content: flex-start;
         background: url('../images/Login\ page\ 768px.png') center/cover no-repeat;
         background-size: cover;
-        /* Ensure the background image covers the entire div */
         transition: all .5s ease;
     }
 
@@ -1862,15 +1857,12 @@ ul.list-unstyled {
         padding: 10px 15px;
         border-width: 5px;
         border-color: var(--color-warning) !important;
-        /* Adjust the padding for your desired button size */
         font-weight: 700;
         background-color: var(--color-warning);
-        /* Bold */
         font-size: 1.5rem;
         text-decoration: none;
         border-radius: 20px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        /* Add a subtle drop shadow */
         transition: all .50s ease;
     }
 
@@ -1879,15 +1871,12 @@ ul.list-unstyled {
         padding: 10px 15px;
         border-width: 5px;
         border-color: var(--color-warning) !important;
-        /* Adjust the padding for your desired button size */
         font-weight: 700;
         background-color: var(--color-warning);
-        /* Bold */
         font-size: 1.5rem;
         text-decoration: none;
         border-radius: 20px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        /* Add a subtle drop shadow */
         transition: all .50s ease;
     }
 
@@ -1897,7 +1886,6 @@ ul.list-unstyled {
         color: var(--color-white);
         background: url('../images/Gym\ Banner\ Reservation.png') center/cover no-repeat;
         height: 360px;
-        /* Set the desired height */
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -1909,7 +1897,6 @@ ul.list-unstyled {
         color: var(--color-white);
         background: url('../images/Dorm\ Banner\ Reservation.png') center/cover no-repeat;
         height: 360px;
-        /* Set the desired height */
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -1917,13 +1904,9 @@ ul.list-unstyled {
 
     .form-box .form-details {
         max-width: auto;
-        /* Remove max-width to allow the div to expand as needed */
         width: 60%;
-        /* Set width to 100% to fill the parent container */
         height: 70vh;
-        /* Set initial height to 0 */
         padding-top: 75%;
-        /* Set padding-top based on the aspect ratio of the background image (e.g., if the image has a height of 768px and a width of 1024px, the aspect ratio is 768/1024 = 0.75 or 75%) */
         display: flex;
         text-align: center;
         flex-direction: column;
@@ -1934,13 +1917,9 @@ ul.list-unstyled {
 
     .form-box .form-details-register {
         max-width: auto;
-        /* Remove max-width to allow the div to expand as needed */
         width: 40%;
-        /* Set width to 100% to fill the parent container */
         height: 70vh;
-        /* Set initial height to 0 */
         padding-top: 75%;
-        /* Set padding-top based on the aspect ratio of the background image */
         display: flex;
         text-align: center;
         flex-direction: column;
@@ -1948,7 +1927,6 @@ ul.list-unstyled {
         justify-content: flex-start;
         background: url('../images/Login\ page\ 992px.png') center/contain no-repeat;
         background-size: cover;
-        /* Ensure the background image covers the entire div */
         transition: all .5s ease;
     }
 
@@ -1989,15 +1967,12 @@ ul.list-unstyled {
         padding: 10px 15px;
         border-width: 5px;
         border-color: var(--color-warning) !important;
-        /* Adjust the padding for your desired button size */
         font-weight: 700;
         background-color: var(--color-warning);
-        /* Bold */
         font-size: 0.9rem;
         text-decoration: none;
         border-radius: 20px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        /* Add a subtle drop shadow */
         transition: all .50s ease;
     }
 
@@ -2006,15 +1981,12 @@ ul.list-unstyled {
         padding: 10px 15px;
         border-width: 5px;
         border-color: var(--color-warning) !important;
-        /* Adjust the padding for your desired button size */
         font-weight: 700;
         background-color: var(--color-warning);
-        /* Bold */
         font-size: 0.9rem;
         text-decoration: none;
         border-radius: 20px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        /* Add a subtle drop shadow */
         transition: all .50s ease;
     }
 
@@ -2024,7 +1996,6 @@ ul.list-unstyled {
         color: var(--color-white);
         background: url('../images/Gym\ Banner\ Reservation.png') center/cover no-repeat;
         height: 250px;
-        /* Set the desired height */
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -2036,7 +2007,6 @@ ul.list-unstyled {
         color: var(--color-white);
         background: url('../images/Dorm\ Banner\ Reservation.png') center/cover no-repeat;
         height: 250px;
-        /* Set the desired height */
         display: flex;
         flex-direction: column;
         justify-content: center;

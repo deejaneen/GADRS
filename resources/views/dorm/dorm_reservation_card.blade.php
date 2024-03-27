@@ -75,7 +75,18 @@
                                         <option value="COA">COA</option>
                                         <option value="Non COA">Non COA</option>
                                     </select>
-                                    <input type="text" name="gender" value="Male" hidden>
+                                    <input type="text" name="gender" value="Female" hidden>
+                                </div>
+                             
+                            </div>
+                            <div class="row discount">
+                                <div class="col-md-6">
+                                    <h5>Apply for Senior/PWD discount?</h5>
+                                    <input type="checkbox" id="myCheckboxSenior">
+                                </div>
+                                <div class="col-md-6">
+                                    <h5>Is the person staying at the reservation a child below 5 years old?</h5>
+                                    <input type="checkbox" id="myCheckboxChildren">
                                 </div>
                             </div>
                         </div>
@@ -190,13 +201,24 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-3" style="text-align: center;">
+                                <div class="col-md-6 reservor">
                                     <h5>Reservor</h5>
                                     <select class="form-select" id="occupant_type" name="occupant_type" required>
                                         <option value="COA">COA</option>
                                         <option value="Non COA">Non COA</option>
                                     </select>
                                     <input type="text" name="gender" value="Female" hidden>
+                                </div>
+                             
+                            </div>
+                            <div class="row discount">
+                                <div class="col-md-6">
+                                    <h5>Apply for Senior/PWD discount?</h5>
+                                    <input type="checkbox" id="myCheckboxSenior">
+                                </div>
+                                <div class="col-md-6">
+                                    <h5>Is the person staying at the reservation a child below 5 years old?</h5>
+                                    <input type="checkbox" id="myCheckboxChildren">
                                 </div>
                             </div>
 
@@ -339,4 +361,9 @@
     availabilityDateInputs.forEach(input => {
         input.value = '';
     });
+
+        // document.addEventListener('DOMContentLoaded', function() {
+        //     document.getElementById('myCheckboxSenior').checked = false;
+        //     document.getElementById('myCheckboxChildren').checked = false;
+        // });
 </script>
