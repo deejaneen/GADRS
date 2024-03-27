@@ -758,7 +758,7 @@ b {
 .container-gym-table {
     display: grid;
     grid-template-rows: 20% 20%;
-    grid-template-columns: 30% 40% 30%;
+    grid-template-columns: 30% 20% 20% 30%;
     background-color: var(--color-primary);
     position: relative;
 }
@@ -786,9 +786,11 @@ b {
 }
 
 .button-container {
+    display: flex;
     grid-row-start: 1;
-    grid-column-start: 3;
+    grid-column: 3 / span 2;
     padding: 10px;
+    justify-content: flex-end;
 }
 
 .container-gym-table .btn-calendar-gym:valid {
@@ -850,6 +852,7 @@ b {
 
 /* ======================= Gym Modal ======================= */
 .modal-content {
+    display: inline-block;
     color: var(--color-primary) !important;
     background: var(--color-background) !important;
     font-size: 1.5em !important;
@@ -1689,27 +1692,36 @@ ul.list-unstyled {
     justify-content: center;
     text-align: center;
 }
-#occupant_type{
+
+#occupant_type {
     margin-top: 20px;
     background: var(--color-background);
     color: var(--color-primary);
 
 }
-.form-select option:hover{
+
+.form-select option:hover {
     background: var(--color-background);
     font-size: 1em;
 }
+
 .dropdown-menu {
     width: 100%;
     text-align: center;
 }
 
-.row.discount{
+.row.discount {
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
 }
+
+.row.discount .col-md-6 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 @media (max-width: 1024px) {
     .centered {
         display: flex;
@@ -2272,35 +2284,71 @@ ul.list-unstyled {
         height: 100px;
         top: 5%;
     }
+
     h1 {
         font-size: 1.5em !important;
     }
+
     h2 {
         font-size: 1.3em !important;
     }
+
     h3 {
         font-size: 1.2em !important;
     }
+
     h4 {
         font-size: 1.1em !important;
     }
+
     h5 {
         font-size: 1em !important;
+
     }
+
     .container .card-body .btn-calendar-dorm:valid {
         font-size: 1em;
     }
-    .col-md-6.carousel{
+
+    .col-md-6.carousel {
         padding-top: 20px;
     }
+
     .col-md-3.checkbox {
         display: flex;
         align-items: center;
         justify-content: center;
     }
-    .myCheckbox{
+
+    .myCheckbox {
         margin-bottom: 0;
         margin-right: 10px;
     }
+
+    .container .button-container .btn-reservation-gym {
+        font-size: 1em;
+
+    }
+
+    .container .button-container .btn-calendar-gym {
+        font-size: 1em;
+
+    }
+
+    .modal-body input[type="date"],
+    .modal-body input[type="time"],
+    .modal-body select {
+   
+        font-size: 0.6em;
+
+    }
+    .modal-footer .btn-primary,
+    .modal-footer .btn-secondary {
+        font-size: 0.6em;
+    }
+    .modal-content {
+        font-size: 1.2em !important;
+    }
+    
     
 }
