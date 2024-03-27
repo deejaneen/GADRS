@@ -40,6 +40,8 @@ return new class extends Migration
             $table->string('emergency_contact_number')->nullable();
             $table->text('home_address')->nullable();
             $table->string('discount_image')->nullable();
+            $table->boolean('is_senior_or_pwd')->default(false);
+            $table->boolean('is_child')->default(false);
             $table->timestamps();
 
             // Add the foreign key constraint

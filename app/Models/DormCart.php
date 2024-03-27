@@ -19,6 +19,9 @@ class DormCart extends Model
         'quantity',
         'occupant_type',
         'price',
+        'is_senior_or_pwd',
+        'is_child',
+
     ];
 
 }

@@ -73,20 +73,22 @@
                                     <h5>Reservor</h5>
                                     <select class="form-select" id="occupant_type" name="occupant_type" required>
                                         <option value="COA">COA</option>
-                                        <option value="Non COA">Non COA</option>
+                                        <option value="Non COAn">Non COA</option>
                                     </select>
-                                    <input type="text" name="gender" value="Female" hidden>
+                                    <input type="text" name="gender" value="Male" hidden>
                                 </div>
-                             
+
                             </div>
                             <div class="row discount">
                                 <div class="col-md-6">
                                     <h5>Apply for Senior/PWD discount?</h5>
-                                    <input type="checkbox" id="myCheckboxSenior">
+                                    <input type="checkbox" id="myCheckboxSeniorMale"
+                                        onchange="updateCheckboxValue(this)" name="is_senior_or_pwd">
                                 </div>
                                 <div class="col-md-6">
                                     <h5>Is the person staying at the reservation a child below 5 years old?</h5>
-                                    <input type="checkbox" id="myCheckboxChildren">
+                                    <input type="checkbox" id="myCheckboxChildrenMale"
+                                        onchange="updateCheckboxValue(this)" name="is_child">
                                 </div>
                             </div>
                         </div>
@@ -205,20 +207,22 @@
                                     <h5>Reservor</h5>
                                     <select class="form-select" id="occupant_type" name="occupant_type" required>
                                         <option value="COA">COA</option>
-                                        <option value="Non COA">Non COA</option>
+                                        <option value="Non COAn">Non COA</option>
                                     </select>
                                     <input type="text" name="gender" value="Female" hidden>
                                 </div>
-                             
+
                             </div>
                             <div class="row discount">
                                 <div class="col-md-6">
                                     <h5>Apply for Senior/PWD discount?</h5>
-                                    <input type="checkbox" id="myCheckboxSenior">
+                                    <input type="checkbox" id="myCheckboxSeniorFemale"
+                                        onchange="updateCheckboxValue(this)" name="is_senior_or_pwd">
                                 </div>
                                 <div class="col-md-6">
                                     <h5>Is the person staying at the reservation a child below 5 years old?</h5>
-                                    <input type="checkbox" id="myCheckboxChildren">
+                                    <input type="checkbox" id="myCheckboxChildrenFemale"
+                                        onchange="updateCheckboxValue(this)" name="is_child">
                                 </div>
                             </div>
 
@@ -362,8 +366,23 @@
         input.value = '';
     });
 
-        // document.addEventListener('DOMContentLoaded', function() {
-        //     document.getElementById('myCheckboxSenior').checked = false;
-        //     document.getElementById('myCheckboxChildren').checked = false;
-        // });
+    // document.addEventListener('DOMContentLoaded', function() {
+    //     document.getElementById('myCheckboxSenior').checked = false;
+    //     document.getElementById('myCheckboxChildren').checked = false;
+    // });
+
+    // Function to update the value of the checkboxes
+    function updateCheckboxValue(checkbox) {
+        checkbox.value = checkbox.checked ? "true" : "false";
+    }
+
+    // Get all checkboxes and attach event listeners
+    document.addEventListener('DOMContentLoaded', function() {
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        checkboxes.forEach(function(checkbox) {
+            checkbox.addEventListener('click', function() {
+                updateCheckboxValue(checkbox);
+            });
+        });
+    });
 </script>

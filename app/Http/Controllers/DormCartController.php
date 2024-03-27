@@ -30,6 +30,10 @@ class DormCartController extends Controller
      */
     public function store(Request $request)
     {
+        // Convert checkbox values to boolean
+        $is_senior_or_pwd = $request->has('is_senior_or_pwd');
+        $is_child = $request->has('is_child');
+
         // Validate the incoming request data
         $validatedData = $request->validate([
             'reservation_start_date' => 'required|date',
@@ -41,21 +45,44 @@ class DormCartController extends Controller
             'occupant_type' => 'required',
         ]);
 
+        // Create a new DormCart instance
         $dormCart = new DormCart();
-        $dormCart->reservation_start_date =  $validatedData['reservation_start_date'];
-        $dormCart->reservation_start_time =  $validatedData['reservation_start_time'];
-        $dormCart->reservation_end_date =  $validatedData['reservation_end_date'];
-        $dormCart->reservation_end_time =  $validatedData['reservation_end_time'];
-        $dormCart->gender =  $validatedData['gender'];
-        $dormCart->quantity =  $validatedData['quantity'];
 
-        //Switch statement here
-        $dormCart->occupant_type =  $validatedData['occupant_type'];
+        // Assign validated data to DormCart properties
+        $dormCart->reservation_start_date = $validatedData['reservation_start_date'];
+        $dormCart->reservation_start_time = $validatedData['reservation_start_time'];
+        $dormCart->reservation_end_date = $validatedData['reservation_end_date'];
+        $dormCart->reservation_end_time = $validatedData['reservation_end_time'];
+        $dormCart->gender = $validatedData['gender'];
+        $dormCart->quantity = $validatedData['quantity'];
+        $dormCart->is_senior_or_pwd = $is_senior_or_pwd; // Assign the boolean value
+        $dormCart->is_child = $is_child; // Assign the boolean value
+
+        // Calculate the price based on occupant_type
+        switch ($validatedData['occupant_type']) {
+            case 'COA':
+                $dormCart->price = $is_senior_or_pwd ? 200 * 0.8 : 200; // 20% discount if senior/PWD
+                break;
+            case 'Non COAn':
+                $dormCart->price = $is_senior_or_pwd ? 400 * 0.8 : 400; // 20% discount if senior/PWD
+                break;
+            default:
+                // Default price in case occupant_type doesn't match any case
+                $dormCart->price = 0;
+                break;
+        }
+
+        // Assign other properties
+        $dormCart->occupant_type = $validatedData['occupant_type'];
         $dormCart->employee_id = Auth::id(); // Use Auth::id() instead of Auth()->id()
+
+        // Save the DormCart instance
         $dormCart->save();
 
+        // Redirect with success message
         return redirect()->route('dorm')->with('success', 'Reservation added to cart successfully!');
     }
+
 
     /**
      * Display the specified resource.
