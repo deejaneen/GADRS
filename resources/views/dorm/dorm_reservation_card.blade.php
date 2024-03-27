@@ -68,44 +68,6 @@
                                         </div>
                                     </div>
                                 </div>
-<<<<<<< Updated upstream
-                            <div class="col-md-3" style="text-align: center;">
-                                <h5>Reservor</h5>
-                                <div class="dropdown-center reservor">
-                                    <button id="dropdownToggle" class="btn btn-secondary dropdown-toggle" type="button"
-                                        data-bs-toggle="dropdown" aria-expanded="false" style="min-width: 100%;">
-                                        COA/Non-COA
-                                    </button>
-                                    <ul class="dropdown-menu" style="min-width: 100%;">
-                                        <li><a class="dropdown-item" href="javascript:void(0);"
-                                                data-value="COA Employee">COA Employee</a></li>
-                                        <li><a class="dropdown-item" href="javascript:void(0);"
-                                                data-value="Non - COA">Non - COA</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-md-3 checkbox">
-                                <h5 for="myCheckbox" class="myCheckbox">Senior/PWD</h5><br>
-                                <input type="checkbox" id="myCheckbox" checked="false">
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Image -->
-                    <div class="col-md-6 carousel">
-                        <div id="carouselMale" class="carousel slide">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img src="https://justorganized.org/wp-content/uploads/2019/08/guys-dorm-room-1024x675.jpg"
-                                        class="d-block w-100" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="https://justorganized.org/wp-content/uploads/2019/08/guys-dorm-room-1024x675.jpg"
-                                        class="d-block w-100" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="https://justorganized.org/wp-content/uploads/2019/08/guys-dorm-room-1024x675.jpg"
-                                        class="d-block w-100" alt="...">
-=======
 
                                 <div class="col-md-6" style="text-align: center;">
                                     <h5>Reservor</h5>
@@ -133,7 +95,6 @@
                                         <img src="https://justorganized.org/wp-content/uploads/2019/08/guys-dorm-room-1024x675.jpg"
                                             class="d-block w-100" alt="...">
                                     </div>
->>>>>>> Stashed changes
                                 </div>
                                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselMale"
                                     data-bs-slide="prev">
@@ -231,27 +192,6 @@
                                 </div>
                                 <div class="col-md-3" style="text-align: center;">
                                     <h5>Reservor</h5>
-<<<<<<< Updated upstream
-                                    <div class="dropdown-center reservor">
-                                        <button id="dropdownToggleFemale" class="btn btn-secondary dropdown-toggle" type="button"
-                                            data-bs-toggle="dropdownToggleFemale" aria-expanded="false" style="min-width: 100%;">
-                                            COA/Non-COA
-                                        </button>
-                                        <ul class="dropdown-menu" style="min-width: 100%;">
-                                            <li><a class="dropdown-item" href="javascript:void(0);"
-                                                    data-value="COA Employee">COA Employee</a></li>
-                                            <li><a class="dropdown-item" href="javascript:void(0);"
-                                                    data-value="Non - COA">Non - COA</a></li>
-                                        </ul>
-                                    </div>
-                            </div>
-                            <div class="col-md-3 checkbox">
-                                <h5 for="myCheckbox" class="myCheckbox">Senior/PWD</h5><br>
-                                <input type="checkbox" id="myCheckbox">
-                            </div>
-
-                        </div>
-=======
                                     <select class="form-select" id="occupant_type" name="occupant_type" required>
                                         <option value="COA">COA</option>
                                         <option value="Non COA">Non COA</option>
@@ -259,7 +199,6 @@
                                     <input type="text" name="gender" value="Female" hidden>
                                 </div>
                             </div>
->>>>>>> Stashed changes
 
 
                         </div>
@@ -394,13 +333,10 @@
             dropdownToggle.textContent = selectedValue;
         });
     });
-<<<<<<< Updated upstream
-=======
 
     // Set default value for date inputs to empty
     const availabilityDateInputs = document.querySelectorAll('#femaleCard .btn-calendar-datetime[type="date"]');
     availabilityDateInputs.forEach(input => {
         input.value = '';
     });
->>>>>>> Stashed changes
 </script>

@@ -18,6 +18,7 @@ class DormCart extends Model
         'gender',
         'quantity',
         'occupant_type',
+        'price',
     ];
 
 }

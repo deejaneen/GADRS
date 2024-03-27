@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DormCart;
 use App\Models\GymCart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -17,7 +18,11 @@ class CartController extends Controller
         $gymcarts = GymCart::where('employee_id', $userId)
             ->orderBy('created_at', 'DESC')
             ->paginate(5);
-        return view('cart_checkout', ['gymcarts' => $gymcarts]);
+
+        $dormcarts = DormCart::where('employee_id', $userId)
+            ->orderBy('created_at', 'DESC')
+            ->paginate(5);
+        return view('cart_checkout', ['gymcarts' => $gymcarts, 'dormcarts'=> $dormcarts]);
     }
 
     /**

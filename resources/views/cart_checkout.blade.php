@@ -49,22 +49,26 @@
                 <div class="col-6">
                     <h1 class="text-center">DORM RESERVATIONS</h1>
                     <hr>
-                    <div class="row align-items-center">
-                        <div class="col-2">
-                            <i class="fa-solid fa-plus add-icon  ms-3"></i>
-                            <i class="fa-solid fa-minus minus-icon ms-3"></i>
+                    @foreach ($dormcarts as $dormcart)
+                        <div class="row align-items-center">
+                            <div class="col-2">
+                                <i class="fa-solid fa-plus add-icon  ms-3"></i>
+                                <i class="fa-solid fa-minus minus-icon ms-3"></i>
+                            </div>
+                            <div class="col-8">
+                                <ul class="list-unstyled">
+                                    <li>Date: {{ $dormcart->reservation_start_date}} -
+                                        {{ date('g:i A', strtotime($dormcart->reservation_start_time)) }}, {{ $dormcart->reservation_end_date}} -
+                                        {{ date('g:i A', strtotime($dormcart->reservation_end_time)) }}</li>
+                                    <li>Price: {{ $dormcart->price }}</li>
+                                    <li>Purpose: {{ $dormcart->gender }}</li>
+                                </ul>
+                            </div>
+                            <div class="col-2">
+                                <i class="fa-solid fa-trash trash-icon"></i>
+                            </div>
                         </div>
-                        <div class="col-8">
-                            <ul class="list-unstyled">
-                                <li>Feb 22, 2024 2pm - Feb 24, 2024 12pm</li>
-                                <li>COA Employee</li>
-                                <li>Activity: Basketball</li>
-                            </ul>
-                        </div>
-                        <div class="col-2">
-                            <i class="fa-solid fa-trash trash-icon"></i>
-                        </div>
-                    </div>
+                    @endforeach
                     <hr>
                 </div>
 

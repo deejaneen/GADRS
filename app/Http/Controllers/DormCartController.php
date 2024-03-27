@@ -48,6 +48,8 @@ class DormCartController extends Controller
         $dormCart->reservation_end_time =  $validatedData['reservation_end_time'];
         $dormCart->gender =  $validatedData['gender'];
         $dormCart->quantity =  $validatedData['quantity'];
+
+        //Switch statement here
         $dormCart->occupant_type =  $validatedData['occupant_type'];
         $dormCart->employee_id = Auth::id(); // Use Auth::id() instead of Auth()->id()
         $dormCart->save();
