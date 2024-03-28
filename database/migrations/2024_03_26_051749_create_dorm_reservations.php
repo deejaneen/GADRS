@@ -20,7 +20,7 @@ return new class extends Migration
             $table->date('reservation_end_date');
             $table->time('reservation_end_time');
             $table->string('gender');
-            $table->integer('quantity');
+            $table->integer('quantity')->default(0);
             $table->string('occupant_type');
             $table->string('office')->nullable();
             $table->string('office_address')->nullable();
@@ -40,6 +40,8 @@ return new class extends Migration
             $table->string('emergency_contact_number')->nullable();
             $table->text('home_address')->nullable();
             $table->string('discount_image')->nullable();
+            $table->boolean('is_senior_or_pwd')->default(false);
+            $table->boolean('is_child')->default(false);
             $table->timestamps();
 
             // Add the foreign key constraint

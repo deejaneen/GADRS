@@ -91,20 +91,7 @@
     </script>
     <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script type="text/javascript">
-        window.baseUrl = "{{ URL::to('/') }}";
-        @if (session('success'))
-            toastr.success('{{ session('success') }}', 'Success', {
-                timeOut: 5000
-            });
-        @endif
-
-        @if (session('error'))
-            toastr.error('{{ session('error') }}', 'Error', {
-                timeOut: 5000
-            });
-        @endif
-    </script>
+    @yield('scripts')
     <script>
         $(document).ready(function() {
             // toogle button click event

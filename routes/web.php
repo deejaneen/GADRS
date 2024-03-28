@@ -50,9 +50,14 @@ Route::post('/login', [AuthController::class, 'authenticate']);
 
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-Route::get('/cart_check', function () {
-    return view('cart_checkout');
-})->name('cart_check');
+Route::post('/cart_check/gym_convert', [CartController::class, 'GymCartToGymReservations'])->name('cart.gym_convert');
+Route::post('/cart_check/dorm_convert', [CartController::class, 'DormCartToDormReservations'])->name('cart.dorm_convert');
+
+
+// Route::post('/cart_check/dorm_convert', 'CartController@DormCartToDormReservations')->name('cart.dorm_convert');
+
+// Route::post('/cart_check/gym_convert', 'CartController@GymCartToGymReservations')->name('cart.gym_convert');
+
 
 Route::get('/newlogin', function () {
     return view('auth.newlogin');
@@ -80,9 +85,3 @@ Route::get('/gym', [GymController::class, 'index'])->name('gym');
 Route::post('/get-reservations', [GymController::class, 'getReservations']);
 
 Route::post('/dorm', [DormCartController::class, 'store'])->name('dorm.cart');
-
-
-
-
-
-

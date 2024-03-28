@@ -9,6 +9,7 @@ class GymCart extends Model
 {
     use HasFactory;
 
+    protected $table = 'gym_carts';
     protected $fillable = [
         'reservation_date',
         'reservation_time_start',

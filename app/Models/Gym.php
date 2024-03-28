@@ -9,6 +9,8 @@ class Gym extends Model
 {
     use HasFactory;
 
+    protected $table = 'gym-reservations';
+
     protected $fillable = [
         'reservation_date',
         'reservation_time_start',

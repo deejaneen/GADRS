@@ -27,10 +27,11 @@ return new class extends Migration
             $table->integer('number_of_courts')->nullable();
             $table->string('or_number')->nullable();
             $table->date('or_date')->nullable();
-            $table->string('status')->nullable();
+            $table->string('status')->default('Pending')->nullable();
             $table->float('price')->nullable()->default(600.00);
             $table->timestamps();
 
+            // Add the foreign key constraint
             $table->foreign('employee_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
