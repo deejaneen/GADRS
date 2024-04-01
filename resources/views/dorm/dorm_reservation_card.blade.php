@@ -289,6 +289,119 @@
         availabilityDateFemaleInput.value = formatDate(new Date());
 
         // Handling male dorm fields
+        const inputMale = document.querySelector('.number-input input');
+        inputMale.value = '0';
+
+        const plusBtnMale = document.querySelector('.number-input .ri-add-line');
+        const minusBtnMale = document.querySelector('.number-input .ri-subtract-fill');
+        const availabilityMale = parseInt(document.querySelector('.availability b').textContent);
+
+        plusBtnMale.addEventListener('click', function() {
+            if (parseInt(inputMale.value) < availabilityMale) {
+                inputMale.value = parseInt(inputMale.value) + 1;
+            }
+        });
+
+        minusBtnMale.addEventListener('click', function() {
+            if (parseInt(inputMale.value) > 0) {
+                inputMale.value = parseInt(inputMale.value) - 1;
+            }
+        });
+
+        // Set default value for dropdown toggle to empty
+        const dropdownToggleMale = document.getElementById('dropdownToggle');
+        dropdownToggleMale.textContent = '';
+
+        const dropdownItemsMale = document.querySelectorAll('.dropdown-item');
+        dropdownItemsMale.forEach(item => {
+            item.addEventListener('click', function() {
+                const selectedValue = this.getAttribute('data-value');
+                dropdownToggleMale.textContent = selectedValue;
+            });
+        });
+
+        // Set default value for date inputs to empty
+        const availabilityDateInputsMale = document.querySelectorAll('.btn-calendar-datetime[type="date"]');
+        availabilityDateInputsMale.forEach(input => {
+            input.value = '';
+        });
+
+        // Handling female dorm fields
+        const inputFemale = document.querySelector('.number-input-female input');
+        inputFemale.value = '0';
+
+        const plusBtnFemale = document.querySelector('.number-input-female .ri-add-line');
+        const minusBtnFemale = document.querySelector('.number-input-female .ri-subtract-fill');
+        const availabilityFemale = parseInt(document.querySelector('#femaleCard .availability b').textContent);
+
+    plusBtn.addEventListener('click', function() {
+        if (parseInt(input.value) < availability) {
+            input.value = parseInt(input.value) + 1;
+        }
+    });
+
+        minusBtnFemale.addEventListener('click', function() {
+            if (parseInt(inputFemale.value) > 0) {
+                inputFemale.value = parseInt(inputFemale.value) - 1;
+            }
+        });
+
+        // Set default value for dropdown toggle to empty
+        const dropdownToggleFemale = document.getElementById('dropdownToggleFemale');
+        dropdownToggleFemale.textContent = '';
+
+        const dropdownItemsFemale = document.querySelectorAll('#femaleCard .dropdown-item');
+        dropdownItemsFemale.forEach(item => {
+            item.addEventListener('click', function() {
+                const selectedValue = this.getAttribute('data-value');
+                dropdownToggleFemale.textContent = selectedValue;
+            });
+        });
+
+        // Set default value for date inputs to empty
+        const availabilityDateInputsFemale = document.querySelectorAll('#femaleCard .btn-calendar-datetime[type="date"]');
+        availabilityDateInputsFemale.forEach(input => {
+            input.value = '';
+        });
+
+        // Clear form to default values
+        const clearBtns = document.querySelectorAll('.btn-clear');
+        clearBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Reset male dorm fields
+                inputMale.value = '0';
+                dropdownToggleMale.textContent = '';
+                availabilityDateInputsMale.forEach(input => {
+                    input.value = '';
+                });
+
+                // Reset female dorm fields
+                inputFemale.value = '0';
+                dropdownToggleFemale.textContent = '';
+                availabilityDateInputsFemale.forEach(input => {
+                    input.value = '';
+                });
+            });
+        });
+    });
+</script>
+
+
+{{-- <script>
+
+    // document.addEventListener('DOMContentLoaded', function() {
+    //     document.getElementById('myCheckboxSenior').checked = false;
+    //     document.getElementById('myCheckboxChildren').checked = false;
+    // });
+
+    // Function to update the value of the checkboxes
+    function updateCheckboxValue(checkbox) {
+        checkbox.value = checkbox.checked ? "true" : "false";
+    }
+
+    // Get all checkboxes and attach event listeners
+    document.addEventListener('DOMContentLoaded', function() {
+        // Handling male dorm fields
         const input = document.querySelector('.number-input input');
         input.value = '0';
 
@@ -302,80 +415,53 @@
             }
         });
 
-        minusBtn.addEventListener('click', function() {
-            if (parseInt(input.value) > 0) {
-                input.value = parseInt(input.value) - 1;
+        minusBtnFemale.addEventListener('click', function() {
+            if (parseInt(inputFemale.value) > 0) {
+                inputFemale.value = parseInt(inputFemale.value) - 1;
             }
         });
 
         // Set default value for dropdown toggle to empty
-        const dropdownToggle = document.getElementById('dropdownToggle');
-        dropdownToggle.textContent = '';
+        const dropdownToggleFemale = document.getElementById('dropdownToggleFemale');
+        dropdownToggleFemale.textContent = '';
 
-        const dropdownItems = document.querySelectorAll('.dropdown-item');
-        dropdownItems.forEach(item => {
+        const dropdownItemsFemale = document.querySelectorAll('#femaleCard .dropdown-item');
+        dropdownItemsFemale.forEach(item => {
             item.addEventListener('click', function() {
                 const selectedValue = this.getAttribute('data-value');
-                dropdownToggle.textContent = selectedValue;
+                dropdownToggleFemale.textContent = selectedValue;
             });
         });
 
         // Set default value for date inputs to empty
-        const availabilityDateInputs = document.querySelectorAll('.btn-calendar-datetime[type="date"]');
-        availabilityDateInputs.forEach(input => {
+        const availabilityDateInputsFemale = document.querySelectorAll('#femaleCard .btn-calendar-datetime[type="date"]');
+        availabilityDateInputsFemale.forEach(input => {
             input.value = '';
         });
-    });
 
-    // Handling only female dorm fields
-    const input = document.querySelector('.number-input-female input');
-    input.value = '0';
+        // Clear form to default values
+        const clearBtns = document.querySelectorAll('.btn-clear');
+        clearBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Reset male dorm fields
+                inputMale.value = '0';
+                dropdownToggleMale.textContent = '';
+                availabilityDateInputsMale.forEach(input => {
+                    input.value = '';
+                });
 
-    const plusBtn = document.querySelector('.number-input-female .ri-add-line');
-    const minusBtn = document.querySelector('.number-input-female .ri-subtract-fill');
-    const availability = parseInt(document.querySelector('#femaleCard .availability b').textContent);
-
-    plusBtn.addEventListener('click', function() {
-        if (parseInt(input.value) < availability) {
-            input.value = parseInt(input.value) + 1;
-        }
-    });
-
-    minusBtn.addEventListener('click', function() {
-        if (parseInt(input.value) > 0) {
-            input.value = parseInt(input.value) - 1;
-        }
-    });
-
-    // Set default value for dropdown toggle to empty
-    const dropdownToggle = document.getElementById('dropdownToggleFemale');
-    dropdownToggle.textContent = '';
-
-    const dropdownItems = document.querySelectorAll('#femaleCard .dropdown-item');
-    dropdownItems.forEach(item => {
-        item.addEventListener('click', function() {
-            const selectedValue = this.getAttribute('data-value');
-            dropdownToggle.textContent = selectedValue;
+                // Reset female dorm fields
+                inputFemale.value = '0';
+                dropdownToggleFemale.textContent = '';
+                availabilityDateInputsFemale.forEach(input => {
+                    input.value = '';
+                });
+            });
         });
     });
+</script>
 
-    // Set default value for date inputs to empty
-    const availabilityDateInputs = document.querySelectorAll('#femaleCard .btn-calendar-datetime[type="date"]');
-    availabilityDateInputs.forEach(input => {
-        input.value = '';
-    });
-
-    // document.addEventListener('DOMContentLoaded', function() {
-    //     document.getElementById('myCheckboxSenior').checked = false;
-    //     document.getElementById('myCheckboxChildren').checked = false;
-    // });
-
-    // Function to update the value of the checkboxes
-    function updateCheckboxValue(checkbox) {
-        checkbox.value = checkbox.checked ? "true" : "false";
-    }
-
-    // Get all checkboxes and attach event listeners
+{{-- <script>
     document.addEventListener('DOMContentLoaded', function() {
         const checkboxes = document.querySelectorAll('input[type="checkbox"]');
         checkboxes.forEach(function(checkbox) {
