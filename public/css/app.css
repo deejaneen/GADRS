@@ -474,7 +474,18 @@ b {
     font-size: 1.5em;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
 }
-
+.beds {
+    position: relative;
+}
+.container .card-body .btn-calendar-datetime-bednumber {
+    color: var(--color-background);
+    background-color: var(--color-primary);
+    border: 3px solid var(--color-background);
+    border-radius: 18px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+    width: 100px;
+    margin: 20px auto;
+}
 .container .card-body .btn-calendar-datetime {
     color: var(--color-background);
     background-color: var(--color-primary);
@@ -507,7 +518,7 @@ b {
 .number-input {
     display: flex;
     align-items: center;
-
+    width: 100%;
 
 }
 
@@ -530,6 +541,8 @@ b {
     align-items: center;
     font-size: 1.2em;
     display: flex;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .custom-dropdown-menu {
@@ -722,7 +735,7 @@ b {
     padding: 1%;
     padding-top: 0%;
     grid-row-start: 2;
-    grid-column: 1 / span 3;
+    grid-column: 2 / span 2;
 }
 
 .day-box {
@@ -1475,16 +1488,7 @@ b {
 }
 
 .column-bottom:hover {
-    border: var(--color-primary) 2px;
-    color: var(--color-background);
-    background-color: var(--color-primary);
-    margin-top: 15px;
-    border-radius: 50px;
-    max-width: calc(80%);
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    transition: all 300ms ease;
     box-shadow: none;
 }
 
@@ -1681,11 +1685,6 @@ ul.list-unstyled {
     font-size: 1.8em;
 }
 
-.container .section .card .row.mt-2 .col-md-6 .dropdown-center {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-}
 
 .reservor {
     display: inline-block;
@@ -1723,7 +1722,215 @@ ul.list-unstyled {
 }
 
 @media (max-width: 1024px) {
+    .container {
+        display: inline-block;
+        width: 100% !important;
+    }
+
     .centered {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .navbar a.navbar-brand img {
+        height: 2rem;
+    }
+
+    .navbar a.navbar-brand {
+        display: flex;
+        align-items: center;
+        color: var(--color-background);
+        font-size: 1.1rem;
+        font-weight: 900;
+        padding-left: 1px;
+        text-decoration: none;
+    }
+
+    .navbar .main-login .navbar-nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .navbar .navbar-nav a {
+        margin: 0 !important;
+    }
+
+    .navbar {
+        display: flex;
+        background-color: var(--color-primary);
+        z-index: 3;
+    }
+
+    .main .navbar-nav .nav-item a {
+        color: var(--color-background);
+        margin: 2%;
+        transition: all .50s ease;
+        text-decoration: none;
+        letter-spacing: 2px;
+    }
+
+    .navbar a:hover {
+        color: var(--color-orange);
+    }
+
+    .navbar-collapse {
+        background: var(--color-primary);
+
+    }
+
+    .nav-item.button .logout .text {
+        display: none;
+    }
+
+    h1 {
+        font-size: 1.6rem !important;
+    }
+
+    h2 {
+        font-size: 1.4rem !important;
+    }
+
+    h3 {
+        font-size: 1.3rem !important;
+    }
+
+    h4 {
+        font-size: 1.2rem !important;
+    }
+
+    h5 {
+        font-size: 1rem !important;
+
+    }
+
+    .welcome-section {
+        display: inline-block;
+        text-align: center;
+        top: 10%;
+        transform: translateY(0%);
+    }
+
+    .welcome-section .welcome-title1 h3,
+    .welcome-section .welcome-title2 h1,
+    .welcome-section .welcome-name h3 {
+        font-size: 1.5rem;
+    }
+
+    .row-bottom {
+        position: relative;
+        top: 80%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 50% 0 0 0;
+        width: 100%;
+    }
+
+    .column-bottom {
+        border: var(--color-primary) 2px;
+        color: var(--color-background);
+        background-color: var(--color-primary);
+        margin-top: 15px;
+        border-radius: 50px;
+        max-width: 100%;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+        transition: all 300ms ease;
+    }
+
+    .main .navbar-nav .nav-item a {
+        font-size: 2rem;
+    }
+
+    .column-left-top,
+    .column-right-top,
+    .column-left-bottom,
+    .column-right-bottom {
+        height: 28%;
+    }
+
+    .banner-gym-top {
+        height: 24%;
+    }
+
+    .banner-gym-bottom {
+        height: 25%;
+    }
+
+    .banner-gym-text h1.banner-name {
+        font-size: 5rem !important;
+        margin-top: 20px !important;
+
+    }
+
+    .banner-gym-text .btn {
+        font-size: 1em;
+    }
+
+    .volleyball {
+        height: 260px;
+        top: 12%;
+        z-index: -1;
+        left: -5%;
+    }
+
+    .basketball {
+        height: 220px;
+        top: 10%;
+        z-index: -1;
+        right: 0%;
+    }
+
+    .pillow1 {
+        height: 120px;
+        top: 22%;
+    }
+
+    .pillow2 {
+        height: 100px;
+        top: 5%;
+    }
+
+    .banner-dorm-text h1.banner-name {
+        font-size: 2rem;
+    }
+
+    .banner-dorm-text .btn {
+        font-size: 1em;
+    }
+
+    .banner-dorm-top {
+        height: 20%;
+    }
+
+    .banner-dorm-bottom {
+        height: 25%;
+    }
+
+
+    .container-gym-table {
+        width: 100%;
+
+    }
+
+    .day-container {
+        grid-row-start: 2;
+        grid-column: 2/ span 2;
+    }
+
+    .dorm-align-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* .centered {
         display: flex;
         align-items: flex-end;
     }
@@ -1776,7 +1983,6 @@ ul.list-unstyled {
         color: var(--color-white);
         background: url('../images/Gym\ Banner\ Reservation.png') center/cover no-repeat;
         height: 360px;
-        /* Set the desired height */
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -1837,19 +2043,20 @@ ul.list-unstyled {
         width: auto;
         background: var(--color-background);
         border: 3px solid var(--color-primary);
-    }
+    } */
 }
 
 @media (min-width:1400px) {
-    .container {
+    /* .container {
         max-width: 1700px !important;
-    }
+    } */
 }
 
 @media (max-width: 992px) {
-    .centered {
+    /* .centered {
         display: flex;
-        align-items: flex-end;
+        justify-content: space-between; 
+        align-items: center;
     }
 
     .banner-dorm h1.banner-name {
@@ -1957,18 +2164,23 @@ ul.list-unstyled {
         width: auto;
         background: var(--color-background);
         border: 3px solid var(--color-primary);
-    }
+    } */
 }
 
 @media (max-width: 768px) {
+    /* .container {
+        display: inline-block;
+        width: 100% !important;
+    }
+
     .banner-dorm h1.banner-name {
-        font-size: 2.5rem;
+        font-size: 3rem;
         color: var(--color-background);
         transition: all .50s ease;
     }
 
     .banner-gym h1.banner-name {
-        font-size: 2.5rem;
+        font-size: 3rem;
         color: var(--color-background);
         transition: all .50s ease;
     }
@@ -2000,29 +2212,6 @@ ul.list-unstyled {
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         transition: all .50s ease;
     }
-
-    .banner-gym {
-        position: relative;
-        text-align: center;
-        color: var(--color-white);
-        background: url('../images/Gym\ Banner\ Reservation.png') center/cover no-repeat;
-        height: 250px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-
-    .banner-dorm {
-        position: relative;
-        text-align: center;
-        color: var(--color-white);
-        background: url('../images/Dorm\ Banner\ Reservation.png') center/cover no-repeat;
-        height: 250px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-
     .navbar a.navbar-brand img {
         height: 2rem;
     }
@@ -2034,35 +2223,19 @@ ul.list-unstyled {
         font-size: 1.1rem;
         font-weight: 900;
         padding-left: 1px;
-
         text-decoration: none;
     }
 
     .navbar {
-        display: flex;
         background-color: var(--color-primary);
+        z-index: 1;
     }
-
-    .main .navbar-nav .nav-item a {
-        color: var(--color-background);
-        font-size: 1.4rem;
-        padding: 5px 0;
-        margin: 20px 30px;
-        transition: all .50s ease;
-        text-decoration: none;
-        letter-spacing: 2px;
-    }
-
     .main .navbar-nav .nav-item i {
         display: none;
     }
 
     .navbar a:hover {
         color: var(--color-orange);
-    }
-
-    .ri-user-fill {
-        display: none;
     }
 
     .form-box .form-details {
@@ -2088,7 +2261,6 @@ ul.list-unstyled {
 
     .wrapper {
         position: relative;
-
         min-height: 65vh;
         max-width: 1200px;
         width: auto;
@@ -2111,9 +2283,186 @@ ul.list-unstyled {
     .form-content {
         padding: 10% 10px 0% 10px !important;
     }
+    
+    
+    .welcome-section {
+        display: inline-block;
+        text-align: center;
+        top: 10%;
+        transform: translateY(0%);
+    }
+
+    .welcome-section .welcome-title1 h3,
+    .welcome-section .welcome-title2 h1,
+    .welcome-section .welcome-name h3 {
+        font-size: 1.5rem;
+        z-index: -1;
+    }
+
+    .row-bottom {
+        position: relative;
+        top: 80%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 40% 0 0 0;
+        width: 100%;
+    }
+
+    .column-bottom {
+        border: var(--color-primary) 2px;
+        color: var(--color-background);
+        background-color: var(--color-primary);
+        margin-top: 15px;
+        border-radius: 50px;
+        max-width: 100% !important;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+        transition: all 300ms ease;
+    }
+    .main .navbar-nav .nav-item a {
+        font-size: 2rem;
+    }
+
+    .column-left-top,
+    .column-right-top,
+    .column-left-bottom,
+    .column-right-bottom {
+        height: 22%;
+    }
+    
+    .banner-gym-text h1.banner-name, 
+    .banner-dorm-text h1.banner-name {
+        font-size: 3rem !important;
+        margin-top: 30px;
+    }
+
+    .banner-gym-text .btn,
+    .banner-dorm-text .btn {
+        font-size: 1em;
+    }
+
+    .banner-gym-top,
+    .banner-dorm-top {
+        height: 20%;
+    }
+
+    .banner-gym-bottom,
+    .banner-dorm-bottom {
+        height: 21%;
+    }
+
+    .pillow1 {
+        height: 160px;
+        top: 10%;
+        left: 8%;
+        z-index: -1;
+
+    }
+    .volleyball {
+        height: 160px;
+        top: 10%;
+        left: 10%;
+        z-index: -1;
+
+    }
+    .pillow2 {
+        height: 140px;
+        top: 10%;
+        right: 8%;
+        z-index: -1;    
+    }
+    .basketball {
+        height: 140px;
+        top: 10%;
+        right: 10%;
+        z-index: -1;
+    }
+
+
+    h1 {
+        font-size: 1.5em !important;
+    }
+
+    h2 {
+        font-size: 1.3em !important;
+    }
+
+    h3 {
+        font-size: 1.2em !important;
+    }
+
+    h4 {
+        font-size: 1.1em !important;
+    }
+
+    h5 {
+        font-size: 1em !important;
+
+    }
+    .container .section {
+        margin-top: 12%;
+    }
+    
+    .container .card-body .btn-calendar-dorm:valid {
+        font-size: 1em;
+    }
+
+    .col-md-6.carousel {
+        padding-top: 20px;
+    }
+
+    .col-md-3.checkbox {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .myCheckbox {
+        margin-bottom: 0;
+        margin-right: 10px;
+    }
+
+    .container .button-container .btn-reservation-gym {
+        font-size: 1em;
+
+    }
+
+    .container .button-container .btn-calendar-gym {
+        font-size: 1em;
+
+    }
+
+    .modal-body input[type="date"],
+    .modal-body input[type="time"],
+    .modal-body select {
+   
+        font-size: 0.6em;
+
+    }
+    .modal-footer .btn-primary,
+    .modal-footer .btn-secondary {
+        font-size: 0.6em;
+    }
+    .modal-content {
+        font-size: 1.2em !important;
+    }
+    
+    .navbar .main-login .navbar-nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .centered {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    } */
+
 }
-
-
 
 @media (max-width: 480px) {
     .container {
@@ -2231,7 +2580,7 @@ ul.list-unstyled {
     .column-right-top,
     .column-left-bottom,
     .column-right-bottom {
-        height: 31%;
+        height: 28%;
     }
 
     .banner-gym-top {
@@ -2243,7 +2592,7 @@ ul.list-unstyled {
     }
 
     .banner-gym-text h1.banner-name {
-        font-size: 2rem;
+        font-size: 2.5rem !important;
     }
 
     .banner-gym-text .btn {
@@ -2253,11 +2602,13 @@ ul.list-unstyled {
     .volleyball {
         height: 100px;
         top: 20%;
+        z-index: -1;
     }
 
     .basketball {
         height: 100px;
         top: 20%;
+        z-index: -1;
     }
 
     .banner-dorm-text h1.banner-name {
@@ -2339,17 +2690,17 @@ ul.list-unstyled {
     .modal-body input[type="date"],
     .modal-body input[type="time"],
     .modal-body select {
-   
+
         font-size: 0.6em;
 
     }
+
     .modal-footer .btn-primary,
     .modal-footer .btn-secondary {
         font-size: 0.6em;
     }
+
     .modal-content {
         font-size: 1.2em !important;
     }
-    
-    
 }

@@ -1,5 +1,5 @@
 <section id="reservation-section" class="reservation-section">
-    <div class="container">
+    <div class="container centered">
 
         <div class="container-gym-table" id="calendar_container">
             <div class="button-container">

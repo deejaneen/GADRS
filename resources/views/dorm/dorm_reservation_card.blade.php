@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container centered">
     <div class="section" id="dorm_reservation_section">
         <form action="{{ route('dorm.cart') }}" method="post">
             @csrf
@@ -56,20 +56,20 @@
                                 </div>
                             </div>
                             <!-- Number of Beds, Dormer -->
-                            <div class="row mt-2">
+                            <div class="row">
                                 <div class="col-md-6" style="text-align: center;">
                                     <h5>Number of Beds</h5>
                                     <div class="dropdown-center">
                                         <div class="number-input">
                                             <span class="ri-subtract-fill"></span>
-                                            <input type="text" class="btn btn-calendar-datetime" value="0"
+                                            <input type="text" class="btn btn-calendar-datetime-bednumber" value="0"
                                                 max="8" name="quantity">
                                             <span class="ri-add-line"></span>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="col-md-6" style="text-align: center;">
+                                <div class="col-md-6 reservor" style="text-align: center;">
                                     <h5>Reservor</h5>
                                     <select class="form-select" id="occupant_type" name="occupant_type" required>
                                         <option value="COA">COA</option>
@@ -93,7 +93,7 @@
                             </div>
                         </div>
                         <!-- Image -->
-                        <div class="col-md-6">
+                        <div class="col-md-6 carousel-item-container">
                             <div id="carouselMale" class="carousel slide">
                                 <div class="carousel-inner">
                                     <div class="carousel-item active">
@@ -190,13 +190,13 @@
                                 </div>
                             </div>
                             <!-- Number of Beds, Dormer -->
-                            <div class="row mt-2">
+                            <div class="row">
                                 <div class="col-md-6" style="text-align: center;">
                                     <h5>Number of Beds</h5>
                                     <div class="dropdown-center">
                                         <div class="number-input-female">
                                             <span class="ri-subtract-fill"></span>
-                                            <input type="text" class="btn btn-calendar-datetime" max="11"
+                                            <input type="text" class="btn btn-calendar-datetime-bednumber" max="11"
                                                 name="quantity">
                                             <span class="ri-add-line"></span>
                                         </div>
@@ -381,92 +381,6 @@
                 availabilityDateInputsFemale.forEach(input => {
                     input.value = '';
                 });
-            });
-        });
-    });
-</script>
-
-
-{{-- <script>
-
-    // document.addEventListener('DOMContentLoaded', function() {
-    //     document.getElementById('myCheckboxSenior').checked = false;
-    //     document.getElementById('myCheckboxChildren').checked = false;
-    // });
-
-    // Function to update the value of the checkboxes
-    function updateCheckboxValue(checkbox) {
-        checkbox.value = checkbox.checked ? "true" : "false";
-    }
-
-    // Get all checkboxes and attach event listeners
-    document.addEventListener('DOMContentLoaded', function() {
-        // Handling male dorm fields
-        const input = document.querySelector('.number-input input');
-        input.value = '0';
-
-        const plusBtn = document.querySelector('.number-input .ri-add-line');
-        const minusBtn = document.querySelector('.number-input .ri-subtract-fill');
-        const availability = parseInt(document.querySelector('.availability b').textContent);
-
-        plusBtn.addEventListener('click', function() {
-            if (parseInt(input.value) < availability) {
-                input.value = parseInt(input.value) + 1;
-            }
-        });
-
-        minusBtnFemale.addEventListener('click', function() {
-            if (parseInt(inputFemale.value) > 0) {
-                inputFemale.value = parseInt(inputFemale.value) - 1;
-            }
-        });
-
-        // Set default value for dropdown toggle to empty
-        const dropdownToggleFemale = document.getElementById('dropdownToggleFemale');
-        dropdownToggleFemale.textContent = '';
-
-        const dropdownItemsFemale = document.querySelectorAll('#femaleCard .dropdown-item');
-        dropdownItemsFemale.forEach(item => {
-            item.addEventListener('click', function() {
-                const selectedValue = this.getAttribute('data-value');
-                dropdownToggleFemale.textContent = selectedValue;
-            });
-        });
-
-        // Set default value for date inputs to empty
-        const availabilityDateInputsFemale = document.querySelectorAll('#femaleCard .btn-calendar-datetime[type="date"]');
-        availabilityDateInputsFemale.forEach(input => {
-            input.value = '';
-        });
-
-        // Clear form to default values
-        const clearBtns = document.querySelectorAll('.btn-clear');
-        clearBtns.forEach(btn => {
-            btn.addEventListener('click', function() {
-                // Reset male dorm fields
-                inputMale.value = '0';
-                dropdownToggleMale.textContent = '';
-                availabilityDateInputsMale.forEach(input => {
-                    input.value = '';
-                });
-
-                // Reset female dorm fields
-                inputFemale.value = '0';
-                dropdownToggleFemale.textContent = '';
-                availabilityDateInputsFemale.forEach(input => {
-                    input.value = '';
-                });
-            });
-        });
-    });
-</script>
-
-{{-- <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-        checkboxes.forEach(function(checkbox) {
-            checkbox.addEventListener('click', function() {
-                updateCheckboxValue(checkbox);
             });
         });
     });
