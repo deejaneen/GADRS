@@ -14,7 +14,7 @@
                                     <div class="card-title">
                                         MALE DORM
                                     </div>
-                                    <button class="btn btn-primary btn-lg rounded-pill toogle-btn" data-mdb-ripple-init>
+                                    <button class="btn btn-primary btn-lg rounded-pill toogle-btn" id="maleFemaleToggleBtn" data-mdb-ripple-init>
                                         <span class="fa-solid fa-repeat"></span>
                                         Female Dorm
                                     </button>
@@ -147,8 +147,7 @@
                                     <div class="card-title">
                                         FEMALE DORM
                                     </div>
-                                    <button class="btn btn-primary btn-lg rounded-pill toogle-btn"
-                                        data-mdb-ripple-init>
+                                    <button class="btn btn-primary btn-lg rounded-pill toogle-btn" id="femaleMaleToggleBtn" data-mdb-ripple-init>
                                         <span class="fa-solid fa-repeat"></span>
                                         Male Dorm
                                     </button>

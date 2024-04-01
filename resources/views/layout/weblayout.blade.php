@@ -35,7 +35,7 @@
         rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <!-- Include toastr library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"
@@ -94,13 +94,22 @@
     @yield('scripts')
     <script>
         $(document).ready(function() {
-            // toogle button click event
-            $('.btn-primary.btn-lg.toogle-btn').click(function(e) {
+            // Toggle button click event for Male Dorm
+            $('#maleFemaleToggleBtn').click(function(e) {
                 e.preventDefault();
 
-                // Toggle between Male and Female cards
+                // Toggle between Male and Female cards for Male Dorm
                 $('#maleCard').toggle();
                 $('#femaleCard').toggle();
+            });
+
+            // Toggle button click event for Female Dorm
+            $('#femaleMaleToggleBtn').click(function(e) {
+                e.preventDefault();
+
+                // Toggle between Male and Female cards for Female Dorm
+                $('#femaleCard').toggle();
+                $('#maleCard').toggle();
             });
         });
     </script>
