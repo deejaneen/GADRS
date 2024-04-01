@@ -16,13 +16,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    {{-- Stylesheet for icons --}}
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet" />
-
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
-
-    {{-- Stylesheet for font from google fonts --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@700&display=swap" rel="stylesheet">
@@ -36,16 +31,11 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-    <!-- Include toastr library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"
-        integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
 
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     {{-- Navbar --}}
     @include('layout.websitenav')
     @yield('secondary_nav')
@@ -77,12 +67,12 @@
 
     @yield('gym_table')
     @yield('dorm_reservation_card')
+
     <footer>
         @yield('bottom_nav')
     </footer>
 
-
-    {{-- Stylesheet for font from google fonts --}}
+    {{-- Scripts --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"
         integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -91,7 +81,7 @@
     </script>
     <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    @yield('scripts')
+
     <script>
         $(document).ready(function() {
             // Toggle button click event for Male Dorm
@@ -111,11 +101,27 @@
                 $('#femaleCard').toggle();
                 $('#maleCard').toggle();
             });
-        });
-    </script>
-    <script>
-        // Wait for the document to be ready
-        $(document).ready(function() {
+
+            // Toggle button click event for Gym Reservations Cart
+            $('#gymReservationsCartToggleBtn').click(function(e) {
+                e.preventDefault();
+
+                // Toggle between Gym Cart and Dorm Cart cards
+                $('#gymReservationsCartCard').toggle();
+                $('#dormReservationsCartCard').toggle();
+                clearPrice();
+            });
+
+            // Toggle button click event for Dorm Reservations Cart
+            $('#dormReservationsCartToggleBtn').click(function(e) {
+                e.preventDefault();
+
+                // Toggle between Dorm Cart and Gym Cart cards
+                $('#dormReservationsCartCard').toggle();
+                $('#gymReservationsCartCard').toggle();
+                clearPrice();
+            });
+
             // Add a click event handler to the "Add to Cart" button
             $(".btn-add-to-cart").click(function() {
                 // Close the modal by selecting it with its ID and calling the modal('hide') method
@@ -124,8 +130,7 @@
         });
     </script>
 
-
-
+    @yield('scripts')
 </body>
 
 </html>
