@@ -1961,15 +1961,14 @@ ul.list-unstyled {
 }
 
 @media (max-width: 768px) {
-
     .banner-dorm h1.banner-name {
-        font-size: 3rem;
+        font-size: 2.5rem;
         color: var(--color-background);
         transition: all .50s ease;
     }
 
     .banner-gym h1.banner-name {
-        font-size: 3rem;
+        font-size: 2.5rem;
         color: var(--color-background);
         transition: all .50s ease;
     }
@@ -2040,6 +2039,7 @@ ul.list-unstyled {
     }
 
     .navbar {
+        display: flex;
         background-color: var(--color-primary);
     }
 
@@ -2088,6 +2088,7 @@ ul.list-unstyled {
 
     .wrapper {
         position: relative;
+
         min-height: 65vh;
         max-width: 1200px;
         width: auto;
