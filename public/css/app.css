@@ -1947,15 +1947,14 @@ ul.list-unstyled {
 }
 
 @media (max-width: 768px) {
-
     .banner-dorm h1.banner-name {
-        font-size: 3rem;
+        font-size: 2.5rem;
         color: var(--color-background);
         transition: all .50s ease;
     }
 
     .banner-gym h1.banner-name {
-        font-size: 3rem;
+        font-size: 2.5rem;
         color: var(--color-background);
         transition: all .50s ease;
     }
@@ -1969,7 +1968,7 @@ ul.list-unstyled {
         font-weight: 700;
         background-color: var(--color-warning);
         /* Bold */
-        font-size: 0.9rem;
+        font-size: 0.7rem;
         text-decoration: none;
         border-radius: 20px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -1986,7 +1985,7 @@ ul.list-unstyled {
         font-weight: 700;
         background-color: var(--color-warning);
         /* Bold */
-        font-size: 0.9rem;
+        font-size: 0.7rem;
         text-decoration: none;
         border-radius: 20px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -2034,6 +2033,7 @@ ul.list-unstyled {
     }
 
     .navbar {
+        display: flex;
         background-color: var(--color-primary);
     }
 
@@ -2082,6 +2082,7 @@ ul.list-unstyled {
 
     .wrapper {
         position: relative;
+
         min-height: 65vh;
         max-width: 1200px;
         width: auto;
@@ -2267,5 +2268,8 @@ ul.list-unstyled {
     .form-content {
         padding: 10% 10px 0% 10px !important;
     }
-
+    .pillow1, .pillow2 {
+        height: 100px;
+        width: 100px;
+    }
 }
