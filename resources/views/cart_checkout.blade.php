@@ -107,7 +107,8 @@
                 <label class="form-check-label">Agree With <a data-bs-toggle="modal" data-bs-target="#GFG"><u>Terms and
                             Conditions</u></a></label>
             </div>
-            <button class="btn btn-primary btn-lg rounded-pill confirm toogle-btn" data-mdb-ripple-init onclick="confirmation()">
+            <button class="btn btn-primary btn-lg rounded-pill confirm toogle-btn" data-mdb-ripple-init
+                onclick="confirmation()">
                 <i class="fa-solid fa-share"></i> Place Reservation to be Received
             </button>
         </div>
@@ -120,43 +121,56 @@
             Swal.fire({
                 title: "Are you sure you want to checkout all the selected items?",
                 showDenyButton: true,
-                showCancelButton: true,
                 confirmButtonText: "Yes",
                 denyButtonText: `No`
             }).then((result) => {
                 if (result.isConfirmed) {
-                    // Get selected gym cart IDs
-                    const gymCartIds = [];
-                    document.querySelectorAll('.gym-cart-checkbox:checked').forEach((checkbox) => {
-                        gymCartIds.push(checkbox.value);
-                    });
+                    // Check if gym reservations card is visible
+                    const gymCardVisible = document.getElementById('gymReservationsCartCard').style.display !==
+                        'none';
+                    // Check if dorm reservations card is visible
+                    const dormCardVisible = document.getElementById('dormReservationsCartCard').style.display !==
+                        'none';
 
-                    // Get selected dorm cart IDs
-                    const dormCartIds = [];
-                    document.querySelectorAll('.dorm-cart-checkbox:checked').forEach((checkbox) => {
-                        dormCartIds.push(checkbox.value);
-                    });
+                    if (gymCardVisible) {
+                        // Get selected gym cart IDs
+                        const gymCartIds = [];
+                        document.querySelectorAll('.gym-cart-checkbox:checked').forEach((checkbox) => {
+                            gymCartIds.push(checkbox.value);
+                        });
 
-                    if (gymCartIds.length > 0) {
-                        // Include the selected gym cart IDs in the form data
-                        document.querySelector('#gymReservationForm input[name="cart_ids_gym"]').value = JSON
-                            .stringify(gymCartIds);
+                        if (gymCartIds.length > 0) {
+                            // Include the selected gym cart IDs in the form data
+                            document.querySelector('#gymReservationForm input[name="cart_ids_gym"]').value = JSON
+                                .stringify(gymCartIds);
+                            // Submit the gym form
+                            document.getElementById('gymReservationForm').submit();
+                        } else {
+                            Swal.fire("Please select items to checkout", "", "warning");
+                        }
+                    } else if (dormCardVisible) {
+                        // Get selected dorm cart IDs
+                        const dormCartIds = [];
+                        document.querySelectorAll('.dorm-cart-checkbox:checked').forEach((checkbox) => {
+                            dormCartIds.push(checkbox.value);
+                        });
+
+                        if (dormCartIds.length > 0) {
+                            // Include the selected dorm cart IDs in the form data
+                            document.querySelector('#dormReservationForm input[name="cart_ids_dorm"]').value = JSON
+                                .stringify(dormCartIds);
+                            // Submit the dorm form
+                            document.getElementById('dormReservationForm').submit();
+                        } else {
+                            Swal.fire("Please select items to checkout", "", "warning");
+                        }
                     }
-
-                    if (dormCartIds.length > 0) {
-                        // Include the selected dorm cart IDs in the form data
-                        document.querySelector('#dormReservationForm input[name="cart_ids_dorm"]').value = JSON
-                            .stringify(dormCartIds);
-                    }
-
-                    // Submit the forms
-                    document.getElementById('gymReservationForm').submit();
-                    document.getElementById('dormReservationForm').submit();
                 } else if (result.isDenied) {
-                    Swal.fire("Checkout Failed", "", "info");
+                    Swal.fire("Checkout Cancelled", "", "info");
                 }
             });
         }
+
 
         function goBack() {
             window.history.back();

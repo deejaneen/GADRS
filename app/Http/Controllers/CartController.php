@@ -36,7 +36,8 @@ class CartController extends Controller
             $cartIds = json_decode($request->input('cart_ids_dorm'));
 
             if (empty($cartIds)) {
-                return response()->json(['message' => 'No items selected'], 400);
+                return redirect()->back()->withErrors(['error' => 'No Items Selected']);
+                // return response()->json(['message' => 'No items selected'], 400);
             }
 
             foreach ($cartIds as $cartId) {
@@ -47,9 +48,11 @@ class CartController extends Controller
                 $dormReservation->save();
             }
 
-            return response()->json(['message' => 'Dorm reservations added successfully'], 200);
+            // return response()->json(['message' => 'Dorm reservations added successfully'], 200);
+            return redirect()->back()->with('success', 'Dorm Reservation added successfully!');
         } catch (\Exception $e) {
-            return response()->json(['message' => 'Failed to convert and save dorm reservations'], 500);
+            return redirect()->back()->withErrors(['error' => 'Dorm Reservation unsuccessful']);
+
         }
     }
 
@@ -60,7 +63,8 @@ class CartController extends Controller
             $cartIds = json_decode($request->input('cart_ids_gym'));
 
             if (empty($cartIds)) {
-                return response()->json(['message' => 'No items selected'], 400);
+                return redirect()->back()->withErrors(['error' => 'No Items Selected']);
+                // return response()->json(['message' => 'No items selected'], 400);
             }
 
             foreach ($cartIds as $cartId) {
@@ -71,9 +75,9 @@ class CartController extends Controller
                 $gymReservation->save();
             }
 
-            return response()->json(['message' => 'Gym reservations added successfully'], 200);
+            return redirect()->back()->with('success', 'Gym Reservation added successfully!');
         } catch (\Exception $e) {
-            return response()->json(['message' => 'Failed to convert and save gym reservations'], 500);
+            return redirect()->back()->withErrors(['error' => 'Gym Reservation unsuccessful']);
         }
     }
 }
