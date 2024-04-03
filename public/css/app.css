@@ -435,6 +435,20 @@ b {
     justify-content: center;
 }
 
+.col-md-6.time {
+    flex: 0 0 auto;
+}
+
+.dropdown-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dropdown-center input {
+    margin: 0 5px;
+}
+
 .date-container {
     text-align: center;
 }
@@ -474,9 +488,11 @@ b {
     font-size: 1.5em;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
 }
+
 .beds {
     position: relative;
 }
+
 .container .card-body .btn-calendar-datetime-bednumber {
     color: var(--color-background);
     background-color: var(--color-primary);
@@ -484,8 +500,9 @@ b {
     border-radius: 18px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
     width: 100px;
-    margin: 20px auto;
+    margin: 20px 20px;
 }
+
 .container .card-body .btn-calendar-datetime {
     color: var(--color-background);
     background-color: var(--color-primary);
@@ -518,8 +535,12 @@ b {
 .number-input {
     display: flex;
     align-items: center;
-    width: 100%;
+}
 
+
+
+.number-input span {
+    cursor: pointer;
 }
 
 .number-input-female span:hover,
@@ -1561,10 +1582,12 @@ b {
     text-align: center;
     border: none !important;
 }
+
 .fixed-bottom button {
     background: var(--color-background);
     color: var(--color-primary);
 }
+
 .fixed-bottom button:hover {
     background: var(--color-orange);
     color: var(--color-primary);
@@ -1699,14 +1722,18 @@ ul.list-unstyled {
     justify-content: center;
     text-align: center;
 }
-
+  
 #occupant_type {
     margin-top: 20px;
     background: var(--color-background);
     color: var(--color-primary);
-
+    width: 80%;
 }
-
+.reservor-type{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .form-select option:hover {
     background: var(--color-background);
     font-size: 1em;
@@ -2712,6 +2739,6 @@ ul.list-unstyled {
     .modal-content {
         font-size: 1.2em !important;
     }
-    
-    
+
+
 }

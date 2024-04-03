@@ -6,26 +6,28 @@
             <div class="card" id="maleCard">
 
                 <div class="card-body">
+                    <h1 class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
+                        <div class="card-title">
+                            MALE DORM
+                        </div>
+                        <button class="btn btn-primary btn-lg rounded-pill toogle-btn" id="maleFemaleToggleBtn"
+                            data-mdb-ripple-init>
+                            <span class="fa-solid fa-repeat"></span>
+                            Female Dorm
+                        </button>
+                    </h1>
                     <div class="row dorm-align-container">
                         <div class="col-md-6 dorm-align-container">
                             <div class="row">
-                                <h1 class="card-header"
-                                    style="display: flex; justify-content: space-between; align-items: center;">
-                                    <div class="card-title">
-                                        MALE DORM
-                                    </div>
-                                    <button class="btn btn-primary btn-lg rounded-pill toogle-btn" id="maleFemaleToggleBtn" data-mdb-ripple-init>
-                                        <span class="fa-solid fa-repeat"></span>
-                                        Female Dorm
-                                    </button>
-                                </h1>
+
                             </div>
                             <!-- Date input/availability -->
                             <div class="row date">
                                 <div class="col-md-6 date">
                                     <div class="date-container">
                                         <h5>Check bed availability on this date:</h5>
-                                        <input type="date" class="btn btn-calendar-dorm" id="availabilityDate" min="{{ date('Y-m-d') }}">
+                                        <input type="date" class="btn btn-calendar-dorm" id="availabilityDate"
+                                            min="{{ date('Y-m-d') }}">
                                     </div>
                                 </div>
                                 <div class="col-md-6 availability">
@@ -36,7 +38,7 @@
                             </div>
                             <!-- Check In, Check Out -->
                             <div class="row">
-                                <div class="col-md-6" style="text-align: center;">
+                                <div class="col-md-6 time" style="text-align: center;">
                                     <h5>Check In</h5>
                                     <div class="dropdown-center">
                                         <input type="date" class="btn btn-calendar-datetime"
@@ -45,7 +47,7 @@
                                             autocomplete="off" readonly name="reservation_start_time">
                                     </div>
                                 </div>
-                                <div class="col-md-6" style="text-align: center;">
+                                <div class="col-md-6 time" style="text-align: center;">
                                     <h5>Check Out</h5>
                                     <div class="dropdown-center">
                                         <input type="date" class="btn btn-calendar-datetime"
@@ -62,8 +64,8 @@
                                     <div class="dropdown-center">
                                         <div class="number-input">
                                             <span class="ri-subtract-fill"></span>
-                                            <input type="text" class="btn btn-calendar-datetime-bednumber" value="0"
-                                                max="8" name="quantity">
+                                            <input type="text" class="btn btn-calendar-datetime-bednumber"
+                                                value="0" max="8" name="quantity">
                                             <span class="ri-add-line"></span>
                                         </div>
                                     </div>
@@ -71,11 +73,14 @@
 
                                 <div class="col-md-6 reservor" style="text-align: center;">
                                     <h5>Reservor</h5>
-                                    <select class="form-select" id="occupant_type" name="occupant_type" required>
-                                        <option value="COA">COA</option>
-                                        <option value="Non COAn">Non COA</option>
-                                    </select>
-                                    <input type="text" name="gender" value="Male" hidden>
+                                    <div class="reservor-type">
+                                        <select class="form-select" id="occupant_type" name="occupant_type" required>
+                                            <option value="COA">COA</option>
+                                            <option value="Non COAn">Non COA</option>
+                                        </select>
+                                        <input type="text" name="gender" value="Male" hidden>
+                                    </div>
+
                                 </div>
 
                             </div>
@@ -93,7 +98,7 @@
                             </div>
                         </div>
                         <!-- Image -->
-                        <div class="col-md-6 carousel-item-container">
+                        <div class="col-md-6">
                             <div id="carouselMale" class="carousel slide">
                                 <div class="carousel-inner">
                                     <div class="carousel-item active">
@@ -139,19 +144,21 @@
             <!-- Female Card Start -->
             <div class="card" id="femaleCard" style="display: none;">
                 <div class="card-body">
+                    <h1 class="card-header"
+                        style="display: flex; justify-content: space-between; align-items: center;">
+                        <div class="card-title">
+                            FEMALE DORM
+                        </div>
+                        <button class="btn btn-primary btn-lg rounded-pill toogle-btn" id="femaleMaleToggleBtn"
+                            data-mdb-ripple-init>
+                            <span class="fa-solid fa-repeat"></span>
+                            Male Dorm
+                        </button>
+                    </h1>
                     <div class="row dorm-align-container">
                         <div class="col-md-6">
                             <div class="row">
-                                <h1 class="card-header"
-                                    style="display: flex; justify-content: space-between; align-items: center;">
-                                    <div class="card-title">
-                                        FEMALE DORM
-                                    </div>
-                                    <button class="btn btn-primary btn-lg rounded-pill toogle-btn" id="femaleMaleToggleBtn" data-mdb-ripple-init>
-                                        <span class="fa-solid fa-repeat"></span>
-                                        Male Dorm
-                                    </button>
-                                </h1>
+
                             </div>
                             <!-- Date input -->
                             <div class="row date">
@@ -170,7 +177,7 @@
                             </div>
                             <!-- Check In, Check Out -->
                             <div class="row">
-                                <div class="col-md-6" style="text-align: center;">
+                                <div class="col-md-6 time" style="text-align: center;">
                                     <h5>Check In</h5>
                                     <div class="dropdown-center">
                                         <input type="date" class="btn btn-calendar-datetime"
@@ -179,7 +186,7 @@
                                             autocomplete="off" readonly name="reservation_start_time">
                                     </div>
                                 </div>
-                                <div class="col-md-6" style="text-align: center;">
+                                <div class="col-md-6 time" style="text-align: center;">
                                     <h5>Check Out</h5>
                                     <div class="dropdown-center">
                                         <input type="date" class="btn btn-calendar-datetime"
@@ -196,19 +203,22 @@
                                     <div class="dropdown-center">
                                         <div class="number-input-female">
                                             <span class="ri-subtract-fill"></span>
-                                            <input type="text" class="btn btn-calendar-datetime-bednumber" max="11"
-                                                name="quantity">
+                                            <input type="text" class="btn btn-calendar-datetime-bednumber"
+                                                max="11" name="quantity" value="0">
                                             <span class="ri-add-line"></span>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6 reservor">
+
                                     <h5>Reservor</h5>
-                                    <select class="form-select" id="occupant_type" name="occupant_type" required>
-                                        <option value="COA">COA</option>
-                                        <option value="Non COAn">Non COA</option>
-                                    </select>
-                                    <input type="text" name="gender" value="Female" hidden>
+                                    <div class="reservor-type">
+                                        <select class="form-select" id="occupant_type" name="occupant_type" required>
+                                            <option value="COA">COA</option>
+                                            <option value="Non COAn">Non COA</option>
+                                        </select>
+                                        <input type="text" name="gender" value="Female" hidden>
+                                    </div>
                                 </div>
 
                             </div>
@@ -228,7 +238,7 @@
 
                         </div>
                         <!-- Image -->
-                        <div class="col-md-6 carousel-item-container">
+                        <div class="col-md-6">
                             <div id="carouselFemale" class="carousel slide">
                                 <div class="carousel-inner">
                                     <div class="carousel-item active">
@@ -334,11 +344,11 @@
         const minusBtnFemale = document.querySelector('.number-input-female .ri-subtract-fill');
         const availabilityFemale = parseInt(document.querySelector('#femaleCard .availability b').textContent);
 
-    plusBtn.addEventListener('click', function() {
-        if (parseInt(input.value) < availability) {
-            input.value = parseInt(input.value) + 1;
-        }
-    });
+        plusBtn.addEventListener('click', function() {
+            if (parseInt(input.value) < availability) {
+                input.value = parseInt(input.value) + 1;
+            }
+        });
 
         minusBtnFemale.addEventListener('click', function() {
             if (parseInt(inputFemale.value) > 0) {
@@ -359,7 +369,8 @@
         });
 
         // Set default value for date inputs to empty
-        const availabilityDateInputsFemale = document.querySelectorAll('#femaleCard .btn-calendar-datetime[type="date"]');
+        const availabilityDateInputsFemale = document.querySelectorAll(
+            '#femaleCard .btn-calendar-datetime[type="date"]');
         availabilityDateInputsFemale.forEach(input => {
             input.value = '';
         });
