@@ -1554,12 +1554,20 @@ b {
     position: fixed;
     top: 90%;
     width: 100%;
-    background-color: var(--color-orange);
-    color: var(--color-background);
+    background-color: var(--color-primary);
+    color: var(--color-orange);
     padding: 10px;
     height: 10vh;
     text-align: center;
     border: none !important;
+}
+.fixed-bottom button {
+    background: var(--color-background);
+    color: var(--color-primary);
+}
+.fixed-bottom button:hover {
+    background: var(--color-orange);
+    color: var(--color-primary);
 }
 
 .vertical-line {
@@ -2691,6 +2699,7 @@ ul.list-unstyled {
     .modal-body input[type="time"],
     .modal-body select {
 
+
         font-size: 0.6em;
 
     }
@@ -2703,4 +2712,6 @@ ul.list-unstyled {
     .modal-content {
         font-size: 1.2em !important;
     }
+    
+    
 }

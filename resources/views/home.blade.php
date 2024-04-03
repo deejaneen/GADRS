@@ -36,34 +36,37 @@
             <div class="column-right-bottom">
             </div>
         </div>
+
         <div class="row-bottom">
             <div class="column-bottom">
                 <ul class="home-reservation-table">
                     <li class="reservation-table-home">
                         <h1><i class="ri-key-2-fill"></i> MY RESERVATIONS<i class="ri-receipt-fill"></i></h1>
                     </li>
-                    <table class="table-home table-hover">
+                    <table class="table-home table-hover" id="myTable">
                         <thead>
                             <tr>
-                                <th scope="col">Type</th>
-                                <th scope="col">Column heading</th>
-                                <th scope="col">Column heading</th>
-                                <th scope="col">Column heading</th>
+                                <th scope="col">Reservation Number</th>
+                                <th scope="col">Reservation Date</th>
+                                <th scope="col">Time Start</th>
+                                <th scope="col">Time End</th>
+                                <th scope="col">Purpose</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Status</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="table-active">
-                                <th scope="row">Active</th>
-                                <td>Column content</td>
-                                <td>Column content</td>
-                                <td>Column content</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Default</th>
-                                <td>Column content</td>
-                                <td>Column content</td>
-                                <td>Column content</td>
-                            </tr>
+                            @foreach ($gyms as $gym)
+                                <tr class="table-active">
+                                    <th>{{ $gym->reservation_number }}</th>
+                                    <td>{{ $gym->reservation_date }}</td>
+                                    <td>{{ $gym->reservation_time_start }}</td>
+                                    <td>{{ $gym->reservation_time_end }}</td>
+                                    <td>{{ $gym->purpose }}</td>
+                                    <td>₱{{ $gym->price }}</td>
+                                    <td>{{ $gym->status }}</td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </ul>

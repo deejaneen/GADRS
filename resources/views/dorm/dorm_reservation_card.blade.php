@@ -25,7 +25,7 @@
                                 <div class="col-md-6 date">
                                     <div class="date-container">
                                         <h5>Check bed availability on this date:</h5>
-                                        <input type="date" class="btn btn-calendar-dorm" id="availabilityDate">
+                                        <input type="date" class="btn btn-calendar-dorm" id="availabilityDate" min="{{ date('Y-m-d') }}">
                                     </div>
                                 </div>
                                 <div class="col-md-6 availability">
@@ -40,7 +40,7 @@
                                     <h5>Check In</h5>
                                     <div class="dropdown-center">
                                         <input type="date" class="btn btn-calendar-datetime"
-                                            name="reservation_start_date">
+                                            name="reservation_start_date" min="{{ date('Y-m-d') }}">
                                         <input type="time" class="btn btn-calendar-datetime time" value="14:00"
                                             autocomplete="off" readonly name="reservation_start_time">
                                     </div>
@@ -49,7 +49,7 @@
                                     <h5>Check Out</h5>
                                     <div class="dropdown-center">
                                         <input type="date" class="btn btn-calendar-datetime"
-                                            name="reservation_end_date">
+                                            name="reservation_end_date" min="{{ date('Y-m-d') }}">
                                         <input type="time" class="btn btn-calendar-datetime time" value="12:00"
                                             autocomplete="off" readonly name="reservation_end_time">
                                     </div>
@@ -159,7 +159,7 @@
                                     <div class="date-container">
                                         <h5>Check bed availability on this date:</h5>
                                         <input type="date" class="btn btn-calendar-dorm"
-                                            id="availabilityDateFemale">
+                                            id="availabilityDateFemale" min="{{ date('Y-m-d') }}">
                                     </div>
                                 </div>
                                 <div class="col-md-6 availability">
@@ -174,7 +174,7 @@
                                     <h5>Check In</h5>
                                     <div class="dropdown-center">
                                         <input type="date" class="btn btn-calendar-datetime"
-                                            name="reservation_start_date">
+                                            name="reservation_start_date" min="{{ date('Y-m-d') }}">
                                         <input type="time" class="btn btn-calendar-datetime time" value="14:00"
                                             autocomplete="off" readonly name="reservation_start_time">
                                     </div>
@@ -385,3 +385,4 @@
         });
     });
 </script>
+

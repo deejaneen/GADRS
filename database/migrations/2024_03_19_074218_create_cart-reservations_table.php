@@ -28,7 +28,7 @@ return new class extends Migration
             $table->string('or_number')->nullable();
             $table->date('or_date')->nullable();
             $table->string('status')->default('Pending')->nullable();
-            $table->float('price')->nullable()->default(600.00);
+            $table->decimal('price', 10, 2)->nullable()->default(600.00);
             $table->timestamps();
 
             // Add the foreign key constraint

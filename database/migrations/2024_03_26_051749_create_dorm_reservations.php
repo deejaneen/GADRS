@@ -34,7 +34,7 @@ return new class extends Migration
             $table->string('coa_referrer_office')->nullable();
             $table->string('relationship_with_guest')->nullable();
             $table->decimal('price', 10, 2)->nullable();
-            $table->string('status')->nullable();
+            $table->string('status')->default('Pending')->nullable();
             $table->text('purpose_of_stay')->nullable();
             $table->string('emergency_contact')->nullable();
             $table->string('emergency_contact_number')->nullable();

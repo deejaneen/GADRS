@@ -6,6 +6,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\DormCartController;
 use App\Http\Controllers\GymCartController;
 use App\Http\Controllers\GymController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 
 /*
@@ -23,6 +24,7 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::get('/dorm', function () {
     return view('dorm');
@@ -32,9 +34,7 @@ Route::get('/dorm', function () {
 Route::get('/reservationhistoryprofile', function () {
     return view('../profile/reservationhistoryprofile');
 })->name('reservationhistoryprofile');
-Route::get('/home', function () {
-    return view('home');
-})->name('home');
+
 
 Route::get('/adminhome', function () {
     return view('../admin/navbar/adminnav');
