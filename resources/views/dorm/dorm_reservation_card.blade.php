@@ -56,7 +56,7 @@
                                 </div>
                             </div>
                             <!-- Number of Beds, Dormer -->
-                            <div class="row">
+                            <div class="row mt-2">
                                 <div class="col-md-6" style="text-align: center;">
                                     <h5>Number of Beds</h5>
                                     <div class="dropdown-center">
@@ -190,7 +190,7 @@
                                 </div>
                             </div>
                             <!-- Number of Beds, Dormer -->
-                            <div class="row">
+                            <div class="row mt-2">
                                 <div class="col-md-6" style="text-align: center;">
                                     <h5>Number of Beds</h5>
                                     <div class="dropdown-center">
@@ -228,7 +228,7 @@
 
                         </div>
                         <!-- Image -->
-                        <div class="col-md-6">
+                        <div class="col-md-6 carousel-item-container">
                             <div id="carouselFemale" class="carousel slide">
                                 <div class="carousel-inner">
                                     <div class="carousel-item active">
@@ -385,4 +385,3 @@
         });
     });
 </script>
-

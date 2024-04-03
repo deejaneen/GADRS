@@ -2051,9 +2051,9 @@ ul.list-unstyled {
         width: auto;
         background: var(--color-background);
         border: 3px solid var(--color-primary);
-    } */
+    } 
 }
-
+*/
 @media (min-width:1400px) {
     /* .container {
         max-width: 1700px !important;
