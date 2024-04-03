@@ -39,36 +39,79 @@
 
         <div class="row-bottom">
             <div class="column-bottom">
+                <button class="btn btn-primary btn-lg rounded-pill toogle-btn" id="gymTableToggleBtn">Dorm</button>
+                <button class="btn btn-primary btn-lg rounded-pill toogle-btn" id="dormTableToggleBtn"
+                    style="display: none;">Gym</button>
                 <ul class="home-reservation-table">
                     <li class="reservation-table-home">
                         <h1><i class="ri-key-2-fill"></i> MY RESERVATIONS<i class="ri-receipt-fill"></i></h1>
                     </li>
-                    <table class="table-home table-hover" id="myTable">
-                        <thead>
-                            <tr>
-                                <th scope="col">Reservation Number</th>
-                                <th scope="col">Reservation Date</th>
-                                <th scope="col">Time Start</th>
-                                <th scope="col">Time End</th>
-                                <th scope="col">Purpose</th>
-                                <th scope="col">Price</th>
-                                <th scope="col">Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($gyms as $gym)
-                                <tr class="table-active">
-                                    <th>{{ $gym->reservation_number }}</th>
-                                    <td>{{ $gym->reservation_date }}</td>
-                                    <td>{{ $gym->reservation_time_start }}</td>
-                                    <td>{{ $gym->reservation_time_end }}</td>
-                                    <td>{{ $gym->purpose }}</td>
-                                    <td>₱{{ $gym->price }}</td>
-                                    <td>{{ $gym->status }}</td>
+                    <div class="card" id="GymReservationsTableCard">
+                        <div>
+                            <h4 class="card-header text-center">GYM</h4>
+                        </div>
+                        <table class="table-home table-hover" id="GymReservationsTable">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Reservation Number</th>
+                                    <th scope="col">Reservation Date</th>
+                                    <th scope="col">Time Start</th>
+                                    <th scope="col">Time End</th>
+                                    <th scope="col">Purpose</th>
+                                    <th scope="col">Price</th>
+                                    <th scope="col">Status</th>
                                 </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                @foreach ($gyms as $gym)
+                                    <tr class="table-active">
+                                        <th>{{ $gym->reservation_number }}</th>
+                                        <td>{{ $gym->reservation_date }}</td>
+                                        <td>{{ $gym->reservation_time_start }}</td>
+                                        <td>{{ $gym->reservation_time_end }}</td>
+                                        <td>{{ $gym->purpose }}</td>
+                                        <td>₱{{ $gym->price }}</td>
+                                        <td>{{ $gym->status }}</td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="card" style="display: none" id="DormReservationsTableCard">
+                        <div>
+                            <h4 class="card-header text-center">DORM</h4>
+                        </div>
+                        <table class="table-home table-hover" id="DormReservationsTable">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Reservation Number</th>
+                                    <th scope="col">Reservation Date</th>
+                                    <th scope="col">Time Start</th>
+                                    <th scope="col">Time End</th>
+                                    <th scope="col">Purpose</th>
+                                    <th scope="col">Price</th>
+                                    <th scope="col">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($gyms as $gym)
+                                    <tr class="table-active">
+                                        <th>{{ $gym->reservation_number }}</th>
+                                        <td>{{ $gym->reservation_date }}</td>
+                                        <td>{{ $gym->reservation_time_start }}</td>
+                                        <td>{{ $gym->reservation_time_end }}</td>
+                                        <td>{{ $gym->purpose }}</td>
+                                        <td>₱{{ $gym->price }}</td>
+                                        <td>{{ $gym->status }}</td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+
+
+
                 </ul>
             </div>
         </div>
@@ -82,3 +125,26 @@
         </div> --}}
     </div>
 @endsection
+<script>
+     document.addEventListener('DOMContentLoaded', function() {
+            const gymToggleBtn = document.getElementById('gymTableToggleBtn');
+            const dormToggleBtn = document.getElementById('dormTableToggleBtn');
+            const gymCard = document.getElementById('GymReservationsTableCard');
+            const dormCard = document.getElementById('DormReservationsTableCard');
+
+            gymToggleBtn.addEventListener('click', function() {
+                gymCard.style.display = 'block';
+                dormCard.style.display = 'none';
+                gymToggleBtn.style.display = 'none';
+                dormToggleBtn.style.display = 'block';
+            });
+
+            dormToggleBtn.addEventListener('click', function() {
+                dormCard.style.display = 'block';
+                gymCard.style.display = 'none';
+                dormToggleBtn.style.display = 'none';
+                gymToggleBtn.style.display = 'block';
+
+            });
+        });
+</script>

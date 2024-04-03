@@ -82,7 +82,12 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script>
         $(document).ready(function() {
-            $('#myTable').DataTable();
+            $('#GymReservationsTable').DataTable();
+            $('#DormReservationsTable').DataTable();
+        });
+
+        $(document).ready(function() {
+
         });
     </script>
     <script src="https://cdn.datatables.net/2.0.3/js/dataTables.min.js"></script>
@@ -128,6 +133,30 @@
                 $('#gymReservationsCartCard').toggle();
                 clearPrice();
             });
+
+            //HOME PAGE
+            // Toggle button click event for Dorm Reservations Cart
+            $('#gymTableToggleBtn').click(function(e) {
+                e.preventDefault();
+
+                // Toggle between Dorm Cart and Gym Cart cards
+                $('#GymReservationsTableCard').toggle();
+                $('#DormReservationsTableCard').toggle();
+
+            });
+
+            // Toggle button click event for Dorm Reservations Cart
+            $('#dormTableToggleBtn').click(function(e) {
+                e.preventDefault();
+
+                // Toggle between Dorm Cart and Gym Cart cards
+                $('#DormReservationsTableCard').toggle();
+                $('#GymReservationsTableCard').toggle();
+
+
+            });
+            //HOME PAGE END
+
 
             // Add a click event handler to the "Add to Cart" button
             $(".btn-add-to-cart").click(function() {
