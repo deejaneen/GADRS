@@ -59,6 +59,14 @@ class UserController extends Controller
         return $this->show(auth()->user());
     }
 
+    public function showPasswordProfile(){
+        return view('profile.passwordprofile');
+    }
+
+    public function showReservationHistoryProfile(){
+        return view('../profile/reservationhistoryprofile');
+    }
+
     public function updatePassword(Request $request)
     {
         // Validate the request data
@@ -82,4 +90,5 @@ class UserController extends Controller
 
         return redirect()->route('passwordprofile')->with('success', 'Password updated successfully.');
     }
+
 }

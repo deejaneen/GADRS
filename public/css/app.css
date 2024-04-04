@@ -1736,8 +1736,12 @@ ul.list-unstyled {
     text-align: center;
 }
 
+<<<<<<< Updated upstream
 #occupant_type_male,
 #occupant_type_female {
+=======
+#occupant_type {
+>>>>>>> Stashed changes
     margin-top: 20px;
     background: var(--color-background);
     color: var(--color-primary);
@@ -2126,7 +2130,7 @@ ul.list-unstyled {
         width: auto;
         background: var(--color-background);
         border: 3px solid var(--color-primary);
-    } 
+    }
 }
 */
 @media (min-width:1400px) {
@@ -2138,7 +2142,7 @@ ul.list-unstyled {
 @media (max-width: 992px) {
     /* .centered {
         display: flex;
-        justify-content: space-between; 
+        justify-content: space-between;
         align-items: center;
     }
 
@@ -2366,8 +2370,8 @@ ul.list-unstyled {
     .form-content {
         padding: 10% 10px 0% 10px !important;
     }
-    
-    
+
+
     .welcome-section {
         display: inline-block;
         text-align: center;
@@ -2416,8 +2420,8 @@ ul.list-unstyled {
     .column-right-bottom {
         height: 22%;
     }
-    
-    .banner-gym-text h1.banner-name, 
+
+    .banner-gym-text h1.banner-name,
     .banner-dorm-text h1.banner-name {
         font-size: 3rem !important;
         margin-top: 30px;
@@ -2456,7 +2460,7 @@ ul.list-unstyled {
         height: 140px;
         top: 10%;
         right: 8%;
-        z-index: -1;    
+        z-index: -1;
     }
     .basketball {
         height: 140px;
@@ -2489,7 +2493,7 @@ ul.list-unstyled {
     .container .section {
         margin-top: 12%;
     }
-    
+
     .container .card-body .btn-calendar-dorm:valid {
         font-size: 1em;
     }
@@ -2522,7 +2526,7 @@ ul.list-unstyled {
     .modal-body input[type="date"],
     .modal-body input[type="time"],
     .modal-body select {
-   
+
         font-size: 0.6em;
 
     }
@@ -2533,7 +2537,7 @@ ul.list-unstyled {
     .modal-content {
         font-size: 1.2em !important;
     }
-    
+
     .navbar .main-login .navbar-nav {
         display: flex;
         justify-content: center;

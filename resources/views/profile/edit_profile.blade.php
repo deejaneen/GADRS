@@ -2,30 +2,7 @@
 
 @section('profileview')
     <div class="profileview-container">
-        <div class="left-column">
-            <div class="sidebar">
-                <a href="{{ route('profile') }}" class="active">
-                    <span class="ri-user-line">
-                        <h3>Your Account</h3>
-                    </span>
-                </a>
-                <a href="{{ route('passwordprofile') }}">
-                    <span class="ri-key-2-line">
-                        <h3>Change Password</h3>
-                    </span>
-                </a>
-                <a href="{{ route('reservationhistoryprofile') }}">
-                    <span class="ri-receipt-line">
-                        <h3>Reservation History</h3>
-                    </span>
-                </a>
-                <a href="{{ route('login') }}">
-                    <span class="ri-logout-box-r-line">
-                        <h3>Logout</h3>
-                    </span>
-                </a>
-            </div>
-        </div>
+        @include('profile.leftcolumn_sidebar')
         <form enctype="multipart/form-data" method="POST" action="{{ route('users.update', $user->id) }}">
             @csrf
             @method('put')
@@ -81,9 +58,7 @@
         </form>
     </div>
 @endsection
-
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+@section('scripts')
 <script type="text/javascript">
     $(document).ready(function() {
         $('#imageUpload').change(function(e) {
@@ -95,3 +70,4 @@
         });
     });
 </script>
+@endsection

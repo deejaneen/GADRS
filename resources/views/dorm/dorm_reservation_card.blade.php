@@ -282,6 +282,7 @@
     </div>
 
 </div>
+@section('scripts')
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         // Function to format the date to 'YYYY-MM-DD' format
@@ -416,3 +417,4 @@
         });
     });
 </script>
+@endsection

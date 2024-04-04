@@ -13,10 +13,10 @@
 @section('content')
     <div class="container">
         <!-- Toggle buttons -->
-        <button class="btn btn-primary btn-lg rounded-pill toogle-btn" id="gymReservationsCartToggleBtn">Dorm Reservations
+        <button class="btn btn-primary btn-lg rounded-pill toogle-btn" id="gymReservationsCartToggleBtn"> <span class="fa-solid fa-repeat"></span> Dorm Reservations
             Cart</button>
         <button class="btn btn-primary btn-lg rounded-pill toogle-btn" id="dormReservationsCartToggleBtn"
-            style="display: none;">Gym Reservations Cart</button>
+            style="display: none;"> <span class="fa-solid fa-repeat"></span> Gym Reservations Cart</button>
 
         <!-- Gym Reservations Cart -->
         <div class="card" id="gymReservationsCartCard">

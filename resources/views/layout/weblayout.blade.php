@@ -164,6 +164,25 @@
                 $("#myModal").modal('hide');
             });
         });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add event listener to the click event of the logout button
+            document.getElementById('logout-button').addEventListener('click', function(event) {
+                event.preventDefault(); // Prevent the default action of following the link
+
+                // Display confirmation dialog
+                Swal.fire({
+                    title: "Are you sure you want to logout?",
+                    showCancelButton: true,
+                    confirmButtonText: "Yes",
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // Submit the logout form after confirmation
+                        document.getElementById('logout-form-navbar').submit();
+                    }
+                });
+            });
+        });
     </script>
 
     @yield('scripts')

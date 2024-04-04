@@ -20,6 +20,7 @@
 @include('gym.gym_reservation_modal')
 @include('cart_sidebar')
 
+@section('scripts')
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         let weekContainer = document.getElementById("week-container");
@@ -97,3 +98,4 @@
         selectedDateInput.value = `${today}`;
     });
 </script>
+@endsection

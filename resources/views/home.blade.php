@@ -39,9 +39,9 @@
 
         <div class="row-bottom">
             <div class="column-bottom">
-                <button class="btn btn-primary btn-lg rounded-pill toogle-btn" id="gymTableToggleBtn">Dorm</button>
+                <button class="btn btn-primary btn-lg rounded-pill toogle-btn" id="gymTableToggleBtn"> <span class="fa-solid fa-repeat"> Dorm</button>
                 <button class="btn btn-primary btn-lg rounded-pill toogle-btn" id="dormTableToggleBtn"
-                    style="display: none;">Gym</button>
+                    style="display: none;"> <span class="fa-solid fa-repeat"> Gym</button>
                 <ul class="home-reservation-table">
                     <li class="reservation-table-home">
                         <h1><i class="ri-key-2-fill"></i> MY RESERVATIONS<i class="ri-receipt-fill"></i></h1>
@@ -66,9 +66,9 @@
                                 @foreach ($gyms as $gym)
                                     <tr class="table-active">
                                         <th>{{ $gym->reservation_number }}</th>
-                                        <td>{{ $gym->reservation_date }}</td>
-                                        <td>{{ $gym->reservation_time_start }}</td>
-                                        <td>{{ $gym->reservation_time_end }}</td>
+                                        <td>{{ date('F j, Y', strtotime($gym->reservation_date)) }}</td>
+                                        <td>{{ date('g:i A', strtotime($gym->reservation_time_start )) }}</td>
+                                        <td>{{ date('g:i A', strtotime($gym->reservation_time_end )) }}</td>
                                         <td>{{ $gym->purpose }}</td>
                                         <td>₱{{ $gym->price }}</td>
                                         <td>{{ $gym->status }}</td>
@@ -85,25 +85,25 @@
                         <table class="table-home table-hover" id="DormReservationsTable">
                             <thead>
                                 <tr>
-                                    <th scope="col">Reservation Number</th>
-                                    <th scope="col">Reservation Date</th>
+                                    <th scope="col">Form Number</th>
+                                    <th scope="col">Reservation Start Date</th>
                                     <th scope="col">Time Start</th>
+                                    <th scope="col">Reservation End Date</th>
                                     <th scope="col">Time End</th>
-                                    <th scope="col">Purpose</th>
                                     <th scope="col">Price</th>
                                     <th scope="col">Status</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($gyms as $gym)
+                                @foreach ($dorms as $dorm)
                                     <tr class="table-active">
-                                        <th>{{ $gym->reservation_number }}</th>
-                                        <td>{{ $gym->reservation_date }}</td>
-                                        <td>{{ $gym->reservation_time_start }}</td>
-                                        <td>{{ $gym->reservation_time_end }}</td>
-                                        <td>{{ $gym->purpose }}</td>
-                                        <td>₱{{ $gym->price }}</td>
-                                        <td>{{ $gym->status }}</td>
+                                        <th>{{ $dorm->Form_number}}</th>
+                                        <td>{{ date('F j, Y', strtotime($dorm->reservation_start_date)) }}</td>
+                                        <td>{{ date('g:i A', strtotime( $dorm->reservation_start_time )) }}</td>
+                                        <td>{{ date('F j, Y', strtotime($dorm->reservation_end_date)) }}</td>
+                                        <td>{{ date('g:i A', strtotime( $dorm->reservation_end_time )) }}</td>
+                                        <td>₱{{ $dorm->price }}</td>
+                                        <td>{{ $dorm->status }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -125,6 +125,7 @@
         </div> --}}
     </div>
 @endsection
+@section('scripts')
 <script>
      document.addEventListener('DOMContentLoaded', function() {
             const gymToggleBtn = document.getElementById('gymTableToggleBtn');
@@ -148,3 +149,4 @@
             });
         });
 </script>
+@endsection

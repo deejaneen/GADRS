@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\DormCartController;
+use App\Http\Controllers\DormController;
 use App\Http\Controllers\GymCartController;
 use App\Http\Controllers\GymController;
 use App\Http\Controllers\HomeController;
@@ -24,64 +25,40 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+// Routes accessible only to guests (non-authenticated users)
+Route::middleware(['guest'])->group(function () {
+    Route::get('/register', [AuthController::class, 'register'])->name('register');
+    Route::post('/register', [AuthController::class, 'store']);
+    Route::get('/login', [AuthController::class, 'login'])->name('login');
+    Route::post('/login', [AuthController::class, 'authenticate']);
+});
 
-Route::get('/dorm', function () {
-    return view('dorm');
-})->name('dorm');
+// Routes that require authentication
+Route::middleware(['auth', 'preventCaching'])->group(function () {
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
+    Route::resource('users', UserController::class)->only('show', 'edit', 'update');
+    // Routes accessible only by Admin
+    Route::middleware(['checkRole:Admin'])->group(function () {
+        Route::get('/adminhome', function () {
+            return view('../admin/navbar/adminnav');
+        })->name('adminhome');
+    });
 
+    // Profile and password routes
+    Route::prefix('/profile')->group(function () {
+        Route::get('/account', [UserController::class, 'profile'])->name('profile');
+        Route::get('/password', [UserController::class, 'showPasswordProfile'])->name('passwordprofile');
+        Route::get('/reservation-history', [UserController::class, 'showReservationHistoryProfile'])->name('reservationhistoryprofile');
+        Route::post('/updatepassword', [UserController::class, 'updatePassword'])->name('update_password');
+    });
 
-Route::get('/reservationhistoryprofile', function () {
-    return view('../profile/reservationhistoryprofile');
-})->name('reservationhistoryprofile');
-
-
-Route::get('/adminhome', function () {
-    return view('../admin/navbar/adminnav');
-})->name('adminhome');
-
-Route::get('/register', [AuthController::class, 'register'])->name('register');
-Route::post('/register', [AuthController::class, 'store']);
-
-
-Route::get('/login', [AuthController::class, 'login'])->name('login');
-Route::post('/login', [AuthController::class, 'authenticate']);
-
-
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-
-Route::post('/cart_check/gym_convert', [CartController::class, 'GymCartToGymReservations'])->name('cart.gym_convert');
-Route::post('/cart_check/dorm_convert', [CartController::class, 'DormCartToDormReservations'])->name('cart.dorm_convert');
-
-
-// Route::post('/cart_check/dorm_convert', 'CartController@DormCartToDormReservations')->name('cart.dorm_convert');
-
-// Route::post('/cart_check/gym_convert', 'CartController@GymCartToGymReservations')->name('cart.gym_convert');
-
-
-Route::get('/newlogin', function () {
-    return view('auth.newlogin');
-})->name('newlogin');
-Route::get('/newregister', function () {
-    return view('auth.newregister');
-})->name('newregister');
-
-Route::resource('users', UserController::class)->only('show', 'edit', 'update')->middleware('auth');
-
-Route::get('profile', [UserController::class, 'profile'])->middleware('auth')->name('profile');
-
-Route::get('/passwordprofile', function () {
-    return view('profile.passwordprofile');
-})->name('passwordprofile');
-
-Route::post('/passwordprofile/update-password', [UserController::class, 'updatePassword'])->name('update_password');
-
-
-
-Route::post('/gym-cart', [GymCartController::class, 'store'])->name('gym_cart.store');
-Route::get('/cart_check', [CartController::class, 'index'])->name('cart_check');
-
-Route::get('/gym', [GymController::class, 'index'])->name('gym');
-Route::post('/get-reservations', [GymController::class, 'getReservations']);
-
-Route::post('/dorm', [DormCartController::class, 'store'])->name('dorm.cart');
+    Route::get('/dorm', [DormController::class, 'index'])->name('dorm');
+    Route::post('/dorm-cart', [DormCartController::class, 'store'])->name('dorm.cart');
+    Route::post('/gym-cart', [GymCartController::class, 'store'])->name('gym_cart.store');
+    Route::get('/cart_check', [CartController::class, 'index'])->name('cart_check');
+    Route::get('/gym', [GymController::class, 'index'])->name('gym');
+    Route::post('/get-reservations', [GymController::class, 'getReservations']);
+    Route::post('/cart_check/gym_convert', [CartController::class, 'GymCartToGymReservations'])->name('cart.gym_convert');
+    Route::post('/cart_check/dorm_convert', [CartController::class, 'DormCartToDormReservations'])->name('cart.dorm_convert');
+});

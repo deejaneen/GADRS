@@ -61,6 +61,7 @@
     </div>
 </div>
 
+@section('scripts')
 <script>
     function resetForm() {
         document.getElementById("gymReservationForm").reset();
@@ -116,3 +117,4 @@
         }
     }
 </script>
+@endsection
