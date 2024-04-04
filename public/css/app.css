@@ -1709,7 +1709,7 @@ ul.list-unstyled {
 }
 
 .container .section .card .footer.button button.btn-add {
-   
+
     background: var(--color-orange);
 
 }
@@ -1736,12 +1736,8 @@ ul.list-unstyled {
     text-align: center;
 }
 
-<<<<<<< Updated upstream
 #occupant_type_male,
 #occupant_type_female {
-=======
-#occupant_type {
->>>>>>> Stashed changes
     margin-top: 20px;
     background: var(--color-background);
     color: var(--color-primary);
