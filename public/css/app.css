@@ -163,7 +163,7 @@ b {
     margin-right: 30px;
 }
 
-.navbar .navbar-nav .button button {
+.navbar .navbar-nav .logout button {
     background: var(--color-primary);
     border: none;
     color: var(--color-background);
@@ -474,6 +474,13 @@ b {
     width: fit-content;
     margin: 20px auto;
     margin-top: 10px;
+}
+
+.container .card-body {
+    width: 95%;
+    display: inline;
+    align-items: center;
+    justify-content: center;
 }
 
 .container .card-body .btn-calendar-dorm:hover {
@@ -1681,14 +1688,14 @@ ul.list-unstyled {
 }
 
 .container .section .card .footer.button a.btn-clear,
-.container .section .card .footer.button a.btn-add {
+.container .section .card .footer.button button.btn-add {
     color: var(--color-primary);
     transform: translate(-5px);
     border: 3px solid var(--color-orange);
 }
 
 .container .section .card .footer.button a.btn-clear:hover,
-.container .section .card .footer.button a.btn-add:hover {
+.container .section .card .footer.button button.btn-add:hover {
     color: var(--color-background);
     background-color: var(--color-primary);
     border: 3px solid var(--color-background);
@@ -1697,13 +1704,14 @@ ul.list-unstyled {
 }
 
 .container .section .card .footer.button a.btn-clear {
-    background-color: var(--color-orange);
-    border-color: var(--color-danger);
+    background: var(--color-background);
+    color: var(--color-primary);
 }
 
-.container .section .card .footer.button a.btn-add {
-    background-color: var(--color-warning);
-    border-color: var(--color-orange);
+.container .section .card .footer.button button.btn-add {
+   
+    background: var(--color-orange);
+
 }
 
 .container .section .card .row.dorm-align-container {
@@ -1715,25 +1723,37 @@ ul.list-unstyled {
 .container .section .card .card-header .card-title {
     font-size: 1.8em;
 }
+.col-md-5.carousel {
+    display: inline;
+    justify-content: flex-end;
+    margin-top: 5%;
 
+}
 
 .reservor {
     display: inline-block;
     justify-content: center;
     text-align: center;
 }
-  
-#occupant_type {
+
+#occupant_type_male,
+#occupant_type_female {
     margin-top: 20px;
     background: var(--color-background);
     color: var(--color-primary);
     width: 80%;
 }
-.reservor-type{
+#occupant_type_male select,
+#occupant_type_female select {
+    color: var(--color-primary);
+    background: var(--color-background);
+}
+.reservor-type {
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
 .form-select option:hover {
     background: var(--color-background);
     font-size: 1em;
@@ -1813,10 +1833,6 @@ ul.list-unstyled {
     .navbar-collapse {
         background: var(--color-primary);
 
-    }
-
-    .nav-item.button .logout .text {
-        display: none;
     }
 
     h1 {
@@ -1961,7 +1977,39 @@ ul.list-unstyled {
     .dorm-align-container {
         display: flex;
         flex-direction: column;
-        align-items: center;
+    }
+
+    #maleCard .dorm-align-container,
+    #femaleCard .dorm-align-container {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .nav-item.profile a .first-name,
+    .nav-item.logout button .logout-text {
+        display: none;
+
+    }
+
+    .nav-item.profile a i {
+        margin-bottom: 2px;
+    }
+
+    .navbar-nav .nav-item:not(.logout) i {
+        margin-right: 20px;
+    }
+
+    .navbar-nav .nav-item a {
+        font-size: 1.5em;
+    }
+
+    .container .card-body .btn-calendar-datetime {
+        margin: 10px 10px;
+    }
+
+   .col-md-5.carousel {
+        width: 80%;
+        margin: 0 auto;
     }
 }
 
@@ -2427,7 +2475,7 @@ ul.list-unstyled {
     }
 
     h3 {
-        font-size: 1.2em !important;
+        font-size: 1.2em !important;#
     }
 
     h4 {
@@ -2697,7 +2745,7 @@ ul.list-unstyled {
         font-size: 1em;
     }
 
-    .col-md-6.carousel {
+    .col-md-5.carousel {
         padding-top: 20px;
     }
 
