@@ -80,6 +80,10 @@
     </script>
     <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.datatables.net/2.0.3/js/dataTables.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    @yield('scripts')
     <script>
         $(document).ready(function() {
             $('#GymReservationsTable').DataTable();
@@ -90,9 +94,6 @@
 
         });
     </script>
-    <script src="https://cdn.datatables.net/2.0.3/js/dataTables.min.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script>
         $(document).ready(function() {
@@ -185,7 +186,7 @@
         });
     </script>
 
-    @yield('scripts')
+
 </body>
 
 </html>

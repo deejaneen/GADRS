@@ -17,9 +17,9 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="col">
-                        <label for="reservationDate" class="form-label">Date</label>
-                        <input type="date" class="form-control" id="reservationDate" name="selectedDateText"
-                            required>
+                            <label for="reservationDate" class="form-label">Date</label>
+                            <input type="date" class="form-control" id="reservationDate" name="selectedDateText"
+                                required>
                         </div>
                         <div class="col">
                             <label for="startTime" class="form-label">Start Time</label>
@@ -52,7 +52,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                    <button type="button" class="btn btn-secondary"
                         onclick="resetForm()">Clear</button>
                     <button type="submit" class="btn btn-primary">Add to Cart</button>
                 </div>
@@ -62,59 +62,7 @@
 </div>
 
 @section('scripts')
-<script>
-    function resetForm() {
-        document.getElementById("gymReservationForm").reset();
-    }
+    <script>
 
-    // Set minimum date to the present day
-    document.getElementById("reservationDate").min = new Date().toISOString().split('T')[0];
-
-    // Ensure start time is AM and end time is at least 2 hours ahead
-    document.getElementById("startTime").addEventListener("change", function() {
-        this.value = this.value.replace(/^([0-9]|0[0-5]):([0-5][0-9])/, "06:00");
-        validateDuration();
-        // Update minimum value for end time
-        updateMinEndTime();
-    });
-
-    document.getElementById("endTime").addEventListener("change", function() {
-        if (this.value <= document.getElementById("startTime").value) {
-            this.value = "";
-            alert("End time must be after the start time.");
-            return;
-        }
-        validateDuration();
-    });
-
-    // Update minimum value for end time based on selected start time
-    function updateMinEndTime() {
-        var startTime = document.getElementById("startTime").value;
-        var minEndTime = addHours(startTime, 2); // Adding 2 hours to the start time
-        document.getElementById("endTime").min = minEndTime;
-    }
-
-    // Function to add hours to a given time
-    function addHours(time, hours) {
-        var parts = time.split(':');
-        var hour = parseInt(parts[0], 10);
-        var minute = parseInt(parts[1], 10);
-        hour += hours;
-        if (hour >= 24) hour -= 24;
-        return (hour < 10 ? '0' : '') + hour + ':' + (minute < 10 ? '0' : '') + minute;
-    }
-
-    // Validate duration
-    function validateDuration() {
-        var startTime = document.getElementById("startTime").valueAsDate;
-        var endTime = document.getElementById("endTime").valueAsDate;
-        if (startTime && endTime && startTime < endTime) {
-            var duration = (endTime - startTime) / (1000 * 60 * 60); // Duration in hours
-            if (duration < 2) {
-                alert("The reservation must be at least 2 hours long. Please select a valid end time.");
-                document.getElementById("endTime").value = ""; // Reset end time
-            }
-        }
-    }
-</script>
+    </script>
 @endsection

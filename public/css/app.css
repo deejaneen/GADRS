@@ -1026,11 +1026,12 @@ b {
 .left-column .sidebar a span {
     font-size: 1.5rem;
     transition: all 300ms ease;
+    margin-right: 10px;
 }
 
 .left-column .sidebar a.active {
     background: var(--color-light);
-    color: var(--color-primary);
+    color: var(--color-background);
 }
 
 .left-column .sidebar a.active:before {
@@ -1045,9 +1046,13 @@ b {
     color: var(--color-background);
     margin-left: calc(1rem-3px);
 }
-
+.left-column .sidebar a{
+    margin-right: 10px;
+}
+.left-column .sidebar a,
 .left-column .sidebar a:hover {
-    color: var(--color-danger);
+    color: var(--color-background);
+
 }
 
 .left-column .sidebar a:hover span {

@@ -12,15 +12,6 @@
             <span class="ri-receipt-line"></span>
             <h3>Reservation History</h3>
         </a>
-
-        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-            @csrf
-        </form>
-
-        <a class="sidebar-link" onclick="confirmation(event)">
-            <span class="ri-logout-box-r-line"></span>
-            <h3>Logout</h3>
-        </a>
     </div>
 </div>
 
@@ -51,18 +42,5 @@
                 $(this).addClass("active");
             });
         });
-
-        function confirmation(event) {
-            event.preventDefault(); // Prevent the default action of following the link
-            Swal.fire({
-                title: "Are you sure you want to logout?",
-                showCancelButton: true,
-                confirmButtonText: "Yes",
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    document.getElementById('logout-form').submit(); // Submit the logout form
-                }
-            });
-        }
     </script>
 @endsection

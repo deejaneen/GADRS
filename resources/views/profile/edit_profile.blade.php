@@ -1,4 +1,17 @@
 @extends('layout.weblayout')
+@section('scripts')
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#imageUpload').change(function(e) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#previewImage').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(this.files[0]);
+            });
+        });
+    </script>
+@endsection
 
 @section('profileview')
     <div class="profileview-container">
@@ -57,17 +70,4 @@
             </div>
         </form>
     </div>
-@endsection
-@section('scripts')
-<script type="text/javascript">
-    $(document).ready(function() {
-        $('#imageUpload').change(function(e) {
-            var reader = new FileReader();
-            reader.onload = function(e) {
-                $('#previewImage').attr('src', e.target.result);
-            }
-            reader.readAsDataURL(this.files[0]);
-        });
-    });
-</script>
 @endsection

@@ -131,7 +131,7 @@
                 </div>
                 <hr>
                 <div class="text-center footer button">
-                    <a class="btn btn-info btn-lg rounded btn-block mb-3 btn-clear" data-mdb-ripple-init>Clear</a>
+                    <a class="btn btn-info btn-lg rounded btn-block mb-3 btn-clear male" data-mdb-ripple-init>Clear</a>
                     <button type="submit" class="btn btn-info btn-lg rounded btn-block mb-3 btn-add">Add to
                         cart</button>
                 </div>
@@ -272,7 +272,8 @@
                 </div>
                 <hr>
                 <div class="text-center footer button">
-                    <a class="btn btn-info btn-lg rounded btn-block mb-3 btn-clear" data-mdb-ripple-init>Clear</a>
+                    <a class="btn btn-info btn-lg rounded btn-block mb-3 btn-clear female"
+                        data-mdb-ripple-init>Clear</a>
                     <button type="submit" class="btn btn-info btn-lg rounded btn-block mb-3 btn-add">Add to
                         cart</button>
                 </div>
@@ -283,117 +284,110 @@
 
 </div>
 @section('scripts')
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Function to format the date to 'YYYY-MM-DD' format
-        function formatDate(date) {
-            const year = date.getFullYear();
-            const month = String(date.getMonth() + 1).padStart(2, '0');
-            const day = String(date.getDate()).padStart(2, '0');
-            return `${year}-${month}-${day}`;
-        }
-
-        // Set default value for availabilityDate input
-        const availabilityDateInput = document.getElementById('availabilityDate');
-        availabilityDateInput.value = formatDate(new Date());
-
-        // Handling male dorm fields
-        const inputMale = document.querySelector('.number-input input');
-        inputMale.value = '0';
-
-        const plusBtnMale = document.querySelector('.number-input .ri-add-line');
-        const minusBtnMale = document.querySelector('.number-input .ri-subtract-fill');
-        const availabilityMale = parseInt(document.querySelector('.availability b').textContent);
-
-        plusBtnMale.addEventListener('click', function() {
-            if (parseInt(inputMale.value) < availabilityMale) {
-                inputMale.value = parseInt(inputMale.value) + 1;
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Function to format the date to 'YYYY-MM-DD' format
+            function formatDate(date) {
+                const year = date.getFullYear();
+                const month = String(date.getMonth() + 1).padStart(2, '0');
+                const day = String(date.getDate()).padStart(2, '0');
+                return `${year}-${month}-${day}`;
             }
-        });
 
-        minusBtnMale.addEventListener('click', function() {
-            if (parseInt(inputMale.value) > 0) {
-                inputMale.value = parseInt(inputMale.value) - 1;
-            }
-        });
-        // Set default value for date inputs to empty
-        const availabilityDateInputsMale = document.querySelectorAll('.btn-calendar-datetime[type="date"]');
-        availabilityDateInputsMale.forEach(input => {
-            input.value = '';
-        });
+            // Set default value for availabilityDate input
+            const availabilityDateInput = document.getElementById('availabilityDate');
+            availabilityDateInput.value = formatDate(new Date());
 
-        // Clear form to default values
-        const clearBtns = document.querySelectorAll('.btn-clear');
-        clearBtns.forEach(btn => {
-            btn.addEventListener('click', function() {
-                // Reset male dorm fields
-                inputMale.value = '0';
-                dropdownToggleMale.textContent = '';
-                availabilityDateInputsMale.forEach(input => {
-                    input.value = '';
+            // Handling male dorm fields
+            const inputMale = document.querySelector('.number-input input');
+            inputMale.value = '0';
+
+            const plusBtnMale = document.querySelector('.number-input .ri-add-line');
+            const minusBtnMale = document.querySelector('.number-input .ri-subtract-fill');
+            const availabilityMale = parseInt(document.querySelector('.availability b').textContent);
+
+            plusBtnMale.addEventListener('click', function() {
+                if (parseInt(inputMale.value) < availabilityMale) {
+                    inputMale.value = parseInt(inputMale.value) + 1;
+                }
+            });
+
+            minusBtnMale.addEventListener('click', function() {
+                if (parseInt(inputMale.value) > 0) {
+                    inputMale.value = parseInt(inputMale.value) - 1;
+                }
+            });
+            // Set default value for date inputs to empty
+            const availabilityDateInputsMale = document.querySelectorAll('.btn-calendar-datetime[type="date"]');
+            availabilityDateInputsMale.forEach(input => {
+                input.value = '';
+            });
+
+            // Clear form to default values
+            const clearBtns = document.querySelectorAll('.btn-clear.male');
+            clearBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Reset male dorm fields
+                    inputMale.value = '0';
+                    availabilityDateInputsMale.forEach(input => {
+                        input.value = '';
+                    });
                 });
             });
-        });
 
-        // Add event listener to check-in date input for setting minimum check-out date (Male)
-        const checkInDateInputMale = document.querySelector(
-            '.btn-calendar-datetime[name="reservation_start_date"]');
-        const checkOutDateInputMale = document.querySelector(
-            '.btn-calendar-datetime[name="reservation_end_date"]');
+            // Add event listener to check-in date input for setting minimum check-out date (Male)
+            const checkInDateInputMale = document.querySelector(
+                '.btn-calendar-datetime[name="reservation_start_date"]');
+            const checkOutDateInputMale = document.querySelector(
+                '.btn-calendar-datetime[name="reservation_end_date"]');
 
-        checkInDateInputMale.addEventListener('change', function() {
-            const selectedDate = new Date(this.value);
-            const minCheckOutDate = new Date(selectedDate);
-            minCheckOutDate.setDate(minCheckOutDate.getDate() +
-                1); // Set minimum check-out date as next day
-            checkOutDateInputMale.min = formatDate(
-                minCheckOutDate); // Update minimum date in check-out date input
-        });
-        // Add event listener to check-in date input for setting minimum check-out date (Female)
-        const checkInDateInputFemale = document.querySelector(
-            '.female.btn-calendar-datetime[name="reservation_start_date"]');
-        const checkOutDateInputFemale = document.querySelector(
-            '.female.btn-calendar-datetime[name="reservation_end_date"]');
+            checkInDateInputMale.addEventListener('change', function() {
+                const selectedDate = new Date(this.value);
+                const minCheckOutDate = new Date(selectedDate);
+                minCheckOutDate.setDate(minCheckOutDate.getDate() +
+                    1); // Set minimum check-out date as next day
+                checkOutDateInputMale.min = formatDate(
+                    minCheckOutDate); // Update minimum date in check-out date input
+            });
+            // Add event listener to check-in date input for setting minimum check-out date (Female)
+            const checkInDateInputFemale = document.querySelector(
+                '.female.btn-calendar-datetime[name="reservation_start_date"]');
+            const checkOutDateInputFemale = document.querySelector(
+                '.female.btn-calendar-datetime[name="reservation_end_date"]');
 
-        checkInDateInputFemale.addEventListener('change', function() {
-            const selectedDate = new Date(this.value);
-            const minCheckOutDate = new Date(selectedDate);
-            minCheckOutDate.setDate(minCheckOutDate.getDate() +
-                1); // Set minimum check-out date as next day
-            checkOutDateInputFemale.min = formatDate(
-                minCheckOutDate); // Update minimum date in check-out date input
-        });
+            checkInDateInputFemale.addEventListener('change', function() {
+                const selectedDate = new Date(this.value);
+                const minCheckOutDate = new Date(selectedDate);
+                minCheckOutDate.setDate(minCheckOutDate.getDate() +
+                    1); // Set minimum check-out date as next day
+                checkOutDateInputFemale.min = formatDate(
+                    minCheckOutDate); // Update minimum date in check-out date input
+            });
 
-        // Handling female dorm fields
-        const inputFemale = document.querySelector('.number-input-female input');
-        inputFemale.value = '0';
+            // Handling female dorm fields
+            const inputFemale = document.querySelector('.number-input-female input');
+            inputFemale.value = '0';
 
-        const plusBtnFemale = document.querySelector('.number-input-female .ri-add-line');
-        const minusBtnFemale = document.querySelector('.number-input-female .ri-subtract-fill');
-        const availabilityFemale = parseInt(document.querySelector('#femaleCard .availability b')
-            .textContent);
+            const plusBtnFemale = document.querySelector('.number-input-female .ri-add-line');
+            const minusBtnFemale = document.querySelector('.number-input-female .ri-subtract-fill');
+            const availabilityFemale = parseInt(document.querySelector('#femaleCard .availability b')
+                .textContent);
 
-        plusBtnFemale.addEventListener('click', function() {
-            if (parseInt(inputFemale.value) < availabilityFemale) {
-                inputFemale.value = parseInt(inputFemale.value) + 1;
-            }
-        });
+            plusBtnFemale.addEventListener('click', function() {
+                if (parseInt(inputFemale.value) < availabilityFemale) {
+                    inputFemale.value = parseInt(inputFemale.value) + 1;
+                }
+            });
 
-        minusBtnFemale.addEventListener('click', function() {
-            if (parseInt(inputFemale.value) > 0) {
-                inputFemale.value = parseInt(inputFemale.value) - 1;
-            }
-        });
-        
-        // Set default value for availabilityDateFemale input
-        const availabilityDateFemaleInput = document.getElementById('availabilityDateFemale');
+            minusBtnFemale.addEventListener('click', function() {
+                if (parseInt(inputFemale.value) > 0) {
+                    inputFemale.value = parseInt(inputFemale.value) - 1;
+                }
+            });
+
+            // Set default value for availabilityDateFemale input
+            const availabilityDateFemaleInput = document.getElementById('availabilityDateFemale');
             availabilityDateFemaleInput.value = formatDate(new Date());
-
-        document.addEventListener('DOMContentLoaded', function() {
-            
-
-
-
             // Set default value for date inputs to empty
             const availabilityDateInputsFemale = document.querySelectorAll(
                 '#femaleCard .btn-calendar-datetime[type="date"]');
@@ -402,12 +396,11 @@
             });
 
             // Clear form to default values
-            const clearBtns = document.querySelectorAll('.btn-clear');
-            clearBtns.forEach(btn => {
+            const clearBtnsFemale = document.querySelectorAll('.btn-clear.female');
+            clearBtnsFemale.forEach(btn => {
                 btn.addEventListener('click', function() {
                     // Reset female dorm fields
                     inputFemale.value = '0';
-                    dropdownToggleFemale.textContent = '';
                     availabilityDateInputsFemale.forEach(input => {
                         input.value = '';
                     });
@@ -415,6 +408,5 @@
             });
 
         });
-    });
-</script>
+    </script>
 @endsection
