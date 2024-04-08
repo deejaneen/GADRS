@@ -3,8 +3,9 @@
         <form action="{{ route('dorm.cart') }}" method="post">
             @csrf
             <!-- Male Card Start -->
-            <div class="card" id="maleCard">
 
+            <div class="card" id="maleCard">
+                <input type="hidden" name="current_card" value="maleCard">
                 <div class="card-body">
                     <h1 class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
                         <div class="card-title">
@@ -145,6 +146,7 @@
         <form action="{{ route('dorm.cart') }}" method="post">
             @csrf
             <!-- Female Card Start -->
+            <input type="hidden" name="current_card" value="femaleCard">
             <div class="card" id="femaleCard" style="display: none;">
                 <div class="card-body">
                     <h1 class="card-header"

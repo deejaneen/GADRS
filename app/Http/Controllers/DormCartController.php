@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\DormCart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 
 class DormCartController extends Controller
@@ -80,7 +81,17 @@ class DormCartController extends Controller
         $dormCart->save();
 
         // Redirect with success message
-        return redirect()->back()->with('success', 'Reservation added to cart successfully!');
+        // return redirect()->back()->with('success', 'Reservation added to cart successfully!');
+        // Flash success message to session
+        Session::flash('success', 'Reservation added to cart successfully!');
+
+        // Redirect the user back to the page with an anchor pointing to the specific card's ID
+        return redirect()->route('dorm')->with([
+            'current_card' => $request->current_card,
+            'success' => 'Reservation added to cart successfully!'
+        ]);
+
+
     }
 
 

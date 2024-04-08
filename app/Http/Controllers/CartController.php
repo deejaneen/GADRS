@@ -19,11 +19,11 @@ class CartController extends Controller
         $userId = Auth::id(); // Get the ID of the authenticated user
         $gymcarts = GymCart::where('employee_id', $userId)
             ->orderBy('created_at', 'DESC')
-            ->paginate(5);
+            ->get();
 
         $dormcarts = DormCart::where('employee_id', $userId)
             ->orderBy('created_at', 'DESC')
-            ->paginate(5);
+            ->get();
         return view('cart_checkout', ['gymcarts' => $gymcarts, 'dormcarts' => $dormcarts]);
     }
 

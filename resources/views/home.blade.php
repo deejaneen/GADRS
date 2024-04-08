@@ -50,7 +50,7 @@
                         <div>
                             <h4 class="card-header text-center">GYM</h4>
                         </div>
-                        <table class="table-home table-hover" id="GymReservationsTable">
+                        <table class="table-home table-hover" id="GymReservationsTable" style="width: 100%">
                             <thead>
                                 <tr>
                                     <th scope="col">Reservation Number</th>
@@ -82,7 +82,7 @@
                         <div>
                             <h4 class="card-header text-center">DORM</h4>
                         </div>
-                        <table class="table-home table-hover" id="DormReservationsTable">
+                        <table class="table-home table-hover" id="DormReservationsTable" style="width: 100%">
                             <thead>
                                 <tr>
                                     <th scope="col">Form Number</th>

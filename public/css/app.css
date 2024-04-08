@@ -1780,6 +1780,11 @@ ul.list-unstyled {
     margin-top: 10px;
     margin-bottom: 10px;
 }
+#dormCartReservationsTable {
+    width: 100%;
+    table-layout: auto;
+}
+
 
 @media (max-width: 1024px) {
     .container {

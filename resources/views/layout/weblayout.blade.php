@@ -88,9 +88,25 @@
         $(document).ready(function() {
             $('#GymReservationsTable').DataTable();
             $('#DormReservationsTable').DataTable();
-        });
+            // $('#dormCartReservationsTable').DataTable({
+            //     "pageLength": 5, // Display 5 rows per page
+            //     "lengthMenu": [5, 10, 15, 20], // Option to change number of rows per page
+            //     "paging": true, // Enable pagination
+            //     "columnDefs": [{
+            //         "targets": "_all",
+            //         "className": "dt-head-left"
+            //     }],
+            // });
 
-        $(document).ready(function() {
+            $('#gymCartReservationsTable').DataTable({
+                "pageLength": 5,
+                "lengthMenu": [5, 10, 15, 20],
+                "columnDefs": [{
+                    "targets": "_all", // Corrected target to be a string "_all"
+                    "className": "dt-head-left"
+                }],
+
+            });
 
         });
     </script>
@@ -116,13 +132,23 @@
             });
 
             // Toggle button click event for Gym Reservations Cart
+            // Toggle between Gym and Dorm reservations cards
             $('#gymReservationsCartToggleBtn').click(function(e) {
                 e.preventDefault();
 
                 // Toggle between Gym Cart and Dorm Cart cards
                 $('#gymReservationsCartCard').toggle();
                 $('#dormReservationsCartCard').toggle();
-                clearPrice();
+
+                // Check if dorm reservations card is visible
+                var dormCardVisible = $('#dormReservationsCartCard').is(':visible');
+                if (dormCardVisible) {
+                    // Initialize dorm reservations table if visible
+                    initializeDormTable();
+                } else {
+                    // Destroy dorm reservations table if not visible
+                    destroyDormTable();
+                }
             });
 
             // Toggle button click event for Dorm Reservations Cart
@@ -132,7 +158,7 @@
                 // Toggle between Dorm Cart and Gym Cart cards
                 $('#dormReservationsCartCard').toggle();
                 $('#gymReservationsCartCard').toggle();
-                clearPrice();
+                // clearPrice();
             });
 
             //HOME PAGE

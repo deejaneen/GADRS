@@ -13,7 +13,8 @@
 @section('content')
     <div class="container">
         <!-- Toggle buttons -->
-        <button class="btn btn-primary btn-lg rounded-pill toogle-btn" id="gymReservationsCartToggleBtn"> <span class="fa-solid fa-repeat"></span> Dorm Reservations
+        <button class="btn btn-primary btn-lg rounded-pill toogle-btn" id="gymReservationsCartToggleBtn"> <span
+                class="fa-solid fa-repeat"></span> Dorm Reservations
             Cart</button>
         <button class="btn btn-primary btn-lg rounded-pill toogle-btn" id="dormReservationsCartToggleBtn"
             style="display: none;"> <span class="fa-solid fa-repeat"></span> Gym Reservations Cart</button>
@@ -27,7 +28,37 @@
                 <form id="gymReservationForm" method="post" action="{{ route('cart.gym_convert') }}">
                     @csrf
                     <input type="hidden" name="cart_ids_gym">
-                    @foreach ($gymcarts as $gymcart)
+                    <table class="table-home table-hover" id="gymCartReservationsTable" style="width: 100%">
+                        <thead>
+                            <tr>
+                                <th scope="col" style="width: 10%">Buttons</th>
+                                <th scope="col" style="width: 60%"> Reservation Date</th>
+                                <th scope="col" style="width: 10%">Price</th>
+                                <th scope="col"style="width: 10%">Dorm</th>
+                                <th scope="col" style="width: 10%">Checkbox</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($gymcarts as $gymcart)
+                                <tr class="table-active dorm">
+                                    <td><i class="fa-solid fa-plus add-icon ms-3"></i>
+                                        <i class="fa-solid fa-minus minus-icon ms-3"></i>
+                                    </td>
+                                    <td>{{ date('F j, Y', strtotime($gymcart->reservation_date)) }},
+                                        {{ date('g:i A', strtotime($gymcart->reservation_time_start)) }} -
+                                        {{ date('g:i A', strtotime($gymcart->reservation_time_end)) }}</td>
+                                    <td>{{ $gymcart->price }}</td>
+                                    <td>{{ $gymcart->purpose }}</td>
+                                    <td> <input type="checkbox" name="gym_cart_ids[]"
+                                            class="reservation-checkbox gym-cart-checkbox" value="{{ $gymcart->id }}"
+                                            data-price="{{ $gymcart->price }}"></td>
+
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                    {{-- @foreach ($gymcarts as $gymcart)
                         <div class="row align-items-center">
                             <div class="col-2">
                                 <i class="fa-solid fa-plus add-icon ms-3"></i>
@@ -49,7 +80,7 @@
                                     value="{{ $gymcart->id }}" data-price="{{ $gymcart->price }}">
                             </div>
                         </div>
-                    @endforeach
+                    @endforeach --}}
                     <hr>
                     <button type="submit" class="d-none"></button>
                 </form>
@@ -66,8 +97,38 @@
                 <form id="dormReservationForm" method="post" action="{{ route('cart.dorm_convert') }}">
                     @csrf
                     <input type="hidden" name="cart_ids_dorm">
-                    @foreach ($dormcarts as $dormcart)
-                        <div class="row align-items-center">
+                    <table class="table-home table-hover" id="dormCartReservationsTable" style="width: 100%">
+                        <thead>
+                            <tr>
+                                <th scope="col" style="width: 10%">Buttons</th>
+                                <th scope="col" style="width: 60%"> Reservation Date</th>
+                                <th scope="col" style="width: 10%">Price</th>
+                                <th scope="col"style="width: 10%">Dorm</th>
+                                <th scope="col" style="width: 10%">Checkbox</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($dormcarts as $dormcart)
+                                <tr class="table-active dorm">
+                                    <td><i class="fa-solid fa-plus add-icon ms-3"></i>
+                                        <i class="fa-solid fa-minus minus-icon ms-3"></i>
+                                    </td>
+                                    <td>{{ date('F j, Y', strtotime($dormcart->reservation_start_date)) }} -
+                                        {{ date('g:i A', strtotime($dormcart->reservation_start_time)) }},
+                                        {{ date('F j, Y', strtotime($dormcart->reservation_end_date)) }} -
+                                        {{ date('g:i A', strtotime($dormcart->reservation_end_time)) }}</td>
+                                    <td>{{ $dormcart->price }}</td>
+                                    <td>{{ $dormcart->gender }}</td>
+                                    <td> <input type="checkbox" name="dorm_cart_ids[]"
+                                            class="reservation-checkbox dorm-cart-checkbox" value="{{ $dormcart->id }}"
+                                            data-price="{{ $dormcart->price }}"></td>
+
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                    {{-- <div class="row align-items-center">
                             <div class="col-2">
                                 <i class="fa-solid fa-plus add-icon ms-3"></i>
                                 <i class="fa-solid fa-minus minus-icon ms-3"></i>
@@ -88,8 +149,7 @@
                                     class="reservation-checkbox dorm-cart-checkbox" value="{{ $dormcart->id }}"
                                     data-price="{{ $dormcart->price }}">
                             </div>
-                        </div>
-                    @endforeach
+                        </div> --}}
                     <hr>
                     <button type="submit" class="d-none"></button>
                 </form>
@@ -117,6 +177,32 @@
 
 @section('scripts')
     <script>
+        // Declare variable to store DataTable instance
+        let dormTable;
+
+        // Function to initialize DataTable for dorm reservations
+        function initializeDormTable() {
+            if (!dormTable) {
+                dormTable = $('#dormCartReservationsTable').DataTable({
+                    "pageLength": 5,
+                    "lengthMenu": [5, 10, 15, 20],
+                    "columnDefs": [{
+                        "targets": "_all",
+                        "className": "dt-head-left"
+                    }],
+                });
+            }
+        }
+
+        // Function to destroy DataTable for dorm reservations
+        function destroyDormTable() {
+            if (dormTable) {
+                dormTable.destroy();
+                dormTable = null; // Reset dormTable variable
+            }
+        }
+
+
         function confirmation() {
             Swal.fire({
                 title: "Are you sure you want to checkout all the selected items?",
@@ -125,12 +211,18 @@
                 denyButtonText: `No`
             }).then((result) => {
                 if (result.isConfirmed) {
-                    // Check if gym reservations card is visible
-                    const gymCardVisible = document.getElementById('gymReservationsCartCard').style.display !==
-                        'none';
-                    // Check if dorm reservations card is visible
-                    const dormCardVisible = document.getElementById('dormReservationsCartCard').style.display !==
-                        'none';
+                    // // Check if gym reservations card is visible
+                    // const gymCardVisible = document.getElementById('gymReservationsCartCard').style.display !==
+                    //     'none';
+                    // // Check if dorm reservations card is visible
+                    // const dormCardVisible = document.getElementById('dormReservationsCartCard').style.display !==
+                    //     'none';
+
+                    const gymCardVisible = window.getComputedStyle(document.getElementById(
+                        'gymReservationsCartCard')).display !== 'none';
+                    const dormCardVisible = window.getComputedStyle(document.getElementById(
+                        'dormReservationsCartCard')).display !== 'none';
+
 
                     if (gymCardVisible) {
                         // Get selected gym cart IDs
@@ -171,7 +263,6 @@
             });
         }
 
-
         function goBack() {
             window.history.back();
         }
@@ -202,16 +293,16 @@
         document.addEventListener('DOMContentLoaded', function() {
             const gymToggleBtn = document.getElementById('gymReservationsCartToggleBtn');
             const dormToggleBtn = document.getElementById('dormReservationsCartToggleBtn');
-            const gymCard = document.getElementById('gymReservationsCartCard');
-            const dormCard = document.getElementById('dormReservationsCartCard');
+            // const gymCard = document.getElementById('gymReservationsCartCard');
+            // const dormCard = document.getElementById('dormReservationsCartCard');
             const checkboxes = document.querySelectorAll('.reservation-checkbox');
 
             gymToggleBtn.addEventListener('click', function() {
                 clearPrice();
                 // gymCard.style.display = 'block';
                 // dormCard.style.display = 'none';
-                // gymToggleBtn.style.display = 'none';
-                // dormToggleBtn.style.display = 'block';
+                gymToggleBtn.style.display = 'none';
+                dormToggleBtn.style.display = 'block';
 
                 checkboxes.forEach(function(checkbox) {
                     checkbox.checked = false;
@@ -219,11 +310,12 @@
             });
 
             dormToggleBtn.addEventListener('click', function() {
+
                 clearPrice();
                 // dormCard.style.display = 'block';
                 // gymCard.style.display = 'none';
-                // dormToggleBtn.style.display = 'none';
-                // gymToggleBtn.style.display = 'block';
+                dormToggleBtn.style.display = 'none';
+                gymToggleBtn.style.display = 'block';
 
                 checkboxes.forEach(function(checkbox) {
                     checkbox.checked = false;
@@ -238,5 +330,8 @@
             // Display initial total price
             updateTotalPrice();
         });
+
+
     </script>
 @endsection
+
