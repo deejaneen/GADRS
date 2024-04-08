@@ -208,10 +208,10 @@
 
             gymToggleBtn.addEventListener('click', function() {
                 clearPrice();
-                gymCard.style.display = 'block';
-                dormCard.style.display = 'none';
-                gymToggleBtn.style.display = 'none';
-                dormToggleBtn.style.display = 'block';
+                // gymCard.style.display = 'block';
+                // dormCard.style.display = 'none';
+                // gymToggleBtn.style.display = 'none';
+                // dormToggleBtn.style.display = 'block';
 
                 checkboxes.forEach(function(checkbox) {
                     checkbox.checked = false;
@@ -220,10 +220,10 @@
 
             dormToggleBtn.addEventListener('click', function() {
                 clearPrice();
-                dormCard.style.display = 'block';
-                gymCard.style.display = 'none';
-                dormToggleBtn.style.display = 'none';
-                gymToggleBtn.style.display = 'block';
+                // dormCard.style.display = 'block';
+                // gymCard.style.display = 'none';
+                // dormToggleBtn.style.display = 'none';
+                // gymToggleBtn.style.display = 'block';
 
                 checkboxes.forEach(function(checkbox) {
                     checkbox.checked = false;

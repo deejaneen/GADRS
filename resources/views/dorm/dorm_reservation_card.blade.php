@@ -88,13 +88,15 @@
                             <div class="row discount">
                                 <div class="col-md-6">
                                     <h5>Apply for Senior/PWD discount?</h5>
-                                    <input type="checkbox" id="myCheckboxSeniorMale"
-                                        onchange="updateCheckboxValue(this)" name="is_senior_or_pwd">
+                                    <input type="checkbox" id="myCheckboxSeniorMale" name="is_senior_or_pwd">
+                                    {{-- <input type="checkbox" id="myCheckboxSeniorMale"
+                                        onchange="updateCheckboxValue(this)" name="is_senior_or_pwd"> --}}
                                 </div>
                                 <div class="col-md-6">
                                     <h5>Is the person staying at the reservation a child below 5 years old?</h5>
-                                    <input type="checkbox" id="myCheckboxChildrenMale"
-                                        onchange="updateCheckboxValue(this)" name="is_child">
+                                    <input type="checkbox" id="myCheckboxChildrenMale" name="is_child">
+                                    {{-- <input type="checkbox" id="myCheckboxChildrenMale"
+                                        onchange="updateCheckboxValue(this)" name="is_child"> --}}
                                 </div>
                             </div>
                         </div>
@@ -227,13 +229,15 @@
                             <div class="row discount">
                                 <div class="col-md-6">
                                     <h5>Apply for Senior/PWD discount?</h5>
-                                    <input type="checkbox" id="myCheckboxSeniorFemale"
-                                        onchange="updateCheckboxValue(this)" name="is_senior_or_pwd">
+                                    <input type="checkbox" id="myCheckboxSeniorFemale" name="is_senior_or_pwd">
+                                    {{-- <input type="checkbox" id="myCheckboxSeniorFemale"
+                                        onchange="updateCheckboxValue(this)" name="is_senior_or_pwd"> --}}
                                 </div>
                                 <div class="col-md-6">
                                     <h5>Is the person staying at the reservation a child below 5 years old?</h5>
-                                    <input type="checkbox" id="myCheckboxChildrenFemale"
-                                        onchange="updateCheckboxValue(this)" name="is_child">
+                                    <input type="checkbox" id="myCheckboxChildrenFemale" name="is_child">
+                                    {{-- <input type="checkbox" id="myCheckboxChildrenFemale"
+                                        onchange="updateCheckboxValue(this)" name="is_child"> --}}
                                 </div>
                             </div>
 

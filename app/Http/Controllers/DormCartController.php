@@ -80,7 +80,7 @@ class DormCartController extends Controller
         $dormCart->save();
 
         // Redirect with success message
-        return redirect()->route('dorm')->with('success', 'Reservation added to cart successfully!');
+        return redirect()->back()->with('success', 'Reservation added to cart successfully!');
     }
 
 
