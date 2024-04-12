@@ -184,6 +184,7 @@
         function initializeDormTable() {
             if (!dormTable) {
                 dormTable = $('#dormCartReservationsTable').DataTable({
+                    "paging" : false,
                     "pageLength": 5,
                     "lengthMenu": [5, 10, 15, 20],
                     "columnDefs": [{
