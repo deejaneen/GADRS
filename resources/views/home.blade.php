@@ -39,16 +39,18 @@
 
         <div class="row-bottom">
             <div class="column-bottom">
-                <button class="btn btn-primary btn-lg rounded-pill toogle-btn" id="gymTableToggleBtn"> <span class="fa-solid fa-repeat"> Dorm</button>
-                <button class="btn btn-primary btn-lg rounded-pill toogle-btn" id="dormTableToggleBtn"
-                    style="display: none;"> <span class="fa-solid fa-repeat"> Gym</button>
+
                 <ul class="home-reservation-table">
                     <li class="reservation-table-home">
                         <h1><i class="ri-key-2-fill"></i> MY RESERVATIONS<i class="ri-receipt-fill"></i></h1>
+                        <button class="btn btn-primary btn-lg rounded-pill toogle-btn" id="gymTableToggleBtn"> <span
+                                class="fa-solid fa-repeat"> Dorm</button>
+                        <button class="btn btn-primary btn-lg rounded-pill toogle-btn" id="dormTableToggleBtn"
+                            style="display: none;"> <span class="fa-solid fa-repeat"> Gym</button>
                     </li>
                     <div class="card" id="GymReservationsTableCard">
                         <div>
-                            <h4 class="card-header text-center">GYM</h4>
+                            <h4 class="card-header text-center home">GYM</h4>
                         </div>
                         <table class="table-home table-hover" id="GymReservationsTable" style="width: 100%">
                             <thead>
@@ -67,8 +69,8 @@
                                     <tr class="table-active">
                                         <th>{{ $gym->reservation_number }}</th>
                                         <td>{{ date('F j, Y', strtotime($gym->reservation_date)) }}</td>
-                                        <td>{{ date('g:i A', strtotime($gym->reservation_time_start )) }}</td>
-                                        <td>{{ date('g:i A', strtotime($gym->reservation_time_end )) }}</td>
+                                        <td>{{ date('g:i A', strtotime($gym->reservation_time_start)) }}</td>
+                                        <td>{{ date('g:i A', strtotime($gym->reservation_time_end)) }}</td>
                                         <td>{{ $gym->purpose }}</td>
                                         <td>₱{{ $gym->price }}</td>
                                         <td>{{ $gym->status }}</td>
@@ -80,7 +82,7 @@
 
                     <div class="card" style="display: none" id="DormReservationsTableCard">
                         <div>
-                            <h4 class="card-header text-center">DORM</h4>
+                            <h4 class="card-header text-center home">DORM</h4>
                         </div>
                         <table class="table-home table-hover" id="DormReservationsTable" style="width: 100%">
                             <thead>
@@ -97,11 +99,11 @@
                             <tbody>
                                 @foreach ($dorms as $dorm)
                                     <tr class="table-active">
-                                        <th>{{ $dorm->Form_number}}</th>
+                                        <th>{{ $dorm->Form_number }}</th>
                                         <td>{{ date('F j, Y', strtotime($dorm->reservation_start_date)) }}</td>
-                                        <td>{{ date('g:i A', strtotime( $dorm->reservation_start_time )) }}</td>
+                                        <td>{{ date('g:i A', strtotime($dorm->reservation_start_time)) }}</td>
                                         <td>{{ date('F j, Y', strtotime($dorm->reservation_end_date)) }}</td>
-                                        <td>{{ date('g:i A', strtotime( $dorm->reservation_end_time )) }}</td>
+                                        <td>{{ date('g:i A', strtotime($dorm->reservation_end_time)) }}</td>
                                         <td>₱{{ $dorm->price }}</td>
                                         <td>{{ $dorm->status }}</td>
                                     </tr>
@@ -126,8 +128,8 @@
     </div>
 @endsection
 @section('scripts')
-<script>
-     document.addEventListener('DOMContentLoaded', function() {
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
             const gymToggleBtn = document.getElementById('gymTableToggleBtn');
             const dormToggleBtn = document.getElementById('dormTableToggleBtn');
             const gymCard = document.getElementById('GymReservationsTableCard');
@@ -148,5 +150,5 @@
 
             });
         });
-</script>
+    </script>
 @endsection

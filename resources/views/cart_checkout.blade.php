@@ -1,6 +1,6 @@
 @extends('layout.weblayout')
 
-@section('secondary_nav')
+{{-- @section('secondary_nav')
     <nav class="navbar sticky-top bg-body-tertiary secondary_nav">
         <div class="container-fluid">
             <a class="navbar-brand" onclick="goBack()">
@@ -8,7 +8,7 @@
             </a>
         </div>
     </nav>
-@endsection
+@endsection --}}
 
 @section('content')
     <div class="container">
@@ -22,9 +22,9 @@
         <!-- Gym Reservations Cart -->
         <div class="card" id="gymReservationsCartCard">
             <div>
-                <h2 class="card-header text-center">GYM RESERVATIONS</h2>
+                <h2 class="card-header text-center checkout">GYM RESERVATIONS</h2>
             </div>
-            <div class="card-body">
+            <div class="card-body-checkout">
                 <form id="gymReservationForm" method="post" action="{{ route('cart.gym_convert') }}">
                     @csrf
                     <input type="hidden" name="cart_ids_gym">
@@ -91,7 +91,7 @@
         <!-- Dorm Reservations Cart -->
         <div class="card" id="dormReservationsCartCard" style="display: none;">
             <div>
-                <h2 class="card-header text-center">DORM RESERVATIONS</h2>
+                <h2 class="card-header text-center checkout">DORM RESERVATIONS</h2>
             </div>
             <div class="card-body">
                 <form id="dormReservationForm" method="post" action="{{ route('cart.dorm_convert') }}">
