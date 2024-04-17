@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Gym;
 use App\Models\GymCart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
 
 class GymCartController extends Controller
 {
@@ -14,7 +14,6 @@ class GymCartController extends Controller
      */
     public function index()
     {
-
     }
 
     /**
@@ -40,19 +39,37 @@ class GymCartController extends Controller
 
         ]);
 
-        // Create a new GymCart instance
-        $gymCart = new GymCart();
-        $gymCart->reservation_date = $validatedData['selectedDateText'];
-        $gymCart->reservation_time_start = $validatedData['timepicker-am'];
-        $gymCart->reservation_time_end = $validatedData['timepicker-pm'];
-        $gymCart->occupant_type = $validatedData['employee_type'];
-        $gymCart->purpose = $validatedData['purpose'];
-        $gymCart->employee_id = Auth::id(); // Use Auth::id() instead of Auth()->id()
+        // Check for overlapping reservations
+        $overlappingReservation = Gym::where(function ($query) use ($validatedData) {
+            $query->where('reservation_date', $validatedData['selectedDateText'])
+                ->where(function ($query) use ($validatedData) {
+                    $query->whereBetween('reservation_time_start', [$validatedData['timepicker-am'], $validatedData['timepicker-pm']])
+                        ->orWhereBetween('reservation_time_end', [$validatedData['timepicker-am'], $validatedData['timepicker-pm']]);
+                })
+                ->orWhere(function ($query) use ($validatedData) {
+                    $query->where('reservation_time_start', '<=', $validatedData['timepicker-am'])
+                        ->where('reservation_time_end', '>=', $validatedData['timepicker-pm']);
+                });
+        })->exists();
 
-        // Save the GymCart instance to the database
-        $gymCart->save();
+        if ($overlappingReservation) {
+            return redirect()->route('gym')->with('error', 'The selected time slot overlaps with an existing reservation. Please choose another time slot.');
+        } else {
 
-        return redirect()->route('gym')->with('success', 'Reservation added to cart successfully!');
+            // Create a new GymCart instance
+            $gymCart = new GymCart();
+            $gymCart->reservation_date = $validatedData['selectedDateText'];
+            $gymCart->reservation_time_start = $validatedData['timepicker-am'];
+            $gymCart->reservation_time_end = $validatedData['timepicker-pm'];
+            $gymCart->occupant_type = $validatedData['employee_type'];
+            $gymCart->purpose = $validatedData['purpose'];
+            $gymCart->employee_id = Auth::id(); // Use Auth::id() instead of Auth()->id()
+
+            // Save the GymCart instance to the database
+            $gymCart->save();
+
+            return redirect()->route('gym')->with('success', 'Reservation added to cart successfully!');
+        }
     }
 
     /**
@@ -60,7 +77,6 @@ class GymCartController extends Controller
      */
     public function show(GymCart $gymCart)
     {
-
     }
 
     /**

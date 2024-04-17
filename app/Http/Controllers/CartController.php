@@ -17,13 +17,23 @@ class CartController extends Controller
     public function index()
     {
         $userId = Auth::id(); // Get the ID of the authenticated user
+
+        // Get today's date
+        $today = now()->startOfDay();
+
+        // Get the next upcoming day
+        $nextDay = now()->addDay()->startOfDay();
+
         $gymcarts = GymCart::where('employee_id', $userId)
+            ->whereBetween('created_at', [$today, $nextDay])
             ->orderBy('created_at', 'DESC')
             ->get();
 
         $dormcarts = DormCart::where('employee_id', $userId)
+            ->whereBetween('created_at', [$today, $nextDay])
             ->orderBy('created_at', 'DESC')
             ->get();
+
         return view('cart_checkout', ['gymcarts' => $gymcarts, 'dormcarts' => $dormcarts]);
     }
 
@@ -52,7 +62,6 @@ class CartController extends Controller
             return redirect()->back()->with('success', 'Dorm Reservation added successfully!');
         } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => 'Dorm Reservation unsuccessful']);
-
         }
     }
 

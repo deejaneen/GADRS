@@ -30,3 +30,4 @@
     @include('dorm.dorm_reservation_card')
     @include('cart_sidebar')
 @endsection
+

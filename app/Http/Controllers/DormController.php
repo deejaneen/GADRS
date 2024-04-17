@@ -12,7 +12,9 @@ class DormController extends Controller
      */
     public function index()
     {
-        return view('dorm');
+        $dorms = Dorm::orderBy('created_at', 'DESC');
+
+        return view('dorm', ['dorms' => $dorms]);
     }
 
     /**

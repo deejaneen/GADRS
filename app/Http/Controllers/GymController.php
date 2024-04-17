@@ -73,7 +73,7 @@ class GymController extends Controller
         $selectedDate = $request->input('selected_date');
 
         // Fetch reservations with status "Reserved" for the selected date
-        $reservations = GymCart::whereDate('reservation_date', $selectedDate)
+        $reservations = Gym::whereDate('reservation_date', $selectedDate)
             ->where('status', 'Reserved')
             ->get();
 

@@ -54,6 +54,20 @@
             });
         </script>
     @endif
+    @if (session('error'))
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: '{{ session('error') }}',
+                    customClass: {
+                        popup: 'small-modal'
+                    }
+                });
+            });
+        </script>
+    @endif
     @yield('banner')
 
 
@@ -99,7 +113,7 @@
             // });
 
             $('#gymCartReservationsTable').DataTable({
-                "paging" : false,
+                "paging": false,
                 "pageLength": 5,
                 "lengthMenu": [5, 10, 15, 20],
                 "columnDefs": [{
