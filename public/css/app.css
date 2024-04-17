@@ -139,8 +139,8 @@ b {
     align-items: flex-end;
 }
 
-.navbar {
-    display: grid;
+.navbar.navbar-expand-lg {
+    display: flex;
     position: relative;
     left: 0px;
     top: 0px;
@@ -181,6 +181,7 @@ b {
 
 .navbar a.navbar-brand img {
     height: 4rem;
+    width: 4rem;
 }
 
 .navbar a.navbar-brand {
@@ -1486,17 +1487,15 @@ b {
     color: var(--color-success);
 }
 
-.welcome-section .welcome-title1 h3 {
-    font-size: 3rem;
+.welcome-section .welcome-title1 h3,
+.welcome-section .welcome-name h3 {
+    font-size: 2.8rem;
 }
 
 .welcome-section .welcome-title2 h1 {
-    font-size: 5rem;
+    font-size: 3.3rem;
 }
 
-.welcome-section .welcome-name h3 {
-    font-size: 3rem;
-}
 
 .welcome-section .welcome-title1,
 .welcome-section .welcome-title2,
@@ -1512,7 +1511,7 @@ b {
     border: var(--color-primary) 2px;
     color: var(--color-background);
     background-color: var(--color-primary);
-    margin-top: 15px;
+    margin-top: 50px;
     border-radius: 50px;
     max-width: calc(80%);
     box-sizing: border-box;
@@ -1823,9 +1822,23 @@ ul.list-unstyled {
     table-layout: auto;
 }
 
+@media (max-width: 1440px) {
+    .nav-item.profile a .first-name,
+    .nav-item.logout button .logout-text {
+        display: none;
+    }
+
+    .nav-item.profile a i {
+        margin-bottom: 2px;
+    }
+
+    .navbar-nav .nav-item:not(.logout) i {
+        margin-right: 20px;
+    }
+}
 @media (min-width: 992px) {
     .container, .container-lg, .container-md, .container-sm {
-      max-width: 1024px !important;
+      max-width: 1440px !important;
     }
   }
 @media (max-width: 1024px) {
@@ -1842,6 +1855,7 @@ ul.list-unstyled {
 
     .navbar a.navbar-brand img {
         height: 2rem;
+        width: 2rem;
     }
 
     .navbar a.navbar-brand {
