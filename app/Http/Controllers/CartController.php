@@ -59,7 +59,8 @@ class CartController extends Controller
             }
 
             // return response()->json(['message' => 'Dorm reservations added successfully'], 200);
-            return redirect()->back()->with('success', 'Dorm Reservation added successfully!');
+            return redirect()->route('home')->with('success', 'Dorm Reservation added successfully!');
+            // return redirect()->back()->with('success', 'Dorm Reservation added successfully!');
         } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => 'Dorm Reservation unsuccessful']);
         }
@@ -84,7 +85,9 @@ class CartController extends Controller
                 $gymReservation->save();
             }
 
-            return redirect()->back()->with('success', 'Gym Reservation added successfully!');
+            // return redirect()->back()->with('success', 'Gym Reservation added successfully!');
+
+            return redirect()->route('home')->with('success', 'Gym Reservation added successfully!');
         } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => 'Gym Reservation unsuccessful']);
         }
