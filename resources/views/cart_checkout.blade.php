@@ -74,7 +74,7 @@
                                     <li>Purpose: {{ $gymcart->purpose }}</li>
                                 </ul>
                             </div>
-                            <div class="col-2">
+                            <div class="co@l-2">
                                 <i class="fa-solid fa-trash trash-icon"></i>
                                 <input type="checkbox" name="gym_cart_ids[]" class="reservation-checkbox gym-cart-checkbox"
                                     value="{{ $gymcart->id }}" data-price="{{ $gymcart->price }}">
@@ -93,7 +93,7 @@
             <div>
                 <h2 class="card-header text-center checkout">DORM RESERVATIONS</h2>
             </div>
-            <div class="card-body">
+            <div class="card-body-checkout">
                 <form id="dormReservationForm" method="post" action="{{ route('cart.dorm_convert') }}">
                     @csrf
                     <input type="hidden" name="cart_ids_dorm">

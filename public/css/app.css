@@ -520,7 +520,7 @@ b {
     border-radius: 18px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
     width: fit-content;
-    margin: 10px auto;
+    margin: 10px;
     margin-top: 10px;
 }
 
@@ -1387,6 +1387,8 @@ b {
 }
 
 /* Cart End */
+
+/*========================HOME PAGE==============================*/
 .row-top {
     display: flex;
     align-items: center;
@@ -1506,7 +1508,11 @@ b {
 .welcome-section .welcome-title2 {
     font-family: "Poppins", serif;
 }
-
+#gymTableToggleBtn,
+#dormTableToggleBtn {
+    color: var(--color-primary);
+    background: var(--color-background);
+}
 .column-bottom {
     border: var(--color-primary) 2px;
     color: var(--color-background);
@@ -1533,7 +1539,7 @@ b {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 30%;
+    margin-top: 25%;
 }
 
 .column-bottom .home-reservation-table {
@@ -1605,10 +1611,17 @@ div.dt-container{
 }
 
 /* =========================Cart Checkout ===================*/
-#gymReservationsCartCard{
+#gymReservationsCartCard,
+#dormReservationsCartCard{
     border: 3px solid var(--color-primary);
     margin-top: 20px;
     background-color: var(--color-background);
+}
+#gymReservationsCartToggleBtn,
+#dormReservationsCartToggleBtn
+{
+    background: var(--color-primary);
+    color: var(--color-background);
 }
 
 .bg-body-tertiary {
@@ -1978,7 +1991,8 @@ ul.list-unstyled {
         height: 25%;
     }
 
-    .banner-gym-text h1.banner-name {
+    .banner-gym-text h1.banner-name,
+    .banner-dorm-text h1.banner-name {
         font-size: 5rem !important;
         margin-top: 20px !important;
 
@@ -1989,27 +2003,31 @@ ul.list-unstyled {
     }
 
     .volleyball {
-        height: 260px;
+        height: 240px;
         top: 12%;
         z-index: -1;
-        left: -5%;
+        left: 0%;
     }
 
     .basketball {
-        height: 220px;
+        height: 210px;
         top: 10%;
         z-index: -1;
-        right: 0%;
+        right: -3%;
     }
 
     .pillow1 {
         height: 260px;
         top: 10%;
+        z-index: -1;
+        left: -5%;
     }
 
     .pillow2 {
         height: 220px;
         top: 5%;
+        z-index: -1;
+        right: -4%;
     }
 
     .banner-dorm-text h1.banner-name {
@@ -2021,7 +2039,7 @@ ul.list-unstyled {
     }
 
     .banner-dorm-top {
-        height: 20%;
+        height: 24%;
     }
 
     .banner-dorm-bottom {
@@ -2076,540 +2094,20 @@ ul.list-unstyled {
         width: 80%;
         margin: 0 auto;
     }
-}
-
-/* .centered {
-        display: flex;
-        align-items: flex-end;
+    .left-column .sidebar a h3{
+        font-size: 1.3rem !important;
     }
-
-    .banner-dorm h1.banner-name {
-        font-size: 5rem;
-        color: var(--color-background);
-        margin-top: 75px !important;
-        transition: all .50s ease;
-    }
-
-    .banner-gym h1.banner-name {
-        font-size: 5rem;
-        color: var(--color-background);
-        transition: all .50s ease;
-        margin-top: 75px !important;
-    }
-
-    .banner-dorm .btn {
-        color: var(--color-primary);
-        padding: 10px 15px;
-        border-width: 5px;
-        border-color: var(--color-warning) !important;
-        font-weight: 700;
-        background-color: var(--color-warning);
-        font-size: 1.5rem;
-        text-decoration: none;
-        border-radius: 20px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        transition: all .50s ease;
-    }
-
-    .banner-gym .btn {
-        color: var(--color-danger);
-        padding: 10px 15px;
-        border-width: 5px;
-        border-color: var(--color-warning) !important;
-        font-weight: 700;
-        background-color: var(--color-warning);
-        font-size: 1.5rem;
-        text-decoration: none;
-        border-radius: 20px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        transition: all .50s ease;
-    }
-
-    .banner-gym {
-        position: relative;
-        text-align: center;
-        color: var(--color-white);
-        background: url('../images/Gym\ Banner\ Reservation.png') center/cover no-repeat;
-        height: 360px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-
-    .banner-dorm {
-        position: relative;
-        text-align: center;
-        color: var(--color-white);
-        background: url('../images/Dorm\ Banner\ Reservation.png') center/cover no-repeat;
-        height: 360px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-
-    .form-box .form-details {
-        max-width: auto;
-        width: 60%;
-        height: 0;
-        padding-top: 75%;
-        display: flex;
-        text-align: center;
-        flex-direction: column;
-        align-items: center;
-        background: url('../images/Login\ page\ 1\ 768px.png') center/cover no-repeat;
-        background-size: cover;
-        transition: all .5s ease;
-    }
-
-    .form-box .form-details-register {
-        max-width: auto;
-        width: 40%;
-        height: 0;
-        padding-top: 75%;
-        display: flex;
-        text-align: center;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-        background: url('../images/Login\ page\ 768px.png') center/cover no-repeat;
-        background-size: cover;
-        transition: all .5s ease;
-    }
-
-    .form-content-register {
-        padding: 10% 10px 0% 10px !important;
-    }
-
-    .form-content {
-        padding: 10% 5% 10% 5% !important;
-    }
-
-    .wrapper {
-        position: relative;
-        min-height: 65vh;
-        max-width: 1200px;
-        width: auto;
-        background: var(--color-background);
-        border: 3px solid var(--color-primary);
-    }
-}
-*/
-@media (min-width:1400px) {
-    /* .container {
-        max-width: 1700px !important;
+    /* .profile-title{
+        font-size: 1.5rem !important;
     } */
-}
-
-@media (max-width: 992px) {
-    /* .centered {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+    .right-column.password h3{
+        grid-row: 1;
+        grid-column: 2 / span 4;
     }
-
-    .banner-dorm h1.banner-name {
-        font-size: 5rem;
-        color: var(--color-background);
-        transition: all .50s ease;
-    }
-
-    .banner-gym h1.banner-name {
-        font-size: 5rem;
-        color: var(--color-background);
-        transition: all .50s ease;
-    }
-
-    .banner-dorm .btn {
-        color: var(--color-primary);
-        padding: 10px 15px;
-        border-width: 5px;
-        border-color: var(--color-warning) !important;
-        font-weight: 700;
-        background-color: var(--color-warning);
-        font-size: 1.5rem;
-        text-decoration: none;
-        border-radius: 20px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        transition: all .50s ease;
-    }
-
-    .banner-gym .btn {
-        color: var(--color-danger);
-        padding: 10px 15px;
-        border-width: 5px;
-        border-color: var(--color-warning) !important;
-        font-weight: 700;
-        background-color: var(--color-warning);
-        font-size: 1.5rem;
-        text-decoration: none;
-        border-radius: 20px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        transition: all .50s ease;
-    }
-
-    .banner-gym {
-        position: relative;
-        text-align: center;
-        color: var(--color-white);
-        background: url('../images/Gym\ Banner\ Reservation.png') center/cover no-repeat;
-        height: 360px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-
-    .banner-dorm {
-        position: relative;
-        text-align: center;
-        color: var(--color-white);
-        background: url('../images/Dorm\ Banner\ Reservation.png') center/cover no-repeat;
-        height: 360px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-
-    .form-box .form-details {
-        max-width: auto;
-        width: 60%;
-        height: 70vh;
-        padding-top: 75%;
-        display: flex;
-        text-align: center;
-        flex-direction: column;
-        align-items: center;
-        background: url('../images/Login\ page\ 1\ 992px.png') center/cover no-repeat;
-        transition: all .5s ease;
-    }
-
-    .form-box .form-details-register {
-        max-width: auto;
-        width: 40%;
-        height: 70vh;
-        padding-top: 75%;
-        display: flex;
-        text-align: center;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-        background: url('../images/Login\ page\ 992px.png') center/contain no-repeat;
-        background-size: cover;
-        transition: all .5s ease;
-    }
-
-    .form-content-register {
-        padding: 10% 10px 0% 10px !important;
-    }
-
-    .form-content {
-        padding: 10% 5% 10% 5% !important;
-    }
-
-    .wrapper {
-        position: relative;
-        min-height: 65vh;
-        max-width: 1200px;
-        width: auto;
-        background: var(--color-background);
-        border: 3px solid var(--color-primary);
-    } */
 }
 
 @media (max-width: 768px) {
-    /* .container {
-        display: inline-block;
-        width: 100% !important;
-    }
-
-    .banner-dorm h1.banner-name {
-        font-size: 3rem;
-        color: var(--color-background);
-        transition: all .50s ease;
-    }
-
-    .banner-gym h1.banner-name {
-        font-size: 3rem;
-        color: var(--color-background);
-        transition: all .50s ease;
-    }
-
-    .banner-dorm .btn {
-        color: var(--color-primary);
-        padding: 10px 15px;
-        border-width: 5px;
-        border-color: var(--color-warning) !important;
-        font-weight: 700;
-        background-color: var(--color-warning);
-        font-size: 0.9rem;
-        text-decoration: none;
-        border-radius: 20px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        transition: all .50s ease;
-    }
-
-    .banner-gym .btn {
-        color: var(--color-danger);
-        padding: 10px 15px;
-        border-width: 5px;
-        border-color: var(--color-warning) !important;
-        font-weight: 700;
-        background-color: var(--color-warning);
-        font-size: 0.9rem;
-        text-decoration: none;
-        border-radius: 20px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        transition: all .50s ease;
-    }
-    .navbar a.navbar-brand img {
-        height: 2rem;
-    }
-
-    .navbar a.navbar-brand {
-        display: flex;
-        align-items: center;
-        color: var(--color-background);
-        font-size: 1.1rem;
-        font-weight: 900;
-        padding-left: 1px;
-        text-decoration: none;
-    }
-
-    .navbar {
-        background-color: var(--color-primary);
-        z-index: 1;
-    }
-    .main .navbar-nav .nav-item i {
-        display: none;
-    }
-
-    .navbar a:hover {
-        color: var(--color-orange);
-    }
-
-    .form-box .form-details {
-        display: none;
-    }
-
-    .form-box .form-details-register {
-        display: none;
-    }
-
-    .form-box .form-content-register {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .form-box .form-content {
-        width: 100%;
-        padding: 11% 35px 11% 35px;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .wrapper {
-        position: relative;
-        min-height: 65vh;
-        max-width: 1200px;
-        width: auto;
-        background: var(--color-background);
-        border: 3px solid var(--color-primary);
-    }
-
-    .input-field input::placeholder {
-        font-size: 0.7em;
-    }
-
-    .input-field-name input::placeholder {
-        font-size: 0.7em;
-    }
-
-    .form-content-register {
-        padding: 10% 10px 0% 10px !important;
-    }
-
-    .form-content {
-        padding: 10% 10px 0% 10px !important;
-    }
-
-
-    .welcome-section {
-        display: inline-block;
-        text-align: center;
-        top: 10%;
-        transform: translateY(0%);
-    }
-
-    .welcome-section .welcome-title1 h3,
-    .welcome-section .welcome-title2 h1,
-    .welcome-section .welcome-name h3 {
-        font-size: 1.5rem;
-        z-index: -1;
-    }
-
-    .row-bottom {
-        position: relative;
-        top: 80%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 40% 0 0 0;
-        width: 100%;
-    }
-
-    .column-bottom {
-        border: var(--color-primary) 2px;
-        color: var(--color-background);
-        background-color: var(--color-primary);
-        margin-top: 15px;
-        border-radius: 50px;
-        max-width: 100% !important;
-        box-sizing: border-box;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
-        transition: all 300ms ease;
-    }
-    .main .navbar-nav .nav-item a {
-        font-size: 2rem;
-    }
-
-    .column-left-top,
-    .column-right-top,
-    .column-left-bottom,
-    .column-right-bottom {
-        height: 22%;
-    }
-
-    .banner-gym-text h1.banner-name,
-    .banner-dorm-text h1.banner-name {
-        font-size: 3rem !important;
-        margin-top: 30px;
-    }
-
-    .banner-gym-text .btn,
-    .banner-dorm-text .btn {
-        font-size: 1em;
-    }
-
-    .banner-gym-top,
-    .banner-dorm-top {
-        height: 20%;
-    }
-
-    .banner-gym-bottom,
-    .banner-dorm-bottom {
-        height: 21%;
-    }
-
-    .pillow1 {
-        height: 160px;
-        top: 10%;
-        left: 8%;
-        z-index: -1;
-
-    }
-    .volleyball {
-        height: 160px;
-        top: 10%;
-        left: 10%;
-        z-index: -1;
-
-    }
-    .pillow2 {
-        height: 140px;
-        top: 10%;
-        right: 8%;
-        z-index: -1;
-    }
-    .basketball {
-        height: 140px;
-        top: 10%;
-        right: 10%;
-        z-index: -1;
-    }
-
-
-    h1 {
-        font-size: 1.5em !important;
-    }
-
-    h2 {
-        font-size: 1.3em !important;
-    }
-
-    h3 {
-        font-size: 1.2em !important;#
-    }
-
-    h4 {
-        font-size: 1.1em !important;
-    }
-
-    h5 {
-        font-size: 1em !important;
-
-    }
-    .container .section {
-        margin-top: 12%;
-    }
-
-    .container .card-body .btn-calendar-dorm:valid {
-        font-size: 1em;
-    }
-
-    .col-md-6.carousel {
-        padding-top: 20px;
-    }
-
-    .col-md-3.checkbox {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .myCheckbox {
-        margin-bottom: 0;
-        margin-right: 10px;
-    }
-
-    .container .button-container .btn-reservation-gym {
-        font-size: 1em;
-
-    }
-
-    .container .button-container .btn-calendar-gym {
-        font-size: 1em;
-
-    }
-
-    .modal-body input[type="date"],
-    .modal-body input[type="time"],
-    .modal-body select {
-
-        font-size: 0.6em;
-
-    }
-    .modal-footer .btn-primary,
-    .modal-footer .btn-secondary {
-        font-size: 0.6em;
-    }
-    .modal-content {
-        font-size: 1.2em !important;
-    }
-
-    .navbar .main-login .navbar-nav {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .centered {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    } */
-
+   
 }
 
 @media (max-width: 480px) {
