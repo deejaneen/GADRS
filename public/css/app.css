@@ -1618,7 +1618,9 @@ div.dt-container{
     background-color: var(--color-background);
 }
 #gymReservationsCartToggleBtn,
-#dormReservationsCartToggleBtn
+#dormReservationsCartToggleBtn,
+#gymTableHistoryToggleBtn,
+#dormTableHistoryToggleBtn
 {
     background: var(--color-primary);
     color: var(--color-background);
@@ -1691,7 +1693,16 @@ ul.list-unstyled {
     align-items: center;
     justify-content: space-between;
 }
+#GymReservationsHistoryTableCard,
+#DormReservationsHistoryTableCard {
+    margin-top: 20px;
+    width: 100%;
+    border: 2px solid var(--color-primary);
+}
 
+.dt-layout-row {
+    width: 100%;
+}
 /* Cart Checkout End*/
 
 /*======================= DORM RESERVATION ==========================================*/

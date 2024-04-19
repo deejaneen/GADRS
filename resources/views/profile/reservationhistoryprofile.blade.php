@@ -69,8 +69,7 @@
                                 <th scope="col">Reservation Date</th>
                                 <th scope="col">Time Start</th>
                                 <th scope="col">Time End</th>
-                                <th scope="col">Purpose</th>
-                                <th scope="col">Price</th>
+                             
                                 <th scope="col">Status</th>
                             </tr>
                         </thead>
@@ -81,8 +80,7 @@
                                     <td>{{ date('F j, Y', strtotime($gym->reservation_date)) }}</td>
                                     <td>{{ date('g:i A', strtotime($gym->reservation_time_start)) }}</td>
                                     <td>{{ date('g:i A', strtotime($gym->reservation_time_end)) }}</td>
-                                    <td>{{ $gym->purpose }}</td>
-                                    <td>₱{{ $gym->price }}</td>
+                               
                                     <td>{{ $gym->status }}</td>
                                 </tr>
                             @endforeach
@@ -99,9 +97,7 @@
                             <tr>
                                 <th scope="col">Form Number</th>
                                 <th scope="col">Reservation Start Date</th>
-                                <th scope="col">Time Start</th>
                                 <th scope="col">Reservation End Date</th>
-                                <th scope="col">Time End</th>
                                 <th scope="col">Price</th>
                                 <th scope="col">Status</th>
                             </tr>
@@ -111,9 +107,7 @@
                                 <tr class="table-active">
                                     <th>{{ $dorm->Form_number }}</th>
                                     <td>{{ date('F j, Y', strtotime($dorm->reservation_start_date)) }}</td>
-                                    <td>{{ date('g:i A', strtotime($dorm->reservation_start_time)) }}</td>
-                                    <td>{{ date('F j, Y', strtotime($dorm->reservation_end_date)) }}</td>
-                                    <td>{{ date('g:i A', strtotime($dorm->reservation_end_time)) }}</td>
+                                    <td>{{ date('g:i A', strtotime($dorm->reservation_end_date)) }}</td>
                                     <td>₱{{ $dorm->price }}</td>
                                     <td>{{ $dorm->status }}</td>
                                 </tr>
