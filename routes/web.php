@@ -8,7 +8,9 @@ use App\Http\Controllers\DormController;
 use App\Http\Controllers\GymCartController;
 use App\Http\Controllers\GymController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -21,16 +23,17 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/', function () {
-    return view('auth.login');
-});
 
 // Routes accessible only to guests (non-authenticated users)
-Route::middleware(['guest'])->group(function () {
+Route::middleware(['guest', 'preventCaching'])->group(function () {
     Route::get('/register', [AuthController::class, 'register'])->name('register');
     Route::post('/register', [AuthController::class, 'store']);
     Route::get('/login', [AuthController::class, 'login'])->name('login');
     Route::post('/login', [AuthController::class, 'authenticate']);
+    Route::get('/', function () {
+        return view('auth.login');
+    });
+
 });
 
 // Routes that require authentication
@@ -49,7 +52,7 @@ Route::middleware(['auth', 'preventCaching'])->group(function () {
     Route::prefix('/profile')->group(function () {
         Route::get('/account', [UserController::class, 'profile'])->name('profile');
         Route::get('/password', [UserController::class, 'showPasswordProfile'])->name('passwordprofile');
-        Route::get('/reservation-history', [UserController::class, 'showReservationHistoryProfile'])->name('reservationhistoryprofile');
+        Route::get('/reservation-history', [ProfileController::class, 'showReservationHistoryProfile'])->name('reservationhistoryprofile');
         Route::post('/updatepassword', [UserController::class, 'updatePassword'])->name('update_password');
     });
 

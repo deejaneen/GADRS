@@ -102,6 +102,8 @@
         $(document).ready(function() {
             $('#GymReservationsTable').DataTable();
             $('#DormReservationsTable').DataTable();
+            $('#GymReservationsTableHistory').DataTable();
+            $('#DormReservationsTableHistory').DataTable();
             // $('#dormCartReservationsTable').DataTable({
             //     "pageLength": 5, // Display 5 rows per page
             //     "lengthMenu": [5, 10, 15, 20], // Option to change number of rows per page
@@ -198,6 +200,29 @@
 
             });
             //HOME PAGE END
+
+             //RESERVATION HISTORY
+            // Toggle button click event for Dorm Reservations Cart
+            $('#gymTableHistoryToggleBtn').click(function(e) {
+                e.preventDefault();
+
+                // Toggle between Dorm Cart and Gym Cart cards
+                $('#GymReservationsHistoryTableCard').toggle();
+                $('#DormReservationsHistoryTableCard').toggle();
+
+            });
+
+            // Toggle button click event for Dorm Reservations Cart
+            $('#dormTableHistoryToggleBtn').click(function(e) {
+                e.preventDefault();
+
+                // Toggle between Dorm Cart and Gym Cart cards
+                $('#DormReservationsHistoryTableCard').toggle();
+                $('#GymReservationsHistoryTableCard').toggle();
+
+
+            });
+            //RESERVATION HISTORY END
 
 
             // Add a click event handler to the "Add to Cart" button

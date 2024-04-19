@@ -63,9 +63,6 @@ class UserController extends Controller
         return view('profile.passwordprofile');
     }
 
-    public function showReservationHistoryProfile(){
-        return view('../profile/reservationhistoryprofile');
-    }
 
     public function updatePassword(Request $request)
     {

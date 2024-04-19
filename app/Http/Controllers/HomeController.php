@@ -15,8 +15,14 @@ class HomeController extends Controller
     public function index()
     {
         $user = Auth::id();
-        $gyms = Gym::where('employee_id', $user)->orderBy('created_at', 'DESC')->get();
-        $dorms = Dorm::where('employee_id', $user)->orderBy('created_at', 'DESC')->get();
+        $gyms = Gym::where('employee_id', $user)
+            ->where('status', 'Pending')
+            ->orderBy('created_at', 'DESC')
+            ->get();
+        $dorms = Dorm::where('employee_id', $user)
+            ->where('status', 'Pending')
+            ->orderBy('created_at', 'DESC')
+            ->get();
 
         return view('home', ['gyms' => $gyms, 'dorms' => $dorms]);
     }
