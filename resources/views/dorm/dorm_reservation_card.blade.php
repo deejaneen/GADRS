@@ -43,7 +43,7 @@
                                     <h5>Check In</h5>
                                     <div class="dropdown-center">
                                         <input type="date" class="btn btn-calendar-datetime"
-                                            name="reservation_start_date" min="{{ date('Y-m-d') }}">
+                                            name="reservation_start_date" min="{{ date('Y-m-d') }}" required>
                                         <input type="time" class="btn btn-calendar-datetime time" value="14:00"
                                             autocomplete="off" readonly name="reservation_start_time">
                                     </div>
@@ -52,7 +52,7 @@
                                     <h5>Check Out</h5>
                                     <div class="dropdown-center">
                                         <input type="date" class="btn btn-calendar-datetime"
-                                            name="reservation_end_date" min="{{ date('Y-m-d') }}">
+                                            name="reservation_end_date" min="{{ date('Y-m-d') }}" required>
                                         <input type="time" class="btn btn-calendar-datetime time" value="12:00"
                                             autocomplete="off" readonly name="reservation_end_time">
                                     </div>
@@ -186,7 +186,7 @@
                                     <h5>Check In</h5>
                                     <div class="dropdown-center">
                                         <input type="date" class="btn female btn-calendar-datetime"
-                                            name="reservation_start_date" min="{{ date('Y-m-d') }}">
+                                            name="reservation_start_date" min="{{ date('Y-m-d') }}" required>
                                         <input type="time" class="btn btn-calendar-datetime time" value="14:00"
                                             autocomplete="off" readonly name="reservation_start_time">
                                     </div>
@@ -195,7 +195,7 @@
                                     <h5>Check Out</h5>
                                     <div class="dropdown-center">
                                         <input type="date" class="btn female btn-calendar-datetime"
-                                            name="reservation_end_date" min="{{ date('Y-m-d') }}">
+                                            name="reservation_end_date" min="{{ date('Y-m-d') }}" required>
                                         <input type="time" class="btn btn-calendar-datetime time" value="12:00"
                                             autocomplete="off" readonly name="reservation_end_time">
                                     </div>

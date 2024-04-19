@@ -514,8 +514,8 @@ b {
 }
 
 .container .card-body .btn-calendar-datetime {
-    color: var(--color-background);
-    background-color: var(--color-primary);
+    color: var(--color-primary);
+    background-color: var(--color-background);
     border: 3px solid var(--color-primary);
     border-radius: 18px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
@@ -2048,7 +2048,7 @@ ul.list-unstyled {
 
 
     .container-gym-table {
-        width: 8        0%;
+        width: 80%;
 
     }
 
