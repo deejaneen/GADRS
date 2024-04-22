@@ -42,9 +42,10 @@
                          <form action="{{ route('logout') }}" method="POST" id="logout-form-navbar">
                              @csrf
 
-                             <button class="no-underline logout btn btn-danger btn-md" type="submit"  id="logout-button">
-                                <span class="logout-text">LOGOUT</span>
-                                <i class="ri-logout-box-r-line" style="color: var(--color-danger);"></i>
+                             <button class="no-underline logout btn btn-danger btn-md" type="submit"
+                                 id="logout-button">
+                                 <span class="logout-text">LOGOUT</span>
+                                 <i class="ri-logout-box-r-line" style="color: var(--color-danger);"></i>
                              </button>
                          </form>
 

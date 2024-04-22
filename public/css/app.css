@@ -805,6 +805,7 @@ b {
     grid-template-columns: 30% 20% 20% 30%;
     background-color: var(--color-primary);
     position: relative;
+    margin-top: 30px;
 }
 
 .container-gym-table .btn-reservation-gym {
@@ -1049,9 +1050,11 @@ b {
     color: var(--color-background);
     margin-left: calc(1rem-3px);
 }
-.left-column .sidebar a{
+
+.left-column .sidebar a {
     margin-right: 10px;
 }
+
 .left-column .sidebar a,
 .left-column .sidebar a:hover {
     color: var(--color-background);
@@ -1508,11 +1511,13 @@ b {
 .welcome-section .welcome-title2 {
     font-family: "Poppins", serif;
 }
+
 #gymTableToggleBtn,
 #dormTableToggleBtn {
     color: var(--color-primary);
     background: var(--color-background);
 }
+
 .column-bottom {
     border: var(--color-primary) 2px;
     color: var(--color-background);
@@ -1591,37 +1596,40 @@ b {
     padding: 10px;
 }
 
-.card-header.text-center.home{
+.card-header.text-center.home {
     background: var(--color-background);
     color: var(--color-primary);
 }
 
-.card-header.text-center.checkout{
+.card-header.text-center.checkout {
     background: var(--color-background);
     color: var(--color-primary);
 }
-div.dt-container{
+
+div.dt-container {
     background: var(--color-background);
     color: var(--color-primary);
     padding: 20px;
 }
-#GymReservationsTableCard{
+
+#GymReservationsTableCard,
+#DormReservationsTableCard {
     border: 3px solid var(--color-primary);
 
 }
 
 /* =========================Cart Checkout ===================*/
 #gymReservationsCartCard,
-#dormReservationsCartCard{
+#dormReservationsCartCard {
     border: 3px solid var(--color-primary);
     margin-top: 20px;
     background-color: var(--color-background);
 }
+
 #gymReservationsCartToggleBtn,
 #dormReservationsCartToggleBtn,
 #gymTableHistoryToggleBtn,
-#dormTableHistoryToggleBtn
-{
+#dormTableHistoryToggleBtn {
     background: var(--color-primary);
     color: var(--color-background);
 }
@@ -1693,6 +1701,7 @@ ul.list-unstyled {
     align-items: center;
     justify-content: space-between;
 }
+
 #GymReservationsHistoryTableCard,
 #DormReservationsHistoryTableCard {
     margin-top: 20px;
@@ -1703,6 +1712,7 @@ ul.list-unstyled {
 .dt-layout-row {
     width: 100%;
 }
+
 /* Cart Checkout End*/
 
 /*======================= DORM RESERVATION ==========================================*/
@@ -1789,6 +1799,7 @@ ul.list-unstyled {
 .container .section .card .card-header .card-title {
     font-size: 1.8em;
 }
+
 .col-md-5.carousel {
     display: inline;
     justify-content: flex-end;
@@ -1809,11 +1820,13 @@ ul.list-unstyled {
     color: var(--color-primary);
     width: 80%;
 }
+
 #occupant_type_male select,
 #occupant_type_female select {
     color: var(--color-primary);
     background: var(--color-background);
 }
+
 .reservor-type {
     display: flex;
     align-items: center;
@@ -1841,12 +1854,14 @@ ul.list-unstyled {
     margin-top: 10px;
     margin-bottom: 10px;
 }
+
 #dormCartReservationsTable {
     width: 100%;
     table-layout: auto;
 }
 
 @media (max-width: 1440px) {
+
     .nav-item.profile a .first-name,
     .nav-item.logout button .logout-text {
         display: none;
@@ -1860,11 +1875,17 @@ ul.list-unstyled {
         margin-right: 20px;
     }
 }
+
 @media (min-width: 992px) {
-    .container, .container-lg, .container-md, .container-sm {
-      max-width: 1440px !important;
+
+    .container,
+    .container-lg,
+    .container-md,
+    .container-sm {
+        max-width: 1440px !important;
     }
-  }
+}
+
 @media (max-width: 1024px) {
     .container {
         display: inline-block;
@@ -2073,12 +2094,6 @@ ul.list-unstyled {
         flex-direction: column;
     }
 
-    #maleCard .dorm-align-container,
-    #femaleCard .dorm-align-container {
-        width: 100%;
-        margin: 0 auto;
-    }
-
     .nav-item.profile a .first-name,
     .nav-item.logout button .logout-text {
         display: none;
@@ -2101,18 +2116,32 @@ ul.list-unstyled {
         margin: 10px 10px;
     }
 
-   .col-md-5.carousel {
+    .col-md-5.carousel {
         width: 80%;
         margin: 0 auto;
     }
-    .left-column .sidebar a h3{
+
+    .left-column .sidebar a h3 {
         font-size: 1.3rem !important;
     }
-    
-    .right-column.password h3{
+
+    .right-column.password h3 {
         grid-row: 1;
         grid-column: 2 / span 4;
     }
+
+    .container .section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #maleCard .dorm-align-container,
+    #femaleCard .dorm-align-container {
+        width: 100%;
+        margin: 0 auto;
+    }
+
     #maleCard,
     #femaleCard {
         display: flex;
@@ -2120,19 +2149,17 @@ ul.list-unstyled {
         margin-left: auto;
         margin-right: auto;
     }
-    .container .section {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+
     #maleCard h3,
     #femaleCard h3 {
         font-size: 2.2rem !important;
     }
+
     #maleCard h5,
     #femaleCard h5 {
         font-size: 1.3rem !important;
     }
+
     #maleCard .card-title,
     #femaleCard .card-title {
         font-size: 4rem;
@@ -2140,8 +2167,45 @@ ul.list-unstyled {
 
 }
 
-@media (max-width: 768px) {
-   
+@media (max-width: 768px) {}
+
+@media (max-width: 1366px) {
+
+    .volleyball {
+        position: absolute;
+        height: 350px;
+        width: auto;
+        left: 4%;
+        top: 15%;
+        z-index: -1;
+    }
+
+    .basketball {
+        height: 300px;
+        width: auto;
+        position: absolute;
+        right: 4%;
+        top: 12%;
+        z-index: -1;
+    }
+
+    .pillow1 {
+        position: absolute;
+        height: 350px;
+        width: auto;
+        left: -2%;
+        z-index: -1;
+    }
+
+    .pillow2 {
+        height: 300px;
+        position: absolute;
+        right: 4%;
+        top: 12%;
+        z-index: -1;
+    }
+
+
 }
 
 @media (max-width: 480px) {
@@ -2190,8 +2254,13 @@ ul.list-unstyled {
         letter-spacing: 2px;
     }
 
-    .main .navbar-nav .nav-item i {
-        display: none;
+    .navbar-nav .nav-item:not(.logout) i {
+        margin: 0;
+    }
+
+    .nav-item.profile a .first-name,
+    .nav-item.logout button .logout-text {
+        display: contents;
     }
 
     .navbar a:hover {
@@ -2271,7 +2340,8 @@ ul.list-unstyled {
         height: 25%;
     }
 
-    .banner-gym-text h1.banner-name {
+    .banner-gym-text h1.banner-name,
+    .banner-dorm-text h1.banner-name {
         font-size: 2.5rem !important;
     }
 
@@ -2318,7 +2388,7 @@ ul.list-unstyled {
     }
 
     h1 {
-        font-size: 1.5em !important;
+        font-size: 1.6em !important;
     }
 
     h2 {
@@ -2336,6 +2406,10 @@ ul.list-unstyled {
     h5 {
         font-size: 1em !important;
 
+    }
+
+    button {
+        font-size: 0.6em !important;
     }
 
     .container .card-body .btn-calendar-dorm:valid {
@@ -2385,5 +2459,77 @@ ul.list-unstyled {
         font-size: 1.2em !important;
     }
 
+    .reservation-table-home {
+        display: inline-block !important;
+    }
 
+    .home-reservation-table {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .dt-layout-cell {
+        overflow-y: auto;
+    }
+
+    #GymReservationsTableCard,
+    #DormReservationsTableCard {
+        border: 3px solid var(--color-primary);
+        width: 90%;
+
+    }
+
+    #maleCard .dorm-align-container,
+    #femaleCard .dorm-align-container {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    #maleCard,
+    #femaleCard {
+        display: flex;
+        width: 80%;
+        margin-top: 30px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #maleCard h3,
+    #femaleCard h3 {
+        font-size: 1rem !important;
+    }
+
+    #maleCard h5,
+    #femaleCard h5 {
+        font-size: 1rem !important;
+    }
+
+    #maleCard .card-title,
+    #femaleCard .card-title {
+        font-size: 2rem;
+    }
+
+    .btn-clear {
+        font-size: 0.6em !important;
+    }
+
+    .first-name {
+        font-size: 0.8em !important;
+    }
+
+    #logout-button {
+        font-size: 1.2em !important;
+    }
+
+    .user i,
+    .ri-shopping-cart-2-line {
+        font-size: 0.7em;
+    }
+
+    .container .card-body .btn-calendar-datetime {
+        margin: 10px 10px;
+        font-size: 0.7em !important;
+    }
 }
