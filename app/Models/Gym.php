@@ -18,7 +18,5 @@ class Gym extends Model
         'occupant_type',
         'employee_id',
         'purpose',
-        'representative',
-        ''
     ];
 }

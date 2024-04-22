@@ -19,7 +19,7 @@ return new class extends Migration
             $table->time('reservation_time_start');
             $table->time('reservation_time_end');
             $table->string('occupant_type');
-            $table->string('representative');
+            $table->string('representative')->nullable();
             // $table->string('office')->nullable();
             $table->string('office_address')->nullable();
             $table->string('company_name')->nullable();

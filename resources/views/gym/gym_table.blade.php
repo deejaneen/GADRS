@@ -62,7 +62,6 @@
             dateInput.addEventListener("change", function(event) {
                 let selectedDate = event.target.value;
                 updateTable(selectedDate);
-                modalTitle.textContent = `Gym Reservation for ${formatDate(selectedDate)}`;
                 selectedDateInput.value = `${selectedDate}`;
             });
 
@@ -72,7 +71,6 @@
             // Initialize the table with the current date
             const today = new Date().toISOString().split('T')[0];
             updateTable(today);
-            modalTitle.textContent = `Gym Reservation for ${formatDate(today)}`;
             selectedDateInput.value = `${today}`;
         });
 

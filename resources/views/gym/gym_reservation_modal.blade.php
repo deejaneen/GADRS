@@ -32,6 +32,11 @@
                                 max="21:00">
                         </div>
                     </div>
+                    <div class="row">
+                        <p>Tues–Thurs: 6:00 AM–10:59 AM, 6:00 PM–9:00 PM</p>
+                        <p>Mon, Sat, Sun: 6:00 AM–9:00 PM</p>
+                    </div>
+
 
                     <div class="row mb-3">
                         <div class="col">
@@ -52,8 +57,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary"
-                        onclick="resetForm()">Clear</button>
+                    <button type="button" class="btn btn-secondary" onclick="resetForm()">Clear</button>
                     <button type="submit" class="btn btn-primary">Add to Cart</button>
                 </div>
             </form>
@@ -62,7 +66,5 @@
 </div>
 
 @section('scripts')
-    <script>
-
-    </script>
+    <script></script>
 @endsection
