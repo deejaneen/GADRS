@@ -69,5 +69,6 @@ class Kernel extends HttpKernel
     protected $routeMiddleware = [
         // other middleware entries...
         'preventCaching' => \App\Http\Middleware\PreventCachingMiddleware::class,
+        'checkRole' => \App\Http\Middleware\CheckRole::class,
     ];
 }

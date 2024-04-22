@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CartController;
@@ -33,20 +34,14 @@ Route::middleware(['guest', 'preventCaching'])->group(function () {
     Route::get('/', function () {
         return view('auth.login');
     });
-
 });
 
 // Routes that require authentication
-Route::middleware(['auth', 'preventCaching'])->group(function () {
+Route::middleware(['auth', 'preventCaching', 'checkRole:Guest,COA Employee' ])->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::resource('users', UserController::class)->only('show', 'edit', 'update');
-    // Routes accessible only by Admin
-    Route::middleware(['checkRole:Admin'])->group(function () {
-        Route::get('/adminhome', function () {
-            return view('../admin/navbar/adminnav');
-        })->name('adminhome');
-    });
+
 
     // Profile and password routes
     Route::prefix('/profile')->group(function () {
@@ -64,4 +59,10 @@ Route::middleware(['auth', 'preventCaching'])->group(function () {
     Route::post('/get-reservations', [GymController::class, 'getReservations']);
     Route::post('/cart_check/gym_convert', [CartController::class, 'GymCartToGymReservations'])->name('cart.gym_convert');
     Route::post('/cart_check/dorm_convert', [CartController::class, 'DormCartToDormReservations'])->name('cart.dorm_convert');
+});
+
+// Routes accessible only by Admin
+Route::middleware(['checkRole:Admin', 'preventCaching', 'auth'])->group(function () {
+    Route::get('/adminhome', [AdminController::class, 'index'])->name('adminhome');
+      Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });

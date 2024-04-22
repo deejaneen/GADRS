@@ -19,12 +19,13 @@ return new class extends Migration
             $table->time('reservation_time_start');
             $table->time('reservation_time_end');
             $table->string('occupant_type');
-            $table->string('office')->nullable();
+            $table->string('representative');
+            // $table->string('office')->nullable();
             $table->string('office_address')->nullable();
             $table->string('company_name')->nullable();
             $table->string('contact_number')->nullable();
             $table->string('purpose')->nullable();
-            $table->integer('number_of_courts')->nullable();
+            // $table->integer('number_of_courts')->nullable();
             $table->string('or_number')->nullable();
             $table->date('or_date')->nullable();
             $table->string('status')->default('Pending')->nullable();

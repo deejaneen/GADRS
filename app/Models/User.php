@@ -63,4 +63,9 @@ class User extends Authenticatable
         $this->password = Hash::make($newPassword);
         $this->save();
     }
+
+    public function hasAnyRole($roles)
+    {
+        return in_array($this->role, $roles);
+    }
 }

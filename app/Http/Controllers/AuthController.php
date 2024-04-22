@@ -54,16 +54,18 @@ class AuthController extends Controller
         ]);
 
         if (auth()->attempt($validated)) {
-
             request()->session()->regenerate();
-            //redirect to dashboard
-            return redirect()->route('home')->with('success', "Logged in succesfully!");
+
+            // Check user role and redirect accordingly
+            if (auth()->user()->role === 'Admin') {
+                return redirect()->route('adminhome')->with('success', "Logged in successfully!");
+            } else {
+                return redirect()->route('home')->with('success', "Logged in successfully!");
+            }
         }
 
-
-        //redirect to dashboard
+        //redirect to login page with error message
         return redirect()->route('login')->withErrors([
-
             'email' => "No matching user found with the provided email and password"
         ]);
     }
