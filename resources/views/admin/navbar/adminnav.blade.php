@@ -1,5 +1,4 @@
-<<<<<<< Updated upstream
-=======
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,4 +34,3 @@
 </body>
 
 </html>
->>>>>>> Stashed changes
