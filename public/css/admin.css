@@ -45,27 +45,34 @@ body {
     overflow-x: hidden;
     color: var(--color-primary);
 }
+
 img {
     display: block;
     width: 100%;
     /* Adjust the size of your logo */
 }
+
 h1 {
     font-weight: 800;
     font-size: 1.8rem;
 }
+
 h2 {
     font-size: 1.4rem;
 }
+
 h3 {
     font-size: 0.87rem;
 }
+
 h4 {
     font-size: 0.8rem;
 }
+
 small {
     font-size: 0.77rem;
 }
+
 .profile-photo {
     width: 2.8rem;
     height: 2.8rem;
@@ -76,30 +83,39 @@ small {
 .text-muted {
     color: var(--color-info-dark);
 }
+
 p {
     color: var(--color-dark-variant);
 }
+
 b {
     color: var(--color-dark);
 }
-.primary{
+
+.primary {
     color: var(--color-primary);
 }
-.primary-light{
+
+.primary-light {
     color: var(--color-background);
 }
-.warning-orange{
+
+.warning-orange {
     color: var(--color-orange);
 }
-.danger{
+
+.danger {
     color: var(--color-danger);
 }
-.success{
+
+.success {
     color: var(--color-success);
 }
-.warning{
+
+.warning {
     color: var(--color-warning);
 }
+
 /* admin.css */
 .container {
     font-family: "Poppins", sans-serif;
@@ -107,6 +123,17 @@ b {
     /* border: var(--border-solid); */
     width: 96%;
     margin: 0 auto;
+    gap: 1.8rem;
+    grid-template-columns: 14rem auto 23rem;
+}
+
+.main-container {
+    font-family: "Poppins", sans-serif;
+    display: grid;
+    /* border: var(--border-solid); */
+    width: 100%;
+    margin: 0 auto;
+    padding-right: 30px;
     gap: 1.8rem;
     grid-template-columns: 14rem auto 23rem;
 }
@@ -121,18 +148,20 @@ aside .top {
     border: var(--border-solid);
     align-items: center;
     justify-content: space-between;
-    margin-top: 1.4rem;
-}
-aside .logo{
-  display: flex;
-  gap: 0.8rem;
-  justify-content: center;
-  align-items: center;
+    padding-top: 30px;
 }
 
-aside .close{
+aside .logo {
+    display: flex;
+    gap: 0.8rem;
+    justify-content: center;
+    align-items: center;
+}
+
+aside .close {
     display: none;
 }
+
 aside .sidebar {
     display: flex;
     flex-direction: column;
@@ -140,9 +169,11 @@ aside .sidebar {
     position: relative;
     top: 3rem;
 }
+
 aside h3 {
     font-weight: 500;
 }
+
 .logo img {
     height: 2rem;
     width: 2rem;
@@ -156,14 +187,13 @@ aside h3 {
     height: 3.7rem;
     transition: all 300ms ease;
 }
+
 .sidebar a .ri-dashboard-line,
-.sidebar a .ri-user-line,
+.sidebar a .ri-team-line,
 .sidebar a .ri-receipt-line,
-.sidebar a .ri-line-chart-line,
-.sidebar a .ri-chat-1-fill,
-.sidebar a .ri-error-warning-line,
-.sidebar a .ri-settings-3-fill,
-.sidebar a .ri-add-line,
+.sidebar a .ri-basketball-fill,
+.sidebar a .ri-home-3-line,
+.sidebar a .ri-user-line,
 .sidebar a .ri-logout-box-r-line {
     display: flex;
     align-items: center;
@@ -176,36 +206,44 @@ aside h3 {
     position: relative;
     transition: all 300ms ease;
 }
+
 aside .sidebar a span {
     font-size: 1.6rem;
     transition: all 300ms ease;
 }
-aside .sidebar a:last-child{
+
+aside .sidebar a:last-child {
     position: absolute;
     bottom: 2rem;
     width: 100%;
 }
-aside .sidebar a.active{
-    background:var(--color-light);
+
+aside .sidebar a.active {
+    background: var(--color-light);
     color: var(--color-primary);
     /* margin-left: auto; */
 }
+
 aside .sidebar a.active:before {
     content: "";
     width: 6px;
     height: 100%;
     background: var(--color-background);
 }
+
 aside .sidebar a.active span {
     color: var(--color-background);
     margin-left: calc(1rem-3px);
 }
+
 aside .sidebar a:hover {
     color: var(--color-danger);
 }
+
 aside .sidebar a:hover span {
     margin-left: 0.5rem;
 }
+
 aside .sidebar .message-count {
     background-color: var(--color-danger);
     color: var(--color-white);
@@ -214,12 +252,14 @@ aside .sidebar .message-count {
     font-size: 11px;
     border-radius: var(--border-radius-1);
 }
+
 /* ==============================MAIN=========================== */
-main{
+main {
     margin-top: 1.4rem;
     margin-left: 1.4rem;
 }
-main .date{
+
+main .date {
     display: inline-block;
     background: var(--color-light);
     border-radius: var(--border-radius-1);
@@ -227,95 +267,107 @@ main .date{
     padding: 0.5rem 1.6rem;
 }
 
-main .date input[type='date']{
+main .date input[type='date'] {
     background: transparent;
     color: var(--color-dark);
 }
- main .insights {
+
+main .insights {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1.6rem;
- }
+}
 
- main .insights > div {
+main .insights>div {
     background: var(--color-background);
     padding: var(--card-padding);
     border-radius: 8%;
     margin-top: 1rem;
     box-shadow: var(--box-shadow);
     transition: all 300ms ease;
- }
- main .insights > div:hover {
+}
+
+main .insights>div:hover {
     background: var(--color-warning);
     box-shadow: none;
     /* border: 1px solid var(--color-primary); */
     transition: all 300ms ease;
- }
- 
- main .insights > div.totalreservation span{
+}
+
+main .insights>div.totalreservation span {
     background: var(--color-orange);
     padding: 0.5rem;
     border-radius: 50%;
     color: var(--color-background);
     font-size: 2rem;
- }
- main .insights > div.gymreservation span{
+}
+
+main .insights>div.gymreservation span {
     padding: 0.5rem;
     border-radius: 50%;
     color: var(--color-background);
     font-size: 2rem;
     background: var(--color-danger);
- }
- main .insights > div.dormreservations span{
+}
+
+main .insights>div.dormreservations span {
     padding: 0.5rem;
     border-radius: 50%;
     color: var(--color-background);
     font-size: 2rem;
     background: var(--color-success);
- }
- main .insights > div .middle{
+}
+
+main .insights>div .middle {
     display: flex;
     align-items: center;
     justify-content: space-between;
- }
- main .insights h3{
+}
+
+main .insights h3 {
     margin: 1rem 0 0.6rem;
     font-size: 1rem;
- }
- main .insights .progress {
+}
+
+main .insights .progress {
     position: relative;
     width: 110px;
     height: 110px;
     border-radius: 50%;
- }
+}
 
- main .insights svg{
+main .insights svg {
     color: #d62828;
     width: 7rem;
     height: 7rem;
- }
- main .insights svg circle{
+}
+
+main .insights svg circle {
     fill: none;
     stroke: var(--color-primary);
     stroke-width: 14;
     stroke-linecap: round;
     stroke-dasharray: 110;
     stroke-dashoffset: 92;
-    
-   
- }
- main .insights .totalreservation svg circle{
+
+
+}
+
+main .insights .totalreservation svg circle {
     stroke-dashoffset: -30;
     stroke-dasharray: 200;
- }
- main .insights .gymreservation svg circle{
-    stroke-dashoffset: 20; 
+}
+
+main .insights .gymreservation svg circle {
+    stroke-dashoffset: 20;
     stroke-dasharray: 80;
- }
- main .insights .dormreservations svg circle{
+}
+
+main .insights .dormreservations svg circle {
     stroke-dashoffset: 35;
     stroke-dasharray: 110;
- }
+}
+
 main .insights .progress .number {
     position: absolute;
     top: 0;
@@ -333,11 +385,11 @@ main .recent-orders {
     margin-top: 2rem;
 }
 
-main.recent-orders h2{
+main.recent-orders h2 {
     mask-border: 0.8rem;
 }
 
-main .recent-orders table{
+main .recent-orders table {
     color: var(--color-background);
     background-color: var(--color-primary);
     width: 100%;
@@ -347,7 +399,8 @@ main .recent-orders table{
     box-shadow: var(--box-shadow);
     transition: all 300ms ease;
 }
-main .recent-orders table:hover{
+
+main .recent-orders table:hover {
     box-shadow: none;
 }
 
@@ -361,7 +414,7 @@ main table tbody tr:last-child {
     border: none;
 }
 
-main .recent-orders a{
+main .recent-orders a {
     text-align: center;
     display: block;
     margin: 1rem auto;
@@ -369,7 +422,7 @@ main .recent-orders a{
 }
 
 /*========================RIGHT==================*/
-.right{
+.right {
     margin-top: 1.4rem;
 }
 
@@ -402,6 +455,7 @@ main .recent-orders a{
     align-items: center;
     justify-content: center;
 }
+
 .right .theme-toggler span.active {
     background: var(--color-primary);
     color: var(--color-background);
@@ -445,9 +499,11 @@ main .recent-orders a{
 .right .recent-updates .updates .update .message p b {
     color: var(--color-orange);
 }
+
 .right .recent-updates .updates .update .message p {
     color: var(--color-background);
 }
+
 .right .recent-updates .updates .update .message small {
     color: var(--color-warning);
 }

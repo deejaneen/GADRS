@@ -1,6 +1,6 @@
-@extends('layout.adminlayout')
+@extends('layout.receivinglayout')
 
-@section('admindashboard')
+@section('receivingdashboard')
     <main>
         <h1>Dashboard</h1>
         <div class="date">
@@ -13,10 +13,18 @@
                 <span class="ri-key-2-line"></span>
                 <div class="middle">
                     <div class="left">
-                        <h3>Total Pending Reservations</h3>
+                        <h3>Total Reservations</h3>
                         <h1>
                             Php25,024
                         </h1>
+                    </div>
+                    <div class="progress">
+                        <svg viewBox="0 0 100 100">
+                            <circle class="sales-circle" cx="50" cy="50" r="40"></circle>
+                        </svg>
+                        <div class="number">
+                            <p>81%</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -30,6 +38,14 @@
                             Php25,024
                         </h1>
                     </div>
+                    <div class="progress">
+                        <svg viewBox="0 0 100 100">
+                            <circle class="sales-circle" cx="50" cy="50" r="40"></circle>
+                        </svg>
+                        <div class="number">
+                            <p>81%</p>
+                        </div>
+                    </div>
                 </div>
             </div>
             {{-- -------------------------------END-OF-DORM-RESERVATIONS-------------------- --}}
@@ -42,12 +58,79 @@
                             Php25,024
                         </h1>
                     </div>
+                    <div class="progress">
+                        <svg viewBox="0 0 100 100">
+                            <circle class="sales-circle" cx="50" cy="50" r="40"></circle>
+                        </svg>
+                        <div class="number">
+                            <p>81%</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
         {{-- ------------------END OF INSIGHTS------------------ --}}
-       
+        <div class="recent-orders">
+            <h2>Recent Orders</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Product Number</th>
+                        <th>Payment</th>
+                        <th>Status</th>
+                        <th></th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Fdhsajkdakdh</td>
+                        <td>Adska</td>
+                        <td>Due</td>
+                        <td class="warning">Pending</td>
+                        <td class="warning-orange">Details</td>
+                    </tr>
+                    <tr>
+                        <td>Fdhsajkdakdh</td>
+                        <td>Adska</td>
+                        <td>Due</td>
+                        <td class="warning">Pending</td>
+                        <td class="warning-orange">Details</td>
+                    </tr>
+                    <tr>
+                        <td>Fdhsajkdakdh</td>
+                        <td>Adska</td>
+                        <td>Due</td>
+                        <td class="warning">Pending</td>
+                        <td class="warning-orange">Details</td>
+                    </tr>
+                    <tr>
+                        <td>Fdhsajkdakdh</td>
+                        <td>Adska</td>
+                        <td>Due</td>
+                        <td class="warning">Pending</td>
+                        <td class="warning-orange">Details</td>
+                    </tr>
+                    <tr>
+                        <td>Fdhsajkdakdh</td>
+                        <td>Adska</td>
+                        <td>Due</td>
+                        <td class="warning">Pending</td>
+                        <td class="warning-orange">Details</td>
+                    </tr>
+                    <tr>
+                        <td>Fdhsajkdakdh</td>
+                        <td>Adska</td>
+                        <td>Due</td>
+                        <td class="warning">Pending</td>
+                        <td class="warning-orange">Details</td>
+                    </tr>
+                </tbody>
+            </table>
+            <a href="#">Show All</a>
+        </div>
     </main>
 
     {{-- ------------------END OF MAIN------------------ --}}

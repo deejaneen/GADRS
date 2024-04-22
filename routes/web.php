@@ -64,5 +64,6 @@ Route::middleware(['auth', 'preventCaching', 'checkRole:Guest,COA Employee' ])->
 // Routes accessible only by Admin
 Route::middleware(['checkRole:Admin', 'preventCaching', 'auth'])->group(function () {
     Route::get('/adminhome', [AdminController::class, 'index'])->name('adminhome');
+    Route::get('/test', [AdminController::class, 'test'])->name('test');
       Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });
