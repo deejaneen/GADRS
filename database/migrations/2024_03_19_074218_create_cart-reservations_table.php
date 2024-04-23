@@ -28,7 +28,7 @@ return new class extends Migration
             // $table->integer('number_of_courts')->nullable();
             $table->string('or_number')->nullable();
             $table->date('or_date')->nullable();
-            $table->string('status')->default('Pending')->nullable();
+            $table->string('status')->default('OnCart')->nullable();
             $table->decimal('price', 10, 2)->nullable()->default(600.00);
             $table->timestamps();
 

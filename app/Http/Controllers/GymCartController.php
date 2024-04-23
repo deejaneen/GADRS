@@ -39,6 +39,19 @@ class GymCartController extends Controller
 
         ]);
 
+        // Check if there is a similar gym reservation
+        $existingReservation = GymCart::where('reservation_date', $validatedData['selectedDateText'])
+            ->where('reservation_time_start', $validatedData['timepicker-am'])
+            ->where('reservation_time_end', $validatedData['timepicker-pm'])
+            ->where('occupant_type', $validatedData['employee_type'])
+            ->where('purpose', $validatedData['purpose'])
+            ->exists();
+
+        if ($existingReservation) {
+            return redirect()->route('gym')->with('error', 'A similar reservation already exists in your cart.');
+        }
+
+
         // Check if the selected day and time fall within the allowed ranges
         $dayOfWeek = date('N', strtotime($validatedData['selectedDateText']));
         $startTime = strtotime($validatedData['timepicker-am']);
@@ -90,17 +103,21 @@ class GymCartController extends Controller
         }
 
         // Check for overlapping reservations
-        $overlappingReservation = Gym::where(function ($query) use ($validatedData) {
-            $query->where('reservation_date', $validatedData['selectedDateText'])
-                ->where(function ($query) use ($validatedData) {
-                    $query->whereBetween('reservation_time_start', [$validatedData['timepicker-am'], $validatedData['timepicker-pm']])
+        $overlappingReservation = Gym::where('status', 'Reserved')
+            ->where('reservation_date', $validatedData['selectedDateText'])
+            ->where(function ($query) use ($validatedData) {
+                $query->where(function ($q) use ($validatedData) {
+                    $q->whereBetween('reservation_time_start', [$validatedData['timepicker-am'], $validatedData['timepicker-pm']])
                         ->orWhereBetween('reservation_time_end', [$validatedData['timepicker-am'], $validatedData['timepicker-pm']]);
                 })
-                ->orWhere(function ($query) use ($validatedData) {
-                    $query->where('reservation_time_start', '<=', $validatedData['timepicker-am'])
-                        ->where('reservation_time_end', '>=', $validatedData['timepicker-pm']);
-                });
-        })->exists();
+                    ->orWhere(function ($q) use ($validatedData) {
+                        $q->where('reservation_time_start', '<=', $validatedData['timepicker-am'])
+                            ->where('reservation_time_end', '>=', $validatedData['timepicker-pm']);
+                    });
+            })
+            ->exists();
+
+
 
         if ($overlappingReservation) {
             return redirect()->route('gym')->with('error', 'The selected time slot overlaps with an existing reservation. Please choose another time slot.');
