@@ -336,6 +336,39 @@ main .insights .progress {
     border-radius: 50%;
 }
 
+main .recent-updates .update {
+    display: flex;
+    gap: 1em;
+    padding: 1em;
+}
+main .recent-updates {
+    margin-top: 30px;
+}
+
+main .recent-updates .updates {
+    background: var(--color-primary);
+    padding: var(--card-padding);
+    border-radius: 5%;
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+
+}
+main .recent-updates .updates:hover {
+    box-shadow: none;
+  }
+
+main .recent-updates .updates .update .message p b {
+    color: var(--color-orange);
+}
+
+main .recent-updates .updates .update .message p {
+    color: var(--color-background);
+}
+
+main .recent-updates .updates .update .message small {
+    color: var(--color-warning);
+  }
+
 main .insights svg {
     color: #d62828;
     width: 7rem;

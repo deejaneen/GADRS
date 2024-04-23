@@ -12,7 +12,7 @@
         </div>
 
         <div class="sidebar">
-            <a href="{{ route('adminhome') }}" class="active">
+            <a href="{{ route('adminhome') }}">
                 <span class="ri-dashboard-line ">
                     <h3>Dashboard</h3>
                 </span>
@@ -22,13 +22,13 @@
                     <h3>Users</h3>
                 </span>
             </a>
-            <a href="{{ route('adminreservations') }}" >
+            <a href="{{ route('adminreservations') }}"  class="active">
                 <span class="ri-receipt-line">
                     <h3>Reservations</h3>
                     <span class="message-count">26</span>
                 </span>
             </a>
-            <a href="{{ route('admingym') }}" >
+            <a href="{{ route('admingym') }}">
                 <span class="ri-basketball-fill">
                     <h3>Gym</h3>
                 </span>
@@ -54,85 +54,71 @@
 </aside>
 {{-- -------------------------------END-OF-ASIDE-------------------- --}}
     <main>
-        <h1>Dashboard</h1>
-        <div class="date">
-            <input type="date" name="" id="">
-        </div>
+        <h1>RESERVATIONS</h1>
+        
+        <div class="recent-orders">
+            <h2>Recent Reservations</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Product Number</th>
+                        <th>Payment</th>
+                        <th>Status</th>
+                        <th></th>
 
-        <div class="insights">
-            {{-- -------------------------------END-OF-SALES-------------------- --}}
-            <div class="totalreservation">
-                <span class="ri-key-2-line"></span>
-                <div class="middle">
-                    <div class="left">
-                        <h3>Total Pending Reservations</h3>
-                        <h1>
-                            Php25,024
-                        </h1>
-                    </div>
-                </div>
-            </div>
-            {{-- -------------------------------END-OF-GYM-RESERVATIONS-------------------- --}}
-            <div class="gymreservation">
-                <span class="ri-basketball-fill"></span>
-                <div class="middle">
-                    <div class="left">
-                        <h3>Total Gym Reservations</h3>
-                        <h1>
-                            Php25,024
-                        </h1>
-                    </div>
-                </div>
-            </div>
-            {{-- -------------------------------END-OF-DORM-RESERVATIONS-------------------- --}}
-            <div class="dormreservations">
-                <span class="ri-hotel-bed-fill"></span>
-                <div class="middle">
-                    <div class="left">
-                        <h3>Total Dorm Reservations</h3>
-                        <h1>
-                            Php25,024
-                        </h1>
-                    </div>
-                </div>
-            </div>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Fdhsajkdakdh</td>
+                        <td>Adska</td>
+                        <td>Due</td>
+                        <td class="warning">Pending</td>
+                        <td class="warning-orange">Details</td>
+                    </tr>
+                    <tr>
+                        <td>Fdhsajkdakdh</td>
+                        <td>Adska</td>
+                        <td>Due</td>
+                        <td class="warning">Pending</td>
+                        <td class="warning-orange">Details</td>
+                    </tr>
+                    <tr>
+                        <td>Fdhsajkdakdh</td>
+                        <td>Adska</td>
+                        <td>Due</td>
+                        <td class="warning">Pending</td>
+                        <td class="warning-orange">Details</td>
+                    </tr>
+                    <tr>
+                        <td>Fdhsajkdakdh</td>
+                        <td>Adska</td>
+                        <td>Due</td>
+                        <td class="warning">Pending</td>
+                        <td class="warning-orange">Details</td>
+                    </tr>
+                    <tr>
+                        <td>Fdhsajkdakdh</td>
+                        <td>Adska</td>
+                        <td>Due</td>
+                        <td class="warning">Pending</td>
+                        <td class="warning-orange">Details</td>
+                    </tr>
+                    <tr>
+                        <td>Fdhsajkdakdh</td>
+                        <td>Adska</td>
+                        <td>Due</td>
+                        <td class="warning">Pending</td>
+                        <td class="warning-orange">Details</td>
+                    </tr>
+                </tbody>
+            </table>
+            <a href="#">Show All</a>
         </div>
 
         {{-- ------------------END OF INSIGHTS------------------ --}}
-        <div class="recent-updates">
-            <h2>Recent Updates</h2>
-            <div class="updates">
-                <div class="update">
-                    <div class="profile-photo">
-                        <img src="{{ asset('images/COA CAR logo.png') }}" alt="">
-                    </div>
-                    <div class="message">
-                        <p><b>Mike Tyson </b>Loreendis, cupiditate ipsam, saepe orro tempora.</p>
-                        <small class="text-muted">2 Minutes Ago</small>
-                    </div>
-                </div>
-                <div class="update">
-                    <div class="profile-photo">
-                        <img src="{{ asset('images/COA CAR logo.png') }}" alt="">
-                    </div>
-                    <div class="message">
-                        <p><b>Mike Tyson </b>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque
-                            aspernatur nostrum, </p>
-                        <small class="text-muted">2 Minutes Ago</small>
-                    </div>
-                </div>
-                <div class="update">
-                    <div class="profile-photo">
-                        <img src="{{ asset('images/COA CAR logo.png') }}" alt="">
-                    </div>
-                    <div class="message">
-                        <p><b>Mike Tyson </b>Lorem ipsum dolor sit amet consectetur adae illo, nulla voluptates
-                            porro tempora.</p>
-                        <small class="text-muted">2 Minutes Ago</small>
-                    </div>
-                </div>
-            </div>
-        </div>
+     
     </main>
 
     {{-- ------------------END OF MAIN------------------ --}}
@@ -155,6 +141,7 @@
                 </div>
             </div>
         </div>
+        
         {{-- ------------------END OF TOP------------------ --}}
         {{-- <div class="recent-updates">
             <h2>Recent Updates</h2>
@@ -192,8 +179,8 @@
         </div> --}}
         {{-- ------------------ END OF RECENT UPDATES ------------------ --}}
         <div class="sales-analytics">
-            <h2>Sales Analytics</h2>
-            <div class="item online">
+            <h2>Edit Reservation Details</h2>
+            {{-- <div class="item online">
                 <div class="icon">
                     <span class="ri-shopping-cart-2-line"></span>
                 </div>
@@ -205,7 +192,7 @@
                     <h5 class="success">+39%</h5>
                     <h3>3849</h3>
                 </div>
-            </div>
+            </div> --}}
             {{-- <div class="item offline">
                 <div class="icon">
                     <span class="ri-shopping-bag-line"></span>
@@ -219,7 +206,7 @@
                     <h3>3849</h3>
                 </div>
             </div> --}}
-            <div class="item customers">
+            {{-- <div class="item customers">
                 <div class="icon">
                     <span class="ri-user-fill"></span>
                 </div>
@@ -231,14 +218,14 @@
                     <h5 class="success">+225%</h5>
                     <h3>3849</h3>
                 </div>
-            </div>
+            </div> --}}
             <div class="item add-product">
                 <div class="icon">
                     <span class="ri-add-line"></span>
                 </div>
                 <div class="right">
                     <div class="info">
-                        <h3>ADD RESERVATION DATE</h3>
+                        <h3>ADD NEW RESERVATION</h3>
                         <small class="text-muted">Last 24 Hours</small>
                     </div>
                     <h5 class="success">+225%</h5>

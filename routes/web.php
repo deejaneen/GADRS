@@ -10,6 +10,8 @@ use App\Http\Controllers\GymCartController;
 use App\Http\Controllers\GymController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ReceivingController;
+use App\Http\Controllers\CashierController;
 use App\Http\Controllers\UserController;
 
 
@@ -63,7 +65,31 @@ Route::middleware(['auth', 'preventCaching', 'checkRole:Guest,COA Employee' ])->
 
 // Routes accessible only by Admin
 Route::middleware(['checkRole:Admin', 'preventCaching', 'auth'])->group(function () {
-    Route::get('/adminhome', [AdminController::class, 'index'])->name('adminhome');
+    Route::get('/admin/home', [AdminController::class, 'index'])->name('adminhome');
     Route::get('/test', [AdminController::class, 'test'])->name('test');
+    Route::get('/admin/users', [AdminController::class, 'users'])->name('adminusers');
+    Route::get('/admin/reservations', [AdminController::class, 'reservations'])->name('adminreservations');
+    Route::get('/admin/gym', [AdminController::class, 'gym'])->name('admingym');
+    Route::get('/admin/dorm', [AdminController::class, 'dorm'])->name('admindorm');
+    Route::get('/admin/profile', [AdminController::class, 'profile'])->name('adminprofile');
       Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });
+
+
+//cashier
+Route::get('/cashier/home', [CashierController::class, 'index'])->name('cashierhome');
+Route::get('/test', [CashierController::class, 'test'])->name('test');
+Route::get('/cashier/users', [CashierController::class, 'users'])->name('cashierusers');
+Route::get('/cashier/reservations', [CashierController::class, 'reservations'])->name('cashierreservations');
+Route::get('/cashier/gym', [CashierController::class, 'gym'])->name('cashiergym');
+Route::get('/cashier/dorm', [CashierController::class, 'dorm'])->name('cashierdorm');
+Route::get('/cashier/profile', [CashierController::class, 'profile'])->name('cashierprofile');
+
+//receiving
+Route::get('/receiving/home', [ReceivingController::class, 'index'])->name('receivinghome');
+Route::get('/test', [ReceivingController::class, 'test'])->name('test');
+Route::get('/receiving/users', [ReceivingController::class, 'users'])->name('receivingusers');
+Route::get('/receiving/reservations', [ReceivingController::class, 'reservations'])->name('receivingreservations');
+Route::get('/receiving/gym', [ReceivingController::class, 'gym'])->name('receivinggym');
+Route::get('/receiving/dorm', [ReceivingController::class, 'dorm'])->name('receivingdorm');
+Route::get('/receiving/profile', [ReceivingController::class, 'profile'])->name('receivingprofile');
