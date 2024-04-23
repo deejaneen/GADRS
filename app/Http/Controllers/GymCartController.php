@@ -39,6 +39,56 @@ class GymCartController extends Controller
 
         ]);
 
+        // Check if the selected day and time fall within the allowed ranges
+        $dayOfWeek = date('N', strtotime($validatedData['selectedDateText']));
+        $startTime = strtotime($validatedData['timepicker-am']);
+        $endTime = strtotime($validatedData['timepicker-pm']);
+
+        // Define allowed time ranges based on the day of the week
+        $allowedRanges = [
+            1 => [ // Monday
+                ['06:00', '10:59'],
+                ['18:00', '21:00'],
+            ],
+            2 => [ // Tuesday
+                ['06:00', '10:59'],
+                ['18:00', '21:00'],
+            ],
+            3 => [ // Wednesday
+                ['06:00', '10:59'],
+                ['18:00', '21:00'],
+            ],
+            4 => [ // Thursday
+                ['06:00', '10:59'],
+                ['18:00', '21:00'],
+            ],
+            5 => [ // Friday
+                ['06:00', '10:59'],
+                ['18:00', '21:00'],
+            ],
+            6 => [ // Saturday
+                ['06:00', '21:00'],
+            ],
+            7 => [ // Sunday
+                ['06:00', '21:00'],
+            ],
+        ];
+
+        // Check if the selected time falls within any of the allowed ranges
+        $isValidRange = false;
+        foreach ($allowedRanges[$dayOfWeek] as $range) {
+            $rangeStart = strtotime($range[0]);
+            $rangeEnd = strtotime($range[1]);
+            if ($startTime >= $rangeStart && $endTime <= $rangeEnd) {
+                $isValidRange = true;
+                break;
+            }
+        }
+
+        if (!$isValidRange) {
+            return redirect()->route('gym')->with('error', 'The selected time slot is not allowed for the selected day.');
+        }
+
         // Check for overlapping reservations
         $overlappingReservation = Gym::where(function ($query) use ($validatedData) {
             $query->where('reservation_date', $validatedData['selectedDateText'])
