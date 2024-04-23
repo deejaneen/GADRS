@@ -23,5 +23,4 @@ class DormCart extends Model
         'is_child',
 
     ];
-
 }

@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('Form_number')->nullable();
             $table->unsignedBigInteger('employee_id');
+            $table->unsignedBigInteger('form_number_id');
             $table->date('reservation_start_date');
             $table->time('reservation_start_time');
             $table->date('reservation_end_date');
@@ -42,7 +43,11 @@ return new class extends Migration
             $table->string('discount_image')->nullable();
             $table->boolean('is_senior_or_pwd')->default(false);
             $table->boolean('is_child')->default(false);
+            $table->string('form_group_number')->nullable();
             $table->timestamps();
+
+
+            $table->foreign('form_number_id')->references('id')->on('form_numbers')->onDelete('cascade');
 
             // Add the foreign key constraint
             $table->foreign('employee_id')->references('id')->on('users')->onDelete('cascade');

@@ -22,6 +22,7 @@ class Dorm extends Model
         'price',
         'is_senior_or_pwd',
         'is_child',
+        'form_group_number',
 
     ];
 }
