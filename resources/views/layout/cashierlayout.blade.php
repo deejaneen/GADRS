@@ -23,7 +23,6 @@
 
 <body>
     <div class="main-container">
-        @include('layout.cashierlayout')
         @yield('cashierdashboard')
 
     </div>

@@ -78,12 +78,9 @@ Route::middleware(['checkRole:Admin', 'preventCaching', 'auth'])->group(function
 
 //cashier
 Route::get('/cashier/home', [CashierController::class, 'index'])->name('cashierhome');
-Route::get('/test', [CashierController::class, 'test'])->name('test');
-Route::get('/cashier/users', [CashierController::class, 'users'])->name('cashierusers');
-Route::get('/cashier/reservations', [CashierController::class, 'reservations'])->name('cashierreservations');
-Route::get('/cashier/gym', [CashierController::class, 'gym'])->name('cashiergym');
-Route::get('/cashier/dorm', [CashierController::class, 'dorm'])->name('cashierdorm');
-Route::get('/cashier/profile', [CashierController::class, 'profile'])->name('cashierprofile');
+Route::get('/cashier/forpayment', [CashierController::class, 'forpayment'])->name('cashierforpayment');
+Route::get('/cashier/paid', [CashierController::class, 'paid'])->name('cashierpaid');
+
 
 //receiving
 Route::get('/receiving/home', [ReceivingController::class, 'index'])->name('receivinghome');

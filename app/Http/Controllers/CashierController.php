@@ -10,28 +10,13 @@ class CashierController extends Controller
     {
         return view('cashier.cashierdashboard');
     }
-    public function test()
+       public function forpayment()
     {
-        return view('cashier.test');
+        return view('cashier.cashierforpayment');
     }
-    public function users()
+    public function paid()
     {
-        return view('cashier.cashieruser');
+        return view('cashier.cashierpaid');
     }
-    public function reservations()
-    {
-        return view('cashier.cashierreservation');
-    }
-    public function gym()
-    {
-        return view('cashier.cashiergym');
-    }
-    public function dorm()
-    {
-        return view('cashier.cashierdorm');
-    }
-    public function profile()
-    {
-        return view('cashier.cashierprofile');
-    }
+
 }
