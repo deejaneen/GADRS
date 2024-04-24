@@ -61,6 +61,9 @@ Route::middleware(['auth', 'preventCaching', 'checkRole:Guest,COA Employee' ])->
     Route::post('/get-reservations', [GymController::class, 'getReservations']);
     Route::post('/cart_check/gym_convert', [CartController::class, 'GymCartToGymReservations'])->name('cart.gym_convert');
     Route::post('/cart_check/dorm_convert', [CartController::class, 'DormCartToDormReservations'])->name('cart.dorm_convert');
+    // Route::post('/cart_check/form', [CartController::class, 'GymCartToGymReservations'])->name('cart.gym_form');
+    // Route::post('/cart/gym_convert', 'CartController@GymCartToGymReservations')->name('cart.gym_convert');
+
 });
 
 // Routes accessible only by Admin

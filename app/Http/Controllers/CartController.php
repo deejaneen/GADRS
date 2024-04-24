@@ -113,6 +113,10 @@ class CartController extends Controller
                     $gymReservation->fill($gymCart->toArray());
                     $gymReservation->form_group_number = $formGroupNumber; // Assign common identifier
 
+                   $gymReservation->company_name = $request->input('hidden_companyName');
+                   $gymReservation->representative = $request->input('hidden_nameRepresentative');
+                   $gymReservation->office_address = $request->input('hidden_address');
+                   $gymReservation->contact_number = $request->input('hidden_contactNumber');
                     $gymReservation->save();
                 }
             }

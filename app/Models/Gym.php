@@ -19,5 +19,9 @@ class Gym extends Model
         'employee_id',
         'purpose',
         'form_group_number',
+        'representative',
+        'company_name',
+        'contact_number',
+        'office_address',
     ];
 }

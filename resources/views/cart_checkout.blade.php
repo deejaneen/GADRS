@@ -28,6 +28,10 @@
                 <form id="gymReservationForm" method="post" action="{{ route('cart.gym_convert') }}">
                     @csrf
                     <input type="hidden" name="cart_ids_gym">
+                    <input type="hidden" class="form-control" id="hidden_companyName" name="hidden_companyName">
+                    <input type="hidden" class="form-control" id="hidden_address" name="hidden_address">
+                    <input type="hidden" class="form-control" id="hidden_nameRepresentative" name="hidden_nameRepresentative">
+                    <input type="hidden" class="form-control" id="hidden_contactNumber" name="hidden_contactNumber">
                     <table class="table-home table-hover" id="gymCartReservationsTable" style="width: 100%">
                         <thead>
                             <tr>
@@ -158,6 +162,8 @@
     </div>
 @endsection
 
+@include('cart.cart-to-form-modal')
+
 @section('bottom_nav')
     <nav class="navbar fixed-bottom">
         <div class="container-fluid">
@@ -167,16 +173,42 @@
                 <label class="form-check-label">Agree With <a data-bs-toggle="modal" data-bs-target="#GFG"><u>Terms and
                             Conditions</u></a></label>
             </div>
-            <button class="btn btn-primary btn-lg rounded-pill confirm toogle-btn" data-mdb-ripple-init
+            {{-- <button class="btn btn-primary btn-lg rounded-pill confirm toogle-btn" data-mdb-ripple-init
                 onclick="confirmation()">
                 <i class="fa-solid fa-share"></i> Place Reservation to be Received
+            </button> --}}
+
+            <button type="button" class="btn btn-primary btn-lg rounded-pill confirm toogle-btn" onclick="openModal()">
+                <i class="fa-solid fa-share"></i> Place item into Form
             </button>
+
+
         </div>
     </nav>
 @endsection
 
 @section('scripts')
     <script>
+        function openModal() {
+            // Check if any checkbox is selected
+            const checkboxes = document.querySelectorAll('.reservation-checkbox');
+            let isAnyCheckboxSelected = false;
+            for (let i = 0; i < checkboxes.length; i++) {
+                if (checkboxes[i].checked) {
+                    isAnyCheckboxSelected = true;
+                    break;
+                }
+            }
+
+            // If at least one checkbox is selected, open the modal
+            if (isAnyCheckboxSelected) {
+                $('#cartToFormModal').modal('show'); // Assuming you're using Bootstrap modal
+            } else {
+                // Otherwise, display a message
+                Swal.fire("Please select items to place into form", "", "warning");
+            }
+        }
+
         // Declare variable to store DataTable instance
         let dormTable;
 
@@ -184,7 +216,7 @@
         function initializeDormTable() {
             if (!dormTable) {
                 dormTable = $('#dormCartReservationsTable').DataTable({
-                    "paging" : false,
+                    "paging": false,
                     "pageLength": 5,
                     "lengthMenu": [5, 10, 15, 20],
                     "columnDefs": [{
@@ -218,7 +250,7 @@
                     // // Check if dorm reservations card is visible
                     // const dormCardVisible = document.getElementById('dormReservationsCartCard').style.display !==
                     //     'none';
-
+                    // Prevent default form submission
                     const gymCardVisible = window.getComputedStyle(document.getElementById(
                         'gymReservationsCartCard')).display !== 'none';
                     const dormCardVisible = window.getComputedStyle(document.getElementById(
@@ -226,6 +258,17 @@
 
 
                     if (gymCardVisible) {
+                        const companyName = document.getElementById('companyName').value;
+                        const address = document.getElementById('address').value;
+                        const nameRepresentative = document.getElementById('nameRepresentative').value;
+                        const contactNumber = document.getElementById('contactNumber').value;
+
+                        // Set values of hidden input fields in the form
+                        document.getElementById('hidden_companyName').value = companyName;
+                        document.getElementById('hidden_address').value = address;
+                        document.getElementById('hidden_nameRepresentative').value = nameRepresentative;
+                        document.getElementById('hidden_contactNumber').value = contactNumber;
+
                         // Get selected gym cart IDs
                         const gymCartIds = [];
                         document.querySelectorAll('.gym-cart-checkbox:checked').forEach((checkbox) => {
@@ -332,7 +375,26 @@
             updateTotalPrice();
         });
 
+        function resetFormGymCartModal() {
+            console.log("Resetting form...");
+            var form = document.getElementById("cartToFormModalForm");
+            if (form) {
+                form.reset();
+                console.log("Form reset successfully.");
+            } else {
+                console.error("Form not found.");
+            }
+        }
 
+        function resetFormDormCartModal() {
+            console.log("Resetting form...");
+            var form = document.getElementById("cartToFormModalForm");
+            if (form) {
+                form.reset();
+                console.log("Form reset successfully.");
+            } else {
+                console.error("Form not found.");
+            }
+        }
     </script>
 @endsection
-
