@@ -45,6 +45,10 @@ class Authenticate extends Middleware
                 return $user->role === 'Admin';
             case 'cashier':
                 return $user->role === 'Cashier';
+            case 'receiving':
+                return $user->role === 'Receiving';
+            case 'supply':
+                return $user->role === 'Supply';
             case 'coa_employee':
                 return $user->role === 'COA Employee';
             case 'guest':

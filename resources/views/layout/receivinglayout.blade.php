@@ -23,7 +23,6 @@
 
 <body>
     <div class="main-container">
-        @include('layout.receivinglayout')
         @yield('receivingdashboard')
 
     </div>

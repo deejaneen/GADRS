@@ -59,6 +59,10 @@ class AuthController extends Controller
             // Check user role and redirect accordingly
             if (auth()->user()->role === 'Admin') {
                 return redirect()->route('adminhome')->with('success', "Logged in successfully!");
+            } elseif (auth()->user()->role === 'Cashier') {
+                return redirect()->route('cashierhome')->with('success', "Logged in successfully!");
+            } elseif (auth()->user()->role === 'Receiving') {
+                return redirect()->route('receivinghome')->with('success', "Logged in successfully!");
             } else {
                 return redirect()->route('home')->with('success', "Logged in successfully!");
             }

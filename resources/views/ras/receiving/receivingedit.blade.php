@@ -1,8 +1,6 @@
-@extends('layout.adminlayout')
+@extends('layout.receivinglayout')
 
-
-
-@section('admindashboard')
+@section('receivingdashboard')
 <aside>
     <div class="top">
         <div class="logo">
@@ -14,36 +12,26 @@
         </div>
 
         <div class="sidebar">
-            <a href="{{ route('adminhome') }}">
+            <a href="{{ route('receivinghome') }}" >
                 <span class="ri-dashboard-line ">
                     <h3>Dashboard</h3>
                 </span>
             </a>
-            <a href="{{ route('adminusers') }}" >
-                <span class="ri-team-line">
-                    <h3>Users</h3>
-                </span>
-            </a>
-            <a href="{{ route('adminreservations') }}" >
-                <span class="ri-receipt-line">
-                    <h3>Reservations</h3>
-                    <span class="message-count">26</span>
-                </span>
-            </a>
-            <a href="{{ route('admingym') }}" >
-                <span class="ri-basketball-fill">
-                    <h3>Gym</h3>
-                </span>
-            </a>
-            <a href="{{ route('admindorm') }}" >
-                <span class="ri-home-3-line">
-                    <h3>Dorm</h3>
+           
+            <a href="{{ route('receivingpending') }}" >
+                <span class="ri-time-line">
+                    <h3>Pending</h3>
                 </span>
                 
             </a>
-            <a href="{{ route('adminprofile') }}" class="active">
-                <span class="ri-user-line">
-                    <h3>Profile</h3>
+            <a href="{{ route('receivingreceived') }}">
+                <span class="ri-folder-received-fill">
+                    <h3>Received</h3>
+                </span>
+            </a>
+            <a href="{{ route('receivingeditreservations') }}" class="active">
+                <span class="ri-edit-2-line">
+                    <h3>Edit Reservations</h3>
                 </span>
             </a>
             <form action="{{ route('logout') }}" method="POST" id="logout-form-navbar">
@@ -57,12 +45,15 @@
         </div>
     </div>
 </aside>
-{{-- -------------------------------END-OF-ASIDE-------------------- --}}
     <main>
-        <h1>GYM</h1>
-        
+        <h1>Edit Reservations</h1>
+      
+
+     
+
+        {{-- ------------------END OF INSIGHTS------------------ --}}
         <div class="recent-orders">
-            <h2>Recent Gym Reservations</h2>
+            <h2>Recent Orders</h2>
             <table>
                 <thead>
                     <tr>
@@ -121,9 +112,6 @@
             </table>
             <a href="#">Show All</a>
         </div>
-
-        {{-- ------------------END OF INSIGHTS------------------ --}}
-     
     </main>
 
     {{-- ------------------END OF MAIN------------------ --}}
@@ -139,17 +127,16 @@
             <div class="profile">
                 <div class="info">
                     <p>Hey, <b>Name</b></p>
-                    <small class="text-muted">Admin</small>
+                    <small class="text-muted">Receiving</small>
                 </div>
                 <div class="profile-photo">
                     <img src="{{ asset('images/COA CAR logo.png') }}" alt="">
                 </div>
             </div>
         </div>
-        
         {{-- ------------------END OF TOP------------------ --}}
-        {{-- <div class="recent-updates">
-            <h2>Recent Updates</h2>
+        <div class="recent-updates">
+            <h2>Update Log</h2>
             <div class="updates">
                 <div class="update">
                     <div class="profile-photo">
@@ -181,62 +168,8 @@
                     </div>
                 </div>
             </div>
-        </div> --}}
-        {{-- ------------------ END OF RECENT UPDATES ------------------ --}}
-        <div class="sales-analytics">
-            <h2>Add New Gym Reservation Date</h2>
-            {{-- <div class="item online">
-                <div class="icon">
-                    <span class="ri-shopping-cart-2-line"></span>
-                </div>
-                <div class="right">
-                    <div class="info">
-                        <h3>NEW RESERVATIONS</h3>
-                        <small class="text-muted">Last 24 Hours</small>
-                    </div>
-                    <h5 class="success">+39%</h5>
-                    <h3>3849</h3>
-                </div>
-            </div> --}}
-            {{-- <div class="item offline">
-                <div class="icon">
-                    <span class="ri-shopping-bag-line"></span>
-                </div>
-                <div class="right">
-                    <div class="info">
-                        <h3>OFFLINE ORDERS</h3>
-                        <small class="text-muted">Last 24 Hours</small>
-                    </div>
-                    <h5 class="danger">-17%</h5>
-                    <h3>3849</h3>
-                </div>
-            </div> --}}
-            {{-- <div class="item customers">
-                <div class="icon">
-                    <span class="ri-user-fill"></span>
-                </div>
-                <div class="right">
-                    <div class="info">
-                        <h3>NEW USERS</h3>
-                        <small class="text-muted">Last 24 Hours</small>
-                    </div>
-                    <h5 class="success">+225%</h5>
-                    <h3>3849</h3>
-                </div>
-            </div> --}}
-            <div class="item add-product">
-                <div class="icon">
-                    <span class="ri-add-line"></span>
-                </div>
-                <div class="right">
-                    <div class="info">
-                        <h3>ADD NEW GYM DATE</h3>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
         </div>
+        {{-- ------------------ END OF RECENT UPDATES ------------------ --}}
+      
     </div>
 @endsection

@@ -29,11 +29,14 @@
                         <h3>Paid</h3>
                     </span>
                 </a>
-                <a href="{{ route('logout') }}">
-                    <span class="ri-logout-box-r-line">
-                        <h3>Logout</h3>
-                    </span>
-                </a>
+                <form action="{{ route('logout') }}" method="POST" id="logout-form-navbar">
+                    @csrf
+    
+                    <button class="no-underline logout btn btn-danger btn-md" type="submit" id="logout-button">
+                        <span class="ri-logout-box-r-line">
+                            <h3>LOGOUT</h3></span>
+                    </button>
+                </form>
             </div>
         </div>
     </aside>

@@ -14,7 +14,6 @@ use App\Http\Controllers\ReceivingController;
 use App\Http\Controllers\CashierController;
 use App\Http\Controllers\UserController;
 
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,7 +24,6 @@ use App\Http\Controllers\UserController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
 
 // Routes accessible only to guests (non-authenticated users)
 Route::middleware(['guest', 'preventCaching'])->group(function () {
@@ -39,11 +37,10 @@ Route::middleware(['guest', 'preventCaching'])->group(function () {
 });
 
 // Routes that require authentication
-Route::middleware(['auth', 'preventCaching', 'checkRole:Guest,COA Employee' ])->group(function () {
+Route::middleware(['auth', 'preventCaching'])->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::resource('users', UserController::class)->only('show', 'edit', 'update');
-
 
     // Profile and password routes
     Route::prefix('/profile')->group(function () {
@@ -75,21 +72,19 @@ Route::middleware(['checkRole:Admin', 'preventCaching', 'auth'])->group(function
     Route::get('/admin/gym', [AdminController::class, 'gym'])->name('admingym');
     Route::get('/admin/dorm', [AdminController::class, 'dorm'])->name('admindorm');
     Route::get('/admin/profile', [AdminController::class, 'profile'])->name('adminprofile');
-      Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });
 
+// Cashier routes
+Route::middleware(['checkRole:Cashier', 'preventCaching', 'auth'])->group(function () {
+    Route::get('/cashier/home', [CashierController::class, 'index'])->name('cashierhome');
+    Route::get('/cashier/forpayment', [CashierController::class, 'forpayment'])->name('cashierforpayment');
+    Route::get('/cashier/paid', [CashierController::class, 'paid'])->name('cashierpaid');
+});
 
-//cashier
-Route::get('/cashier/home', [CashierController::class, 'index'])->name('cashierhome');
-Route::get('/cashier/forpayment', [CashierController::class, 'forpayment'])->name('cashierforpayment');
-Route::get('/cashier/paid', [CashierController::class, 'paid'])->name('cashierpaid');
-
-
-//receiving
-Route::get('/receiving/home', [ReceivingController::class, 'index'])->name('receivinghome');
-Route::get('/test', [ReceivingController::class, 'test'])->name('test');
-Route::get('/receiving/users', [ReceivingController::class, 'users'])->name('receivingusers');
-Route::get('/receiving/reservations', [ReceivingController::class, 'reservations'])->name('receivingreservations');
-Route::get('/receiving/gym', [ReceivingController::class, 'gym'])->name('receivinggym');
-Route::get('/receiving/dorm', [ReceivingController::class, 'dorm'])->name('receivingdorm');
-Route::get('/receiving/profile', [ReceivingController::class, 'profile'])->name('receivingprofile');
+// Receiving routes
+Route::middleware(['checkRole:Receiving', 'preventCaching', 'auth'])->group(function () {
+    Route::get('/receiving/home', [ReceivingController::class, 'index'])->name('receivinghome');
+    Route::get('/receiving/pending', [ReceivingController::class, 'receivingpending'])->name('receivingpending');
+    Route::get('/receiving/received', [ReceivingController::class, 'receivingreceived'])->name('receivingreceived');
+    Route::get('/receiving/gym', [ReceivingController::class, 'receivingedit'])->name('receivingeditreservations');
+});

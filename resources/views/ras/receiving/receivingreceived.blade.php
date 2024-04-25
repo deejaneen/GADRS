@@ -12,13 +12,13 @@
         </div>
 
         <div class="sidebar">
-            <a href="{{ route('receivinghome') }}" class="active">
+            <a href="{{ route('receivinghome') }}" >
                 <span class="ri-dashboard-line ">
                     <h3>Dashboard</h3>
                 </span>
             </a>
            
-            <a href="{{ route('receivingpending') }}" >
+            <a href="{{ route('receivingpending') }}" class="active">
                 <span class="ri-time-line">
                     <h3>Pending</h3>
                 </span>
@@ -46,16 +46,15 @@
     </div>
 </aside>
     <main>
-        <h1>Dashboard</h1>
-     
-
+        <h1>Received</h1>
+       
         <div class="insights">
             {{-- -------------------------------END-OF-SALES-------------------- --}}
             <div class="totalreservation">
                 <span class="ri-key-2-line"></span>
                 <div class="middle">
                     <div class="left">
-                        <h3>Total Reservations - Pending</h3>
+                        <h3>Total Reservations - Received</h3>
                         <h1>
                             Php25,024
                         </h1>
@@ -68,22 +67,20 @@
                 <span class="ri-basketball-fill"></span>
                 <div class="middle">
                     <div class="left">
-                        <h3>Total Reservations - Received</h3>
-                        <h4>This Month "Insert Month Here"</h4>
+                        <h3>Total Received Reservations - Gym</h3>
                         <h1>
                             Php25,024
                         </h1>
                     </div>
-                   
+                  
                 </div>
             </div>
-            {{-- -------------------------------END-OF-DORM-RESERVATIONS-------------------- --}}
-            <div class="dormreservations">
+             {{-- -------------------------------END-OF-DORM-RESERVATIONS-------------------- --}}
+             <div class="dormreservations">
                 <span class="ri-hotel-bed-fill"></span>
                 <div class="middle">
                     <div class="left">
-                        <h3>Total Reservations - Received</h3>
-                        <h4>Last Month "Insert Month Here"</h4>
+                        <h3>Total Received Reservations - Dorm</h3>
                         <h1>
                             Php25,024
                         </h1>
@@ -94,47 +91,65 @@
         </div>
 
         {{-- ------------------END OF INSIGHTS------------------ --}}
-     
-    </main>
+        <div class="recent-orders">
+            <h2>Recent Orders</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Product Number</th>
+                        <th>Payment</th>
+                        <th>Status</th>
+                        <th></th>
 
-    {{-- ------------------END OF MAIN------------------ --}}
-    <div class="right">
-        <div class="top">
-            <button id="menu-btn">
-                <span class="ri-menu-line"></span>
-            </button>
-            <div class="theme-toggler">
-                <span class="ri-sun-fill active"></span>
-                <span class="ri-moon-fill"></span>
-            </div>
-            <div class="profile">
-                <div class="info">
-                    <p>Hey, <b>Name</b></p>
-                    <small class="text-muted">Receiving</small>
-                </div>
-                <div class="profile-photo">
-                    <img src="{{ asset('images/COA CAR logo.png') }}" alt="">
-                </div>
-            </div>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Fdhsajkdakdh</td>
+                        <td>Adska</td>
+                        <td>Due</td>
+                        <td class="warning">Pending</td>
+                        <td class="warning-orange">Details</td>
+                    </tr>
+                    <tr>
+                        <td>Fdhsajkdakdh</td>
+                        <td>Adska</td>
+                        <td>Due</td>
+                        <td class="warning">Pending</td>
+                        <td class="warning-orange">Details</td>
+                    </tr>
+                    <tr>
+                        <td>Fdhsajkdakdh</td>
+                        <td>Adska</td>
+                        <td>Due</td>
+                        <td class="warning">Pending</td>
+                        <td class="warning-orange">Details</td>
+                    </tr>
+                    <tr>
+                        <td>Fdhsajkdakdh</td>
+                        <td>Adska</td>
+                        <td>Due</td>
+                        <td class="warning">Pending</td>
+                        <td class="warning-orange">Details</td>
+                    </tr>
+                    <tr>
+                        <td>Fdhsajkdakdh</td>
+                        <td>Adska</td>
+                        <td>Due</td>
+                        <td class="warning">Pending</td>
+                        <td class="warning-orange">Details</td>
+                    </tr>
+                    <tr>
+                        <td>Fdhsajkdakdh</td>
+                        <td>Adska</td>
+                        <td>Due</td>
+                        <td class="warning">Pending</td>
+                        <td class="warning-orange">Details</td>
+                    </tr>
+                </tbody>
+            </table>
+            <a href="#">Show All</a>
         </div>
-        {{-- ------------------END OF TOP------------------ --}}
-     
-        {{-- ------------------ END OF RECENT UPDATES ------------------ --}}
-        <div class="sales-analytics">
-            <h2>Sales Analytics</h2>
-           
-            <div class="item add-product">
-                <div class="icon">
-                    <span class="ri-add-line"></span>
-                </div>
-                <div class="right">
-                    <div class="info">
-                        <h3>ADD RESERVATION</h3>
-                    </div>
-                    <h5 class="success">+225%</h5>
-                    <h3>3849</h3>
-                </div>
-            </div>
-        </div>
-    </div>
+    </main>
 @endsection

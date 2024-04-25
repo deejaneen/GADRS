@@ -115,8 +115,9 @@
                         <tbody>
                             @foreach ($dormcarts as $dormcart)
                                 <tr class="table-active dorm">
-                                    <td><i class="fa-solid fa-plus add-icon ms-3"></i>
-                                        <i class="fa-solid fa-minus minus-icon ms-3"></i>
+                                    <td class="button-center">
+                                        <span class="ri-delete-bin-line"></span>
+                                   
                                     </td>
                                     <td>{{ date('F j, Y', strtotime($dormcart->reservation_start_date)) }} -
                                         {{ date('g:i A', strtotime($dormcart->reservation_start_time)) }},

@@ -189,13 +189,16 @@ aside h3 {
 }
 
 .sidebar a .ri-dashboard-line,
+.sidebar a .ri-edit-2-line,
+.sidebar a .ri-time-line,
+.sidebar a .ri-folder-received-fill,
 .sidebar a .ri-wallet-3-fill,
 .sidebar a .ri-team-line,
 .sidebar a .ri-receipt-line,
 .sidebar a .ri-basketball-fill,
 .sidebar a .ri-home-3-line,
 .sidebar a .ri-user-line,
-.sidebar a .ri-logout-box-r-line {
+.sidebar form .ri-logout-box-r-line {
     display: flex;
     align-items: center;
     margin-left: 2rem;
@@ -213,16 +216,33 @@ aside .sidebar a span {
     transition: all 300ms ease;
 }
 
-aside .sidebar a:last-child {
+aside .sidebar form {
     position: absolute;
     bottom: 2rem;
     width: 100%;
 }
 
+aside .sidebar form button span:hover {
+    margin-left: 0.5rem;
+}
+
+aside .sidebar form button {
+    background: var(--color-primary);
+    color: var(--color-background);
+    border: none;
+    font-size: 1.8rem;
+    margin: 0;
+    padding: 0;
+    width: 80%;
+}
+
+aside .sidebar form button span h3 {
+    font-family: 'Poppins', sans-serif;
+}
+
 aside .sidebar a.active {
     background: var(--color-light);
     color: var(--color-primary);
-    /* margin-left: auto; */
 }
 
 aside .sidebar a.active:before {
@@ -342,6 +362,7 @@ main .recent-updates .update {
     gap: 1em;
     padding: 1em;
 }
+
 main .recent-updates {
     margin-top: 30px;
 }
@@ -354,9 +375,10 @@ main .recent-updates .updates {
     transition: all 300ms ease;
 
 }
+
 main .recent-updates .updates:hover {
     box-shadow: none;
-  }
+}
 
 main .recent-updates .updates .update .message p b {
     color: var(--color-orange);
@@ -368,7 +390,7 @@ main .recent-updates .updates .update .message p {
 
 main .recent-updates .updates .update .message small {
     color: var(--color-warning);
-  }
+}
 
 main .insights svg {
     color: #d62828;
