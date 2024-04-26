@@ -69,13 +69,37 @@ class CartController extends Controller
                 if ($check) {
                     Session::flash('error', 'The item in your cart is already reserved for the selected date and time.');
                     return redirect()->back();
-                }
+                } else {
 
-                // Assign the common identifier to the reservation
-                $dormReservation = new Dorm();
-                $dormReservation->fill($dormCart->toArray());
-                $dormReservation->form_group_number = $formGroupNumber; // Assign common identifier
-                $dormReservation->save();
+                    // Assign the common identifier to the reservation
+                    $dormReservation = new Dorm();
+                    $dormReservation->fill($dormCart->toArray());
+                    $dormReservation->form_group_number = $formGroupNumber; // Assign common identifier
+                    $dormReservation->first_name = $request->input('hidden_firstname');
+                    $dormReservation->middle_name  = $request->input('hidden_middlename');
+                    $dormReservation->last_name  = $request->input('hidden_surname');
+                    $dormReservation->office = $request->input('hidden_office');
+                    $dormReservation->office_address = $request->input('hidden_office_address');
+                    $dormReservation->position = $request->input('hidden_position');
+                    $dormReservation->contact_number  = $request->input('hidden_contact_number_dorm');
+                    $dormReservation->email  = $request->input('hidden_email');
+                    $dormReservation->employee_number  = $request->input('hidden_ei_number');
+                    $dormReservation->id_presented  = $request->input('hidden_id_presented');
+                    $dormReservation->purpose_of_stay  = $request->input('hidden_pos');
+
+                    //COA Employee
+                    $dormReservation->coa_referrer  = $request->input('hidden_coaEm_name');
+                    $dormReservation->relationship_with_guest = $request->input('hidden_coaEm_relationshipGuest');
+                    $dormReservation->coa_referrer_office  = $request->input('hidden_coaEm_office');
+                    $dormReservation->coa_referrer_office_address  = $request->input('hidden_coaEm_office_address');
+
+                    //Emergency Contact
+                    $dormReservation->emergency_contact = $request->input('hidden_ptn');
+                    $dormReservation->emergency_contact_number = $request->input('hidden_ptn_contact');
+                    $dormReservation->home_address  = $request->input('hidden_ptn_home_address');
+                    
+                    $dormReservation->save();
+                }
             }
 
             return redirect()->route('home')->with('success', 'Dorm Reservation added successfully!');
@@ -117,6 +141,7 @@ class CartController extends Controller
                    $gymReservation->representative = $request->input('hidden_nameRepresentative');
                    $gymReservation->office_address = $request->input('hidden_address');
                    $gymReservation->contact_number = $request->input('hidden_contactNumber');
+
                     $gymReservation->save();
                 }
             }

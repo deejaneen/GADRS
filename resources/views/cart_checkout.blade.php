@@ -30,7 +30,8 @@
                     <input type="hidden" name="cart_ids_gym">
                     <input type="hidden" class="form-control" id="hidden_companyName" name="hidden_companyName">
                     <input type="hidden" class="form-control" id="hidden_address" name="hidden_address">
-                    <input type="hidden" class="form-control" id="hidden_nameRepresentative" name="hidden_nameRepresentative">
+                    <input type="hidden" class="form-control" id="hidden_nameRepresentative"
+                        name="hidden_nameRepresentative">
                     <input type="hidden" class="form-control" id="hidden_contactNumber" name="hidden_contactNumber">
                     <table class="table-home table-hover" id="gymCartReservationsTable" style="width: 100%">
                         <thead>
@@ -101,6 +102,29 @@
                 <form id="dormReservationForm" method="post" action="{{ route('cart.dorm_convert') }}">
                     @csrf
                     <input type="hidden" name="cart_ids_dorm">
+                    <input type="hidden" class="form-control" id="hidden_surname" name="hidden_surname">
+                    <input type="hidden" class="form-control" id="hidden_firstname" name="hidden_firstname">
+                    <input type="hidden" class="form-control" id="hidden_middlename" name="hidden_middlename">
+                    <input type="hidden" class="form-control" id="hidden_office" name="hidden_office">
+                    <input type="hidden" class="form-control" id="hidden_office_address" name="hidden_office_address">
+                    <input type="hidden" class="form-control" id="hidden_position" name="hidden_position">
+                    <input type="hidden" class="form-control" id="hidden_contact_number_dorm"
+                        name="hidden_contact_number_dorm">
+                    <input type="hidden" class="form-control" id="hidden_email" name="hidden_email">
+                    <input type="hidden" class="form-control" id="hidden_ei_number" name="hidden_ei_number">
+                    <input type="hidden" class="form-control" id="hidden_id_presented" name="hidden_id_presented">
+                    <input type="hidden" class="form-control" id="hidden_pos" name="hidden_pos">
+                    <input type="hidden" class="form-control" id="hidden_coaEm_name" name="hidden_coaEm_name">
+                    <input type="hidden" class="form-control" id="hidden_coaEm_relationshipGuest"
+                        name="hidden_coaEm_relationshipGuest">
+                    <input type="hidden" class="form-control" id="hidden_coaEm_office" name="hidden_coaEm_office">
+                    <input type="hidden" class="form-control" id="hidden_coaEm_office_address"
+                        name="hidden_coaEm_office_address">
+                    <input type="hidden" class="form-control" id="hidden_ptn" name="hidden_ptn">
+                    <input type="hidden" class="form-control" id="hidden_ptn_contact" name="hidden_ptn_contact">
+                    <input type="hidden" class="form-control" id="hidden_ptn_home_address"
+                        name="hidden_ptn_home_address">
+
                     <table class="table-home table-hover" id="dormCartReservationsTable" style="width: 100%">
                         <thead>
                             <tr>
@@ -117,7 +141,7 @@
                                 <tr class="table-active dorm">
                                     <td class="button-center">
                                         <span class="ri-delete-bin-line"></span>
-                                   
+
                                     </td>
                                     <td>{{ date('F j, Y', strtotime($dormcart->reservation_start_date)) }} -
                                         {{ date('g:i A', strtotime($dormcart->reservation_start_time)) }},
@@ -170,7 +194,8 @@
         <div class="container-fluid">
             <a class="navbar-brand">Total:₱<span id="total-price">0</span></a>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="check1" name="option1" value="something" checked>
+                <input class="form-check-input" type="checkbox" id="check1" name="option1" value="something"
+                    checked>
                 <label class="form-check-label">Agree With <a data-bs-toggle="modal" data-bs-target="#GFG"><u>Terms and
                             Conditions</u></a></label>
             </div>
@@ -203,7 +228,15 @@
 
             // If at least one checkbox is selected, open the modal
             if (isAnyCheckboxSelected) {
-                $('#cartToFormModal').modal('show'); // Assuming you're using Bootstrap modal
+                const gymCardVisible = window.getComputedStyle(document.getElementById(
+                    'gymReservationsCartCard')).display !== 'none';
+                const dormCardVisible = window.getComputedStyle(document.getElementById(
+                    'dormReservationsCartCard')).display !== 'none';
+                if (gymCardVisible) {
+                    $('#cartToFormModalGym').modal('show');
+                } else if (dormCardVisible) {
+                    $('#cartToFormModalDorm').modal('show');
+                }
             } else {
                 // Otherwise, display a message
                 Swal.fire("Please select items to place into form", "", "warning");
@@ -286,6 +319,46 @@
                             Swal.fire("Please select items to checkout", "", "warning");
                         }
                     } else if (dormCardVisible) {
+
+                        const surname = document.getElementById('surname').value;
+                        const firstname = document.getElementById('firstname').value;
+                        const middlename = document.getElementById('middlename').value;
+                        const office = document.getElementById('office').value;
+                        const office_address = document.getElementById('office_address').value;
+                        const position = document.getElementById('position').value;
+                        const contact_number_dorm = document.getElementById('contact_number_dorm').value;
+                        const email = document.getElementById('email').value;
+                        const ei_number = document.getElementById('ei_number').value;
+                        const id_presented = document.getElementById('id_presented').value;
+                        const pos = document.getElementById('pos').value;
+                        const coaEm_name = document.getElementById('coaEm_name').value;
+                        const coaEm_relationshipGuest = document.getElementById('coaEm_relationshipGuest').value;
+                        const coaEm_office = document.getElementById('coaEm_office').value;
+                        const coaEm_office_address = document.getElementById('coaEm_office_address').value;
+                        const ptn = document.getElementById('ptn').value;
+                        const ptn_contact = document.getElementById('ptn_contact').value;
+                        const ptn_home_address = document.getElementById('ptn_home_address').value;
+
+                        // Set values of hidden input fields in the form
+                        document.getElementById('hidden_surname').value = surname;
+                        document.getElementById('hidden_firstname').value = firstname;
+                        document.getElementById('hidden_middlename').value = middlename;
+                        document.getElementById('hidden_office').value = office;
+                        document.getElementById('hidden_office_address').value = office_address;
+                        document.getElementById('hidden_position').value = position;
+                        document.getElementById('hidden_contact_number_dorm').value = contact_number_dorm;
+                        document.getElementById('hidden_email').value = email;
+                        document.getElementById('hidden_ei_number').value = ei_number;
+                        document.getElementById('hidden_id_presented').value = id_presented;
+                        document.getElementById('hidden_pos').value = pos;
+                        document.getElementById('hidden_coaEm_name').value = coaEm_name;
+                        document.getElementById('hidden_coaEm_relationshipGuest').value = coaEm_relationshipGuest;
+                        document.getElementById('hidden_coaEm_office').value = coaEm_office;
+                        document.getElementById('hidden_coaEm_office_address').value = coaEm_office_address;
+                        document.getElementById('hidden_ptn').value = ptn;
+                        document.getElementById('hidden_ptn_contact').value = ptn_contact;
+                        document.getElementById('hidden_ptn_home_address').value = ptn_home_address;
+
                         // Get selected dorm cart IDs
                         const dormCartIds = [];
                         document.querySelectorAll('.dorm-cart-checkbox:checked').forEach((checkbox) => {
@@ -378,9 +451,9 @@
 
         function resetFormGymCartModal() {
             console.log("Resetting form...");
-            var form = document.getElementById("cartToFormModalForm");
+            var form = document.getElementById("cartToFormModalGymForm");
             if (form) {
-                form.reset();
+                form.reset(); // Reset the form
                 console.log("Form reset successfully.");
             } else {
                 console.error("Form not found.");
@@ -389,9 +462,9 @@
 
         function resetFormDormCartModal() {
             console.log("Resetting form...");
-            var form = document.getElementById("cartToFormModalForm");
+            var form = document.getElementById("cartToFormModalDormForm");
             if (form) {
-                form.reset();
+                form.reset(); // Reset the form
                 console.log("Form reset successfully.");
             } else {
                 console.error("Form not found.");

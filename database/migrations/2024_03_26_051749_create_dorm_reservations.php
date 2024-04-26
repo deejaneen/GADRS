@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('Form_number')->nullable();
             $table->unsignedBigInteger('employee_id');
-            $table->unsignedBigInteger('form_number_id');
+            $table->unsignedBigInteger('form_number_id')->nullable();
             $table->date('reservation_start_date');
             $table->time('reservation_start_time');
             $table->date('reservation_end_date');
@@ -33,10 +33,11 @@ return new class extends Migration
             $table->string('coa_or_non_coa_id')->nullable();
             $table->string('coa_referrer')->nullable();
             $table->string('coa_referrer_office')->nullable();
+            $table->string('coa_referrer_office_address')->nullable();
             $table->string('relationship_with_guest')->nullable();
             $table->decimal('price', 10, 2)->nullable();
             $table->string('status')->default('Pending')->nullable();
-            $table->text('purpose_of_stay')->nullable();
+            $table->string('purpose_of_stay')->nullable();
             $table->string('emergency_contact')->nullable();
             $table->string('emergency_contact_number')->nullable();
             $table->text('home_address')->nullable();
@@ -44,6 +45,9 @@ return new class extends Migration
             $table->boolean('is_senior_or_pwd')->default(false);
             $table->boolean('is_child')->default(false);
             $table->string('form_group_number')->nullable();
+            $table->string('last_name')->nullable();
+            $table->string('first_name')->nullable();
+            $table->string('middle_name')->nullable();
             $table->timestamps();
 
 
