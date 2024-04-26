@@ -633,13 +633,20 @@ main .recent-orders a {
     font-weight: 600;
 }
 
-#AdminUserTableCard {
+#AdminUserTableCard,
+#AdminGymReservationTableCard,
+#AdminDormReservationTableCard {
     background: var(--color-primary);
     color: var(--color-background);
     padding: 20px;
     box-shadow: var(--box-shadow);
     transition: all 300ms ease;
 }
+#AdminDormReservationTableCard{
+    margin-top: 30px;
+}
+#AdminDormReservationTableCard:hover,
+#AdminGymReservationTableCard:hover,
 #AdminUserTableCard:hover {
     box-shadow: none;
 }
@@ -662,4 +669,8 @@ main .recent-orders a {
     border: none;
     border-radius: 10px;
     margin-right: 10px;
+}
+.info .ri-hotel-bed-fill,
+.info .ri-basketball-fill{
+    font-size: 1.5em;
 }

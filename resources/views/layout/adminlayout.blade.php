@@ -43,6 +43,8 @@
     <script>
         $(document).ready(function() {
             $('#AdminUserTable').DataTable();
+            $('#AdminGymReservationTable').DataTable();
+            $('#AdminDormReservationTable').DataTable();
         });
     </script>
 </body>
