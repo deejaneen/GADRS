@@ -104,6 +104,7 @@
             $('#DormReservationsTable').DataTable();
             $('#GymReservationsTableHistory').DataTable();
             $('#DormReservationsTableHistory').DataTable();
+            // $('#AdminUserTable').DataTable();
             // $('#dormCartReservationsTable').DataTable({
             //     "pageLength": 5, // Display 5 rows per page
             //     "lengthMenu": [5, 10, 15, 20], // Option to change number of rows per page

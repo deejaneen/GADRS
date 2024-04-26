@@ -59,68 +59,44 @@
 </aside>
 {{-- -------------------------------END-OF-ASIDE-------------------- --}}
     <main>
-        <h1>USERS</h1>
+        <h1 class="page-title">USERS</h1>
         
-        <div class="recent-orders">
-            <h2>Recent Orders</h2>
-            <table>
+        <div class="card" id="AdminUserTableCard">
+            <div>
+                <h4 class="card-header text-center home">User List</h4>
+            </div>
+            <table class="table-home table-hover stripe" id="AdminUserTable" style="width: 100%">
                 <thead>
                     <tr>
-                        <th>Product Name</th>
-                        <th>Product Number</th>
-                        <th>Payment</th>
-                        <th>Status</th>
-                        <th></th>
-
+                        <th scope="col">Last Name</th>
+                        <th scope="col">First Name</th>
+                        <th scope="col">Middle Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Contact Number</th>
+                        <th scope="col">Role</th>
+                        <th scope="col">Buttons</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Fdhsajkdakdh</td>
-                        <td>Adska</td>
-                        <td>Due</td>
-                        <td class="warning">Pending</td>
-                        <td class="warning-orange">Details</td>
-                    </tr>
-                    <tr>
-                        <td>Fdhsajkdakdh</td>
-                        <td>Adska</td>
-                        <td>Due</td>
-                        <td class="warning">Pending</td>
-                        <td class="warning-orange">Details</td>
-                    </tr>
-                    <tr>
-                        <td>Fdhsajkdakdh</td>
-                        <td>Adska</td>
-                        <td>Due</td>
-                        <td class="warning">Pending</td>
-                        <td class="warning-orange">Details</td>
-                    </tr>
-                    <tr>
-                        <td>Fdhsajkdakdh</td>
-                        <td>Adska</td>
-                        <td>Due</td>
-                        <td class="warning">Pending</td>
-                        <td class="warning-orange">Details</td>
-                    </tr>
-                    <tr>
-                        <td>Fdhsajkdakdh</td>
-                        <td>Adska</td>
-                        <td>Due</td>
-                        <td class="warning">Pending</td>
-                        <td class="warning-orange">Details</td>
-                    </tr>
-                    <tr>
-                        <td>Fdhsajkdakdh</td>
-                        <td>Adska</td>
-                        <td>Due</td>
-                        <td class="warning">Pending</td>
-                        <td class="warning-orange">Details</td>
-                    </tr>
+                    @foreach ($users as $user)
+                        <tr class="table-active">
+                            <td>{{ $user->last_name}}</td> 
+                            <td>{{ $user->first_name }}</td> 
+                            <td>{{ $user->middle_name }}</td> 
+                            <td>{{ $user->email }}</td> 
+                            <td>{{ $user->contact_number }}</td> 
+                            <td>{{ $user->role }}</td> 
+                            <td>
+                                <button class="btn btn-primary btn-lg rounded-pill" id="userTableEditbtn"> Edit</button>
+                                <button class="btn btn-primary btn-lg rounded-pill" id="userTableDeletebtn"> Delete</button>
+
+                            </td>
+                        </tr>
+                    @endforeach
                 </tbody>
-            </table>
-            <a href="#">Show All</a>
+            </table> 
         </div>
+
 
         {{-- ------------------END OF INSIGHTS------------------ --}}
      
@@ -146,84 +122,11 @@
                 </div>
             </div>
         </div>
-        
-        {{-- ------------------END OF TOP------------------ --}}
-        {{-- <div class="recent-updates">
-            <h2>Recent Updates</h2>
-            <div class="updates">
-                <div class="update">
-                    <div class="profile-photo">
-                        <img src="{{ asset('images/COA CAR logo.png') }}" alt="">
-                    </div>
-                    <div class="message">
-                        <p><b>Mike Tyson </b>Loreendis, cupiditate ipsam, saepe orro tempora.</p>
-                        <small class="text-muted">2 Minutes Ago</small>
-                    </div>
-                </div>
-                <div class="update">
-                    <div class="profile-photo">
-                        <img src="{{ asset('images/COA CAR logo.png') }}" alt="">
-                    </div>
-                    <div class="message">
-                        <p><b>Mike Tyson </b>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque
-                            aspernatur nostrum, </p>
-                        <small class="text-muted">2 Minutes Ago</small>
-                    </div>
-                </div>
-                <div class="update">
-                    <div class="profile-photo">
-                        <img src="{{ asset('images/COA CAR logo.png') }}" alt="">
-                    </div>
-                    <div class="message">
-                        <p><b>Mike Tyson </b>Lorem ipsum dolor sit amet consectetur adae illo, nulla voluptates
-                            porro tempora.</p>
-                        <small class="text-muted">2 Minutes Ago</small>
-                    </div>
-                </div>
-            </div>
-        </div> --}}
+       
         {{-- ------------------ END OF RECENT UPDATES ------------------ --}}
         <div class="sales-analytics">
             <h2>Create New User</h2>
-            {{-- <div class="item online">
-                <div class="icon">
-                    <span class="ri-shopping-cart-2-line"></span>
-                </div>
-                <div class="right">
-                    <div class="info">
-                        <h3>NEW RESERVATIONS</h3>
-                        <small class="text-muted">Last 24 Hours</small>
-                    </div>
-                    <h5 class="success">+39%</h5>
-                    <h3>3849</h3>
-                </div>
-            </div> --}}
-            {{-- <div class="item offline">
-                <div class="icon">
-                    <span class="ri-shopping-bag-line"></span>
-                </div>
-                <div class="right">
-                    <div class="info">
-                        <h3>OFFLINE ORDERS</h3>
-                        <small class="text-muted">Last 24 Hours</small>
-                    </div>
-                    <h5 class="danger">-17%</h5>
-                    <h3>3849</h3>
-                </div>
-            </div> --}}
-            {{-- <div class="item customers">
-                <div class="icon">
-                    <span class="ri-user-fill"></span>
-                </div>
-                <div class="right">
-                    <div class="info">
-                        <h3>NEW USERS</h3>
-                        <small class="text-muted">Last 24 Hours</small>
-                    </div>
-                    <h5 class="success">+225%</h5>
-                    <h3>3849</h3>
-                </div>
-            </div> --}}
+       
             <div class="item add-product">
                 <div class="icon">
                     <span class="ri-add-line"></span>
@@ -231,10 +134,8 @@
                 <div class="right">
                     <div class="info">
                         <h3>ADD NEW USER</h3>
-                        <small class="text-muted">Last 24 Hours</small>
                     </div>
-                    <h5 class="success">+225%</h5>
-                    <h3>3849</h3>
+                   
                 </div>
             </div>
         </div>

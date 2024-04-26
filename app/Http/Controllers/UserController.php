@@ -88,4 +88,6 @@ class UserController extends Controller
         return redirect()->route('passwordprofile')->with('success', 'Password updated successfully.');
     }
 
+ 
+
 }

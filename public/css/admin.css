@@ -632,3 +632,34 @@ main .recent-orders a {
 .right .sales-analytics .add-product div h3 {
     font-weight: 600;
 }
+
+#AdminUserTableCard {
+    background: var(--color-primary);
+    color: var(--color-background);
+    padding: 20px;
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+}
+#AdminUserTableCard:hover {
+    box-shadow: none;
+}
+#AdminUserTableCard td{
+    color: var(--color-background);
+}
+.page-title{
+    margin-bottom: 30px;
+}
+#userTableEditbtn{
+    color: var(--color-orange);
+}
+#userTableDeletebtn{
+    color: var(--color-danger);
+}
+#userTableEditbtn,
+#userTableDeletebtn{
+    padding: 5px;
+    background: var(--color-background);
+    border: none;
+    border-radius: 10px;
+    margin-right: 10px;
+}

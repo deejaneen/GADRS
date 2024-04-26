@@ -31,29 +31,7 @@
         <div class="right-column reservation">
             <div class="recent-orders">
                 <h2>Recent Orders</h2>
-                {{-- <table>
-                <thead>
-                    <tr>
-                        <th>Product Name</th>
-                        <th>Product Number</th>
-                        <th>Payment</th>
-                        <th>Status</th>
-                        <th></th>
-
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Fdhsajkdakdh</td>
-                        <td>Adska</td>
-                        <td>Due</td>
-                        <td class="warning">Pending</td>
-                        <td class="warning-orange">Details</td>
-                    </tr>
-
-                </tbody>
-            </table> --}}
-                <button class="btn btn-primary btn-lg rounded-pill toogle-btn" id="gymTableHistoryToggleBtn"> <span
+                  <button class="btn btn-primary btn-lg rounded-pill toogle-btn" id="gymTableHistoryToggleBtn"> <span
                         class="fa-solid fa-repeat"> Dorm</button>
                 <button class="btn btn-primary btn-lg rounded-pill toogle-btn" id="dormTableHistoryToggleBtn"
                     style="display: none;">

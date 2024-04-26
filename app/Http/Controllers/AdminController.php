@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -19,7 +20,9 @@ class AdminController extends Controller
     }
     public function users()
     {
-        return view('admin.adminuser');
+        $users = User::where('role', '!=', 'Admin')->get();
+        return view('admin.adminuser', ['users' => $users]);
+
     }
     public function reservations()
     {
@@ -38,5 +41,8 @@ class AdminController extends Controller
         return view('admin.adminprofile');
     }
 
-
+    public function showUser()
+    {
+       
+    }
 }
