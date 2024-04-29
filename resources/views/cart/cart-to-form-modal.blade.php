@@ -70,6 +70,11 @@
             </div>
             <form  id="cartToFormModalDormForm">
                 <div class="modal-body">
+                    <div class="row" style="display: none;" id="dormFormNonCoanInfo">
+                        <div class="col">
+                            <p>One or more of the items you selected are referred for Non-Coan. You need to fill out the Referred By section.</p>
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="col">
                             <label for="surname" class="form-label">Surname</label>
@@ -135,7 +140,8 @@
                     </div>
                     <hr class="line-break" style="border-top: 1px solid black;">
 
-                    <div class="row mb-3">
+                    <p>Referred By</p>
+                    <div class="row mb-3" style="" id="COARow1">
                         <div class="col">
                             <label for="coaEm_name" class="form-label">Name of COA Employee</label>
                             <input type="text" class="form-control" id="coaEm_name" name="coaEm_name" required>
@@ -148,7 +154,7 @@
 
                     </div>
 
-                    <div class="row mb-3">
+                    <div class="row mb-3" style="" id="COARow2">
                         <div class="col">
                             <label for="coaEm_office" class="form-label">Office</label>
                             <input type="text" class="form-control" id="coaEm_office" name="coaEm_office"

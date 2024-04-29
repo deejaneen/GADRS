@@ -226,6 +226,50 @@
                 }
             }
 
+            //Trial
+            var dormcarts = {!! json_encode($dormcarts) !!};
+            // Get selected dorm cart IDs
+            const dormCartIds = [];
+            document.querySelectorAll('.dorm-cart-checkbox:checked').forEach((checkbox) => {
+                dormCartIds.push(checkbox.value);
+            });
+
+            let isReservorCOAOut = true;
+
+            // Loop through dormcarts data
+            for (let i = 0; i < dormcarts.length; i++) {
+                const dormcart = dormcarts[i];
+                if (dormCartIds.includes(dormcart.id.toString())) {
+                    // Check if the occupant_type is 'COA'
+                    if (dormcart.occupant_type === 'Non COAn') {
+                        isReservorCOAOut = false;
+                        break;
+                    }
+                }
+            }
+
+            if (isReservorCOAOut == false) {
+                // Select the element with id dormFormNonCoanInfo
+                const dormFormNonCoanInfo = document.getElementById('dormFormNonCoanInfo');
+
+                // Change its display property to "block"
+                dormFormNonCoanInfo.style.display = "block";
+
+            }else{
+
+                const COARow1 = document.getElementById('COARow1');
+                const COARow2 = document.getElementById('COARow2');
+
+
+                // Change its display property to "none"
+                COARow1.style.display = "none";
+                COARow2.style.display = "none";
+            }
+
+
+            //Trial end
+
+
             // If at least one checkbox is selected, open the modal
             if (isAnyCheckboxSelected) {
                 const gymCardVisible = window.getComputedStyle(document.getElementById(
@@ -277,8 +321,8 @@
                 confirmButtonText: "Yes",
                 denyButtonText: `No`,
                 customClass: {
-                        popup: 'small-modal'
-                    }
+                    popup: 'small-modal'
+                }
             }).then((result) => {
                 if (result.isConfirmed) {
                     // // Check if gym reservations card is visible
@@ -377,7 +421,7 @@
                         const ptn_contact = document.getElementById('ptn_contact').value;
                         const ptn_home_address = document.getElementById('ptn_home_address').value;
 
-                        if (isReservorCOA) {
+                        if (isReservorCOA === false) {
                             // Check if any field is empty
                             if (!surname || !firstname || !middlename || !office || !office_address || !position ||
                                 !
@@ -428,7 +472,7 @@
                         } else {
                             if (!surname || !firstname || !middlename || !office || !office_address || !position ||
                                 !
-                                contact_number_dorm || !email || !ei_number || !id_presented || !pos  || !ptn || !
+                                contact_number_dorm || !email || !ei_number || !id_presented || !pos || !ptn || !
                                 ptn_contact || !ptn_home_address) {
                                 document.getElementById('surname').placeholder = (!surname) ?
                                     "Please fill in your surname" : "";
@@ -454,15 +498,15 @@
                                     "Please fill in your ID presented" : "";
                                 document.getElementById('pos').placeholder = (!pos) ? "Please fill in your POS" :
                                     "";
-                                document.getElementById('coaEm_name').placeholder = (!coaEm_name) ?
-                                    "Please fill in COA EM name" : "";
-                                document.getElementById('coaEm_relationshipGuest').placeholder = (!
-                                    coaEm_relationshipGuest) ? "Please fill in COA EM relationshipGuest" : "";
-                                document.getElementById('coaEm_office').placeholder = (!coaEm_office) ?
-                                    "Please fill in COA EM office" : "";
-                                document.getElementById('coaEm_office_address').placeholder = (!
-                                        coaEm_office_address) ?
-                                    "Please fill in COA EM office address" : "";
+                                // document.getElementById('coaEm_name').placeholder = (!coaEm_name) ?
+                                //     "Please fill in COA EM name" : "";
+                                // document.getElementById('coaEm_relationshipGuest').placeholder = (!
+                                //     coaEm_relationshipGuest) ? "Please fill in COA EM relationshipGuest" : "";
+                                // document.getElementById('coaEm_office').placeholder = (!coaEm_office) ?
+                                //     "Please fill in COA EM office" : "";
+                                // document.getElementById('coaEm_office_address').placeholder = (!
+                                //         coaEm_office_address) ?
+                                //     "Please fill in COA EM office address" : "";
                                 document.getElementById('ptn').placeholder = (!ptn) ? "Please fill in PTN" : "";
                                 document.getElementById('ptn_contact').placeholder = (!ptn_contact) ?
                                     "Please fill in PTN contact" : "";
