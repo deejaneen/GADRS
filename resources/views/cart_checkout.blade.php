@@ -297,6 +297,19 @@
                         const nameRepresentative = document.getElementById('nameRepresentative').value;
                         const contactNumber = document.getElementById('contactNumber').value;
 
+                        // Check if any field is empty
+                        if (!companyName || !address || !nameRepresentative || !contactNumber) {
+                            document.getElementById('companyName').placeholder = (!companyName) ?
+                                "Please fill in Company Name" : "";
+                            document.getElementById('address').placeholder = (!address) ? "Please fill in Address" :
+                                "";
+                            document.getElementById('nameRepresentative').placeholder = (!nameRepresentative) ?
+                                "Please fill in Name Representative" : "";
+                            document.getElementById('contactNumber').placeholder = (!contactNumber) ?
+                                "Please fill in Contact Number" : "";
+                            return; // Prevent form submission
+                        }
+
                         // Set values of hidden input fields in the form
                         document.getElementById('hidden_companyName').value = companyName;
                         document.getElementById('hidden_address').value = address;
@@ -338,6 +351,48 @@
                         const ptn = document.getElementById('ptn').value;
                         const ptn_contact = document.getElementById('ptn_contact').value;
                         const ptn_home_address = document.getElementById('ptn_home_address').value;
+
+                        // Check if any field is empty
+                        if (!surname || !firstname || !middlename || !office || !office_address || !position || !
+                            contact_number_dorm || !email || !ei_number || !id_presented || !pos || !coaEm_name || !
+                            coaEm_relationshipGuest || !coaEm_office || !coaEm_office_address || !ptn || !
+                            ptn_contact || !ptn_home_address) {
+                            document.getElementById('surname').placeholder = (!surname) ?
+                                "Please fill in your surname" : "";
+                            document.getElementById('firstname').placeholder = (!firstname) ?
+                                "Please fill in your firstname" : "";
+                            document.getElementById('middlename').placeholder = (!middlename) ?
+                                "Please fill in your middlename" : "";
+                            document.getElementById('office').placeholder = (!office) ?
+                                "Please fill in your office" : "";
+                            document.getElementById('office_address').placeholder = (!office_address) ?
+                                "Please fill in your office address" : "";
+                            document.getElementById('position').placeholder = (!position) ?
+                                "Please fill in your position" : "";
+                            document.getElementById('contact_number_dorm').placeholder = (!contact_number_dorm) ?
+                                "Please fill in your contact number dorm" : "";
+                            document.getElementById('email').placeholder = (!email) ? "Please fill in your email" :
+                                "";
+                            document.getElementById('ei_number').placeholder = (!ei_number) ?
+                                "Please fill in your EI number" : "";
+                            document.getElementById('id_presented').placeholder = (!id_presented) ?
+                                "Please fill in your ID presented" : "";
+                            document.getElementById('pos').placeholder = (!pos) ? "Please fill in your POS" : "";
+                            document.getElementById('coaEm_name').placeholder = (!coaEm_name) ?
+                                "Please fill in COA EM name" : "";
+                            document.getElementById('coaEm_relationshipGuest').placeholder = (!
+                                coaEm_relationshipGuest) ? "Please fill in COA EM relationshipGuest" : "";
+                            document.getElementById('coaEm_office').placeholder = (!coaEm_office) ?
+                                "Please fill in COA EM office" : "";
+                            document.getElementById('coaEm_office_address').placeholder = (!coaEm_office_address) ?
+                                "Please fill in COA EM office address" : "";
+                            document.getElementById('ptn').placeholder = (!ptn) ? "Please fill in PTN" : "";
+                            document.getElementById('ptn_contact').placeholder = (!ptn_contact) ?
+                                "Please fill in PTN contact" : "";
+                            document.getElementById('ptn_home_address').placeholder = (!ptn_home_address) ?
+                                "Please fill in PTN home address" : "";
+                            return; // Prevent form submission
+                        }
 
                         // Set values of hidden input fields in the form
                         document.getElementById('hidden_surname').value = surname;
