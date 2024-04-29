@@ -97,7 +97,7 @@ class CartController extends Controller
                     $dormReservation->emergency_contact = $request->input('hidden_ptn');
                     $dormReservation->emergency_contact_number = $request->input('hidden_ptn_contact');
                     $dormReservation->home_address  = $request->input('hidden_ptn_home_address');
-                    
+
                     $dormReservation->save();
                 }
             }
