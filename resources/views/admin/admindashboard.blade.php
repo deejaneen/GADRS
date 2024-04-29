@@ -1,68 +1,67 @@
 @extends('layout.adminlayout')
 
 @section('admindashboard')
-<aside>
-    <div class="top">
-        <div class="logo">
-            <img src="{{ asset('images/COA CAR logo.png') }}" alt="">
-            <h2 class="primary-light">COA <span class="danger">CAR</span></h2>
-        </div>
-        <div class="close" id="close-btn">
-            <span class="ri-close-fill"></span>
-        </div>
+    <aside>
+        <div class="top">
+            <div class="logo">
+                <img src="{{ asset('images/COA CAR logo.png') }}" alt="">
+                <h2 class="primary-light">COA <span class="danger">CAR</span></h2>
+            </div>
+            <div class="close" id="close-btn">
+                <span class="ri-close-fill"></span>
+            </div>
 
-        <div class="sidebar">
-            <a href="{{ route('adminhome') }}" class="active">
-                <span class="ri-dashboard-line ">
-                    <h3>Dashboard</h3>
-                </span>
-            </a>
-            <a href="{{ route('adminusers') }}" >
-                <span class="ri-team-line">
-                    <h3>Users</h3>
-                </span>
-            </a>
-            <a href="{{ route('adminreservations') }}" >
-                <span class="ri-receipt-line">
-                    <h3>Reservations</h3>
-                    <span class="message-count">26</span>
-                </span>
-            </a>
-            <a href="{{ route('admingym') }}" >
-                <span class="ri-basketball-fill">
-                    <h3>Gym</h3>
-                </span>
-            </a>
-            <a href="{{ route('admindorm') }}">
-                <span class="ri-home-3-line">
-                    <h3>Dorm</h3>
-                </span>
-                
-            </a>
-            <a href="{{ route('adminprofile') }}">
-                <span class="ri-user-line">
-                    <h3>Profile</h3>
-                </span>
-            </a>
-            <form action="{{ route('logout') }}" method="POST" id="logout-form-navbar">
-                @csrf
+            <div class="sidebar">
+                <a href="{{ route('adminhome') }}" class="active">
+                    <span class="ri-dashboard-line ">
+                        <h3>Dashboard</h3>
+                    </span>
+                </a>
+                <a href="{{ route('adminusers') }}">
+                    <span class="ri-team-line">
+                        <h3>Users</h3>
+                    </span>
+                </a>
+                <a href="{{ route('adminreservations') }}">
+                    <span class="ri-receipt-line">
+                        <h3>Reservations</h3>
+                        <span class="message-count">26</span>
+                    </span>
+                </a>
+                <a href="{{ route('admingym') }}">
+                    <span class="ri-basketball-fill">
+                        <h3>Gym</h3>
+                    </span>
+                </a>
+                <a href="{{ route('admindorm') }}">
+                    <span class="ri-home-3-line">
+                        <h3>Dorm</h3>
+                    </span>
 
-                <button class="no-underline logout btn btn-danger btn-md" type="submit" id="logout-button">
-                    <span class="ri-logout-box-r-line">
-                        <h3>LOGOUT</h3></span>
-                </button>
-            </form>
-            
+                </a>
+                <a href="{{ route('adminprofile') }}">
+                    <span class="ri-user-line">
+                        <h3>Profile</h3>
+                    </span>
+                </a>
+                <form action="{{ route('logout') }}" method="POST" id="logout-form-navbar">
+                    @csrf
+
+                    <button class="no-underline logout btn btn-danger btn-md" type="submit" id="logout-button">
+                        <span class="ri-logout-box-r-line">
+                            <h3>LOGOUT</h3>
+                        </span>
+                    </button>
+                </form>
+
+            </div>
         </div>
-    </div>
-</aside>
-{{-- -------------------------------END-OF-ASIDE-------------------- --}}
+    </aside>
+    {{-- -------------------------------END-OF-ASIDE-------------------- --}}
     <main>
         <h1>Dashboard</h1>
-        <div class="date">
-            <input type="date" name="" id="">
-        </div>
 
+        <h2 style="margin-top: 30px">Pending Reservations</h2>
         <div class="insights">
             {{-- -------------------------------END-OF-SALES-------------------- --}}
             <div class="totalreservation">
@@ -71,7 +70,85 @@
                     <div class="left">
                         <h3>Total Pending Reservations</h3>
                         <h1>
-                            Php25,024
+                            {{ $totalPendingCount }}
+                        </h1>
+                    </div>
+                </div>
+            </div>
+            {{-- -------------------------------END-OF-GYM-RESERVATIONS-------------------- --}}
+            <div class="gymreservation">
+                <span class="ri-basketball-fill"></span>
+                <div class="middle">
+                    <div class="left">
+                        <h3>Total Pending Gym Reservations</h3>
+                        <h1>
+                            {{ $gymsPendingCount }}
+                        </h1>
+                    </div>
+                </div>
+            </div>
+            {{-- -------------------------------END-OF-DORM-RESERVATIONS-------------------- --}}
+            <div class="dormreservations">
+                <span class="ri-hotel-bed-fill"></span>
+                <div class="middle">
+                    <div class="left">
+                        <h3>Total Pending Dorm Reservations</h3>
+                        <h1>
+                            {{ $dormsPendingCount }}
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h2 style="margin-top: 30px">For Payment</h2>
+        <div class="insights">
+            {{-- -------------------------------END-OF-SALES-------------------- --}}
+            <div class="totalreservation">
+                <span class="ri-key-2-line"></span>
+                <div class="middle">
+                    <div class="left">
+                        <h3>Total Paid Reservations</h3>
+                        <h1>
+                            {{ $totalForPaymentCount }}
+                        </h1>
+                    </div>
+                </div>
+            </div>
+            {{-- -------------------------------END-OF-GYM-RESERVATIONS-------------------- --}}
+            <div class="gymreservation">
+                <span class="ri-basketball-fill"></span>
+                <div class="middle">
+                    <div class="left">
+                        <h3>Total Paid Gym Reservations</h3>
+                        <h1>
+                            {{ $gymsForPaymentCount }}
+                        </h1>
+                    </div>
+                </div>
+            </div>
+            {{-- -------------------------------END-OF-DORM-RESERVATIONS-------------------- --}}
+            <div class="dormreservations">
+                <span class="ri-hotel-bed-fill"></span>
+                <div class="middle">
+                    <div class="left">
+                        <h3>Total Paid Dorm Reservations</h3>
+                        <h1>
+                            {{ $dormsForPaymentCount }}
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h2 style="margin-top: 30px">Reserved</h2>
+        <div class="insights">
+            {{-- -------------------------------END-OF-SALES-------------------- --}}
+            <div class="totalreservation">
+                <span class="ri-key-2-line"></span>
+                <div class="middle">
+                    <div class="left">
+                        <h3>Total Reservations</h3>
+                        <h1>
+                            {{ $totalReservedCount }}
                         </h1>
                     </div>
                 </div>
@@ -83,7 +160,7 @@
                     <div class="left">
                         <h3>Total Gym Reservations</h3>
                         <h1>
-                            Php25,024
+                            {{ $gymsReservedCount }}
                         </h1>
                     </div>
                 </div>
@@ -95,7 +172,7 @@
                     <div class="left">
                         <h3>Total Dorm Reservations</h3>
                         <h1>
-                            Php25,024
+                            {{ $dormsReservedCount }}
                         </h1>
                     </div>
                 </div>
@@ -103,40 +180,7 @@
         </div>
 
         {{-- ------------------END OF INSIGHTS------------------ --}}
-        <div class="recent-updates">
-            <h2>Recent Updates</h2>
-            <div class="updates">
-                <div class="update">
-                    <div class="profile-photo">
-                        <img src="{{ asset('images/COA CAR logo.png') }}" alt="">
-                    </div>
-                    <div class="message">
-                        <p><b>Mike Tyson </b>Loreendis, cupiditate ipsam, saepe orro tempora.</p>
-                        <small class="text-muted">2 Minutes Ago</small>
-                    </div>
-                </div>
-                <div class="update">
-                    <div class="profile-photo">
-                        <img src="{{ asset('images/COA CAR logo.png') }}" alt="">
-                    </div>
-                    <div class="message">
-                        <p><b>Mike Tyson </b>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque
-                            aspernatur nostrum, </p>
-                        <small class="text-muted">2 Minutes Ago</small>
-                    </div>
-                </div>
-                <div class="update">
-                    <div class="profile-photo">
-                        <img src="{{ asset('images/COA CAR logo.png') }}" alt="">
-                    </div>
-                    <div class="message">
-                        <p><b>Mike Tyson </b>Lorem ipsum dolor sit amet consectetur adae illo, nulla voluptates
-                            porro tempora.</p>
-                        <small class="text-muted">2 Minutes Ago</small>
-                    </div>
-                </div>
-            </div>
-        </div>
+
     </main>
 
     {{-- ------------------END OF MAIN------------------ --}}
@@ -145,18 +189,20 @@
             <button id="menu-btn">
                 <span class="ri-menu-line"></span>
             </button>
-   
+
             @auth()
-            <div class="profile">
-                <div class="info">
-                    <p>Hey, <b>{{ Auth::user()->first_name }}</b></p>
-                    <small class="text-muted">Admin</small>
+                <div class="profile">
+                    <div class="info">
+                        <p>Hey, <b>{{ Auth::user()->first_name }}</b></p>
+                        <small class="text-muted">Admin</small>
+                    </div>
+                    <div class="profile-photo">
+                        <img src="{{ asset('images/COA CAR logo.png') }}" alt="">
+                    </div>
                 </div>
-                <div class="profile-photo">
-                    <img src="{{ asset('images/COA CAR logo.png') }}" alt="">
-                </div>
-            </div>
-             @endauth
+            @endauth
+
+
         </div>
         {{-- ------------------END OF TOP------------------ --}}
         {{-- <div class="recent-updates">
@@ -194,6 +240,41 @@
             </div>
         </div> --}}
         {{-- ------------------ END OF RECENT UPDATES ------------------ --}}
+
+        <div class="recent-updates">
+            <h2>Recent Updates</h2>
+            <div class="updates">
+                <div class="update">
+                    <div class="profile-photo">
+                        <img src="{{ asset('images/COA CAR logo.png') }}" alt="">
+                    </div>
+                    <div class="message">
+                        <p><b>Mike Tyson </b>Loreendis, cupiditate ipsam, saepe orro tempora.</p>
+                        <small class="text-muted">2 Minutes Ago</small>
+                    </div>
+                </div>
+                <div class="update">
+                    <div class="profile-photo">
+                        <img src="{{ asset('images/COA CAR logo.png') }}" alt="">
+                    </div>
+                    <div class="message">
+                        <p><b>Mike Tyson </b>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque
+                            aspernatur nostrum, </p>
+                        <small class="text-muted">2 Minutes Ago</small>
+                    </div>
+                </div>
+                <div class="update">
+                    <div class="profile-photo">
+                        <img src="{{ asset('images/COA CAR logo.png') }}" alt="">
+                    </div>
+                    <div class="message">
+                        <p><b>Mike Tyson </b>Lorem ipsum dolor sit amet consectetur adae illo, nulla voluptates
+                            porro tempora.</p>
+                        <small class="text-muted">2 Minutes Ago</small>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="sales-analytics">
             <h2>Sales Analytics</h2>
             <div class="item online">

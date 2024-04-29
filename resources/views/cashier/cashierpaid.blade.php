@@ -43,130 +43,78 @@
 {{-- -------------------------------END-OF-ASIDE-------------------- --}}
 <main>
     <h1>PAID RESERVATIONS</h1>
-    
-    <div class="recent-orders">
-        <h2>Gym Reservations</h2>
-        <table>
+    <h1 class="page-title">Gym</h1>
+
+    <div class="card" id="GymReservationTableCard">
+        <div>
+            <h4 class="card-header text-center home">Gym Reservations</h4>
+        </div>
+        <table class="table-home table-hover stripe" id="GymReservationTable" style="width: 100%">
             <thead>
                 <tr>
-                    <th>Product Name</th>
-                    <th>Product Number</th>
-                    <th>Payment</th>
-                    <th>Status</th>
-                    <th></th>
-
+                    <th scope="col">Form Number</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Time Start</th>
+                    <th scope="col">Time End</th>
+                    <th scope="col">Occupant Type</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Status</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Fdhsajkdakdh</td>
-                    <td>Adska</td>
-                    <td>Due</td>
-                    <td class="warning">Pending</td>
-                    <td class="warning-orange">Details</td>
-                </tr>
-                <tr>
-                    <td>Fdhsajkdakdh</td>
-                    <td>Adska</td>
-                    <td>Due</td>
-                    <td class="warning">Pending</td>
-                    <td class="warning-orange">Details</td>
-                </tr>
-                <tr>
-                    <td>Fdhsajkdakdh</td>
-                    <td>Adska</td>
-                    <td>Due</td>
-                    <td class="warning">Pending</td>
-                    <td class="warning-orange">Details</td>
-                </tr>
-                <tr>
-                    <td>Fdhsajkdakdh</td>
-                    <td>Adska</td>
-                    <td>Due</td>
-                    <td class="warning">Pending</td>
-                    <td class="warning-orange">Details</td>
-                </tr>
-                <tr>
-                    <td>Fdhsajkdakdh</td>
-                    <td>Adska</td>
-                    <td>Due</td>
-                    <td class="warning">Pending</td>
-                    <td class="warning-orange">Details</td>
-                </tr>
-                <tr>
-                    <td>Fdhsajkdakdh</td>
-                    <td>Adska</td>
-                    <td>Due</td>
-                    <td class="warning">Pending</td>
-                    <td class="warning-orange">Details</td>
-                </tr>
+                @foreach ($gyms as $gym)
+                    <tr class="table-active">
+                        <td>{{ $gym->form_number_id }}</td>
+                        <td>{{ $gym->reservation_date }}</td>
+                        <td>{{ $gym->reservation_time_start }}</td>
+                        <td>{{ $gym->reservation_time_end }}</td>
+                        <td>{{ $gym->occupant_type }}</td>
+                        <td>{{ $gym->price }}</td>
+                        <td style="color:var(--color-orange);">{{ $gym->status }}</td>
+                    </tr>
+                @endforeach
             </tbody>
         </table>
-        <a href="#">Show All</a>
     </div>
-    <div class="recent-orders">
-        <h2>Dorm Reservations</h2>
-        <table>
+
+    <h1 class="page-title" style="margin-top: 30px;">DORM</h1>
+
+    <div class="card" id="DormReservationTableCard">
+        <div>
+            <h4 class="card-header text-center home">Dorm Reservations</h4>
+        </div>
+        <table class="table-home table-hover stripe" id="DormReservationTable" style="width: 100%">
             <thead>
                 <tr>
-                    <th>Product Name</th>
-                    <th>Product Number</th>
-                    <th>Payment</th>
-                    <th>Status</th>
-                    <th></th>
-
+                    <th scope="col">Form Number</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Time Start</th>
+                    <th scope="col">Time End</th>
+                    <th scope="col">Dorm Type/Quantity</th>
+                    <th scope="col">Occupant Type</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Status</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Fdhsajkdakdh</td>
-                    <td>Adska</td>
-                    <td>Due</td>
-                    <td class="warning">Pending</td>
-                    <td class="warning-orange">Details</td>
-                </tr>
-                <tr>
-                    <td>Fdhsajkdakdh</td>
-                    <td>Adska</td>
-                    <td>Due</td>
-                    <td class="warning">Pending</td>
-                    <td class="warning-orange">Details</td>
-                </tr>
-                <tr>
-                    <td>Fdhsajkdakdh</td>
-                    <td>Adska</td>
-                    <td>Due</td>
-                    <td class="warning">Pending</td>
-                    <td class="warning-orange">Details</td>
-                </tr>
-                <tr>
-                    <td>Fdhsajkdakdh</td>
-                    <td>Adska</td>
-                    <td>Due</td>
-                    <td class="warning">Pending</td>
-                    <td class="warning-orange">Details</td>
-                </tr>
-                <tr>
-                    <td>Fdhsajkdakdh</td>
-                    <td>Adska</td>
-                    <td>Due</td>
-                    <td class="warning">Pending</td>
-                    <td class="warning-orange">Details</td>
-                </tr>
-                <tr>
-                    <td>Fdhsajkdakdh</td>
-                    <td>Adska</td>
-                    <td>Due</td>
-                    <td class="warning">Pending</td>
-                    <td class="warning-orange">Details</td>
-                </tr>
+                @foreach ($dorms as $dorm)
+                    <tr class="table-active">
+                        <td>{{ $dorm->form_number_id }}</td>
+                        <td>{{ $dorm->reservation_start_date }} - {{ $dorm->reservation_end_date }}</td>
+                        <td>{{ $dorm->reservation_start_time }}</td>
+                        <td>{{ $dorm->reservation_end_time }}</td>
+                        <td>{{ $dorm->quantity }} {{ $dorm->gender }} </td>
+                        <td>{{ $dorm->occupant_type }}</td>
+                        <td>{{ $dorm->price }}</td>
+                        <td style="color:var(--color-orange);">{{ $dorm->status }}</td>
+                    </tr>
+                @endforeach
             </tbody>
         </table>
-        <a href="#">Show All</a>
     </div>
 
     {{-- ------------------END OF INSIGHTS------------------ --}}
- 
+
 </main>
 
     {{-- ------------------END OF MAIN------------------ --}}

@@ -78,7 +78,7 @@
             </table>
         </div>
 
-        <h1 class="page-title">DORM</h1>
+        <h1 class="page-title" style="margin-top: 30px;">DORM</h1>
 
         <div class="card" id="DormReservationTableCard">
             <div>

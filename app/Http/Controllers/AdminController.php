@@ -17,7 +17,29 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin.admindashboard');
+        $gymsPendingCount = Gym::where('status', 'Pending')->count();
+        $dormsPendingCount = Dorm::where('status', 'Pending')->count();
+        $totalPendingCount = $gymsPendingCount + $dormsPendingCount;
+
+        $gymsForPaymentCount = Gym::where('status', 'For Payment')->count();
+        $dormsForPaymentCount = Dorm::where('status', 'For Payment')->count();
+        $totalForPaymentCount = $gymsForPaymentCount + $dormsForPaymentCount;
+
+        $gymsReservedCount = Gym::where('status', 'Reserved')->count();
+        $dormsReservedCount = Dorm::where('status', 'Reserved')->count();
+        $totalReservedCount = $gymsReservedCount + $dormsReservedCount;
+        
+        return view('admin.admindashboard', [
+            'gymsPendingCount' => $gymsPendingCount, 
+            'dormsPendingCount' => $dormsPendingCount, 
+            'totalPendingCount' => $totalPendingCount,
+            'gymsForPaymentCount' => $gymsForPaymentCount, 
+            'dormsForPaymentCount' => $dormsForPaymentCount, 
+            'totalForPaymentCount' => $totalForPaymentCount,
+            'gymsReservedCount' => $gymsReservedCount, 
+            'dormsReservedCount' => $dormsReservedCount, 
+            'totalReservedCount' => $totalReservedCount
+        ]);
     }
     public function test()
     {

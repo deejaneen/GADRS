@@ -51,7 +51,7 @@
                 <div class="left">
                     <h3>Total Gym Reservations - Pending Payment</h3>
                     <h1>
-                        Php25,024
+                        {{ $gymsCount }}
                     </h1>
                 </div>
             </div>
@@ -63,7 +63,7 @@
                 <div class="left">
                     <h3>Total Gym Reservations - Paid</h3>
                     <h1>
-                        Php25,024
+                        {{ $gymsCountPaid }}
                     </h1>
                 </div>
             </div>
@@ -75,7 +75,7 @@
                 <div class="left">
                     <h3>Total Gym Reservations</h3>
                     <h1>
-                        Php25,024
+                        {{ $gymsCountTotal }}
                     </h1>
                 </div>
             </div>
@@ -89,7 +89,7 @@
                 <div class="left">
                     <h3>Total Dorm Reservations - Pending Payment</h3>
                     <h1>
-                        Php25,024
+                        {{ $dormsCount }}
                     </h1>
                 </div>
             </div>
@@ -101,7 +101,7 @@
                 <div class="left">
                     <h3>Total Dorm Reservations - Paid</h3>
                     <h1>
-                        Php25,024
+                        {{ $dormsCountPaid }}
                     </h1>
                 </div>
             </div>
@@ -113,7 +113,7 @@
                 <div class="left">
                     <h3>Total Dorm Reservations</h3>
                     <h1>
-                        Php25,024
+                        {{ $dormsCountTotal }}
                     </h1>
                 </div>
             </div>

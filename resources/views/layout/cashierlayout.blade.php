@@ -40,8 +40,8 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         $(document).ready(function() {
-            $('#AdminUserTable').DataTable();
-            $('#AdminGymReservationTable').DataTable();
+            $('#GymReservationTable').DataTable();
+            $('#DormReservationTable').DataTable();
         });
     </script>
 </body>
