@@ -145,19 +145,18 @@
             <button id="menu-btn">
                 <span class="ri-menu-line"></span>
             </button>
-            <div class="theme-toggler">
-                <span class="ri-sun-fill active"></span>
-                <span class="ri-moon-fill"></span>
-            </div>
+   
+            @auth()
             <div class="profile">
                 <div class="info">
-                    <p>Hey, <b>Name</b></p>
+                    <p>Hey, <b>{{ Auth::user()->first_name }}</b></p>
                     <small class="text-muted">Admin</small>
                 </div>
                 <div class="profile-photo">
                     <img src="{{ asset('images/COA CAR logo.png') }}" alt="">
                 </div>
             </div>
+             @endauth
         </div>
         {{-- ------------------END OF TOP------------------ --}}
         {{-- <div class="recent-updates">

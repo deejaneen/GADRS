@@ -45,6 +45,10 @@
             $('#AdminUserTable').DataTable();
             $('#AdminGymReservationTable').DataTable();
             $('#AdminDormReservationTable').DataTable();
+            $('#DormReservationTable').DataTable();
+            $('#DormReservationCartTable').DataTable();
+            $('#GymReservationTable').DataTable();
+            $('#GymReservationCartTable').DataTable();
         });
     </script>
 </body>

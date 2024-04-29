@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DormCart;
+use App\Models\Gym;
+use App\Models\GymCart;
+use App\Models\Dorm;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -27,15 +31,24 @@ class AdminController extends Controller
     }
     public function reservations()
     {
+
+        
         return view('admin.adminreservation');
     }
     public function gym()
     {
-        return view('admin.admingym');
+        $gyms = Gym::all();
+        $carts = GymCart::all();
+        
+        return view('admin.admingym', ['gyms' => $gyms, 'carts' => $carts]);
     }
+    
     public function dorm()
     {
-        return view('admin.admindorm');
+        $dorms = Dorm::all();
+        $carts = DormCart::all();
+        
+        return view('admin.admindorm', ['dorms' => $dorms, 'carts' => $carts]);
     }
     public function profile()
     {

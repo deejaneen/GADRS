@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{config('app.name')}}</title>
+    <title>{{ config('app.name') }}</title>
 
     <link rel="stylesheet" type="text/css" href="{{ asset('css/admin.css') }}">
 
@@ -38,6 +38,12 @@
     <script src="https://cdn.datatables.net/2.0.3/js/dataTables.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        $(document).ready(function() {
+            $('#AdminUserTable').DataTable();
+            $('#AdminGymReservationTable').DataTable();
+        });
+    </script>
 </body>
 
 </html>

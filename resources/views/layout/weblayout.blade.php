@@ -243,6 +243,9 @@
                     title: "Are you sure you want to logout?",
                     showCancelButton: true,
                     confirmButtonText: "Yes",
+                    customClass: {
+                        popup: 'small-modal'
+                    }
                 }).then((result) => {
                     if (result.isConfirmed) {
                         // Submit the logout form after confirmation

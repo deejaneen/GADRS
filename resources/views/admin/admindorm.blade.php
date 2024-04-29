@@ -59,67 +59,73 @@
 </aside>
 {{-- -------------------------------END-OF-ASIDE-------------------- --}}
     <main>
-        <h1>DORM</h1>
+        <h1 class="page-title">DORM</h1>
         
-        <div class="recent-orders">
-            <h2>Recent Dorm Reservations</h2>
-            <table>
+        <div class="card" id="DormReservationTableCard">
+            <div>
+                <h4 class="card-header text-center home">Dorm Reservations</h4>
+            </div>
+            <table class="table-home table-hover stripe" id="DormReservationTable" style="width: 100%">
                 <thead>
                     <tr>
-                        <th>Product Name</th>
-                        <th>Product Number</th>
-                        <th>Payment</th>
-                        <th>Status</th>
-                        <th></th>
-
+                        <th scope="col">Form Number</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Time Start</th>
+                        <th scope="col">Time End</th>
+                        <th scope="col">Dorm Type/Quantity</th>
+                        <th scope="col">Occupant Type</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Status</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Fdhsajkdakdh</td>
-                        <td>Adska</td>
-                        <td>Due</td>
-                        <td class="warning">Pending</td>
-                        <td class="warning-orange">Details</td>
-                    </tr>
-                    <tr>
-                        <td>Fdhsajkdakdh</td>
-                        <td>Adska</td>
-                        <td>Due</td>
-                        <td class="warning">Pending</td>
-                        <td class="warning-orange">Details</td>
-                    </tr>
-                    <tr>
-                        <td>Fdhsajkdakdh</td>
-                        <td>Adska</td>
-                        <td>Due</td>
-                        <td class="warning">Pending</td>
-                        <td class="warning-orange">Details</td>
-                    </tr>
-                    <tr>
-                        <td>Fdhsajkdakdh</td>
-                        <td>Adska</td>
-                        <td>Due</td>
-                        <td class="warning">Pending</td>
-                        <td class="warning-orange">Details</td>
-                    </tr>
-                    <tr>
-                        <td>Fdhsajkdakdh</td>
-                        <td>Adska</td>
-                        <td>Due</td>
-                        <td class="warning">Pending</td>
-                        <td class="warning-orange">Details</td>
-                    </tr>
-                    <tr>
-                        <td>Fdhsajkdakdh</td>
-                        <td>Adska</td>
-                        <td>Due</td>
-                        <td class="warning">Pending</td>
-                        <td class="warning-orange">Details</td>
-                    </tr>
+                    @foreach ($dorms as $dorm)
+                        <tr class="table-active">
+                            <td>{{ $dorm->form_number_id}}</td> 
+                            <td>{{ $dorm->reservation_start_date}} - {{ $dorm->reservation_end_date}}</td> 
+                            <td>{{ $dorm->reservation_start_time}}</td> 
+                            <td>{{ $dorm->reservation_end_time}}</td> 
+                            <td>{{ $dorm->quantity}} {{ $dorm->gender}} </td> 
+                            <td>{{ $dorm->occupant_type}}</td> 
+                            <td>{{ $dorm->price }}</td> 
+                            <td style="color:var(--color-orange);">{{ $dorm->status }}</td> 
+                        </tr>
+                    @endforeach
                 </tbody>
-            </table>
-            <a href="#">Show All</a>
+            </table> 
+        </div>
+        <div class="card" id="DormReservationCartTableCard">
+            <div>
+                <h4 class="card-header text-center home">Dorm Reservations (Currently In Cart)</h4>
+            </div>
+            <table class="table-home table-hover stripe" id="DormReservationCartTable" style="width: 100%">
+                <thead>
+                    <tr>
+                        <th scope="col">Form Number</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Time Start</th>
+                        <th scope="col">Time End</th>
+                        <th scope="col">Dorm Type/Quantity</th>
+                        <th scope="col">Occupant Type</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($carts as $cart)
+                        <tr class="table-active">
+                            <td>{{ $cart->form_number_id}}</td> 
+                            <td>{{ $cart->reservation_start_date}} - {{ $cart->reservation_end_date}}</td> 
+                            <td>{{ $cart->reservation_start_time}}</td> 
+                            <td>{{ $cart->reservation_end_time}}</td> 
+                            <td>{{ $cart->quantity}} {{ $cart->gender}} </td> 
+                            <td>{{ $cart->occupant_type}}</td> 
+                            <td>{{ $cart->price }}</td> 
+                            <td style="color:var(--color-orange);">{{ $cart->status }}</td> 
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table> 
         </div>
 
         {{-- ------------------END OF INSIGHTS------------------ --}}
@@ -132,99 +138,27 @@
             <button id="menu-btn">
                 <span class="ri-menu-line"></span>
             </button>
-            <div class="theme-toggler">
+            {{-- <div class="theme-toggler">
                 <span class="ri-sun-fill active"></span>
                 <span class="ri-moon-fill"></span>
-            </div>
+            </div> --}}
+            @auth()
             <div class="profile">
                 <div class="info">
-                    <p>Hey, <b>Name</b></p>
+                    <p>Hey, <b>{{ Auth::user()->first_name }}</b></p>
                     <small class="text-muted">Admin</small>
                 </div>
                 <div class="profile-photo">
                     <img src="{{ asset('images/COA CAR logo.png') }}" alt="">
                 </div>
             </div>
+             @endauth
         </div>
         
-        {{-- ------------------END OF TOP------------------ --}}
-        {{-- <div class="recent-updates">
-            <h2>Recent Updates</h2>
-            <div class="updates">
-                <div class="update">
-                    <div class="profile-photo">
-                        <img src="{{ asset('images/COA CAR logo.png') }}" alt="">
-                    </div>
-                    <div class="message">
-                        <p><b>Mike Tyson </b>Loreendis, cupiditate ipsam, saepe orro tempora.</p>
-                        <small class="text-muted">2 Minutes Ago</small>
-                    </div>
-                </div>
-                <div class="update">
-                    <div class="profile-photo">
-                        <img src="{{ asset('images/COA CAR logo.png') }}" alt="">
-                    </div>
-                    <div class="message">
-                        <p><b>Mike Tyson </b>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque
-                            aspernatur nostrum, </p>
-                        <small class="text-muted">2 Minutes Ago</small>
-                    </div>
-                </div>
-                <div class="update">
-                    <div class="profile-photo">
-                        <img src="{{ asset('images/COA CAR logo.png') }}" alt="">
-                    </div>
-                    <div class="message">
-                        <p><b>Mike Tyson </b>Lorem ipsum dolor sit amet consectetur adae illo, nulla voluptates
-                            porro tempora.</p>
-                        <small class="text-muted">2 Minutes Ago</small>
-                    </div>
-                </div>
-            </div>
-        </div> --}}
-        {{-- ------------------ END OF RECENT UPDATES ------------------ --}}
+   
         <div class="sales-analytics">
             <h2>Add New Dorm Reservation Date</h2>
-            {{-- <div class="item online">
-                <div class="icon">
-                    <span class="ri-shopping-cart-2-line"></span>
-                </div>
-                <div class="right">
-                    <div class="info">
-                        <h3>NEW RESERVATIONS</h3>
-                        <small class="text-muted">Last 24 Hours</small>
-                    </div>
-                    <h5 class="success">+39%</h5>
-                    <h3>3849</h3>
-                </div>
-            </div> --}}
-            {{-- <div class="item offline">
-                <div class="icon">
-                    <span class="ri-shopping-bag-line"></span>
-                </div>
-                <div class="right">
-                    <div class="info">
-                        <h3>OFFLINE ORDERS</h3>
-                        <small class="text-muted">Last 24 Hours</small>
-                    </div>
-                    <h5 class="danger">-17%</h5>
-                    <h3>3849</h3>
-                </div>
-            </div> --}}
-            {{-- <div class="item customers">
-                <div class="icon">
-                    <span class="ri-user-fill"></span>
-                </div>
-                <div class="right">
-                    <div class="info">
-                        <h3>NEW USERS</h3>
-                        <small class="text-muted">Last 24 Hours</small>
-                    </div>
-                    <h5 class="success">+225%</h5>
-                    <h3>3849</h3>
-                </div>
-            </div> --}}
-            <div class="item add-product">
+                      <div class="item add-product">
                 <div class="icon">
                     <span class="ri-add-line"></span>
                 </div>

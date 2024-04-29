@@ -275,7 +275,10 @@
                 title: "Are you sure you want to checkout all the selected items?",
                 showDenyButton: true,
                 confirmButtonText: "Yes",
-                denyButtonText: `No`
+                denyButtonText: `No`,
+                customClass: {
+                        popup: 'small-modal'
+                    }
             }).then((result) => {
                 if (result.isConfirmed) {
                     // // Check if gym reservations card is visible
