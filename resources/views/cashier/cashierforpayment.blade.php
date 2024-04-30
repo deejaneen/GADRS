@@ -60,6 +60,7 @@
                         <th scope="col">Occupant Type</th>
                         <th scope="col">Price</th>
                         <th scope="col">Status</th>
+                        <th scope="col">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -72,6 +73,9 @@
                             <td>{{ $gym->occupant_type }}</td>
                             <td>{{ $gym->price }}</td>
                             <td style="color:var(--color-orange);">{{ $gym->status }}</td>
+                            <td >
+                                <button class="btn btn-primary btn-lg rounded-pill" id="gymReservationTableConfirmbtn"> Confirm Payment</button>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>
@@ -95,6 +99,7 @@
                         <th scope="col">Occupant Type</th>
                         <th scope="col">Price</th>
                         <th scope="col">Status</th>
+                        <th scope="col">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -108,6 +113,9 @@
                             <td>{{ $dorm->occupant_type }}</td>
                             <td>{{ $dorm->price }}</td>
                             <td style="color:var(--color-orange);">{{ $dorm->status }}</td>
+                            <td>
+                                <button class="btn btn-primary btn-lg rounded-pill" id="dormReservationTableConfirmbtn"> Confirm Payment</button>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>
@@ -129,7 +137,7 @@
                 <div class="profile">
                     <div class="info">
                         <p>Hey, <b>{{ Auth::user()->first_name }}</b></p>
-                        <small class="text-muted">Admin</small>
+                        <small class="text-muted">{{ Auth::user()->role }}</small>
                     </div>
                     <div class="profile-photo">
                         <img src="{{ asset('images/COA CAR logo.png') }}" alt="">

@@ -639,51 +639,68 @@ main .recent-orders a {
 #GymReservationTableCard,
 #GymReservationCartTableCard,
 #DormReservationTableCard,
-#DormReservationCartTableCard
-{
+#DormReservationCartTableCard {
     background: var(--color-primary);
     color: var(--color-background);
     padding: 20px;
     box-shadow: var(--box-shadow);
     transition: all 300ms ease;
 }
-#AdminDormReservationTableCard{
+
+#AdminDormReservationTableCard {
     margin-top: 30px;
 }
+
 #AdminDormReservationTableCard:hover,
 #AdminGymReservationTableCard:hover,
-#AdminUserTableCard:hover, 
-#GymReservationTableCard:hover ,
-#GymReservationCartTableCard:hover ,
-#DormReservationTableCard:hover ,
+#AdminUserTableCard:hover,
+#GymReservationTableCard:hover,
+#GymReservationCartTableCard:hover,
+#DormReservationTableCard:hover,
 #DormReservationCartTableCard:hover {
     box-shadow: none;
 }
-#AdminUserTableCard td{
+
+#AdminUserTableCard td {
     color: var(--color-background);
 }
-.page-title{
+
+.page-title {
     margin-bottom: 30px;
 }
-#userTableEditbtn{
+
+#userTableEditbtn {
     color: var(--color-orange);
 }
-#userTableDeletebtn{
+
+#userTableDeletebtn {
     color: var(--color-danger);
 }
+
 #userTableEditbtn,
-#userTableDeletebtn{
+#userTableDeletebtn {
     padding: 5px;
     background: var(--color-background);
     border: none;
     border-radius: 10px;
     margin-right: 10px;
 }
+
+#gymReservationTableConfirmbtn,
+#dormReservationTableConfirmbtn {
+    padding: 5px;
+    background: var(--color-warning);
+    border: none;
+    border-radius: 10px;
+    margin-right: 10px;
+}
+
 .info .ri-hotel-bed-fill,
-.info .ri-basketball-fill{
+.info .ri-basketball-fill {
     font-size: 1.5em;
 }
-.table-active td{
+
+.table-active td {
     color: var(--color-background);
 }
 
