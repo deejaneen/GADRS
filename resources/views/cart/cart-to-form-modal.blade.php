@@ -138,9 +138,9 @@
                             <input type="text" class="form-control" id="pos" name="pos" required>
                         </div>
                     </div>
-                    <hr class="line-break" style="border-top: 1px solid black;">
+                    <hr class="line-break" style="border-top: 1px solid black;" id="line_break">
 
-                    <p>Referred By</p>
+                    <p id="title_referred">Referred By</p>
                     <div class="row mb-3" style="" id="COARow1">
                         <div class="col">
                             <label for="coaEm_name" class="form-label">Name of COA Employee</label>

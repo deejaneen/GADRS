@@ -39,6 +39,9 @@ Route::middleware(['guest', 'preventCaching'])->group(function () {
 // Routes that require authentication
 Route::middleware(['auth', 'preventCaching'])->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+});
+
+Route::middleware(['preventCaching','checkRole:Guest' ])->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::resource('users', UserController::class)->only('show', 'edit', 'update');
 
@@ -64,7 +67,7 @@ Route::middleware(['auth', 'preventCaching'])->group(function () {
 });
 
 // Routes accessible only by Admin
-Route::middleware(['checkRole:Admin', 'preventCaching', 'auth'])->group(function () {
+Route::middleware(['checkRole:Admin', 'preventCaching'])->group(function () {
     Route::get('/admin/home', [AdminController::class, 'index'])->name('adminhome');
     Route::get('/test', [AdminController::class, 'test'])->name('test');
     Route::get('/admin/users', [AdminController::class, 'users'])->name('adminusers');
@@ -75,14 +78,14 @@ Route::middleware(['checkRole:Admin', 'preventCaching', 'auth'])->group(function
 });
 
 // Cashier routes
-Route::middleware(['checkRole:Cashier', 'preventCaching', 'auth'])->group(function () {
+Route::middleware(['checkRole:Cashier', 'preventCaching'])->group(function () {
     Route::get('/cashier/home', [CashierController::class, 'index'])->name('cashierhome');
     Route::get('/cashier/forpayment', [CashierController::class, 'forpayment'])->name('cashierforpayment');
     Route::get('/cashier/paid', [CashierController::class, 'paid'])->name('cashierpaid');
 });
 
 // Receiving routes
-Route::middleware(['checkRole:Receiving', 'preventCaching', 'auth'])->group(function () {
+Route::middleware(['checkRole:Receiving', 'preventCaching'])->group(function () {
     Route::get('/receiving/home', [ReceivingController::class, 'index'])->name('receivinghome');
     Route::get('/receiving/pending', [ReceivingController::class, 'receivingpending'])->name('receivingpending');
     Route::get('/receiving/received', [ReceivingController::class, 'receivingreceived'])->name('receivingreceived');
