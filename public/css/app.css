@@ -442,6 +442,11 @@ b {
     flex: 0 0 auto;
 }
 
+.dropdown-center.beds {
+    display: flex;
+    flex-direction: row;
+}
+
 .dropdown-center {
     display: flex;
     align-items: center;
@@ -541,13 +546,51 @@ b {
 
 }
 
-.number-input-female,
-.number-input {
+.number-input-female .number-input-section,
+.number-input-section {
     display: flex;
     align-items: center;
 }
 
+.number-input-female .number-input-section input,
+.number-input-section input {
+    margin: 0 5px;
+}
 
+.number-input-female,
+.number-input {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.number-input-section span {
+    cursor: pointer;
+    border-radius: 50%;
+    color: var(--color-primary);
+    background: var(--color-background);
+    width: 25px;
+    height: 25px;
+    font-size: 1.2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 5px;
+}
+
+.alert-danger {
+    margin-top: 5px !important;
+    background: var(--color-primary) !important;
+    color: var(--color-background) !important;
+    border: 2px solid var(--color-danger) !important;
+}
+
+.error-message {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5px;
+}
 
 .number-input span {
     cursor: pointer;
@@ -1682,18 +1725,19 @@ ul.list-unstyled {
 }
 
 #dormCartReservationsTable_wrapper,
-#gymCartReservationsTable_wrapper{
+#gymCartReservationsTable_wrapper {
     font-size: 1.2em;
 }
-.button-center{
+
+.button-center {
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
 .ri-delete-bin-line,
 .add-icon,
-.minus-icon
- {
+.minus-icon {
     display: flex;
     align-items: center;
     justify-content: center;

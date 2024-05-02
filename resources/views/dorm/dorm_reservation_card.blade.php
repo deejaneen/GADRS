@@ -62,21 +62,18 @@
                             <div class="row mt-2">
                                 <div class="col-md-6" style="text-align: center;">
                                     <h5>Number of Beds</h5>
-                                    <div class="dropdown-center">
+                                    <div class="dropdown-center beds">
                                         <div class="number-input">
                                             <div class="number-input-section">
                                                 <span class="ri-subtract-fill"></span>
-                                                <input type="text" class="btn btn-calendar-datetime-bednumber"
-                                                    max="8" name="quantity" required>
+                                                <input type="text" class="btn btn-calendar-datetime-bednumber" max="8" name="quantity" required>
                                                 <span class="ri-add-line"></span>
                                             </div>
-                                            <div class="number-input-section">
+                                            <div class="error-message">
                                                 @error('quantity')
                                                     <div class="alert alert-danger">{{ $message }}</div>
                                                 @enderror
                                             </div>
-
-
                                         </div>
 
                                     </div>
@@ -215,29 +212,33 @@
                             <div class="row mt-2">
                                 <div class="col-md-6" style="text-align: center;">
                                     <h5>Number of Beds</h5>
-                                    <div class="dropdown-center">
+                                    <div class="dropdown-center beds">
                                         <div class="number-input-female">
-                                            <span class="ri-subtract-fill"></span>
-                                            <input type="text" class="btn btn-calendar-datetime-bednumber"
-                                                max="11" name="quantity" value="0">
-                                            <span class="ri-add-line"></span>
+                                            <div class="number-input-section">
+                                                <span class="ri-subtract-fill"></span>
+                                                <input type="text" class="btn btn-calendar-datetime-bednumber" max="11" name="quantity" value="0">
+                                                <span class="ri-add-line"></span>
+                                            </div>
                                         </div>
+                                    </div>
+                                    <div class="error-message">
+                                        @error('quantity')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-md-6 reservor">
-
                                     <h5>Reservor</h5>
                                     <div class="reservor-type">
-                                        <select class="form-select" id="occupant_type_female" name="occupant_type"
-                                            required>
+                                        <select class="form-select" id="occupant_type_female" name="occupant_type" required>
                                             <option value="COA">COA</option>
                                             <option value="Non COAn">Non COA</option>
                                         </select>
                                         <input type="text" name="gender" value="Female" hidden>
                                     </div>
                                 </div>
-
                             </div>
+                            
                             <div class="row discount">
                                 <div class="col-md-6">
                                     <h5>Apply for Senior/PWD discount?</h5>
