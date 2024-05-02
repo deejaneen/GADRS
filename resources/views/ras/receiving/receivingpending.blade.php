@@ -153,4 +153,27 @@
             <a href="#">Show All</a>
         </div>
     </main>
+    <div class="right">
+        <div class="top">
+            <button id="menu-btn">
+                <span class="ri-menu-line"></span>
+            </button>
+            <div class="theme-toggler">
+                <span class="ri-sun-fill active"></span>
+                <span class="ri-moon-fill"></span>
+            </div>
+            <div class="profile">
+                <div class="info">
+                    <p>Hey, <b>{{ Auth::user()->first_name }}</b></p>
+                    <small class="text-muted">{{ Auth::user()->role }}</small>
+                </div>
+                <div class="profile-photo">
+                    <img src="{{ asset('images/COA CAR logo.png') }}" alt="">
+                </div>
+            </div>
+        </div>
+     
+        {{-- ------------------ END OF RECENT UPDATES ------------------ --}}
+      
+    </div>
 @endsection

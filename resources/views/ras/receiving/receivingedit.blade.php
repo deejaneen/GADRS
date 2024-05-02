@@ -126,8 +126,8 @@
             </div>
             <div class="profile">
                 <div class="info">
-                    <p>Hey, <b>Name</b></p>
-                    <small class="text-muted">Receiving</small>
+                    <p>Hey, <b>{{ Auth::user()->first_name }}</b></p>
+                    <small class="text-muted">{{ Auth::user()->role }}</small>
                 </div>
                 <div class="profile-photo">
                     <img src="{{ asset('images/COA CAR logo.png') }}" alt="">

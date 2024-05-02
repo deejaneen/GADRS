@@ -18,13 +18,13 @@
                 </span>
             </a>
            
-            <a href="{{ route('receivingpending') }}" class="active">
+            <a href="{{ route('receivingpending') }}" >
                 <span class="ri-time-line">
                     <h3>Pending</h3>
                 </span>
                 
             </a>
-            <a href="{{ route('receivingreceived') }}">
+            <a href="{{ route('receivingreceived') }}" class="active">
                 <span class="ri-folder-received-fill">
                     <h3>Received</h3>
                 </span>
