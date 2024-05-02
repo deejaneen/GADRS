@@ -124,9 +124,19 @@ b {
     width: 96%;
     margin: 0 auto;
     gap: 1.8rem;
-    grid-template-columns: 14rem auto 23rem;
+    grid-template-columns: 250px auto 23rem;
+}
+aside {
+    grid-column: 1; 
 }
 
+main {
+    grid-column: 2; 
+}
+
+.right {
+    grid-column: 3; 
+}
 .main-container {
     font-family: "Poppins", sans-serif;
     display: grid;
@@ -135,13 +145,19 @@ b {
     margin: 0 auto;
     padding-right: 30px;
     gap: 1.8rem;
-    grid-template-columns: 14rem auto 23rem;
+    grid-template-columns: 250px auto 23rem;
 }
 
 aside {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
     width: 250px;
     background-color: var(--color-primary);
-    height: 100vh;
+    overflow-y: auto;
+    z-index: 1000;
+
 }
 
 aside .top {
@@ -664,6 +680,22 @@ main .recent-orders a {
 #AdminUserTableCard td {
     color: var(--color-background);
 }
+#AdminUserTableCard button{
+    color: var(--color-primary);
+    background: var(--color-background);
+    border: 1px solid var(--color-orange);
+}
+#AdminUserTableCard button:hover{
+    color: var(--color-background);
+    background: var(--color-primary);
+    border: 1px solid var(--color-orange);
+}
+#AdminUserTable td:last-child{
+     display: flex;
+    /*
+    text-align: center;
+    width: 10%; */
+}
 
 .page-title {
     margin-bottom: 30px;
@@ -671,10 +703,12 @@ main .recent-orders a {
 
 #userTableEditbtn {
     color: var(--color-orange);
+    border: 1px solid var(--color-warning);
 }
 
 #userTableDeletebtn {
     color: var(--color-danger);
+    border: 1px solid var(--color-warning);
 }
 
 #userTableEditbtn,
