@@ -66,7 +66,7 @@
                                         <div class="number-input">
                                             <span class="ri-subtract-fill"></span>
                                             <input type="text" class="btn btn-calendar-datetime-bednumber"
-                                                value="0" max="8" name="quantity">
+                                                 max="8" name="quantity" required>
                                             <span class="ri-add-line"></span>
                                         </div>
                                     </div>

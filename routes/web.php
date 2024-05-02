@@ -41,7 +41,7 @@ Route::middleware(['auth', 'preventCaching'])->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });
 
-Route::middleware(['preventCaching','checkRole:Guest' ])->group(function () {
+Route::middleware(['preventCaching', 'checkRole:Guest'])->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::resource('users', UserController::class)->only('show', 'edit', 'update');
 
@@ -61,9 +61,8 @@ Route::middleware(['preventCaching','checkRole:Guest' ])->group(function () {
     Route::post('/get-reservations', [GymController::class, 'getReservations']);
     Route::post('/cart_check/gym_convert', [CartController::class, 'GymCartToGymReservations'])->name('cart.gym_convert');
     Route::post('/cart_check/dorm_convert', [CartController::class, 'DormCartToDormReservations'])->name('cart.dorm_convert');
-    // Route::post('/cart_check/form', [CartController::class, 'GymCartToGymReservations'])->name('cart.gym_form');
-    // Route::post('/cart/gym_convert', 'CartController@GymCartToGymReservations')->name('cart.gym_convert');
-
+    Route::delete('/cart/destroy-gym', [CartController::class, 'destroyGym'])->name('cart.destroy.gym');
+    Route::delete('/cart/destroy/dorm', [CartController::class, 'destroyDorm'])->name('cart.destroy.dorm');
 });
 
 // Routes accessible only by Admin

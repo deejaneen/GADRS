@@ -47,8 +47,14 @@
                         <tbody>
                             @foreach ($gymcarts as $gymcart)
                                 <tr class="table-active dorm">
-                                    <td><i class="fa-solid fa-plus add-icon ms-3"></i>
-                                        <i class="fa-solid fa-minus minus-icon ms-3"></i>
+                                    <td class="button-center">
+                                        <input type="hidden" id="gymCartId" name="gym_cart_id"
+                                            value="{{ $gymcart->id }}">
+                                        <button type="button" class="button-center delete-button"
+                                            onclick="confirmDeleteGym()">
+                                            <span class="ri-delete-bin-line"></span>
+                                        </button>
+
                                     </td>
                                     <td>{{ date('F j, Y', strtotime($gymcart->reservation_date)) }},
                                         {{ date('g:i A', strtotime($gymcart->reservation_time_start)) }} -
@@ -140,7 +146,12 @@
                             @foreach ($dormcarts as $dormcart)
                                 <tr class="table-active dorm">
                                     <td class="button-center">
-                                        <span class="ri-delete-bin-line"></span>
+                                        <input type="hidden" id="dormCartId" name="dorm_cart_id"
+                                            value="{{ $dormcart->id }}">
+                                        <button type="button" class="button-center delete-button"
+                                            onclick="confirmDeleteDorm()">
+                                            <span class="ri-delete-bin-line"></span>
+                                        </button>
 
                                     </td>
                                     <td>{{ date('F j, Y', strtotime($dormcart->reservation_start_date)) }} -
@@ -183,6 +194,22 @@
                     <button type="submit" class="d-none"></button>
                 </form>
             </div>
+        </div>
+
+        <div>
+            <form class="delete-form-dorm" action="{{ route('cart.destroy.dorm') }}" method="post">
+                @csrf
+                @method('delete')
+                <input type="hidden" id="dormCartIdDelete" name="dorm_cart_id_delete">
+            </form>
+        </div>
+
+        <div>
+            <form class="delete-form-gym" action="{{ route('cart.destroy.gym') }}" method="post">
+                @csrf
+                @method('delete')
+                <input type="hidden" id="gymCartIdDelete" name="gym_cart_id_delete">
+            </form>
         </div>
     </div>
 @endsection
@@ -255,7 +282,7 @@
                 // Change its display property to "block"
                 dormFormNonCoanInfo.style.display = "block";
 
-            }else{
+            } else {
 
                 const COARow1 = document.getElementById('COARow1');
                 const COARow2 = document.getElementById('COARow2');
@@ -648,6 +675,54 @@
             } else {
                 console.error("Form not found.");
             }
+        }
+
+        function confirmDeleteDorm() {
+            // Get the dorm cart ID from the main form
+            var dormCartId = document.getElementById("dormCartId").value;
+
+            // Set the dorm cart ID in the delete form
+            document.getElementById("dormCartIdDelete").value = dormCartId;
+
+            // Show confirmation dialog
+            Swal.fire({
+                title: "Are you sure you want to delete this item?",
+                showDenyButton: true,
+                confirmButtonText: "Yes",
+                denyButtonText: "No",
+                customClass: {
+                    popup: 'small-modal'
+                }
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Submit the delete form
+                    document.querySelector(".delete-form-dorm").submit();
+                }
+            });
+        }
+
+        function confirmDeleteGym() {
+            // Get the dorm cart ID from the main form
+            var dormCartId = document.getElementById("gymCartId").value;
+
+            // Set the dorm cart ID in the delete form
+            document.getElementById("gymCartIdDelete").value = dormCartId;
+
+            // Show confirmation dialog
+            Swal.fire({
+                title: "Are you sure you want to delete this item?",
+                showDenyButton: true,
+                confirmButtonText: "Yes",
+                denyButtonText: "No",
+                customClass: {
+                    popup: 'small-modal'
+                }
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Submit the delete form
+                    document.querySelector(".delete-form-gym").submit();
+                }
+            });
         }
     </script>
 @endsection

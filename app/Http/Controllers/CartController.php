@@ -101,7 +101,7 @@ class CartController extends Controller
                         $dormReservation->home_address  = $request->input('hidden_ptn_home_address');
 
                         $dormReservation->save();
-                    }else{
+                    } else {
                         // Assign the common identifier to the reservation
                         $dormReservation = new Dorm();
                         $dormReservation->fill($dormCart->toArray());
@@ -117,7 +117,7 @@ class CartController extends Controller
                         $dormReservation->employee_number  = $request->input('hidden_ei_number');
                         $dormReservation->id_presented  = $request->input('hidden_id_presented');
                         $dormReservation->purpose_of_stay  = $request->input('hidden_pos');
-                        
+
                         //Emergency Contact
                         $dormReservation->emergency_contact = $request->input('hidden_ptn');
                         $dormReservation->emergency_contact_number = $request->input('hidden_ptn_contact');
@@ -188,6 +188,44 @@ class CartController extends Controller
             // Handle exception if necessary
             dd($e->getMessage()); // Output exception message for debugging
             return null;
+        }
+    }
+
+    public function destroyGym(Request $request)
+    {
+        // Retrieve the dorm cart ID from the request
+        $gymCartId = $request->input('gym_cart_id_delete');
+
+        // Find the dorm cart item
+        $gymCart = GymCart::find($gymCartId);
+
+        if ($gymCart) {
+            // Delete the dorm cart item
+            $gymCart->delete();
+
+            return redirect()->back()->with('success', 'Gym item/s removed from cart successfully!');
+        } else {
+            // Optionally, handle the case where the dorm cart item is not found
+            return redirect()->back()->with(['error' => 'Gym cart item not found'], 404);
+        }
+    }
+
+    public function destroyDorm(Request $request)
+    {
+        // Retrieve the dorm cart ID from the request
+        $dormCartId = $request->input('dorm_cart_id_delete');
+
+        // Find the dorm cart item
+        $dormCart = DormCart::find($dormCartId);
+
+        if ($dormCart) {
+            // Delete the dorm cart item
+            $dormCart->delete();
+
+            return redirect()->back()->with('success', 'Dorm item/s removed from cart successfully!');
+        } else {
+            // Optionally, handle the case where the dorm cart item is not found
+            return redirect()->back()->with(['error' => 'Dorm cart item not found'], 404);
         }
     }
 }

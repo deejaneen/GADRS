@@ -35,6 +35,8 @@ class DormCartController extends Controller
         $is_senior_or_pwd = $request->has('is_senior_or_pwd');
         $is_child = $request->has('is_child');
 
+        // dd($request);
+
         // Validate the incoming request data
         $validatedData = $request->validate([
             'reservation_start_date' => 'required|date',
