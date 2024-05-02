@@ -64,11 +64,21 @@
                                     <h5>Number of Beds</h5>
                                     <div class="dropdown-center">
                                         <div class="number-input">
-                                            <span class="ri-subtract-fill"></span>
-                                            <input type="text" class="btn btn-calendar-datetime-bednumber"
-                                                 max="8" name="quantity" required>
-                                            <span class="ri-add-line"></span>
+                                            <div class="number-input-section">
+                                                <span class="ri-subtract-fill"></span>
+                                                <input type="text" class="btn btn-calendar-datetime-bednumber"
+                                                    max="8" name="quantity" required>
+                                                <span class="ri-add-line"></span>
+                                            </div>
+                                            <div class="number-input-section">
+                                                @error('quantity')
+                                                    <div class="alert alert-danger">{{ $message }}</div>
+                                                @enderror
+                                            </div>
+
+
                                         </div>
+
                                     </div>
                                 </div>
 
