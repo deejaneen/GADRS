@@ -100,9 +100,10 @@
                                     @method('delete')
 
                                     <button class="btn btn-primary btn-lg rounded-pill" id="userTableDeletebtn"
-                                        onclick="confirmation()" style="color: var(--color-danger);">
+                                        onclick="confirmDeleteDorm(event)" style="color: var(--color-danger);">
                                         Delete
                                     </button>
+
                                 </form>
 
 
@@ -157,13 +158,8 @@
         </div>
     </div>
     <script>
-        function confirmDeleteDorm() {
-            // Get the dorm cart ID from the main form
-            var dormCartId = document.getElementById("dormCartId").value;
-            var dormCartId = document.getElementById("dormCartId").value;
-
-            // Set the dorm cart ID in the delete form
-            document.getElementById("dormCartIdDelete").value = dormCartId;
+        function confirmDeleteDorm(event) {
+            event.preventDefault(); // Prevent default form submission
 
             // Show confirmation dialog
             Swal.fire({

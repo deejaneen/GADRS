@@ -58,13 +58,6 @@ class UserController extends Controller
     {
         return $this->show(auth()->user());
     }
-    public function destroy($id)
-    {
-        $user = User::where('id', $id)->first();
-        $user->delete();
-
-        return redirect()->route('adminusers')->with('success', 'User deleted successfully!');
-    }
 
     public function showPasswordProfile(){
         return view('profile.passwordprofile');
@@ -95,6 +88,6 @@ class UserController extends Controller
         return redirect()->route('passwordprofile')->with('success', 'Password updated successfully.');
     }
 
- 
+
 
 }
