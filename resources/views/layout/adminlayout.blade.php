@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{config('app.name')}}</title>
+    <title>{{ config('app.name') }}</title>
 
     <link rel="stylesheet" type="text/css" href="{{ asset('css/admin.css') }}">
 
@@ -22,6 +22,36 @@
 </head>
 
 <body>
+    @if (session('success'))
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                Swal.fire({
+                    // position: "bottom-end",
+                    icon: "success",
+                    title: "{{ session('success') }}",
+                    showConfirmButton: false,
+                    timer: 1500,
+                    customClass: {
+                        popup: 'small-modal'
+                    }
+                });
+            });
+        </script>
+    @endif
+    @if (session('error'))
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: '{{ session('error') }}',
+                    customClass: {
+                        popup: 'small-modal'
+                    }
+                });
+            });
+        </script>
+    @endif
     <div class="main-container">
         @yield('admindashboard')
 

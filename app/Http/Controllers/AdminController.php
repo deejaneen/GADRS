@@ -28,16 +28,16 @@ class AdminController extends Controller
         $gymsReservedCount = Gym::where('status', 'Reserved')->count();
         $dormsReservedCount = Dorm::where('status', 'Reserved')->count();
         $totalReservedCount = $gymsReservedCount + $dormsReservedCount;
-        
+
         return view('admin.admindashboard', [
-            'gymsPendingCount' => $gymsPendingCount, 
-            'dormsPendingCount' => $dormsPendingCount, 
+            'gymsPendingCount' => $gymsPendingCount,
+            'dormsPendingCount' => $dormsPendingCount,
             'totalPendingCount' => $totalPendingCount,
-            'gymsForPaymentCount' => $gymsForPaymentCount, 
-            'dormsForPaymentCount' => $dormsForPaymentCount, 
+            'gymsForPaymentCount' => $gymsForPaymentCount,
+            'dormsForPaymentCount' => $dormsForPaymentCount,
             'totalForPaymentCount' => $totalForPaymentCount,
-            'gymsReservedCount' => $gymsReservedCount, 
-            'dormsReservedCount' => $dormsReservedCount, 
+            'gymsReservedCount' => $gymsReservedCount,
+            'dormsReservedCount' => $dormsReservedCount,
             'totalReservedCount' => $totalReservedCount
         ]);
     }
@@ -49,27 +49,26 @@ class AdminController extends Controller
     {
         $users = User::where('role', '!=', 'Admin')->get();
         return view('admin.adminuser', ['users' => $users]);
-
     }
     public function reservations()
     {
 
-        
+
         return view('admin.adminreservation');
     }
     public function gym()
     {
         $gyms = Gym::all();
         $carts = GymCart::all();
-        
+
         return view('admin.admingym', ['gyms' => $gyms, 'carts' => $carts]);
     }
-    
+
     public function dorm()
     {
         $dorms = Dorm::all();
         $carts = DormCart::all();
-        
+
         return view('admin.admindorm', ['dorms' => $dorms, 'carts' => $carts]);
     }
     public function profile()
@@ -79,6 +78,13 @@ class AdminController extends Controller
 
     public function showUser()
     {
-       
+    }
+
+    public function destroy($id)
+    {
+        $user = User::where('id', $id)->first();
+        $user->delete();
+
+        return redirect()->back()->with('success', 'User deleted successfully!');
     }
 }

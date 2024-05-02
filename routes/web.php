@@ -70,7 +70,7 @@ Route::middleware(['checkRole:Admin', 'preventCaching'])->group(function () {
     Route::get('/admin/home', [AdminController::class, 'index'])->name('adminhome');
     Route::get('/test', [AdminController::class, 'test'])->name('test');
     Route::get('/admin/users', [AdminController::class, 'users'])->name('adminusers');
-    Route::delete('/admin/{id}', [UserController::class, 'destroy'])->name('admin.destroy');
+    Route::delete('/admin/{id}', [AdminController::class, 'destroy'])->name('admin.destroy');
     Route::get('/admin/reservations', [AdminController::class, 'reservations'])->name('adminreservations');
     Route::get('/admin/gym', [AdminController::class, 'gym'])->name('admingym');
     Route::get('/admin/dorm', [AdminController::class, 'dorm'])->name('admindorm');
