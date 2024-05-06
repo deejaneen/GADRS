@@ -48,10 +48,10 @@
                             @foreach ($gymcarts as $gymcart)
                                 <tr class="table-active dorm">
                                     <td class="button-center">
-                                        <input type="hidden" id="gymCartId" name="gym_cart_id"
-                                            value="{{ $gymcart->id }}">
+                                        {{-- <input type="hidden" id="gymCartId" name="gym_cart_id"
+                                            value="{{ $gymcart->id }}"> --}}
                                         <button type="button" class="button-center delete-button"
-                                            onclick="confirmDeleteGym()">
+                                        onclick="confirmDeleteGym('{{ $gymcart->id }}')">
                                             <span class="ri-delete-bin-line"></span>
                                         </button>
 
@@ -146,10 +146,10 @@
                             @foreach ($dormcarts as $dormcart)
                                 <tr class="table-active dorm">
                                     <td class="button-center">
-                                        <input type="hidden" id="dormCartId" name="dorm_cart_id"
-                                            value="{{ $dormcart->id }}">
+                                        {{-- <input type="hidden" id="dormCartId" name="dorm_cart_id"
+                                            value="{{ $dormcart->id }}"> --}}
                                         <button type="button" class="button-center delete-button"
-                                            onclick="confirmDeleteDorm()">
+                                        onclick="confirmDeleteDorm('{{ $dormcart->id }}')">
                                             <span class="ri-delete-bin-line"></span>
                                         </button>
 
@@ -677,10 +677,7 @@
             }
         }
 
-        function confirmDeleteDorm() {
-            // Get the dorm cart ID from the main form
-            var dormCartId = document.getElementById("dormCartId").value;
-
+        function confirmDeleteDorm(dormCartId) {
             // Set the dorm cart ID in the delete form
             document.getElementById("dormCartIdDelete").value = dormCartId;
 
@@ -701,12 +698,8 @@
             });
         }
 
-        function confirmDeleteGym() {
-            // Get the dorm cart ID from the main form
-            var dormCartId = document.getElementById("gymCartId").value;
-
-            // Set the dorm cart ID in the delete form
-            document.getElementById("gymCartIdDelete").value = dormCartId;
+        function confirmDeleteGym(gymCartId) {
+            document.getElementById("gymCartIdDelete").value = gymCartId;
 
             // Show confirmation dialog
             Swal.fire({

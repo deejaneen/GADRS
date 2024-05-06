@@ -15,12 +15,17 @@ class HomeController extends Controller
     public function index()
     {
         $user = Auth::id();
+        $today = now()->startOfDay(); // Get the start of today
+
         $gyms = Gym::where('employee_id', $user)
             ->where('status', 'Pending')
+            ->whereDate('created_at', '>=', $today) // Filter by 'created_at' from today onwards
             ->orderBy('created_at', 'DESC')
             ->get();
+
         $dorms = Dorm::where('employee_id', $user)
             ->where('status', 'Pending')
+            ->whereDate('created_at', '>=', $today) // Filter by 'created_at' from today onwards
             ->orderBy('created_at', 'DESC')
             ->get();
 

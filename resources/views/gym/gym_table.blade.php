@@ -1,85 +1,84 @@
 @section('scripts')
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            let weekContainer = document.getElementById("week-container");
-            let dateInput = document.getElementById("datePicker");
-            let modalTitle = document.getElementById("gymReservationModalLabel");
-            let selectedDateInput = document.getElementById("reservationDate");
+        $(document).ready(function() {
+            const weekContainer = document.getElementById("week-container");
+            const selectedDateInput = document.getElementById("reservationDate");
+            const disabledDates = <?= json_encode($gymDateRestrictions) ?>;
 
-            // Function to format date in desired format
-            function formatDate(dateString) {
-                const options = {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric'
-                };
-                return new Date(dateString).toLocaleDateString('en-US', options);
-            }
-
-            // Function to format time in desired format
-            function formatTime(timeString) {
-                return new Date('1970-01-01T' + timeString).toLocaleTimeString('en-US', {
-                    hour: 'numeric',
-                    minute: '2-digit'
-                });
-            }
-
-            // Function to update the table based on selected date
-            function updateTable(selectedDate) {
-                fetch('/get-reservations', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                        },
-                        body: JSON.stringify({
-                            selected_date: selectedDate
-                        })
-                    })
-                    .then(response => response.json())
-                    .then(data => {
-                        weekContainer.innerHTML = ''; // Clear the container
-                        if (data.length === 0) {
-                            weekContainer.innerHTML = "<p>No reservations for this date.</p>";
-                        } else {
-                            data.forEach(reservation => {
-                                let dayBox = document.createElement("div");
-                                dayBox.classList.add("day-box");
-                                let content =
-                                    `<h4>${formatDate(reservation.reservation_date)}</h4><ul>`;
-                                content +=
-                                    `<li>${formatTime(reservation.reservation_time_start)} - ${formatTime(reservation.reservation_time_end)}</li>`;
-                                // Add more content as needed
-                                content += "</ul>";
-                                dayBox.innerHTML = content;
-                                weekContainer.appendChild(dayBox);
-                            });
-                        }
-                    })
-                    .catch(error => console.error('Error fetching reservations:', error));
-            }
-
-            dateInput.addEventListener("change", function(event) {
-                let selectedDate = event.target.value;
-                updateTable(selectedDate);
-                selectedDateInput.value = `${selectedDate}`;
+            // Initialize date picker with disabled dates
+            $("#datePicker").datepicker({
+                dateFormat: 'yy-mm-dd', // Set the date format
+                beforeShowDay: function(date) {
+                    var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
+                    return [disabledDates.indexOf(string) == -1];
+                },
+                minDate: 0, // Minimum selectable date (today)
+                onSelect: function(selectedDate) {
+                    updateTable(selectedDate);
+                    selectedDateInput.value = selectedDate;
+                }
             });
-
-            // Reset date input content on page load
-            dateInput.value = '';
-
-            // Initialize the table with the current date
-            // const today = new Date().toISOString().split('T')[0];
-            // updateTable(today);
-            // selectedDateInput.value = `${today}`;
         });
 
+        // Function to format date in desired format
+        function formatDate(dateString) {
+            const options = {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            };
+            return new Date(dateString).toLocaleDateString('en-US', options);
+        }
+
+        // Function to format time in desired format
+        function formatTime(timeString) {
+            return new Date('1970-01-01T' + timeString).toLocaleTimeString('en-US', {
+                hour: 'numeric',
+                minute: '2-digit'
+            });
+        }
+
+        // Function to update the table based on selected date
+        function updateTable(selectedDate) {
+            fetch('/get-reservations', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                    },
+                    body: JSON.stringify({
+                        selected_date: selectedDate
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    const weekContainer = document.getElementById("week-container");
+                    weekContainer.innerHTML = ''; // Clear the container
+                    if (data.length === 0) {
+                        weekContainer.innerHTML = "<p>No reservations for this date.</p>";
+                    } else {
+                        data.forEach(reservation => {
+                            let dayBox = document.createElement("div");
+                            dayBox.classList.add("day-box");
+                            let content =
+                                `<h4>${formatDate(reservation.reservation_date)}</h4><ul>`;
+                            content +=
+                                `<li>${formatTime(reservation.reservation_time_start)} - ${formatTime(reservation.reservation_time_end)}</li>`;
+                            // Add more content as needed
+                            content += "</ul>";
+                            dayBox.innerHTML = content;
+                            weekContainer.appendChild(dayBox);
+                        });
+                    }
+                })
+                .catch(error => console.error('Error fetching reservations:', error));
+        }
+
+
         function resetForm() {
-            console.log("Resetting form...");
             var form = document.getElementById("gymReservationForm");
             if (form) {
                 form.reset();
-                console.log("Form reset successfully.");
             } else {
                 console.error("Form not found.");
             }
@@ -132,27 +131,59 @@
             }
         }
 
-        document.addEventListener("DOMContentLoaded", function() {
-            const datePicker = document.getElementById("datePicker");
-            const disabledDates = @json($gymDateRestrictions);
+        // document.addEventListener("DOMContentLoaded", function() {
+        //     const datePicker = document.getElementById("datePicker");
+        //     const disabledDates = @json($gymDateRestrictions);
+
+        //     // Initialize date picker with disabled dates
+        //     const datePickerInstance = flatpickr(datePicker, {
+        //         disable: disabledDates,
+        //         minDate: "today"
+        //     });
+        // });
+
+        $(document).ready(function() {
+            const datePicker = $("#datePicker");
+            const reservationDate = $("#reservationDate");
+            const disabledDates = <?= json_encode($gymDateRestrictions) ?>;
 
             // Initialize date picker with disabled dates
-            const datePickerInstance = flatpickr(datePicker, {
-                disable: disabledDates,
-                minDate: "today"
+            datePicker.add(reservationDate).datepicker({
+                dateFormat: 'yy-mm-dd', // Set the date format
+                beforeShowDay: function(date) {
+                    var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
+                    return [disabledDates.indexOf(string) == -1];
+                },
+                minDate: 0 // Minimum selectable date (today)
             });
         });
 
-        document.addEventListener("DOMContentLoaded", function() {
-            const datePicker = document.getElementById("reservationDate");
-            const disabledDates = @json($gymDateRestrictions);
 
-            // Initialize date picker with disabled dates
-            const datePickerInstance = flatpickr(datePicker, {
-                disable: disabledDates,
-                minDate: "today"
-            });
-        });
+        // document.addEventListener("DOMContentLoaded", function() {
+        //     const reservationDate = document.getElementById("reservationDate");
+        //     const disabledDates = @json($gymDateRestrictions);
+
+        //     // Initialize date picker with disabled dates
+        //     const reservationDateInstance = flatpickr(reservationDate, {
+        //         disable: disabledDates,
+        //         minDate: "today",
+        //         onClose: function(selectedDates, dateStr, instance) {
+        //             instance.calendarContainer.removeEventListener('click', stopPropagation);
+        //         }
+        //     });
+
+        //     // Prevent event propagation for the dropdown elements in the modal
+        //     const modal = document.getElementById("gymReservationModal");
+        //     modal.addEventListener('click', function(event) {
+        //         event.stopPropagation();
+        //     });
+        // });
+
+        // // Function to stop event propagation
+        // function stopPropagation(event) {
+        //     event.stopPropagation();
+        // }
+
 
         // function disableDatesOnModalOpen() {
         //     const reservationDateInput = document.getElementById("reservationDate");
@@ -187,7 +218,8 @@
                     data-bs-target="#gymReservationModal">
                     Book Reservation
                 </button>
-                <input type="date" id="datePicker" class="btn btn-calendar-gym" min="{{ date('Y-m-d') }}" placeholder="Select a date">
+                <input type="text" id="datePicker" class="btn btn-calendar-gym" min="{{ date('Y-m-d') }}"
+                    placeholder="Select a date">
             </div>
             <h1 id="month-heading" class="h1 text-center"></h1>
             <div class="day-container" id="week-container">

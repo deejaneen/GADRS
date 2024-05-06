@@ -19,7 +19,7 @@
                     <div class="row">
                         <div class="col">
                             <label for="reservationDate" class="form-label">Date</label>
-                            <input type="date" class="form-control" id="reservationDate" name="selectedDateText" placeholder="Select a date"
+                            <input type="text" class="form-control" id="reservationDate" name="selectedDateText" placeholder="Select a date"
                                 required>
                         </div>
                         <div class="col">
