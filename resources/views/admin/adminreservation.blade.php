@@ -85,9 +85,10 @@
                                     @method('delete')
 
                                     <button class="btn btn-primary btn-lg rounded-pill" id="gymRestrictTableDeletebtn"
-                                        onclick="confirmDeleteGym(event)">
+                                        onclick="confirmDeleteGym(this.form)">
                                         Delete
                                     </button>
+
 
                                 </form>
                             </td>
@@ -122,9 +123,10 @@
                                     @method('delete')
 
                                     <button class="btn btn-primary btn-lg rounded-pill" id="RestrictTableDeletebtn"
-                                        onclick="confirmDeleteDorm(event)">
+                                        onclick="confirmDeleteDorm(this.form)">
                                         Delete
                                     </button>
+
 
                                 </form>
                             </td>
@@ -198,7 +200,7 @@
     </div>
 
     <script>
-        function confirmDeleteDorm(event) {
+        function confirmDeleteDorm(form) {
             event.preventDefault(); // Prevent default form submission
 
             // Show confirmation dialog
@@ -213,12 +215,12 @@
             }).then((result) => {
                 if (result.isConfirmed) {
                     // Submit the delete form
-                    document.querySelector(".delete-form-dateRestrictDorm").submit();
+                    form.submit();
                 }
             });
         }
 
-        function confirmDeleteGym(event) {
+        function confirmDeleteGym(form) {
             event.preventDefault(); // Prevent default form submission
 
             // Show confirmation dialog
@@ -233,7 +235,7 @@
             }).then((result) => {
                 if (result.isConfirmed) {
                     // Submit the delete form
-                    document.querySelector(".delete-form-dateRestrictGym").submit();
+                    form.submit();
                 }
             });
         }
