@@ -1,5 +1,5 @@
 @extends('layout.adminlayout')
-
+@include('admin.admin_reservation_modals')
 @section('admindashboard')
     <aside>
         <div class="top">
@@ -66,28 +66,33 @@
             <table class="table-home table-hover stripe" id="AdminGymReservationTable" style="width: 100%">
                 <thead>
                     <tr>
-                        <th scope="col">Reservation Date</th>
-                        <th scope="col">Time Start</th>
-                        <th scope="col">Time End</th>
+                        <th scope="col">Restricted Date</th>
+                        <th scope="col">Description</th>
                         <th scope="col">Buttons</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {{-- @foreach ($users as $user)
+                    @foreach ($gymDateRestrictions as $gymDateRestriction)
                         <tr class="table-active">
-                            <td>{{ $user->last_name}}</td> 
-                            <td>{{ $user->first_name }}</td> 
-                            <td>{{ $user->middle_name }}</td> 
-                            <td>{{ $user->email }}</td> 
-                            <td>{{ $user->contact_number }}</td> 
-                            <td>{{ $user->role }}</td> 
+                            <td>{{ date('F j, Y', strtotime($gymDateRestriction->restricted_date)) }}</td>
+                            <td>{{ $gymDateRestriction->description }}</td>
                             <td>
-                                <button class="btn btn-primary btn-lg rounded-pill" id="userTableEditbtn"> Edit</button>
-                                <button class="btn btn-primary btn-lg rounded-pill" id="userTableDeletebtn"> Delete</button>
+                                <form class="delete-form-dateRestrictGym" id="dateRestrictionDelete"
+                                    name="dateRestrictionDelete"
+                                    action="{{ route('admin.destroyDateRestriction', $gymDateRestriction->id) }}"
+                                    method="POST">
+                                    @csrf
+                                    @method('delete')
 
+                                    <button class="btn btn-primary btn-lg rounded-pill" id="gymRestrictTableDeletebtn"
+                                        onclick="confirmDeleteGym(event)">
+                                        Delete
+                                    </button>
+
+                                </form>
                             </td>
                         </tr>
-                    @endforeach --}}
+                    @endforeach
                 </tbody>
             </table>
         </div>
@@ -98,30 +103,36 @@
             <table class="table-home table-hover stripe" id="AdminDormReservationTable" style="width: 100%">
                 <thead>
                     <tr>
-                        <th scope="col">Reservation Date</th>
+                        <th scope="col">Restricted Date</th>
+                        <th scope="col">Description</th>
                         <th scope="col">Buttons</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {{-- @foreach ($users as $user)
+                    @foreach ($dormDateRestrictions as $dormDateRestriction)
                         <tr class="table-active">
-                            <td>{{ $user->last_name}}</td> 
-                            <td>{{ $user->first_name }}</td> 
-                            <td>{{ $user->middle_name }}</td> 
-                            <td>{{ $user->email }}</td> 
-                            <td>{{ $user->contact_number }}</td> 
-                            <td>{{ $user->role }}</td> 
+                            <td>{{ date('F j, Y', strtotime($dormDateRestriction->restricted_date)) }}</td>
+                            <td>{{ $dormDateRestriction->description }}</td>
                             <td>
-                                <button class="btn btn-primary btn-lg rounded-pill" id="userTableEditbtn"> Edit</button>
-                                <button class="btn btn-primary btn-lg rounded-pill" id="userTableDeletebtn"> Delete</button>
+                                <form class="delete-form-dateRestrictDorm" id="dateRestrictionDelete"
+                                    name="dateRestrictionDelete"
+                                    action="{{ route('admin.destroyDateRestriction', $dormDateRestriction->id) }}"
+                                    method="POST">
+                                    @csrf
+                                    @method('delete')
 
+                                    <button class="btn btn-primary btn-lg rounded-pill" id="RestrictTableDeletebtn"
+                                        onclick="confirmDeleteDorm(event)">
+                                        Delete
+                                    </button>
+
+                                </form>
                             </td>
                         </tr>
-                    @endforeach --}}
+                    @endforeach
                 </tbody>
             </table>
         </div>
-
         {{-- ------------------END OF INSIGHTS------------------ --}}
 
     </main>
@@ -132,18 +143,18 @@
             <button id="menu-btn">
                 <span class="ri-menu-line"></span>
             </button>
-        
+
             @auth()
-            <div class="profile">
-                <div class="info">
-                    <p>Hey, <b>{{ Auth::user()->first_name }}</b></p>
-                    <small class="text-muted">{{ Auth::user()->role }}</small>
+                <div class="profile">
+                    <div class="info">
+                        <p>Hey, <b>{{ Auth::user()->first_name }}</b></p>
+                        <small class="text-muted">{{ Auth::user()->role }}</small>
+                    </div>
+                    <div class="profile-photo">
+                        <img src="{{ asset('images/COA CAR logo.png') }}" alt="">
+                    </div>
                 </div>
-                <div class="profile-photo">
-                    <img src="{{ asset('images/COA CAR logo.png') }}" alt="">
-                </div>
-            </div>
-             @endauth
+            @endauth
         </div>
 
         {{-- ------------------ END OF RECENT UPDATES ------------------ --}}
@@ -154,15 +165,13 @@
                     <span class="ri-add-line"></span>
                 </div>
                 <div class="right">
-                    <div class="info">
-                        <h3>ADD NEW GYM DATE ONLY</h3>
+                    <div class="info" data-bs-toggle="modal" data-bs-target="#addRestrictedDateModalGym">
+                        <h3>ADD NEW DATE RESTRICTIONS</h3>
                         <span class="ri-basketball-fill"></span>
-
                     </div>
                 </div>
-
             </div>
-            <div class="item add-product">
+            {{-- <div class="item add-product">
                 <div class="icon">
                     <span class="ri-add-line"></span>
                 </div>
@@ -184,7 +193,49 @@
                         <span class="ri-hotel-bed-fill"></span>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
+
+    <script>
+        function confirmDeleteDorm(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Show confirmation dialog
+            Swal.fire({
+                title: "Are you sure you want to delete this Dorm date item?",
+                showDenyButton: true,
+                confirmButtonText: "Yes",
+                denyButtonText: "No",
+                customClass: {
+                    popup: 'small-modal'
+                }
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Submit the delete form
+                    document.querySelector(".delete-form-dateRestrictDorm").submit();
+                }
+            });
+        }
+
+        function confirmDeleteGym(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Show confirmation dialog
+            Swal.fire({
+                title: "Are you sure you want to delete this Gym date item?",
+                showDenyButton: true,
+                confirmButtonText: "Yes",
+                denyButtonText: "No",
+                customClass: {
+                    popup: 'small-modal'
+                }
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Submit the delete form
+                    document.querySelector(".delete-form-dateRestrictGym").submit();
+                }
+            });
+        }
+    </script>
 @endsection

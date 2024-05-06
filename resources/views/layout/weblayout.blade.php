@@ -95,7 +95,8 @@
     <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdn.datatables.net/2.0.3/js/dataTables.min.js"></script>
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @yield('scripts')
     <script>
@@ -202,7 +203,7 @@
             });
             //HOME PAGE END
 
-             //RESERVATION HISTORY
+            //RESERVATION HISTORY
             // Toggle button click event for Dorm Reservations Cart
             $('#gymTableHistoryToggleBtn').click(function(e) {
                 e.preventDefault();

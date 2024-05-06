@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DateRestriction;
 use App\Models\Gym;
 use App\Models\GymCart;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+
 
 class GymController extends Controller
 {
@@ -16,8 +18,10 @@ class GymController extends Controller
     public function index()
     {
         $gymcarts = GymCart::orderBy('created_at', 'DESC');
+        // Modify how you fetch the data, ensuring you only retrieve the date strings
+        $gymDateRestrictions = DateRestriction::where('type', 'Gym')->pluck('restricted_date')->toArray();
 
-        return view('gym', ['gymcarts' => $gymcarts]);
+        return view('gym', ['gymcarts' => $gymcarts, 'gymDateRestrictions' => $gymDateRestrictions]);
     }
 
     /**

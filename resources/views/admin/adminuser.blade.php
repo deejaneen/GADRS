@@ -95,7 +95,7 @@
                                         style="color: var(--color-orange);"> Edit</button>
                                 </form>
                                 <form class="delete-form-user" id="adminUserIdDelete" name="admin_user_id_delete"
-                                    action="{{ route('admin.destroy', $user->id) }}" method="POST">
+                                    action="{{ route('admin.destroyUser', $user->id) }}" method="POST">
                                     @csrf
                                     @method('delete')
 

@@ -68,11 +68,12 @@
                         aria-label="Close"></button>
                 </div>
             </div>
-            <form  id="cartToFormModalDormForm">
+            <form id="cartToFormModalDormForm">
                 <div class="modal-body">
                     <div class="row" style="display: none;" id="dormFormNonCoanInfo">
                         <div class="col">
-                            <p>One or more of the items you selected are referred for Non-Coan. You need to fill out the Referred By section.</p>
+                            <p>One or more of the items you selected are referred for Non-Coan. You need to fill out the
+                                Referred By section.</p>
                         </div>
                     </div>
                     <div class="row">

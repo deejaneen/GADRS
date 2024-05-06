@@ -69,9 +69,9 @@
             dateInput.value = '';
 
             // Initialize the table with the current date
-            const today = new Date().toISOString().split('T')[0];
-            updateTable(today);
-            selectedDateInput.value = `${today}`;
+            // const today = new Date().toISOString().split('T')[0];
+            // updateTable(today);
+            // selectedDateInput.value = `${today}`;
         });
 
         function resetForm() {
@@ -84,9 +84,6 @@
                 console.error("Form not found.");
             }
         }
-
-        // Set minimum date to the present day
-        document.getElementById("reservationDate").min = new Date().toISOString().split('T')[0];
 
         // Ensure start time is AM and end time is at least 2 hours ahead
         document.getElementById("startTime").addEventListener("change", function() {
@@ -134,6 +131,50 @@
                 }
             }
         }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const datePicker = document.getElementById("datePicker");
+            const disabledDates = @json($gymDateRestrictions);
+
+            // Initialize date picker with disabled dates
+            const datePickerInstance = flatpickr(datePicker, {
+                disable: disabledDates,
+                minDate: "today"
+            });
+        });
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const datePicker = document.getElementById("reservationDate");
+            const disabledDates = @json($gymDateRestrictions);
+
+            // Initialize date picker with disabled dates
+            const datePickerInstance = flatpickr(datePicker, {
+                disable: disabledDates,
+                minDate: "today"
+            });
+        });
+
+        // function disableDatesOnModalOpen() {
+        //     const reservationDateInput = document.getElementById("reservationDate");
+        //     const disabledDates = @json($gymDateRestrictions);
+
+        //     // Initialize reservation date picker with disabled dates
+        //     const reservationDatePickerInstance = flatpickr(reservationDateInput, {
+        //         disable: disabledDates,
+        //         minDate: "today"
+        //     });
+
+        //     // Function to check if a date is disabled
+        //     function isDateDisabled(date) {
+        //         return disabledDates.includes(date);
+        //     }
+
+        // }
+
+        // // Attach the function to the modal's shown.bs.modal event
+        // $('#gymReservationModal').on('shown.bs.modal', function() {
+        //     disableDatesOnModalOpen();
+        // });
     </script>
 @endsection
 
@@ -146,7 +187,7 @@
                     data-bs-target="#gymReservationModal">
                     Book Reservation
                 </button>
-                <input type="date" id="datePicker" class="btn btn-calendar-gym" min="{{ date('Y-m-d') }}">
+                <input type="date" id="datePicker" class="btn btn-calendar-gym" min="{{ date('Y-m-d') }}" placeholder="Select a date">
             </div>
             <h1 id="month-heading" class="h1 text-center"></h1>
             <div class="day-container" id="week-container">

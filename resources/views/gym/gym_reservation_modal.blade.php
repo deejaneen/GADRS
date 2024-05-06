@@ -1,3 +1,4 @@
+
 <!-- Modal -->
 <div class="modal fade" id="gymReservationModal" tabindex="-1" aria-labelledby="gymReservationModalLabel"
     aria-hidden="true">
@@ -18,7 +19,7 @@
                     <div class="row">
                         <div class="col">
                             <label for="reservationDate" class="form-label">Date</label>
-                            <input type="date" class="form-control" id="reservationDate" name="selectedDateText"
+                            <input type="date" class="form-control" id="reservationDate" name="selectedDateText" placeholder="Select a date"
                                 required>
                         </div>
                         <div class="col">
@@ -64,7 +65,3 @@
         </div>
     </div>
 </div>
-
-@section('scripts')
-    <script></script>
-@endsection

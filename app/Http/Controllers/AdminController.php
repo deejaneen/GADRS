@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DateRestriction;
 use App\Models\DormCart;
 use App\Models\Gym;
 use App\Models\GymCart;
 use App\Models\Dorm;
 use App\Models\User;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Date;
 
 class AdminController extends Controller
 {
@@ -41,20 +42,27 @@ class AdminController extends Controller
             'totalReservedCount' => $totalReservedCount
         ]);
     }
+
     public function test()
     {
         return view('admin.test');
     }
+
     public function users()
     {
         $users = User::where('role', '!=', 'Admin')->get();
         return view('admin.adminuser', ['users' => $users]);
     }
+
     public function reservations()
     {
+        $gymDateRestrictions = DateRestriction::where('type', 'Gym')->get();
+        $dormDateRestrictions = DateRestriction::where('type', 'Dorm')->get();
 
-
-        return view('admin.adminreservation');
+        return view('admin.adminreservation', [
+            'gymDateRestrictions' => $gymDateRestrictions,
+            'dormDateRestrictions' => $dormDateRestrictions
+        ]);
     }
     public function gym()
     {
@@ -80,11 +88,54 @@ class AdminController extends Controller
     {
     }
 
-    public function destroy($id)
+    public function destroyUser($id)
     {
         $user = User::where('id', $id)->first();
         $user->delete();
 
         return redirect()->back()->with('success', 'User deleted successfully!');
+    }
+
+    public function destroyDateRestriction($id)
+    {
+        $dateRestriction = DateRestriction::where('id', $id)->first();
+        $dateRestriction->delete();
+
+        return redirect()->back()->with('success', 'Date deleted successfully!');
+    }
+
+
+    public function storeDateRestriction(Request $request)
+    {
+        // Validate the incoming request data
+        $validatedData = $request->validate([
+            'dateRestriction' => 'required|date',
+            'type' => 'required', // Add validation for 'type'
+        ]);
+
+        try {
+            // Check if a record with the same type and date restriction already exists
+            $existingRecord = DateRestriction::where('type', $validatedData['type'])
+                ->where('restricted_date', $validatedData['dateRestriction'])
+                ->first();
+
+            // If a record already exists, display error message
+            if ($existingRecord) {
+                return redirect()->back()->with('error', 'Date Restriction already exists for the specified type and date.');
+            }
+
+            // Store the date restriction in the database
+            $dateRestriction = new DateRestriction();
+            $dateRestriction->restricted_date = $validatedData['dateRestriction'];
+            $dateRestriction->description = $request->details;
+            $dateRestriction->type = $validatedData['type'];
+            $dateRestriction->save();
+
+            // If storing is successful, redirect back with success message
+            return redirect()->back()->with('success', 'Date Restriction added successfully!');
+        } catch (\Exception $e) {
+            // If an error occurs during the storing process, redirect back with error message
+            return redirect()->back()->with('error', 'Date Restriction was not successful');
+        }
     }
 }

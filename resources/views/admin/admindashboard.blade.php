@@ -1,5 +1,4 @@
 @extends('layout.adminlayout')
-
 @section('admindashboard')
     <aside>
         <div class="top">
