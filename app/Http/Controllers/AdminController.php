@@ -10,6 +10,7 @@ use App\Models\Dorm;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Date;
+use Illuminate\Support\Facades\Storage;
 
 class AdminController extends Controller
 {
@@ -53,6 +54,36 @@ class AdminController extends Controller
         $users = User::where('role', '!=', 'Admin')->get();
         return view('admin.adminuser', ['users' => $users]);
     }
+
+    public function updateUser(User $user)
+    {
+        // Validate input
+        $validated = request()->validate([
+            'first_name' => 'required|min:3|max:40',
+            'middle_name' => 'required|min:1|max:255',
+            'last_name' => 'required|min:1|max:255',
+            'contact_number' => 'nullable|min:1|max:255',
+            'email' => 'required|email',
+            'role' => 'required',
+            // 'profile_image' => 'image',
+        ]);
+
+        // Update the user with the validated data
+        $user->update($validated);
+
+        // Redirect back with success message
+        return redirect()->back()->with('success', 'User updated successfully!');
+    }
+
+    public function editUser(Request $request)
+    {
+        $userId = $request->query('id'); // Use query() to retrieve the id parameter
+        $user = User::findOrFail($userId); // Assuming you have a User model
+
+        // You can return the modal content as a view
+        return view('admin.adminedituser', compact('user'));
+    }
+
 
     public function reservations()
     {
