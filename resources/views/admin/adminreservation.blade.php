@@ -162,12 +162,12 @@
         {{-- ------------------ END OF RECENT UPDATES ------------------ --}}
         <div class="sales-analytics">
             <h2>Add Reservation Dates</h2>
-            <div class="item add-product">
+            <div class="item add-product" class="right" data-bs-toggle="modal" data-bs-target="#addRestrictedDateModalGym">
                 <div class="icon">
                     <span class="ri-add-line"></span>
                 </div>
-                <div class="right">
-                    <div class="info" data-bs-toggle="modal" data-bs-target="#addRestrictedDateModalGym">
+                <div>
+                    <div class="info">
                         <h3>ADD NEW DATE RESTRICTIONS</h3>
                         <span class="ri-basketball-fill"></span>
                     </div>
