@@ -57,7 +57,7 @@
                     <div class="left">
                         <h3>Total Reservations - Pending</h3>
                         <h1>
-                            Php25,024
+                            {{ $totalReservationCount }}
                         </h1>
                     </div>
                   
@@ -69,9 +69,9 @@
                 <div class="middle">
                     <div class="left">
                         <h3>Total Reservations - Received</h3>
-                        <h4>This Month "Insert Month Here"</h4>
+                        <h4>{{ $currentMonth }}</h4>
                         <h1>
-                            Php25,024
+                            {{ $thisMonthTotalReservationReceived }}
                         </h1>
                     </div>
                    
@@ -79,16 +79,15 @@
             </div>
             {{-- -------------------------------END-OF-DORM-RESERVATIONS-------------------- --}}
             <div class="dormreservations">
-                <span class="ri-hotel-bed-fill"></span>
+                <span class="ri-basketball-fill"></span>
                 <div class="middle">
                     <div class="left">
                         <h3>Total Reservations - Received</h3>
-                        <h4>Last Month "Insert Month Here"</h4>
+                        <h4> {{ $lastMonth }}</h4>
                         <h1>
-                            Php25,024
+                            {{ $lastMonthTotalReservationReceived }}
                         </h1>
                     </div>
-                  
                 </div>
             </div>
         </div>
@@ -128,10 +127,16 @@
                     <div class="info">
                         <h3>ADD RESERVATION</h3>
                     </div>
-                    <h5 class="success">+225%</h5>
-                    <h3>3849</h3>
                 </div>
             </div>
         </div>
     </div>
 @endsection
+<script>
+    // Get current month
+    const currentDate = new Date();
+    const currentMonth = currentDate.toLocaleString('default', { month: 'long' });
+
+    // Update placeholder with current month
+    document.getElementById('currentMonth').textContent = currentMonth;
+</script>

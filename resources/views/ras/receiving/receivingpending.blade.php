@@ -51,18 +51,7 @@
 
         <div class="insights">
             {{-- -------------------------------END-OF-SALES-------------------- --}}
-            <div class="totalreservation">
-                <span class="ri-key-2-line"></span>
-                <div class="middle">
-                    <div class="left">
-                        <h3>Total Pending Reservations</h3>
-                        <h1>
-                            Php25,024
-                        </h1>
-                    </div>
-                  
-                </div>
-            </div>
+           
             {{-- -------------------------------END-OF-GYM-RESERVATIONS-------------------- --}}
             <div class="gymreservation">
                 <span class="ri-basketball-fill"></span>
@@ -70,98 +59,25 @@
                     <div class="left">
                         <h3>Total Pending Reservations - Gym</h3>
                         <h1>
-                            Php25,024
+                            {{ $gymsPendingCount }}
                         </h1>
                     </div>
                   
                 </div>
             </div>
              {{-- -------------------------------END-OF-DORM-RESERVATIONS-------------------- --}}
-             <div class="dormreservations">
-                <span class="ri-hotel-bed-fill"></span>
-                <div class="middle">
-                    <div class="left">
-                        <h3>Total Pending Reservations - Dorm</h3>
-                        <h1>
-                            Php25,024
-                        </h1>
-                    </div>
-                  
-                </div>
-            </div>
+           
         </div>
 
         {{-- ------------------END OF INSIGHTS------------------ --}}
-        <div class="recent-orders">
-            <h2>Recent Orders</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Product Name</th>
-                        <th>Product Number</th>
-                        <th>Payment</th>
-                        <th>Status</th>
-                        <th></th>
-
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Fdhsajkdakdh</td>
-                        <td>Adska</td>
-                        <td>Due</td>
-                        <td class="warning">Pending</td>
-                        <td class="warning-orange">Details</td>
-                    </tr>
-                    <tr>
-                        <td>Fdhsajkdakdh</td>
-                        <td>Adska</td>
-                        <td>Due</td>
-                        <td class="warning">Pending</td>
-                        <td class="warning-orange">Details</td>
-                    </tr>
-                    <tr>
-                        <td>Fdhsajkdakdh</td>
-                        <td>Adska</td>
-                        <td>Due</td>
-                        <td class="warning">Pending</td>
-                        <td class="warning-orange">Details</td>
-                    </tr>
-                    <tr>
-                        <td>Fdhsajkdakdh</td>
-                        <td>Adska</td>
-                        <td>Due</td>
-                        <td class="warning">Pending</td>
-                        <td class="warning-orange">Details</td>
-                    </tr>
-                    <tr>
-                        <td>Fdhsajkdakdh</td>
-                        <td>Adska</td>
-                        <td>Due</td>
-                        <td class="warning">Pending</td>
-                        <td class="warning-orange">Details</td>
-                    </tr>
-                    <tr>
-                        <td>Fdhsajkdakdh</td>
-                        <td>Adska</td>
-                        <td>Due</td>
-                        <td class="warning">Pending</td>
-                        <td class="warning-orange">Details</td>
-                    </tr>
-                </tbody>
-            </table>
-            <a href="#">Show All</a>
-        </div>
+       
     </main>
+    
     <div class="right">
         <div class="top">
             <button id="menu-btn">
                 <span class="ri-menu-line"></span>
             </button>
-            <div class="theme-toggler">
-                <span class="ri-sun-fill active"></span>
-                <span class="ri-moon-fill"></span>
-            </div>
             <div class="profile">
                 <div class="info">
                     <p>Hey, <b>{{ Auth::user()->first_name }}</b></p>
@@ -175,5 +91,48 @@
      
         {{-- ------------------ END OF RECENT UPDATES ------------------ --}}
       
+    </div>
+    <div class="card" id="ReceivingPendingTableCard">
+        <div>
+            <h2 class="card-header text-center home">Assign a Form Number</h2>
+        </div>
+        <table class="table-home table-hover stripe" id="ReceivingPendingTable" style="width: 100%">
+            <thead>
+                <tr>
+                    <th scope="col">Form Number</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Time Start</th>
+                    <th scope="col">Time End</th>
+                    <th scope="col">Occupant Type</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($gyms as $gym)
+                    <tr class="table-active">
+                        <td>{{ $gym->form_number_id }}</td>
+                        <td>{{ $gym->reservation_date }}</td>
+                        <td>{{ $gym->reservation_time_start }}</td>
+                        <td>{{ $gym->reservation_time_end }}</td>
+                        <td>{{ $gym->occupant_type }}</td>
+                        <td>{{ $gym->price }}</td>
+                        <td style="color:var(--color-orange);">{{ $gym->status }}</td>
+                        <td class="buttons">
+                            <form action="">
+                                <button class="btn btn-primary btn-lg rounded-pill" id="receivingAssignNumberbtn"
+                                    style="color: var(--color-orange);">Assign Number</button>
+                            </form>
+                            <form action="">
+                                <button class="btn btn-primary btn-lg rounded-pill" id="receivingViewFormbtn"
+                                    style="color: var(--color-orange);">View Form</button>
+                            </form>
+                        </td>
+                    </tr>
+
+                @endforeach
+            </tbody>
+        </table>
     </div>
 @endsection

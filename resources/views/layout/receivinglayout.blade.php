@@ -37,7 +37,12 @@
     <script src="https://cdn.datatables.net/2.0.3/js/dataTables.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
+    <script>
+        $(document).ready(function() {
+            $('#ReceivingPendingTable').DataTable();
+          
+        });
+    </script>
 </body>
 
 </html>
