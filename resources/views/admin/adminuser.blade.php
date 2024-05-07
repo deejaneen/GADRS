@@ -1,7 +1,5 @@
 @extends('layout.adminlayout')
 
-
-
 @section('admindashboard')
     <aside>
         <div class="top">
@@ -70,7 +68,6 @@
                 <thead>
                     <tr>
                         <th scope="col">Last Name</th>
-                        <th scope="col">Last Name</th>
                         <th scope="col">First Name</th>
                         <th scope="col">Middle Name</th>
                         <th scope="col">Email</th>
@@ -83,33 +80,38 @@
                     @foreach ($users as $user)
                         <tr class="table-active">
                             <td>{{ $user->last_name }}</td>
-                            <td>{{ $user->last_name }}</td>
                             <td>{{ $user->first_name }}</td>
                             <td>{{ $user->middle_name }}</td>
                             <td>{{ $user->email }}</td>
                             <td>{{ $user->contact_number }}</td>
                             <td>{{ $user->role }}</td>
                             <td>
-                                <form action="">
-                                    <button class="btn btn-primary btn-lg rounded-pill" id="userTableEditbtn"
-                                        style="color: var(--color-orange);"> Edit</button>
-                                </form>
-                                <form class="delete-form-user" id="adminUserIdDelete" name="admin_user_id_delete"
-                                    action="{{ route('admin.destroyUser', $user->id) }}" method="POST">
+                                <button class="btn btn-primary btn-lg rounded-pill edit-user-btn"
+                                    data-user-id="{{ $user->id }}" style="color: var(--color-orange);">
+                                    Edit
+                                </button>
+
+                                <form class="delete-form-user" id="adminUserIdDelete_{{ $user->id }}"
+                                    name="admin_user_id_delete" action="{{ route('admin.destroyUser', $user->id) }}"
+                                    method="POST">
                                     @csrf
                                     @method('delete')
 
-                                    <button class="btn btn-primary btn-lg rounded-pill" id="userTableDeletebtn"
-                                        onclick="confirmDeleteDorm(event)" style="color: var(--color-danger);">
+                                    <button class="btn btn-primary btn-lg rounded-pill" onclick="confirmDeleteDorm(event)"
+                                        style="color: var(--color-danger);">
                                         Delete
                                     </button>
-
                                 </form>
+
 
 
 
                             </td>
                         </tr>
+
+                        <div>
+
+                        </div>
                     @endforeach
                 </tbody>
             </table>
@@ -119,6 +121,25 @@
         {{-- ------------------END OF INSIGHTS------------------ --}}
 
     </main>
+    <div class="modal fade" id="editUserAdmin" tabindex="-1" aria-labelledby="editUserAdminLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="col-6">
+                        <h1 class="modal-title" id="editUserAdminLabel">Edit User</h1>
+                    </div>
+                    <div class="col-6 text-end">
+                        <button type="button" class="btn-close close-modal" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    @include('admin.adminedituser')
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     {{-- ------------------END OF MAIN------------------ --}}
     <div class="right">
@@ -172,10 +193,27 @@
                 }
             }).then((result) => {
                 if (result.isConfirmed) {
-                    // Submit the delete form
-                    document.querySelector(".delete-form-user").submit();
+                    // Submit the delete form associated with the clicked button
+                    const form = event.target.closest(".delete-form-user");
+                    form.submit();
                 }
             });
         }
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            $('.edit-user-btn').click(function() {
+                var userId = $(this).data('user-id');
+                console.log('Hey');
+                $.get("{{ route('admin.editUser') }}", {
+                    id: userId
+                }, function(response) {
+                    console.log("Ohh");
+                    $('#editUserAdmin').html(response);
+                    $('#editUserAdmin').modal('show');
+                });
+            });
+        });
     </script>
 @endsection

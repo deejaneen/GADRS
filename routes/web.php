@@ -77,6 +77,10 @@ Route::middleware(['checkRole:Admin', 'preventCaching'])->group(function () {
     Route::get('/admin/dorm', [AdminController::class, 'dorm'])->name('admindorm');
     Route::get('/admin/profile', [AdminController::class, 'profile'])->name('adminprofile');
     Route::post('/admin/reservations/restriction', [AdminController::class, 'storeDateRestriction'])->name('admin.addrestriction');
+    Route::put('/admin/users/{user}', [AdminController::class, 'updateUser'])->name('admin.updateUser');
+    Route::get('/admin/users/editUser', [AdminController::class, 'editUser'])->name('admin.editUser');
+
+
 });
 
 // Cashier routes
