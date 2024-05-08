@@ -10,7 +10,9 @@ use App\Models\Dorm;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Date;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
+
 
 class AdminController extends Controller
 {
@@ -72,14 +74,11 @@ class AdminController extends Controller
         $user->update($validated);
 
         // Redirect back with success message
-        return redirect()->back()->with('success', 'User updated successfully!');
+        return redirect()->route('adminusers')->with('success', 'User updated successfully!');
     }
 
-    public function editUser(Request $request)
+    public function editUser(User $user)
     {
-        $userId = $request->query('id'); // Use query() to retrieve the id parameter
-        $user = User::findOrFail($userId); // Assuming you have a User model
-
         // You can return the modal content as a view
         return view('admin.adminedituser', compact('user'));
     }
@@ -117,6 +116,33 @@ class AdminController extends Controller
 
     public function showUser()
     {
+    }
+
+    public function storeUser()
+    {
+        //validate
+        $validated = request()->validate([
+            'last_name' => 'required|min:3|max:40',
+            'first_name' => 'required|min:3|max:40',
+            'middle_name' => 'required|min:3|max:40',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|confirmed'
+        ]);
+
+        //create the user
+        $user = User::create([
+            'last_name' => $validated['last_name'],
+            'first_name' => $validated['first_name'],
+            'middle_name' => $validated['middle_name'],
+            'email' => $validated['email'],
+            'password' => Hash::make($validated['password']),
+        ]);
+
+        // log in the user
+        auth()->login($user);
+
+        //redirect to dashboard
+        return redirect()->back()->with('success', "User created successfully!");
     }
 
     public function destroyUser($id)
