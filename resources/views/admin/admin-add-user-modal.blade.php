@@ -1,3 +1,12 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+@if ($errors->any())
+<script>
+    // Add this script to reopen the modal on page load if there are validation errors
+    $(document).ready(function() {
+        $('#addUserAdminModal').modal('show');
+    });
+</script>
+@endif
 <div class="modal fade" id="addUserAdminModal" tabindex="-1" aria-labelledby="addUserAdminModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-xl">
         <div class="modal-content">
@@ -15,21 +24,21 @@
                     <div class="row mb-3">
                         <div class="col">
                             <label for="first_name" class="form-label">First Name</label>
-                            <input type="text" name="first_name" id="first_name" placeholder="Firstname" class="form-control">
+                            <input type="text" name="first_name" id="first_name"  class="form-control">
                             @error('first_name')
                             <span class="d-block fs-6 text-danger mt-2"> {{ $message }}</span>
                             @enderror
                         </div>
                         <div class="col">
                             <label for="middle_name" class="form-label">Middle Name</label>
-                            <input type="text" name="middle_name" id="middle_name" placeholder="Middlename" class="form-control">
+                            <input type="text" name="middle_name" id="middle_name"  class="form-control">
                             @error('middle_name')
                             <span class="d-block fs-6 text-danger mt-2"> {{ $message }}</span>
                             @enderror
                         </div>
                         <div class="col">
                             <label for="last_name" class="form-label">Last Name</label>
-                            <input type="text" name="last_name" id="last_name" placeholder="Lastname" class="form-control">
+                            <input type="text" name="last_name" id="last_name"  class="form-control">
                             @error('last_name')
                             <span class="d-block fs-6 text-danger mt-2"> {{ $message }}</span>
                             @enderror
@@ -40,7 +49,7 @@
                     <div class="row mb-3">
                         <div class="col-4">
                             <label for="email" class="form-label">Email</label>
-                            <input type="email" name="email" id="email" placeholder="Email" class="form-control">
+                            <input type="email" name="email" id="email"  class="form-control">
                             @error('email')
                             <span class="d-block fs-6 text-danger mt-2"> {{ $message }}</span>
                             @enderror
@@ -49,14 +58,14 @@
                     <div class="row mb-3">
                         <div class="col">
                             <label for="password" class="form-label">Password</label>
-                            <input type="password" name="password" id="password" placeholder="Password" class="form-control">
+                            <input type="password" name="password" id="password"  class="form-control">
                             @error('password')
                             <span class="d-block fs-6 text-danger mt-2"> {{ $message }}</span>
                             @enderror
                         </div>
                         <div class="col">
-                            <label for="password_confirmation" class="form-label">Password</label>
-                            <input type="password" name="password_confirmation" id="confirm-password" placeholder="Confirm Password" class="form-control">
+                            <label for="password_confirmation" class="form-label">Confirm Password</label>
+                            <input type="password" name="password_confirmation" id="confirm-password"  class="form-control">
                             @error('confirm-password')
                             <span class="d-block fs-6 text-danger mt-2"> {{ $message }}</span>
                             @enderror

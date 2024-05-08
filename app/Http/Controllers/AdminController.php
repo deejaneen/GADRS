@@ -129,21 +129,27 @@ class AdminController extends Controller
             'password' => 'required|confirmed'
         ]);
 
-        //create the user
-        $user = User::create([
-            'last_name' => $validated['last_name'],
-            'first_name' => $validated['first_name'],
-            'middle_name' => $validated['middle_name'],
-            'email' => $validated['email'],
-            'password' => Hash::make($validated['password']),
-        ]);
+        try {
+            //create the user
+            $user = User::create([
+                'last_name' => $validated['last_name'],
+                'first_name' => $validated['first_name'],
+                'middle_name' => $validated['middle_name'],
+                'email' => $validated['email'],
+                'password' => Hash::make($validated['password']),
+            ]);
 
-        // log in the user
-        auth()->login($user);
+            $user->save();
 
-        //redirect to dashboard
-        return redirect()->back()->with('success', "User created successfully!");
+            //redirect to dashboard
+            return redirect()->back()->with('success', "User created successfully!");
+        } catch (\Exception $e) {
+            // If an error occurs during user creation, redirect back with error message
+            return redirect()->back()->withInput()->withErrors(['error' => 'User creation failed.'])->withInput();
+        }
     }
+
+
 
     public function destroyUser($id)
     {

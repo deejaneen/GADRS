@@ -129,8 +129,10 @@
                 </div>
             </div>
             <div class="modal-footer">
+                <button class="btn btn-primary" onclick="goBack()">Back</button>
                 <button class="btn btn-primary" type="submit">Save Changes</button>
             </div>
+
         </form>
     </div>
 
@@ -164,3 +166,8 @@
 
 </div>
 @endsection
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
