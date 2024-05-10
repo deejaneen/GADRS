@@ -167,6 +167,7 @@ class CartController extends Controller
                     $gymReservation->representative = $request->input('hidden_nameRepresentative');
                     $gymReservation->office_address = $request->input('hidden_address');
                     $gymReservation->contact_number = $request->input('hidden_contactNumber');
+                    $gymReservation->status = 'Pending';
 
                     $gymReservation->save();
                 }

@@ -80,6 +80,7 @@ Route::middleware(['checkRole:Admin', 'preventCaching'])->group(function () {
     Route::put('/admin/users/{user}', [AdminController::class, 'updateUser'])->name('admin.updateUser');
     Route::get('/admin/users/editUser/{user}', [AdminController::class, 'editUser'])->name('admin.editUser');
     Route::post('/admin/users/createUser', [AdminController::class, 'storeUser'])->name('admin.createUser');
+    Route::post('/admin/profile/password', [AdminController::class, 'updatePassword'])->name('update_password');
 });
 
 // Cashier routes
@@ -95,4 +96,7 @@ Route::middleware(['checkRole:Receiving', 'preventCaching'])->group(function () 
     Route::get('/receiving/pending', [ReceivingController::class, 'receivingpending'])->name('receivingpending');
     Route::get('/receiving/received', [ReceivingController::class, 'receivingreceived'])->name('receivingreceived');
     Route::get('/receiving/gym', [ReceivingController::class, 'receivingedit'])->name('receivingeditreservations');
+    Route::get('/receiving/gym/{gym}', [ReceivingController::class, 'editGym'])->name('receiving.editGym');
+    Route::put('/receiving/gym/addFormNumber/{gym}', [ReceivingController::class, 'addFormNumber'])->name('addFormNumber');
+    Route::get('/receiving/gym/view/{gym}', [ReceivingController::class, 'viewGym'])->name('receiving.viewGym');
 });

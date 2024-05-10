@@ -19,27 +19,27 @@
                     <h3>Dashboard</h3>
                 </span>
             </a>
-            <a href="{{ route('adminusers') }}" >
+            <a href="{{ route('adminusers') }}">
                 <span class="ri-team-line">
                     <h3>Users</h3>
                 </span>
             </a>
-            <a href="{{ route('adminreservations') }}" >
+            <a href="{{ route('adminreservations') }}">
                 <span class="ri-receipt-line">
                     <h3>Reservations</h3>
                     <span class="message-count">26</span>
                 </span>
             </a>
-            <a href="{{ route('admingym') }}" >
+            <a href="{{ route('admingym') }}">
                 <span class="ri-basketball-fill">
                     <h3>Gym</h3>
                 </span>
             </a>
-            <a href="{{ route('admindorm') }}" >
+            <a href="{{ route('admindorm') }}">
                 <span class="ri-home-3-line">
                     <h3>Dorm</h3>
                 </span>
-                
+
             </a>
             <a href="{{ route('adminprofile') }}" class="active">
                 <span class="ri-user-line">
@@ -51,140 +51,115 @@
 
                 <button class="no-underline logout btn btn-danger btn-md" type="submit" id="logout-button">
                     <span class="ri-logout-box-r-line">
-                        <h3>LOGOUT</h3></span>
+                        <h3>LOGOUT</h3>
+                    </span>
                 </button>
             </form>
         </div>
     </div>
 </aside>
 {{-- -------------------------------END-OF-ASIDE-------------------- --}}
-    <main>
-        <h1>GYM</h1>
-        
-        <div class="recent-orders">
-            <h2>Recent Gym Reservations</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Product Name</th>
-                        <th>Product Number</th>
-                        <th>Payment</th>
-                        <th>Status</th>
-                        <th></th>
+<main>
+    <h1 class="page-title">ADMIN CHANGE PASSWORD</h1>
+    <div class="card" id="AdminProfileCard">
+        <form action="{{route('update_password')}}" id="change_password_admin_form" method="post">
+            @csrf
+            @method('post')
+            <div class="right-column password">
+                <h3 class="profile-title">Change your password</h3>
 
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Fdhsajkdakdh</td>
-                        <td>Adska</td>
-                        <td>Due</td>
-                        <td class="warning">Pending</td>
-                        <td class="warning-orange">Details</td>
-                    </tr>
-                    <tr>
-                        <td>Fdhsajkdakdh</td>
-                        <td>Adska</td>
-                        <td>Due</td>
-                        <td class="warning">Pending</td>
-                        <td class="warning-orange">Details</td>
-                    </tr>
-                    <tr>
-                        <td>Fdhsajkdakdh</td>
-                        <td>Adska</td>
-                        <td>Due</td>
-                        <td class="warning">Pending</td>
-                        <td class="warning-orange">Details</td>
-                    </tr>
-                    <tr>
-                        <td>Fdhsajkdakdh</td>
-                        <td>Adska</td>
-                        <td>Due</td>
-                        <td class="warning">Pending</td>
-                        <td class="warning-orange">Details</td>
-                    </tr>
-                    <tr>
-                        <td>Fdhsajkdakdh</td>
-                        <td>Adska</td>
-                        <td>Due</td>
-                        <td class="warning">Pending</td>
-                        <td class="warning-orange">Details</td>
-                    </tr>
-                    <tr>
-                        <td>Fdhsajkdakdh</td>
-                        <td>Adska</td>
-                        <td>Due</td>
-                        <td class="warning">Pending</td>
-                        <td class="warning-orange">Details</td>
-                    </tr>
-                </tbody>
-            </table>
-            <a href="#">Show All</a>
-        </div>
-
-        {{-- ------------------END OF INSIGHTS------------------ --}}
-     
-    </main>
-
-    {{-- ------------------END OF MAIN------------------ --}}
-    <div class="right">
-        <div class="top">
-            <button id="menu-btn">
-                <span class="ri-menu-line"></span>
-            </button>
-         
-            @auth()
-            <div class="profile">
-                <div class="info">
-                    <p>Hey, <b>{{ Auth::user()->first_name }}</b></p>
-                    <small class="text-muted">{{ Auth::user()->role }}</small>
+                <div class="inputBox current-password">
+                    <input type="password" name="current_password" id="current_password">
+                    <span>Current Password</span>
+                    @if ($errors->any('current_password'))
+                    <span>{{ $errors->first('current_password') }}</span>
+                    @endif
                 </div>
-                <div class="profile-photo">
-                    <img src="{{ asset('images/COA CAR logo.png') }}" alt="">
+                <hr>
+                <a href="#" class="forgot-password">Forgot Password?</a>
+                <div class="inputBox new-password">
+                    <input type="password" name="new_password" id="new_password">
+                    <span>New Password</span>
+                    @if ($errors->any('new_password'))
+                    <span>{{ $errors->first('new_password') }}</span>
+                    @endif
                 </div>
+
+                <div class="inputBox confirm-password">
+                    <input type="password" name="confirm_password" id="confirm_password">
+                    <span>Confirm Password</span>
+                    @if ($errors->any('confirm_password'))
+                    <span>{{ $errors->first('confirm_password') }}</span>
+                    @endif
+                </div>
+                <button class="btn-save-password-changes btn btn-primary" type="submit">Save</button>
             </div>
-             @endauth
+        </form>
+    </div>
+
+    {{-- ------------------END OF INSIGHTS------------------ --}}
+
+</main>
+
+{{-- ------------------END OF MAIN------------------ --}}
+<div class="right">
+    <div class="top">
+        <button id="menu-btn">
+            <span class="ri-menu-line"></span>
+        </button>
+
+        @auth()
+        <div class="profile">
+            <div class="info">
+                <p>Hey, <b>{{ Auth::user()->first_name }}</b></p>
+                <small class="text-muted">{{ Auth::user()->role }}</small>
+            </div>
+            <div class="profile-photo">
+                <img src="{{ asset('images/COA CAR logo.png') }}" alt="">
+            </div>
         </div>
-        
-        {{-- ------------------END OF TOP------------------ --}}
-        {{-- <div class="recent-updates">
+        @endauth
+    </div>
+
+    {{-- ------------------END OF TOP------------------ --}}
+    {{-- <div class="recent-updates">
             <h2>Recent Updates</h2>
             <div class="updates">
                 <div class="update">
                     <div class="profile-photo">
                         <img src="{{ asset('images/COA CAR logo.png') }}" alt="">
-                    </div>
-                    <div class="message">
-                        <p><b>Mike Tyson </b>Loreendis, cupiditate ipsam, saepe orro tempora.</p>
-                        <small class="text-muted">2 Minutes Ago</small>
-                    </div>
-                </div>
-                <div class="update">
-                    <div class="profile-photo">
-                        <img src="{{ asset('images/COA CAR logo.png') }}" alt="">
-                    </div>
-                    <div class="message">
-                        <p><b>Mike Tyson </b>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque
-                            aspernatur nostrum, </p>
-                        <small class="text-muted">2 Minutes Ago</small>
-                    </div>
-                </div>
-                <div class="update">
-                    <div class="profile-photo">
-                        <img src="{{ asset('images/COA CAR logo.png') }}" alt="">
-                    </div>
-                    <div class="message">
-                        <p><b>Mike Tyson </b>Lorem ipsum dolor sit amet consectetur adae illo, nulla voluptates
-                            porro tempora.</p>
-                        <small class="text-muted">2 Minutes Ago</small>
-                    </div>
-                </div>
-            </div>
-        </div> --}}
-        {{-- ------------------ END OF RECENT UPDATES ------------------ --}}
-        <div class="sales-analytics">
-            <h2>Add New Gym Reservation Date</h2>
-            {{-- <div class="item online">
+</div>
+<div class="message">
+    <p><b>Mike Tyson </b>Loreendis, cupiditate ipsam, saepe orro tempora.</p>
+    <small class="text-muted">2 Minutes Ago</small>
+</div>
+</div>
+<div class="update">
+    <div class="profile-photo">
+        <img src="{{ asset('images/COA CAR logo.png') }}" alt="">
+    </div>
+    <div class="message">
+        <p><b>Mike Tyson </b>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque
+            aspernatur nostrum, </p>
+        <small class="text-muted">2 Minutes Ago</small>
+    </div>
+</div>
+<div class="update">
+    <div class="profile-photo">
+        <img src="{{ asset('images/COA CAR logo.png') }}" alt="">
+    </div>
+    <div class="message">
+        <p><b>Mike Tyson </b>Lorem ipsum dolor sit amet consectetur adae illo, nulla voluptates
+            porro tempora.</p>
+        <small class="text-muted">2 Minutes Ago</small>
+    </div>
+</div>
+</div>
+</div> --}}
+{{-- ------------------ END OF RECENT UPDATES ------------------ --}}
+<div class="sales-analytics">
+    <h2>Add New Gym Reservation Date</h2>
+    {{-- <div class="item online">
                 <div class="icon">
                     <span class="ri-shopping-cart-2-line"></span>
                 </div>
@@ -197,7 +172,7 @@
                     <h3>3849</h3>
                 </div>
             </div> --}}
-            {{-- <div class="item offline">
+    {{-- <div class="item offline">
                 <div class="icon">
                     <span class="ri-shopping-bag-line"></span>
                 </div>
@@ -210,7 +185,7 @@
                     <h3>3849</h3>
                 </div>
             </div> --}}
-            {{-- <div class="item customers">
+    {{-- <div class="item customers">
                 <div class="icon">
                     <span class="ri-user-fill"></span>
                 </div>
@@ -223,19 +198,19 @@
                     <h3>3849</h3>
                 </div>
             </div> --}}
-            <div class="item add-product">
-                <div class="icon">
-                    <span class="ri-add-line"></span>
-                </div>
-                <div class="right">
-                    <div class="info">
-                        <h3>ADD NEW GYM DATE</h3>
-                        
-                    </div>
-                    
-                </div>
+    <div class="item add-product">
+        <div class="icon">
+            <span class="ri-add-line"></span>
+        </div>
+        <div class="right">
+            <div class="info">
+                <h3>ADD NEW GYM DATE</h3>
+
             </div>
-            
+
         </div>
     </div>
+
+</div>
+</div>
 @endsection

@@ -23,5 +23,7 @@ class Gym extends Model
         'company_name',
         'contact_number',
         'office_address',
+        'reservation_number',
+        'status',
     ];
 }
