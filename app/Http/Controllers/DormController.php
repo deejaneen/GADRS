@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DateRestriction;
 use App\Models\Dorm;
 use Illuminate\Http\Request;
 
@@ -13,8 +14,9 @@ class DormController extends Controller
     public function index()
     {
         $dorms = Dorm::orderBy('created_at', 'DESC');
-
-        return view('dorm', ['dorms' => $dorms]);
+        // Modify how you fetch the data, ensuring you only retrieve the date strings
+        $dormDateRestrictions = DateRestriction::where('type', 'Dorm')->pluck('restricted_date')->toArray();
+        return view('dorm', ['dorms' => $dorms, 'dormDateRestrictions' => $dormDateRestrictions]);
     }
 
     /**

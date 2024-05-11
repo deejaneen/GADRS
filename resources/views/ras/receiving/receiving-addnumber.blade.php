@@ -1,50 +1,6 @@
 @extends('layout.receivinglayout')
 @section('receivingdashboard')
-<aside>
-    <div class="top">
-        <div class="logo">
-            <img src="{{ asset('images/COA CAR logo.png') }}" alt="">
-            <h2 class="primary-light">COA <span class="danger">CAR</span></h2>
-        </div>
-        <div class="close" id="close-btn">
-            <span class="ri-close-fill"></span>
-        </div>
-
-        <div class="sidebar">
-            <a href="{{ route('receivinghome') }}">
-                <span class="ri-dashboard-line ">
-                    <h3>Dashboard</h3>
-                </span>
-            </a>
-
-            <a href="{{ route('receivingpending') }}" class="active">
-                <span class="ri-time-line">
-                    <h3>Pending</h3>
-                </span>
-
-            </a>
-            <a href="{{ route('receivingreceived') }}">
-                <span class="ri-folder-received-fill">
-                    <h3>Received</h3>
-                </span>
-            </a>
-            <a href="{{ route('receivingeditreservations') }}">
-                <span class="ri-edit-2-line">
-                    <h3>Edit Reservations</h3>
-                </span>
-            </a>
-            <form action="{{ route('logout') }}" method="POST" id="logout-form-navbar">
-                @csrf
-
-                <button class="no-underline logout btn btn-danger btn-md" type="submit" id="logout-button">
-                    <span class="ri-logout-box-r-line">
-                        <h3>LOGOUT</h3>
-                    </span>
-                </button>
-            </form>
-        </div>
-    </div>
-</aside>
+@include('ras.receiving.receiving-side-bar')
 <div class="right">
     <div class="top">
         <button id="menu-btn">
@@ -84,15 +40,38 @@
 
         </div>
         <div>
-            <button type="submit" class="btn btn-primary">Add Form Number</button>
+            <button type="button" class="btn btn-primary" id="formSubmitBtn">Add Form Number</button>
             <button class="btn btn-primary" onclick="goBack()">Back</button>
         </div>
     </form>
-
+    <div>
+        <p>Note: Reservations with similar form group number will automatically be assigned with this form number(reservation number).</p>
+    </div>
 </div>
 @endsection
 <script>
     function goBack() {
         window.history.back();
     }
+    document.addEventListener('DOMContentLoaded', function() {
+        // Add event listener to the click event of the logout button
+        document.getElementById('formSubmitBtn').addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent the default action of following the link
+
+            // Display confirmation dialog
+            Swal.fire({
+                title: "Are you to assign this form number?",
+                showCancelButton: true,
+                confirmButtonText: "Yes",
+                customClass: {
+                    popup: 'small-modal'
+                }
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Submit the logout form after confirmation
+                    document.getElementById('addReservationNumberForm').submit();
+                }
+            });
+        });
+    });
 </script>

@@ -69,7 +69,41 @@
     <script>
         $(document).ready(function() {
             $('#ReceivingPendingTable').DataTable();
+            $('#ReceivingReceivedTable').DataTable();
 
+
+        });
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add event listener to the click event of the logout button
+            document.getElementById('logout-button').addEventListener('click', function(event) {
+                event.preventDefault(); // Prevent the default action of following the link
+
+                // Display confirmation dialog
+                Swal.fire({
+                    title: "Are you sure you want to logout?",
+                    showCancelButton: true,
+                    confirmButtonText: "Yes",
+                    customClass: {
+                        popup: 'small-modal'
+                    }
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // Submit the logout form after confirmation
+                        document.getElementById('logout-form-navbar').submit();
+                    }
+                });
+            });
+        });
+
+        $(document).ready(function() {
+            var path = window.location.pathname;
+            $('.sidebar-link').each(function() {
+                var href = $(this).attr('href');
+                var hrefPath = new URL(href, window.location.origin).pathname; // Extract pathname from href
+                if (path === hrefPath) { // Compare path with hrefPath
+                    $(this).addClass('active');
+                }
+            });
         });
     </script>
 </body>

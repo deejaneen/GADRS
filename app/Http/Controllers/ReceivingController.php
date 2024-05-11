@@ -53,7 +53,20 @@ class ReceivingController extends Controller
     }
     public function receivingreceived()
     {
-        return view('ras.receiving.receivingreceived');
+        $gymsPendingCount = Gym::where('status', 'Received')->count();
+        $dormsPendingCount = Dorm::where('status', 'Received')->count();
+
+        $gyms = Gym::where('status', 'Received')->orderBy('created_at', 'DESC')->get();
+        $dorms = Dorm::where('status', 'Received')->orderBy('created_at', 'DESC')->get();
+
+        $totalReservationCount = $gymsPendingCount + $dormsPendingCount;
+        return view('ras.receiving.receivingreceived', [
+            'gymsPendingCount' => $gymsPendingCount,
+            'dormsPendingCount' => $dormsPendingCount,
+            'totalReservationCount' => $totalReservationCount,
+            'gyms' =>  $gyms,
+            'dorms' => $dorms,
+        ]);
     }
     public function receivingedit()
     {
@@ -71,9 +84,24 @@ class ReceivingController extends Controller
         // Update the user with the validated data
         $gym->update($validated);
 
+        // Get all pending Gym reservations with similar form group number
+        $pendingGyms = Gym::where('status', 'Pending')
+            ->where('form_group_number', $gym->form_group_number)
+            ->get();
+
+        // Update each pending Gym reservation with the new reservation number
+        foreach ($pendingGyms as $pendingGym) {
+            $pendingGym->update([
+                'reservation_number' => $validated['reservation_number'],
+                'status' => $validated['status']
+            ]);
+        }
+
+
         // Redirect back with success message
         return redirect()->route('receivingpending')->with('success', 'Form Number added successfully!');
     }
+
 
     public function editGym(Gym $gym)
     {
@@ -81,7 +109,8 @@ class ReceivingController extends Controller
         return view('ras.receiving.receiving-addnumber', compact('gym'));
     }
 
-    public function viewGym(Gym $gym){
+    public function viewGym(Gym $gym)
+    {
         return view('ras.receiving.receiving-view-gym', compact('gym'));
     }
 }

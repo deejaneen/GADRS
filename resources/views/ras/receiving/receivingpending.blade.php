@@ -1,51 +1,7 @@
 @extends('layout.receivinglayout')
 
 @section('receivingdashboard')
-<aside>
-    <div class="top">
-        <div class="logo">
-            <img src="{{ asset('images/COA CAR logo.png') }}" alt="">
-            <h2 class="primary-light">COA <span class="danger">CAR</span></h2>
-        </div>
-        <div class="close" id="close-btn">
-            <span class="ri-close-fill"></span>
-        </div>
-
-        <div class="sidebar">
-            <a href="{{ route('receivinghome') }}">
-                <span class="ri-dashboard-line ">
-                    <h3>Dashboard</h3>
-                </span>
-            </a>
-
-            <a href="{{ route('receivingpending') }}" class="active">
-                <span class="ri-time-line">
-                    <h3>Pending</h3>
-                </span>
-
-            </a>
-            <a href="{{ route('receivingreceived') }}">
-                <span class="ri-folder-received-fill">
-                    <h3>Received</h3>
-                </span>
-            </a>
-            <a href="{{ route('receivingeditreservations') }}">
-                <span class="ri-edit-2-line">
-                    <h3>Edit Reservations</h3>
-                </span>
-            </a>
-            <form action="{{ route('logout') }}" method="POST" id="logout-form-navbar">
-                @csrf
-
-                <button class="no-underline logout btn btn-danger btn-md" type="submit" id="logout-button">
-                    <span class="ri-logout-box-r-line">
-                        <h3>LOGOUT</h3>
-                    </span>
-                </button>
-            </form>
-        </div>
-    </div>
-</aside>
+@include('ras.receiving.receiving-side-bar')
 <main>
     <h1>Pending</h1>
 
@@ -74,7 +30,7 @@
 
 </main>
 
-<div class="right">
+<!-- <div class="right">
     <div class="top">
         <button id="menu-btn">
             <span class="ri-menu-line"></span>
@@ -92,7 +48,7 @@
 
     {{-- ------------------ END OF RECENT UPDATES ------------------ --}}
 
-</div>
+</div> -->
 <div class="card" id="ReceivingPendingTableCard">
     <div>
         <h2 class="card-header text-center home">Assign a Form Number</h2>
@@ -101,6 +57,7 @@
         <thead>
             <tr>
                 <th scope="col">Form Number</th>
+                <th scope="col">Form Group Number</th>
                 <th scope="col">Date</th>
                 <th scope="col">Time Start</th>
                 <th scope="col">Time End</th>
@@ -114,6 +71,7 @@
             @foreach ($gyms as $gym)
             <tr class="table-active">
                 <td>{{ $gym->reservation_number }}</td>
+                <td>{{ $gym->form_group_number }}</td>
                 <td>{{ $gym->reservation_date }}</td>
                 <td>{{ $gym->reservation_time_start }}</td>
                 <td>{{ $gym->reservation_time_end }}</td>
