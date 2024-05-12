@@ -408,12 +408,7 @@
     });
 
     $(document).ready(function() {
-        const datePicker1 = $("#availabilityDate");
-        const datePicker2 = $("#reservation_start_date");
-        const datePicker3 = $("#reservation_end_date");
-        const datePicker4 = $("#availabilityDateFemale");
-        const datePicker5 = $("#reservation_start_date_female");
-        const datePicker6 = $("#reservation_end_date_female");
+        const datePicker1 = $("#availabilityDate, #reservation_start_date, #reservation_end_date, #availabilityDateFemale, #reservation_start_date_female, #reservation_end_date_female");
 
         const disabledDates = <?= json_encode($dormDateRestrictions) ?>;
 
@@ -427,49 +422,15 @@
             minDate: 0
         });
 
-        datePicker2.datepicker({
-            dateFormat: 'yy-mm-dd',
-            beforeShowDay: function(date) {
-                var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
-                return [disabledDates.indexOf(string) == -1];
-            },
-            minDate: 0
-        });
-
-        datePicker3.datepicker({
-            dateFormat: 'yy-mm-dd',
-            beforeShowDay: function(date) {
-                var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
-                return [disabledDates.indexOf(string) == -1];
-            },
-            minDate: 0
-        });
-
-        datePicker4.datepicker({
-            dateFormat: 'yy-mm-dd',
-            beforeShowDay: function(date) {
-                var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
-                return [disabledDates.indexOf(string) == -1];
-            },
-            minDate: 0
-        });
-
-        datePicker5.datepicker({
-            dateFormat: 'yy-mm-dd',
-            beforeShowDay: function(date) {
-                var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
-                return [disabledDates.indexOf(string) == -1];
-            },
-            minDate: 0
-        });
-
-        datePicker6.datepicker({
-            dateFormat: 'yy-mm-dd',
-            beforeShowDay: function(date) {
-                var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
-                return [disabledDates.indexOf(string) == -1];
-            },
-            minDate: 0
+        // Update end date picker to disable selected start date
+        $("#reservation_start_date, #reservation_start_date_female").on("change", function() {
+            var selectedDate = $(this).datepicker("getDate");
+            if (selectedDate !== null) {
+                // Add one day to selected date
+                var nextDay = new Date(selectedDate);
+                nextDay.setDate(selectedDate.getDate() + 1);
+                $(this).closest('.card-body').find('input[name="reservation_end_date"], input[name="reservation_end_date_female"]').datepicker("option", "minDate", nextDay);
+            }
         });
     });
 </script>
