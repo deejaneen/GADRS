@@ -2282,10 +2282,6 @@
             text-align: left
         }
 
-       
-        .c300{
-            border
-        }
         .c301{
             padding: 0pt 2.2pt 0pt 2.1pt;
             vertical-align: top;

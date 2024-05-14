@@ -103,7 +103,11 @@ Route::middleware(['checkRole:Receiving', 'preventCaching'])->group(function () 
 });
 
 
-Route::get('generate-pdf', [PDFController::class, 'generatePDF']);
+Route::get('generate-dorm-pdf', [PDFController::class, 'generatedormPDF']);
+Route::get('generate-gym-pdf', [PDFController::class, 'generategymPDF']);
 Route::get('/tite', function () {
     return view('pdf.DormReservationFormSheet1');
+});
+Route::get('/pepe', function () {
+    return view('pdf.GymReservationSheet');
 });
