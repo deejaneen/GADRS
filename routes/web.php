@@ -12,6 +12,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReceivingController;
 use App\Http\Controllers\CashierController;
+use App\Http\Controllers\PDFController;
 use App\Http\Controllers\UserController;
 
 /*
@@ -100,3 +101,6 @@ Route::middleware(['checkRole:Receiving', 'preventCaching'])->group(function () 
     Route::put('/receiving/gym/addFormNumber/{gym}', [ReceivingController::class, 'addFormNumber'])->name('addFormNumber');
     Route::get('/receiving/gym/view/{gym}', [ReceivingController::class, 'viewGym'])->name('receiving.viewGym');
 });
+
+
+Route::get('generate-pdf', [PDFController::class, 'generatePDF']);
