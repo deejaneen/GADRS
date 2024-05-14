@@ -104,3 +104,6 @@ Route::middleware(['checkRole:Receiving', 'preventCaching'])->group(function () 
 
 
 Route::get('generate-pdf', [PDFController::class, 'generatePDF']);
+Route::get('/tite', function () {
+    return view('pdf.DormReservationFormSheet1');
+});

@@ -278,6 +278,7 @@ return array(
          * @var bool
          */
         "enable_html5_parser" => true,
+        define("DOMPDF_ENABLE_REMOTE", false),
     ),
 
 
