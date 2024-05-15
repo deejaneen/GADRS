@@ -37,9 +37,17 @@
         if (isReservorCOAOut == false) {
             // Select the element with id dormFormNonCoanInfo
             const dormFormNonCoanInfo = document.getElementById('dormFormNonCoanInfo');
-
+            const COARow1 = document.getElementById('COARow1');
+            const COARow2 = document.getElementById('COARow2');
+            const title_referred = document.getElementById('title_referred');
+            const line_break = document.getElementById('line_break');
             // Change its display property to "block"
             dormFormNonCoanInfo.style.display = "block";
+            COARow1.style.display = "";
+            COARow2.style.display = "";
+            title_referred.style.display = "";
+            line_break.style.display = "";
+
 
         } else {
 
@@ -65,7 +73,7 @@
             const dormCardVisible = window.getComputedStyle(document.getElementById('dormReservationsCartCard')).display !== 'none';
             if (gymCardVisible && selectedCount <= 3) {
                 $('#cartToFormModalGym').modal('show');
-            } else if(dormCardVisible) {
+            } else if(dormCardVisible && selectedCount <= 10) {
                 $('#cartToFormModalDorm').modal('show');
             }else{
                 Swal.fire("The maximum number of items to be put into a form is only 3.", "", "warning");
