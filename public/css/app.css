@@ -970,6 +970,7 @@ b {
 
 .modal-body input[type="date"],
 .modal-body input[type="time"],
+.modal-body input[type="text"],
 .modal-body select {
     color: var(--color-primary);
     background: var(--color-background);

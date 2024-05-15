@@ -41,5 +41,7 @@ class Dorm extends Model
         'emergency_contact',
         'emergency_contact_number',
         'home_address',
+        'Form_number',
+        'status',
     ];
 }

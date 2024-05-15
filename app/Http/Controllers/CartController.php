@@ -49,9 +49,9 @@ class CartController extends Controller
         try {
             $cartIds = json_decode($request->input('cart_ids_dorm'));
 
-            if (empty($cartIds)) {
-                return redirect()->back()->withErrors(['error' => 'No Items Selected']);
-            }
+            // if (empty($cartIds)) {
+            //     return redirect()->back()->withErrors(['error' => 'No Items Selected']);
+            // }
 
             $formGroupNumber = $this->generateFormGroupNumber(); // Generate a common identifier
 
@@ -122,6 +122,7 @@ class CartController extends Controller
                         $dormReservation->emergency_contact = $request->input('hidden_ptn');
                         $dormReservation->emergency_contact_number = $request->input('hidden_ptn_contact');
                         $dormReservation->home_address  = $request->input('hidden_ptn_home_address');
+                        $dormReservation->status = 'Pending';
 
                         $dormReservation->save();
                     }
@@ -139,9 +140,16 @@ class CartController extends Controller
         try {
             $cartIds = json_decode($request->input('cart_ids_gym'));
 
-            if (empty($cartIds)) {
-                return redirect()->back()->withErrors(['error' => 'No Items Selected']);
+            // if (empty($cartIds)) {
+            //     return redirect()->back()->withErrors(['error' => 'No Items Selected']);
+            // }
+
+            // dd(count($cartIds));
+            // Check if the number of items exceeds five
+            if (count($cartIds) > 3) {
+                return redirect()->back()->withErrors(['error' => 'The maximum items to be put into a form is limited to five only.']);
             }
+
 
             $formGroupNumber = $this->generateFormGroupNumber(); // Generate a common identifier
 

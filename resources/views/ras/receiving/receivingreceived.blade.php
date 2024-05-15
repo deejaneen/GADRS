@@ -122,7 +122,7 @@
                 <td>{{ $dorm->reservation_end_date }}</td>
                 <td>{{ $dorm->reservation_end_time }}</td>
                 <td>{{ $dorm->price }}</td>
-                <td style="color:var(--color-orange);">{{ $gym->status }}</td>
+                <td style="color:var(--color-orange);">{{ $dorm->status }}</td>
                 <!-- <td class="buttons">
                         <a href="{{ route('receiving.editGym', $gym->id) }}" class="btn btn-primary btn-lg rounded-pill" id="receivingAssignNumberbtn" style="color: var(--color-orange);">
                             Assign Number

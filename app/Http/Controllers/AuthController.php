@@ -63,6 +63,8 @@ class AuthController extends Controller
                 return redirect()->route('cashierhome')->with('success', "Logged in successfully!");
             } elseif (auth()->user()->role === 'Receiving') {
                 return redirect()->route('receivinghome')->with('success', "Logged in successfully!");
+            } elseif (auth()->user()->role === 'Supply') {
+                return redirect()->route('supplyhome')->with('success', "Logged in successfully!");
             } else {
                 return redirect()->route('home')->with('success', "Logged in successfully!");
             }

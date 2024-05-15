@@ -13,6 +13,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReceivingController;
 use App\Http\Controllers\CashierController;
 use App\Http\Controllers\PDFController;
+use App\Http\Controllers\SupplyController;
 use App\Http\Controllers\UserController;
 
 /*
@@ -100,6 +101,18 @@ Route::middleware(['checkRole:Receiving', 'preventCaching'])->group(function () 
     Route::get('/receiving/gym/{gym}', [ReceivingController::class, 'editGym'])->name('receiving.editGym');
     Route::put('/receiving/gym/addFormNumber/{gym}', [ReceivingController::class, 'addFormNumber'])->name('addFormNumber');
     Route::get('/receiving/gym/view/{gym}', [ReceivingController::class, 'viewGym'])->name('receiving.viewGym');
+});
+
+
+// Supply routes
+Route::middleware(['checkRole:Supply', 'preventCaching'])->group(function () {
+    Route::get('/supply/home', [SupplyController::class, 'index'])->name('supplyhome');
+    Route::get('/supply/reservations', [SupplyController::class, 'supplyReservations'])->name('supplyreservations');
+    Route::get('/supply/reservations/received', [SupplyController::class, 'supplyReservationsReceived'])->name('supplyreservationsrd');
+    Route::get('/supply/dorm/{dorm}', [SupplyController::class, 'editDorm'])->name('supply.editDorm');
+    Route::put('/supply/dorm/addFormNumber/{dorm}', [SupplyController::class, 'addFormNumber'])->name('addFormNumber');
+    Route::get('/supply/dorm/view/{dorm}', [SupplyController::class, 'viewDorm'])->name('supply.viewDorm');
+
 });
 
 
