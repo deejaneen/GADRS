@@ -2701,7 +2701,7 @@
         <tr class="c22">
             <td class="c139" colspan="4" rowspan="2">
                 <p class="c20"><span class="c1">Official
-                    Receipt Number: <span class="c61 c67">$ORNO</span></span></p>
+                    Receipt Number: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="c61 c67">$ORNO</span></span></p>
                 <p class="c20"><span class="c1">Amount Paid: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="c61 c67">$AMTPAID</span></span></p>
                 <p class="c20"><span class="c1">Date Issued: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="c61 c67">$DATEISSUED</span></span></p>
             </td>
