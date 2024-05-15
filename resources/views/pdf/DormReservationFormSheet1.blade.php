@@ -1782,7 +1782,7 @@
             font-weight: 400;
             text-decoration: none;
             vertical-align: baseline;
-            font-size: 11pt;
+            font-size: 10pt;
             font-family: "Calibri";
             font-style: normal
         }
@@ -1863,7 +1863,7 @@
             color: #000000;
             text-decoration: none;
             vertical-align: baseline;
-            font-size: 11pt;
+            font-size: 10pt;
             font-family: "Calibri";
             font-style: normal
         }
@@ -1964,12 +1964,12 @@
         }
 
         .c46 {
-            font-size: 8pt;
+            font-size: 9pt;
             font-style: italic
         }
 
         .c72 {
-            font-size: 8pt
+            font-size: 9pt
         }
 
         .c148 {
@@ -2014,11 +2014,11 @@
         }
 
         .c32 {
-            font-size: 7pt
+            font-size: 6pt
         }
 
         .c124 {
-            font-size: 11pt
+            font-size: 10pt
         }
 
         .c50 {
@@ -2030,11 +2030,11 @@
         }
 
         .c68 {
-            font-size: 12.5pt
+            font-size: 11.5pt
         }
 
         .c145 {
-            font-size: 14.5pt
+            font-size: 13.5pt
         }
 
         .c150 {
@@ -2046,7 +2046,7 @@
         }
 
         .c1 {
-            font-size: 9pt
+            font-size: 8pt
         }
 
         .c104 {
@@ -2082,7 +2082,7 @@
         }
 
         .c67 {
-            font-size: 9.5pt
+            font-size: 8.5pt
         }
 
         .c111 {
@@ -2118,7 +2118,7 @@
         }
 
         .c153 {
-            font-size: 6.5pt
+            font-size: 5.5pt
         }
 
         .c158 {
@@ -2134,7 +2134,7 @@
         }
 
         .c10 {
-            font-size: 11.5pt
+            font-size: 10.5pt
         }
 
         .c60 {
@@ -2161,7 +2161,7 @@
             padding-top: 24pt;
             color: #000000;
             font-weight: 700;
-            font-size: 36pt;
+            font-size: 34pt;
             padding-bottom: 6pt;
             font-family: "Calibri";
             line-height: 1.0791666666666666;
@@ -2174,7 +2174,7 @@
         .subtitle {
             padding-top: 18pt;
             color: #666666;
-            font-size: 24pt;
+            font-size: 22pt;
             padding-bottom: 4pt;
             font-family: "Georgia";
             line-height: 1.0791666666666666;
@@ -2187,14 +2187,14 @@
 
         li {
             color: #000000;
-            font-size: 11pt;
+            font-size: 10pt;
             font-family: "Calibri"
         }
 
         p {
             margin: 0;
             color: #000000;
-            font-size: 11pt;
+            font-size: 10pt;
             font-family: "Calibri"
         }
 
@@ -2203,7 +2203,7 @@
             -webkit-text-decoration-skip: none;
             color: #000000;
             text-decoration: underline;
-            font-size: 9pt;
+            font-size: 8pt;
             padding-bottom: 0pt;
             line-height: 1.0791666666666666;
             page-break-after: avoid;
@@ -2218,7 +2218,7 @@
             padding-top: 18pt;
             color: #000000;
             font-weight: 700;
-            font-size: 18pt;
+            font-size: 16pt;
             padding-bottom: 4pt;
             font-family: "Calibri";
             line-height: 1.0791666666666666;
@@ -2232,7 +2232,7 @@
             padding-top: 14pt;
             color: #000000;
             font-weight: 700;
-            font-size: 14pt;
+            font-size: 13pt;
             padding-bottom: 4pt;
             font-family: "Calibri";
             line-height: 1.0791666666666666;
@@ -2246,7 +2246,7 @@
             padding-top: 12pt;
             color: #000000;
             font-weight: 700;
-            font-size: 12pt;
+            font-size: 11pt;
             padding-bottom: 2pt;
             font-family: "Calibri";
             line-height: 1.0791666666666666;
@@ -2260,7 +2260,7 @@
             padding-top: 11pt;
             color: #000000;
             font-weight: 700;
-            font-size: 11pt;
+            font-size: 10pt;
             padding-bottom: 2pt;
             font-family: "Calibri";
             line-height: 1.0791666666666666;
@@ -2274,7 +2274,7 @@
             padding-top: 10pt;
             color: #000000;
             font-weight: 700;
-            font-size: 10pt;
+            font-size: 9pt;
             padding-bottom: 2pt;
             font-family: "Calibri";
             line-height: 1.0791666666666666;
