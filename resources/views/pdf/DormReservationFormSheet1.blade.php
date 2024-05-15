@@ -2303,7 +2303,7 @@
             border: none;
         }
         .c304{  
-            max-width: 280pt;
+            max-width: 270pt;
         }
     </style>
 </head>
@@ -2549,7 +2549,7 @@
         <tr class="">
             <td class="c56" colspan="3" rowspan="1">
                 <p class="c20 c107"><span class="c12 c1">RELATIONSHIP WITH GUEST : </span><span
-                        class="c1">$RELATIONSHIPWGUEST</span></p>
+                        class="c1">&nbsp;&nbsp;&nbsp;$RELATIONSHIPWGUEST</span></p>
             </td>
            
         </tr>
