@@ -2333,16 +2333,16 @@
                 <div class="price-section">
                     <table class="c78">
                         <tr class="c14">
-                            <td class="c92" colspan="1" rowspan="1">
+                            <td class="c126" colspan="1" rowspan="1">
                                 <p class="c20 c74"><span class="c2"></span></p>
                             </td>
                             <td class="c127" colspan="1" rowspan="1">
-                                <p class="c53"><span class="c72">Dormitory Rate</span></p>
+                                <p class="c53"><span class="c153">Dormitory Rate</span></p>
                             </td>
                         </tr>
                         <tr class="c109">
                             <td class="c126" colspan="1" rowspan="1">
-                                <p class="c20"><span class="c72">COA employee and relative</span></p>
+                                <p class="c20"><span class="c153">COA employee and relative</span></p>
                             </td>
                             <td class="c100" colspan="1" rowspan="1">
                                 <p class="c63"><span class="c72 c12"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
@@ -2351,8 +2351,8 @@
                             </td>
                         </tr>
                         <tr class="c14">
-                            <td class="c92" colspan="1" rowspan="1">
-                                <p class="c20"><span class="c72">Non COAn</span></p>
+                            <td class="c126" colspan="1" rowspan="1">
+                                <p class="c20"><span class="c153">Non COAn</span></p>
                             </td>
                             <td class="c127" colspan="1" rowspan="1">
                                 <p class="c63"><span class="c12 c72"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
@@ -2370,7 +2370,7 @@
                         </tr>
                         <tr class="c14">
                             <td class="c92" colspan="1" rowspan="1">
-                                <p class="c20"><span class="c72">Sr. Citizen / PWD - Non COA &amp; COA </span></p>
+                                <p class="c20"><span class="c153">Sr. Citizen / PWD - Non COA &amp; COA </span></p>
                             </td>
                             <td class="c127" colspan="1" rowspan="1">
                                 <p class="c161"><span class="c72">20% discount</span></p>
@@ -2548,8 +2548,8 @@
         </tr>
         <tr class="">
             <td class="c56" colspan="3" rowspan="1">
-                <p class="c20 c107"><span class="c12 c1">RELATIONSHIP WITH GUEST : </span><span
-                        class="c1">&nbsp;&nbsp;&nbsp;$RELATIONSHIPWGUEST</span></p>
+                <p class="c20 c107"><span class="c12 c1">RELATIONSHIP WITH GUEST: </span><span
+                        class="c1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$RELATIONSHIPWGUEST</span></p>
             </td>
            
         </tr>
