@@ -30,7 +30,7 @@
         @include('profile.leftcolumn_sidebar')
         <div class="right-column reservation">
             <div class="recent-orders">
-                <h2>Recent Orders</h2>
+                <h2>Reservation History</h2>
                   <button class="btn btn-primary btn-lg rounded-pill toogle-btn" id="gymTableHistoryToggleBtn"> <span
                         class="fa-solid fa-repeat"> Dorm</button>
                 <button class="btn btn-primary btn-lg rounded-pill toogle-btn" id="dormTableHistoryToggleBtn"
