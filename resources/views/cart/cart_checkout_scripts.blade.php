@@ -73,7 +73,7 @@
             const dormCardVisible = window.getComputedStyle(document.getElementById('dormReservationsCartCard')).display !== 'none';
             if (gymCardVisible && selectedCount <= 3) {
                 $('#cartToFormModalGym').modal('show');
-            } else if(dormCardVisible && selectedCount <= 10) {
+            } else if(dormCardVisible) {
                 $('#cartToFormModalDorm').modal('show');
             }else{
                 Swal.fire("The maximum number of items to be put into a form is only 3.", "", "warning");
