@@ -1943,7 +1943,7 @@
 
         .c43 {
             background-color: #ffffff;
-            max-width: 500pt;
+            max-width: 510pt;
             padding: 8pt 8pt 8pt 8pt
         }
 
@@ -2497,7 +2497,7 @@
                 <p class="c20 c134"><span class="c1">$TRAVELOROFFICEORDERNO</span></p>
             </td>
         </tr>
-        <tr class="c176">
+        <tr class="">
             <td class="c56" colspan="3" rowspan="1">
                 <p class="c20"><span class="c10">REFERRED BY: (For Non - COA)</span></p>
             </td>
