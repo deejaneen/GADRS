@@ -2302,6 +2302,9 @@
             width: 400pt;
             border: none;
         }
+        .c304{  
+            max-width: 280pt;
+        }
     </style>
 </head>
 
@@ -2497,13 +2500,13 @@
                 <p class="c20 c134"><span class="c1">$TRAVELOROFFICEORDERNO</span></p>
             </td>
         </tr>
-        <tr class="">
+        <tr class="c304">
             <td class="c56" colspan="3" rowspan="1">
                 <p class="c20"><span class="c10">REFERRED BY: (For Non - COA)</span></p>
             </td>
             <td class="c163" colspan="6" rowspan="7">
                 <p class="c20"><span class="c12 c32">DATA PRIVACY STATEMENT: </span></p>    
-                <p class="c20"><span class="c32">COA CAR Regional Office recognize its responsibilities under
+                <p class="c20 c304"><span class="c32">COA CAR Regional Office recognize its responsibilities under
                     Republic Act (RA) No. 10173 or the Data Privacy Act of 2012 with respect to the data collected
                     from its guest/s. The personal data obtained is entered and stored within its authorized information and communications system and will only be accessed by duly
                         authorized personnel. COA CAR have instituted appropriate organizational, technical and physical
@@ -2514,7 +2517,7 @@
                         Philippines Act of 2007.</span></p>
 
                 <p class="c20"><span class="c12 c32">GUEST CONSENT:</span></p>
-                <p class="c20"><span class="c32">I have read the above Data Privacy Statement and       express my consent for
+                <p class="c20 c304"><span class="c32">I have read the above Data Privacy Statement and       express my consent for
                         the COA CAR Regional Office to collect, record, organize, update or modify, retrieve, consult,
                         use, consolidate, block, erase or destroy my personal data as part of my information. I hereby affirm my right to be informed, object to processing, access and
                         rectify, suspend or withdraw my personal data, and be indemnified in case of damages pursuant to
