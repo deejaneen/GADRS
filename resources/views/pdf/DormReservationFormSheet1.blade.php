@@ -2499,7 +2499,7 @@
             <td class="c56" colspan="3" rowspan="1">
                 <p class="c20"><span class="c10">REFERRED BY: (For Non - COA)</span></p>
             </td>
-            <td class="c163" colspan="6" rowspan="8">
+            <td class="c163" colspan="6" rowspan="7">
                     <p class="c20"><span class="c12 c32">DATA PRIVACY STATEMENT: </span></p>    
                     <p class="c20"><span class="c32">COA CAR Regional Office recognize its responsibilities under
                         Republic Act (RA) No. 10173 or the Data Privacy Act of 2012 with respect to the data collected
@@ -2512,12 +2512,13 @@
                             Philippines Act of 2007.</span></p>
 
                     <p class="c20"><span class="c12 c32">GUEST CONSENT:</span></p>
-                    <p class="c20"><span class="c32">I have read the above Data Privacy Statement and express my consent for
+                    <p class="c20"><span class="c32">I have read the above Data Privacy Statement and       express my consent for
                             the COA CAR Regional Office to collect, record, organize, update or modify, retrieve, consult,
                             use, consolidate, block, erase or destroy my personal data as part of my information. I hereby affirm my right to be informed, object to processing, access and
                             rectify, suspend or withdraw my personal data, and be indemnified in case of damages pursuant to
                             the provisions of the RA No. 10173 and its corresponding implementing rules and
-                            regulations.</span>
+                            regulations.
+                        </span>
                     </p>
             </td>
            
