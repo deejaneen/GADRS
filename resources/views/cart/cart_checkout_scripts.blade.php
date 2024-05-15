@@ -50,13 +50,13 @@
 
 
         } else {
-
+            const dormFormNonCoanInfo = document.getElementById('dormFormNonCoanInfo');
             const COARow1 = document.getElementById('COARow1');
             const COARow2 = document.getElementById('COARow2');
             const title_referred = document.getElementById('title_referred');
             const line_break = document.getElementById('line_break');
 
-
+            dormFormNonCoanInfo.style.display = "none";
             // Change its display property to "none"
             COARow1.style.display = "none";
             COARow2.style.display = "none";
