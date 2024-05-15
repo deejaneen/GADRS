@@ -2436,7 +2436,7 @@
             </td>
             <td class="c59" colspan="3" rowspan="1">
                 <p class="c20"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-                        class="c1">YES&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NO</span></p>
+                        class="c1">$YESORNO</span></p>
             </td>
         </tr>
         <tr class="">
@@ -2612,7 +2612,7 @@
                 <p class="c20"><span class="c1">ROOM TYPE :</span></p>
             </td>
             <td class="c93" colspan="2" rowspan="1">
-                <p class="c20"><span class="c1">Men&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Female</span></p>
+                <p class="c20"><span class="c1">$GENDER</span></p>
             </td>
             <td class="c165" colspan="4" rowspan="1">
                 <p class="c20"><span class="c10">SUPPLIES ISSUED:</span></p>
@@ -2701,9 +2701,9 @@
         <tr class="c22">
             <td class="c139" colspan="4" rowspan="2">
                 <p class="c20"><span class="c1">Official
-                    Receipt Number: _________<span class="c61 c67">$ORNO</span>__________</span></p>
-                <p class="c20"><span class="c1">Amount Paid: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;________<span class="c61 c67">$AMTPAID</span>_________</span></p>
-                <p class="c20"><span class="c1">Date Issued: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_______<span class="c61 c67">$DATEISSUED</span>_______</span></p>
+                    Receipt Number: <span class="c61 c67">$ORNO</span></span></p>
+                <p class="c20"><span class="c1">Amount Paid: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="c61 c67">$AMTPAID</span></span></p>
+                <p class="c20"><span class="c1">Date Issued: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="c61 c67">$DATEISSUED</span></span></p>
             </td>
             <td class="c122" colspan="5" rowspan="1">
                 <p class="c20"><span class="c1 c75">Guard on duty:</span></p>
