@@ -1943,7 +1943,7 @@
 
         .c43 {
             background-color: #ffffff;
-            max-width: 612pt;
+            max-width: 550pt;
             padding: 8pt 8pt 8pt 8pt
         }
 
