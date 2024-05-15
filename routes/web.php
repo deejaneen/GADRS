@@ -82,7 +82,7 @@ Route::middleware(['checkRole:Admin', 'preventCaching'])->group(function () {
     Route::put('/admin/users/{user}', [AdminController::class, 'updateUser'])->name('admin.updateUser');
     Route::get('/admin/users/editUser/{user}', [AdminController::class, 'editUser'])->name('admin.editUser');
     Route::post('/admin/users/createUser', [AdminController::class, 'storeUser'])->name('admin.createUser');
-    Route::post('/admin/profile/password', [AdminController::class, 'updatePassword'])->name('update_password');
+    Route::post('/admin/profile/password', [AdminController::class, 'updatePassword'])->name('update_password_admin');
 });
 
 // Cashier routes

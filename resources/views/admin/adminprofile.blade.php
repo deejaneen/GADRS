@@ -62,7 +62,7 @@
 <main>
     <h1 class="page-title">ADMIN CHANGE PASSWORD</h1>
     <div class="card" id="AdminProfileCard">
-        <form action="{{route('update_password')}}" id="change_password_admin_form" method="post">
+        <form action="{{route('update_password_admin')}}" id="change_password_admin_form" method="post">
             @csrf
             @method('post')
             <div class="right-column password">
