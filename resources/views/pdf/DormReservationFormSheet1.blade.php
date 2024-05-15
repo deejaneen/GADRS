@@ -2675,7 +2675,7 @@
         </tr>
         <tr class="c50">
             <td class="c56" colspan="3" rowspan="1">
-                <p class="c73"><span class="c1">Special Discount (Senior Citizen/PWD)</span></p>
+                <p class="c20"><span class="c1">Special Discount (Senior Citizen/PWD)</span></p>
             </td>
             <td class="c93" colspan="2" rowspan="1">
                 <p class="c20 c74"><span class="c2"></span></p>
