@@ -32,6 +32,7 @@ class ReceivingController extends Controller
         $lastMonthTotalReservationReceived = $lastMonthGymReceivedCount + $lastMonthDormReceivedCount;
 
         return view('ras.receiving.receivingdashboard', [
+            'gymsPendingCount' => $gymsPendingCount, 
             'lastMonth' => $lastMonth,
             'currentMonth' => $currentMonth,
             'totalReservationCount' => $totalReservationCount,

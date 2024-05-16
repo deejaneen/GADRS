@@ -55,6 +55,7 @@
     </script>
     @endif
     <div class="main-container">
+        @include('ras.receiving.receiving-side-bar')
         @yield('receivingdashboard')
 
     </div>

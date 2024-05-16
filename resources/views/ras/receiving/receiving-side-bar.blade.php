@@ -18,6 +18,9 @@
             <a href="{{ route('receivingpending') }}" class="sidebar-link">
                 <span class="ri-time-line">
                     <h3>Pending</h3>
+                    @if($gymsPendingCountView != 0)
+                    <span class="message-count">{{ $gymsPendingCountView }}</span>
+                    @endif
                 </span>
             </a>
 

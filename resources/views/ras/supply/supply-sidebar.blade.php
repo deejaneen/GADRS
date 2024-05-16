@@ -17,7 +17,9 @@
             <a href="{{ route('supplyreservations') }}" class="sidebar-link">
                 <span class="ri-receipt-line">
                     <h3>Reservations</h3>
-                    <!-- <span class="message-count">26</span> -->
+                    @if($dormsPendingCountView != 0)
+                    <span class="message-count">{{ $dormsPendingCountView }}</span>
+                    @endif
                 </span>
             </a>
             <a href="{{ route('supplyreservationsrd') }}" class="sidebar-link">

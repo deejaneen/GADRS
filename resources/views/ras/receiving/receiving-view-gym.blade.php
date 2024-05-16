@@ -1,7 +1,7 @@
 @extends('layout.receivinglayout')
 
 @section('receivingdashboard')
-@include('ras.receiving.receiving-side-bar')
+<!-- @include('ras.receiving.receiving-side-bar') -->
 
 <div class="right">
     <div class="top">

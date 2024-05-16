@@ -1,6 +1,6 @@
 @extends('layout.receivinglayout')
 @section('receivingdashboard')
-@include('ras.receiving.receiving-side-bar')
+<!-- @include('ras.receiving.receiving-side-bar') -->
 <div class="right">
     <div class="top">
         <button id="menu-btn">
@@ -21,7 +21,7 @@
 
 </div>
 <div class="card" id="ReceivingPendingTableCard">
-    <form id="addReservationNumberForm" method="post" action="{{ route('addFormNumber', $gym->id) }}">
+    <form id="addReservationNumberForm" method="post" action="{{ route('addFormNumberRec', $gym->id) }}">
         @csrf
         @method('PUT')
         <div class="row mb-3">
