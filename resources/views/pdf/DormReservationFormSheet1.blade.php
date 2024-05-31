@@ -2334,7 +2334,7 @@
                     <table class="c78">
                         <tr class="c14">
                             <td class="c126" colspan="1" rowspan="1">
-                                <p class="c20 c74"><span class="c2"></span></p>
+                                <p class="c20"><span class="c2"></span></p>
                             </td>
                             <td class="c127" colspan="1" rowspan="1">
                                 <p class="c53"><span class="c153">Dormitory Rate</span></p>
@@ -2365,7 +2365,7 @@
                                 <p class="c20"><span class="c153">Children below 5 y/o - sleep w/ parents</span></p>
                             </td>
                             <td class="c127" colspan="1" rowspan="1">
-                                <p class="c161"><span class="c72 c12">Free of Charge </span></p>
+                                <p class="c63"><span class="c12 c72">Free of Charge </span></p>
                             </td>
                         </tr>
                         <tr class="c14">
@@ -2373,15 +2373,13 @@
                                 <p class="c20"><span class="c153">Sr. Citizen / PWD - Non COA &amp; COA </span></p>
                             </td>
                             <td class="c127" colspan="1" rowspan="1">
-                                <p class="c161"><span class="c72">20% discount</span></p>
+                                <p class="c63"><span class="c12 c72">20% discount</span></p>
                             </td>
                         </tr>
                     </table>
                 </div>
             </td>
-      
         </tbody>
-       
     </table>
   
     
