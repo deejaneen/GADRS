@@ -43,7 +43,7 @@
 {{-- -------------------------------END-OF-ASIDE-------------------- --}}
 <main>
     <h1>PAID RESERVATIONS</h1>
-    <h1 class="page-title">Gym</h1>
+    <h1 class="page-title" style=" color: var(--color-orange);">GYM</h1>
 
     <div class="card" id="GymReservationTableCard">
         <div>
@@ -77,7 +77,7 @@
         </table>
     </div>
 
-    <h1 class="page-title" style="margin-top: 30px;">DORM</h1>
+    <h1 class="page-title" style="margin-top: 30px;  color: var(--color-orange);">DORM</h1>
 
     <div class="card" id="DormReservationTableCard">
         <div>

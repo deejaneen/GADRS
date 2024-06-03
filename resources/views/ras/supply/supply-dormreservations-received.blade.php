@@ -2,10 +2,12 @@
 
 @section('supplydashboard')
 @include('ras.supply.supply-sidebar')
+
 <div class="card" id="ReceivingPendingTableCard">
     <div>
         <h2 class="card-header text-center home">Dorm Received Reservations</h2>
     </div>
+    
     <table class="table-home table-hover stripe" id="SupplyReceivedTable" style="width: 100%">
         <thead>
             <tr>
