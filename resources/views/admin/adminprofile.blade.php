@@ -3,126 +3,129 @@
 
 
 @section('admindashboard')
-<aside>
-    <div class="top">
-        <div class="logo">
-            <img src="{{ asset('images/COA CAR logo.png') }}" alt="">
-            <h2 class="primary-light">COA <span class="danger">CAR</span></h2>
-        </div>
-        <div class="close" id="close-btn">
-            <span class="ri-close-fill"></span>
-        </div>
+    <aside>
+        <div class="top">
+            <div class="logo">
+                <img src="{{ asset('images/COA CAR logo.png') }}" alt="">
+                <h2 class="primary-light">COA <span class="danger">CAR</span></h2>
+            </div>
+            <div class="close" id="close-btn">
+                <span class="ri-close-fill"></span>
+            </div>
 
-        <div class="sidebar">
-            <a href="{{ route('adminhome') }}">
-                <span class="ri-dashboard-line ">
-                    <h3>Dashboard</h3>
-                </span>
-            </a>
-            <a href="{{ route('adminusers') }}">
-                <span class="ri-team-line">
-                    <h3>Users</h3>
-                </span>
-            </a>
-            <a href="{{ route('adminreservations') }}">
-                <span class="ri-receipt-line">
-                    <h3>Reservations</h3>
-                    <span class="message-count">26</span>
-                </span>
-            </a>
-            <a href="{{ route('admingym') }}">
-                <span class="ri-basketball-fill">
-                    <h3>Gym</h3>
-                </span>
-            </a>
-            <a href="{{ route('admindorm') }}">
-                <span class="ri-home-3-line">
-                    <h3>Dorm</h3>
-                </span>
-
-            </a>
-            <a href="{{ route('adminprofile') }}" class="active">
-                <span class="ri-user-line">
-                    <h3>Profile</h3>
-                </span>
-            </a>
-            <form action="{{ route('logout') }}" method="POST" id="logout-form-navbar">
-                @csrf
-
-                <button class="no-underline logout btn btn-danger btn-md" type="submit" id="logout-button">
-                    <span class="ri-logout-box-r-line">
-                        <h3>LOGOUT</h3>
+            <div class="sidebar">
+                <a href="{{ route('adminhome') }}">
+                    <span class="ri-dashboard-line ">
+                        <h3>Dashboard</h3>
                     </span>
-                </button>
+                </a>
+                <a href="{{ route('adminusers') }}">
+                    <span class="ri-team-line">
+                        <h3>Users</h3>
+                    </span>
+                </a>
+                <a href="{{ route('adminreservations') }}">
+                    <span class="ri-receipt-line">
+                        <h3>Reservations</h3>
+                        <span class="message-count">26</span>
+                    </span>
+                </a>
+                <a href="{{ route('admingym') }}">
+                    <span class="ri-basketball-fill">
+                        <h3>Gym</h3>
+                    </span>
+                </a>
+                <a href="{{ route('admindorm') }}">
+                    <span class="ri-home-3-line">
+                        <h3>Dorm</h3>
+                    </span>
+
+                </a>
+                <a href="{{ route('adminprofile') }}" class="active">
+                    <span class="ri-user-line">
+                        <h3>Change Password</h3>
+                    </span>
+                </a>
+                <form action="{{ route('logout') }}" method="POST" id="logout-form-navbar">
+                    @csrf
+
+                    <button class="no-underline logout btn btn-danger btn-md" type="submit" id="logout-button">
+                        <span class="ri-logout-box-r-line">
+                            <h3>LOGOUT</h3>
+                        </span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </aside>
+    {{-- -------------------------------END-OF-ASIDE-------------------- --}}
+    <main>
+        <h1 class="page-title">ADMIN CHANGE PASSWORD</h1>
+        <div class="card" id="AdminChangePasswordCard">
+            <form action="{{ route('update_password_admin') }}" id="change_password_admin_form" method="post">
+                @csrf
+                @method('post')
+                <div class="right-column password">
+                    <h3 class="profile-title">Change your password</h3>
+
+                    <div class="inputBox current-password">
+                        <span>Enter Current Password</span>
+                        <input type="password" name="current_password" id="current_password">
+                        @if ($errors->any('current_password'))
+                            <span class="errors">{{ $errors->first('current_password') }}</span>
+                        @endif
+                    </div>
+                    <hr>
+                    <a href="#" class="forgot-password">Forgot Password?</a>
+                    <div class="inputbox-container">
+                        <div class="inputBox new-password">
+                            <span>Enter New Password</span>
+                            <input type="password" name="new_password" id="new_password">
+                            @if ($errors->any('new_password'))
+                                <span class="errors">{{ $errors->first('new_password') }}</span>
+                            @endif
+                        </div>
+
+                        <div class="inputBox confirm-password">
+                            <span>Confirm Password</span>
+                            <input type="password" name="confirm_password" id="confirm_password">
+                            @if ($errors->any('confirm_password'))
+                                <span class="errors">{{ $errors->first('confirm_password') }}</span>
+                            @endif
+                        </div>
+                    </div>
+
+                    <button class="btn-save-password-changes btn btn-primary" type="submit">Save</button>
+                </div>
             </form>
         </div>
-    </div>
-</aside>
-{{-- -------------------------------END-OF-ASIDE-------------------- --}}
-<main>
-    <h1 class="page-title">ADMIN CHANGE PASSWORD</h1>
-    <div class="card" id="AdminProfileCard">
-        <form action="{{route('update_password_admin')}}" id="change_password_admin_form" method="post">
-            @csrf
-            @method('post')
-            <div class="right-column password">
-                <h3 class="profile-title">Change your password</h3>
 
-                <div class="inputBox current-password">
-                    <input type="password" name="current_password" id="current_password">
-                    <span>Current Password</span>
-                    @if ($errors->any('current_password'))
-                    <span>{{ $errors->first('current_password') }}</span>
-                    @endif
+        {{-- ------------------END OF INSIGHTS------------------ --}}
+
+    </main>
+
+    {{-- ------------------END OF MAIN------------------ --}}
+    <div class="right">
+        <div class="top">
+            <button id="menu-btn">
+                <span class="ri-menu-line"></span>
+            </button>
+
+            @auth()
+                <div class="profile">
+                    <div class="info">
+                        <p>Hey, <b>{{ Auth::user()->first_name }}</b></p>
+                        <small class="text-muted">{{ Auth::user()->role }}</small>
+                    </div>
+                    <div class="profile-photo">
+                        <img src="{{ asset('images/COA CAR logo.png') }}" alt="">
+                    </div>
                 </div>
-                <hr>
-                <a href="#" class="forgot-password">Forgot Password?</a>
-                <div class="inputBox new-password">
-                    <input type="password" name="new_password" id="new_password">
-                    <span>New Password</span>
-                    @if ($errors->any('new_password'))
-                    <span>{{ $errors->first('new_password') }}</span>
-                    @endif
-                </div>
-
-                <div class="inputBox confirm-password">
-                    <input type="password" name="confirm_password" id="confirm_password">
-                    <span>Confirm Password</span>
-                    @if ($errors->any('confirm_password'))
-                    <span>{{ $errors->first('confirm_password') }}</span>
-                    @endif
-                </div>
-                <button class="btn-save-password-changes btn btn-primary" type="submit">Save</button>
-            </div>
-        </form>
-    </div>
-
-    {{-- ------------------END OF INSIGHTS------------------ --}}
-
-</main>
-
-{{-- ------------------END OF MAIN------------------ --}}
-<div class="right">
-    <div class="top">
-        <button id="menu-btn">
-            <span class="ri-menu-line"></span>
-        </button>
-
-        @auth()
-        <div class="profile">
-            <div class="info">
-                <p>Hey, <b>{{ Auth::user()->first_name }}</b></p>
-                <small class="text-muted">{{ Auth::user()->role }}</small>
-            </div>
-            <div class="profile-photo">
-                <img src="{{ asset('images/COA CAR logo.png') }}" alt="">
-            </div>
+            @endauth
         </div>
-        @endauth
-    </div>
 
-    {{-- ------------------END OF TOP------------------ --}}
-    {{-- <div class="recent-updates">
+        {{-- ------------------END OF TOP------------------ --}}
+        {{-- <div class="recent-updates">
             <h2>Recent Updates</h2>
             <div class="updates">
                 <div class="update">
@@ -156,10 +159,10 @@
 </div>
 </div>
 </div> --}}
-{{-- ------------------ END OF RECENT UPDATES ------------------ --}}
-<div class="sales-analytics">
-    <h2>Add New Gym Reservation Date</h2>
-    {{-- <div class="item online">
+        {{-- ------------------ END OF RECENT UPDATES ------------------ --}}
+        {{-- <div class="sales-analytics">
+    <h2>Add New Gym Reservation Date</h2> --}}
+        {{-- <div class="item online">
                 <div class="icon">
                     <span class="ri-shopping-cart-2-line"></span>
                 </div>
@@ -172,7 +175,7 @@
                     <h3>3849</h3>
                 </div>
             </div> --}}
-    {{-- <div class="item offline">
+        {{-- <div class="item offline">
                 <div class="icon">
                     <span class="ri-shopping-bag-line"></span>
                 </div>
@@ -185,7 +188,7 @@
                     <h3>3849</h3>
                 </div>
             </div> --}}
-    {{-- <div class="item customers">
+        {{-- <div class="item customers">
                 <div class="icon">
                     <span class="ri-user-fill"></span>
                 </div>
@@ -198,7 +201,7 @@
                     <h3>3849</h3>
                 </div>
             </div> --}}
-    <div class="item add-product">
+        {{-- <div class="item add-product">
         <div class="icon">
             <span class="ri-add-line"></span>
         </div>
@@ -209,8 +212,8 @@
             </div>
 
         </div>
-    </div>
+    </div> --}}
 
-</div>
-</div>
+    </div>
+    </div>
 @endsection

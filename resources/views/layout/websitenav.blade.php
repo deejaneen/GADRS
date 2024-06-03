@@ -1,6 +1,6 @@
  <nav class="navbar navbar-expand-lg ">
      <div class="container centered">
-         <a class="navbar-brand" href="#"><img src="{{ asset('images/COA CAR logo.png') }}" alt="">&nbsp;COA-
+         <a class="navbar-brand" href="{{route('home')}}"><img src="{{ asset('images/COA CAR logo.png') }}" alt="">&nbsp;COA-
              <span style="color: var(--color-warning)">CAR</span></a>
          <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse"
              data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false"

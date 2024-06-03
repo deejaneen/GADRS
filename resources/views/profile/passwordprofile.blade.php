@@ -14,7 +14,7 @@
                         <input type="password" name="current_password" id="current_password">
                         <span>Current Password</span>
                         @if ($errors->any('current_password'))
-                            <span>{{ $errors->first('current_password') }}</span>
+                            <span class="errors">{{ $errors->first('current_password') }}</span>
                         @endif
                     </div>
                     <hr>
@@ -23,7 +23,7 @@
                         <input type="password" name="new_password" id="new_password">
                         <span>New Password</span>
                         @if ($errors->any('new_password'))
-                            <span>{{ $errors->first('new_password') }}</span>
+                            <span class="errors">{{ $errors->first('new_password') }}</span>
                         @endif
                     </div>
 
@@ -31,7 +31,7 @@
                         <input type="password" name="confirm_password" id="confirm_password">
                         <span>Confirm Password</span>
                         @if ($errors->any('confirm_password'))
-                            <span>{{ $errors->first('confirm_password') }}</span>
+                            <span class="errors">{{ $errors->first('confirm_password') }}</span>
                         @endif
                     </div>
                     <button class="btn-save-password-changes btn btn-primary" type="submit">Save</button>

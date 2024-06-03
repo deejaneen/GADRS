@@ -12,13 +12,13 @@
                 <div class="input-field ">
                     <input type="email" name="email" id="email" placeholder="Username/Email"><i class="ri-user-line"></i>
                     @error('email')
-                    <span class="d-block fs-6 text-danger mt-2"> {{$message}}</span>
+                    <span class="d-block text-danger"> {{$message}}</span>
                     @enderror
                 </div>
                 <div class="input-field ">
                     <input type="password" name="password" id="password" placeholder="Password"><i class="ri-lock-2-fill"></i>
                     @error('password')
-                    <span class="d-block fs-6 text-danger mt-2"> {{$message}}</span>
+                    <span class="d-block text-danger"> {{$message}}</span>
                     @enderror
                 </div>
                 <div class="forgot">

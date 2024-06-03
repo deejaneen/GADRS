@@ -1025,7 +1025,11 @@ b {
 
 /* ======================= Profile View =======================*/
 
-
+.errors{
+    color: var(--color-danger) !important;
+    font-size: 0.5em !important;
+    max-width: 260px !important;
+}
 .profileview-container {
     display: grid;
     grid-template-columns: 30% 70%;
@@ -1918,7 +1922,14 @@ ul.list-unstyled {
     width: 100%;
     table-layout: auto;
 }
-
+.swal2-confirm.swal2-styled{
+    background: var(--color-danger) !important;
+}
+.d-block.text-danger{
+    font-size: 0.8em !important;
+    text-align: end;
+    margin-right: 20px;
+}
 @media (max-width: 1440px) {
 
     .nav-item.profile a .first-name,

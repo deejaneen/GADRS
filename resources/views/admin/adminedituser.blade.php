@@ -41,7 +41,7 @@
             </a>
             <a href="{{ route('adminprofile') }}">
                 <span class="ri-user-line">
-                    <h3>Profile</h3>
+                    <h3>Change Password</h3>
                 </span>
             </a>
             <form action="{{ route('logout') }}" method="POST" id="logout-form-navbar">
@@ -129,7 +129,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button class="btn btn-primary" onclick="goBack()">Back</button>
+                <button class="btn btn-primary" onclick="goBack()" style="margin-right: 10px">Back</button>
                 <button class="btn btn-primary" type="submit">Save Changes</button>
             </div>
 

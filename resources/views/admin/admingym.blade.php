@@ -43,7 +43,7 @@
                 </a>
                 <a href="{{ route('adminprofile') }}">
                     <span class="ri-user-line">
-                        <h3>Profile</h3>
+                        <h3>Change Password</h3>
                     </span>
                 </a>
                 <form action="{{ route('logout') }}" method="POST" id="logout-form-navbar">

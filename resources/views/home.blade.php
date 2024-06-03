@@ -1,7 +1,7 @@
 @extends('layout.weblayout')
 
 @section('banner')
-    <div class="container">
+    <div class="container" >
         {{-- <div class="row login-success">
             @if (session()->has('success'))
                 <div class="alert alert-success alert-dismissible fade show" role="alert">

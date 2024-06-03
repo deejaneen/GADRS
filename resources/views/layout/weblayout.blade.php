@@ -34,7 +34,7 @@
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 </head>
 
-<body>
+<body style="overflow-x: hidden;">
 
     {{-- Navbar --}}
     @include('layout.websitenav')

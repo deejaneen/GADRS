@@ -40,7 +40,7 @@
                 </a>
                 <a href="{{ route('adminprofile') }}">
                     <span class="ri-user-line">
-                        <h3>Profile</h3>
+                        <h3>Change Password</h3>
                     </span>
                 </a>
                 <form action="{{ route('logout') }}" method="POST" id="logout-form-navbar">
@@ -240,7 +240,7 @@
         </div> --}}
         {{-- ------------------ END OF RECENT UPDATES ------------------ --}}
 
-        <div class="recent-updates">
+        {{-- <div class="recent-updates">
             <h2>Recent Updates</h2>
             <div class="updates">
                 <div class="update">
@@ -273,9 +273,9 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <div class="sales-analytics">
-            <h2>Sales Analytics</h2>
+            <h2>Syste Analytics</h2>
             <div class="item online">
                 <div class="icon">
                     <span class="ri-shopping-cart-2-line"></span>
@@ -285,7 +285,7 @@
                         <h3>NEW RESERVATIONS</h3>
                         <small class="text-muted">Last 24 Hours</small>
                     </div>
-                    <h5 class="success">+39%</h5>
+                    <h4 class="success">+39%</h4>
                     <h3>3849</h3>
                 </div>
             </div>
@@ -311,7 +311,7 @@
                         <h3>NEW USERS</h3>
                         <small class="text-muted">Last 24 Hours</small>
                     </div>
-                    <h5 class="success">+225%</h5>
+                    <h4 class="success">+225%</h4>
                     <h3>3849</h3>
                 </div>
             </div>
@@ -324,7 +324,7 @@
                         <h3>ADD RESERVATION DATE</h3>
                         <small class="text-muted">Last 24 Hours</small>
                     </div>
-                    <h5 class="success">+225%</h5>
+                    <h4 class="success">+225%</h4>
                     <h3>3849</h3>
                 </div>
             </div>
