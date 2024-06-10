@@ -20,8 +20,18 @@
 </head>
 
 <body>
+    @include('pagepreloader')
     <!-- Include jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        const loaderContainer = document.querySelector('.loader-container')
+        const pageContent = document.querySelector('#contentcontainer')
+
+        window.addEventListener('load', () => {
+            loaderContainer.classList.add('hidden')
+            pageContent.classList.add('visible')
+        })
+    </script>
     @if (session('success'))
     <script>
         document.addEventListener('DOMContentLoaded', function() {

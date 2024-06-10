@@ -1,7 +1,8 @@
 @extends('layout.weblayout')
 
 @section('profileview')
-    <div class="profileview-container">
+<div class="container py-4">
+      <div class="profileview-container">
         @include('profile.leftcolumn_sidebar')
         @auth
             <form action="{{ route('update_password') }}" id="change_password_form" method="post">
@@ -41,4 +42,6 @@
         @endauth
 
     </div>
+</div>
+  
 @endsection

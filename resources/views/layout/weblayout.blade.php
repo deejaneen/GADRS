@@ -38,6 +38,8 @@
 
     {{-- Navbar --}}
     @include('layout.websitenav')
+    @include('pagepreloader')
+    
     @yield('secondary_nav')
     @if (session('success'))
         <script>
@@ -72,7 +74,7 @@
     @yield('banner')
 
 
-    <div class="container py-4">
+    <div class="">
         @yield('content')
         @yield('loginform')
         @yield('profileview')
@@ -107,6 +109,15 @@
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @yield('scripts')
+    <script>
+        const loaderContainer = document.querySelector('.loader-container')
+        const pageContent = document.querySelector('#contentcontainer')
+
+        window.addEventListener('load', () => {
+            loaderContainer.classList.add('hidden')
+            pageContent.classList.add('visible')
+        })
+    </script>
     <script>
         $(document).ready(function() {
             $('#GymReservationsTable').DataTable();

@@ -26,6 +26,7 @@
 @endsection
 
 @section('profileview')
+<div class="container py-4">
     <div class="profileview-container">
         @include('profile.leftcolumn_sidebar')
         <div class="right-column reservation">
@@ -98,4 +99,6 @@
         </div>
 
     </div>
+</div>
+    
 @endsection

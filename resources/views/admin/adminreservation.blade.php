@@ -169,7 +169,6 @@
                 <div>
                     <div class="info">
                         <h3>ADD NEW DATE RESTRICTIONS</h3>
-                        <span class="ri-basketball-fill"></span>
                     </div>
                 </div>
             </div>

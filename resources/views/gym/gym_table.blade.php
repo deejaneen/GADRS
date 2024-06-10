@@ -1,5 +1,6 @@
 @section('scripts')
     <script>
+        
         $(document).ready(function() {
             const weekContainer = document.getElementById("week-container");
             const selectedDateInput = document.getElementById("reservationDate");
