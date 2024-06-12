@@ -3,7 +3,7 @@
 
 
 @section('admindashboard')
-    <!-- <aside>
+     <aside>
         <div class="top">
             <div class="logo">
                 <img src="{{ asset('images/COA CAR logo.png') }}" alt="">
@@ -59,7 +59,7 @@
         </div>
     </aside> -->
     {{-- -------------------------------END-OF-ASIDE-------------------- --}}
-    <div class="right">
+    {{-- <div class="right">
         <div class="top">
             <button id="menu-btn">
                 <span class="ri-menu-line"></span>
@@ -78,7 +78,7 @@
             @endauth
         </div>
 
-    </div>
+    </div> --}}
     <main>
         <h1 class="page-title">Gym</h1>
 
