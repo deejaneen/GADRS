@@ -756,6 +756,32 @@ div.dt-container .dt-paging .dt-paging-button.disabled {
     background: var(--color-background) !important;
     opacity: 40%;
 }
+.btn-submit-reservation-modal,
+.btn-create-user-modal {
+    border: 1px solid var(--color-success) !important;
+    color: var(--color-success) !important;
+    background: var(--color-background) !important;
+    font-size: 1rem;
+}
+.btn-submit-reservation-modal:hover,
+.btn-create-user-modal:hover {
+    border: 1px solid var(--color-success) !important;
+    color: var(--color-background) !important;
+    background: var(--color-success) !important;
+}
+.btn-clear-reservation-modal,
+.btn-clear-user-modal {
+    border: 1px solid var(--color-danger) !important;
+    color: var(--color-danger) !important;
+    background: var(--color-background) !important;
+    font-size: 1rem;
+}
+.btn-clear-reservation-modal:hover,
+.btn-clear-user-modal:hover {
+    border: 1px solid var(--color-danger) !important;
+    color: var(--color-background) !important;
+    background: var(--color-danger) !important;
+}
 
 .btn-back-edit {
     border: 1px solid var(--color-danger) !important;
@@ -879,6 +905,10 @@ div.dt-container .dt-paging .dt-paging-button.disabled {
     color: var(--color-primary) !important;
 }
 
+#GymReservationTableCard,
+#GymReservationCartTableCard,
+#DormReservationTableCard,
+#DormReservationCartTableCard,
 #ReceivingPendingTableCard {
     grid-column: 2 / span 2;
 }
@@ -1038,4 +1068,7 @@ svg text.text-body {
         stroke-dashoffset: -25%;
         stroke-dasharray: 32% 0;
     }
+}
+.swal2-styled.swal2-deny{
+background: var(--color-light);
 }

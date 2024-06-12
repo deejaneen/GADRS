@@ -39,8 +39,8 @@
                 </div>
             </form>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" onclick="resetFormGymModal()">Clear</button>
-                <button type="button" class="btn btn-primary" onclick="confirmation()">Submit</button>
+                <button type="button" class="btn btn-clear-reservation-modal" onclick="resetFormGymModal()">Clear</button>
+                <button type="button" class="btn btn-submit-reservation-modal" onclick="confirmation()">Submit</button>
             </div>
         </div>
     </div>

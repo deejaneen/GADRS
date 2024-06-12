@@ -75,8 +75,8 @@
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-clear" onclick="resetFormGymModal()">Clear</button>
-                <button type="button" class="btn" onclick="confirmation()">Create User</button>
+                <button type="button" class="btn btn-clear-user-modal" onclick="resetFormGymModal()">Clear</button>
+                <button type="button" class="btn btn-create-user-modal" onclick="confirmation()">Create User</button>
             </div>
             </form>
         </div>
