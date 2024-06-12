@@ -31,7 +31,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6 availability">
-                                    <h3 class="availability">Availability: <b style="color: var(--color-orange)">8
+                                    <h3 class="availability">Availability: <b style="color: var(--color-orange)">{{ $beds_male }}
                                             beds</b>
                                     </h3>
                                 </div>
@@ -171,7 +171,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6 availability">
-                                    <h3 class="availability">Availability: <b style="color: var(--color-orange)">11
+                                    <h3 class="availability">Availability: <b style="color: var(--color-orange)">{{ $beds_female }}
                                             beds</b>
                                     </h3>
                                 </div>

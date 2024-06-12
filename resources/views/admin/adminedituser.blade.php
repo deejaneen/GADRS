@@ -1,7 +1,7 @@
 @extends('layout.adminlayout')
 
 @section('admindashboard')
-<aside>
+<!-- <aside>
     <div class="top">
         <div class="logo">
             <img src="{{ asset('images/COA CAR logo.png') }}" alt="">
@@ -55,7 +55,7 @@
             </form>
         </div>
     </div>
-</aside>
+</aside> -->
 {{-- -------------------------------END-OF-ASIDE-------------------- --}}
 <main>
     <h1 class="page-title">USER EDIT</h1>
