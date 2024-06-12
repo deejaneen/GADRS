@@ -10,7 +10,7 @@
             <div class="main-login">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-itez m">
-                        <a href="{{ route('login') }}" class="{{(Route::is('login')) ? 'login-active' : '' }}">LOGIN</a>
+                        <a href="{{ route('login') }}" class="{{(Route::is('login')) ? 'login-active ' : '' }}">LOGIN</a>
                     </li>
                     <li class="nav-item">
                         <a href="{{ route('register') }}" class="{{(Route::is('register')) ? 'login-active ' : '' }}">REGISTER</a>

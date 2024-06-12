@@ -315,7 +315,7 @@
                     <h3>3849</h3>
                 </div>
             </div>
-            <div class="item add-product">
+            {{-- <div class="item add-product">
                 <div class="icon">
                     <span class="ri-add-line"></span>
                 </div>
@@ -327,7 +327,7 @@
                     <h4 class="success">+225%</h4>
                     <h3>3849</h3>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
 @endsection

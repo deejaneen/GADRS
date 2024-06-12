@@ -1,6 +1,5 @@
 @section('scripts')
     <script>
-        
         $(document).ready(function() {
             const weekContainer = document.getElementById("week-container");
             const selectedDateInput = document.getElementById("reservationDate");
@@ -210,7 +209,9 @@
     </script>
 @endsection
 
+
 <section id="reservation-section" class="reservation-section">
+   
     <div class="container centered">
 
         <div class="container-gym-table" id="calendar_container">

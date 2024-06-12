@@ -642,7 +642,6 @@ main .recent-orders a {
     color: var(--color-primary);
     display: flex;
     align-items: center;
-    justify-content: center;
 }
 
 .right .sales-analytics .add-product div {
@@ -700,23 +699,27 @@ main .recent-orders a {
 #AdminUserTableCard td {
     color: var(--color-background);
 }
+
 .btn-delete-profile.rounded-pill {
     border: 1px solid var(--color-danger) !important;
     font-size: 0.67em;
     margin-right: 5px;
     color: var(--color-danger);
 }
+
 .btn-delete-profile.rounded-pill:hover {
     border: 1px solid var(--color-danger) !important;
     background-color: var(--color-danger) !important;
     color: var(--color-background) !important;
 }
-#AdminUserTableCard button,
+
+
 .btn-edit-profile.rounded-pill {
     border: 1px solid var(--color-orange);
     font-size: 0.67em;
     margin-right: 5px;
 }
+
 .btn-edit-profile.rounded-pill:hover {
     border: 1px solid var(--color-orange);
     background-color: var(--color-orange);
@@ -754,10 +757,31 @@ div.dt-container .dt-paging .dt-paging-button.disabled {
     opacity: 40%;
 }
 
-#AdminUserTableCard button:hover {
-    color: var(--color-background);
-    background: var(--color-primary);
-    border: 1px solid var(--color-orange);
+.btn-back-edit {
+    border: 1px solid var(--color-danger) !important;
+    color: var(--color-danger) !important;
+    background: var(--color-primary) !important;
+    font-size: 1rem;
+}
+
+.btn-back-edit:hover {
+    border: 1px solid var(--color-danger) !important;
+    color: var(--color-primary) !important;
+    background: var(--color-danger) !important;
+}
+
+.btn-save-edit-changes {
+    border: 1px solid var(--color-orange) !important;
+    color: var(--color-orange) !important;
+    background: var(--color-primary) !important;
+    font-size: 1rem;
+}
+
+
+.btn-save-edit-changes:hover {
+    border: 1px solid var(--color-orange) !important;
+    color: var(--color-primary) !important;
+    background: var(--color-orange) !important;
 }
 
 .btn-primary {
@@ -883,66 +907,72 @@ div.dt-container .dt-paging .dt-paging-button.disabled {
     color: var(--color-background);
     box-shadow: var(--box-shadow);
     padding: 20px 40px;
-    
+
 }
+
 .right-column.password:hover {
     box-shadow: none;
 }
-#AdminChangePasswordCard{
+
+#AdminChangePasswordCard {
     max-width: 1000px;
 }
-.profile-title{
+
+.profile-title {
     font-size: large !important;
     color: var(--color-orange);
 }
 
-.inputbox-container{
+.inputbox-container {
     display: flex;
 }
+
 .inputBox.current-password,
 .inputBox.new-password,
-.inputBox.confirm-password
-{
+.inputBox.confirm-password {
     display: flex;
     flex-direction: column;
-    width: 400px;   
+    width: 400px;
     margin-top: 20px;
     margin-bottom: 10px;
 }
 
-.inputBox{
+.inputBox {
     margin-right: 40px;
 }
 
-.right-column.password .forgot-password{
+.right-column.password .forgot-password {
     color: var(--color-orange) !important;
 }
 
-.btn-save-password-changes{
+.btn-save-password-changes {
     border: 1px solid var(--color-orange) !important;
     color: var(--color-orange) !important;
     background: var(--color-primary) !important;
 }
-.btn-save-password-changes:hover{
+
+.btn-save-password-changes:hover {
     border: 1px solid var(--color-orange) !important;
     color: var(--color-primary) !important;
     background: var(--color-orange) !important;
 }
-.swal2-confirm.swal2-styled{
+
+.swal2-confirm.swal2-styled {
     background: var(--color-danger) !important;
 }
 
-div.dt-length select{
+div.dt-length select {
     background: var(--color-primary) !important;
     color: var(--color-background) !important;
 }
-.errors{
+
+.errors {
     color: var(--color-danger) !important;
     font-size: 0.8em !important;
     max-width: 260px !important;
 }
 
-.loader-container{
+.loader-container {
     position: fixed;
     z-index: 999;
     background: var(--color-background);
@@ -957,28 +987,34 @@ div.dt-length select{
     opacity: 0;
     visibility: hidden;
 }
-#contentcontainer{
+
+#contentcontainer {
     opacity: 0;
     transition: opacity .6s ease-in-out, transform .6s ease-in-out;
 }
-#contentcontainer.visible{
+
+#contentcontainer.visible {
     opacity: 1;
-} 
-svg{
+}
+
+svg {
     width: 80rem;
     height: 20rem;
 }
-svg text{
+
+svg text {
     font-size: 5rem;
     stroke-width: 2;
     letter-spacing: -6px;
-   
+
 }
-svg text.text-body{
+
+svg text.text-body {
     stroke: var(--color-primary);
     animation: 4s infinite alternate animate-stroke;
     /* stroke-dasharray: 0 32%; */
-} 
+}
+
 @keyframes animate-stroke {
     0% {
         fill: transparent;
@@ -987,11 +1023,13 @@ svg text.text-body{
         stroke-dashoffset: 25%;
         stroke-dasharray: 0 32%;
     }
+
     50% {
         fill: transparent;
         stroke: var(--color-primary);
         stroke-width: 3;
     }
+
     80%,
     100% {
         fill: var(--color-primary);

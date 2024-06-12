@@ -129,8 +129,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button class="btn btn-primary" onclick="goBack()" style="margin-right: 10px">Back</button>
-                <button class="btn btn-primary" type="submit">Save Changes</button>
+                <button class="btn btn-back-edit"  onclick="goBack()" style="margin-right: 10px">Back</button>
+                <button class="btn btn-save-edit-changes" type="submit">Save Changes</button>
             </div>
 
         </form>
