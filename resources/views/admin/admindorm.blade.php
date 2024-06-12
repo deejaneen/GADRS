@@ -49,38 +49,15 @@
                 <form action="{{ route('logout') }}" method="POST" id="logout-form-navbar">
                     @csrf
 
-                    <button class="no-underline logout btn btn-danger btn-md" type="submit" id="logout-button">
-                        <span class="ri-logout-box-r-line">
-                            <h3>LOGOUT</h3>
-                        </span>
-                    </button>
-                </form>
-            </div>
-        </div>
-    </aside>
-    {{-- -------------------------------END-OF-ASIDE-------------------- --}}
-    <div class="right">
-        <div class="top">
-            <button id="menu-btn">
-                <span class="ri-menu-line"></span>
-            </button>
-            {{-- <div class="theme-toggler">
-                <span class="ri-sun-fill active"></span>
-                <span class="ri-moon-fill"></span>
-            </div> --}}
-            @auth()
-                <div class="profile">
-                    <div class="info">
-                        <p>Hey, <b>{{ Auth::user()->first_name }}</b></p>
-                        <small class="text-muted">{{ Auth::user()->role }}</small>
-                    </div>
-                    <div class="profile-photo">
-                        <img src="{{ asset('images/COA CAR logo.png') }}" alt="">
-                    </div>
-                </div>
-            @endauth
+                <button class="no-underline logout btn btn-danger btn-md" type="submit" id="logout-button">
+                    <span class="ri-logout-box-r-line">
+                        <h3>LOGOUT</h3></span>
+                </button>
+            </form>
         </div>
     </div>
+</aside>
+{{-- -------------------------------END-OF-ASIDE-------------------- --}}
     <main>
         <h1 class="page-title">DORM</h1>
 

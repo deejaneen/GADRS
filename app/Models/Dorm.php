@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Log;
 
 class Dorm extends Model
 {
@@ -44,4 +45,13 @@ class Dorm extends Model
         'Form_number',
         'status',
     ];
+
+    // protected static function boot()
+    // {
+    //     parent::boot();
+
+    //     static::updated(function ($dorm) {
+    //         Log::info('Dorm model: updated event fired for Dorm ID ' . $dorm->id);
+    //     });
+    // }
 }
