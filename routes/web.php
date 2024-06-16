@@ -56,6 +56,7 @@ Route::middleware(['preventCaching', 'checkRole:Guest'])->group(function () {
     });
 
     Route::get('/dorm', [DormController::class, 'index'])->name('dorm');
+    Route::get('/check-bed-availability', [DormController::class, 'checkBedAvailability']);
     Route::post('/dorm-cart', [DormCartController::class, 'store'])->name('dorm.cart');
     Route::post('/gym-cart', [GymCartController::class, 'store'])->name('gym_cart.store');
     Route::get('/cart_check', [CartController::class, 'index'])->name('cart_check');
@@ -112,7 +113,6 @@ Route::middleware(['checkRole:Supply', 'preventCaching'])->group(function () {
     Route::get('/supply/dorm/{dorm}', [SupplyController::class, 'editDorm'])->name('supply.editDorm');
     Route::put('/supply/dorm/addFormNumber/{dorm}', [SupplyController::class, 'addFormNumber'])->name('addFormNumber');
     Route::get('/supply/dorm/view/{dorm}', [SupplyController::class, 'viewDorm'])->name('supply.viewDorm');
-
 });
 
 

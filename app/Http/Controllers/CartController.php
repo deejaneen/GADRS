@@ -65,6 +65,7 @@ class CartController extends Controller
                     ->where('reservation_end_date', $dormCart->reservation_end_date)
                     ->where('reservation_end_time', $dormCart->reservation_end_time)
                     ->where('occupant_type', $dormCart->occupant_type)
+                    ->where('gender', $dormCart->gender)
                     ->exists();
 
                 if ($check) {

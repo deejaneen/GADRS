@@ -32,8 +32,8 @@ class RefreshBedAvailability extends Command
             }
 
             // Optionally, you can update the reservation status here
-            // $reservation->status = 'Expired';
-            // $reservation->save();
+            $reservation->status = 'Expired';
+            $reservation->save();
         }
 
         $this->info('Beds availability updated successfully.');

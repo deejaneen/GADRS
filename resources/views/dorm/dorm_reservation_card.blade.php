@@ -23,17 +23,14 @@
                             </div>
                             <!-- Date input/availability -->
                             <div class="row date">
-                                <div class="col-md-6 date ">
+                                <div class="col-md-6 date">
                                     <div class="date-container">
                                         <h5>Check bed availability on this date:</h5>
-                                        <!-- <input type="date" class="btn btn-calendar-dorm" id="availabilityDate" min="{{ date('Y-m-d') }}"> -->
                                         <input type="text" id="availabilityDate" class="btn btn-calendar-dorm" min="{{ date('Y-m-d') }}" placeholder="Select a date">
                                     </div>
                                 </div>
                                 <div class="col-md-6 availability">
-                                    <h3 class="availability">Availability: <b style="color: var(--color-orange)">{{ $beds_male }}
-                                            beds</b>
-                                    </h3>
+                                    <h3 class="availability" id="bedAvailabilityMale">Availability: <b style="color: var(--color-orange)">{{ $beds_male }} beds</b></h3>
                                 </div>
                             </div>
                             <!-- Check In, Check Out -->
@@ -171,8 +168,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6 availability">
-                                    <h3 class="availability">Availability: <b style="color: var(--color-orange)">{{ $beds_female }}
-                                            beds</b>
+                                    <h3 class="availability" id="bedAvailabilityFemale">Availability: <b style="color: var(--color-orange)">{{ $beds_female }} beds</b></h3>
                                     </h3>
                                 </div>
                             </div>
@@ -283,7 +279,7 @@
 </div>
 @section('scripts')
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    $(document).ready(function() {
         // Function to format the date to 'YYYY-MM-DD' format
         function formatDate(date) {
             const year = date.getFullYear();
@@ -292,120 +288,118 @@
             return `${year}-${month}-${day}`;
         }
 
-        // Set default value for availabilityDate input
-        const availabilityDateInput = document.getElementById('availabilityDate');
-        availabilityDateInput.value = formatDate(new Date());
+        // Initialize availability dates
+        const availabilityDateInputMale = document.getElementById('availabilityDate');
+        const availabilityDateInputFemale = document.getElementById('availabilityDateFemale');
+        availabilityDateInputMale.value = formatDate(new Date());
+        availabilityDateInputFemale.value = formatDate(new Date());
 
-        // Handling male dorm fields
-        const inputMale = document.querySelector('.number-input input');
+        // Initialize male dorm input and buttons
+        let inputMale = document.querySelector('.number-input input');
+        let availabilityMale = parseInt(document.querySelector('#bedAvailabilityMale b').textContent);
         inputMale.value = '0';
+        inputMale.max = availabilityMale; // Initialize max attribute
 
-        const plusBtnMale = document.querySelector('.number-input .ri-add-line');
-        const minusBtnMale = document.querySelector('.number-input .ri-subtract-fill');
-        const availabilityMale = parseInt(document.querySelector('.availability b').textContent);
-
-        plusBtnMale.addEventListener('click', function() {
+        $('.number-input .ri-add-line').click(function() {
             if (parseInt(inputMale.value) < availabilityMale) {
                 inputMale.value = parseInt(inputMale.value) + 1;
             }
         });
 
-        minusBtnMale.addEventListener('click', function() {
+        $('.number-input .ri-subtract-fill').click(function() {
             if (parseInt(inputMale.value) > 0) {
                 inputMale.value = parseInt(inputMale.value) - 1;
             }
         });
-        // Set default value for date inputs to empty
-        const availabilityDateInputsMale = document.querySelectorAll('.btn-calendar-datetime[type="date"]');
-        availabilityDateInputsMale.forEach(input => {
-            input.value = '';
-        });
 
-        // Clear form to default values
-        const clearBtns = document.querySelectorAll('.btn-clear.male');
-        clearBtns.forEach(btn => {
-            btn.addEventListener('click', function() {
-                // Reset male dorm fields
-                inputMale.value = '0';
-                availabilityDateInputsMale.forEach(input => {
-                    input.value = '';
-                });
+        // Event listener for availabilityDate change (Male)
+        $('#availabilityDate').change(function() {
+            const selectedDate = $(this).val();
+            const gender = 'male';
+
+            $.ajax({
+                url: '/check-bed-availability',
+                method: 'GET',
+                data: {
+                    date: selectedDate,
+                    gender: gender
+                },
+                success: function(response) {
+                    console.log("AJAX success (male):", response);
+                    $('#bedAvailabilityMale b').text(response.availableBeds + ' beds');
+                    availabilityMale = response.availableBeds;
+                    inputMale.max = availabilityMale; // Update max attribute dynamically
+                    // Reset input value if exceeds new max
+                    if (parseInt(inputMale.value) > availabilityMale) {
+                        inputMale.value = availabilityMale;
+                    }
+                },
+                error: function(response) {
+                    console.error('Error checking availability (male):', response);
+                    alert('Error checking availability (male).');
+                }
             });
         });
 
-        // Add event listener to check-in date input for setting minimum check-out date (Male)
-        const checkInDateInputMale = document.querySelector(
-            '.btn-calendar-datetime[name="reservation_start_date"]');
-        const checkOutDateInputMale = document.querySelector(
-            '.btn-calendar-datetime[name="reservation_end_date"]');
-
-        checkInDateInputMale.addEventListener('change', function() {
-            const selectedDate = new Date(this.value);
-            const minCheckOutDate = new Date(selectedDate);
-            minCheckOutDate.setDate(minCheckOutDate.getDate() +
-                1); // Set minimum check-out date as next day
-            checkOutDateInputMale.min = formatDate(
-                minCheckOutDate); // Update minimum date in check-out date input
-        });
-        // Add event listener to check-in date input for setting minimum check-out date (Female)
-        const checkInDateInputFemale = document.querySelector(
-            '.female.btn-calendar-datetime[name="reservation_start_date"]');
-        const checkOutDateInputFemale = document.querySelector(
-            '.female.btn-calendar-datetime[name="reservation_end_date"]');
-
-        checkInDateInputFemale.addEventListener('change', function() {
-            const selectedDate = new Date(this.value);
-            const minCheckOutDate = new Date(selectedDate);
-            minCheckOutDate.setDate(minCheckOutDate.getDate() +
-                1); // Set minimum check-out date as next day
-            checkOutDateInputFemale.min = formatDate(
-                minCheckOutDate); // Update minimum date in check-out date input
-        });
-
-        // Handling female dorm fields
-        const inputFemale = document.querySelector('.number-input-female input');
+        // Initialize female dorm input and buttons
+        let inputFemale = document.querySelector('.number-input-female input');
+        let availabilityFemale = parseInt(document.querySelector('#bedAvailabilityFemale b').textContent);
         inputFemale.value = '0';
+        inputFemale.max = availabilityFemale; // Initialize max attribute
 
-        const plusBtnFemale = document.querySelector('.number-input-female .ri-add-line');
-        const minusBtnFemale = document.querySelector('.number-input-female .ri-subtract-fill');
-        const availabilityFemale = parseInt(document.querySelector('#femaleCard .availability b')
-            .textContent);
-
-        plusBtnFemale.addEventListener('click', function() {
+        $('.number-input-female .ri-add-line').click(function() {
             if (parseInt(inputFemale.value) < availabilityFemale) {
                 inputFemale.value = parseInt(inputFemale.value) + 1;
             }
         });
 
-        minusBtnFemale.addEventListener('click', function() {
+        $('.number-input-female .ri-subtract-fill').click(function() {
             if (parseInt(inputFemale.value) > 0) {
                 inputFemale.value = parseInt(inputFemale.value) - 1;
             }
         });
 
-        // Set default value for availabilityDateFemale input
-        const availabilityDateFemaleInput = document.getElementById('availabilityDateFemale');
-        availabilityDateFemaleInput.value = formatDate(new Date());
-        // Set default value for date inputs to empty
-        const availabilityDateInputsFemale = document.querySelectorAll(
-            '#femaleCard .btn-calendar-datetime[type="date"]');
-        availabilityDateInputsFemale.forEach(input => {
-            input.value = '';
-        });
+        // Event listener for availabilityDate change (Female)
+        $('#availabilityDateFemale').change(function() {
+            const selectedDate = $(this).val();
+            const gender = 'female';
 
-        // Clear form to default values
-        const clearBtnsFemale = document.querySelectorAll('.btn-clear.female');
-        clearBtnsFemale.forEach(btn => {
-            btn.addEventListener('click', function() {
-                // Reset female dorm fields
-                inputFemale.value = '0';
-                availabilityDateInputsFemale.forEach(input => {
-                    input.value = '';
-                });
+            $.ajax({
+                url: '/check-bed-availability',
+                method: 'GET',
+                data: {
+                    date: selectedDate,
+                    gender: gender
+                },
+                success: function(response) {
+                    console.log("AJAX success (female):", response);
+                    $('#bedAvailabilityFemale b').text(response.availableBeds + ' beds');
+                    availabilityFemale = response.availableBeds;
+                    inputFemale.max = availabilityFemale; // Update max attribute dynamically
+                    // Reset input value if exceeds new max
+                    if (parseInt(inputFemale.value) > availabilityFemale) {
+                        inputFemale.value = availabilityFemale;
+                    }
+                },
+                error: function(response) {
+                    console.error('Error checking availability (female):', response);
+                    alert('Error checking availability (female).');
+                }
             });
         });
 
+        // Clear buttons functionality for male dorm
+        $('.btn-clear.male').click(function() {
+            inputMale.value = '0';
+        });
+
+        // Clear buttons functionality for female dorm
+        $('.btn-clear.female').click(function() {
+            inputFemale.value = '0';
+        });
+
     });
+
 
     $(document).ready(function() {
         const datePicker1 = $("#availabilityDate, #reservation_start_date, #reservation_end_date, #availabilityDateFemale, #reservation_start_date_female, #reservation_end_date_female");
@@ -433,6 +427,65 @@
             }
         });
     });
+
+    // $(document).ready(function() {
+    //     console.log("Document is ready."); // Debugging line
+    //     availabilityMale = parseInt(document.querySelector('.availability b').textContent);
+    //     const inputMale = document.querySelector('.number-input input');
+    //     inputMale.value = '0';
+    //     $('#availabilityDate').change(function() {
+    //         console.log("Date changed for male dorm."); // Debugging line
+    //         var selectedDate = $(this).val();
+    //         var gender = 'male'; // or 'female' based on the user selection
+
+    //         console.log("Selected date (male):", selectedDate); // Debugging line
+
+    //         $.ajax({
+    //             url: '/check-bed-availability',
+    //             method: 'GET',
+    //             data: {
+    //                 date: selectedDate,
+    //                 gender: gender
+    //             },
+    //             success: function(response) {
+    //                 console.log("AJAX success:", response); // Debugging line
+    //                 $('#bedAvailabilityMale b').text(response.availableBeds + ' beds');
+    //                 availabilityMale = response.availableBeds;
+    //                 inputMale.max = availabilityMale; // Update max attribute dynamicall
+
+    //             },
+    //             error: function(response) {
+    //                 console.error('Error checking availability:', response); // Debugging line
+    //                 alert('Error checking availability.');
+    //             }
+    //         });
+    //     });
+
+    //     $('#availabilityDateFemale').change(function() {
+    //         console.log("Date changed for female dorm."); // Debugging line
+    //         var selectedDate = $(this).val();
+    //         var gender = 'female'; // or 'male' based on the user selection
+
+    //         console.log("Selected date (female):", selectedDate); // Debugging line
+
+    //         $.ajax({
+    //             url: '/check-bed-availability',
+    //             method: 'GET',
+    //             data: {
+    //                 date: selectedDate,
+    //                 gender: gender
+    //             },
+    //             success: function(response) {
+    //                 console.log("AJAX success:", response); // Debugging line
+    //                 $('#bedAvailabilityFemale b').text(response.availableBeds + ' beds');
+    //             },
+    //             error: function(response) {
+    //                 console.error('Error checking availability:', response); // Debugging line
+    //                 alert('Error checking availability.');
+    //             }
+    //         });
+    //     });
+    // });
 </script>
 
 
