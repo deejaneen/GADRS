@@ -13,7 +13,7 @@
 
                     <div class="inputBox current-password">
                         <input type="password" name="current_password" id="current_password">
-                        <span>Current Password</span>
+                        <span>Enter Current Password</span>
                         @if ($errors->any('current_password'))
                             <span class="errors">{{ $errors->first('current_password') }}</span>
                         @endif
@@ -22,7 +22,7 @@
                     <a href="#" class="forgot-password">Forgot Password?</a>
                     <div class="inputBox new-password">
                         <input type="password" name="new_password" id="new_password">
-                        <span>New Password</span>
+                        <span>Enter New Password</span>
                         @if ($errors->any('new_password'))
                             <span class="errors">{{ $errors->first('new_password') }}</span>
                         @endif
