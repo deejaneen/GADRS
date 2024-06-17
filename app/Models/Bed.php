@@ -9,5 +9,5 @@ class Bed extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['gender', 'availability'];
+    protected $fillable = ['gender', 'availability', 'date'];
 }

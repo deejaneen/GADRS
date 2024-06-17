@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->enum('gender', ['male', 'female']);
             $table->integer('availability');
+            $table->date('date'); // Add date column
             $table->timestamps();
         });
     }

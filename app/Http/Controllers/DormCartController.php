@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Bed;
 use App\Models\DormCart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+
+
 
 
 class DormCartController extends Controller
@@ -47,6 +51,26 @@ class DormCartController extends Controller
             'quantity' => 'required|integer|min:1',
             'occupant_type' => 'required',
         ]);
+
+        // Calculate the total reservation days
+        $startDate = new \DateTime($validatedData['reservation_start_date']);
+        $endDate = new \DateTime($validatedData['reservation_end_date']);
+        $endDate->modify('+1 day'); // Include the end date in the range
+        $interval = \DateInterval::createFromDateString('1 day');
+        $dateRange = new \DatePeriod($startDate, $interval, $endDate);
+
+        // Check availability for each date in the reservation period
+        foreach ($dateRange as $date) {
+            $availability = DB::table('beds')
+                ->where('date', $date->format('Y-m-d'))
+                ->where('gender', $validatedData['gender'])
+                ->sum('availability');
+
+            if ($availability < $validatedData['quantity']) {
+                Session::flash('error', 'Insufficient availability on ' . $date->format('Y-m-d'));
+                return redirect()->back()->withInput();
+            }
+        }
 
         // Create a new DormCart instance
         $dormCart = new DormCart();
@@ -92,8 +116,6 @@ class DormCartController extends Controller
             'current_card' => $request->current_card,
             'success' => 'Reservation added to cart successfully!'
         ]);
-
-
     }
 
 
