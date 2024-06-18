@@ -65,7 +65,7 @@
                 <th scope="col">Occupant Type</th>
                 <th scope="col">Price</th>
                 <th scope="col">Status</th>
-                <!-- <th scope="col">Actions</th> -->
+                <th scope="col">Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -79,14 +79,14 @@
                 <td>{{ $gym->occupant_type }}</td>
                 <td>{{ $gym->price }}</td>
                 <td style="color:var(--color-orange);">{{ $gym->status }}</td>
-                <!-- <td class="buttons">
-                        <a href="{{ route('receiving.editGym', $gym->id) }}" class="btn btn-primary btn-lg rounded-pill" id="receivingAssignNumberbtn" style="color: var(--color-orange);">
-                            Assign Number
-                        </a>
-                        <a href="{{ route('receiving.viewGym', $gym->id) }}" class="btn btn-primary btn-lg rounded-pill" id="receivingViewFormbtn" style="color: var(--color-orange);">
-                            View
-                        </a>
-                    </td> -->
+                <td class="buttons">
+                    <a href="{{ route('receiving.viewGym', $gym->id) }}" class="btn btn-primary btn-lg rounded-pill" id="receivingViewFormbtn" style="color: var(--color-orange);">
+                        View
+                    </a>
+                    <a href="{{ route('receiving.viewPDF', $gym->id) }}" target="_blank" class="btn btn-primary btn-lg rounded-pill" id="receivingViewFormbtn" style="color: var(--color-orange);">
+                        PDF
+                    </a>
+                </td>
             </tr>
 
             @endforeach
@@ -109,7 +109,7 @@
                 <th scope="col">Reservation End Time</th>
                 <th scope="col">Price</th>
                 <th scope="col">Status</th>
-                <!-- <th scope="col">Actions</th> -->
+                <th scope="col">Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -123,14 +123,8 @@
                 <td>{{ $dorm->reservation_end_time }}</td>
                 <td>{{ $dorm->price }}</td>
                 <td style="color:var(--color-orange);">{{ $dorm->status }}</td>
-                <!-- <td class="buttons">
-                        <a href="{{ route('receiving.editGym', $gym->id) }}" class="btn btn-primary btn-lg rounded-pill" id="receivingAssignNumberbtn" style="color: var(--color-orange);">
-                            Assign Number
-                        </a>
-                        <a href="{{ route('receiving.viewGym', $gym->id) }}" class="btn btn-primary btn-lg rounded-pill" id="receivingViewFormbtn" style="color: var(--color-orange);">
-                            View
-                        </a>
-                    </td> -->
+                <td class="buttons">
+                </td>
             </tr>
 
             @endforeach

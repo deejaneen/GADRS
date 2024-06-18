@@ -56,7 +56,7 @@
     <table class="table-home table-hover stripe" id="ReceivingPendingTable" style="width: 100%">
         <thead>
             <tr>
-                <th scope="col">Form Number</th>
+                <th scope="col">Reservation Number</th>
                 <th scope="col">Form Group Number</th>
                 <th scope="col">Date</th>
                 <th scope="col">Time Start</th>
@@ -84,6 +84,9 @@
                     </a>
                     <a href="{{ route('receiving.viewGym', $gym->id) }}" class="btn btn-primary btn-lg rounded-pill" id="receivingViewFormbtn" style="color: var(--color-orange);">
                         View
+                    </a>
+                    <a href="{{ route('receiving.viewPDF', $gym->id) }}" target="_blank" class="btn btn-primary btn-lg rounded-pill" id="receivingViewFormbtn" style="color: var(--color-orange);">
+                        PDF
                     </a>
                 </td>
             </tr>
