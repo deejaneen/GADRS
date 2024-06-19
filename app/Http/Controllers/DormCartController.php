@@ -52,6 +52,9 @@ class DormCartController extends Controller
             'occupant_type' => 'required',
         ]);
 
+        // Convert gender to lowercase
+        $validatedData['gender'] = strtolower($validatedData['gender']);
+
         // Calculate the total reservation days
         $startDate = new \DateTime($validatedData['reservation_start_date']);
         $endDate = new \DateTime($validatedData['reservation_end_date']);
@@ -61,12 +64,12 @@ class DormCartController extends Controller
 
         // Check availability for each date in the reservation period
         foreach ($dateRange as $date) {
-            $availability = DB::table('beds')
+            $bed = DB::table('beds')
                 ->where('date', $date->format('Y-m-d'))
                 ->where('gender', $validatedData['gender'])
-                ->sum('availability');
+                ->first();
 
-            if ($availability < $validatedData['quantity']) {
+            if ($bed && $bed->availability < $validatedData['quantity']) {
                 Session::flash('error', 'Insufficient availability on ' . $date->format('Y-m-d'));
                 return redirect()->back()->withInput();
             }

@@ -50,37 +50,40 @@ class CartController extends Controller
     {
         try {
             $cartIds = json_decode($request->input('cart_ids_dorm'));
-    
+
             if (empty($cartIds)) {
                 Session::flash('error', 'No items selected');
                 return redirect()->back();
             }
-    
+
             $formGroupNumber = $this->generateFormGroupNumber(); // Generate a common identifier
-    
+
             foreach ($cartIds as $cartId) {
                 $dormCart = DormCart::findOrFail($cartId);
-    
+
                 // Calculate the total reservation days
                 $startDate = new \DateTime($dormCart->reservation_start_date);
                 $endDate = new \DateTime($dormCart->reservation_end_date);
                 $endDate->modify('+1 day'); // Include the end date in the range
                 $interval = \DateInterval::createFromDateString('1 day');
                 $dateRange = new \DatePeriod($startDate, $interval, $endDate);
-    
+
+                // Convert gender to lowercase
+                $dormCart->gender = strtolower($dormCart->gender);
+
                 // Check availability for each date in the reservation period
                 foreach ($dateRange as $date) {
-                    $availability = DB::table('beds')
+                    $bed = DB::table('beds')
                         ->where('date', $date->format('Y-m-d'))
                         ->where('gender', $dormCart->gender)
-                        ->sum('availability');
-    
-                    if ($availability < $dormCart->quantity) {
+                        ->first();
+
+                    if ($bed && $bed->availability < $dormCart->quantity) {
                         Session::flash('error', 'Insufficient availability on ' . $date->format('Y-m-d'));
                         return redirect()->back();
                     }
                 }
-    
+
                 // Proceed with creating the reservation
                 $dormReservation = new Dorm();
                 $dormReservation->fill($dormCart->toArray());
@@ -96,26 +99,26 @@ class CartController extends Controller
                 $dormReservation->employee_number  = $request->input('hidden_ei_number');
                 $dormReservation->id_presented  = $request->input('hidden_id_presented');
                 $dormReservation->purpose_of_stay  = $request->input('hidden_pos');
-    
+
                 // COA Employee (if applicable)
                 $dormReservation->coa_referrer  = $request->input('hidden_coaEm_name');
                 $dormReservation->relationship_with_guest = $request->input('hidden_coaEm_relationshipGuest');
                 $dormReservation->coa_referrer_office  = $request->input('hidden_coaEm_office');
                 $dormReservation->coa_referrer_office_address  = $request->input('hidden_coaEm_office_address');
-    
+
                 // Emergency Contact
                 $dormReservation->emergency_contact = $request->input('hidden_ptn');
                 $dormReservation->emergency_contact_number = $request->input('hidden_ptn_contact');
                 $dormReservation->home_address  = $request->input('hidden_ptn_home_address');
-    
+
                 // Set status to 'Pending' for non-COA
                 if ($dormCart->occupant_type != 'Non COAn') {
                     $dormReservation->status = 'Pending';
                 }
-    
+
                 $dormReservation->save();
             }
-    
+
             return redirect()->route('home')->with('success', 'Dorm Reservation added successfully!');
         } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => 'Dorm Reservation unsuccessful']);

@@ -7,7 +7,7 @@
     <div>
         <h2 class="card-header text-center home">Dorm Received Reservations</h2>
     </div>
-    
+
     <table class="table-home table-hover stripe" id="SupplyReceivedTable" style="width: 100%">
         <thead>
             <tr>
@@ -34,13 +34,16 @@
                 <td>{{ $dorm->price }}</td>
                 <td style="color:var(--color-orange);">{{ $dorm->status }}</td>
                 <td class="buttons">
-                        <!-- <a href="{{ route('supply.editDorm', $dorm->id) }}" class="btn btn-primary btn-lg rounded-pill" id="receivingAssignNumberbtn" style="color: var(--color-orange);">
+                    <!-- <a href="{{ route('supply.editDorm', $dorm->id) }}" class="btn btn-primary btn-lg rounded-pill" id="receivingAssignNumberbtn" style="color: var(--color-orange);">
                             Assign Number
                         </a> -->
-                        <a href="{{ route('supply.viewDorm', $dorm->id) }}" class="btn btn-primary btn-lg rounded-pill" id="receivingViewFormbtn" style="color: var(--color-orange);">
-                            View
-                        </a>
-                    </td>
+                    <a href="{{ route('supply.viewDorm', $dorm->id) }}" class="btn btn-primary btn-lg rounded-pill" id="receivingViewFormbtn" style="color: var(--color-orange);">
+                        View
+                    </a>
+                    <a href="{{ route('supply.viewPDF', $dorm->id) }}" target="_blank" class="btn btn-primary btn-lg rounded-pill" id="receivingViewFormbtn" style="color: var(--color-orange);">
+                        PDF
+                    </a>
+                </td>
             </tr>
 
             @endforeach

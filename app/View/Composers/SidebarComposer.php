@@ -13,11 +13,13 @@ class SidebarComposer
         $dormsPendingCountView = Dorm::where('status', 'Pending')->count();
         // $totalPendingCount = $gymsPendingCount + $dormsPendingCount;
 
-        $gymsReceivedCount = Gym::where('status', 'Received')->count();
-        $dormsReceivedCount = Dorm::where('status', 'Received')->count();
+        $gymsReceivedCountView = Gym::where('status', 'Received')->count();
+        $dormsReceivedCountView = Dorm::where('status', 'Received')->count();
         // $totalReceivedCount = $gymsReceivedCount + $dormsReceivedCount;
 
         $view->with('gymsPendingCountView', $gymsPendingCountView)
-             ->with('dormsPendingCountView', $dormsPendingCountView);
+             ->with('dormsPendingCountView', $dormsPendingCountView)
+             ->with('dormsReceivedCountView', $dormsReceivedCountView)
+             ->with('gymsReceivedCountView', $gymsReceivedCountView);
     }
 }

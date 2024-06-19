@@ -105,8 +105,17 @@ class ReceivingController extends Controller
             ]);
         }
 
+        // Check if status is "Received"
+        if ($gym->status === 'Received') {
+            // Redirect with success message
+            return redirect()->route('receivingreceived')->with('success', 'Items updated successfully!');
+        } else {
+            // Redirect back with appropriate success message
+            return redirect()->route('receivingpending')->with('success', 'Items updated successfully, status is not Received.');
+        }
+
         // Redirect back with success message
-        return redirect()->route('receivingpending')->with('success', 'Form Number added successfully!');
+        // return redirect()->route('receivingpending')->with('success', 'Form Number added successfully!');
     }
 
 

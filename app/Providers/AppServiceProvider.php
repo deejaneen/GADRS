@@ -29,6 +29,8 @@ class AppServiceProvider extends ServiceProvider
         View::composer('ras.receiving.receiving-side-bar', SidebarComposer::class);
         // Register the view composer for supply
         View::composer('ras.supply.supply-sidebar', SidebarComposer::class);
+        // Register the view composer for cashier
+        View::composer('cashier.cashier-sidebar', SidebarComposer::class);
 
         Dorm::observe(DormObserver::class);
     }

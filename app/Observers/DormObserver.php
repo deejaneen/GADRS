@@ -22,7 +22,7 @@ class DormObserver
      */
     public function updated(Dorm $dorm)
     {
-        if ($dorm->status === 'Received') {
+        if ($dorm->status === 'Reserved') {
             $startDate = $dorm->reservation_start_date;
             $endDate = $dorm->reservation_end_date;
             $quantity = $dorm->quantity;
