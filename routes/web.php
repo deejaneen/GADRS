@@ -15,6 +15,9 @@ use App\Http\Controllers\CashierController;
 use App\Http\Controllers\PDFController;
 use App\Http\Controllers\SupplyController;
 use App\Http\Controllers\UserController;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,9 +44,28 @@ Route::middleware(['guest', 'preventCaching'])->group(function () {
 // Routes that require authentication
 Route::middleware(['auth', 'preventCaching'])->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+    // Email Verification Routes
+    Route::get('/email/verify', function () {
+        return view('auth.verify-email');
+    })->middleware('auth')->name('verification.notice');
+
+    Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+        $request->fulfill();
+        return redirect('/home');
+    })->middleware(['auth', 'signed'])->name('verification.verify');
+
+    Route::post('/email/verification-notification', function (Request $request) {
+        if ($request->isMethod('post')) {
+            $request->user()->sendEmailVerificationNotification();
+            return back()->with('message', 'Verification link sent!');
+        } else {
+            return response('Method not allowed', 405);
+        }
+    })->middleware(['auth', 'throttle:6,1'])->name('verification.send');    
 });
 
-Route::middleware(['preventCaching', 'checkRole:Guest'])->group(function () {
+Route::middleware(['auth', 'verified', 'preventCaching', 'checkRole:Guest'])->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::resource('users', UserController::class)->only('show', 'edit', 'update');
 
@@ -69,7 +91,7 @@ Route::middleware(['preventCaching', 'checkRole:Guest'])->group(function () {
 });
 
 // Routes accessible only by Admin
-Route::middleware(['checkRole:Admin', 'preventCaching'])->group(function () {
+Route::middleware(['auth', 'verified', 'checkRole:Admin', 'preventCaching'])->group(function () {
     Route::get('/admin/home', [AdminController::class, 'index'])->name('adminhome');
     Route::get('/test', [AdminController::class, 'test'])->name('test');
     Route::get('/admin/users', [AdminController::class, 'users'])->name('adminusers');
@@ -87,14 +109,14 @@ Route::middleware(['checkRole:Admin', 'preventCaching'])->group(function () {
 });
 
 // Cashier routes
-Route::middleware(['checkRole:Cashier', 'preventCaching'])->group(function () {
+Route::middleware(['auth', 'verified', 'checkRole:Cashier', 'preventCaching'])->group(function () {
     Route::get('/cashier/home', [CashierController::class, 'index'])->name('cashierhome');
     Route::get('/cashier/forpayment', [CashierController::class, 'forpayment'])->name('cashierforpayment');
     Route::get('/cashier/paid', [CashierController::class, 'paid'])->name('cashierpaid');
 });
 
 // Receiving routes
-Route::middleware(['checkRole:Receiving', 'preventCaching'])->group(function () {
+Route::middleware(['auth', 'verified', 'checkRole:Receiving', 'preventCaching'])->group(function () {
     Route::get('/receiving/home', [ReceivingController::class, 'index'])->name('receivinghome');
     Route::get('/receiving/pending', [ReceivingController::class, 'receivingpending'])->name('receivingpending');
     Route::get('/receiving/received', [ReceivingController::class, 'receivingreceived'])->name('receivingreceived');
@@ -104,9 +126,8 @@ Route::middleware(['checkRole:Receiving', 'preventCaching'])->group(function () 
     Route::get('/receiving/gym/view/{gym}', [ReceivingController::class, 'viewGym'])->name('receiving.viewGym');
 });
 
-
 // Supply routes
-Route::middleware(['checkRole:Supply', 'preventCaching'])->group(function () {
+Route::middleware(['auth', 'verified', 'checkRole:Supply', 'preventCaching'])->group(function () {
     Route::get('/supply/home', [SupplyController::class, 'index'])->name('supplyhome');
     Route::get('/supply/reservations', [SupplyController::class, 'supplyReservations'])->name('supplyreservations');
     Route::get('/supply/reservations/received', [SupplyController::class, 'supplyReservationsReceived'])->name('supplyreservationsrd');
@@ -115,12 +136,21 @@ Route::middleware(['checkRole:Supply', 'preventCaching'])->group(function () {
     Route::get('/supply/dorm/view/{dorm}', [SupplyController::class, 'viewDorm'])->name('supply.viewDorm');
 });
 
-
 Route::get('generate-dorm-pdf', [PDFController::class, 'generatedormPDF']);
 Route::get('generate-gym-pdf', [PDFController::class, 'generategymPDF']);
 Route::get('/tite', function () {
     return view('pdf.DormReservationFormSheet1');
 });
-Route::get('/pepe', function () {
-    return view('pdf.GymReservationSheet');
+Route::get('/tite1', function () {
+    return view('pdf.GymReservationFormSheet1');
 });
+
+//SMTP Tester
+// Route::get('/send-test-email', function () {
+//     Mail::raw('This is a test email.', function ($message) {
+//         $message->to('tomeldendjaninetara@gmail.com')
+//                 ->subject('Test Email');
+//     });
+
+//     return 'Test email sent!';
+// });

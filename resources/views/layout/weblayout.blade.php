@@ -72,6 +72,7 @@
         </script>
     @endif
     @yield('banner')
+    @yield('verify-email')
 
 
     <div class="">

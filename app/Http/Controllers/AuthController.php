@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Auth\Events\Registered;
 
 class AuthController extends Controller
 {
@@ -20,7 +21,7 @@ class AuthController extends Controller
 
     public function store()
     {
-        //validate
+        // Validate the request data
         $validated = request()->validate([
             'last_name' => 'required|min:3|max:40',
             'first_name' => 'required|min:3|max:40',
@@ -28,8 +29,8 @@ class AuthController extends Controller
             'email' => 'required|email|unique:users,email',
             'password' => 'required|confirmed'
         ]);
-
-        //create the user
+    
+        // Create the user
         $user = User::create([
             'last_name' => $validated['last_name'],
             'first_name' => $validated['first_name'],
@@ -37,12 +38,15 @@ class AuthController extends Controller
             'email' => $validated['email'],
             'password' => Hash::make($validated['password']),
         ]);
-
-        // log in the user
+    
+        // Fire the Registered event
+        event(new Registered($user));
+    
+        // Log in the user
         auth()->login($user);
-
-        //redirect to dashboard
-        return redirect()->route('home')->with('success', "Account created successfully!");
+    
+        // Redirect to verification notice
+        return redirect()->route('verification.notice')->with('success', "Account created successfully! Please verify your email.");
     }
 
     public function authenticate()
