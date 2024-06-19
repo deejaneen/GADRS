@@ -28,15 +28,25 @@
         <div class="row mb-3">
             <div class="col-4">
                 <label for="Form_number" class="form-label">Form Number</label>
-                <input type="text" class="form-control" id="Form_number" value="{{$dorm->Form_number}}" name="Form_number" required>
+                <input type="text" class="form-control" id="Form_number" value="{{$dorm->Form_number}}" name="Form_number" maxlength="7" required>
                 @error('Form_number')
                 <span class="text-danger fs-6">{{ $message }}</span>
                 @enderror
             </div>
-            <div class="col">
+            <!-- <div class="col">
                 <div class="col-4">
                     <input type="hidden" class="form-control" id="status" value="Received" name="status" required>
                 </div>
+            </div> -->
+            <div class="col-4">
+                <label for="status" class="form-label">Status</label>
+                <select class="form-control" id="status" name="status" required>
+                    <option value="Received" {{ $dorm->status === 'Received' ? 'selected' : '' }}>Received</option>
+                    <option value="Pending" {{ $dorm->status === 'Pending' ? 'selected' : '' }}>Pending</option>
+                </select>
+                @error('status')
+                <span class="text-danger fs-6">{{ $message }}</span>
+                @enderror
             </div>
 
         </div>
@@ -61,7 +71,8 @@
 
             // Display confirmation dialog
             Swal.fire({
-                title: "Are you to assign this form number?",
+                title: "Are you want to assign this form number?",
+                text: "Once the status is configured to Received, they will be uneditable.",
                 showCancelButton: true,
                 confirmButtonText: "Yes",
                 customClass: {

@@ -25,5 +25,7 @@ class Gym extends Model
         'office_address',
         'reservation_number',
         'status',
+        'or_number',
+        'or_date',
     ];
 }

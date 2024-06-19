@@ -65,6 +65,7 @@
     </script>
     @endif
     <div class="main-container">
+        @include('cashier.cashier-sidebar')
         @yield('cashierdashboard')
 
     </div>
@@ -102,6 +103,17 @@
                         document.getElementById('logout-form-navbar').submit();
                     }
                 });
+            });
+        });
+
+        $(document).ready(function() {
+            var path = window.location.pathname;
+            $('.sidebar-link').each(function() {
+                var href = $(this).attr('href');
+                var hrefPath = new URL(href, window.location.origin).pathname; // Extract pathname from href
+                if (path === hrefPath) { // Compare path with hrefPath
+                    $(this).addClass('active');
+                }
             });
         });
     </script>

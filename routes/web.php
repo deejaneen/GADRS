@@ -113,6 +113,12 @@ Route::middleware(['auth', 'verified', 'checkRole:Cashier', 'preventCaching'])->
     Route::get('/cashier/home', [CashierController::class, 'index'])->name('cashierhome');
     Route::get('/cashier/forpayment', [CashierController::class, 'forpayment'])->name('cashierforpayment');
     Route::get('/cashier/paid', [CashierController::class, 'paid'])->name('cashierpaid');
+    Route::put('/cashier/gym/confirm/{gym}', [CashierController::class, 'confirmPaymentGym'])->name('cashier.confirmPayGym');
+    Route::get('/cashier/gym/{gym}', [CashierController::class, 'editCashierGym'])->name('cashier.editCashierGym');
+    Route::put('/cashier/dorm/confirm/{dorm}', [CashierController::class, 'confirmPaymentDorm'])->name('cashier.confirmPayDorm');
+    Route::get('/cashier/dorm/{dorm}', [CashierController::class, 'editCashierDorm'])->name('cashier.editCashierDorm');
+    Route::get('/cashier/gym/{gym}/pdf', [CashierController::class, 'viewGymPDFCashier'])->name('cashier.viewPDFGym');
+    Route::get('/cashier/dorm/{dorm}/pdf', [CashierController::class, 'viewDormPDFCashier'])->name('cashier.viewPDFDorm');
 });
 
 // Receiving routes
@@ -122,8 +128,10 @@ Route::middleware(['auth', 'verified', 'checkRole:Receiving', 'preventCaching'])
     Route::get('/receiving/received', [ReceivingController::class, 'receivingreceived'])->name('receivingreceived');
     Route::get('/receiving/gym', [ReceivingController::class, 'receivingedit'])->name('receivingeditreservations');
     Route::get('/receiving/gym/{gym}', [ReceivingController::class, 'editGym'])->name('receiving.editGym');
+    Route::get('/receiving/gym/{gym}/pdf', [ReceivingController::class, 'viewGymPDF'])->name('receiving.viewPDF');
     Route::put('/receiving/gym/addFormNumber/{gym}', [ReceivingController::class, 'addFormNumber'])->name('addFormNumberRec');
     Route::get('/receiving/gym/view/{gym}', [ReceivingController::class, 'viewGym'])->name('receiving.viewGym');
+    
 });
 
 // Supply routes
@@ -132,6 +140,7 @@ Route::middleware(['auth', 'verified', 'checkRole:Supply', 'preventCaching'])->g
     Route::get('/supply/reservations', [SupplyController::class, 'supplyReservations'])->name('supplyreservations');
     Route::get('/supply/reservations/received', [SupplyController::class, 'supplyReservationsReceived'])->name('supplyreservationsrd');
     Route::get('/supply/dorm/{dorm}', [SupplyController::class, 'editDorm'])->name('supply.editDorm');
+    Route::get('/supply/dorm/{dorm}/pdf', [SupplyController::class, 'viewDormPDF'])->name('supply.viewPDF');
     Route::put('/supply/dorm/addFormNumber/{dorm}', [SupplyController::class, 'addFormNumber'])->name('addFormNumber');
     Route::get('/supply/dorm/view/{dorm}', [SupplyController::class, 'viewDorm'])->name('supply.viewDorm');
 });

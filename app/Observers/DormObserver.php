@@ -4,6 +4,7 @@ namespace App\Observers;
 
 use App\Models\Bed;
 use App\Models\Dorm;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
 class DormObserver
@@ -21,30 +22,55 @@ class DormObserver
      */
     public function updated(Dorm $dorm)
     {
-        // Log that the updated method is being called
-        // Log::info('DormObserver: updated method called for Dorm ID ' . $dorm->id);
+        if ($dorm->status === 'Reserved') {
+            $startDate = $dorm->reservation_start_date;
+            $endDate = $dorm->reservation_end_date;
+            $quantity = $dorm->quantity;
+            $gender = $dorm->gender;
 
-        // Log the current status of the dorm
-        // Log::info('DormObserver: Current status of Dorm ID ' . $dorm->id . ' is ' . $dorm->status);
+            $currentDate = $startDate;
+            $dates = [];
 
-        if ($dorm->status === 'Received') {
-            // Find the bed based on gender
-            $bed = Bed::where('gender', $dorm->gender)->first();
-
-            if ($bed && $bed->availability >= $dorm->quantity) {
-                // Subtract the quantity from the availability
-                $bed->availability -= $dorm->quantity;
-                $bed->save();
-            } else {
-                if (!$bed) {
-                    // Log an error if the bed is not found
-                    Log::error('No bed found for gender: ' . $dorm->gender);
-                } else {
-                    // Log an error or take appropriate action for insufficient availability
-                    Log::error('Not enough beds available for reservation: ' . $dorm->id);
-                    // Optionally, you can revert the reservation status or throw an exception
-                }
+            // Collect all dates in the reservation range
+            while ($currentDate <= $endDate) {
+                $dates[] = $currentDate;
+                $currentDate = date('Y-m-d', strtotime($currentDate . ' +1 day'));
             }
+
+            // Use a transaction to ensure atomicity
+            DB::transaction(function () use ($dates, $quantity, $gender, $dorm) {
+                foreach ($dates as $date) {
+                    $bed = Bed::where('date', $date)->where('gender', $gender)->first();
+
+                    if ($bed) {
+                        // If the bed record exists, check availability
+                        if ($bed->availability >= $quantity) {
+                            $bed->availability -= $quantity;
+                            $bed->save();
+                        } else {
+                            // Log an error or take appropriate action for insufficient availability
+                            Log::error('Not enough beds available for reservation: ' . $dorm->id . ' on date: ' . $date);
+                            // Optionally, you can revert the reservation status or throw an exception
+                            throw new \Exception('Not enough beds available for reservation: ' . $dorm->id . ' on date: ' . $date);
+                        }
+                    } else {
+                        // If the bed record does not exist, create a new one with initial availability
+                        $initialAvailability = (strtolower($gender) === 'male' ? 8 : 11);
+                        if ($initialAvailability >= $quantity) {
+                            Bed::create([
+                                'date' => $date,
+                                'gender' => $gender,
+                                'availability' => $initialAvailability - $quantity,
+                            ]);
+                        } else {
+                            // Log an error or take appropriate action for insufficient initial availability
+                            Log::error('Not enough initial beds available for reservation: ' . $dorm->id . ' on date: ' . $date);
+                            // Optionally, you can revert the reservation status or throw an exception
+                            throw new \Exception('Not enough initial beds available for reservation: ' . $dorm->id . ' on date: ' . $date);
+                        }
+                    }
+                }
+            });
         }
     }
 

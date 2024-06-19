@@ -6,6 +6,7 @@ use App\Models\Gym;
 use App\Models\Dorm;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 
 class ReceivingController extends Controller
@@ -32,7 +33,7 @@ class ReceivingController extends Controller
         $lastMonthTotalReservationReceived = $lastMonthGymReceivedCount + $lastMonthDormReceivedCount;
 
         return view('ras.receiving.receivingdashboard', [
-            'gymsPendingCount' => $gymsPendingCount, 
+            'gymsPendingCount' => $gymsPendingCount,
             'lastMonth' => $lastMonth,
             'currentMonth' => $currentMonth,
             'totalReservationCount' => $totalReservationCount,
@@ -78,29 +79,43 @@ class ReceivingController extends Controller
     {
         // Validate input
         $validated = request()->validate([
-            'reservation_number' => 'required|min:3|max:40',
+            'reservation_number' => 'required|min:3|max:7',
             'status' => 'required',
+            'or_number' => 'required|min:3|max:7',
+            'or_date' => 'required|date', // Ensure or_date is a valid date
+            // 'reservation_date' => 'required|date',
         ]);
 
-        // Update the user with the validated data
+        // Update the gym with the validated data
         $gym->update($validated);
 
-        // Get all pending Gym reservations with similar form group number
+        // Get all pending Gym reservations with the same form group number
         $pendingGyms = Gym::where('status', 'Pending')
             ->where('form_group_number', $gym->form_group_number)
             ->get();
 
-        // Update each pending Gym reservation with the new reservation number
+        // Update each pending Gym reservation with the new reservation number, status, or_number, and or_date
         foreach ($pendingGyms as $pendingGym) {
             $pendingGym->update([
                 'reservation_number' => $validated['reservation_number'],
-                'status' => $validated['status']
+                'status' => $validated['status'],
+                'or_number' => $validated['or_number'],
+                'or_date' => $validated['or_date'],
+                // 'reservation_date' => $validated['reservation_date'],
             ]);
         }
 
+        // Check if status is "Received"
+        if ($gym->status === 'Received') {
+            // Redirect with success message
+            return redirect()->route('receivingreceived')->with('success', 'Items updated successfully!');
+        } else {
+            // Redirect back with appropriate success message
+            return redirect()->route('receivingpending')->with('success', 'Items updated successfully, status is not Received.');
+        }
 
         // Redirect back with success message
-        return redirect()->route('receivingpending')->with('success', 'Form Number added successfully!');
+        // return redirect()->route('receivingpending')->with('success', 'Form Number added successfully!');
     }
 
 
@@ -113,5 +128,29 @@ class ReceivingController extends Controller
     public function viewGym(Gym $gym)
     {
         return view('ras.receiving.receiving-view-gym', compact('gym'));
+    }
+
+    public function viewGymPDF(Gym $gym)
+    {
+        // Get all Gym reservations with the same form_group_number
+        $gymReservations = Gym::where('form_group_number', $gym->form_group_number)->get();
+        $data = [
+            'gym' => $gym,
+            'gymReservations' => $gymReservations,
+        ];
+        $marginInMillimeters = 0.5 * 25.4; // Convert inches to millimeters
+
+        // Pass options for paper size and margins
+        $options = [
+            'format' => [8.5, 13], // Set the paper size in inches
+            'margin_top' => $marginInMillimeters,
+            'margin_bottom' => $marginInMillimeters,
+            'margin_left' => $marginInMillimeters,
+            'margin_right' => $marginInMillimeters,
+        ];
+
+        $pdf = PDF::loadView('pdf.GymReservationSheet', $data)->setOptions($options);
+
+        return $pdf->stream('gym-reservation.pdf');
     }
 }
