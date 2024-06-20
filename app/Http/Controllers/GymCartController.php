@@ -36,6 +36,7 @@ class GymCartController extends Controller
             'timepicker-pm' => 'required|date_format:H:i|after:timepicker-am',
             'employee_type' => 'required',
             'purpose' => 'required',
+            'number_of_courts' => 'required_if:purpose,Badminton|nullable|integer|max:4',
 
         ]);
 
@@ -47,8 +48,18 @@ class GymCartController extends Controller
             ->where('purpose', $validatedData['purpose'])
             ->exists();
 
+        $existingReservationWithoutPurpose = GymCart::where('reservation_date', $validatedData['selectedDateText'])
+            ->where('reservation_time_start', $validatedData['timepicker-am'])
+            ->where('reservation_time_end', $validatedData['timepicker-pm'])
+            ->where('occupant_type', $validatedData['employee_type'])
+            // ->where('purpose', $validatedData['purpose'])
+            ->exists();
+
+
         if ($existingReservation) {
             return redirect()->route('gym')->with('error', 'A similar reservation already exists in your cart.');
+        } else if ($existingReservationWithoutPurpose) {
+            return redirect()->route('gym')->with('error', 'A reservation for a similar time range already exists in your cart.');
         }
 
 
@@ -132,6 +143,10 @@ class GymCartController extends Controller
             $gymCart->purpose = $validatedData['purpose'];
             $gymCart->employee_id = Auth::id(); // Use Auth::id() instead of Auth()->id()
 
+            // Only set number_of_courts if it exists in validated data
+            if (isset($validatedData['number_of_courts'])) {
+                $gymCart->number_of_courts = $validatedData['number_of_courts'];
+            }
             // Save the GymCart instance to the database
             $gymCart->save();
 

@@ -23,6 +23,7 @@ class CashierController extends Controller
     }
     public function forpayment()
     {
+
         $gyms = Gym::where('status', 'Received')->get();
         $dorms = Dorm::where('status', 'Received')->get();
 
@@ -67,15 +68,23 @@ class CashierController extends Controller
 
     public function editCashierDorm(Dorm $dorm)
     {
+        // Calculate the number of days between reservation_start_date and reservation_end_date
+        $numberOfDays = DB::table('dorm_reservations')
+            ->where('id', $dorm->id) // Assuming 'id' is the primary key of 'dorm_reservations'
+            ->select(DB::raw('DATEDIFF(reservation_end_date, reservation_start_date) + 1 as num_days'))
+            ->first();
+
+        // Handle if $numberOfDays is null (handle case where $dorm is not found or dates are not set)
+        $numDays = $numberOfDays ? $numberOfDays->num_days : 0;
         // You can return the modal content as a view
-        return view('cashier.cashier-confirmpayment-dorm', compact('dorm'));
+        return view('cashier.cashier-confirmpayment-dorm', compact('dorm', 'numDays'));
     }
 
     public function confirmPaymentDorm(Dorm $dorm)
     {
         // Validate input
         $validated = request()->validate([
-            'price' => 'required|min:3|max:40',
+            // 'price' => 'required|min:3|max:40',
             'status' => 'required',
         ]);
 
@@ -118,9 +127,12 @@ class CashierController extends Controller
             'margin_right' => $marginInMillimeters,
         ];
 
+        // Generate the filename based on the dorm's Form_number and updated_at timestamp
+        $filename = $dorm->Form_number . '_' . $dorm->updated_at->format('Y-m-d') . '_dorm-reservation.pdf';
+
         $pdf = PDF::loadView('pdf.DormReservationFormSheet1', $data)->setOptions($options);
 
-        return $pdf->stream('dorm-reservation.pdf');
+        return $pdf->stream($filename);
     }
 
     public function viewGymPDFCashier(Gym $gym)
@@ -141,9 +153,11 @@ class CashierController extends Controller
             'margin_left' => $marginInMillimeters,
             'margin_right' => $marginInMillimeters,
         ];
+        // Generate the filename based on the dorm's Form_number and updated_at timestamp
+        $filename = $gym->reservation_number . '_' . $gym->updated_at->format('Y-m-d') . '_gym-reservation.pdf';
 
         $pdf = PDF::loadView('pdf.GymReservationSheet', $data)->setOptions($options);
 
-        return $pdf->stream('gym-reservation.pdf');
+        return $pdf->stream($filename);
     }
 }

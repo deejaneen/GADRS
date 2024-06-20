@@ -136,8 +136,8 @@ class CartController extends Controller
 
             // dd(count($cartIds));
             // Check if the number of items exceeds five
-            if (count($cartIds) > 3) {
-                return redirect()->back()->withErrors(['error' => 'The maximum items to be put into a form is limited to five only.']);
+            if (count($cartIds) > 8) {
+                return redirect()->back()->withErrors(['error' => 'The maximum items to be put into a form is limited to eight only.']);
             }
 
 

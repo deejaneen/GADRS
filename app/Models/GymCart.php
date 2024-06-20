@@ -17,5 +17,6 @@ class GymCart extends Model
         'occupant_type',
         'employee_id',
         'purpose',
+        'number_of_courts',
     ];
 }

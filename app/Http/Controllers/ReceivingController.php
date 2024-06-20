@@ -149,8 +149,11 @@ class ReceivingController extends Controller
             'margin_right' => $marginInMillimeters,
         ];
 
+        // Generate the filename based on the dorm's Form_number and updated_at timestamp
+        $filename = $gym->reservation_number . '_' . $gym->updated_at->format('Y-m-d') . '_gym-reservation.pdf';
+
         $pdf = PDF::loadView('pdf.GymReservationSheet', $data)->setOptions($options);
 
-        return $pdf->stream('gym-reservation.pdf');
+        return $pdf->stream($filename);
     }
 }

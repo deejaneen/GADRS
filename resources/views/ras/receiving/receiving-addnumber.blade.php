@@ -62,11 +62,7 @@
                 @enderror
             </div>
             <div class="col-4">
-                <label for="or_date " class="form-label">OR Date</label>
-                <input type="date" class="form-control" id="or_date " value="{{$gym->or_date }}" name="or_date" required>
-                @error('or_date')
-                <span class="text-danger fs-6">{{ $message }}</span>
-                @enderror
+                <input type="hidden" class="form-control" id="or_date" value="{{ \Carbon\Carbon::now()->toDateString() }}" name="or_date" required>
             </div>
         </div>
         <div>

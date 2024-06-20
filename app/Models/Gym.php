@@ -27,5 +27,6 @@ class Gym extends Model
         'status',
         'or_number',
         'or_date',
+        'number_of_courts',
     ];
 }

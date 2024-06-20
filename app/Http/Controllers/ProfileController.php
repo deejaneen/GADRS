@@ -20,7 +20,7 @@ class ProfileController extends Controller
                      ->orderBy('created_at', 'DESC')
                      ->get();
 
-        return view('../profile/reservationhistoryprofile', ['gyms' => $gyms, 'dorms' => $dorms]);
+        return view('profile.reservationhistoryprofile', ['gyms' => $gyms, 'dorms' => $dorms]);
     }
 
 
