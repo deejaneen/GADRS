@@ -28,13 +28,7 @@
                 <span class="ri-folder-received-fill">
                     <h3>Received</h3>
                 </span>
-            </a>
-
-            <a href="{{ route('receivingeditreservations') }}" class="sidebar-link">
-                <span class="ri-edit-2-line">
-                    <h3>Edit Reservations</h3>
-                </span>
-            </a>
+            </a> 
 
             <form action="{{ route('logout') }}" method="POST" id="logout-form-navbar">
                 @csrf

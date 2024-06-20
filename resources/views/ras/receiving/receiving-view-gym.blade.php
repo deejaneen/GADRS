@@ -50,7 +50,7 @@
 
     <div class="row mb-3">
         <div class="col">
-            <button class="btn btn-primary" onclick="goBack()">Back</button>
+            <button class="btn btn-go-back" onclick="goBack()">Back</button>
         </div>
 
     </div>

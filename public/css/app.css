@@ -845,7 +845,7 @@ b {
 
 .container-gym-table {
     display: grid;
-    grid-template-rows: 90% 10%;
+    /* grid-template-rows: 90% 10%; */
     grid-template-columns: 30% 20% 20% 30%;
     background-color: var(--color-primary);
     position: relative;
@@ -1575,6 +1575,7 @@ b {
     margin-top: 50px;
     border-radius: 50px;
     max-width: calc(80%);
+    
     box-sizing: border-box;
     display: flex;
     justify-content: center;
@@ -1603,7 +1604,11 @@ b {
     padding: 0;
     margin: 30px 30px 30px 30px;
     border-collapse: collapse;
-    width: 100%;
+}
+#DormReservationsTable th span,
+#GymReservationsTable th span{
+ display: inline-flex;
+ padding: 10px;
 }
 
 .home-reservation-table .reservation-table-home .toogle-btn {

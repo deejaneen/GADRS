@@ -73,8 +73,8 @@
                     <td>{{ $gym->price }}</td>
                     <td style="color:var(--color-orange);">{{ $gym->status }}</td>
                     <td>
-                        <a href="{{ route('cashier.viewPDFGym', $gym->id) }}" target="_blank" class="btn btn-primary btn-lg rounded-pill" id="receivingViewFormbtn" style="color: var(--color-orange);">
-                            PDF
+                        <a href="{{ route('cashier.viewPDFGym', $gym->id) }}" target="_blank" class="btn btn-generate-pdf rounded-pill" id="receivingViewFormbtn" >
+                           View PDF
                         </a>
                     </td>
                 </tr>
@@ -114,8 +114,8 @@
                     <td>{{ $dorm->occupant_type }}</td>
                     <td>{{ $dorm->price }}</td>
                     <td style="color:var(--color-orange);">{{ $dorm->status }}</td>
-                    <td> <a href="{{ route('cashier.viewPDFDorm', $dorm->id) }}" target="_blank" class="btn btn-primary btn-lg rounded-pill" id="receivingViewFormbtn" style="color: var(--color-orange);">
-                            PDF
+                    <td> <a href="{{ route('cashier.viewPDFDorm', $dorm->id) }}" target="_blank" class="btn btn-generate-pdf rounded-pill" id="receivingViewFormbtn">
+                           View PDF
                         </a></td>
                 </tr>
                 @endforeach

@@ -1,6 +1,5 @@
 @extends('layout.weblayout')
 
-
 @section('banner')
     <div class="container" id="contentcontainer">
         {{-- <div class="row login-success">
@@ -53,7 +52,7 @@
                         <div>
                             <h4 class="card-header text-center home">GYM</h4>
                         </div>
-                        <table class="table-home table-hover" id="GymReservationsTable" style="width: 100%">
+                        <table class="table-home table-hover" id="GymReservationsTable" >
                             <thead>
                                 <tr>
                                     <th scope="col">Reservation Number</th>
@@ -74,7 +73,7 @@
                                         <td>{{ date('g:i A', strtotime($gym->reservation_time_end)) }}</td>
                                         <td>{{ $gym->purpose }}</td>
                                         <td>₱{{ $gym->price }}</td>
-                                        <td>{{ $gym->status }}</td>
+                                        <td style="color: var(--color-orange);">{{ $gym->status }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -85,7 +84,7 @@
                         <div>
                             <h4 class="card-header text-center home">DORM</h4>
                         </div>
-                        <table class="table-home table-hover" id="DormReservationsTable" style="width: 100%">
+                        <table class="table-home table-hover" id="DormReservationsTable">
                             <thead>
                                 <tr>
                                     <th scope="col">Form Number</th>
@@ -106,7 +105,7 @@
                                         <td>{{ date('F j, Y', strtotime($dorm->reservation_end_date)) }}</td>
                                         <td>{{ date('g:i A', strtotime($dorm->reservation_end_time)) }}</td>
                                         <td>₱{{ $dorm->price }}</td>
-                                        <td>{{ $dorm->status }}</td>
+                                        <td style="color: var(--color-orange);">{{ $dorm->status }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -151,7 +150,5 @@
 
             });
         });
-
-     
     </script>
 @endsection

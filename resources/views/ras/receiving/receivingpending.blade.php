@@ -79,14 +79,14 @@
                 <td>{{ $gym->price }}</td>
                 <td style="color:var(--color-orange);">{{ $gym->status }}</td>
                 <td class="buttons">
-                    <a href="{{ route('receiving.editGym', $gym->id) }}" class="btn btn-primary btn-lg rounded-pill" id="receivingAssignNumberbtn" style="color: var(--color-orange);">
+                    <a href="{{ route('receiving.editGym', $gym->id) }}" class="btn btn-assign-number rounded-pill" id="receivingAssignNumberbtn">
                         Assign Number
                     </a>
-                    <a href="{{ route('receiving.viewGym', $gym->id) }}" class="btn btn-primary btn-lg rounded-pill" id="receivingViewFormbtn" style="color: var(--color-orange);">
-                        View
+                    <a href="{{ route('receiving.viewGym', $gym->id) }}" class="btn btn-view-details rounded-pill" id="receivingViewFormbtn" >
+                        View Details
                     </a>
-                    <a href="{{ route('receiving.viewPDF', $gym->id) }}" target="_blank" class="btn btn-primary btn-lg rounded-pill" id="receivingViewFormbtn" style="color: var(--color-orange);">
-                        PDF
+                    <a href="{{ route('receiving.viewPDF', $gym->id) }}" target="_blank" class="btn btn-generate-pdf rounded-pill" id="receivingViewFormbtn" >
+                        Generate PDF
                     </a>
                 </td>
             </tr>

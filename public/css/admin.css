@@ -654,6 +654,8 @@ main .recent-orders a {
     font-weight: 600;
 }
 
+
+
 #ReceivingPendingTable th,
 #AdminUserTable th,
 #AdminGymReservationTable th,
@@ -700,9 +702,44 @@ main .recent-orders a {
     color: var(--color-background);
 }
 
+.btn-confirm-payment.rounded-pill {
+    border: 1px solid var(--color-warning) !important;
+    font-size: 0.77em;
+    margin-right: 5px;
+    color: var(--color-warning);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-confirm-payment.rounded-pill:hover {
+    border: 1px solid var(--color-primary) !important;
+    background-color: var(--color-warning) !important;
+    color: var(--color-primary) !important;
+}
+
+.btn-view-details.rounded-pill,
+.btn-generate-pdf.rounded-pill {
+    border: 1px solid var(--color-background) !important;
+    font-size: 0.77em;
+    margin-right: 5px;
+    color: var(--color-background);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-view-details.rounded-pill:hover,
+.btn-generate-pdf.rounded-pill:hover {
+    border: 1px solid var(--color-primary) !important;
+    background-color: var(--color-background) !important;
+    color: var(--color-primary) !important;
+}
+
+
 .btn-delete-profile.rounded-pill {
     border: 1px solid var(--color-danger) !important;
-    font-size: 0.67em;
+    font-size: 0.77em;
     margin-right: 5px;
     color: var(--color-danger);
 }
@@ -713,13 +750,18 @@ main .recent-orders a {
     color: var(--color-background) !important;
 }
 
-
+.btn-assign-number.rounded-pill,
 .btn-edit-profile.rounded-pill {
     border: 1px solid var(--color-orange);
-    font-size: 0.67em;
+    font-size: 0.77em;
     margin-right: 5px;
+    color: var(--color-orange);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
+.btn-assign-number.rounded-pill:hover,
 .btn-edit-profile.rounded-pill:hover {
     border: 1px solid var(--color-orange);
     background-color: var(--color-orange);
@@ -756,6 +798,8 @@ div.dt-container .dt-paging .dt-paging-button.disabled {
     background: var(--color-background) !important;
     opacity: 40%;
 }
+
+
 .btn-submit-reservation-modal,
 .btn-create-user-modal {
     border: 1px solid var(--color-success) !important;
@@ -763,12 +807,14 @@ div.dt-container .dt-paging .dt-paging-button.disabled {
     background: var(--color-background) !important;
     font-size: 1rem;
 }
+
 .btn-submit-reservation-modal:hover,
 .btn-create-user-modal:hover {
     border: 1px solid var(--color-success) !important;
     color: var(--color-background) !important;
     background: var(--color-success) !important;
 }
+
 .btn-clear-reservation-modal,
 .btn-clear-user-modal {
     border: 1px solid var(--color-danger) !important;
@@ -776,6 +822,7 @@ div.dt-container .dt-paging .dt-paging-button.disabled {
     background: var(--color-background) !important;
     font-size: 1rem;
 }
+
 .btn-clear-reservation-modal:hover,
 .btn-clear-user-modal:hover {
     border: 1px solid var(--color-danger) !important;
@@ -796,19 +843,43 @@ div.dt-container .dt-paging .dt-paging-button.disabled {
     background: var(--color-danger) !important;
 }
 
+.btn-go-back,
 .btn-save-edit-changes {
     border: 1px solid var(--color-orange) !important;
     color: var(--color-orange) !important;
     background: var(--color-primary) !important;
     font-size: 1rem;
 }
+.btn-confirm-payment-gym,
+.btn-confirm-payment-dorm{
+    border: 1px solid var(--color-success) !important;
+    color: var(--color-success) !important;
+    background: var(--color-primary) !important;
+    font-size: 1rem;
+}
+.btn-confirm-payment-gym:hover,
+.btn-confirm-payment-dorm:hover{
+    border: 1px solid var(--color-success) !important;
+    color: var(--color-primary) !important;
+    background: var(--color-success) !important;
+}
 
-
+.btn-go-back:hover,
 .btn-save-edit-changes:hover {
     border: 1px solid var(--color-orange) !important;
     color: var(--color-primary) !important;
     background: var(--color-orange) !important;
 }
+
+#ReceivingPendingTableCard .form-label {
+    color: var(--color-orange);
+}
+#ReceivingPendingTableCard .form-control:disabled {
+    color: var(--color-primary) !important;
+    background: var(--color-background) !important;
+    border: 1px solid var(--color-primary) !important;
+}
+
 
 .btn-primary {
     color: var(--color-primary) !important;
@@ -876,14 +947,7 @@ div.dt-container .dt-paging .dt-paging-button.disabled {
     margin-right: 10px;
 }
 
-#gymReservationTableConfirmbtn,
-#dormReservationTableConfirmbtn {
-    padding: 5px;
-    background: var(--color-warning);
-    border: none;
-    border-radius: 10px;
-    margin-right: 10px;
-}
+
 
 .info .ri-hotel-bed-fill,
 .info .ri-basketball-fill {
@@ -911,21 +975,6 @@ div.dt-container .dt-paging .dt-paging-button.disabled {
 #DormReservationCartTableCard,
 #ReceivingPendingTableCard {
     grid-column: 2 / span 2;
-}
-
-#receivingAssignNumberbtn,
-#receivingViewFormbtn {
-    padding: 5px;
-    background: var(--color-background);
-    border: none;
-    border-radius: 10px;
-    margin-right: 10px;
-    box-shadow: none;
-}
-
-#receivingAssignNumberbtn:hover,
-#receivingViewFormbtn:hover {
-    box-shadow: var(--color-warning) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
 }
 
 .buttons {
@@ -1069,6 +1118,7 @@ svg text.text-body {
         stroke-dasharray: 32% 0;
     }
 }
-.swal2-styled.swal2-deny{
-background: var(--color-light);
+
+.swal2-styled.swal2-deny {
+    background: var(--color-light);
 }

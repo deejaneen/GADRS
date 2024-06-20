@@ -33,14 +33,14 @@
                 <td>{{ $dorm->price }}</td>
                 <td style="color:var(--color-orange);">{{ $dorm->status }}</td>
                 <td class="buttons">
-                    <a href="{{ route('supply.editDorm', $dorm->id) }}" class="btn btn-primary btn-lg rounded-pill" id="receivingAssignNumberbtn" style="color: var(--color-orange);">
+                    <a href="{{ route('supply.editDorm', $dorm->id) }}" class="btn btn-assign-number rounded-pill" id="receivingAssignNumberbtn">
                         Assign Number
                     </a>
-                    <a href="{{ route('supply.viewDorm', $dorm->id) }}" class="btn btn-primary btn-lg rounded-pill" id="receivingViewFormbtn" style="color: var(--color-orange);">
-                        View
+                    <a href="{{ route('supply.viewDorm', $dorm->id) }}" class="btn btn-view-details rounded-pill" id="receivingViewFormbtn" >
+                        View Details
                     </a>
-                    <a href="{{ route('supply.viewPDF', $dorm->id) }}" target="_blank" class="btn btn-primary btn-lg rounded-pill" id="receivingViewFormbtn" style="color: var(--color-orange);">
-                        PDF
+                    <a href="{{ route('supply.viewPDF', $dorm->id) }}" target="_blank" class="btn btn-generate-pdf rounded-pill" id="receivingViewFormbtn" >
+                       Generate PDF
                     </a>
                 </td>
             </tr>
