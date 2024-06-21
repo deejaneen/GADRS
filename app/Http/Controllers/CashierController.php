@@ -4,18 +4,20 @@ namespace App\Http\Controllers;
 
 use App\Models\Gym;
 use App\Models\Dorm;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Barryvdh\DomPDF\Facade\Pdf;
+
 
 class CashierController extends Controller
 {
     public function index()
     {
-        $gymsCount = Gym::where('status', 'For Payment')->count();
-        $dormsCount = Dorm::where('status', 'For Payment')->count();
-        $gymsCountPaid = Gym::where('status', 'Paid')->count();
-        $dormsCountPaid = Dorm::where('status', 'Paid')->count();
+        $gymsCount = Gym::where('status', 'Received')->count();
+        $dormsCount = Dorm::where('status', 'Received')->count();
+        $gymsCountPaid = Gym::where('status', 'Reserved')->count();
+        $dormsCountPaid = Dorm::where('status', 'Reserved')->count();
         $gymsCountTotal = Gym::all()->count();
         $dormsCountTotal = Dorm::all()->count();
 
@@ -42,15 +44,27 @@ class CashierController extends Controller
     {
         // Validate input
         $validated = request()->validate([
-            'price' => 'required|min:3|max:12',
+            // 'price' => 'required|min:3|max:12',
             'status' => 'required',
         ]);
 
-        // Update the user with the validated data
+        // Update the gym reservation with the validated data
         $gym->update($validated);
 
         // Check if status is "Reserved"
         if ($gym->status === 'Reserved') {
+            // Find overlapping reservations
+            $overlappingReservations = Gym::where('reservation_date', $gym->reservation_date)
+                ->where('reservation_time_start', '<', $gym->reservation_time_end)
+                ->where('reservation_time_end', '>', $gym->reservation_time_start)
+                ->where('id', '!=', $gym->id) // Ensure we don't update the current reservation
+                ->get();
+
+            // Update the status of overlapping reservations to "Unavailable"
+            foreach ($overlappingReservations as $reservation) {
+                $reservation->update(['status' => 'Unavailable']);
+            }
+
             // Redirect with success message
             return redirect()->route('cashierpaid')->with('success', 'Payment confirmed successfully!');
         } else {
@@ -60,10 +74,14 @@ class CashierController extends Controller
     }
 
 
+
     public function editCashierGym(Gym $gym)
     {
+        $userDetails = User::select('first_name', 'middle_name', 'last_name')
+            ->where('id', $gym->employee_id)
+            ->first();
         // You can return the modal content as a view
-        return view('cashier.cashier-confirmpayment-gym', compact('gym'));
+        return view('cashier.cashier-confirmpayment-gym', compact('gym', 'userDetails'));
     }
 
     public function editCashierDorm(Dorm $dorm)

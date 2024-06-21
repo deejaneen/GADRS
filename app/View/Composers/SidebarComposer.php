@@ -1,4 +1,5 @@
 <?php
+
 namespace App\View\Composers;
 
 use Illuminate\View\View;
@@ -9,7 +10,10 @@ class SidebarComposer
 {
     public function compose(View $view)
     {
-        $gymsPendingCountView = Gym::where('status', 'Pending')->count();
+        $today = now()->startOfDay();
+        $gymsPendingCountView = Gym::where('status', 'Pending')
+            ->where('reservation_date', '>=', $today)
+            ->count();
         $dormsPendingCountView = Dorm::where('status', 'Pending')->count();
         // $totalPendingCount = $gymsPendingCount + $dormsPendingCount;
 
@@ -18,8 +22,8 @@ class SidebarComposer
         // $totalReceivedCount = $gymsReceivedCount + $dormsReceivedCount;
 
         $view->with('gymsPendingCountView', $gymsPendingCountView)
-             ->with('dormsPendingCountView', $dormsPendingCountView)
-             ->with('dormsReceivedCountView', $dormsReceivedCountView)
-             ->with('gymsReceivedCountView', $gymsReceivedCountView);
+            ->with('dormsPendingCountView', $dormsPendingCountView)
+            ->with('dormsReceivedCountView', $dormsReceivedCountView)
+            ->with('gymsReceivedCountView', $gymsReceivedCountView);
     }
 }

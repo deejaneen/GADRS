@@ -4,17 +4,21 @@ namespace App\Http\Controllers;
 
 use App\Models\Gym;
 use App\Models\Dorm;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
-
+use Illuminate\Support\Facades\Auth;
 
 class ReceivingController extends Controller
 {
 
     public function index()
     {
-        $gymsPendingCount = Gym::where('status', 'Pending')->count();
+        $today = now()->startOfDay();
+        $gymsPendingCount = Gym::where('status', 'Pending')
+            ->where('reservation_date', '>=', $today)
+            ->count();
         $dormsPendingCount = Dorm::where('status', 'Pending')->count();
         $totalReservationCount = $gymsPendingCount + $dormsPendingCount;
 
@@ -44,9 +48,13 @@ class ReceivingController extends Controller
 
     public function receivingpending()
     {
-
-        $gymsPendingCount = Gym::where('status', 'Pending')->count();
-        $gyms = Gym::where('status', 'Pending')->get();
+        $today = now()->startOfDay();
+        $gymsPendingCount  = Gym::where('status', 'Pending')
+            ->where('reservation_date', '>=', $today)
+            ->count();
+        $gyms = Gym::where('status', 'Pending')
+            ->where('reservation_date', '>=', $today)
+            ->get();
 
         return view('ras.receiving.receivingpending', [
             'gymsPendingCount' => $gymsPendingCount,
@@ -121,13 +129,19 @@ class ReceivingController extends Controller
 
     public function editGym(Gym $gym)
     {
+        $userDetails = User::select('first_name', 'middle_name', 'last_name')
+            ->where('id', $gym->employee_id)
+            ->first();
         // You can return the modal content as a view
-        return view('ras.receiving.receiving-addnumber', compact('gym'));
+        return view('ras.receiving.receiving-addnumber', compact('gym', 'userDetails'));
     }
 
     public function viewGym(Gym $gym)
     {
-        return view('ras.receiving.receiving-view-gym', compact('gym'));
+        $userDetails = User::select('first_name', 'middle_name', 'last_name')
+            ->where('id', $gym->employee_id)
+            ->first();
+        return view('ras.receiving.receiving-view-gym', compact('gym', 'userDetails'));
     }
 
     public function viewGymPDF(Gym $gym)

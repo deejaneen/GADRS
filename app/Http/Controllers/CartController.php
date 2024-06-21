@@ -30,14 +30,16 @@ class CartController extends Controller
 
         $gymcarts = GymCart::where('employee_id', $userId)
             ->where('status', 'OnCart')
-            ->whereBetween('created_at', [$today, $nextDay])
-            ->orderBy('created_at', 'DESC')
+            ->where('reservation_date', '>=', $today)
+            ->orderBy('reservation_date', 'ASC')
+            ->orderBy('reservation_time_start', 'ASC')
             ->get();
 
         $dormcarts = DormCart::where('employee_id', $userId)
             ->where('status', 'OnCart')
-            ->whereBetween('created_at', [$today, $nextDay])
-            ->orderBy('created_at', 'DESC')
+            ->where('reservation_start_date', '>=', $today)
+            ->orderBy('reservation_start_date', 'ASC')
+            ->orderBy('reservation_start_time', 'ASC')
             ->get();
 
         return view('cart_checkout', ['gymcarts' => $gymcarts, 'dormcarts' => $dormcarts]);
