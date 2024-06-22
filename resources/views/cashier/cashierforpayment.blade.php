@@ -130,8 +130,8 @@
                         <a href="{{ route('cashier.editCashierDorm', $dorm->id) }}" class="btn btn-confirm-payment rounded-pill" id="dormReservationTableConfirmbtn">
                             Confirm Payment
                         </a>
-                        <a href="{{ route('cashier.viewPDFDorm', $dorm->id) }}" target="_blank" class="btn btn-generate-pdf rounded-pill" id="receivingViewFormbtn" style="color: var(--color-orange);">
-                            PDF
+                        <a href="{{ route('cashier.viewPDFDorm', $dorm->id) }}" target="_blank" class="btn btn-generate-pdf rounded-pill" id="receivingViewFormbtn">
+                            Generate PDF
                         </a>
                         <!-- <button class="btn btn-primary btn-lg rounded-pill" id="dormReservationTableConfirmbtn"> Confirm Payment</button> -->
                     </td>

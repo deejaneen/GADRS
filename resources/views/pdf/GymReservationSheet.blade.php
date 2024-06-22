@@ -930,18 +930,24 @@
     </table>
 
     <p class="c1 c11"><span class="c3"></span></p>
-    <p class="c1"><span class="c15">O.R. NO.: _____</span><span class="c26 c15">{{ $gym->or_number }}</span><span class="c15">______ &nbsp; &nbsp;O.R. DATE: ___</span><span class="c15 c26">{{ $gym->or_date }}</span><span class="c3">________&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+    <p class="c1"><span class="c15">O.R. NO.: _____</span><span class="c26 c15">{{ $gym->or_number }}</span><span class="c15">______ &nbsp; &nbsp;O.R. DATE: ___</span><span class="c15 c26">{{ $gym->or_date }}</span><span class="c3">________</span></p>
     <p class="c1 c11 c28"><span class="c3"></span></p>
-    <p class="c1 c34"><span class="c3">I have read and agreed to the terms and conditions: </span></p>
     <p class="c1 c11"><span class="c3"></span></p>
-    <p class="c1"><span class="c3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <p class="c1"><span class="c3">I have read and agreed to the terms and conditions: </span></p>
+    <p class="c1 c11"><span class="c3"></span></p>
+    <p class="c1 c11"><span class="c3"></span></p>
+    <p class="c1 c11"><span class="c3"></span></p>
+    <p class="c1"><span class="c3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             &nbsp;_______________________________________</span></p>
     <p class="c1"><span class="c3">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Signature over Printed Name of
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Signature over Printed Name of
             Representative&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
     </p>
+    <p class="c1 c11"><span class="c3"></span></p>
+    <p class="c1 c11"><span class="c3"></span></p>
+    <p class="c1 c11"><span class="c3"></span></p>
+    <p class="c1 c11"><span class="c3"></span></p>
     <p class="c1 c11"><span class="c3"></span></p>
     <p class="c1"><span class="c3">JOJIE G. GAWON</span></p>
     <p class="c1"><span class="c3">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Cashier</span></p>

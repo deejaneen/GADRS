@@ -73,20 +73,7 @@
         {{-- ------------------END OF TOP------------------ --}}
 
         {{-- ------------------ END OF RECENT UPDATES ------------------ --}}
-        <div class="sales-analytics">
-            <h2>Sales Analytics</h2>
-
-            <div class="item add-product">
-                <div class="icon">
-                    <span class="ri-add-line"></span>
-                </div>
-                <div class="right">
-                    <div class="info">
-                        <h3>ADD RESERVATION</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
+      
     </div>
 @endsection
 <script>

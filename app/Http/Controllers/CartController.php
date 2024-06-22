@@ -142,7 +142,7 @@ class CartController extends Controller
                 return redirect()->back()->withErrors(['error' => 'The maximum items to be put into a form is limited to eight only.']);
             }
 
-
+            $userId = Auth::id();
             $formGroupNumber = $this->generateFormGroupNumber(); // Generate a common identifier
 
             foreach ($cartIds as $cartId) {
@@ -153,6 +153,8 @@ class CartController extends Controller
                     ->where('reservation_time_end', $gymCart->reservation_time_end)
                     ->where('occupant_type', $gymCart->occupant_type)
                     ->where('purpose', $gymCart->purpose)
+                    ->where('employee_id', $userId)
+                    
                     ->exists();
 
                 if ($check) {

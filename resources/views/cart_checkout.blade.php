@@ -39,7 +39,7 @@
                             <th scope="col" style="width: 10%">Buttons</th>
                             <th scope="col" style="width: 60%"> Reservation Date</th>
                             <th scope="col" style="width: 10%">Price</th>
-                            <th scope="col"style="width: 10%">Dorm</th>
+                            <th scope="col"style="width: 10%">Purpose</th>
                             <th scope="col" style="width: 10%">Checkbox</th>
 
                         </tr>
@@ -137,6 +137,7 @@
                             <th scope="col" style="width: 10%">Buttons</th>
                             <th scope="col" style="width: 60%"> Reservation Date</th>
                             <th scope="col" style="width: 10%">Price</th>
+                            <th scope="col" style="width: 10%">No of Beds</th>
                             <th scope="col"style="width: 10%">Dorm</th>
                             <th scope="col" style="width: 10%">Checkbox</th>
 
@@ -159,6 +160,7 @@
                                     {{ date('F j, Y', strtotime($dormcart->reservation_end_date)) }} -
                                     {{ date('g:i A', strtotime($dormcart->reservation_end_time)) }}</td>
                                 <td>{{ $dormcart->price }}</td>
+                                <td>{{ $dormcart->quantity }}</td>
                                 <td>{{ $dormcart->gender }}</td>
                                 <td> <input type="checkbox" name="dorm_cart_ids[]"
                                         class="reservation-checkbox dorm-cart-checkbox" value="{{ $dormcart->id }}"
