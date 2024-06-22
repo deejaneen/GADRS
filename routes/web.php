@@ -12,6 +12,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReceivingController;
 use App\Http\Controllers\CashierController;
+use App\Http\Controllers\ForgetPasswordManager;
 use App\Http\Controllers\PDFController;
 use App\Http\Controllers\SupplyController;
 use App\Http\Controllers\UserController;
@@ -148,11 +149,16 @@ Route::middleware(['auth', 'verified', 'checkRole:Supply', 'preventCaching'])->g
 Route::get('generate-dorm-pdf', [PDFController::class, 'generatedormPDF']);
 Route::get('generate-gym-pdf', [PDFController::class, 'generategymPDF']);
 Route::get('/tite', function () {
-    return view('pdf.DormReservationFormSheet1');
+    return view('pdf.OrderofPaymentGym');
 });
 Route::get('/tite1', function () {
     return view('pdf.GymReservationFormSheet1');
 });
+
+Route::get("/forget-password", [ForgetPasswordManager::class, "forgetPassword"])->name("forget.password");
+Route::post("/forget-password", [ForgetPasswordManager::class, "forgetPasswordPost"])->name("forget.password.post");
+Route::get("/reset-password/{token}", [ForgetPasswordManager::class, "resetPassword"])->name("reset.password");
+Route::post("/reset-password", [ForgetPasswordManager::class, "resetPasswordPost"])->name("reset.password.post");
 
 //SMTP Tester
 // Route::get('/send-test-email', function () {

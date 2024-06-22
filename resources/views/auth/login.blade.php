@@ -22,7 +22,7 @@
                     @enderror
                 </div>
                 <div class="forgot">
-                    <a href="#" class="forgot-password">
+                    <a href="{{route("forget.password")}}" class="forgot-password">
                         Forgot password?
                     </a>
                 </div>

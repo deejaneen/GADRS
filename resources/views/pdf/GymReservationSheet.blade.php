@@ -693,17 +693,14 @@
         <tr class="c40">
             <td class="c0" colspan="1" rowspan="1">
                 <p class="c9 c11"><span class="c3"></span></p>
-                <p class="c1"> <span class="c3">&nbsp; &nbsp; &nbsp;BASKETBALL&nbsp;</span> <span class="custom-checkbox"></span></p>
-
-                <!-- <p class="c1"><span class="c3">&nbsp; &nbsp; &nbsp;BASKETBALL</span><input type="checkbox" checked style="margin-right: 10px;"></p> -->
+                <p class="c1"><span class="c3">&nbsp; &nbsp; &nbsp;BASKETBALL</span><span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 13.00px; height: 13.40px;"><img alt="" src="images/image1.png" style="width: 13.00px; height: 13.40px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title=""></span></p>
             </td>
             <td class="c27" colspan="1" rowspan="3">
                 <p class="c1"><span class="c3">&nbsp; &nbsp; </span></p>
                 <p class="c1"><span class="c3">&nbsp; &nbsp; &nbsp; &nbsp; </span></p>
-                <p class="c1"><span class="c3">&nbsp; &nbsp; &nbsp; &nbsp;WITH LIGHTS&nbsp;</span><span class="custom-checkbox"></span>
-                </p>
+                <p class="c1"><span class="c3">&nbsp; &nbsp; &nbsp; &nbsp;WITH LIGHTS</span><span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 13.00px; height: 13.07px;"><img alt="" src="images/image1.png" style="width: 13.00px; height: 13.07px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title=""></span></p>
                 <p class="c1"><span class="c3">&nbsp; </span></p>
-                <p class="c1"><span class="c3">&nbsp; &nbsp; &nbsp; &nbsp;WITHOUT LIGHTS&nbsp;</span><span class="custom-checkbox"></span></p>
+                <p class="c1"><span class="c3">&nbsp; &nbsp; &nbsp; &nbsp;WITHOUT LIGHTS</span><span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 13.00px; height: 13.07px;"><img alt="" src="images/image1.png" style="width: 13.00px; height: 13.07px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title=""></span></p>
                 <p class="c1 c11"><span class="c3"></span></p>
                 <p class="c1 c11"><span class="c3"></span></p>
             </td>
@@ -711,13 +708,13 @@
         <tr class="c41">
             <td class="c0" colspan="1" rowspan="1">
                 <p class="c1"><span class="c3">&nbsp; &nbsp; </span></p>
-                <p class="c1"><span class="c3">&nbsp; &nbsp; &nbsp;VOLLEYBALL&nbsp;</span><span class="custom-checkbox"></span></p>
+                <p class="c1"><span class="c3">&nbsp; &nbsp; &nbsp;VOLLEYBALL</span><span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 13.00px; height: 13.07px;"><img alt="" src="images/image1.png" style="width: 13.00px; height: 13.07px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title=""></span></p>
             </td>
         </tr>
         <tr class="c45">
             <td class="c0" colspan="1" rowspan="1">
                 <p class="c1"><span class="c3">&nbsp; &nbsp;</span></p>
-                <p class="c1"><span class="c3">&nbsp; &nbsp; &nbsp;BADMINTON&nbsp;</span><span class="custom-checkbox"></span></p>
+                <p class="c1"><span class="c3">&nbsp; &nbsp; &nbsp;BADMINTON</span><span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 13.00px; height: 13.07px;"><img alt="" src="images/image1.png" style="width: 13.00px; height: 13.07px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title=""></span></p>
             </td>
         </tr>
         <tr class="c48">
@@ -735,119 +732,6 @@
     <p class="c10"><span class="c3">NOTE: Rates are based on an hourly basis as indicated in the rental rate
             table. Any portion of an hour reserved will be charged as a full hour.</span></p>
     <p class="c1 c11"><span class="c3"></span></p><a id="t.e3fec6736b576cecf229b55f7511ca0582b42f56"></a><a id="t.2"></a>
-    <!-- <table class="c31">
-        <tr class="c13">
-            <td class="c19" colspan="1" rowspan="1">
-                <p class="c9"><span class="c3">INCLUSIVE DATES OF USE</span></p>
-            </td>
-            <td class="c20" colspan="1" rowspan="1">
-                <p class="c9"><span class="c3">TIME</span></p>
-            </td>
-            <td class="c6" colspan="1" rowspan="1">
-                <p class="c9"><span class="c3">ASSESSMENT</span></p>
-            </td>
-        </tr>
-        <tr class="c13">
-            <td class="c19" colspan="1" rowspan="1">
-                <p class="c9"><span class="c3">$INCLUSIVEDATE1</span></p>
-            </td>
-            <td class="c20" colspan="1" rowspan="1">
-                <p class="c9"><span class="c3">$TIME1</span></p>
-            </td>
-            <td class="c6" colspan="1" rowspan="1">
-                <p class="c9"><span class="c3">$ASSESSMENT1</span></p>
-            </td>
-        </tr>
-        <tr class="c13">
-            <td class="c19" colspan="1" rowspan="1">
-                <p class="c9"><span class="c3">$INCLUSIVEDATE2</span></p>
-            </td>
-            <td class="c20" colspan="1" rowspan="1">
-                <p class="c9"><span class="c3">$TIME2</span></p>
-            </td>
-            <td class="c6" colspan="1" rowspan="1">
-                <p class="c9"><span class="c3">$ASSESSMENT2</span></p>
-            </td>
-        </tr>
-        <tr class="c13">
-            <td class="c19" colspan="1" rowspan="1">
-                <p class="c9"><span class="c3">$INCLUSIVEDATE3</span></p>
-            </td>
-            <td class="c20" colspan="1" rowspan="1">
-                <p class="c9"><span class="c3">$TIME3</span></p>
-            </td>
-            <td class="c6" colspan="1" rowspan="1">
-                <p class="c9"><span class="c3">$ASSESSMENT3</span></p>
-            </td>
-        </tr>
-        <tr class="c44">
-            <td class="c19" colspan="1" rowspan="1">
-                <p class="c9"><span class="c3">$INCLUSIVEDATE4</span></p>
-            </td>
-            <td class="c20" colspan="1" rowspan="1">
-                <p class="c9"><span class="c3">$TIME4</span></p>
-            </td>
-            <td class="c6" colspan="1" rowspan="1">
-                <p class="c9"><span class="c3">$ASSESSMENT4</span></p>
-            </td>
-        </tr>
-        <tr class="c13">
-            <td class="c19" colspan="1" rowspan="1">
-                <p class="c9"><span class="c3">$INCLUSIVEDATE5</span></p>
-            </td>
-            <td class="c20" colspan="1" rowspan="1">
-                <p class="c9"><span class="c3">$TIME5</span></p>
-            </td>
-            <td class="c6" colspan="1" rowspan="1">
-                <p class="c9"><span class="c3">$ASSESSMENT5</span></p>
-            </td>
-        </tr>
-        <tr class="c13">
-            <td class="c19" colspan="1" rowspan="1">
-                <p class="c9"><span class="c3">$INCLUSIVEDATE6</span></p>
-            </td>
-            <td class="c20" colspan="1" rowspan="1">
-                <p class="c9"><span class="c3">$TIME6</span></p>
-            </td>
-            <td class="c6" colspan="1" rowspan="1">
-                <p class="c9"><span class="c3">$ASSESSMENT6</span></p>
-            </td>
-        </tr>
-        <tr class="c13">
-            <td class="c19" colspan="1" rowspan="1">
-                <p class="c9"><span class="c3">$INCLUSIVEDATE7</span></p>
-            </td>
-            <td class="c20" colspan="1" rowspan="1">
-                <p class="c9"><span class="c3">$TIME7</span></p>
-            </td>
-            <td class="c6" colspan="1" rowspan="1">
-                <p class="c9"><span class="c3">$ASSESSMENT7</span></p>
-            </td>
-        </tr>
-        <tr class="c13">
-            <td class="c19" colspan="1" rowspan="1">
-                <p class="c9"><span class="c3">$INCLUSIVEDATE8</span></p>
-            </td>
-            <td class="c20" colspan="1" rowspan="1">
-                <p class="c9"><span class="c3">$TIME8</span></p>
-            </td>
-            <td class="c6" colspan="1" rowspan="1">
-                <p class="c9"><span class="c3">$ASSESSMENT8</span></p>
-            </td>
-        </tr>
-        <tr class="c36">
-            <td class="c22" colspan="1" rowspan="1">
-                <p class="c9 c11"><span class="c3"></span></p>
-            </td>
-            <td class="c20" colspan="1" rowspan="1">
-                <p class="c1"><span class="c3">TOTAL : </span></p>
-            </td>
-            <td class="c6" colspan="1" rowspan="1">
-                <p class="c1"><span class="c3">Php &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                        &nbsp;</span></p>
-            </td>
-        </tr>
-    </table> -->
     <table class="c31">
         <tr class="c13">
             <td class="c19" colspan="1" rowspan="1">
@@ -903,18 +787,24 @@
     </table>
 
     <p class="c1 c11"><span class="c3"></span></p>
-    <p class="c1"><span class="c15">O.R. NO.: _____</span><span class="c26 c15">{{ $gym->or_number }}</span><span class="c15">______ &nbsp; &nbsp;O.R. DATE: ___</span><span class="c15 c26">{{ $gym->or_date }}</span><span class="c3">________&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+    <p class="c1"><span class="c15">O.R. NO.: _____</span><span class="c26 c15">{{ $gym->or_number }}</span><span class="c15">______ &nbsp; &nbsp;O.R. DATE: ___</span><span class="c15 c26">{{ $gym->or_date }}</span><span class="c3">________</span></p>
     <p class="c1 c11 c28"><span class="c3"></span></p>
-    <p class="c1 c34"><span class="c3">I have read and agreed to the terms and conditions: </span></p>
     <p class="c1 c11"><span class="c3"></span></p>
-    <p class="c1"><span class="c3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <p class="c1"><span class="c3">I have read and agreed to the terms and conditions: </span></p>
+    <p class="c1 c11"><span class="c3"></span></p>
+    <p class="c1 c11"><span class="c3"></span></p>
+    <p class="c1 c11"><span class="c3"></span></p>
+    <p class="c1"><span class="c3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             &nbsp;_______________________________________</span></p>
     <p class="c1"><span class="c3">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Signature over Printed Name of
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   Signature over Printed Name of
             Representative&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
     </p>
+    <p class="c1 c11"><span class="c3"></span></p>
+    <p class="c1 c11"><span class="c3"></span></p>
+    <p class="c1 c11"><span class="c3"></span></p>
+    <p class="c1 c11"><span class="c3"></span></p>
     <p class="c1 c11"><span class="c3"></span></p>
     <p class="c1"><span class="c3">JOJIE G. GAWON</span></p>
     <p class="c1"><span class="c3">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Cashier</span></p>
