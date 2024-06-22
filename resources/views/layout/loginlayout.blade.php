@@ -45,6 +45,7 @@
     <div class="container">
         @yield('loginform')
         @yield('registerform')
+        @yield('content')
     </div>
     {{-- Stylesheet for font from google fonts --}}
     <script>
