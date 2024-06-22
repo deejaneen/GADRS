@@ -71,7 +71,7 @@
             <div class="col-4">
                 <label for="status" class="form-label">Status</label>
                 <select class="form-control" id="status" name="status" required>
-                    <option value="Received" {{ $gym->status === 'Received' ? 'selected' : '' }}>Received</option>
+                    <option value="Received" {{ $gym->status === 'Received' ? 'selected' : '' }}>For Payment</option>
                     <option value="Reserved" {{ $gym->status === 'Reserved' ? 'selected' : '' }}>Paid</option>
                 </select>
                 @error('status')

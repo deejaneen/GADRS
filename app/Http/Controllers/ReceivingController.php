@@ -87,9 +87,9 @@ class ReceivingController extends Controller
     {
         // Validate input
         $validated = request()->validate([
-            'reservation_number' => 'required|min:3|max:7',
+            'reservation_number' => 'required|min:3|max:7|unique:gym-reservations,reservation_number,' . $gym->id,
             'status' => 'required',
-            'or_number' => 'required|min:3|max:7',
+            'or_number' => 'required|min:3|max:7|unique:gym-reservations,or_number,' . $gym->id,
             'or_date' => 'required|date', // Ensure or_date is a valid date
             // 'reservation_date' => 'required|date',
         ]);

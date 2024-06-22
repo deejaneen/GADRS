@@ -50,19 +50,18 @@
     </script>
     @endif
     @if (session('error'))
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: '{{ session('
-                error ') }}',
-                customClass: {
-                    popup: 'small-modal'
-                }
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: '{{ session('error') }}',
+                    customClass: {
+                        popup: 'small-modal'
+                    }
+                });
             });
-        });
-    </script>
+        </script>
     @endif
     <div class="main-container">
         @include('cashier.cashier-sidebar')

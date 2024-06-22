@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\Session;
 
 
 class CashierController extends Controller
@@ -106,6 +107,28 @@ class CashierController extends Controller
             'status' => 'required',
         ]);
 
+        if ($validated['status'] === 'Reserved') {
+            // Calculate the total reservation days
+            $startDate = new \DateTime($dorm->reservation_start_date);
+            $endDate = new \DateTime($dorm->reservation_end_date);
+            $endDate->modify('+1 day'); // Include the end date in the range
+            $interval = \DateInterval::createFromDateString('1 day');
+            $dateRange = new \DatePeriod($startDate, $interval, $endDate);
+
+            // Check availability for each date in the reservation period
+            foreach ($dateRange as $date) {
+                $bed = DB::table('beds')
+                    ->where('date', $date->format('Y-m-d'))
+                    ->where('gender', $dorm->gender)
+                    ->first();
+
+                if ($bed && $bed->availability < $dorm->quantity) {
+                    Session::flash('error', 'Insufficient availability on ' . $date->format('Y-m-d'));
+                    return redirect()->back();
+                }
+            }
+        }
+
         // Update the user with the validated data
         $dorm->update($validated);
 
@@ -115,7 +138,7 @@ class CashierController extends Controller
             return redirect()->route('cashierpaid')->with('success', 'Payment confirmed successfully!');
         } else {
             // Redirect back with appropriate success message
-            return redirect()->route('cashierforpayment')->with('success', 'Payment updated successfully, status is not Reserved.');
+            return redirect()->route('cashierforpayment')->with('success', 'Payment updated successfully, status is not Paid.');
         }
     }
 

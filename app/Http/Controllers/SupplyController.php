@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Dorm;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\DB;
+
 
 
 class SupplyController extends Controller
@@ -34,7 +36,7 @@ class SupplyController extends Controller
     {
         // Validate input
         $validated = request()->validate([
-            'Form_number' => 'required|min:3|max:40',
+            'Form_number' => 'required|min:3|max:40|unique:dorm_reservations,Form_number,' . $dorm->id,
             'status' => 'required',
         ]);
 
@@ -54,13 +56,19 @@ class SupplyController extends Controller
 
     public function editDorm(Dorm $dorm)
     {
+        $userDetails = User::select('first_name', 'middle_name', 'last_name')
+            ->where('id', $dorm->employee_id)
+            ->first();
         // You can return the modal content as a view
-        return view('ras.supply.supply-addnumber', compact('dorm'));
+        return view('ras.supply.supply-addnumber', compact('dorm', 'userDetails'));
     }
 
     public function viewDorm(Dorm $dorm)
     {
-        return view('ras.supply.supply-view-gym', compact('dorm'));
+        $userDetails = User::select('first_name', 'middle_name', 'last_name')
+            ->where('id', $dorm->employee_id)
+            ->first();
+        return view('ras.supply.supply-view-gym', compact('dorm', 'userDetails'));
     }
 
     public function viewDormPDF(Dorm $dorm)

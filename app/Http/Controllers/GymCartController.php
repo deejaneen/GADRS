@@ -40,24 +40,23 @@ class GymCartController extends Controller
 
         ]);
 
-        $userId = Auth::id(); 
+        $userId = Auth::id();
 
-        // Check if there is a similar gym reservation
+        // Check if there is a similar gym reservation with the same purpose
         $existingReservation = GymCart::where('reservation_date', $validatedData['selectedDateText'])
             ->where('reservation_time_start', $validatedData['timepicker-am'])
             ->where('reservation_time_end', $validatedData['timepicker-pm'])
             ->where('occupant_type', $validatedData['employee_type'])
             ->where('purpose', $validatedData['purpose'])
-            ->where('employee_id', '==', $userId) 
+            ->where('employee_id', $userId)
             ->exists();
 
+        // Check if there is a similar gym reservation without considering the purpose
         $existingReservationWithoutPurpose = GymCart::where('reservation_date', $validatedData['selectedDateText'])
             ->where('reservation_time_start', $validatedData['timepicker-am'])
             ->where('reservation_time_end', $validatedData['timepicker-pm'])
             ->where('occupant_type', $validatedData['employee_type'])
-            ->where('occupant_type', $validatedData['employee_type'])
-            ->where('employee_id', '==', $userId) 
-            // ->where('purpose', $validatedData['purpose'])
+            ->where('employee_id', $userId)
             ->exists();
 
 

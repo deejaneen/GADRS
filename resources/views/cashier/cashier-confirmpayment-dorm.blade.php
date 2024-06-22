@@ -78,8 +78,9 @@
             <div class="col-4">
                 <label for="status" class="form-label">Status</label>
                 <select class="form-control" id="status" name="status" required>
-                    <option value="Received" {{ $dorm->status === 'Received' ? 'selected' : '' }}>Received</option>
+                    <option value="Received" {{ $dorm->status === 'Received' ? 'selected' : '' }}>For Payment</option>
                     <option value="Reserved" {{ $dorm->status === 'Reserved' ? 'selected' : '' }}>Paid</option>
+                    <option value="Unavailable" {{ $dorm->status === 'Unavailable' ? 'selected' : '' }}>Cancel</option>
                 </select>
                 @error('status')
                 <span class="text-danger fs-6">{{ $message }}</span>
@@ -109,7 +110,7 @@
             // Display confirmation dialog
             Swal.fire({
                 title: "Are you sure you want to save these configurations?",
-                text: "Once the reservation payment is confirmed(Paid), it will be uneditable.",
+                text: "Once the reservation payment is confirmed(Paid) or cancelled(Cancel) it will be uneditable.",
                 showCancelButton: true,
                 confirmButtonText: "Yes",
                 customClass: {

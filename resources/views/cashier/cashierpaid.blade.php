@@ -71,10 +71,16 @@
                     <td>{{ $gym->reservation_time_end }}</td>
                     <td>{{ $gym->occupant_type }}</td>
                     <td>{{ $gym->price }}</td>
-                    <td style="color:var(--color-orange);">{{ $gym->status }}</td>
+                    <td style="color:var(--color-orange);">
+                        @if ($gym->status === 'Reserved')
+                        Paid
+                        @else
+                        {{ $gym->status }}
+                        @endif
+                    </td>
                     <td>
-                        <a href="{{ route('cashier.viewPDFGym', $gym->id) }}" target="_blank" class="btn btn-generate-pdf rounded-pill" id="receivingViewFormbtn" >
-                           View PDF
+                        <a href="{{ route('cashier.viewPDFGym', $gym->id) }}" target="_blank" class="btn btn-generate-pdf rounded-pill" id="receivingViewFormbtn">
+                            View PDF
                         </a>
                     </td>
                 </tr>
@@ -113,9 +119,15 @@
                     <td>{{ $dorm->quantity }} {{ $dorm->gender }} </td>
                     <td>{{ $dorm->occupant_type }}</td>
                     <td>{{ $dorm->price }}</td>
-                    <td style="color:var(--color-orange);">{{ $dorm->status }}</td>
+                    <td style="color:var(--color-orange);">
+                        @if ($dorm->status === 'Reserved')
+                        Paid
+                        @else
+                        {{ $dorm->status }}
+                        @endif
+                    </td>
                     <td> <a href="{{ route('cashier.viewPDFDorm', $dorm->id) }}" target="_blank" class="btn btn-generate-pdf rounded-pill" id="receivingViewFormbtn">
-                           View PDF
+                            View PDF
                         </a></td>
                 </tr>
                 @endforeach

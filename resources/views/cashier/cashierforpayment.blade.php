@@ -119,7 +119,13 @@
                     <td>{{ $dorm->quantity }} {{ $dorm->gender }} </td>
                     <td>{{ $dorm->occupant_type }}</td>
                     <td>{{ $dorm->price }}</td>
-                    <td style="color:var(--color-orange);">{{ $dorm->status }}</td>
+                    <td style="color:var(--color-orange);">
+                        @if ($dorm->status === 'Received')
+                        For Payment
+                        @else
+                        {{ $dorm->status }}
+                        @endif
+                    </td>
                     <td>
                         <a href="{{ route('cashier.editCashierDorm', $dorm->id) }}" class="btn btn-confirm-payment rounded-pill" id="dormReservationTableConfirmbtn">
                             Confirm Payment
