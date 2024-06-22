@@ -70,7 +70,7 @@ class CashierController extends Controller
             return redirect()->route('cashierpaid')->with('success', 'Payment confirmed successfully!');
         } else {
             // Redirect back with appropriate success message
-            return redirect()->route('cashierforpayment')->with('success', 'Payment updated successfully, status is not Reserved.');
+            return redirect()->route('cashierforpayment')->with('success', 'Payment updated successfully, status is not Paid.');
         }
     }
 
@@ -180,10 +180,33 @@ class CashierController extends Controller
     {
         // Get all Gym reservations with the same form_group_number
         $gymReservations = Gym::where('form_group_number', $gym->form_group_number)->get();
-        $data = [
-            'gym' => $gym,
-            'gymReservations' => $gymReservations,
-        ];
+
+         // Initialize boolean variables
+         $isBasketball = false;
+         $isVolleyball = false;
+         $isBadminton = false;
+         $numberOfCourtsSeparate = 0;
+ 
+         foreach ($gymReservations as $reservation) {
+             if ($reservation->purpose === "Basketball") {
+                 $isBasketball = true;
+             } elseif ($reservation->purpose === "Volleyball") {
+                 $isVolleyball = true;
+             } elseif ($reservation->purpose === "Badminton") {
+                 $isBadminton = true;
+                 $numberOfCourtsSeparate = $reservation->number_of_courts;
+             }
+         }
+ 
+         $data = [
+             'gym' => $gym,
+             'gymReservations' => $gymReservations,
+             'isBasketball' => $isBasketball,
+             'isVolleyball' => $isVolleyball,
+             'isBadminton' => $isBadminton,
+             'numberOfCourtsSeparate' => $numberOfCourtsSeparate,
+         ];
+       
         $marginInMillimeters = 0.5 * 25.4; // Convert inches to millimeters
 
         // Pass options for paper size and margins

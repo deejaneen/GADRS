@@ -12,7 +12,7 @@
                 <span class="ri-key-2-line"></span>
                 <div class="middle">
                     <div class="left">
-                        <h3>Total Reservations - Pending</h3>
+                        <h3>Total Reservations - Pending(Gym and Dorm)</h3>
                         <h1>
                             {{ $totalReservationCount }}
                         </h1>
