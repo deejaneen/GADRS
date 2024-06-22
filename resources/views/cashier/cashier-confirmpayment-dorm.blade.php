@@ -80,7 +80,7 @@
                 <select class="form-control" id="status" name="status" required>
                     <option value="Received" {{ $dorm->status === 'Received' ? 'selected' : '' }}>For Payment</option>
                     <option value="Reserved" {{ $dorm->status === 'Reserved' ? 'selected' : '' }}>Paid</option>
-                    <option value="Unavailable" {{ $dorm->status === 'Unavailable' ? 'selected' : '' }}>Cancel</option>
+                    <option value="Cancelled" {{ $dorm->status === 'Cancelled' ? 'selected' : '' }}>Cancel</option>
                 </select>
                 @error('status')
                 <span class="text-danger fs-6">{{ $message }}</span>

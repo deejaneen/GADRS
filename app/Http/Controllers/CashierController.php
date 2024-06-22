@@ -61,9 +61,9 @@ class CashierController extends Controller
                 ->where('id', '!=', $gym->id) // Ensure we don't update the current reservation
                 ->get();
 
-            // Update the status of overlapping reservations to "Unavailable"
+            // Update the status of overlapping reservations to "Cancelled"
             foreach ($overlappingReservations as $reservation) {
-                $reservation->update(['status' => 'Unavailable']);
+                $reservation->update(['status' => 'Cancelled']);
             }
 
             // Redirect with success message
