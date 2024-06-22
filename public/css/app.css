@@ -973,6 +973,8 @@ b {
 .modal-body input[type="date"],
 .modal-body input[type="time"],
 .modal-body input[type="text"],
+.modal-body input[type="number"],
+.modal-body input[type="email"],
 .modal-body select {
     color: var(--color-primary);
     background: var(--color-background);

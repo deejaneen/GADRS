@@ -20,7 +20,7 @@
         $(document).ready(function() {
             // Get the current URL
             var currentUrl = window.location.href;
-            console.log(currentUrl);
+            // console.log(currentUrl);
 
             // Iterate over each sidebar link
             $(".sidebar-link").each(function() {

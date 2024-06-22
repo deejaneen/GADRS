@@ -1,29 +1,5 @@
 @extends('layout.weblayout')
-@section('scripts')
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const gymToggleBtn = document.getElementById('gymTableHistoryToggleBtn');
-            const dormToggleBtn = document.getElementById('dormTableHistoryToggleBtn');
-            const gymCard = document.getElementById('GymReservationsHistoryTableCard');
-            const dormCard = document.getElementById('DormReservationsHistoryTableCard');
 
-            gymToggleBtn.addEventListener('click', function() {
-                gymCard.style.display = 'block';
-                dormCard.style.display = 'none';
-                gymToggleBtn.style.display = 'none';
-                dormToggleBtn.style.display = 'block';
-            });
-
-            dormToggleBtn.addEventListener('click', function() {
-                dormCard.style.display = 'block';
-                gymCard.style.display = 'none';
-                dormToggleBtn.style.display = 'none';
-                gymToggleBtn.style.display = 'block';
-
-            });
-        });
-    </script>
-@endsection
 
 @section('profileview')
 <div class="container py-4">
@@ -32,10 +8,8 @@
         <div class="right-column reservation">
             <div class="recent-orders">
                 <h2>Reservation History</h2>
-                  <button class="btn btn-primary btn-lg rounded-pill toogle-btn" id="gymTableHistoryToggleBtn"> <span
-                        class="fa-solid fa-repeat"> Dorm</button>
-                <button class="btn btn-primary btn-lg rounded-pill toogle-btn" id="dormTableHistoryToggleBtn"
-                    style="display: none;">
+                <button class="btn btn-primary btn-lg rounded-pill toogle-btn" id="gymTableHistoryToggleBtn"> <span class="fa-solid fa-repeat"> Dorm</button>
+                <button class="btn btn-primary btn-lg rounded-pill toogle-btn" id="dormTableHistoryToggleBtn" style="display: none;">
                     <span class="fa-solid fa-repeat"> Gym</button>
                 <div class="card" id="GymReservationsHistoryTableCard">
                     <div>
@@ -48,20 +22,20 @@
                                 <th scope="col">Reservation Date</th>
                                 <th scope="col">Time Start</th>
                                 <th scope="col">Time End</th>
-                             
+
                                 <th scope="col">Status</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($gyms as $gym)
-                                <tr class="table-active">
-                                    <th>{{ $gym->reservation_number }}</th>
-                                    <td>{{ date('F j, Y', strtotime($gym->reservation_date)) }}</td>
-                                    <td>{{ date('g:i A', strtotime($gym->reservation_time_start)) }}</td>
-                                    <td>{{ date('g:i A', strtotime($gym->reservation_time_end)) }}</td>
-                               
-                                    <td>{{ $gym->status }}</td>
-                                </tr>
+                            <tr class="table-active">
+                                <th>{{ $gym->reservation_number }}</th>
+                                <td>{{ date('F j, Y', strtotime($gym->reservation_date)) }}</td>
+                                <td>{{ date('g:i A', strtotime($gym->reservation_time_start)) }}</td>
+                                <td>{{ date('g:i A', strtotime($gym->reservation_time_end)) }}</td>
+
+                                <td>{{ $gym->status }}</td>
+                            </tr>
                             @endforeach
                         </tbody>
                     </table>
@@ -83,13 +57,13 @@
                         </thead>
                         <tbody>
                             @foreach ($dorms as $dorm)
-                                <tr class="table-active">
-                                    <th>{{ $dorm->Form_number }}</th>
-                                    <td>{{ date('F j, Y', strtotime($dorm->reservation_start_date)) }}</td>
-                                    <td>{{ date('g:i A', strtotime($dorm->reservation_end_date)) }}</td>
-                                    <td>₱{{ $dorm->price }}</td>
-                                    <td>{{ $dorm->status }}</td>
-                                </tr>
+                            <tr class="table-active">
+                                <th>{{ $dorm->Form_number }}</th>
+                                <td>{{ date('F j, Y', strtotime($dorm->reservation_start_date)) }}</td>
+                                <td>{{ date('g:i A', strtotime($dorm->reservation_end_date)) }}</td>
+                                <td>₱{{ $dorm->price }}</td>
+                                <td>{{ $dorm->status }}</td>
+                            </tr>
                             @endforeach
                         </tbody>
                     </table>
@@ -100,5 +74,30 @@
 
     </div>
 </div>
-    
+
+@endsection
+@section('scripts')
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const gymToggleBtn = document.getElementById('gymTableHistoryToggleBtn');
+        const dormToggleBtn = document.getElementById('dormTableHistoryToggleBtn');
+        const gymCard = document.getElementById('GymReservationsHistoryTableCard');
+        const dormCard = document.getElementById('DormReservationsHistoryTableCard');
+
+        gymToggleBtn.addEventListener('click', function() {
+            gymCard.style.display = 'block';
+            dormCard.style.display = 'none';
+            gymToggleBtn.style.display = 'none';
+            dormToggleBtn.style.display = 'block';
+        });
+
+        dormToggleBtn.addEventListener('click', function() {
+            dormCard.style.display = 'block';
+            gymCard.style.display = 'none';
+            dormToggleBtn.style.display = 'none';
+            gymToggleBtn.style.display = 'block';
+
+        });
+    });
+</script>
 @endsection

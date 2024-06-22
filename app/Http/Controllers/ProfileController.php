@@ -9,19 +9,18 @@ use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller
 {
-    public function showReservationHistoryProfile(){
+    public function showReservationHistoryProfile()
+    {
         $user = Auth::id();
         $gyms = Gym::where('employee_id', $user)
-                    ->where('status', 'Reserved')
-                    ->orderBy('created_at', 'DESC')
-                    ->get();
+            ->whereIn('status', ['Reserved', 'Unavailable'])
+            ->orderBy('created_at', 'DESC')
+            ->get();
         $dorms = Dorm::where('employee_id', $user)
-                     ->where('status', 'Reserved')
-                     ->orderBy('created_at', 'DESC')
-                     ->get();
+            ->whereIn('status', ['Reserved', 'Unavailable'])
+            ->orderBy('created_at', 'DESC')
+            ->get();
 
-        return view('../profile/reservationhistoryprofile', ['gyms' => $gyms, 'dorms' => $dorms]);
+        return view('profile.reservationhistoryprofile', ['gyms' => $gyms, 'dorms' => $dorms]);
     }
-
-
 }

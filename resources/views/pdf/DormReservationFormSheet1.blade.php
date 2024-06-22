@@ -2672,7 +2672,7 @@
                 <p class="c20"><span class="c1">AMOUNT TO BE PAID:</span></p>
             </td>
             <td class="c76" colspan="2" rowspan="1">
-                <p class="c20 c115"><span class="c1">$AMTTOBEPAID</span></p>
+                <p class="c20 c115"><span class="c1">{{ number_format($dorm->price * $numberOfDays, 2, '.', '') }}</span></p>
             </td>
         </tr>
         <tr class="c50">

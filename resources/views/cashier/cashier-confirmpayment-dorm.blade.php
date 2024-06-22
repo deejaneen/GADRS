@@ -26,16 +26,24 @@
             <input type="text" class="form-control" id="gender" value="{{ $dorm->gender }}" name="gender" disabled>
         </div>
         <div class="col">
-            <label for="occupant_type" class="form-label">Occupant Type</label>
-            <input type="text" class="form-control" id="occupant_type" value="{{ $dorm->occupant_type }}" name="occupant_type" disabled>
+            <label for="price" class="form-label">Room Price</label>
+            <input type="text" class="form-control" id="price" value="{{ $dorm->price }}" name="price" disabled>
         </div>
         <div class="col">
             <label for="quantity" class="form-label">Beds</label>
             <input type="text" class="form-control" id="quantity" value="{{ $dorm->quantity }}" name="quantity" disabled>
         </div>
+        <div class="col">
+            <label for="amount" class="form-label">Total Amount to be Paid</label>
+            <input type="text" class="form-control" id="amount" value="{{ number_format($dorm->price * $numDays, 2, '.', '') }}" name="amount" disabled>
+        </div>
     </div>
 
     <div class="row mb-3">
+        <div class="col">
+            <label for="occupant_type" class="form-label">Occupant Type</label>
+            <input type="text" class="form-control" id="occupant_type" value="{{ $dorm->occupant_type }}" name="occupant_type" disabled>
+        </div>
         <div class="col">
             <label for="Form_number" class="form-label">Form Number</label>
             <input type="text" class="form-control" id="Form_number" value="{{ $dorm->Form_number }}" name="Form_number" disabled>
@@ -55,13 +63,13 @@
         @csrf
         @method('PUT')
         <div class="row mb-3">
-            <div class="col-4">
+            <!-- <div class="col-4">
                 <label for="price" class="form-label">Price</label>
                 <input type="text" class="form-control" id="price" value="{{$dorm->price}}" name="price" maxlength="12" required>
                 @error('price')
                 <span class="text-danger fs-6">{{ $message }}</span>
                 @enderror
-            </div>
+            </div> -->
             <!-- <div class="col">
                 <div class="col-4">
                     <input type="hidden" class="form-control" id="status" value="Received" name="status" required>
@@ -71,7 +79,7 @@
                 <label for="status" class="form-label">Status</label>
                 <select class="form-control" id="status" name="status" required>
                     <option value="Received" {{ $dorm->status === 'Received' ? 'selected' : '' }}>Received</option>
-                    <option value="Reserved" {{ $dorm->status === 'Reserved' ? 'selected' : '' }}>Reserved</option>
+                    <option value="Reserved" {{ $dorm->status === 'Reserved' ? 'selected' : '' }}>Paid</option>
                 </select>
                 @error('status')
                 <span class="text-danger fs-6">{{ $message }}</span>

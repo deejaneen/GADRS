@@ -89,8 +89,11 @@ class SupplyController extends Controller
             'margin_right' => $marginInMillimeters,
         ];
 
+        // Generate the filename based on the dorm's Form_number and updated_at timestamp
+        $filename = $dorm->Form_number . '_' . $dorm->updated_at->format('Y-m-d') . '_dorm-reservation.pdf';
+
         $pdf = PDF::loadView('pdf.DormReservationFormSheet1', $data)->setOptions($options);
 
-        return $pdf->stream('dorm-reservation.pdf');
+        return $pdf->stream($filename);
     }
 }
