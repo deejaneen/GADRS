@@ -37,8 +37,9 @@ class GymCartController extends Controller
             'employee_type' => 'required',
             'purpose' => 'required',
             'number_of_courts' => 'required_if:purpose,Badminton|nullable|integer|max:4',
-
+            'total_price' => 'required',
         ]);
+
 
         $userId = Auth::id();
 
@@ -145,6 +146,7 @@ class GymCartController extends Controller
             $gymCart->reservation_time_end = $validatedData['timepicker-pm'];
             $gymCart->occupant_type = $validatedData['employee_type'];
             $gymCart->purpose = $validatedData['purpose'];
+            $gymCart->total_price = $validatedData['total_price'];
             $gymCart->employee_id = Auth::id(); // Use Auth::id() instead of Auth()->id()
 
             // Only set number_of_courts if it exists in validated data

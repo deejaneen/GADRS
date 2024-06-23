@@ -44,6 +44,7 @@ class Dorm extends Model
         'home_address',
         'Form_number',
         'status',
+        'total_price',
     ];
 
     // protected static function boot()

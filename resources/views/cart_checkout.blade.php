@@ -33,12 +33,13 @@
                 <input type="hidden" class="form-control" id="hidden_nameRepresentative"
                     name="hidden_nameRepresentative">
                 <input type="hidden" class="form-control" id="hidden_contactNumber" name="hidden_contactNumber">
+                <input type="hidden" class="form-control" id="hidden_total_price" name="hidden_total_price">
                 <table class="table-home table-hover" id="gymCartReservationsTable" style="width: 100%">
                     <thead>
                         <tr>
                             <th scope="col" style="width: 10%">Buttons</th>
                             <th scope="col" style="width: 60%"> Reservation Date</th>
-                            <th scope="col" style="width: 10%">Price</th>
+                            <th scope="col" style="width: 10%">Total Price</th>
                             <th scope="col"style="width: 10%">Purpose</th>
                             <th scope="col" style="width: 10%">Checkbox</th>
 
@@ -59,11 +60,11 @@
                                 <td>{{ date('F j, Y', strtotime($gymcart->reservation_date)) }},
                                     {{ date('g:i A', strtotime($gymcart->reservation_time_start)) }} -
                                     {{ date('g:i A', strtotime($gymcart->reservation_time_end)) }}</td>
-                                <td>{{ $gymcart->price }}</td>
+                                <td>{{ $gymcart->total_price }}</td>
                                 <td>{{ $gymcart->purpose }}</td>
                                 <td> <input type="checkbox" name="gym_cart_ids[]"
                                         class="reservation-checkbox gym-cart-checkbox" value="{{ $gymcart->id }}"
-                                        data-price="{{ $gymcart->price }}"></td>
+                                        data-price="{{ $gymcart->total_price }}"></td>
 
                             </tr>
                         @endforeach
@@ -136,7 +137,7 @@
                         <tr>
                             <th scope="col" style="width: 10%">Buttons</th>
                             <th scope="col" style="width: 60%"> Reservation Date</th>
-                            <th scope="col" style="width: 10%">Price</th>
+                            <th scope="col" style="width: 10%">Total Price</th>
                             <th scope="col" style="width: 10%">No of Beds</th>
                             <th scope="col"style="width: 10%">Dorm</th>
                             <th scope="col" style="width: 10%">Checkbox</th>
@@ -159,12 +160,12 @@
                                     {{ date('g:i A', strtotime($dormcart->reservation_start_time)) }},
                                     {{ date('F j, Y', strtotime($dormcart->reservation_end_date)) }} -
                                     {{ date('g:i A', strtotime($dormcart->reservation_end_time)) }}</td>
-                                <td>{{ $dormcart->price }}</td>
+                                <td>{{ $dormcart->total_price }}</td>
                                 <td>{{ $dormcart->quantity }}</td>
                                 <td>{{ $dormcart->gender }}</td>
                                 <td> <input type="checkbox" name="dorm_cart_ids[]"
                                         class="reservation-checkbox dorm-cart-checkbox" value="{{ $dormcart->id }}"
-                                        data-price="{{ $dormcart->price }}"></td>
+                                        data-price="{{ $dormcart->total_price }}"></td>
 
                             </tr>
                         @endforeach

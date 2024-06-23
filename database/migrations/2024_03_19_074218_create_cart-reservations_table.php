@@ -30,6 +30,7 @@ return new class extends Migration
             $table->date('or_date')->nullable();
             $table->string('status')->default('OnCart')->nullable();
             $table->decimal('price', 10, 2)->nullable()->default(600.00);
+            $table->decimal('total_price', 10, 2)->nullable();
             $table->string('form_group_number')->nullable();
             $table->timestamps();
 

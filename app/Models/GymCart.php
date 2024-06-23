@@ -18,5 +18,6 @@ class GymCart extends Model
         'employee_id',
         'purpose',
         'number_of_courts',
+        'total_price',
     ];
 }

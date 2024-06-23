@@ -129,6 +129,7 @@ class CartController extends Controller
 
     public function GymCartToGymReservations(Request $request)
     {
+
         try {
             $cartIds = json_decode($request->input('cart_ids_gym'));
 
@@ -167,6 +168,7 @@ class CartController extends Controller
 
                     $gymReservation->company_name = $request->input('hidden_companyName');
                     $gymReservation->representative = $request->input('hidden_nameRepresentative');
+                    // $gymReservation->total_price = $gymCart->total_price;
                     $gymReservation->office_address = $request->input('hidden_address');
                     $gymReservation->contact_number = $request->input('hidden_contactNumber');
                     $gymReservation->status = 'Pending';

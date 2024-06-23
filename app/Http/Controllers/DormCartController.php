@@ -75,6 +75,9 @@ class DormCartController extends Controller
             }
         }
 
+        // Calculate the number of days
+        $numberOfDays = $startDate->diff($endDate)->days;
+
         // Create a new DormCart instance
         $dormCart = new DormCart();
 
@@ -104,6 +107,8 @@ class DormCartController extends Controller
 
         // Assign other properties
         $dormCart->occupant_type = $validatedData['occupant_type'];
+        // Calculate the total price
+        $dormCart->total_price = $dormCart->price * $numberOfDays * $validatedData['quantity'];
         $dormCart->employee_id = Auth::id(); // Use Auth::id() instead of Auth()->id()
 
         // Save the DormCart instance

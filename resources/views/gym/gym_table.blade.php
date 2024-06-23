@@ -1,5 +1,32 @@
 @section('scripts')
 <script>
+    document.getElementById('startTime').addEventListener('input', calculateTotalPrice);
+    document.getElementById('endTime').addEventListener('input', calculateTotalPrice);
+    document.getElementById('employeeType').addEventListener('change', calculateTotalPrice);
+
+    function calculateTotalPrice() {
+        const startTime = document.getElementById('startTime').value;
+        const endTime = document.getElementById('endTime').value;
+        const employeeType = document.getElementById('employeeType').value;
+
+        if (startTime && endTime) {
+            const start = new Date(`1970-01-01T${startTime}:00`);
+            const end = new Date(`1970-01-01T${endTime}:00`);
+
+            let hours = (end - start) / 1000 / 60 / 60;
+            if (hours < 0) {
+                hours += 24; // handle overnight reservations
+            }
+
+            const pricePerHour = employeeType === 'COA Employee' ? 450 : 600;
+            const totalPrice = hours * pricePerHour;
+
+            document.getElementById('total_price').value = totalPrice.toFixed(2);
+            document.getElementById('hours').value = hours;
+            document.getElementById('price').value = pricePerHour;
+        }
+    }
+
     function toggleNumberOfCourts() {
         var purpose = document.getElementById('purpose').value;
         var numberOfCourtsWrapper = document.getElementById('number_of_courts_wrapper');
@@ -22,7 +49,7 @@
     // Function to reset the form
     // function resetForm() {
     //     document.getElementById('gymReservationForm').reset();
-        
+
     // }
 
     // Ensure correct field visibility on initial load
@@ -207,54 +234,6 @@
         });
     });
 
-
-    // document.addEventListener("DOMContentLoaded", function() {
-    //     const reservationDate = document.getElementById("reservationDate");
-    //     const disabledDates = @json($gymDateRestrictions);
-
-    //     // Initialize date picker with disabled dates
-    //     const reservationDateInstance = flatpickr(reservationDate, {
-    //         disable: disabledDates,
-    //         minDate: "today",
-    //         onClose: function(selectedDates, dateStr, instance) {
-    //             instance.calendarContainer.removeEventListener('click', stopPropagation);
-    //         }
-    //     });
-
-    //     // Prevent event propagation for the dropdown elements in the modal
-    //     const modal = document.getElementById("gymReservationModal");
-    //     modal.addEventListener('click', function(event) {
-    //         event.stopPropagation();
-    //     });
-    // });
-
-    // // Function to stop event propagation
-    // function stopPropagation(event) {
-    //     event.stopPropagation();
-    // }
-
-
-    // function disableDatesOnModalOpen() {
-    //     const reservationDateInput = document.getElementById("reservationDate");
-    //     const disabledDates = @json($gymDateRestrictions);
-
-    //     // Initialize reservation date picker with disabled dates
-    //     const reservationDatePickerInstance = flatpickr(reservationDateInput, {
-    //         disable: disabledDates,
-    //         minDate: "today"
-    //     });
-
-    //     // Function to check if a date is disabled
-    //     function isDateDisabled(date) {
-    //         return disabledDates.includes(date);
-    //     }
-
-    // }
-
-    // // Attach the function to the modal's shown.bs.modal event
-    // $('#gymReservationModal').on('shown.bs.modal', function() {
-    //     disableDatesOnModalOpen();
-    // });
 </script>
 @endsection
 

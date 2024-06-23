@@ -28,5 +28,6 @@ class Gym extends Model
         'or_number',
         'or_date',
         'number_of_courts',
+        'total_price',
     ];
 }
