@@ -45,6 +45,9 @@ class Dorm extends Model
         'Form_number',
         'status',
         'total_price',
+        'or_number',
+        'or_date',
+        'amount_paid',
     ];
 
     // protected static function boot()

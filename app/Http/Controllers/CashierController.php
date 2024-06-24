@@ -101,11 +101,36 @@ class CashierController extends Controller
 
     public function confirmPaymentDorm(Dorm $dorm)
     {
-        // Validate input
-        $validated = request()->validate([
-            // 'price' => 'required|min:3|max:40',
-            'status' => 'required',
-        ]);
+
+        if (!$dorm->or_number) {
+            // Validate input
+            $validated = request()->validate([
+                'or_number' => 'required|min:3|max:7|unique:dorm_reservations,or_number,' . $dorm->id,
+                'amount_paid' => 'required|min:3|max:12',
+                'status' => 'required',
+                'or_date' => 'required|date',
+            ]);
+        } else {
+            $reservationsNotSimilarToOriginal = Dorm::where('or_number', '!=', $dorm->or_number)
+                ->get();
+            $validated = request()->validate([
+                'or_number' => [
+                    'required',
+                    'min:3',
+                    'max:7',
+                    function ($attribute, $value, $fail) use ($reservationsNotSimilarToOriginal) {
+                        foreach ($reservationsNotSimilarToOriginal as $reservation) {
+                            if ($reservation->or_number === $value) {
+                                $fail('The OR Number has already been taken.');
+                            }
+                        }
+                    },
+                ],
+                'amount_paid' => 'required|min:3|max:12',
+                'status' => 'required',
+                'or_date' => 'required|date',
+            ]);
+        }
 
         if ($validated['status'] === 'Reserved') {
             // Calculate the total reservation days
@@ -181,32 +206,32 @@ class CashierController extends Controller
         // Get all Gym reservations with the same form_group_number
         $gymReservations = Gym::where('form_group_number', $gym->form_group_number)->get();
 
-         // Initialize boolean variables
-         $isBasketball = false;
-         $isVolleyball = false;
-         $isBadminton = false;
-         $numberOfCourtsSeparate = 0;
- 
-         foreach ($gymReservations as $reservation) {
-             if ($reservation->purpose === "Basketball") {
-                 $isBasketball = true;
-             } elseif ($reservation->purpose === "Volleyball") {
-                 $isVolleyball = true;
-             } elseif ($reservation->purpose === "Badminton") {
-                 $isBadminton = true;
-                 $numberOfCourtsSeparate = $reservation->number_of_courts;
-             }
-         }
- 
-         $data = [
-             'gym' => $gym,
-             'gymReservations' => $gymReservations,
-             'isBasketball' => $isBasketball,
-             'isVolleyball' => $isVolleyball,
-             'isBadminton' => $isBadminton,
-             'numberOfCourtsSeparate' => $numberOfCourtsSeparate,
-         ];
-       
+        // Initialize boolean variables
+        $isBasketball = false;
+        $isVolleyball = false;
+        $isBadminton = false;
+        $numberOfCourtsSeparate = 0;
+
+        foreach ($gymReservations as $reservation) {
+            if ($reservation->purpose === "Basketball") {
+                $isBasketball = true;
+            } elseif ($reservation->purpose === "Volleyball") {
+                $isVolleyball = true;
+            } elseif ($reservation->purpose === "Badminton") {
+                $isBadminton = true;
+                $numberOfCourtsSeparate = $reservation->number_of_courts;
+            }
+        }
+
+        $data = [
+            'gym' => $gym,
+            'gymReservations' => $gymReservations,
+            'isBasketball' => $isBasketball,
+            'isVolleyball' => $isVolleyball,
+            'isBadminton' => $isBadminton,
+            'numberOfCourtsSeparate' => $numberOfCourtsSeparate,
+        ];
+
         $marginInMillimeters = 0.5 * 25.4; // Convert inches to millimeters
 
         // Pass options for paper size and margins

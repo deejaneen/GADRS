@@ -44,6 +44,9 @@ return new class extends Migration
             $table->boolean('is_senior_or_pwd')->default(false);
             $table->boolean('is_child')->default(false);
             $table->string('form_group_number')->nullable();
+            $table->string('or_number')->nullable();
+            $table->date('or_date')->nullable();;
+            $table->decimal('amount_paid', 10, 2)->nullable();
             $table->timestamps();
 
             // Add the foreign key constraint

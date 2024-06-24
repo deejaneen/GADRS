@@ -49,6 +49,9 @@ return new class extends Migration
             $table->string('last_name')->nullable();
             $table->string('first_name')->nullable();
             $table->string('middle_name')->nullable();
+            $table->string('or_number')->nullable();
+            $table->date('or_date')->nullable();;
+            $table->decimal('amount_paid', 10, 2)->nullable();
             $table->timestamps();
 
 

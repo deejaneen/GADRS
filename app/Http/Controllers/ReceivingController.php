@@ -86,62 +86,48 @@ class ReceivingController extends Controller
     public function addFormNumber(Gym $gym)
     {
         if (!$gym->or_number && !$gym->reservation_number) {
-            // Validate input
+            // Validate input when conditions are met
             $validated = request()->validate([
                 'reservation_number' => 'required|min:3|max:7|unique:gym-reservations,reservation_number,' . $gym->id,
                 'status' => 'required',
                 'or_number' => 'required|min:3|max:7|unique:gym-reservations,or_number,' . $gym->id,
-                'or_date' => 'required|date', // Ensure or_date is a valid date
+                'or_date' => 'required|date',
                 // 'reservation_date' => 'required|date',
             ]);
         } else {
+            // Validate input when conditions are not met
+            $reservationsNotSimilarToOriginal = Gym::where('form_group_number', '!=', $gym->form_group_number)
+                ->get();
 
-            if (!$gym->or_number && !$gym->reservation_number) {
-                // Validate input when conditions are met
-                $validated = request()->validate([
-                    'reservation_number' => 'required|min:3|max:7|unique:gym-reservations,reservation_number,' . $gym->id,
-                    'status' => 'required',
-                    'or_number' => 'required|min:3|max:7|unique:gym-reservations,or_number,' . $gym->id,
-                    'or_date' => 'required|date',
-                    // 'reservation_date' => 'required|date',
-                ]);
-            } else {
-                // Validate input when conditions are not met
-                $reservationsNotSimilarToOriginal = Gym::where('form_group_number', '!=', $gym->form_group_number)
-                    ->get();
-            
-                    $validated = request()->validate([
-                        'reservation_number' => [
-                            'required',
-                            'min:3',
-                            'max:7',
-                            function ($attribute, $value, $fail) use ($reservationsNotSimilarToOriginal) {
-                                foreach ($reservationsNotSimilarToOriginal as $reservation) {
-                                    if ($reservation->reservation_number === $value) {
-                                        $fail('The '.$attribute.' has already been taken.');
-                                    }
-                                }
-                            },
-                        ],
-                        'status' => 'required',
-                        'or_number' => [
-                            'required',
-                            'min:3',
-                            'max:7',
-                            function ($attribute, $value, $fail) use ($reservationsNotSimilarToOriginal) {
-                                foreach ($reservationsNotSimilarToOriginal as $reservation) {
-                                    if ($reservation->or_number === $value) {
-                                        $fail('The '.$attribute.' has already been taken.');
-                                    }
-                                }
-                            },
-                        ],
-                        'or_date' => 'required|date',
-                        // 'reservation_date' => 'required|date',
-                    ]);
-                    
-            }
-            
+            $validated = request()->validate([
+                'reservation_number' => [
+                    'required',
+                    'min:3',
+                    'max:7',
+                    function ($attribute, $value, $fail) use ($reservationsNotSimilarToOriginal) {
+                        foreach ($reservationsNotSimilarToOriginal as $reservation) {
+                            if ($reservation->reservation_number === $value) {
+                                $fail('The ' . $attribute . ' has already been taken.');
+                            }
+                        }
+                    },
+                ],
+                'status' => 'required',
+                'or_number' => [
+                    'required',
+                    'min:3',
+                    'max:7',
+                    function ($attribute, $value, $fail) use ($reservationsNotSimilarToOriginal) {
+                        foreach ($reservationsNotSimilarToOriginal as $reservation) {
+                            if ($reservation->or_number === $value) {
+                                $fail('The ' . $attribute . ' has already been taken.');
+                            }
+                        }
+                    },
+                ],
+                'or_date' => 'required|date',
+                // 'reservation_date' => 'required|date',
+            ]);
         }
 
         // Update the gym with the validated data

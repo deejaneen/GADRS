@@ -188,6 +188,25 @@ class AdminController extends Controller
                 return redirect()->back()->with('error', 'Date Restriction already exists for the specified type and date.');
             }
 
+            // Check for existing reservations based on the type
+            if ($validatedData['type'] === 'Gym') {
+                $checkDate = Gym::where('reservation_date', $validatedData['dateRestriction'])
+                    ->whereIn('status', ['Reserved', 'Received'])
+                    ->exists();
+            } elseif ($validatedData['type'] === 'Dorm') {
+                $checkDate = Dorm::where('reservation_start_date', '<=', $validatedData['dateRestriction'])
+                    ->where('reservation_end_date', '>=', $validatedData['dateRestriction'])
+                    ->whereIn('status', ['Reserved', 'Received'])
+                    ->exists();
+            } else {
+                return redirect()->back()->with('error', 'Invalid type specified.');
+            }
+
+            // If there are existing reservations, redirect with error message
+            if ($checkDate) {
+                return redirect()->back()->with('error', 'Date Restriction overlaps with existing reservations.');
+            }
+
             // Store the date restriction in the database
             $dateRestriction = new DateRestriction();
             $dateRestriction->restricted_date = $validatedData['dateRestriction'];
