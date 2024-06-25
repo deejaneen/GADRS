@@ -66,7 +66,17 @@
                         <td>{{ $gym->reservation_time_end }}</td>
                         <td>{{ $gym->occupant_type }}</td>
                         <td>{{ $gym->price }}</td>
-                        <td style="color:var(--color-orange);">{{ $gym->status }}</td>
+                        <td class="
+                            @if ($gym->status == 'Pending')
+                                status-pending
+                            @elseif ($gym->status == 'Received' )
+                                status-received-for-payment
+                            @elseif ($gym->status == 'Paid' || $gym->status == 'Reserved')
+                                status-paid-reserved
+                            @elseif ($gym->status == 'Cancelled')
+                                status-cancelled
+                            @endif
+                            ">{{ $gym->status }}</td>    
                         <td class="buttons">
                             <a href="{{ route('receiving.viewGym', $gym->id) }}" class="btn btn-view-details rounded-pill"
                                 id="receivingViewFormbtn">
@@ -83,40 +93,5 @@
         </table>
     </div>
 
-    <div class="card" id="ReceivingPendingTableCard">
-        <div>
-            <h2 class="card-header text-center home">Dorm Received Reservations</h2>
-        </div>
-        <table class="table-home table-hover stripe" id="ReceivingReceivedTable" style="width: 100%">
-            <thead>
-                <tr>
-                    <th scope="col">Form Number</th>
-                    <th scope="col">Form Group Number</th>
-                    <th scope="col">Reservation Start Date</th>
-                    <th scope="col">Reservation Start Time</th>
-                    <th scope="col">Reservation End Date</th>
-                    <th scope="col">Reservation End Time</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($dorms as $dorm)
-                    <tr class="table-active">
-                        <td>{{ $dorm->Form_number }}</td>
-                        <td>{{ $dorm->form_group_number }}</td>
-                        <td>{{ $dorm->reservation_start_date }}</td>
-                        <td>{{ $dorm->reservation_start_time }}</td>
-                        <td>{{ $dorm->reservation_end_date }}</td>
-                        <td>{{ $dorm->reservation_end_time }}</td>
-                        <td>{{ $dorm->price }}</td>
-                        <td style="color:var(--color-orange);">{{ $dorm->status }}</td>
-                        <td class="buttons">
-                        </td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
-    </div>
+
 @endsection

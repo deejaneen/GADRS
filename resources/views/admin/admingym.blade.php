@@ -1,88 +1,8 @@
 @extends('layout.adminlayout')
 
-
-
 @section('admindashboard')
-     <!-- <aside>
-        <div class="top">
-            <div class="logo">
-                <img src="{{ asset('images/COA CAR logo.png') }}" alt="">
-                <h2 class="primary-light">COA <span class="danger">CAR</span></h2>
-            </div>
-            <div class="close" id="close-btn">
-                <span class="ri-close-fill"></span>
-            </div>
-
-            <div class="sidebar">
-                <a href="{{ route('adminhome') }}">
-                    <span class="ri-dashboard-line ">
-                        <h3>Dashboard</h3>
-                    </span>
-                </a>
-                <a href="{{ route('adminusers') }}">
-                    <span class="ri-team-line">
-                        <h3>Users</h3>
-                    </span>
-                </a>
-                <a href="{{ route('adminreservations') }}">
-                    <span class="ri-receipt-line">
-                        <h3>Reservations</h3>
-                        <span class="message-count">26</span>
-                    </span>
-                </a>
-                <a href="{{ route('admingym') }}" class="active">
-                    <span class="ri-basketball-fill">
-                        <h3>Gym</h3>
-                    </span>
-                </a>
-                <a href="{{ route('admindorm') }}">
-                    <span class="ri-home-3-line">
-                        <h3>Dorm</h3>
-                    </span>
-
-                </a>
-                <a href="{{ route('adminprofile') }}">
-                    <span class="ri-user-line">
-                        <h3>Change Password</h3>
-                    </span>
-                </a>
-                <form action="{{ route('logout') }}" method="POST" id="logout-form-navbar">
-                    @csrf
-
-                    <button class="no-underline logout btn btn-danger btn-md" type="submit" id="logout-button">
-                        <span class="ri-logout-box-r-line">
-                            <h3>LOGOUT</h3>
-                        </span>
-                    </button>
-                </form>
-            </div>
-        </div>
-    </aside>  -->
-    {{-- -------------------------------END-OF-ASIDE-------------------- --}}
-    {{-- <div class="right">
-        <div class="top">
-            <button id="menu-btn">
-                <span class="ri-menu-line"></span>
-            </button>
-
-            @auth()
-                <div class="profile">
-                    <div class="info">
-                        <p>Hey, <b>{{ Auth::user()->first_name }}</b></p>
-                        <small class="text-muted">{{ Auth::user()->role }}</small>
-                    </div>
-                    <div class="profile-photo">
-                        <img src="{{ asset('images/COA CAR logo.png') }}" alt="">
-                    </div>
-                </div>
-            @endauth
-        </div>
-
-    </div> --}}
     <main>
         <h1 class="page-title">Gym</h1>
-
-      
 
         {{-- ------------------END OF INSIGHTS------------------ --}}
 
@@ -107,12 +27,22 @@
                 @foreach ($gyms as $gym)
                     <tr class="table-active">
                         <td>{{ $gym->form_number_id }}</td>
-                        <td>{{ $gym->reservation_date }}</td>
-                        <td>{{ $gym->reservation_time_start }}</td>
-                        <td>{{ $gym->reservation_time_end }}</td>
+                        <td>{{ \Carbon\Carbon::parse($gym->reservation_date)->format('F j, Y') }}</td>
+                        <td>{{ \Carbon\Carbon::parse($gym->reservation_time_start)->format('g:i a') }}</td>
+                        <td>{{ \Carbon\Carbon::parse($gym->reservation_time_end)->format('g:i a') }}</td>
                         <td>{{ $gym->occupant_type }}</td>
                         <td>{{ $gym->price }}</td>
-                        <td style="color:var(--color-orange);">{{ $gym->status }}</td>
+                        <td
+                            class="
+                    @if ($gym->status == 'Pending') status-pending
+                    @elseif ($gym->status == 'Received')
+                        status-received-for-payment
+                    @elseif ($gym->status == 'Paid' || $gym->status == 'Reserved')
+                        status-paid-reserved
+                    @elseif ($gym->status == 'Cancelled')
+                        status-cancelled @endif
+                    ">
+                            {{ $gym->status }}</td>
                     </tr>
                 @endforeach
             </tbody>
@@ -136,12 +66,22 @@
             <tbody>
                 @foreach ($carts as $cart)
                     <tr class="table-active">
-                        <td>{{ $cart->reservation_date }}</td>
-                        <td>{{ $cart->reservation_time_start }}</td>
-                        <td>{{ $cart->reservation_time_end }}</td>
+                        <td>{{ \Carbon\Carbon::parse($cart->reservation_date)->format('F j, Y') }}</td>
+                        <td>{{ \Carbon\Carbon::parse($cart->reservation_time_start)->format('g:i a') }}</td>
+                        <td>{{ \Carbon\Carbon::parse($cart->reservation_time_end)->format('g:i a') }}</td>
                         <td>{{ $cart->occupant_type }}</td>
                         <td>{{ $cart->price }}</td>
-                        <td style="color:var(--color-orange);">{{ $cart->status }}</td>
+                        <td
+                            class="
+                @if ($cart->status == 'Pending') status-pending
+                @elseif ($cart->status == 'Received')
+                    status-received-for-payment
+                @elseif ($cart->status == 'Paid' || $cart->status == 'Reserved')
+                    status-paid-reserved
+                @elseif ($cart->status == 'Cancelled')
+                    status-cancelled @endif
+                ">
+                            {{ $cart->status }}</td>
                     </tr>
                 @endforeach
             </tbody>
@@ -149,5 +89,4 @@
     </div>
 
     {{-- ------------------END OF MAIN------------------ --}}
-  
 @endsection

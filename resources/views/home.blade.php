@@ -73,8 +73,18 @@
                                         <td>{{ date('g:i A', strtotime($gym->reservation_time_end)) }}</td>
                                         <td>{{ $gym->purpose }}</td>
                                         <td>₱{{ $gym->price }}</td>
-                                        <td style="color: var(--color-orange);">{{ $gym->status }}</td>
-                                    </tr>
+                                        <td class="
+                                        @if ($gym->status == 'Pending')
+                                            status-pending
+                                        @elseif ($gym->status == 'Received' )
+                                            status-received-for-payment
+                                        @elseif ($gym->status == 'Paid' || $gym->status == 'Reserved')
+                                            status-paid-reserved
+                                        @elseif ($gym->status == 'Cancelled')
+                                            status-cancelled
+                                        @endif
+                                        ">{{ $gym->status }}</td>                                    
+                                </tr>
                                 @endforeach
                             </tbody>
                         </table>

@@ -149,7 +149,7 @@ Route::middleware(['auth', 'verified', 'checkRole:Supply', 'preventCaching'])->g
 Route::get('generate-dorm-pdf', [PDFController::class, 'generatedormPDF']);
 Route::get('generate-gym-pdf', [PDFController::class, 'generategymPDF']);
 Route::get('/tite', function () {
-    return view('pdf.OrderofPaymentGym');
+    return view('pdf.DormReservationFormSheet1');
 });
 Route::get('/tite1', function () {
     return view('pdf.GymReservationFormSheet1');

@@ -22,7 +22,6 @@
                     <span class="ri-wallet-3-fill">
                         <h3>For Payment</h3>
                     </span>
-
                 </a>
                 <a href="{{ route('cashierpaid') }}">
                     <span class="ri-receipt-line">
@@ -31,7 +30,6 @@
                 </a>
                 <form action="{{ route('logout') }}" method="POST" id="logout-form-navbar">
                     @csrf
-
                     <button class="no-underline logout btn btn-danger btn-md" type="submit" id="logout-button">
                         <span class="ri-logout-box-r-line">
                             <h3>LOGOUT</h3>
@@ -67,21 +65,19 @@
                 @foreach ($gyms as $gym)
                 <tr class="table-active">
                     <td>{{ $gym->reservation_number }}</td>
-                    <td>{{ $gym->reservation_date }}</td>
-                    <td>{{ $gym->reservation_time_start }}</td>
-                    <td>{{ $gym->reservation_time_end }}</td>
+                    <td>{{ \Carbon\Carbon::parse($gym->reservation_date)->format('F j, Y') }}</td>
+                    <td>{{ \Carbon\Carbon::parse($gym->reservation_time_start)->format('g:i a') }}</td>
+                    <td>{{ \Carbon\Carbon::parse($gym->reservation_time_end)->format('g:i a') }}</td>
                     <td>{{ $gym->occupant_type }}</td>
                     <td>{{ $gym->price }}</td>
-                    <td style="color:var(--color-orange);">{{ $gym->status }}</td>
+                    <td style="color: var(--color-orange);">{{ $gym->status }}</td>
                     <td>
                         <a href="{{ route('cashier.editCashierGym', $gym->id) }}" class="btn btn-confirm-payment rounded-pill" id="gymReservationTableConfirmbtn">
                             Confirm Payment
                         </a>
-
                         <a href="{{ route('cashier.viewPDFGym', $gym->id) }}" target="_blank" class="btn btn-generate-pdf rounded-pill" id="receivingViewFormbtn">
                             PDF
                         </a>
-                        <!-- <button class="btn btn-primary btn-lg rounded-pill" id="gymReservationTableConfirmbtn"> Confirm Payment</button> -->
                     </td>
                 </tr>
                 @endforeach
@@ -89,7 +85,7 @@
         </table>
     </div>
 
-    <h1 class="page-title" style="margin-top: 30px;  color: var(--color-orange);">DORM</h1>
+    <h1 class="page-title" style="margin-top: 30px; color: var(--color-orange);">DORM</h1>
 
     <div class="card" id="DormReservationTableCard">
         <div>
@@ -113,17 +109,29 @@
                 @foreach ($dorms as $dorm)
                 <tr class="table-active">
                     <td>{{ $dorm->Form_number }}</td>
-                    <td>{{ $dorm->reservation_start_date }} - {{ $dorm->reservation_end_date }}</td>
-                    <td>{{ $dorm->reservation_start_time }}</td>
-                    <td>{{ $dorm->reservation_end_time }}</td>
+                    <td>{{ \Carbon\Carbon::parse($dorm->reservation_start_date)->format('F j, Y') }} - {{ \Carbon\Carbon::parse($dorm->reservation_end_date)->format('F j, Y') }}</td>
+                    <td>{{ \Carbon\Carbon::parse($dorm->reservation_start_time)->format('g:i a') }}</td>
+                    <td>{{ \Carbon\Carbon::parse($dorm->reservation_end_time)->format('g:i a') }}</td>
                     <td>{{ $dorm->quantity }} {{ $dorm->gender }} </td>
                     <td>{{ $dorm->occupant_type }}</td>
                     <td>{{ $dorm->price }}</td>
-                    <td style="color:var(--color-orange);">
+                    <td
+                        class="
+                            @if ($dorm->status == 'Pending')
+                                status-pending
+                            @elseif ($dorm->status == 'Received')
+                                status-received-for-payment
+                            @elseif ($dorm->status == 'Paid' || $dorm->status == 'Reserved')
+                                status-paid-reserved
+                            @elseif ($dorm->status == 'Cancelled')
+                                status-cancelled
+                            @endif
+                        "
+                    >
                         @if ($dorm->status === 'Received')
-                        For Payment
+                            For Payment
                         @else
-                        {{ $dorm->status }}
+                            {{ $dorm->status }}
                         @endif
                     </td>
                     <td>
@@ -133,7 +141,6 @@
                         <a href="{{ route('cashier.viewPDFDorm', $dorm->id) }}" target="_blank" class="btn btn-generate-pdf rounded-pill" id="receivingViewFormbtn" style="color: var(--color-orange);">
                             PDF
                         </a>
-                        <!-- <button class="btn btn-primary btn-lg rounded-pill" id="dormReservationTableConfirmbtn"> Confirm Payment</button> -->
                     </td>
                 </tr>
                 @endforeach
@@ -142,7 +149,6 @@
     </div>
 
     {{-- ------------------END OF INSIGHTS------------------ --}}
-
 </main>
 
 {{-- ------------------END OF MAIN------------------ --}}
@@ -167,6 +173,5 @@
     {{-- ------------------END OF TOP------------------ --}}
 
     {{-- ------------------ END OF RECENT UPDATES ------------------ --}}
-
 </div>
 @endsection

@@ -3,7 +3,7 @@
 <head>
     <meta content="text/html; charset=UTF-8" http-equiv="content-type">
     <style type="text/css">
-        @import url(https://themes.googleusercontent.com/fonts/css?kit=fpjTOVmNbO4Lz34iLyptLUXza5VhXqVC6o75Eld_V98);
+      
 
         ol {
             margin: 0;
@@ -11,7 +11,7 @@
         }
 
         body {
-            font-family: 'Calibri', sans-serif;
+         
         }
 
         table td,
@@ -111,7 +111,7 @@
 
         .c56 {
             border-right-style: solid;
-            padding: 0pt 2.2pt 0pt 2.1pt;
+            padding: 6pt;
             border-bottom-color: #000000;
             border-top-width: 1pt;
             border-right-width: 1pt;
@@ -272,8 +272,8 @@
         }
 
         .c64 {
-            border-right-style: solid;
-            padding: 0pt 2.2pt 0pt 2.1pt;
+            border-right-style: s   olid;
+            padding: 6pt;
             border-bottom-color: #000000;
             border-top-width: 1pt;
             border-right-width: 1pt;
@@ -1603,7 +1603,6 @@
             text-decoration: underline;
             vertical-align: baseline;
             text-decoration-skip-ink: none;
-            font-family: "Calibri";
             font-style: normal
         }
 
@@ -1785,7 +1784,6 @@
             text-decoration: none;
             vertical-align: baseline;
             font-size: 10pt;
-            font-family: "Calibri";
             font-style: normal
         }
 
@@ -1866,7 +1864,6 @@
             text-decoration: none;
             vertical-align: baseline;
             font-size: 10pt;
-            font-family: "Calibri";
             font-style: normal
         }
 
@@ -1910,7 +1907,6 @@
             color: #000000;
             text-decoration: none;
             vertical-align: baseline;
-            font-family: "Calibri";
             font-style: normal
         }
 
@@ -2165,7 +2161,6 @@
             font-weight: 700;
             font-size: 34pt;
             padding-bottom: 6pt;
-            font-family: "Calibri";
             line-height: 1.0791666666666666;
             page-break-after: avoid;
             orphans: 2;
@@ -2190,14 +2185,12 @@
         li {
             color: #000000;
             font-size: 10pt;
-            font-family: "Calibri"
         }
 
         p {
             margin: 0;
             color: #000000;
             font-size: 10pt;
-            font-family: "Calibri"
         }
 
         h1 {
@@ -2210,7 +2203,6 @@
             line-height: 1.0791666666666666;
             page-break-after: avoid;
             text-decoration-skip-ink: none;
-            font-family: "Calibri";
             orphans: 2;
             widows: 2;
             text-align: left
@@ -2222,7 +2214,6 @@
             font-weight: 700;
             font-size: 16pt;
             padding-bottom: 4pt;
-            font-family: "Calibri";
             line-height: 1.0791666666666666;
             page-break-after: avoid;
             orphans: 2;
@@ -2236,7 +2227,6 @@
             font-weight: 700;
             font-size: 13pt;
             padding-bottom: 4pt;
-            font-family: "Calibri";
             line-height: 1.0791666666666666;
             page-break-after: avoid;
             orphans: 2;
@@ -2250,7 +2240,6 @@
             font-weight: 700;
             font-size: 11pt;
             padding-bottom: 2pt;
-            font-family: "Calibri";
             line-height: 1.0791666666666666;
             page-break-after: avoid;
             orphans: 2;
@@ -2264,7 +2253,6 @@
             font-weight: 700;
             font-size: 10pt;
             padding-bottom: 2pt;
-            font-family: "Calibri";
             line-height: 1.0791666666666666;
             page-break-after: avoid;
             orphans: 2;
@@ -2278,7 +2266,6 @@
             font-weight: 700;
             font-size: 9pt;
             padding-bottom: 2pt;
-            font-family: "Calibri";
             line-height: 1.0791666666666666;
             page-break-after: avoid;
             orphans: 2;
@@ -2508,8 +2495,8 @@
                 <p class="c20"><span class="c10">REFERRED BY: (For Non - COA)</span></p>
             </td>
             <td class="c163" colspan="6" rowspan="7">
-                <p class="c20"><span class="c12 c32">DATA PRIVACY STATEMENT: </span></p>
-                <p class="c20 c304"><span class="c32">COA CAR Regional Office recognize its responsibilities under
+                <p class="c20"><span class="c12 c1">DATA PRIVACY STATEMENT: </span></p>
+                <p class="c20 c304"><span class="c1">COA CAR Regional Office recognize its responsibilities under
                         Republic Act (RA) No. 10173 or the Data Privacy Act of 2012 with respect to the data collected
                         from its guest/s. The personal data obtained is entered and stored within its authorized information and communications system and will only be accessed by duly
                         authorized personnel. COA CAR have instituted appropriate organizational, technical and physical
@@ -2518,9 +2505,37 @@
                         disclosed the guest/s personal information without their consent and shall retain this
                         information for the period required under RA No. 9470 or the National Archives of the
                         Philippines Act of 2007.</span></p>
+                        &nbsp;
+                        &nbsp;
+                        &nbsp;
+                        &nbsp;
+                        &nbsp;
+                        &nbsp;
+                        &nbsp;
+                        &nbsp;
+                        &nbsp;
+                        &nbsp;
+                        &nbsp;
+                        &nbsp;
+                        &nbsp;
+                        &nbsp;
+                        &nbsp;
+                        &nbsp;
+                        &nbsp;
+                        &nbsp;
+                        &nbsp;
+                        &nbsp;
+                        &nbsp;
+                        &nbsp;
+                        &nbsp;
+                        &nbsp;
+                        &nbsp;
+                        &nbsp;
+                        &nbsp;
+                        &nbsp;
 
-                <p class="c20"><span class="c12 c32">GUEST CONSENT:</span></p>
-                <p class="c20 c304"><span class="c32">I have read the above Data Privacy Statement and express my consent for
+                <p class="c20"><span class="c12 c1">GUEST CONSENT:</span></p>
+                <p class="c20 c304"><span class="c1">I have read the above Data Privacy Statement and express my consent for
                         the COA CAR Regional Office to collect, record, organize, update or modify, retrieve, consult,
                         use, consolidate, block, erase or destroy my personal data as part of my information. I hereby affirm my right to be informed, object to processing, access and
                         rectify, suspend or withdraw my personal data, and be indemnified in case of damages pursuant to

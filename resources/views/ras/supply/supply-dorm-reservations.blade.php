@@ -26,12 +26,22 @@
             <tr class="table-active">
                 <td>{{ $dorm->Form_number }}</td>
                 <td>{{ $dorm->form_group_number }}</td>
-                <td>{{ $dorm->reservation_start_date }}</td>
-                <td>{{ $dorm->reservation_start_time }}</td>
-                <td>{{ $dorm->reservation_end_date }}</td>
-                <td>{{ $dorm->reservation_end_time }}</td>
+                <td>{{ \Carbon\Carbon::parse($dorm->reservation_start_date)->format('F j, Y') }}</td>
+                <td>{{ \Carbon\Carbon::parse($dorm->reservation_start_time)->format('g:i a') }}</td>
+                <td>{{ \Carbon\Carbon::parse($dorm->reservation_end_date)->format('F j, Y') }}</td>
+                <td>{{ \Carbon\Carbon::parse($dorm->reservation_end_time)->format('g:i a') }}</td>
                 <td>{{ $dorm->price }}</td>
-                <td style="color:var(--color-orange);">{{ $dorm->status }}</td>
+                <td class="
+                @if ($dorm->status == 'Pending')
+                    status-pending
+                @elseif ($dorm->status == 'Received' )
+                    status-received-for-payment
+                @elseif ($dorm->status == 'Paid' || $dorm->status == 'Reserved')
+                    status-paid-reserved
+                @elseif ($dorm->status == 'Cancelled')
+                    status-cancelled
+                @endif
+                ">{{ $dorm->status }}</td>    
                 <td class="buttons">
                     <a href="{{ route('supply.editDorm', $dorm->id) }}" class="btn btn-assign-number rounded-pill" id="receivingAssignNumberbtn">
                         Assign Number

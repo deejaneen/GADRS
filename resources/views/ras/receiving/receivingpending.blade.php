@@ -77,7 +77,17 @@
                 <td>{{ $gym->reservation_time_end }}</td>
                 <td>{{ $gym->occupant_type }}</td>
                 <td>{{ $gym->price }}</td>
-                <td style="color:var(--color-orange);">{{ $gym->status }}</td>
+                <td class="
+                @if ($gym->status == 'Pending')
+                    status-pending
+                @elseif ($gym->status == 'Received' )
+                    status-received-for-payment
+                @elseif ($gym->status == 'Paid' || $dorm->status == 'Reserved')
+                    status-paid-reserved
+                @elseif ($gym->status == 'Cancelled')
+                    status-cancelled
+                @endif
+                ">{{ $gym->status }}</td>    
                 <td class="buttons">
                     <a href="{{ route('receiving.editGym', $gym->id) }}" class="btn btn-assign-number rounded-pill" id="receivingAssignNumberbtn">
                         Assign Number

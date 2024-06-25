@@ -2057,6 +2057,18 @@ svg text.text-body {
     color: var(--color-background);
     border: 1px solid var(--color-background) !important;
 }
+.status-pending {
+    color: var(--color-warning) !important;
+}
+.status-received-for-payment {
+    color: var(--color-orange) !important;
+}
+.status-paid-reserved {
+    color: var(--color-success) !important;
+}
+.status-cancelled {
+    color: var(--color-danger) !important;
+}
 
 @media (max-width: 1440px) {
 

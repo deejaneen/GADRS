@@ -63,7 +63,7 @@
 
         </div>
         <div>
-            <button type="button" class="btn btn-primary" id="formSubmitBtn">Add Form Number</button>
+            <button type="button" class="btn btn-confirm-dorm" id="formSubmitBtn">Add Form Number</button>
             <button class="btn btn-go-back" onclick="goBack()">Back</button>
         </div>
     </form>
