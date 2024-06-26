@@ -21,7 +21,7 @@
                         @endif
                     </div>
                     <hr>
-                    <a href="#" class="forgot-password">Forgot Password?</a>
+                    <a href="{{route("forget.password")}}" class="forgot-password">Forgot Password?</a>
                     <div class="inputbox-container">
                         <div class="inputBox new-password">
                             <span>Enter New Password</span>

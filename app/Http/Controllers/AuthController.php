@@ -23,11 +23,15 @@ class AuthController extends Controller
     {
         // Validate the request data
         $validated = request()->validate([
-            'last_name' => 'required|min:3|max:40',
-            'first_name' => 'required|min:3|max:40',
-            'middle_name' => 'required|min:3|max:40',
+            'last_name' => 'required|min:2|max:40',
+            'first_name' => 'required|min:2|max:40',
+            'middle_name' => 'required|min:2|max:40',
             'email' => 'required|email|unique:users,email',
-            'password' => 'required|confirmed'
+            'password' => [
+                'required',
+                'confirmed',
+                'min:8', // minimum 8 characters
+            ]
         ]);
     
         // Create the user
@@ -48,7 +52,7 @@ class AuthController extends Controller
         // Redirect to verification notice
         return redirect()->route('verification.notice')->with('success', "Account created successfully! Please verify your email.");
     }
-
+    
     public function authenticate()
     {
         //validate

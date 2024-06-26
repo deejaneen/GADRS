@@ -38,7 +38,7 @@
                             @if ($dorm->status == 'Pending') status-pending
                             @elseif ($dorm->status == 'Received') status-received-for-payment
                             @elseif ($dorm->status == 'Paid' || $dorm->status == 'Reserved') status-paid-reserved
-                            @elseif ($dorm->status == 'Cancelled') status-cancelled
+                            @elseif ($dorm->status == 'Cancelled'|| $dorm->status == 'Unavailable') status-cancelled
                             @endif
                         ">{{ $dorm->status }}</td>
                     </tr>
@@ -77,7 +77,7 @@
                             @if ($cart->status == 'Pending') status-pending
                             @elseif ($cart->status == 'Received') status-received-for-payment
                             @elseif ($cart->status == 'Paid' || $cart->status == 'Reserved') status-paid-reserved
-                            @elseif ($cart->status == 'Cancelled') status-cancelled
+                            @elseif ($cart->status == 'Cancelled'|| $cart->status == 'Unavailable') status-cancelled
                             @endif
                         ">{{ $cart->status }}</td>
                     </tr>

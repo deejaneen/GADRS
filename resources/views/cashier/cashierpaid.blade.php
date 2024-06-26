@@ -1,47 +1,8 @@
 @extends('layout.cashierlayout')
 
 @section('cashierdashboard')
-    <!-- <aside>
-        <div class="top">
-            <div class="logo">
-                <img src="{{ asset('images/COA CAR logo.png') }}" alt="">
-                <h2 class="primary-light">COA <span class="danger">CAR</span></h2>
-            </div>
-            <div class="close" id="close-btn">
-                <span class="ri-close-fill"></span>
-            </div>
-
-            <div class="sidebar">
-                <a href="{{ route('cashierhome') }}">
-                    <span class="ri-dashboard-line ">
-                        <h3>Dashboard</h3>
-                    </span>
-                </a>
-               
-                <a href="{{ route('cashierforpayment') }}" >
-                    <span class="ri-wallet-3-fill">
-                        <h3>For Payment</h3>
-                    </span>
-                    
-                </a>
-                <a href="{{ route('cashierpaid') }}" class="active">
-                    <span class="ri-receipt-line">
-                        <h3>Paid</h3>
-                    </span>
-                </a>
-                <form action="{{ route('logout') }}" method="POST" id="logout-form-navbar">
-                    @csrf
-
-                    <button class="no-underline logout btn btn-danger btn-md" type="submit" id="logout-button">
-                        <span class="ri-logout-box-r-line">
-                            <h3>LOGOUT</h3></span>
-                    </button>
-                </form>
-            </div>
-        </div>
-    </aside> -->
     {{-- -------------------------------END-OF-ASIDE-------------------- --}}
-    <main>
+    <main style="grid-column: 2 / span 2;">
         <h1>PAID RESERVATIONS</h1>
         <h1 class="page-title" style="color: var(--color-orange);">GYM</h1>
 
@@ -66,28 +27,27 @@
                     @foreach ($gyms as $gym)
                         <tr class="table-active">
                             <td>{{ $gym->reservation_number }}</td>
-                            <td>{{ $gym->reservation_date }}</td>
-                            <td>{{ $gym->reservation_time_start }}</td>
-                            <td>{{ $gym->reservation_time_end }}</td>
+                            <td>{{ \Carbon\Carbon::parse($gym->reservation_date)->format('F j, Y') }}</td>
+                            <td>{{ \Carbon\Carbon::parse($gym->reservation_time_start)->format('g:i a') }}</td>
+                            <td>{{ \Carbon\Carbon::parse($gym->reservation_time_end)->format('g:i a') }}</td>
                             <td>{{ $gym->occupant_type }}</td>
                             <td>{{ $gym->price }}</td>
                             <td
-                            class="
+                                class="
                             @if ($gym->status == 'Pending') status-pending
                             @elseif ($gym->status == 'Received')
                                 status-received-for-payment
                             @elseif ($gym->status == 'Paid' || $gym->status == 'Reserved')
                                 status-paid-reserved
-                            @elseif ($gym->status == 'Cancelled')
-                                status-cancelled 
-                            @endif
+                            @elseif ($gym->status == 'Cancelled' || $gym->status == 'Unavailable')
+                                status-cancelled @endif
                     ">
-                            @if ($gym->status === 'Reserved')
-                                Paid
-                            @else
-                                {{ $gym->status }}
-                            @endif
-                        </td>
+                                @if ($gym->status === 'Reserved')
+                                    Paid
+                                @else
+                                    {{ $gym->status }}
+                                @endif
+                            </td>
                             <td>
                                 <a href="{{ route('cashier.viewPDFGym', $gym->id) }}" target="_blank"
                                     class="btn btn-generate-pdf rounded-pill" id="receivingViewFormbtn">
@@ -124,9 +84,10 @@
                     @foreach ($dorms as $dorm)
                         <tr class="table-active">
                             <td>{{ $dorm->Form_number }}</td>
-                            <td>{{ $dorm->reservation_start_date }} - {{ $dorm->reservation_end_date }}</td>
-                            <td>{{ $dorm->reservation_start_time }}</td>
-                            <td>{{ $dorm->reservation_end_time }}</td>
+                            <td>{{ \Carbon\Carbon::parse($dorm->reservation_start_date)->format('F j, Y') }} -
+                                {{ \Carbon\Carbon::parse($dorm->reservation_end_date)->format('F j, Y') }}</td>
+                            <td>{{ \Carbon\Carbon::parse($dorm->reservation_start_time)->format('g:i a') }}</td>
+                            <td>{{ \Carbon\Carbon::parse($dorm->reservation_end_time)->format('g:i a') }}</td>
                             <td>{{ $dorm->quantity }} {{ $dorm->gender }} </td>
                             <td>{{ $dorm->occupant_type }}</td>
                             <td>{{ $dorm->price }}</td>
@@ -137,9 +98,8 @@
                                     status-received-for-payment
                                 @elseif ($dorm->status == 'Paid' || $dorm->status == 'Reserved')
                                     status-paid-reserved
-                                @elseif ($dorm->status == 'Cancelled')
-                                    status-cancelled 
-                                @endif
+                                @elseif ($dorm->status == 'Cancelled' || $dorm->status == 'Unavailable')
+                                    status-cancelled @endif
                         ">
                                 @if ($dorm->status === 'Reserved')
                                     Paid
@@ -163,26 +123,4 @@
     </main>
 
     {{-- ------------------END OF MAIN------------------ --}}
-    <div class="right">
-        <div class="top">
-            <button id="menu-btn">
-                <span class="ri-menu-line"></span>
-            </button>
-
-            @auth()
-                <div class="profile">
-                    <div class="info">
-                        <p>Hey, <b>{{ Auth::user()->first_name }}</b></p>
-                        <small class="text-muted">{{ Auth::user()->role }}</small>
-                    </div>
-                    <div class="profile-photo">
-                        <img src="{{ asset('images/COA CAR logo.png') }}" alt="">
-                    </div>
-                </div>
-            @endauth
-        </div>
-        {{-- ------------------END OF TOP------------------ --}}
-
-        {{-- ------------------ END OF RECENT UPDATES ------------------ --}}
-    </div>
 @endsection

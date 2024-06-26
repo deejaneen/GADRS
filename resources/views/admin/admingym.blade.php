@@ -39,7 +39,7 @@
                         status-received-for-payment
                     @elseif ($gym->status == 'Paid' || $gym->status == 'Reserved')
                         status-paid-reserved
-                    @elseif ($gym->status == 'Cancelled')
+                    @elseif ($gym->status == 'Cancelled' || $gym->status == 'Unavailable')
                         status-cancelled @endif
                     ">
                             {{ $gym->status }}</td>
@@ -78,7 +78,7 @@
                     status-received-for-payment
                 @elseif ($cart->status == 'Paid' || $cart->status == 'Reserved')
                     status-paid-reserved
-                @elseif ($cart->status == 'Cancelled')
+                @elseif ($cart->status == 'Cancelled' || $gym->status == 'Unavailable')
                     status-cancelled @endif
                 ">
                             {{ $cart->status }}</td>

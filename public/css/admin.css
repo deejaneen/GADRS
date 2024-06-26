@@ -737,6 +737,7 @@ main .recent-orders a {
 }
 
 
+.btn-delete.rounded-pill,
 .btn-delete-profile.rounded-pill {
     border: 1px solid var(--color-danger) !important;
     font-size: 0.77em;
@@ -744,6 +745,7 @@ main .recent-orders a {
     color: var(--color-danger);
 }
 
+.btn-delete.rounded-pill:hover,
 .btn-delete-profile.rounded-pill:hover {
     border: 1px solid var(--color-danger) !important;
     background-color: var(--color-danger) !important;
@@ -880,7 +882,19 @@ div.dt-container .dt-paging .dt-paging-button.disabled {
     background: var(--color-background) !important;
     border: 1px solid var(--color-primary) !important;
 }
-
+#addReservationNumberForm .form-control:read-only    {
+    color: var(--color-primary) !important;
+    background: var(--color-background) !important;
+    border: 1px solid var(--color-primary) !important;
+}
+#reservation_number{
+    width: calc(100%-80px);
+}
+.reservation_number_container{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
 
 .btn-primary {
     color: var(--color-primary) !important;

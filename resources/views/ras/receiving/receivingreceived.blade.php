@@ -61,9 +61,9 @@
                     <tr class="table-active">
                         <td>{{ $gym->reservation_number }}</td>
                         <td>{{ $gym->form_group_number }}</td>
-                        <td>{{ $gym->reservation_date }}</td>
-                        <td>{{ $gym->reservation_time_start }}</td>
-                        <td>{{ $gym->reservation_time_end }}</td>
+                        <td>{{ \Carbon\Carbon::parse($gym->reservation_date)->format('F j, Y') }}</td>
+                        <td>{{ \Carbon\Carbon::parse($gym->reservation_time_start)->format('h:i A') }}</td>
+                        <td>{{ \Carbon\Carbon::parse($gym->reservation_time_end)->format('h:i A') }}</td>
                         <td>{{ $gym->occupant_type }}</td>
                         <td>{{ $gym->price }}</td>
                         <td class="
@@ -73,7 +73,7 @@
                                 status-received-for-payment
                             @elseif ($gym->status == 'Paid' || $gym->status == 'Reserved')
                                 status-paid-reserved
-                            @elseif ($gym->status == 'Cancelled')
+                            @elseif ($gym->status == 'Cancelled' || $dorm->status == 'Unavailable')
                                 status-cancelled
                             @endif
                             ">{{ $gym->status }}</td>    

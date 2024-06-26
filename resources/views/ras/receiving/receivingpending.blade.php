@@ -5,29 +5,21 @@
 <main>
     <h1>Pending</h1>
 
-
     <div class="insights">
         {{-- -------------------------------END-OF-SALES-------------------- --}}
-
         {{-- -------------------------------END-OF-GYM-RESERVATIONS-------------------- --}}
         <div class="gymreservation">
             <span class="ri-basketball-fill"></span>
             <div class="middle">
                 <div class="left">
                     <h3>Total Pending Reservations - Gym</h3>
-                    <h1>
-                        {{ $gymsPendingCount }}
-                    </h1>
+                    <h1>{{ $gymsPendingCount }}</h1>
                 </div>
-
             </div>
         </div>
         {{-- -------------------------------END-OF-DORM-RESERVATIONS-------------------- --}}
-
     </div>
-
     {{-- ------------------END OF INSIGHTS------------------ --}}
-
 </main>
 
 <!-- <div class="right">
@@ -47,7 +39,6 @@
     </div>
 
     {{-- ------------------ END OF RECENT UPDATES ------------------ --}}
-
 </div> -->
 <div class="card" id="ReceivingPendingTableCard">
     <div>
@@ -72,35 +63,40 @@
             <tr class="table-active">
                 <td>{{ $gym->reservation_number }}</td>
                 <td>{{ $gym->form_group_number }}</td>
-                <td>{{ $gym->reservation_date }}</td>
-                <td>{{ $gym->reservation_time_start }}</td>
-                <td>{{ $gym->reservation_time_end }}</td>
+                <td>{{ \Carbon\Carbon::parse($gym->reservation_date)->format('F j, Y') }}</td>
+                <td>{{ \Carbon\Carbon::parse($gym->reservation_time_start)->format('h:i A') }}</td>
+                <td>{{ \Carbon\Carbon::parse($gym->reservation_time_end)->format('h:i A') }}</td>
                 <td>{{ $gym->occupant_type }}</td>
                 <td>{{ $gym->price }}</td>
                 <td class="
-                @if ($gym->status == 'Pending')
-                    status-pending
-                @elseif ($gym->status == 'Received' )
-                    status-received-for-payment
-                @elseif ($gym->status == 'Paid' || $dorm->status == 'Reserved')
-                    status-paid-reserved
-                @elseif ($gym->status == 'Cancelled')
-                    status-cancelled
-                @endif
-                ">{{ $gym->status }}</td>    
+                    @if ($gym->status == 'Pending')
+                        status-pending
+                    @elseif ($gym->status == 'Received')
+                        status-received-for-payment
+                    @elseif ($gym->status == 'Paid' || $gym->status == 'Reserved')
+                        status-paid-reserved
+                    @elseif ($gym->status == 'Cancelled' || $dorm->status == 'Unavailable')
+                        status-cancelled
+                    @endif
+                ">
+                    @if ($gym->status == 'Received')
+                        For Payment
+                    @else
+                        {{ $gym->status }}
+                    @endif
+                </td>
                 <td class="buttons">
                     <a href="{{ route('receiving.editGym', $gym->id) }}" class="btn btn-assign-number rounded-pill" id="receivingAssignNumberbtn">
                         Assign Number
                     </a>
-                    <a href="{{ route('receiving.viewGym', $gym->id) }}" class="btn btn-view-details rounded-pill" id="receivingViewFormbtn" >
+                    <a href="{{ route('receiving.viewGym', $gym->id) }}" class="btn btn-view-details rounded-pill" id="receivingViewFormbtn">
                         View Details
                     </a>
-                    <a href="{{ route('receiving.viewPDF', $gym->id) }}" target="_blank" class="btn btn-generate-pdf rounded-pill" id="receivingViewFormbtn" >
+                    <a href="{{ route('receiving.viewPDF', $gym->id) }}" target="_blank" class="btn btn-generate-pdf rounded-pill" id="receivingViewFormbtn">
                         Generate PDF
                     </a>
                 </td>
             </tr>
-
             @endforeach
         </tbody>
     </table>

@@ -80,7 +80,7 @@
                                             status-received-for-payment
                                         @elseif ($gym->status == 'Paid' || $gym->status == 'Reserved')
                                             status-paid-reserved
-                                        @elseif ($gym->status == 'Cancelled')
+                                        @elseif ($gym->status == 'Cancelled' || $gym->status == 'Unavailable')
                                             status-cancelled
                                         @endif
                                         ">{{ $gym->status }}</td>                                    
@@ -115,7 +115,17 @@
                                         <td>{{ date('F j, Y', strtotime($dorm->reservation_end_date)) }}</td>
                                         <td>{{ date('g:i A', strtotime($dorm->reservation_end_time)) }}</td>
                                         <td>₱{{ $dorm->price }}</td>
-                                        <td style="color: var(--color-orange);">{{ $dorm->status }}</td>
+                                        <td class="
+                                        @if ($dorm->status == 'Pending')
+                                            status-pending
+                                        @elseif ($dorm->status == 'Received' )
+                                            status-received-for-payment
+                                        @elseif ($dorm->status == 'Paid' || $dorm->status == 'Reserved')
+                                            status-paid-reserved
+                                        @elseif ($dorm->status == 'Cancelled' || $gym->status == 'Unavailable')
+                                            status-cancelled
+                                        @endif
+                                        ">{{ $dorm->status }}</td>               
                                     </tr>
                                 @endforeach
                             </tbody>

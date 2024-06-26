@@ -38,7 +38,7 @@
                     status-received-for-payment
                 @elseif ($dorm->status == 'Paid' || $dorm->status == 'Reserved')
                     status-paid-reserved
-                @elseif ($dorm->status == 'Cancelled')
+                @elseif ($dorm->status == 'Cancelled' || $dorm->status == 'Unavailable')
                     status-cancelled
                 @endif
                 ">{{ $dorm->status }}</td>    

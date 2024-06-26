@@ -40,7 +40,8 @@
         </div>
     </aside> -->
 {{-- -------------------------------END-OF-ASIDE-------------------- --}}
-<main>
+
+<main style="grid-column: 2 / span 2;">
     <h1>RESERVATIONS AWAITING PAYMENT</h1>
     <h1 class="page-title" style="color: var(--color-orange);">GYM</h1>
 
@@ -76,7 +77,7 @@
                             Confirm Payment
                         </a>
                         <a href="{{ route('cashier.viewPDFGym', $gym->id) }}" target="_blank" class="btn btn-generate-pdf rounded-pill" id="receivingViewFormbtn">
-                            PDF
+                            Generate PDF
                         </a>
                     </td>
                 </tr>
@@ -123,7 +124,7 @@
                                 status-received-for-payment
                             @elseif ($dorm->status == 'Paid' || $dorm->status == 'Reserved')
                                 status-paid-reserved
-                            @elseif ($dorm->status == 'Cancelled')
+                            @elseif ($dorm->status == 'Cancelled' || $dorm->status == 'Unavailable')
                                 status-cancelled
                             @endif
                         "
@@ -138,8 +139,8 @@
                         <a href="{{ route('cashier.editCashierDorm', $dorm->id) }}" class="btn btn-confirm-payment rounded-pill" id="dormReservationTableConfirmbtn">
                             Confirm Payment
                         </a>
-                        <a href="{{ route('cashier.viewPDFDorm', $dorm->id) }}" target="_blank" class="btn btn-generate-pdf rounded-pill" id="receivingViewFormbtn" style="color: var(--color-orange);">
-                            PDF
+                        <a href="{{ route('cashier.viewPDFDorm', $dorm->id) }}" target="_blank" class="btn btn-generate-pdf rounded-pill" id="receivingViewFormbtn">
+                            Generate PDF
                         </a>
                     </td>
                 </tr>
@@ -152,26 +153,5 @@
 </main>
 
 {{-- ------------------END OF MAIN------------------ --}}
-<div class="right">
-    <div class="top">
-        <button id="menu-btn">
-            <span class="ri-menu-line"></span>
-        </button>
 
-        @auth()
-        <div class="profile">
-            <div class="info">
-                <p>Hey, <b>{{ Auth::user()->first_name }}</b></p>
-                <small class="text-muted">{{ Auth::user()->role }}</small>
-            </div>
-            <div class="profile-photo">
-                <img src="{{ asset('images/COA CAR logo.png') }}" alt="">
-            </div>
-        </div>
-        @endauth
-    </div>
-    {{-- ------------------END OF TOP------------------ --}}
-
-    {{-- ------------------ END OF RECENT UPDATES ------------------ --}}
-</div>
 @endsection
