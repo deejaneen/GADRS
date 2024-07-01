@@ -50,7 +50,7 @@
                 <span class="ri-key-2-line"></span>
                 <div class="middle">
                     <div class="left">
-                        <h3>Total Paid Reservations</h3>
+                        <h3>Total Reservations Awaiting Payment</h3>
                         <h1>
                             {{ $totalForPaymentCount }}
                         </h1>
@@ -62,7 +62,7 @@
                 <span class="ri-basketball-fill"></span>
                 <div class="middle">
                     <div class="left">
-                        <h3>Total Paid Gym Reservations</h3>
+                        <h3>Total Gym Reservations Awaiting Payment</h3>
                         <h1>
                             {{ $gymsForPaymentCount }}
                         </h1>
@@ -74,7 +74,7 @@
                 <span class="ri-hotel-bed-fill"></span>
                 <div class="middle">
                     <div class="left">
-                        <h3>Total Paid Dorm Reservations</h3>
+                        <h3>Total Dorm Reservations Awaiting Payment</h3>
                         <h1>
                             {{ $dormsForPaymentCount }}
                         </h1>
@@ -89,7 +89,7 @@
                 <span class="ri-key-2-line"></span>
                 <div class="middle">
                     <div class="left">
-                        <h3>Total Reservations</h3>
+                        <h3>Total Active Reservations</h3>
                         <h1>
                             {{ $totalReservedCount }}
                         </h1>
@@ -101,7 +101,7 @@
                 <span class="ri-basketball-fill"></span>
                 <div class="middle">
                     <div class="left">
-                        <h3>Total Gym Reservations</h3>
+                        <h3>Total Active Gym Reservations</h3>
                         <h1>
                             {{ $gymsReservedCount }}
                         </h1>
@@ -113,7 +113,7 @@
                 <span class="ri-hotel-bed-fill"></span>
                 <div class="middle">
                     <div class="left">
-                        <h3>Total Dorm Reservations</h3>
+                        <h3>Total Active Dorm Reservations</h3>
                         <h1>
                             {{ $dormsReservedCount }}
                         </h1>

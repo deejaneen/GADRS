@@ -1029,11 +1029,12 @@ b {
 
 /* ======================= Profile View =======================*/
 
-.errors{
+.errors {
     color: var(--color-danger) !important;
     font-size: 0.5em !important;
     max-width: 260px !important;
 }
+
 .profileview-container {
     display: grid;
     grid-template-columns: 30% 70%;
@@ -1577,7 +1578,7 @@ b {
     margin-top: 50px;
     border-radius: 50px;
     max-width: calc(80%);
-    
+
     box-sizing: border-box;
     display: flex;
     justify-content: center;
@@ -1607,10 +1608,11 @@ b {
     margin: 30px 30px 30px 30px;
     border-collapse: collapse;
 }
+
 #DormReservationsTable th span,
-#GymReservationsTable th span{
- display: inline-flex;
- padding: 10px;
+#GymReservationsTable th span {
+    display: inline-flex;
+    padding: 10px;
 }
 
 .home-reservation-table .reservation-table-home .toogle-btn {
@@ -1931,15 +1933,18 @@ ul.list-unstyled {
     width: 100%;
     table-layout: auto;
 }
-.swal2-confirm.swal2-styled{
+
+.swal2-confirm.swal2-styled {
     background: var(--color-danger) !important;
 }
-.d-block.text-danger{
+
+.d-block.text-danger {
     font-size: 0.78em !important;
     text-align: end;
     margin-right: 20px;
 }
-.verify-email-card{
+
+.verify-email-card {
     background: var(--color-primary);
     box-shadow: var(--box-shadow);
     display: flex;
@@ -1949,7 +1954,8 @@ ul.list-unstyled {
     border-radius: 20px;
     padding: 40px;
 }
-.loader-container{
+
+.loader-container {
     position: fixed;
     z-index: 999;
     background: var(--color-background);
@@ -1964,28 +1970,34 @@ ul.list-unstyled {
     opacity: 0;
     visibility: hidden;
 }
-#contentcontainer{
+
+#contentcontainer {
     opacity: 0;
     transition: opacity .6s ease-in-out, transform .6s ease-in-out;
 }
-#contentcontainer.visible{
+
+#contentcontainer.visible {
     opacity: 1;
-} 
-svg{
+}
+
+svg {
     width: 80rem;
     height: 20rem;
 }
-svg text{
+
+svg text {
     font-size: 5rem;
     stroke-width: 2;
     letter-spacing: -6px;
-   
+
 }
-svg text.text-body{
+
+svg text.text-body {
     stroke: var(--color-primary);
     animation: 4s infinite alternate animate-stroke;
     /* stroke-dasharray: 0 32%; */
-} 
+}
+
 @keyframes animate-stroke {
     0% {
         fill: transparent;
@@ -1994,11 +2006,13 @@ svg text.text-body{
         stroke-dashoffset: 25%;
         stroke-dasharray: 0 32%;
     }
+
     50% {
         fill: transparent;
         stroke: var(--color-primary);
         stroke-width: 3;
     }
+
     80%,
     100% {
         fill: var(--color-primary);
@@ -2007,6 +2021,13 @@ svg text.text-body{
         stroke-dashoffset: -25%;
         stroke-dasharray: 32% 0;
     }
+}
+
+.terms-container li {
+    font-size: 0.6em;
+}
+.terms-container p {
+    font-size: 0.7em;
 }
 
 @media (max-width: 1440px) {
