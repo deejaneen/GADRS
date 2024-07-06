@@ -58,10 +58,10 @@
     </aside> -->
     {{-- -------------------------------END-OF-ASIDE-------------------- --}}
     <main>
-        <h1 class="page-title">RESERVATIONS DATES THAT CAN BE BOOKED</h1>
+        <h1 class="page-title">RESERVATIONS DATES THAT CANNOT BE BOOKED</h1>
         <div class="card" id="AdminGymReservationTableCard">
             <div>
-                <h2 class="card-header text-center home">Active Gym Dates For Reservation</h2>
+                <h2 class="card-header text-center home">Gym Dates Restricted</h2>
             </div>
             <table class="table-home table-hover stripe" id="AdminGymReservationTable" style="width: 100%">
                 <thead>
@@ -99,7 +99,7 @@
         </div>
         <div class="card" id="AdminDormReservationTableCard">
             <div>
-                <h2 class="card-header text-center home">Active Dorm Dates For Reservation</h2>
+                <h2 class="card-header text-center home">Dorm Dates Restricted</h2>
             </div>
             <table class="table-home table-hover stripe" id="AdminDormReservationTable" style="width: 100%">
                 <thead>

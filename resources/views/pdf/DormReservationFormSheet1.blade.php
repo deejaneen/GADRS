@@ -3,7 +3,7 @@
 <head>
     <meta content="text/html; charset=UTF-8" http-equiv="content-type">
     <style type="text/css">
-        @import url(https://themes.googleusercontent.com/fonts/css?kit=fpjTOVmNbO4Lz34iLyptLUXza5VhXqVC6o75Eld_V98);
+        /* @import url(https://themes.googleusercontent.com/fonts/css?kit=fpjTOVmNbO4Lz34iLyptLUXza5VhXqVC6o75Eld_V98); */
 
         ol {
             margin: 0;
@@ -11,7 +11,7 @@
         }
 
         body {
-            font-family: 'Calibri', sans-serif;
+            /* font-family: 'Calibri', sans-serif; */
         }
 
         table td,
@@ -1603,7 +1603,7 @@
             text-decoration: underline;
             vertical-align: baseline;
             text-decoration-skip-ink: none;
-            font-family: "Calibri";
+            /* font-family: "Calibri"; */
             font-style: normal
         }
 
@@ -1785,7 +1785,7 @@
             text-decoration: none;
             vertical-align: baseline;
             font-size: 10pt;
-            font-family: "Calibri";
+            /* font-family: "Calibri"; */
             font-style: normal
         }
 
@@ -1866,7 +1866,7 @@
             text-decoration: none;
             vertical-align: baseline;
             font-size: 10pt;
-            font-family: "Calibri";
+            /* font-family: "Calibri"; */
             font-style: normal
         }
 
@@ -1910,7 +1910,7 @@
             color: #000000;
             text-decoration: none;
             vertical-align: baseline;
-            font-family: "Calibri";
+            /* font-family: "Calibri"; */
             font-style: normal
         }
 
@@ -2165,7 +2165,7 @@
             font-weight: 700;
             font-size: 34pt;
             padding-bottom: 6pt;
-            font-family: "Calibri";
+            /* font-family: "Calibri"; */
             line-height: 1.0791666666666666;
             page-break-after: avoid;
             orphans: 2;
@@ -2190,14 +2190,14 @@
         li {
             color: #000000;
             font-size: 10pt;
-            font-family: "Calibri"
+            /* font-family: "Calibri" */
         }
 
         p {
             margin: 0;
             color: #000000;
             font-size: 10pt;
-            font-family: "Calibri"
+            /* font-family: "Calibri" */
         }
 
         h1 {
@@ -2210,7 +2210,7 @@
             line-height: 1.0791666666666666;
             page-break-after: avoid;
             text-decoration-skip-ink: none;
-            font-family: "Calibri";
+            /* font-family: "Calibri"; */
             orphans: 2;
             widows: 2;
             text-align: left
@@ -2222,7 +2222,7 @@
             font-weight: 700;
             font-size: 16pt;
             padding-bottom: 4pt;
-            font-family: "Calibri";
+            /* font-family: "Calibri"; */
             line-height: 1.0791666666666666;
             page-break-after: avoid;
             orphans: 2;
@@ -2236,7 +2236,7 @@
             font-weight: 700;
             font-size: 13pt;
             padding-bottom: 4pt;
-            font-family: "Calibri";
+            /* font-family: "Calibri"; */
             line-height: 1.0791666666666666;
             page-break-after: avoid;
             orphans: 2;
@@ -2250,7 +2250,7 @@
             font-weight: 700;
             font-size: 11pt;
             padding-bottom: 2pt;
-            font-family: "Calibri";
+            /* font-family: "Calibri"; */
             line-height: 1.0791666666666666;
             page-break-after: avoid;
             orphans: 2;
@@ -2264,7 +2264,7 @@
             font-weight: 700;
             font-size: 10pt;
             padding-bottom: 2pt;
-            font-family: "Calibri";
+            /* font-family: "Calibri"; */
             line-height: 1.0791666666666666;
             page-break-after: avoid;
             orphans: 2;
@@ -2278,7 +2278,7 @@
             font-weight: 700;
             font-size: 9pt;
             padding-bottom: 2pt;
-            font-family: "Calibri";
+            /* font-family: "Calibri"; */
             line-height: 1.0791666666666666;
             page-break-after: avoid;
             orphans: 2;
@@ -2703,9 +2703,9 @@
         <tr class="c22">
             <td class="c139" colspan="4" rowspan="2">
                 <p class="c20"><span class="c1">Official
-                        Receipt Number: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="c61 c67">$ORNO</span></span></p>
-                <p class="c20"><span class="c1">Amount Paid: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="c61 c67">$AMTPAID</span></span></p>
-                <p class="c20"><span class="c1">Date Issued:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="c61 c67">$DATEISSUED</span></span></p>
+                        Receipt Number: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="c61 c67">{{ $dorm->or_number }}</span></span></p>
+                <p class="c20"><span class="c1">Amount Paid: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="c61 c67">{{ $dorm->amount_paid }}</span></span></p>
+                <p class="c20"><span class="c1">Date Issued:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="c61 c67">{{ $dorm->or_date }}</span></span></p>
             </td>
             <td class="c122" colspan="5" rowspan="1">
                 <p class="c20"><span class="c1 c75">Guard on duty:</span></p>

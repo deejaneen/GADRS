@@ -50,7 +50,7 @@
                 <span class="ri-key-2-line"></span>
                 <div class="middle">
                     <div class="left">
-                        <h3>Total Paid Reservations</h3>
+                        <h3>Total Reservations Awaiting Payment</h3>
                         <h1>
                             {{ $totalForPaymentCount }}
                         </h1>
@@ -62,7 +62,7 @@
                 <span class="ri-basketball-fill"></span>
                 <div class="middle">
                     <div class="left">
-                        <h3>Total Paid Gym Reservations</h3>
+                        <h3>Total Gym Reservations Awaiting Payment</h3>
                         <h1>
                             {{ $gymsForPaymentCount }}
                         </h1>
@@ -74,7 +74,7 @@
                 <span class="ri-hotel-bed-fill"></span>
                 <div class="middle">
                     <div class="left">
-                        <h3>Total Paid Dorm Reservations</h3>
+                        <h3>Total Dorm Reservations Awaiting Payment</h3>
                         <h1>
                             {{ $dormsForPaymentCount }}
                         </h1>
@@ -89,7 +89,7 @@
                 <span class="ri-key-2-line"></span>
                 <div class="middle">
                     <div class="left">
-                        <h3>Total Reservations</h3>
+                        <h3>Total Active Reservations</h3>
                         <h1>
                             {{ $totalReservedCount }}
                         </h1>
@@ -101,7 +101,7 @@
                 <span class="ri-basketball-fill"></span>
                 <div class="middle">
                     <div class="left">
-                        <h3>Total Gym Reservations</h3>
+                        <h3>Total Active Gym Reservations</h3>
                         <h1>
                             {{ $gymsReservedCount }}
                         </h1>
@@ -113,7 +113,7 @@
                 <span class="ri-hotel-bed-fill"></span>
                 <div class="middle">
                     <div class="left">
-                        <h3>Total Dorm Reservations</h3>
+                        <h3>Total Active Dorm Reservations</h3>
                         <h1>
                             {{ $dormsReservedCount }}
                         </h1>
@@ -218,60 +218,5 @@
                 </div>
             </div>
         </div> --}}
-        <div class="sales-analytics">
-            <h2>Syste Analytics</h2>
-            <div class="item online">
-                <div class="icon">
-                    <span class="ri-shopping-cart-2-line"></span>
-                </div>
-                <div class="right">
-                    <div class="info">
-                        <h3>NEW RESERVATIONS</h3>
-                        <small class="text-muted">Last 24 Hours</small>
-                    </div>
-                    <h4 class="success">+39%</h4>
-                    <h3>3849</h3>
-                </div>
-            </div>
-            {{-- <div class="item offline">
-                <div class="icon">
-                    <span class="ri-shopping-bag-line"></span>
-                </div>
-                <div class="right">
-                    <div class="info">
-                        <h3>OFFLINE ORDERS</h3>
-                        <small class="text-muted">Last 24 Hours</small>
-                    </div>
-                    <h5 class="danger">-17%</h5>
-                    <h3>3849</h3>
-                </div>
-            </div> --}}
-            <div class="item customers">
-                <div class="icon">
-                    <span class="ri-user-fill"></span>
-                </div>
-                <div class="right">
-                    <div class="info">
-                        <h3>NEW USERS</h3>
-                        <small class="text-muted">Last 24 Hours</small>
-                    </div>
-                    <h4 class="success">+225%</h4>
-                    <h3>3849</h3>
-                </div>
-            </div>
-            {{-- <div class="item add-product">
-                <div class="icon">
-                    <span class="ri-add-line"></span>
-                </div>
-                <div class="right">
-                    <div class="info">
-                        <h3>ADD RESERVATION DATE</h3>
-                        <small class="text-muted">Last 24 Hours</small>
-                    </div>
-                    <h4 class="success">+225%</h4>
-                    <h3>3849</h3>
-                </div>
-            </div> --}}
-        </div>
     </div>
 @endsection

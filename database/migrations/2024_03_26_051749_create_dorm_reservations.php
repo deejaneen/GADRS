@@ -36,6 +36,7 @@ return new class extends Migration
             $table->string('coa_referrer_office_address')->nullable();
             $table->string('relationship_with_guest')->nullable();
             $table->decimal('price', 10, 2)->nullable();
+            $table->decimal('total_price', 10, 2)->nullable();
             $table->string('status')->default('Pending')->nullable();
             $table->string('purpose_of_stay')->nullable();
             $table->string('emergency_contact')->nullable();
@@ -48,6 +49,9 @@ return new class extends Migration
             $table->string('last_name')->nullable();
             $table->string('first_name')->nullable();
             $table->string('middle_name')->nullable();
+            $table->string('or_number')->nullable();
+            $table->date('or_date')->nullable();;
+            $table->decimal('amount_paid', 10, 2)->nullable();
             $table->timestamps();
 
 

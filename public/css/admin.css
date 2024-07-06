@@ -874,11 +874,15 @@ div.dt-container .dt-paging .dt-paging-button.disabled {
 #ReceivingPendingTableCard .form-label {
     color: var(--color-orange);
 }
+#AdminUserTableCard .form-control:disabled, 
 #ReceivingPendingTableCard .form-control:disabled {
     color: var(--color-primary) !important;
     background: var(--color-background) !important;
     border: 1px solid var(--color-primary) !important;
 }
+
+
+
 
 
 .btn-primary {

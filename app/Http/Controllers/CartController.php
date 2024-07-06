@@ -129,6 +129,7 @@ class CartController extends Controller
 
     public function GymCartToGymReservations(Request $request)
     {
+
         try {
             $cartIds = json_decode($request->input('cart_ids_gym'));
 
@@ -142,7 +143,7 @@ class CartController extends Controller
                 return redirect()->back()->withErrors(['error' => 'The maximum items to be put into a form is limited to eight only.']);
             }
 
-
+            $userId = Auth::id();
             $formGroupNumber = $this->generateFormGroupNumber(); // Generate a common identifier
 
             foreach ($cartIds as $cartId) {
@@ -153,6 +154,8 @@ class CartController extends Controller
                     ->where('reservation_time_end', $gymCart->reservation_time_end)
                     ->where('occupant_type', $gymCart->occupant_type)
                     ->where('purpose', $gymCart->purpose)
+                    ->where('employee_id', $userId)
+                    
                     ->exists();
 
                 if ($check) {
@@ -165,6 +168,7 @@ class CartController extends Controller
 
                     $gymReservation->company_name = $request->input('hidden_companyName');
                     $gymReservation->representative = $request->input('hidden_nameRepresentative');
+                    // $gymReservation->total_price = $gymCart->total_price;
                     $gymReservation->office_address = $request->input('hidden_address');
                     $gymReservation->contact_number = $request->input('hidden_contactNumber');
                     $gymReservation->status = 'Pending';

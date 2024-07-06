@@ -1029,7 +1029,7 @@ b {
 
 /* ======================= Profile View =======================*/
 
-.errors {
+.errors  {
     color: var(--color-danger) !important;
     font-size: 0.5em !important;
     max-width: 260px !important;
@@ -1609,6 +1609,7 @@ b {
     border-collapse: collapse;
 }
 
+
 #DormReservationsTable th span,
 #GymReservationsTable th span {
     display: inline-flex;
@@ -1976,7 +1977,8 @@ ul.list-unstyled {
     transition: opacity .6s ease-in-out, transform .6s ease-in-out;
 }
 
-#contentcontainer.visible {
+
+#contentcontainer.visible  {
     opacity: 1;
 }
 
@@ -1985,14 +1987,16 @@ svg {
     height: 20rem;
 }
 
-svg text {
+
+svg text  {
     font-size: 5rem;
     stroke-width: 2;
     letter-spacing: -6px;
 
 }
 
-svg text.text-body {
+
+svg text.text-body  {
     stroke: var(--color-primary);
     animation: 4s infinite alternate animate-stroke;
     /* stroke-dasharray: 0 32%; */
@@ -2023,39 +2027,11 @@ svg text.text-body {
     }
 }
 
-.reset-password-container label{
-    color: var(--color-orange);
+.terms-container li {
+    font-size: 0.6em;
 }
-.reset-password-container input{
-    width: 100%;
-    margin-bottom: 10px;
-}
-.reset-password-container {
-    color: var(--color-background);
-    background: var(--color-primary);
-    min-width: 1000px;
-    margin-top: 40px;
-    border-radius: 25px;
-    min-height: 20lvh;
-    padding: 30px;
-    box-shadow: var(--box-shadow);
-}
-.reset-password-container:hover {
-    box-shadow: none;
-    transition: ease-in-out 0.5 ;
-}
-.btn-submit{
-    font-size: 1em;
-    padding: 5px;
-    background: var(--color-background) !important;
-    color: var(--color-primary);
-    border: 1px solid var(--color-background) !important;
-}
-.btn-submit:hover {
-    font-size: 1em;
-    background: var(--color-primary) !important;
-    color: var(--color-background);
-    border: 1px solid var(--color-background) !important;
+.terms-container p {
+    font-size: 0.7em;
 }
 
 @media (max-width: 1440px) {

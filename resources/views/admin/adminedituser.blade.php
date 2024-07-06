@@ -101,7 +101,7 @@
             <div class="row mb-3">
                 <div class="col">
                     <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="email" name="email" value="{{ $user->email }}">
+                    <input type="email" class="form-control" id="email" name="email" value="{{ $user->email }}" disabled>
                     @error('email')
                     <span class="text-danger fs-6">{{ $message }}</span>
                     @enderror
@@ -121,6 +121,8 @@
                         <option value="Cashier" {{ $user->role == 'Cashier' ? 'selected' : '' }}>Cashier
                         </option>
                         <option value="Receiving" {{ $user->role == 'Receiving' ? 'selected' : '' }}>Receiving
+                        </option>
+                         <option value="Supply" {{ $user->role == 'Supply' ? 'selected' : '' }}>Supply
                         </option>
                     </select>
                     @error('role')

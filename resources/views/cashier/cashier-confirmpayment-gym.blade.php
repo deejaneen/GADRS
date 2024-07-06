@@ -32,6 +32,12 @@
             <label for="purpose" class="form-label">Purpose</label>
             <input type="text" class="form-control" id="purpose" value="{{ $gym->purpose }}" name="purpose" disabled>
         </div>
+        @if($gym->purpose == 'Badminton')
+        <div class="col">
+            <label for="number_of_courts" class="form-label">Number of Courts</label>
+            <input type="text" class="form-control" id="number_of_courts" value="{{ $gym->number_of_courts }}" name="number_of_courts" disabled>
+        </div>
+        @endif
         <div class="col">
             <label for="occupant_type" class="form-label">Occupant Type</label>
             <input type="text" class="form-control" id="occupant_type" value="{{ $gym->occupant_type }}" name="occupant_type" disabled>

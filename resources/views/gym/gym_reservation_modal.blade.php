@@ -56,6 +56,23 @@
                                 <input type="number" class="form-control" id="number_of_courts" name="number_of_courts" min="1" max="4" required>
                             </div>
                         </div>
+
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-3">
+                            <label for="hours" class="form-label">Hours</label>
+                            <input type="text" class="form-control" id="hours" name="hours" value="" readonly>
+                        </div>
+                        <div class="col-3">
+                            <label for="price" class="form-label">Price per hour</label>
+                            <input type="text" class="form-control" id="price" name="price" value="" readonly>
+                        </div>
+                        <div class="col-4">
+                            <label for="total_price" class="form-label">Total Price</label>
+                            <input type="text" class="form-control" id="total_price" name="total_price" value="" required readonly>
+                        </div>
+                        <h4>PRICE</h4>
+                        <p>COA Employee: ₱450.00, Non COA: ₱600.00</p>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -66,4 +83,3 @@
         </div>
     </div>
 </div>
-

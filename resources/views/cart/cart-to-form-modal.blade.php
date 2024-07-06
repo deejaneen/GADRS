@@ -1,4 +1,4 @@
-<div class="modal fade" id="cartToFormModalGym" tabindex="-1" aria-labelledby="cartToFormModalGymLabel" aria-hidden="true">
+<div class="modal fade" id="cartToFormModalGym" tabindex="-1" aria-labelledby="cartToFormModalGymLabel" aria-hidden="true" style="display: none;">
     <div class="modal-dialog modal-dialog-centered modal-xl">
         <div class="modal-content">
             <div class="modal-header">
@@ -56,7 +56,7 @@
 
 
 <div class="modal fade" id="cartToFormModalDorm" tabindex="-1" aria-labelledby="cartToFormModalDormLabel"
-    aria-hidden="true">
+    aria-hidden="true" style="display: none;">
     <div class="modal-dialog modal-dialog-centered modal-xl">
         <div class="modal-content">
             <div class="modal-header">

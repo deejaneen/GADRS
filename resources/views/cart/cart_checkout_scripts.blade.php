@@ -71,12 +71,12 @@
         if (selectedCount > 0) {
             const gymCardVisible = window.getComputedStyle(document.getElementById('gymReservationsCartCard')).display !== 'none';
             const dormCardVisible = window.getComputedStyle(document.getElementById('dormReservationsCartCard')).display !== 'none';
-            if (gymCardVisible && selectedCount <= 3) {
+            if (gymCardVisible && selectedCount <= 8) {
                 $('#cartToFormModalGym').modal('show');
             } else if(dormCardVisible) {
                 $('#cartToFormModalDorm').modal('show');
             }else{
-                Swal.fire("The maximum number of items to be put into a form is only 3.", "", "warning");
+                Swal.fire("The maximum number of items to be put into a form is only 8.", "", "warning");
             }
 
         } else {

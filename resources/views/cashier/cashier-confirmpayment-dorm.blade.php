@@ -35,7 +35,7 @@
         </div>
         <div class="col">
             <label for="amount" class="form-label">Total Amount to be Paid</label>
-            <input type="text" class="form-control" id="amount" value="{{ number_format($dorm->price * $numDays, 2, '.', '') }}" name="amount" disabled>
+            <input type="text" class="form-control" id="amount" value="{{ $dorm->total_price}}" name="amount" disabled>
         </div>
     </div>
 
@@ -63,30 +63,37 @@
         @csrf
         @method('PUT')
         <div class="row mb-3">
-            <!-- <div class="col-4">
-                <label for="price" class="form-label">Price</label>
-                <input type="text" class="form-control" id="price" value="{{$dorm->price}}" name="price" maxlength="12" required>
-                @error('price')
+            <div class="col">
+                <label for="or_number" class="form-label">OR Number</label>
+                <input type="text" class="form-control" id="or_number" value="{{$dorm->or_number}}" name="or_number" maxlength="7" required>
+                @error('or_number')
                 <span class="text-danger fs-6">{{ $message }}</span>
                 @enderror
-            </div> -->
-            <!-- <div class="col">
-                <div class="col-4">
-                    <input type="hidden" class="form-control" id="status" value="Received" name="status" required>
-                </div>
-            </div> -->
+            </div>
+            <div class="col">
+                <label for="amount_paid" class="form-label">Amount Paid</label>
+                <input type="text" class="form-control" id="amount_paid" value="{{$dorm->total_price}}" name="amount_paid" maxlength="12" required>
+                @error('amount_paid')
+                <span class="text-danger fs-6">{{ $message }}</span>
+                @enderror
+            </div>
             <div class="col-4">
                 <label for="status" class="form-label">Status</label>
                 <select class="form-control" id="status" name="status" required>
                     <option value="Received" {{ $dorm->status === 'Received' ? 'selected' : '' }}>For Payment</option>
                     <option value="Reserved" {{ $dorm->status === 'Reserved' ? 'selected' : '' }}>Paid</option>
-                    <option value="Unavailable" {{ $dorm->status === 'Unavailable' ? 'selected' : '' }}>Cancel</option>
+                    <option value="Cancelled" {{ $dorm->status === 'Cancelled' ? 'selected' : '' }}>Cancel</option>
                 </select>
                 @error('status')
                 <span class="text-danger fs-6">{{ $message }}</span>
                 @enderror
             </div>
 
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <input type="hidden" class="form-control" id="or_date" value="{{ \Carbon\Carbon::now()->toDateString() }}" name="or_date" required>
+            </div>
         </div>
         <div>
             <button type="button" class="btn btn-confirm-payment-dorm" id="formSubmitBtn">Confirm Payment</button>

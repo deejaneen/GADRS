@@ -4,7 +4,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <div class="col-6">
-                    <h1 class="modal-title" id="addRestrictedDateModalGymLabel">Gym Date Restriction</h1>
+                    <h1 class="modal-title" id="addRestrictedDateModalGymLabel">Date Restriction</h1>
                 </div>
                 <div class="col-6 text-end">
                     <button type="button" class="btn-close close-modal" data-bs-dismiss="modal"

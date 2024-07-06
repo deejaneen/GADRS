@@ -74,7 +74,7 @@
     <table class="table-home table-hover stripe" id="DormReservationTable" style="width: 100%">
         <thead>
             <tr>
-                <th scope="col">Form Number</th>
+                <th scope="col">User Full Name</th>
                 <th scope="col">Date</th>
                 <th scope="col">Time Start</th>
                 <th scope="col">Time End</th>
@@ -87,7 +87,7 @@
         <tbody>
             @foreach ($dorms as $dorm)
             <tr class="table-active">
-                <td>{{ $dorm->form_number_id }}</td>
+                <td>{{ $dorm->userDetails->first_name . ' ' . $dorm->userDetails->middle_name . ' ' . $dorm->userDetails->last_name }}</td>
                 <td>{{ $dorm->reservation_start_date }} - {{ $dorm->reservation_end_date }}</td>
                 <td>{{ $dorm->reservation_start_time }}</td>
                 <td>{{ $dorm->reservation_end_time }}</td>
@@ -107,7 +107,7 @@
     <table class="table-home table-hover stripe" id="DormReservationCartTable" style="width: 100%">
         <thead>
             <tr>
-                <th scope="col">Form Number</th>
+                <th scope="col">User Full Name</th>
                 <th scope="col">Date</th>
                 <th scope="col">Time Start</th>
                 <th scope="col">Time End</th>
@@ -120,7 +120,7 @@
         <tbody>
             @foreach ($carts as $cart)
             <tr class="table-active">
-                <td>{{ $cart->form_number_id }}</td>
+                <td>{{ $cart->userDetails->first_name . ' ' . $cart->userDetails->middle_name . ' ' . $cart->userDetails->last_name }}</td>
                 <td>{{ $cart->reservation_start_date }} - {{ $cart->reservation_end_date }}</td>
                 <td>{{ $cart->reservation_start_time }}</td>
                 <td>{{ $cart->reservation_end_time }}</td>

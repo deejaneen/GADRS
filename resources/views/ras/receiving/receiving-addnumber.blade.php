@@ -79,8 +79,8 @@
             </div>
         </div>
         <div>
-            <button type="button" class="btn btn-primary" id="formSubmitBtn">Save</button>
-            <button class="btn btn-primary" onclick="goBack()">Back</button>
+            <button type="button" class="btn btn-confirm-payment-gym" id="formSubmitBtn">Save</button>
+            <button class="btn btn-go-back" onclick="goBack()">Back</button>
         </div>
     </form>
     <div>

@@ -591,24 +591,47 @@
 
         .custom-checkbox::before {
             content: '';
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 2px;
+            background-color: #333;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        .custom-checkbox::after {
+            content: '';
             display: block;
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 60%;
-            height: 30%;
-            border: 3px solid transparent;
-            border-top: none;
-            border-right: none;
-            background-color: transparent;
+            width: 100%;
+            height: 2px;
+            background-color: #333;
             opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        .custom-checkbox::before {
+            transform: translate(-50%, -50%) rotate(45deg);
+        }
+
+        .custom-checkbox::after {
+            transform: translate(-50%, -50%) rotate(-45deg);
         }
 
         .custom-checkbox.checked::before {
+            display: block;
             opacity: 1;
-            background-color: #333;
-            /* Change color to indicate checked state */
+        }
+
+        .custom-checkbox.checked::after {
+            opacity: 1;
         }
     </style>
 </head>
@@ -693,7 +716,9 @@
         <tr class="c40">
             <td class="c0" colspan="1" rowspan="1">
                 <p class="c9 c11"><span class="c3"></span></p>
-                <p class="c1"><span class="c3">&nbsp; &nbsp; &nbsp;BASKETBALL</span><span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 13.00px; height: 13.40px;"><img alt="" src="images/image1.png" style="width: 13.00px; height: 13.40px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title=""></span></p>
+                <p class="c1"> <span class="c3">&nbsp; &nbsp; &nbsp;BASKETBALL&nbsp;</span> <span class="custom-checkbox {{ $isBasketball ? 'checked' : '' }}"></span></p>
+
+                <!-- <p class="c1"><span class="c3">&nbsp; &nbsp; &nbsp;BASKETBALL</span><input type="checkbox" checked style="margin-right: 10px;"></p> -->
             </td>
             <td class="c27" colspan="1" rowspan="3">
                 <p class="c1"><span class="c3">&nbsp; &nbsp; </span></p>
@@ -708,13 +733,13 @@
         <tr class="c41">
             <td class="c0" colspan="1" rowspan="1">
                 <p class="c1"><span class="c3">&nbsp; &nbsp; </span></p>
-                <p class="c1"><span class="c3">&nbsp; &nbsp; &nbsp;VOLLEYBALL</span><span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 13.00px; height: 13.07px;"><img alt="" src="images/image1.png" style="width: 13.00px; height: 13.07px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title=""></span></p>
+                <p class="c1"><span class="c3">&nbsp; &nbsp; &nbsp;VOLLEYBALL&nbsp;</span> <span class="custom-checkbox {{ $isVolleyball ? 'checked' : '' }}"></span></p>
             </td>
         </tr>
         <tr class="c45">
             <td class="c0" colspan="1" rowspan="1">
                 <p class="c1"><span class="c3">&nbsp; &nbsp;</span></p>
-                <p class="c1"><span class="c3">&nbsp; &nbsp; &nbsp;BADMINTON</span><span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 13.00px; height: 13.07px;"><img alt="" src="images/image1.png" style="width: 13.00px; height: 13.07px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title=""></span></p>
+                <p class="c1"><span class="c3">&nbsp; &nbsp; &nbsp;BADMINTON&nbsp;</span><span class="custom-checkbox {{ $isBadminton ? 'checked' : '' }}"></span></p>
             </td>
         </tr>
         <tr class="c48">
@@ -724,7 +749,11 @@
                 <p class="c1"><span class="c15 c33">(for badminton only)</span></p>
             </td>
             <td class="c27" colspan="1" rowspan="1">
-                <p class="c1"><span class="c3">{{ $gym->number_of_courts }}</span></p>
+                <p class="c1">
+                    <span class="c3">
+                        {{ $gym->number_of_courts ? $gym->number_of_courts : ($numberOfCourtsSeparate ? $numberOfCourtsSeparate : '') }}
+                    </span>
+                </p>
             </td>
         </tr>
     </table>

@@ -13,11 +13,11 @@ class ProfileController extends Controller
     {
         $user = Auth::id();
         $gyms = Gym::where('employee_id', $user)
-            ->whereIn('status', ['Reserved', 'Unavailable'])
+            ->whereIn('status', ['Reserved', 'Cancelled'])
             ->orderBy('created_at', 'DESC')
             ->get();
         $dorms = Dorm::where('employee_id', $user)
-            ->whereIn('status', ['Reserved', 'Unavailable'])
+            ->whereIn('status', ['Reserved', 'Cancelled'])
             ->orderBy('created_at', 'DESC')
             ->get();
 

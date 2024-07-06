@@ -3,7 +3,7 @@
 
 
 @section('admindashboard')
-     <!-- <aside>
+<!-- <aside>
         <div class="top">
             <div class="logo">
                 <img src="{{ asset('images/COA CAR logo.png') }}" alt="">
@@ -58,8 +58,8 @@
             </div>
         </div>
     </aside>  -->
-    {{-- -------------------------------END-OF-ASIDE-------------------- --}}
-    {{-- <div class="right">
+{{-- -------------------------------END-OF-ASIDE-------------------- --}}
+{{-- <div class="right">
         <div class="top">
             <button id="menu-btn">
                 <span class="ri-menu-line"></span>
@@ -69,85 +69,87 @@
                 <div class="profile">
                     <div class="info">
                         <p>Hey, <b>{{ Auth::user()->first_name }}</b></p>
-                        <small class="text-muted">{{ Auth::user()->role }}</small>
-                    </div>
-                    <div class="profile-photo">
-                        <img src="{{ asset('images/COA CAR logo.png') }}" alt="">
-                    </div>
-                </div>
-            @endauth
-        </div>
+<small class="text-muted">{{ Auth::user()->role }}</small>
+</div>
+<div class="profile-photo">
+    <img src="{{ asset('images/COA CAR logo.png') }}" alt="">
+</div>
+</div>
+@endauth
+</div>
 
-    </div> --}}
-    <main>
-        <h1 class="page-title">Gym</h1>
+</div> --}}
+<main>
+    <h1 class="page-title">Gym</h1>
 
-      
 
-        {{-- ------------------END OF INSIGHTS------------------ --}}
 
-    </main>
-    <div class="card" id="GymReservationTableCard">
-        <div>
-            <h4 class="card-header text-center home">Gym Reservations</h4>
-        </div>
-        <table class="table-home table-hover stripe" id="GymReservationTable" style="width: 100%">
-            <thead>
-                <tr>
-                    <th scope="col">Form Number</th>
-                    <th scope="col">Date</th>
-                    <th scope="col">Time Start</th>
-                    <th scope="col">Time End</th>
-                    <th scope="col">Occupant Type</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Status</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($gyms as $gym)
-                    <tr class="table-active">
-                        <td>{{ $gym->form_number_id }}</td>
-                        <td>{{ $gym->reservation_date }}</td>
-                        <td>{{ $gym->reservation_time_start }}</td>
-                        <td>{{ $gym->reservation_time_end }}</td>
-                        <td>{{ $gym->occupant_type }}</td>
-                        <td>{{ $gym->price }}</td>
-                        <td style="color:var(--color-orange);">{{ $gym->status }}</td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
+    {{-- ------------------END OF INSIGHTS------------------ --}}
+
+</main>
+<div class="card" id="GymReservationTableCard">
+    <div>
+        <h4 class="card-header text-center home">Gym Reservations</h4>
     </div>
-    <div class="card" id="GymReservationCartTableCard">
-        <div>
-            <h4 class="card-header text-center home">Gym Reservations (Currently In Cart)</h4>
-        </div>
-        <table class="table-home table-hover stripe" id="GymReservationCartTable" style="width: 100%">
-            <thead>
-                <tr>
-                    <th scope="col">Date</th>
-                    <th scope="col">Time Start</th>
-                    <th scope="col">Time End</th>
-                    <th scope="col">Occupant Type</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Status</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($carts as $cart)
-                    <tr class="table-active">
-                        <td>{{ $cart->reservation_date }}</td>
-                        <td>{{ $cart->reservation_time_start }}</td>
-                        <td>{{ $cart->reservation_time_end }}</td>
-                        <td>{{ $cart->occupant_type }}</td>
-                        <td>{{ $cart->price }}</td>
-                        <td style="color:var(--color-orange);">{{ $cart->status }}</td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
+    <table class="table-home table-hover stripe" id="GymReservationTable" style="width: 100%">
+        <thead>
+            <tr>
+                <th scope="col">User Full Name</th>
+                <th scope="col">Date</th>
+                <th scope="col">Time Start</th>
+                <th scope="col">Time End</th>
+                <th scope="col">Occupant Type</th>
+                <th scope="col">Price</th>
+                <th scope="col">Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($gyms as $gym)
+            <tr class="table-active">
+                <td>{{ $gym->userDetails->first_name . ' ' . $gym->userDetails->middle_name . ' ' . $gym->userDetails->last_name }}</td>
+                <td>{{ $gym->reservation_date }}</td>
+                <td>{{ $gym->reservation_time_start }}</td>
+                <td>{{ $gym->reservation_time_end }}</td>
+                <td>{{ $gym->occupant_type }}</td>
+                <td>{{ $gym->price }}</td>
+                <td style="color:var(--color-orange);">{{ $gym->status }}</td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+</div>
+<div class="card" id="GymReservationCartTableCard">
+    <div>
+        <h4 class="card-header text-center home">Gym Reservations (Currently In Cart)</h4>
     </div>
+    <table class="table-home table-hover stripe" id="GymReservationCartTable" style="width: 100%">
+        <thead>
+            <tr>
+                <th scope="col">User Full Name</th>
+                <th scope="col">Date</th>
+                <th scope="col">Time Start</th>
+                <th scope="col">Time End</th>
+                <th scope="col">Occupant Type</th>
+                <th scope="col">Price</th>
+                <th scope="col">Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($carts as $cart)
+            <tr class="table-active">
+                <td>{{ $cart->userDetails->first_name . ' ' . $cart->userDetails->middle_name . ' ' . $cart->userDetails->last_name }}</td>
+                <td>{{ $cart->reservation_date }}</td>
+                <td>{{ $cart->reservation_time_start }}</td>
+                <td>{{ $cart->reservation_time_end }}</td>
+                <td>{{ $cart->occupant_type }}</td>
+                <td>{{ $cart->price }}</td>
+                <td style="color:var(--color-orange);">{{ $cart->status }}</td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+</div>
 
-    {{-- ------------------END OF MAIN------------------ --}}
-  
+{{-- ------------------END OF MAIN------------------ --}}
+
 @endsection

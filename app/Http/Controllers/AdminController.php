@@ -98,18 +98,58 @@ class AdminController extends Controller
     public function gym()
     {
         $gyms = Gym::all();
+
+        // Add user details to each gym
+        $gymsWithUserDetails = $gyms->map(function ($gym) {
+            $userDetails = User::select('first_name', 'middle_name', 'last_name')
+                ->where('id', $gym->employee_id)
+                ->first();
+            $gym->userDetails = $userDetails;
+            return $gym;
+        });
+
         $carts = GymCart::all();
 
-        return view('admin.admingym', ['gyms' => $gyms, 'carts' => $carts]);
+        // Add user details to each cart
+        $cartsWithUserDetails = $carts->map(function ($cart) {
+            $userDetails = User::select('first_name', 'middle_name', 'last_name')
+                ->where('id', $cart->employee_id)
+                ->first();
+            $cart->userDetails = $userDetails;
+            return $cart;
+        });
+
+        return view('admin.admingym', ['gyms' => $gymsWithUserDetails, 'carts' => $cartsWithUserDetails]);
     }
+
 
     public function dorm()
     {
         $dorms = Dorm::all();
+
+        // Add user details to each dorm
+        $dormsWithUserDetails = $dorms->map(function ($dorm) {
+            $userDetails = User::select('first_name', 'middle_name', 'last_name')
+                ->where('id', $dorm->employee_id)
+                ->first();
+            $dorm->userDetails = $userDetails;
+            return $dorm;
+        });
+
         $carts = DormCart::all();
 
-        return view('admin.admindorm', ['dorms' => $dorms, 'carts' => $carts]);
+        // Add user details to each cart
+        $cartsWithUserDetails = $carts->map(function ($cart) {
+            $userDetails = User::select('first_name', 'middle_name', 'last_name')
+                ->where('id', $cart->employee_id)
+                ->first();
+            $cart->userDetails = $userDetails;
+            return $cart;
+        });
+
+        return view('admin.admindorm', ['dorms' => $dormsWithUserDetails, 'carts' => $cartsWithUserDetails]);
     }
+
     public function profile()
     {
         return view('admin.adminprofile');
@@ -186,6 +226,25 @@ class AdminController extends Controller
             // If a record already exists, display error message
             if ($existingRecord) {
                 return redirect()->back()->with('error', 'Date Restriction already exists for the specified type and date.');
+            }
+
+            // Check for existing reservations based on the type
+            if ($validatedData['type'] === 'Gym') {
+                $checkDate = Gym::where('reservation_date', $validatedData['dateRestriction'])
+                    ->whereIn('status', ['Reserved', 'Received'])
+                    ->exists();
+            } elseif ($validatedData['type'] === 'Dorm') {
+                $checkDate = Dorm::where('reservation_start_date', '<=', $validatedData['dateRestriction'])
+                    ->where('reservation_end_date', '>=', $validatedData['dateRestriction'])
+                    ->whereIn('status', ['Reserved', 'Received'])
+                    ->exists();
+            } else {
+                return redirect()->back()->with('error', 'Invalid type specified.');
+            }
+
+            // If there are existing reservations, redirect with error message
+            if ($checkDate) {
+                return redirect()->back()->with('error', 'Date Restriction overlaps with existing reservations.');
             }
 
             // Store the date restriction in the database
