@@ -120,6 +120,8 @@ Route::middleware(['auth', 'verified', 'checkRole:Cashier', 'preventCaching'])->
     Route::get('/cashier/dorm/{dorm}', [CashierController::class, 'editCashierDorm'])->name('cashier.editCashierDorm');
     Route::get('/cashier/gym/{gym}/pdf', [CashierController::class, 'viewGymPDFCashier'])->name('cashier.viewPDFGym');
     Route::get('/cashier/dorm/{dorm}/pdf', [CashierController::class, 'viewDormPDFCashier'])->name('cashier.viewPDFDorm');
+    Route::get('/cashier/profile', [CashierController::class, 'profile'])->name('cashierprofile');
+    Route::post('/cashier/profile/password', [CashierController::class, 'updatePassword'])->name('update_password_cashier');
 });
 
 // Receiving routes
@@ -132,6 +134,8 @@ Route::middleware(['auth', 'verified', 'checkRole:Receiving', 'preventCaching'])
     Route::get('/receiving/gym/{gym}/pdf', [ReceivingController::class, 'viewGymPDF'])->name('receiving.viewPDF');
     Route::put('/receiving/gym/addFormNumber/{gym}', [ReceivingController::class, 'addFormNumber'])->name('addFormNumberRec');
     Route::get('/receiving/gym/view/{gym}', [ReceivingController::class, 'viewGym'])->name('receiving.viewGym');
+    Route::get('/receiving/profile', [ReceivingController::class, 'profile'])->name('receivingprofile');
+    Route::post('/receiving/profile/password', [ReceivingController::class, 'updatePassword'])->name('update_password_receiving');
     
 });
 
@@ -144,6 +148,8 @@ Route::middleware(['auth', 'verified', 'checkRole:Supply', 'preventCaching'])->g
     Route::get('/supply/dorm/{dorm}/pdf', [SupplyController::class, 'viewDormPDF'])->name('supply.viewPDF');
     Route::put('/supply/dorm/addFormNumber/{dorm}', [SupplyController::class, 'addFormNumber'])->name('addFormNumber');
     Route::get('/supply/dorm/view/{dorm}', [SupplyController::class, 'viewDorm'])->name('supply.viewDorm');
+    Route::get('/supply/profile', [SupplyController::class, 'profile'])->name('supplyprofile');
+    Route::post('/supply/profile/password', [SupplyController::class, 'updatePassword'])->name('update_password_supply');
 });
 
 Route::get('generate-dorm-pdf', [PDFController::class, 'generatedormPDF']);

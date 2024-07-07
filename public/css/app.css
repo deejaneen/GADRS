@@ -2034,6 +2034,26 @@ svg text.text-body  {
     font-size: 0.7em;
 }
 
+.reset-password-container .btn-submit{
+    color: var(--color-success);
+    border-color: var(--color-success);
+}
+.reset-password-container .btn-submit:hover{
+    color: var(--color-primary);
+    border-color: var(--color-success);
+    background-color: var(--color-success);
+}
+.reset-password-container{
+    background: var(--color-primary);
+    color: var(--color-background);
+    padding: 20px;
+    margin-top: 30px;
+    box-shadow: var(--box-shadow);
+    border-radius: 20px;
+}
+.reset-password-container:hover {
+    box-shadow: none;
+}
 @media (max-width: 1440px) {
 
     .nav-item.profile a .first-name,

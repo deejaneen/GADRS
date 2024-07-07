@@ -29,6 +29,12 @@
                     <h3>Paid</h3>
                 </span>
             </a>
+
+            <a href="{{ route('cashierprofile') }}" class="sidebar-link">
+                <span class="ri-user-line">
+                    <h3>Change Password</h3>
+                </span>
+            </a>
             <form action="{{ route('logout') }}" method="POST" id="logout-form-navbar">
                 @csrf
 

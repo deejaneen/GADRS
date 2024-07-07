@@ -25,7 +25,11 @@
             <a href="{{ route('supplyreservationsrd') }}" class="sidebar-link">
                 <span class="ri-receipt-line">
                     <h3>Received</h3>
-                    <!-- <span class="message-count">26</span> -->
+                </span>
+            </a>
+            <a href="{{ route('supplyprofile') }}" class="sidebar-link">
+                <span class="ri-user-line">
+                    <h3>Change Password</h3>
                 </span>
             </a>
             <form action="{{ route('logout') }}" method="POST" id="logout-form-navbar">
