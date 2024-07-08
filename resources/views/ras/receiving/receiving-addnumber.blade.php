@@ -62,52 +62,65 @@
                 </div>
             </div>
 
-        <div class="row mb-3">
-            <div class="col-4">
-                <label for="or_number " class="form-label">OR Number</label>
-                <input type="text" class="form-control" id="or_number " value="{{$gym->or_number }}" maxlength="7" name="or_number" required>
-                @error('or_number')
-                <span class="text-danger fs-6">{{ $message }}</span>
-                @enderror
+            <div class="row mb-3">
+                <div class="col-4">
+                    <label for="or_number" class="form-label">OR Number</label>
+                    <input type="text" class="form-control" id="or_number" value="{{ $gym->or_number }}" maxlength="7"
+                        name="or_number" required>
+                    @error('or_number')
+                        <span class="text-danger fs-6">{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="col-4">
+                    <input type="hidden" class="form-control" id="or_date"
+                        value="{{ \Carbon\Carbon::now()->toDateString() }}" name="or_date" required>
+                </div>
             </div>
-            <div class="col-4">
-                <input type="hidden" class="form-control" id="or_date" value="{{ \Carbon\Carbon::now()->toDateString() }}" name="or_date" required>
+            <div>
+                <button type="button" class="btn btn-confirm-payment-gym" id="formSubmitBtn">Save</button>
+                <button class="btn btn-go-back" onclick="goBack()">Back</button>
             </div>
-        </div>
+        </form>
         <div>
-            <button type="button" class="btn btn-confirm-payment-gym" id="formSubmitBtn">Save</button>
-            <button class="btn btn-go-back" onclick="goBack()">Back</button>
+            <p>Note: Reservations with similar form group number will automatically be configured as well.</p>
         </div>
-    </form>
-    <div>
-        <p>Note: Reservations with similar form group number will automatically be configured as well.</p>
     </div>
-</div>
 @endsection
+
 <script>
     function goBack() {
         window.history.back();
     }
-    document.addEventListener('DOMContentLoaded', function() {
-        // Add event listener to the click event of the logout button
-        document.getElementById('formSubmitBtn').addEventListener('click', function(event) {
-            event.preventDefault(); // Prevent the default action of following the link
 
-            // Display confirmation dialog
-            Swal.fire({
-                title: "Are you sure you want to save these configurations?",
-                text: "Once the status is configured to Received, they will be uneditable.",
-                showCancelButton: true,
-                confirmButtonText: "Yes",
-                customClass: {
-                    popup: 'small-modal'
-                }
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    // Submit the logout form after confirmation
-                    document.getElementById('addReservationNumberForm').submit();
-                }
-            });
+    document.addEventListener('DOMContentLoaded', function() {
+        const currentYear = new Date().getFullYear();
+        const currentMonth = String(new Date().getMonth() + 1).padStart(2, '0'); // Get the month and pad with leading zero if necessary
+        document.getElementById('fixed-year').value = `${currentYear}-${currentMonth}-`;
+
+        document.getElementById('formSubmitBtn').addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            const fixedYearMonth = document.getElementById('fixed-year').value;
+            const userReservationNumber = document.getElementById('reservation_number').value;
+            const completeReservationNumber = fixedYearMonth + userReservationNumber;
+
+            // Ensure userReservationNumber is numeric and of correct length
+            if (!userReservationNumber || isNaN(userReservationNumber) || userReservationNumber.length > 3) {
+                document.getElementById('reservation_number_error').textContent = 'Please enter a valid 3-digit reservation number.';
+                return;
+            } else {
+                document.getElementById('reservation_number_error').textContent = '';
+            }
+
+            // Set the complete reservation number to a hidden input
+            const hiddenInput = document.createElement('input');
+            hiddenInput.type = 'hidden';
+            hiddenInput.name = 'reservation_number';
+            hiddenInput.value = completeReservationNumber;
+            document.getElementById('addReservationNumberForm').appendChild(hiddenInput);
+
+            // Submit the form
+            document.getElementById('addReservationNumberForm').submit();
         });
     });
 </script>

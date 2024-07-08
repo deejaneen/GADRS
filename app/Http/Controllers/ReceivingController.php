@@ -103,7 +103,7 @@ class ReceivingController extends Controller
                 'reservation_number' => [
                     'required',
                     'min:3',
-                    'max:7',
+                    'max:11',
                     function ($attribute, $value, $fail) use ($reservationsNotSimilarToOriginal) {
                         foreach ($reservationsNotSimilarToOriginal as $reservation) {
                             if ($reservation->reservation_number === $value) {
