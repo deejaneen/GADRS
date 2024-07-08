@@ -1,70 +1,66 @@
 @extends('layout.receivinglayout')
 @section('receivingdashboard')
-<!-- @include('ras.receiving.receiving-side-bar') -->
-<div class="right">
-    <div class="top">
-        <button id="menu-btn">
-            <span class="ri-menu-line"></span>
-        </button>
-        <div class="profile">
-            <div class="info">
-                <p>Hey, <b>{{ Auth::user()->first_name }}</b></p>
-                <small class="text-muted">{{ Auth::user()->role }}</small>
-            </div>
-            <div class="profile-photo">
-                <img src="{{ asset('images/COA CAR logo.png') }}" alt="">
+    <div class="right">
+        <div class="top">
+            <button id="menu-btn">
+                <span class="ri-menu-line"></span>
+            </button>
+            <div class="profile">
+                <div class="info">
+                    <p>Hey, <b>{{ Auth::user()->first_name }}</b></p>
+                    <small class="text-muted">{{ Auth::user()->role }}</small>
+                </div>
+                <div class="profile-photo">
+                    <img src="{{ asset('images/COA CAR logo.png') }}" alt="">
+                </div>
             </div>
         </div>
     </div>
-
-    {{-- ------------------ END OF RECENT UPDATES ------------------ --}}
-
-</div>
-<div class="card" id="ReceivingPendingTableCard">
-    <h2>User Details</h2>
-    <div class="row mb-3">
-        <div class="col">
-            <label for="employee_id" class="form-label">User ID</label>
-            <input type="text" class="form-control" id="employee_id" value="{{ $gym->employee_id }}" name="employee_id" disabled>
-        </div>
-        <div class="col">
-            <label for="username" class="form-label">Username</label>
-            <input type="text" class="form-control" id="username" value="{{ $userDetails->first_name . ' ' . $userDetails->middle_name . ' ' . $userDetails->last_name }}
-" name="username" disabled>
-        </div>
-    </div>
-    <hr>
-    <form id="addReservationNumberForm" method="post" action="{{ route('addFormNumberRec', $gym->id) }}">
-        @csrf
-        @method('PUT')
+    <div class="card" id="ReceivingPendingTableCard">
+        <h2>User Details</h2>
         <div class="row mb-3">
-            <div class="col-4">
-                <label for="reservation_number" class="form-label">Reservation Number</label>
-                <input type="text" class="form-control" id="reservation_number" maxlength="7" value="{{$gym->reservation_number}}" name="reservation_number" required>
-                @error('reservation_number')
-                <span class="text-danger fs-6">{{ $message }}</span>
-                @enderror
+            <div class="col">
+                <label for="employee_id" class="form-label">User ID</label>
+                <input type="text" class="form-control" id="employee_id" value="{{ $gym->employee_id }}"
+                    name="employee_id" disabled>
             </div>
-            <!-- <div class="col-4">
-                <label for="reservation_date" class="form-label">Date</label>
-                <input type="date" class="form-control" id="reservation_date" value="{{$gym->reservation_date}}" name="reservation_date" required>
-                @error('reservation_date')
-                <span class="text-danger fs-6">{{ $message }}</span>
-                @enderror
-            </div> -->
-
-            <div class="col-4">
-                <label for="status" class="form-label">Status</label>
-                <select class="form-control" id="status" name="status" required>
-                    <option value="Received" {{ $gym->status === 'Received' ? 'selected' : '' }}>Received</option>
-                    <option value="Pending" {{ $gym->status === 'Pending' ? 'selected' : '' }}>Pending</option>
-                </select>
-                @error('status')
-                <span class="text-danger fs-6">{{ $message }}</span>
-                @enderror
+            <div class="col">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" class="form-control" id="username"
+                    value="{{ $userDetails->first_name . ' ' . $userDetails->middle_name . ' ' . $userDetails->last_name }}"
+                    name="username" disabled>
             </div>
-
         </div>
+        <hr>
+        <form id="addReservationNumberForm" method="post" action="{{ route('addFormNumberRec', $gym->id) }}">
+            @csrf
+            @method('PUT')
+            <div class="row mb-3">
+                <div class="col-4">
+                    <label for="reservation_number" class="form-label">Reservation Number</label>
+                    <div class="reservation_number_container">
+                        <input type="text" class="form-control fixed-year" id="fixed-year" value=""
+                            style="width:110px;" disabled>
+                        <input type="number" class="form-control" id="reservation_number" maxlength="3"
+                            value="{{ $gym->reservation_number }}" name="reservation_number_input" required>
+                        
+                    </div>
+                    @error('reservation_number')
+                            <span class="text-danger fs-6">{{ $message }}</span>
+                        @enderror
+                    <span class="text-danger fs-6" id="reservation_number_error"></span>
+                </div>
+                <div class="col-4">
+                    <label for="status" class="form-label">Status</label>
+                    <select class="form-control" id="status" name="status" required>
+                        <option value="Received" {{ $gym->status === 'Received' ? 'selected' : '' }}>Received</option>
+                        <option value="Pending" {{ $gym->status === 'Pending' ? 'selected' : '' }}>Pending</option>
+                    </select>
+                    @error('status')
+                        <span class="text-danger fs-6">{{ $message }}</span>
+                    @enderror
+                </div>
+            </div>
 
         <div class="row mb-3">
             <div class="col-4">
