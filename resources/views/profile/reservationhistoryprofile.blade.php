@@ -68,7 +68,6 @@
                         </tbody>
                     </table>
                 </div>
-                <a href="#">Show All</a>
             </div>
         </div>
 

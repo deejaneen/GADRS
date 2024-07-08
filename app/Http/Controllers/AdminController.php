@@ -26,8 +26,8 @@ class AdminController extends Controller
         $dormsPendingCount = Dorm::where('status', 'Pending')->count();
         $totalPendingCount = $gymsPendingCount + $dormsPendingCount;
 
-        $gymsForPaymentCount = Gym::where('status', 'For Payment')->count();
-        $dormsForPaymentCount = Dorm::where('status', 'For Payment')->count();
+        $gymsForPaymentCount = Gym::where('status', 'Received')->count();
+        $dormsForPaymentCount = Dorm::where('status', 'Received')->count();
         $totalForPaymentCount = $gymsForPaymentCount + $dormsForPaymentCount;
 
         $gymsReservedCount = Gym::where('status', 'Reserved')->count();

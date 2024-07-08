@@ -50,11 +50,9 @@
     {{-- Stylesheet for font from google fonts --}}
     <script>
         const loaderContainer = document.querySelector('.loader-container')
-        const pageContent = document.querySelector('#contentcontainer')
 
         window.addEventListener('load', () => {
             loaderContainer.classList.add('hidden')
-            pageContent.classList.add('visible')
         })
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
