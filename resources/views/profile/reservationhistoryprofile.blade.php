@@ -34,7 +34,14 @@
                                 <td>{{ date('g:i A', strtotime($gym->reservation_time_start)) }}</td>
                                 <td>{{ date('g:i A', strtotime($gym->reservation_time_end)) }}</td>
 
-                                <td>{{ $gym->status }}</td>
+                                <td class="{{ 
+                                    $gym->status === 'Pending' ? 'status-pending' : (
+                                    $gym->status === 'Received' || $gym->status === 'For Payment' ? 'status-received' : (
+                                    $gym->status === 'Paid' || $gym->status === 'Reserved' ? 'status-paid' : (
+                                    $gym->status === 'Cancelled' || $gym->status === 'Unavailable' ? 'status-cancelled' : '')))
+                                }}">
+                                    {{ $gym->status }}
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>
@@ -61,8 +68,15 @@
                                 <th>{{ $dorm->Form_number }}</th>
                                 <td>{{ date('F j, Y', strtotime($dorm->reservation_start_date)) }}</td>
                                 <td>{{ date('g:i A', strtotime($dorm->reservation_end_date)) }}</td>
-                                <td>₱{{ $dorm->price }}</td>
-                                <td>{{ $dorm->status }}</td>
+                                <td>₱{{ $dorm->total_price }}</td>
+                                <td class="{{ 
+                                    $dorm->status === 'Pending' ? 'status-pending' : (
+                                    $dorm->status === 'Received' || $dorm->status === 'For Payment' ? 'status-received' : (
+                                    $dorm->status === 'Paid' || $dorm->status === 'Reserved' ? 'status-paid' : (
+                                    $dorm->status === 'Cancelled' || $dorm->status === 'Unavailable' ? 'status-cancelled' : '')))
+                                }}">
+                                    {{ $dorm->status }}
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>

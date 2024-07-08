@@ -1,41 +1,29 @@
 @extends('layout.receivinglayout')
 
 @section('receivingdashboard')
-    <!-- @include('ras.receiving.receiving-side-bar') -->
     <main>
         <h1>Received</h1>
 
         <div class="insights">
-            {{-- -------------------------------END-OF-SALES-------------------- --}}
             <div class="totalreservation">
                 <span class="ri-key-2-line"></span>
                 <div class="middle">
                     <div class="left">
                         <h3>Total Reservations - Received</h3>
-                        <h1>
-                            {{ $totalReservationCount }}
-                        </h1>
+                        <h1>{{ $totalReservationCount }}</h1>
                     </div>
-
                 </div>
             </div>
-            {{-- -------------------------------END-OF-GYM-RESERVATIONS-------------------- --}}
             <div class="gymreservation">
                 <span class="ri-basketball-fill"></span>
                 <div class="middle">
                     <div class="left">
                         <h3>Total Received Reservations - Gym</h3>
-                        <h1>
-                            {{ $gymsPendingCount }}
-                        </h1>
+                        <h1>{{ $gymsPendingCount }}</h1>
                     </div>
                 </div>
             </div>
-            {{-- -------------------------------END-OF-DORM-RESERVATIONS-------------------- --}}
         </div>
-
-        {{-- ------------------END OF INSIGHTS------------------ --}}
-
     </main>
 
     <div class="card" id="ReceivingPendingTableCard">
@@ -61,19 +49,25 @@
                     <tr class="table-active">
                         <td>{{ $gym->reservation_number }}</td>
                         <td>{{ $gym->form_group_number }}</td>
-                        <td>{{ $gym->reservation_date }}</td>
-                        <td>{{ $gym->reservation_time_start }}</td>
-                        <td>{{ $gym->reservation_time_end }}</td>
+                        <td>{{ \Carbon\Carbon::parse($gym->reservation_date)->format('F j, Y') }}</td>
+                        <td>{{ formatTime($gym->reservation_time_start) }}</td>
+                        <td>{{ formatTime($gym->reservation_time_end) }}</td>
                         <td>{{ $gym->occupant_type }}</td>
-                        <td>{{ $gym->price }}</td>
-                        <td style="color:var(--color-orange);">{{ $gym->status }}</td>
+                        <td>{{ $gym->total_price }}</td>
+                        <td class="{{ 
+                            $gym->status === 'Pending' ? 'status-pending' : (
+                            $gym->status === 'Received' || $gym->status === 'For Payment' ? 'status-received' : (
+                            $gym->status === 'Paid' || $gym->status === 'Reserved' ? 'status-paid' : (
+                            $gym->status === 'Cancelled' || $gym->status === 'Unavailable' ? 'status-cancelled' : '')))
+                        }}">
+                            {{ $gym->status }}
+                        </td>
+                        
                         <td class="buttons">
-                            <a href="{{ route('receiving.viewGym', $gym->id) }}" class="btn btn-view-details rounded-pill"
-                                id="receivingViewFormbtn">
+                            <a href="{{ route('receiving.viewGym', $gym->id) }}" class="btn btn-view-details rounded-pill" id="receivingViewFormbtn">
                                 View Details
                             </a>
-                            <a href="{{ route('receiving.viewPDF', $gym->id) }}" target="_blank"
-                                class="btn btn-generate-pdf rounded-pill" id="receivingViewFormbtn">
+                            <a href="{{ route('receiving.viewPDF', $gym->id) }}" target="_blank" class="btn btn-generate-pdf rounded-pill" id="receivingViewFormbtn">
                                 Generate PDF
                             </a>
                         </td>
@@ -83,40 +77,12 @@
         </table>
     </div>
 
-    <div class="card" id="ReceivingPendingTableCard">
-        <div>
-            <h2 class="card-header text-center home">Dorm Received Reservations</h2>
-        </div>
-        <table class="table-home table-hover stripe" id="ReceivingReceivedTable" style="width: 100%">
-            <thead>
-                <tr>
-                    <th scope="col">Form Number</th>
-                    <th scope="col">Form Group Number</th>
-                    <th scope="col">Reservation Start Date</th>
-                    <th scope="col">Reservation Start Time</th>
-                    <th scope="col">Reservation End Date</th>
-                    <th scope="col">Reservation End Time</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($dorms as $dorm)
-                    <tr class="table-active">
-                        <td>{{ $dorm->Form_number }}</td>
-                        <td>{{ $dorm->form_group_number }}</td>
-                        <td>{{ $dorm->reservation_start_date }}</td>
-                        <td>{{ $dorm->reservation_start_time }}</td>
-                        <td>{{ $dorm->reservation_end_date }}</td>
-                        <td>{{ $dorm->reservation_end_time }}</td>
-                        <td>{{ $dorm->price }}</td>
-                        <td style="color:var(--color-orange);">{{ $dorm->status }}</td>
-                        <td class="buttons">
-                        </td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
-    </div>
+
 @endsection
+
+<?php
+function formatTime($time) {
+    return \Carbon\Carbon::createFromFormat('H:i:s', $time)->format('g:i a');
+}
+?>
+

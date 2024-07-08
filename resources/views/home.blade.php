@@ -60,7 +60,7 @@
                                     <th scope="col">Time Start</th>
                                     <th scope="col">Time End</th>
                                     <th scope="col">Purpose</th>
-                                    <th scope="col">Price</th>
+                                    <th scope="col">Total Price</th>
                                     <th scope="col">Status</th>
                                 </tr>
                             </thead>
@@ -72,8 +72,15 @@
                                         <td>{{ date('g:i A', strtotime($gym->reservation_time_start)) }}</td>
                                         <td>{{ date('g:i A', strtotime($gym->reservation_time_end)) }}</td>
                                         <td>{{ $gym->purpose }}</td>
-                                        <td>₱{{ $gym->price }}</td>
-                                        <td style="color: var(--color-orange);">{{ $gym->status }}</td>
+                                        <td>₱{{ $gym->total_price }}</td>
+                                        <td class="{{ 
+                                            $gym->status === 'Pending' ? 'status-pending' : (
+                                            $gym->status === 'Received' || $gym->status === 'For Payment' ? 'status-received' : (
+                                            $gym->status === 'Paid' || $gym->status === 'Reserved' ? 'status-paid' : (
+                                            $gym->status === 'Cancelled' || $gym->status === 'Unavailable' ? 'status-cancelled' : '')))
+                                        }}">
+                                            {{ $gym->status }}
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>

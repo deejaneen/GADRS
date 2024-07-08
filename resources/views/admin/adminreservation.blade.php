@@ -84,7 +84,7 @@
                                     @csrf
                                     @method('delete')
 
-                                    <button class="btn btn-primary btn-lg rounded-pill" id="gymRestrictTableDeletebtn"
+                                    <button class="btn btn-delete-profile rounded-pill" id="gymRestrictTableDeletebtn"
                                         onclick="confirmDeleteGym(this.form)">
                                         Delete
                                     </button>
@@ -122,7 +122,7 @@
                                     @csrf
                                     @method('delete')
 
-                                    <button class="btn btn-primary btn-lg rounded-pill" id="RestrictTableDeletebtn"
+                                    <button class="btn btn-delete-profile rounded-pill" id="RestrictTableDeletebtn"
                                         onclick="confirmDeleteDorm(this.form)">
                                         Delete
                                     </button>

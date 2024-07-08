@@ -16,7 +16,7 @@
                 <th scope="col">Reservation Start Time</th>
                 <th scope="col">Reservation End Date</th>
                 <th scope="col">Reservation End Time</th>
-                <th scope="col">Price</th>
+                <th scope="col">Total Price</th>
                 <th scope="col">Status</th>
                 <th scope="col">Actions</th>
             </tr>
@@ -26,12 +26,19 @@
             <tr class="table-active">
                 <td>{{ $dorm->Form_number }}</td>
                 <td>{{ $dorm->form_group_number }}</td>
-                <td>{{ $dorm->reservation_start_date }}</td>
-                <td>{{ $dorm->reservation_start_time }}</td>
-                <td>{{ $dorm->reservation_end_date }}</td>
-                <td>{{ $dorm->reservation_end_time }}</td>
-                <td>{{ $dorm->price }}</td>
-                <td style="color:var(--color-orange);">{{ $dorm->status }}</td>
+                <td>{{ \Carbon\Carbon::parse($dorm->reservation_start_date)->format('F j, Y') }}</td>
+                <td>{{ formatTime($dorm->reservation_start_time) }}</td>
+                <td>{{ \Carbon\Carbon::parse($dorm->reservation_end_date)->format('F j, Y') }}</td>
+                <td>{{ formatTime($dorm->reservation_end_time) }}</td>
+                <td>{{ $dorm->total_price }}</td>
+                <td class="{{ 
+                    $dorm->status === 'Pending' ? 'status-pending' : (
+                    $dorm->status === 'Received' || $dorm->status === 'For Payment' ? 'status-received' : (
+                    $dorm->status === 'Paid' || $dorm->status === 'Reserved' ? 'status-paid' : (
+                    $dorm->status === 'Cancelled' || $dorm->status === 'Unavailable' ? 'status-cancelled' : '')))
+                }}">
+                    {{ $dorm->status }}
+                </td>
                 <td class="buttons">
                     <a href="{{ route('supply.editDorm', $dorm->id) }}" class="btn btn-assign-number rounded-pill" id="receivingAssignNumberbtn">
                         Assign Number
@@ -50,3 +57,8 @@
     </table>
 </div>
 @endsection
+<?php
+function formatTime($time) {
+    return \Carbon\Carbon::createFromFormat('H:i:s', $time)->format('g:i a');
+}
+?>

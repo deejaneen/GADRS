@@ -2060,6 +2060,23 @@ svg text.text-body  {
 .reset-password-container:hover {
     box-shadow: none;
 }
+
+
+.status-pending {
+    color: var(--color-warning) !important;
+}
+
+.status-received {
+    color: var(--color-orange) !important;
+}
+
+.status-paid {
+    color: var(--color-success) !important;
+}
+
+.status-cancelled {
+    color: var(--color-danger) !important;
+}
 @media (max-width: 1440px) {
 
     .nav-item.profile a .first-name,

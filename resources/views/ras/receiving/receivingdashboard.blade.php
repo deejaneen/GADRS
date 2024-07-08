@@ -8,18 +8,8 @@
 
         <div class="insights">
             {{-- -------------------------------END-OF-SALES-------------------- --}}
-            <div class="totalreservation">
-                <span class="ri-key-2-line"></span>
-                <div class="middle">
-                    <div class="left">
-                        <h3>Total Reservations - Pending(Gym and Dorm)</h3>
-                        <h1>
-                            {{ $totalReservationCount }}
-                        </h1>
-                    </div>
-
-                </div>
-            </div>
+          
+            
             {{-- -------------------------------END-OF-GYM-RESERVATIONS-------------------- --}}
             <div class="gymreservation">
                 <span class="ri-basketball-fill"></span>

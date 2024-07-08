@@ -88,7 +88,7 @@ class ReceivingController extends Controller
         if (!$gym->or_number && !$gym->reservation_number) {
             // Validate input when conditions are met
             $validated = request()->validate([
-                'reservation_number' => 'required|min:3|max:7|unique:gym-reservations,reservation_number,' . $gym->id,
+                'reservation_number' => 'required|min:3|max:11|unique:gym-reservations,reservation_number,' . $gym->id,
                 'status' => 'required',
                 'or_number' => 'required|min:3|max:7|unique:gym-reservations,or_number,' . $gym->id,
                 'or_date' => 'required|date',

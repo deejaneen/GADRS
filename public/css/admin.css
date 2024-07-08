@@ -850,6 +850,13 @@ div.dt-container .dt-paging .dt-paging-button.disabled {
     background: var(--color-primary) !important;
     font-size: 1rem;
 }
+.btn-go-back,
+.btn-save-edit-changes {
+    border: 1px solid var(--color-orange) !important;
+    color: var(--color-orange) !important;
+    background: var(--color-primary) !important;
+    font-size: 1rem;
+}
 .btn-confirm-payment-gym,
 .btn-confirm-payment-dorm{
     border: 1px solid var(--color-success) !important;
@@ -1137,4 +1144,20 @@ svg text.text-body {
 
 .swal2-styled.swal2-deny {
     background: var(--color-light);
+}
+
+.status-pending {
+    color: var(--color-warning) !important;
+}
+
+.status-received {
+    color: var(--color-orange) !important;
+}
+
+.status-paid {
+    color: var(--color-success) !important;
+}
+
+.status-cancelled {
+    color: var(--color-danger) !important;
 }

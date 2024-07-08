@@ -21,7 +21,7 @@
                 </a>
                 <a href="{{ route('adminreservations') }}" class="sidebar-link">
                     <span class="ri-receipt-line">
-                        <h3>Reservations</h3>
+                        <h3>Add Dates/Holidays</h3>
                         <!-- <span class="message-count">26</span> -->
                     </span>
                 </a>

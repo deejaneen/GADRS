@@ -80,7 +80,7 @@
                 <th scope="col">Time End</th>
                 <th scope="col">Dorm Type/Quantity</th>
                 <th scope="col">Occupant Type</th>
-                <th scope="col">Price</th>
+                <th scope="col">Total Price</th>
                 <th scope="col">Status</th>
             </tr>
         </thead>
@@ -88,13 +88,20 @@
             @foreach ($dorms as $dorm)
             <tr class="table-active">
                 <td>{{ $dorm->userDetails->first_name . ' ' . $dorm->userDetails->middle_name . ' ' . $dorm->userDetails->last_name }}</td>
-                <td>{{ $dorm->reservation_start_date }} - {{ $dorm->reservation_end_date }}</td>
-                <td>{{ $dorm->reservation_start_time }}</td>
-                <td>{{ $dorm->reservation_end_time }}</td>
+                <td>{{ \Carbon\Carbon::parse($dorm->reservation_start_date)->format('F j, Y') }} - {{ \Carbon\Carbon::parse($dorm->reservation_end_date)->format('F j, Y') }}</td>
+                <td>{{ formatTime($dorm->reservation_start_time) }}</td>
+                <td>{{ formatTime($dorm->reservation_end_time) }}</td>
                 <td>{{ $dorm->quantity }} {{ $dorm->gender }} </td>
                 <td>{{ $dorm->occupant_type }}</td>
-                <td>{{ $dorm->price }}</td>
-                <td style="color:var(--color-orange);">{{ $dorm->status }}</td>
+                <td>{{ $dorm->total_price }}</td>
+                <td class="{{ 
+                    $dorm->status === 'Pending' ? 'status-pending' : (
+                    $dorm->status === 'Received' || $dorm->status === 'For Payment' ? 'status-received' : (
+                    $dorm->status === 'Paid' || $dorm->status === 'Reserved' ? 'status-paid' : (
+                    $dorm->status === 'Cancelled' || $dorm->status === 'Unavailable' ? 'status-cancelled' : '')))
+                }}">
+                    {{ $dorm->status }}
+                </td>
             </tr>
             @endforeach
         </tbody>
@@ -113,7 +120,7 @@
                 <th scope="col">Time End</th>
                 <th scope="col">Dorm Type/Quantity</th>
                 <th scope="col">Occupant Type</th>
-                <th scope="col">Price</th>
+                <th scope="col">Total Price</th>
                 <th scope="col">Status</th>
             </tr>
         </thead>
@@ -121,13 +128,21 @@
             @foreach ($carts as $cart)
             <tr class="table-active">
                 <td>{{ $cart->userDetails->first_name . ' ' . $cart->userDetails->middle_name . ' ' . $cart->userDetails->last_name }}</td>
-                <td>{{ $cart->reservation_start_date }} - {{ $cart->reservation_end_date }}</td>
-                <td>{{ $cart->reservation_start_time }}</td>
-                <td>{{ $cart->reservation_end_time }}</td>
+                <td>
+                    {{ \Carbon\Carbon::parse($cart->reservation_start_date)->format('F j, Y') }} - {{ \Carbon\Carbon::parse($cart->reservation_end_date)->format('F j, Y') }}</td>
+                    <td>{{ formatTime($cart->reservation_start_time) }}</td>
+                <td>{{ formatTime($cart->reservation_end_time) }}</td>
                 <td>{{ $cart->quantity }} {{ $cart->gender }} </td>
                 <td>{{ $cart->occupant_type }}</td>
-                <td>{{ $cart->price }}</td>
-                <td style="color:var(--color-orange);">{{ $cart->status }}</td>
+                <td>{{ $cart->total_price }}</td>
+                <td class="{{ 
+                    $cart->status === 'Pending' ? 'status-pending' : (
+                    $cart->status === 'Received' || $cart->status === 'For Payment' ? 'status-received' : (
+                    $cart->status === 'Paid' || $cart->status === 'Reserved' ? 'status-paid' : (
+                    $cart->status === 'Cancelled' || $cart->status === 'Unavailable' ? 'status-cancelled' : '')))
+                }}">
+                    {{ $cart->status }}
+                </td>
             </tr>
             @endforeach
         </tbody>
@@ -135,3 +150,8 @@
 </div>
 {{-- ------------------END OF MAIN------------------ --}}
 @endsection
+<?php
+function formatTime($time) {
+    return \Carbon\Carbon::createFromFormat('H:i:s', $time)->format('g:i a');
+}
+?>
