@@ -15,7 +15,7 @@
     </div>
 </div>
 
-@section('scripts')
+@section('scripts-profile')
     <script>
         $(document).ready(function() {
             // Get the current URL

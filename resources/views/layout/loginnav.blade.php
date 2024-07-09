@@ -9,12 +9,18 @@
             </div>
             <div class="main-login">
                 <ul class="navbar-nav mx-auto">
-                    <li class="nav-itez m">
-                        <a href="{{ route('login') }}" class="{{(Route::is('login')) ? 'login-active ' : '' }}">LOGIN</a>
+                    @if (!Route::is('forget.password'))
+                    <li class="nav-item">
+                        <a href="{{ route('login') }}" class="{{ (Route::is('login')) ? 'login-active' : '' }}">LOGIN</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('register') }}" class="{{(Route::is('register')) ? 'login-active ' : '' }}">REGISTER</a>
+                        <a href="{{ route('register') }}" class="{{ (Route::is('register')) ? 'login-active' : '' }}">REGISTER</a>
                     </li>
+                    @elseif (Route::is('forget.password'))
+                    <li class="nav-item">
+                        <a href="javascript:history.back()"><i class="fa-solid fa-arrow-left"></i> Back</a>
+                    </li>
+                    @endif
                 </ul>
             </div>
         </div>

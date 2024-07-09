@@ -29,7 +29,6 @@ class GymCartController extends Controller
      */
     public function store(Request $request)
     {
-
         $validatedData = $request->validate([
             'selectedDateText' => 'required|date',
             'timepicker-am' => 'required|date_format:H:i',
@@ -39,7 +38,6 @@ class GymCartController extends Controller
             'number_of_courts' => 'required_if:purpose,Badminton|nullable|integer|max:4',
             'total_price' => 'required',
         ]);
-
 
         $userId = Auth::id();
 
@@ -60,13 +58,11 @@ class GymCartController extends Controller
             ->where('employee_id', $userId)
             ->exists();
 
-
         if ($existingReservation) {
             return redirect()->route('gym')->with('error', 'A similar reservation already exists in your cart.');
         } else if ($existingReservationWithoutPurpose) {
             return redirect()->route('gym')->with('error', 'A reservation for a similar time range already exists in your cart.');
         }
-
 
         // Check if the selected day and time fall within the allowed ranges
         $dayOfWeek = date('N', strtotime($validatedData['selectedDateText']));
@@ -76,23 +72,23 @@ class GymCartController extends Controller
         // Define allowed time ranges based on the day of the week
         $allowedRanges = [
             1 => [ // Monday
-                ['06:00', '10:59'],
+                ['06:00', '11:00'],
                 ['18:00', '21:00'],
             ],
             2 => [ // Tuesday
-                ['06:00', '10:59'],
+                ['06:00', '11:00'],
                 ['18:00', '21:00'],
             ],
             3 => [ // Wednesday
-                ['06:00', '10:59'],
+                ['06:00', '11:00'],
                 ['18:00', '21:00'],
             ],
             4 => [ // Thursday
-                ['06:00', '10:59'],
+                ['06:00', '11:00'],
                 ['18:00', '21:00'],
             ],
             5 => [ // Friday
-                ['06:00', '10:59'],
+                ['06:00', '11:00'],
                 ['18:00', '21:00'],
             ],
             6 => [ // Saturday
@@ -133,32 +129,47 @@ class GymCartController extends Controller
             })
             ->exists();
 
-
-
         if ($overlappingReservation) {
-            return redirect()->route('gym')->with('error', 'The selected time slot overlaps with an existing reservation. Please choose another time slot.');
-        } else {
+            // Check if the start time is exactly the end time of an existing reservation
+            // Check if the start time is exactly the end time of an existing reservation
+            $overlappingEndTimeReservation = Gym::where('status', 'Reserved')
+                ->where('reservation_date', $validatedData['selectedDateText'])
+                ->where('reservation_time_end', $validatedData['timepicker-am'])
+                ->first();
 
-            // Create a new GymCart instance
-            $gymCart = new GymCart();
-            $gymCart->reservation_date = $validatedData['selectedDateText'];
-            $gymCart->reservation_time_start = $validatedData['timepicker-am'];
-            $gymCart->reservation_time_end = $validatedData['timepicker-pm'];
-            $gymCart->occupant_type = $validatedData['employee_type'];
-            $gymCart->purpose = $validatedData['purpose'];
-            $gymCart->total_price = $validatedData['total_price'];
-            $gymCart->employee_id = Auth::id(); // Use Auth::id() instead of Auth()->id()
-
-            // Only set number_of_courts if it exists in validated data
-            if (isset($validatedData['number_of_courts'])) {
-                $gymCart->number_of_courts = $validatedData['number_of_courts'];
+            if ($overlappingEndTimeReservation) {
+                $endTime = date('g:i A', strtotime($overlappingEndTimeReservation->reservation_time_end));
+                $message = 'The selected start time overlaps with the end time of an existing reservation ending at ' . $endTime . '. Please choose/adjust another start time.';
+                return redirect()->route('gym')->with('error', $message);
             }
-            // Save the GymCart instance to the database
-            $gymCart->save();
 
-            return redirect()->route('gym')->with('success', 'Reservation added to cart successfully!');
+
+            return redirect()->route('gym')->with('error', 'The selected time slot overlaps with an existing reservation. Please choose another time slot.');
         }
+
+
+
+        // Create a new GymCart instance
+        $gymCart = new GymCart();
+        $gymCart->reservation_date = $validatedData['selectedDateText'];
+        $gymCart->reservation_time_start = $validatedData['timepicker-am'];
+        $gymCart->reservation_time_end = $validatedData['timepicker-pm'];
+        $gymCart->occupant_type = $validatedData['employee_type'];
+        $gymCart->purpose = $validatedData['purpose'];
+        $gymCart->total_price = $validatedData['total_price'];
+        $gymCart->employee_id = Auth::id(); // Use Auth::id() instead of Auth()->id()
+
+        // Only set number_of_courts if it exists in validated data
+        if (isset($validatedData['number_of_courts'])) {
+            $gymCart->number_of_courts = $validatedData['number_of_courts'];
+        }
+
+        // Save the GymCart instance to the database
+        $gymCart->save();
+
+        return redirect()->route('gym')->with('success', 'Reservation added to cart successfully!');
     }
+
 
     /**
      * Display the specified resource.

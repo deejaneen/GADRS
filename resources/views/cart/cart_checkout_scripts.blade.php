@@ -1,6 +1,6 @@
 @section('scripts')
 <script>
-    var dormcarts = {!! json_encode($dormcarts) !!};
+    var dormcarts = {!!json_encode($dormcarts) !!};
 
     function openModal() {
         // Check if any checkbox is selected
@@ -73,9 +73,9 @@
             const dormCardVisible = window.getComputedStyle(document.getElementById('dormReservationsCartCard')).display !== 'none';
             if (gymCardVisible && selectedCount <= 8) {
                 $('#cartToFormModalGym').modal('show');
-            } else if(dormCardVisible) {
+            } else if (dormCardVisible) {
                 $('#cartToFormModalDorm').modal('show');
-            }else{
+            } else {
                 Swal.fire("The maximum number of items to be put into a form is only 8.", "", "warning");
             }
 
@@ -218,8 +218,17 @@
                     const ptn = document.getElementById('ptn').value;
                     const ptn_contact = document.getElementById('ptn_contact').value;
                     const ptn_home_address = document.getElementById('ptn_home_address').value;
+                    // Email validation regex pattern
+                    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    // Philippine phone number regex pattern (starting with 09 and 11 digits total)
+                    const phoneNumberPattern = /^09\d{9}$/;
+
 
                     if (isReservorCOA === false) {
+                        // Validate email
+
+
+
                         // Check if any field is empty
                         if (!surname || !firstname || !middlename || !office || !office_address || !position ||
                             !
@@ -266,8 +275,33 @@
                             document.getElementById('ptn_home_address').placeholder = (!ptn_home_address) ?
                                 "Please fill in PTN home address" : "";
                             return; // Prevent form submission
+                        } else {
+                            // Validate email
+                            const validateAndSetPlaceholder = (elementId, pattern, placeholderText) => {
+                                const element = document.getElementById(elementId);
+                                const value = element.value.trim();
+                                if (!pattern.test(value)) {
+                                    element.value = "";
+                                    element.placeholder = placeholderText;
+                                    return false; // Validation failed
+                                }
+                                return true; // Validation passed
+                            };
+
+                            if (!validateAndSetPlaceholder('email', emailPattern, 'Please enter a valid email address')) {
+                                return; // Prevent form submission
+                            }
+                            if (!validateAndSetPlaceholder('contact_number_dorm', phoneNumberPattern, 'Please enter a valid Philippine phone number (e.g., 09123456789)')) {
+                                return; // Prevent form submission
+                            }
+                            if (!validateAndSetPlaceholder('ptn_contact', phoneNumberPattern, 'Please enter a valid Philippine phone number (e.g., 09123456789)')) {
+                                return; // Prevent form submission
+                            }
                         }
                     } else {
+
+
+
                         if (!surname || !firstname || !middlename || !office || !office_address || !position ||
                             !
                             contact_number_dorm || !email || !ei_number || !id_presented || !pos || !ptn || !
@@ -296,21 +330,34 @@
                                 "Please fill in your ID presented" : "";
                             document.getElementById('pos').placeholder = (!pos) ? "Please fill in your POS" :
                                 "";
-                            // document.getElementById('coaEm_name').placeholder = (!coaEm_name) ?
-                            //     "Please fill in COA EM name" : "";
-                            // document.getElementById('coaEm_relationshipGuest').placeholder = (!
-                            //     coaEm_relationshipGuest) ? "Please fill in COA EM relationshipGuest" : "";
-                            // document.getElementById('coaEm_office').placeholder = (!coaEm_office) ?
-                            //     "Please fill in COA EM office" : "";
-                            // document.getElementById('coaEm_office_address').placeholder = (!
-                            //         coaEm_office_address) ?
-                            //     "Please fill in COA EM office address" : "";
                             document.getElementById('ptn').placeholder = (!ptn) ? "Please fill in PTN" : "";
                             document.getElementById('ptn_contact').placeholder = (!ptn_contact) ?
                                 "Please fill in PTN contact" : "";
                             document.getElementById('ptn_home_address').placeholder = (!ptn_home_address) ?
                                 "Please fill in PTN home address" : "";
                             return; // Prevent form submission
+                        } else {
+                            // Validate email
+                            const validateAndSetPlaceholder = (elementId, pattern, placeholderText) => {
+                                const element = document.getElementById(elementId);
+                                const value = element.value.trim();
+                                if (!pattern.test(value)) {
+                                    element.value = "";
+                                    element.placeholder = placeholderText;
+                                    return false; // Validation failed
+                                }
+                                return true; // Validation passed
+                            };
+
+                            if (!validateAndSetPlaceholder('email', emailPattern, 'Please enter a valid email address')) {
+                                return; // Prevent form submission
+                            }
+                            if (!validateAndSetPlaceholder('contact_number_dorm', phoneNumberPattern, 'Please enter a valid Philippine phone number (e.g., 09123456789)')) {
+                                return; // Prevent form submission
+                            }
+                            if (!validateAndSetPlaceholder('ptn_contact', phoneNumberPattern, 'Please enter a valid Philippine phone number (e.g., 09123456789)')) {
+                                return; // Prevent form submission
+                            }
                         }
                     }
 
