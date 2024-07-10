@@ -1946,13 +1946,16 @@ ul.list-unstyled {
 .swal2-confirm.swal2-styled:hover {
     background: var(--color-warning) !important;
 }
+.swal2-cancel.swal2-styled,
 .swal2-deny.swal2-styled {
     background-color: var(--color-dark-variant) !important;
     color: var(--color-info-light) !important;
 }
+.swal2-cancel.swal2-styled:hover,
 .swal2-deny.swal2-styled:hover {
     background-color: var(--color-primary) !important;
 }
+
 .d-block.text-danger {
     font-size: 0.78em !important;
     text-align: end;

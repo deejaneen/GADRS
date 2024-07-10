@@ -62,7 +62,7 @@
                                     <th scope="col">Purpose</th>
                                     <th scope="col">Total Price</th>
                                     <th scope="col">Status</th>
-                                    <th scope="col" style="width: fit-content">Actions</th>
+                                    <th scope="col">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -87,19 +87,24 @@
                                             {{ $gym->status }}
                                         </td>
                                         <td class="actions-home">
-                                            <form class="delete-form-gym" id="guestGymIdDelete_{{ $gym->id }}" method="POST" action="{{ route('gym.delete', $gym->id) }}">
+                                            <form class="delete-form-gym" id="guestGymIdDelete_{{ $gym->id }}"
+                                                method="POST" action="{{ route('gym.delete', $gym->id) }}">
                                                 @csrf
                                                 @method('delete')
                                                 @if ($gym->status === 'Pending')
-                                                    <a href="{{ route('gym.edit', $gym->id) }}" class="btn btn-edit-reservation-details rounded-pill" id="gymHomeTableEditButton">
+                                                    <a href="{{ route('gym.edit', $gym->id) }}"
+                                                        class="btn btn-edit-reservation-details rounded-pill"
+                                                        id="gymHomeTableEditButton">
                                                         Edit Details
                                                     </a>
-                                                    <button type="button" class="btn btn-delete-reservation rounded-pill" id="gymHomeTableDeleteButton" onclick="confirmDelete(event, {{ $gym->id }})">
+                                                    <button type="button" class="btn btn-delete-reservation rounded-pill"
+                                                        id="gymHomeTableDeleteButton"
+                                                        onclick="confirmDelete(event, {{ $gym->id }})">
                                                         Delete Reservation
                                                     </button>
                                                 @endif
                                             </form>
-                                        </td>                    
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -145,19 +150,24 @@
                                             {{ $dorm->status }}
                                         </td>
                                         <td class="actions-home">
-                                            <form class="delete-form-dorm" id="guestDormIdDelete_{{ $dorm->id }}" method="POST" action="{{ route('dorm.delete', $dorm->id) }}">
+                                            <form class="delete-form-dorm" id="guestDormIdDelete_{{ $dorm->id }}"
+                                                method="POST" action="{{ route('dorm.delete', $dorm->id) }}">
                                                 @csrf
                                                 @method('delete')
                                                 @if ($dorm->status === 'Pending')
-                                                    <a href="{{ route('dorm.edit', $dorm->id) }}" class="btn btn-edit-reservation-details rounded-pill" id="dormHomeTableEditButton">
+                                                    <a href="{{ route('dorm.edit', $dorm->id) }}"
+                                                        class="btn btn-edit-reservation-details rounded-pill"
+                                                        id="dormHomeTableEditButton">
                                                         Edit Details
                                                     </a>
-                                                    <button type="button" class="btn btn-delete-reservation rounded-pill" id="dormHomeTableDeleteButton" onclick="confirmDelete(event, {{ $dorm->id }})">
+                                                    <button type="button" class="btn btn-delete-reservation rounded-pill"
+                                                        id="dormHomeTableDeleteButton"
+                                                        onclick="confirmDelete(event, {{ $dorm->id }})">
                                                         Delete Reservation
                                                     </button>
                                                 @endif
                                             </form>
-                                        </td>                         
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -202,7 +212,8 @@
 
             });
         });
-        function confirmDelete(event) {
+
+        function confirmDelete(event, id) {
             event.preventDefault(); // Prevent default form submission
 
             // Show confirmation dialog
@@ -217,11 +228,13 @@
             }).then((result) => {
                 if (result.isConfirmed) {
                     // Submit the delete form associated with the clicked button
-                    const form = event.target.closest(".delete-form-user");
-                    form.submit();
+                    const form = document.getElementById(`guestGymIdDelete_${id}`) || document.getElementById(
+                        `guestDormIdDelete_${id}`);
+                    if (form) {
+                        form.submit();
+                    }
                 }
             });
         }
     </script>
 @endsection
-

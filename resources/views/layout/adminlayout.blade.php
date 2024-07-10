@@ -20,6 +20,7 @@
 
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/2.0.1/css/dataTables.dataTables.min.css">
     <link rel="preload" href="{{ asset('css/admin.css') }}" as="style">
+    <link rel="shortcut icon" type="image/png" href="{{ asset('images/COA CAR logo.png') }}">
 
 </head>
 

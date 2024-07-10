@@ -10,7 +10,7 @@
             <form action="{{ route('login') }}" method="post">
                 @csrf
                 <div class="input-field ">
-                    <input type="email" name="email" id="email" placeholder="Username/Email"><i class="ri-user-line"></i>
+                    <input type="email" name="email" id="email" placeholder="Email"><i class="ri-user-line"></i>
                     @error('email')
                     <span class="d-block text-danger"> {{$message}}</span>
                     @enderror

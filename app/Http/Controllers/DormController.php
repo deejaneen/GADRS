@@ -76,4 +76,5 @@ class DormController extends Controller
 
         return redirect()->back()->with('success', 'Entry deleted successfully!');
     }
+    
 }

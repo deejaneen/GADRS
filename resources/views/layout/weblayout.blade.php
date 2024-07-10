@@ -30,6 +30,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/2.0.3/css/dataTables.dataTables.min.css">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="shortcut icon" type="image/png" href="{{ asset('images/COA CAR logo.png') }}">
 </head>
 
 <body style="overflow-x: hidden;">
