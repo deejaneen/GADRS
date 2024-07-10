@@ -1,62 +1,6 @@
 @extends('layout.adminlayout')
 @include('admin.admin-add-user-modal')
 @section('admindashboard')
-    <!-- <aside>
-        <div class="top">
-            <div class="logo">
-                <img src="{{ asset('images/COA CAR logo.png') }}" alt="">
-                <h2 class="primary-light">COA <span class="danger">CAR</span></h2>
-            </div>
-            <div class="close" id="close-btn">
-                <span class="ri-close-fill"></span>
-            </div>
-
-            <div class="sidebar">
-                <a href="{{ route('adminhome') }}">
-                    <span class="ri-dashboard-line ">
-                        <h3>Dashboard</h3>
-                    </span>
-                </a>
-                <a href="{{ route('adminusers') }}" class="active">
-                    <span class="ri-team-line">
-                        <h3>Users</h3>
-                    </span>
-                </a>
-                <a href="{{ route('adminreservations') }}">
-                    <span class="ri-receipt-line">
-                        <h3>Reservations</h3>
-                        <span class="message-count">26</span>
-                    </span>
-                </a>
-                <a href="{{ route('admingym') }}">
-                    <span class="ri-basketball-fill">
-                        <h3>Gym</h3>
-                    </span>
-                </a>
-                <a href="{{ route('admindorm') }}">
-                    <span class="ri-home-3-line">
-                        <h3>Dorm</h3>
-                    </span>
-
-                </a>
-                <a href="{{ route('adminprofile') }}">
-                    <span class="ri-user-line">
-                        <h3>Change Password</h3>
-                    </span>
-                </a>
-                <form action="{{ route('logout') }}" method="POST" id="logout-form-navbar">
-                    @csrf
-
-                    <button class="no-underline logout btn btn-danger btn-md" type="submit" id="logout-button">
-                        <span class="ri-logout-box-r-line">
-                            <h3>LOGOUT</h3>
-                        </span>
-                    </button>
-                </form>
-            </div>
-        </div>
-    </aside> -->
-    {{-- -------------------------------END-OF-ASIDE-------------------- --}}
     <main>
         <h1 class="page-title">USERS</h1>
 
@@ -85,14 +29,10 @@
                             <td>{{ $user->email }}</td>
                             <td>{{ $user->contact_number }}</td>
                             <td>{{ $user->role }}</td>
-                            <td>
-                                <!-- <button class="btn btn-primary btn-lg rounded-pill edit-user-btn" data-user-id="{{ $user->id }}" style="color: var(--color-orange);">
-                                Edit
-                            </button> -->
+                            <td class="actions-column">
                                 <div class="btn-edit-profile-container">
                                     <a href="{{ route('admin.editUser', $user->id) }}"
-                                        class="btn btn-lg btn-edit-profile rounded-pill"
-                                        style="color: var(--color-orange);">
+                                        class="btn btn-lg btn-edit-profile rounded-pill">
                                         <label for="btn-edit-profile" id="btn-edit-profile"> Edit</label>
                                     </a>
                                 </div>
@@ -104,14 +44,10 @@
                                     @method('delete')
 
                                     <button class="btn btn-lg rounded-pill btn-delete-profile"
-                                        onclick="confirmDeleteDorm(event)" style="color: var(--color-danger);">
+                                        onclick="confirmDeleteDorm(event)">
                                         Delete
                                     </button>
                                 </form>
-
-
-
-
                             </td>
                         </tr>
 

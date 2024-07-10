@@ -2,7 +2,7 @@
 
 @section('banner')
     <!-- Banner Section -->
-    <div class="container">
+    <div class="container" >
         <div class="hero-section">
             <div class="banner-gym-top"></div>
             <div class="banner-gym-bottom"></div>

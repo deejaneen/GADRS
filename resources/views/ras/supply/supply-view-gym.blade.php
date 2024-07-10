@@ -24,16 +24,18 @@
 </div>
 <div class="card" id="ReceivingPendingTableCard">
     <div class="row mb-3">
-        <div class="col">
-            <label for="employee_id" class="form-label">User ID</label>
-            <input type="text" class="form-control" id="employee_id" value="{{ $dorm->employee_id }}" name="employee_id" disabled>
-        </div>
+     
         <div class="col">
             <label for="username" class="form-label">Username</label>
             <input type="text" class="form-control" id="username" value="{{ $userDetails->first_name . ' ' . $userDetails->middle_name . ' ' . $userDetails->last_name }}
 " name="username" disabled>
         </div>
+        <div class="col">
+            <label for="employee_id" class="form-label" hidden>User ID</label>
+            <input type="text" class="form-control" id="employee_id" value="{{ $dorm->employee_id }}" name="employee_id" disabled hidden>
+        </div>
     </div>
+    <hr>
     <div class="row mb-3">
         <div class="col">
             <label for="reservation_start_date" class="form-label">Reservation Start Date</label>
@@ -54,7 +56,7 @@
     </div>
     <div class="row mb-3">
         <div class="col">
-            <label for="gender" class="form-label">Gender</label>
+            <label for="gender" class="form-label">Dorm Type</label>
             <input type="text" class="form-control" id="gender" value="{{ $dorm->gender }}" name="gender" disabled>
         </div>
         <div class="col">
@@ -62,8 +64,8 @@
             <input type="text" class="form-control" id="occupant_type" value="{{ $dorm->occupant_type }}" name="occupant_type" disabled>
         </div>
         <div class="col">
-            <label for="price" class="form-label">Price</label>
-            <input type="text" class="form-control" id="price" value="{{ $dorm->price }}" name="price" disabled>
+            <label for="price" class="form-label">Total Price</label>
+            <input type="text" class="form-control" id="price" value="{{ $dorm->total_price }}" name="price" disabled>
         </div>
     </div>
     <div class="row mb-3">

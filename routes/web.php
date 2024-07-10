@@ -31,7 +31,7 @@ use Illuminate\Support\Facades\Mail;
 |
 */
 
-// Routes accessible only to guests (non-authenticated users)
+// Routes accessible only to guests 
 Route::middleware(['guest', 'preventCaching'])->group(function () {
     Route::get('/register', [AuthController::class, 'register'])->name('register');
     Route::post('/register', [AuthController::class, 'store']);
@@ -89,6 +89,13 @@ Route::middleware(['auth', 'verified', 'preventCaching', 'checkRole:Guest'])->gr
     Route::post('/cart_check/dorm_convert', [CartController::class, 'DormCartToDormReservations'])->name('cart.dorm_convert');
     Route::delete('/cart/destroy-gym', [CartController::class, 'destroyGym'])->name('cart.destroy.gym');
     Route::delete('/cart/destroy/dorm', [CartController::class, 'destroyDorm'])->name('cart.destroy.dorm');
+    Route::get('/gym/edit/{id}', [GymController::class, 'editGymReservation'])->name('gym.edit');
+    Route::post('/gym/update/{id}', [GymController::class, 'updateGymReservation'])->name('gym.update');
+    Route::delete('/gym/delete/{id}', [GymController::class, 'destroyGymReservation'])->name('gym.delete');
+
+    Route::get('/dorm/edit/{id}', [DormController::class, 'editDormReservation'])->name('dorm.edit');
+    Route::post('/dorm/update/{id}', [DormController::class, 'updateDormReservation'])->name('dorm.update');
+    Route::delete('/dorm/delete/{id}', [DormController::class, 'destroyDormReservation'])->name('dorm.delete');
 });
 
 // Routes accessible only by Admin

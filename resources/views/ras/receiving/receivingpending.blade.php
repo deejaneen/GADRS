@@ -4,18 +4,6 @@
 <main>
     <h1>Pending</h1>
 
-    <div class="insights">
-        <div class="gymreservation">
-            <span class="ri-basketball-fill"></span>
-            <div class="middle">
-                <div class="left">
-                    <h3>Total Pending Reservations - Gym</h3>
-                    <h1>{{ $gymsPendingCount }}</h1>
-                </div>
-            </div>
-        </div>
-    </div>
-
 </main>
 
 <div class="card" id="ReceivingPendingTableCard">

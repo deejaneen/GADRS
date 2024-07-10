@@ -1,24 +1,23 @@
 @extends('layout.receivinglayout')
 
 @section('receivingdashboard')
-<!-- @include('ras.receiving.receiving-side-bar') -->
+    <!-- @include('ras.receiving.receiving-side-bar') -->
     <main>
         <h1>Dashboard</h1>
 
 
         <div class="insights">
             {{-- -------------------------------END-OF-SALES-------------------- --}}
-          
-            
+
+
             {{-- -------------------------------END-OF-GYM-RESERVATIONS-------------------- --}}
             <div class="gymreservation">
                 <span class="ri-basketball-fill"></span>
                 <div class="middle">
                     <div class="left">
-                        <h3>Total Reservations - Received</h3>
-                        <h4>{{ $currentMonth }}</h4>
-                        <h1>
-                            {{ $thisMonthTotalReservationReceived }}
+                        <h3>Daily Total Reservations</h3>
+                        <h4>{{ $today->format('F j, Y') }}</h4>
+                        <h1>{{ $dailyTotalReservations }}
                         </h1>
                     </div>
 
@@ -29,11 +28,39 @@
                 <span class="ri-basketball-fill"></span>
                 <div class="middle">
                     <div class="left">
-                        <h3>Total Reservations - Received</h3>
-                        <h4> {{ $lastMonth }}</h4>
-                        <h1>
-                            {{ $lastMonthTotalReservationReceived }}
+                        <h3>Weekly Total Reservations</h3>
+                        <h4>{{ $weekStart }} - {{ $weekEnd }}</h4>
+                        <h1>{{ $weeklyTotalReservations }}</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="dormreservations">
+                <span class="ri-basketball-fill"></span>
+                <div class="middle">
+                    <div class="left">
+                        <h3>Monthly Total Reservations</h3>
+                        <h4> {{ $currentMonth }}</h4>
+                        <h1>{{ $monthlyTotalReservations }}
                         </h1>
+                    </div>
+                </div>
+            </div>
+            <div class="dormreservations">
+                <span class="ri-basketball-fill"></span>
+                <div class="middle">
+                    <div class="left">
+                        <h3>This Month's Reservations</h3>
+                        <h1>{{ $thisMonthGymReceivedCount }}
+                        </h1>
+                    </div>
+                </div>
+            </div>
+            <div class="dormreservations">
+                <span class="ri-basketball-fill"></span>
+                <div class="middle">
+                    <div class="left">
+                        <h3>Last Month's Reservations</h3>
+                        <h1>{{ $lastMonthGymReceivedCount }}</h1>
                     </div>
                 </div>
             </div>
@@ -63,13 +90,15 @@
         {{-- ------------------END OF TOP------------------ --}}
 
         {{-- ------------------ END OF RECENT UPDATES ------------------ --}}
-      
+
     </div>
 @endsection
 <script>
     // Get current month
     const currentDate = new Date();
-    const currentMonth = currentDate.toLocaleString('default', { month: 'long' });
+    const currentMonth = currentDate.toLocaleString('default', {
+        month: 'long'
+    });
 
     // Update placeholder with current month
     document.getElementById('currentMonth').textContent = currentMonth;

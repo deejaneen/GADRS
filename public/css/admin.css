@@ -772,6 +772,7 @@ main .recent-orders a {
     padding: 8px 20px !important;
 }
 
+.delete-form-user,
 .btn-edit-profile-container {
     display: flex;
     justify-content: center;
@@ -938,13 +939,9 @@ div.dt-container .dt-paging .dt-paging-button.disabled {
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
-#AdminUserTable td:last-child {
+.actions-column {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    /*
-    text-align: center;
-    width: 10%; */
+    white-space: nowrap;
 }
 
 .page-title {
@@ -1061,6 +1058,16 @@ div.dt-container .dt-paging .dt-paging-button.disabled {
 
 .swal2-confirm.swal2-styled {
     background: var(--color-danger) !important;
+}
+.swal2-confirm.swal2-styled:hover {
+    background: var(--color-warning) !important;
+}
+.swal2-deny.swal2-styled {
+    background-color: var(--color-dark-variant) !important;
+    color: var(--color-info-light) !important;
+}
+.swal2-deny.swal2-styled:hover {
+    background-color: var(--color-primary) !important;
 }
 
 div.dt-length select {

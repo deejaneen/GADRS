@@ -39,7 +39,7 @@
                 }}">
                     {{ $dorm->status }}
                 </td>
-                <td class="buttons">
+                <td class="actions-column">
                     <a href="{{ route('supply.editDorm', $dorm->id) }}" class="btn btn-assign-number rounded-pill" id="receivingAssignNumberbtn">
                         Assign Number
                     </a>

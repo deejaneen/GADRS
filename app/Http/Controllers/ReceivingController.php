@@ -15,34 +15,41 @@ class ReceivingController extends Controller
 
     public function index()
     {
-        $today = now()->startOfDay();
-        $gymsPendingCount = Gym::where('status', 'Pending')
-            ->where('reservation_date', '>=', $today)
-            ->count();
-        $dormsPendingCount = Dorm::where('status', 'Pending')->count();
-        $totalReservationCount = $gymsPendingCount + $dormsPendingCount;
+        $today = Carbon::today();
+        $startOfWeek = $today->copy()->startOfWeek();
+        $endOfWeek = $today->copy()->endOfWeek();
+        $startOfMonth = $today->copy()->startOfMonth();
+
+        // Calculate Daily Total Reservations
+        $dailyTotalReservations = Gym::whereDate('created_at', $today)->count();
+
+        // Calculate Weekly Total Reservations
+        $weeklyTotalReservations = Gym::whereBetween('created_at', [$startOfWeek, $today])->count();
+
+        // Calculate Monthly Total Reservations
+        $monthlyTotalReservations = Gym::whereBetween('created_at', [$startOfMonth, $today])->count();
 
         // Get current month's total reservation received
-        $currentMonth = date('F'); // Format the current month to display in words
-        $currentYear = date('Y');
-        $thisMonthGymReceivedCount = Gym::whereRaw('MONTH(created_at) = ? AND YEAR(created_at) = ?', [$currentMonth, $currentYear])->count();
-        $thisMonthDormReceivedCount = Dorm::whereRaw('MONTH(created_at) = ? AND YEAR(created_at) = ?', [$currentMonth, $currentYear])->count();
-        $thisMonthTotalReservationReceived = $thisMonthGymReceivedCount + $thisMonthDormReceivedCount;
+        $currentMonth = $today->format('F'); // Format the current month to display in words
+        $currentYear = $today->year;
+        $thisMonthGymReceivedCount = Gym::whereMonth('created_at', $today->month)->whereYear('created_at', $currentYear)->count();
 
         // Get last month's total reservation received
-        $lastMonth = date('F', strtotime('-1 month')); // Format the last month to display in words
-        $lastMonthYear = date('Y', strtotime('-1 month'));
-        $lastMonthGymReceivedCount = Gym::whereRaw('MONTH(created_at) = ? AND YEAR(created_at) = ?', [$lastMonth, $lastMonthYear])->count();
-        $lastMonthDormReceivedCount = Dorm::whereRaw('MONTH(created_at) = ? AND YEAR(created_at) = ?', [$lastMonth, $lastMonthYear])->count();
-        $lastMonthTotalReservationReceived = $lastMonthGymReceivedCount + $lastMonthDormReceivedCount;
+        $lastMonth = $today->copy()->subMonth()->format('F'); // Format the last month to display in words
+        $lastMonthYear = $today->copy()->subMonth()->year;
+        $lastMonthGymReceivedCount = Gym::whereMonth('created_at', $today->copy()->subMonth()->month)->whereYear('created_at', $lastMonthYear)->count();
 
         return view('ras.receiving.receivingdashboard', [
-            'gymsPendingCount' => $gymsPendingCount,
+            'today' => $today,
+            'dailyTotalReservations' => $dailyTotalReservations,
+            'weeklyTotalReservations' => $weeklyTotalReservations,
+            'monthlyTotalReservations' => $monthlyTotalReservations,
             'lastMonth' => $lastMonth,
             'currentMonth' => $currentMonth,
-            'totalReservationCount' => $totalReservationCount,
-            'thisMonthTotalReservationReceived' => $thisMonthTotalReservationReceived,
-            'lastMonthTotalReservationReceived' => $lastMonthTotalReservationReceived
+            'thisMonthGymReceivedCount' => $thisMonthGymReceivedCount,
+            'lastMonthGymReceivedCount' => $lastMonthGymReceivedCount,
+            'weekStart' => $startOfWeek->format('F j, Y'),
+            'weekEnd' => $endOfWeek->format('F j, Y')
         ]);
     }
 

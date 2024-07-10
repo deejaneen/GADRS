@@ -6,7 +6,7 @@
  
     <main>
         <h1 class="page-title">ADMIN CHANGE PASSWORD</h1>
-        <div class="card" id="AdminChangePasswordCard">
+        <div class="card" id="AdminChangePasswordCard" style="border-radius: 20px;">
             <form action="{{ route('update_password_admin') }}" id="change_password_admin_form" method="post">
                 @csrf
                 @method('post')

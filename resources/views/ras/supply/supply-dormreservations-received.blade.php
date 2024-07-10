@@ -40,7 +40,7 @@
                 }}">
                     {{ $dorm->status }}
                 </td>
-                <td class="buttons">
+                <td class="actions-column">
                     <a href="{{ route('supply.viewDorm', $dorm->id) }}" class="btn btn-view-details rounded-pill" id="receivingViewFormbtn" >
                         View Details
                     </a>

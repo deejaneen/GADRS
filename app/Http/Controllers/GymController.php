@@ -84,4 +84,20 @@ class GymController extends Controller
         // Return the reservations as JSON response
         return response()->json($reservations);
     }
+
+    public function updateGymReservation ()
+    {
+
+    }
+    public function editGymReservation ()
+    {
+        
+    }
+        public function destroyGymReservation ($id)
+        {
+            $gym = Gym::where('id', $id)->first();
+            $gym->delete();
+
+            return redirect()->back()->with('success', 'Entry deleted successfully!');
+        }
 }

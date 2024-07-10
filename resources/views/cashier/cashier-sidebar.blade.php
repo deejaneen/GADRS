@@ -27,6 +27,7 @@
             <a href="{{ route('cashierpaid') }}" class="sidebar-link">
                 <span class="ri-receipt-line">
                     <h3>Paid</h3>
+               
                 </span>
             </a>
 

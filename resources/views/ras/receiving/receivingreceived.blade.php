@@ -4,26 +4,7 @@
     <main>
         <h1>Received</h1>
 
-        <div class="insights">
-            <div class="totalreservation">
-                <span class="ri-key-2-line"></span>
-                <div class="middle">
-                    <div class="left">
-                        <h3>Total Reservations - Received</h3>
-                        <h1>{{ $totalReservationCount }}</h1>
-                    </div>
-                </div>
-            </div>
-            <div class="gymreservation">
-                <span class="ri-basketball-fill"></span>
-                <div class="middle">
-                    <div class="left">
-                        <h3>Total Received Reservations - Gym</h3>
-                        <h1>{{ $gymsPendingCount }}</h1>
-                    </div>
-                </div>
-            </div>
-        </div>
+    
     </main>
 
     <div class="card" id="ReceivingPendingTableCard">

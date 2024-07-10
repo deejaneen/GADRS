@@ -59,4 +59,21 @@ class DormController extends Controller
             'availableBeds' => $availableBeds,
         ]);
     }
+
+    
+    public function updateDormReservation ()
+    {
+
+    }
+    public function editDormReservation ()
+    {
+        
+    }
+    public function destroyDormReservation ($id)
+    {
+        $dorm = Dorm::where('id', $id)->first();
+        $dorm->delete();
+
+        return redirect()->back()->with('success', 'Entry deleted successfully!');
+    }
 }

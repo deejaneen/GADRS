@@ -27,6 +27,9 @@
             <a href="{{ route('receivingreceived') }}" class="sidebar-link">
                 <span class="ri-folder-received-fill">
                     <h3>Received</h3>
+                    @if($gymsReceivedCountView != 0)
+                    <span class="message-count">{{ $gymsReceivedCountView }}</span>
+                    @endif
                 </span>
             </a> 
 
