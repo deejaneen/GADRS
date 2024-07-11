@@ -62,6 +62,9 @@
                     <a href="{{ route('receiving.viewPDF', $gym->id) }}" target="_blank" class="btn btn-generate-pdf rounded-pill" id="receivingViewFormbtn">
                         Generate PDF
                     </a>
+                    <a href="{{ route('receiving.viewPDFOoP', $gym->id) }}" target="_blank" class="btn btn-generate-pdf rounded-pill" id="receivingViewFormbtn">
+                        Generate OoP
+                    </a>
                 </td>
             </tr>
             @endforeach

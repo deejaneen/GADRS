@@ -2057,7 +2057,7 @@
                 <p class="c1"><span class="c23">No.</span></p>
             </td>
             <td class="c74" colspan="3" rowspan="1">
-                <p class="c48"><span class="c23 c104">$2024-05-079</span></p>
+                <p class="c48"><span class="c23 c104">{{ $gym->oop_number}}</span></p>
             </td>
         </tr>
         <tr class="c70">
@@ -2103,7 +2103,7 @@
                 <p class="c1"><span class="c23">Date:</span></p>
             </td>
             <td class="c74" colspan="3" rowspan="1">
-                <p class="c48"><span class="c23 c62">$May 15, 2024</span></p>
+                <p class="c48"><span class="c23 c62">{{ date('F j, Y', strtotime($gym->or_date)) }}</span></p>
             </td>
         </tr>
         <tr class="c18">
@@ -2237,7 +2237,7 @@
         </tr>
         <tr class="c7">
             <td class="c29" colspan="9" rowspan="1">
-                <p class="c48"><span class="c23 c62">$ROMIFONGSI</span></p>
+                <p class="c48"><span class="c23 c62">{{ $gym->company_name }}</span></p>
             </td>
         </tr>
         <tr class="c14">
@@ -2247,7 +2247,7 @@
         </tr>
         <tr class="c107">
             <td class="c29" colspan="9" rowspan="1">
-                <p class="c48"><span class="c23 c62">$PICOLATRINIDADBENGUET</span></p>
+                <p class="c48"><span class="c23 c62">{{ $gym->office_address }}</span></p>
             </td>
         </tr>
         <tr class="c14">
@@ -2315,7 +2315,7 @@
                 <p class="c1"><span class="c52">&#8369;</span></p>
             </td>
             <td class="c76" colspan="2" rowspan="1">
-                <p class="c48"><span class="c23 c62">$1,200</span></p>
+                <p class="c48"><span class="c23 c62">{{ $gym->total_price }}</span></p>
             </td>
         </tr>
         <tr class="c44">
@@ -2323,12 +2323,13 @@
                 <p class="c1"><span class="c52">for payment of</span></p>
             </td>
             <td class="c119" colspan="7" rowspan="1">
-                <p class="c48"><span class="c23 c104">$Gym Reservation No. 2023-05-079</span></p>
+                <p class="c48"><span class="c23 c104">Gym Reservation No. {{ $gym->reservation_number }} </span></p>
             </td>
         </tr>
+        
         <tr class="c101">
             <td class="c26" colspan="9" rowspan="1">
-                <p class="c48"><span class="c23 c104">$May 18, 2024 (9-11am)</span></p>
+                <p class="c48"><span class="c23 c104">{{ $reservationsString }}</span></p>
             </td>
         </tr>
         <tr class="c128">
@@ -2656,7 +2657,7 @@
                 <p class="c1 c4"><span class="c3"></span></p>
             </td>
             <td class="c89" colspan="3" rowspan="1">
-                <p class="c48"><span class="c23">$REILLOCA.CABADING</span></p>
+                <p class="c48"><span class="c23">{{ $gym->receiver_name }}</span></p>
             </td>
         </tr>
         <tr class="c14">
