@@ -2097,11 +2097,13 @@ svg text.text-body  {
     align-items: center;
     justify-content: center;
 }
+
 .btn-edit-reservation-details.rounded-pill:hover {
    background: var(--color-orange);
    color: var(--color-primary);
    
 }
+
 .btn-delete-reservation.rounded-pill {
     border: 1px solid var(--color-danger);
     font-size: 0.77em;
@@ -2111,16 +2113,64 @@ svg text.text-body  {
     align-items: center;
     justify-content: center;
 }
+
 .btn-delete-reservation.rounded-pill:hover {
    background: var(--color-danger);
    color: var(--color-primary);
 
 }
+
 .actions-home{
     display: flex;
     white-space: nowrap;
 }
 
+#EditDormReservationCard:hover,
+#EditGymReservationCard:hover {
+    box-shadow: none;
+}
+#EditDormReservationCard,
+#EditGymReservationCard{
+    margin-top: 50px;
+    padding: 20px;
+    background: var(--color-primary);
+    color: var(--color-background);
+    box-shadow: var(--box-shadow);
+}
+
+#EditDormReservationCard input:disabled,
+#EditGymReservationCard input:disabled {
+    background: var(--color-background);
+}
+.btn-go-back {
+    border: 1px solid var(--color-danger) !important;
+    color: var(--color-danger) !important;
+    background: var(--color-primary) !important;
+    font-size: 1rem;
+}
+.btn-go-back:hover {
+    border: 1px solid var(--color-danger) !important;
+    color: var(--color-primary) !important;
+    background: var(--color-danger) !important;
+}
+
+.btn-save-password-changes {
+    border: 1px solid var(--color-orange) !important;
+    color: var(--color-orange) !important;
+    background: var(--color-primary) !important;
+    margin-right: 5px;
+}
+
+.btn-save-password-changes:hover {
+    border: 1px solid var(--color-orange) !important;
+    color: var(--color-primary) !important;
+    background: var(--color-orange) !important;
+}
+
+.swal2-icon-warning.swal2-show{
+    background: var(--color-background) !important;
+    color: var(--color-primary) !important;
+}
 @media (max-width: 1440px) {
 
     .nav-item.profile a .first-name,

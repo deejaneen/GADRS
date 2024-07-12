@@ -87,19 +87,14 @@
                                             {{ $gym->status }}
                                         </td>
                                         <td class="actions-home">
-                                            <form class="delete-form-gym" id="guestGymIdDelete_{{ $gym->id }}"
-                                                method="POST" action="{{ route('gym.delete', $gym->id) }}">
+                                            <form class="delete-form-gym" id="guestGymIdDelete_{{ $gym->id }}" method="POST" action="{{ route('gym.delete', $gym->id) }}">
                                                 @csrf
                                                 @method('delete')
                                                 @if ($gym->status === 'Pending')
-                                                    <a href="{{ route('gym.edit', $gym->id) }}"
-                                                        class="btn btn-edit-reservation-details rounded-pill"
-                                                        id="gymHomeTableEditButton">
+                                                    <a href="{{ route('gym.edit', $gym->id) }}" class="btn btn-edit-reservation-details rounded-pill" id="gymHomeTableEditButton">
                                                         Edit Details
                                                     </a>
-                                                    <button type="button" class="btn btn-delete-reservation rounded-pill"
-                                                        id="gymHomeTableDeleteButton"
-                                                        onclick="confirmDelete(event, {{ $gym->id }})">
+                                                    <button type="button" class="btn btn-delete-reservation rounded-pill" id="gymHomeTableDeleteButton" onclick="confirmDelete(event, {{ $gym->id }})">
                                                         Delete Reservation
                                                     </button>
                                                 @endif
@@ -120,10 +115,10 @@
                                 <tr>
                                     <th scope="col">Form Number</th>
                                     <th scope="col">Reservation Start Date</th>
-                                    <th scope="col">Time Start</th>
                                     <th scope="col">Reservation End Date</th>
+                                    <th scope="col">Time Start</th>
                                     <th scope="col">Time End</th>
-                                    <th scope="col">Price</th>
+                                    <th scope="col">Total Price</th>
                                     <th scope="col">Status</th>
                                     <th scope="col">Actions</th>
                                 </tr>
@@ -133,10 +128,10 @@
                                     <tr class="table-active">
                                         <th>{{ $dorm->Form_number }}</th>
                                         <td>{{ date('F j, Y', strtotime($dorm->reservation_start_date)) }}</td>
-                                        <td>{{ date('g:i A', strtotime($dorm->reservation_start_time)) }}</td>
                                         <td>{{ date('F j, Y', strtotime($dorm->reservation_end_date)) }}</td>
+                                        <td>{{ date('g:i A', strtotime($dorm->reservation_start_time)) }}</td>
                                         <td>{{ date('g:i A', strtotime($dorm->reservation_end_time)) }}</td>
-                                        <td>₱{{ $dorm->price }}</td>
+                                        <td>₱{{ $dorm->total_price }}</td>
                                         <td
                                             class="{{ $dorm->status === 'Pending'
                                                 ? 'status-pending'

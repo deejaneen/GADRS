@@ -844,13 +844,7 @@ div.dt-container .dt-paging .dt-paging-button.disabled {
     background: var(--color-danger) !important;
 }
 
-.btn-go-back,
-.btn-save-edit-changes {
-    border: 1px solid var(--color-orange) !important;
-    color: var(--color-orange) !important;
-    background: var(--color-primary) !important;
-    font-size: 1rem;
-}
+
 .btn-go-back,
 .btn-save-edit-changes {
     border: 1px solid var(--color-orange) !important;

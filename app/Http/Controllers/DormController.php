@@ -61,13 +61,17 @@ class DormController extends Controller
     }
 
     
-    public function updateDormReservation ()
+    public function updateDormReservation (Request $request, $id)
     {
+        $reservation = Dorm::findOrFail($id);
+        $reservation->update($request->all());
 
+        return redirect()->route('home')->with('success', 'Reservation updated successfully!');
     }
-    public function editDormReservation ()
+    public function editDormReservation ($id)
     {
-        
+        $reservation = Dorm::findOrFail($id);
+        return view('editdormreservation', ['reservation' => $reservation]);
     }
     public function destroyDormReservation ($id)
     {

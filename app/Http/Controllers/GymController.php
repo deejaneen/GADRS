@@ -85,13 +85,17 @@ class GymController extends Controller
         return response()->json($reservations);
     }
 
-    public function updateGymReservation ()
+    public function updateGymReservation (Request $request, $id)
     {
+        $reservation = Gym::findOrFail($id);
+        $reservation->update($request->all());
 
+        return redirect()->route('home')->with('success', 'Reservation updated successfully!');
     }
-    public function editGymReservation ()
+    public function editGymReservation ($id)
     {
-        
+        $reservation = Gym::findOrFail($id);
+        return view('editgymreservation', ['reservation' => $reservation]);
     }
         public function destroyGymReservation ($id)
         {
