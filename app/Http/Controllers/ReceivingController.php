@@ -11,6 +11,8 @@ use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use NumberFormatter;
+
 
 class ReceivingController extends Controller
 {
@@ -87,13 +89,13 @@ class ReceivingController extends Controller
 
     public function addFormNumber(Gym $gym)
     {
-        if (!$gym->or_number && !$gym->reservation_number && !$gym->oop_number) {
+        if (!$gym->reservation_number && !$gym->oop_number) {
             // Validate input when conditions are met
             $validated = request()->validate([
                 'reservation_number' => 'required|min:3|max:11|unique:gym-reservations,reservation_number,' . $gym->id,
                 'status' => 'required',
                 'receiver_name' => 'required',
-                'or_number' => 'required|min:3|max:7|unique:gym-reservations,or_number,' . $gym->id,
+                // 'or_number' => 'required|min:3|max:7|unique:gym-reservations,or_number,' . $gym->id,
                 'oop_number' => 'required|min:3|max:11|unique:gym-reservations,oop_number,' . $gym->id,
                 'or_date' => 'required|date',
                 // 'reservation_date' => 'required|date',
@@ -118,18 +120,18 @@ class ReceivingController extends Controller
                 ],
                 'status' => 'required',
                 'receiver_name' => 'required',
-                'or_number' => [
-                    'required',
-                    'min:3',
-                    'max:7',
-                    function ($attribute, $value, $fail) use ($reservationsNotSimilarToOriginal) {
-                        foreach ($reservationsNotSimilarToOriginal as $reservation) {
-                            if ($reservation->or_number === $value) {
-                                $fail('The ' . $attribute . ' has already been taken.');
-                            }
-                        }
-                    },
-                ],
+                // 'or_number' => [
+                //     'required',
+                //     'min:3',
+                //     'max:7',
+                //     function ($attribute, $value, $fail) use ($reservationsNotSimilarToOriginal) {
+                //         foreach ($reservationsNotSimilarToOriginal as $reservation) {
+                //             if ($reservation->or_number === $value) {
+                //                 $fail('The ' . $attribute . ' has already been taken.');
+                //             }
+                //         }
+                //     },
+                // ],
                 'oop_number' => [
                     'required',
                     'min:3',
@@ -160,7 +162,7 @@ class ReceivingController extends Controller
             $pendingGym->update([
                 'reservation_number' => $validated['reservation_number'],
                 'status' => $validated['status'],
-                'or_number' => $validated['or_number'],
+                // 'or_number' => $validated['or_number'],
                 'or_date' => $validated['or_date'],
                 'oop_number' => $validated['oop_number'],
                 'receiver_name' => $validated['receiver_name'],
@@ -290,11 +292,27 @@ class ReceivingController extends Controller
                 ' - ' . date('g:i A', strtotime($reservation->reservation_time_end)) . ')';
         });
 
+        $distinctPurposes = Gym::where('form_group_number', $gym->form_group_number)
+            ->distinct()
+            ->pluck('purpose')
+            ->implode(', ');
+
+        // Sum up all total_price values
+        $totalPriceSum = Gym::where('form_group_number', $gym->form_group_number)
+            ->sum('total_price');
+
+        $numberFormatter = new NumberFormatter("en", NumberFormatter::SPELLOUT);
+        $totalPriceSumToWords = $numberFormatter->format($totalPriceSum);
+
+
         $reservationsString = $formattedReservations->implode(', ');
 
         $data = [
             'gym' => $gym,
-            'reservationsString' => $reservationsString
+            'reservationsString' => $reservationsString,
+            'distinctPurposes' => $distinctPurposes,
+            'totalPriceSum' => $totalPriceSum,
+            'totalPriceSumToWords' => $totalPriceSumToWords,
         ];
         $marginInMillimeters = 0.5 * 25.4; // Convert inches to millimeters
 
@@ -306,9 +324,11 @@ class ReceivingController extends Controller
             'margin_left' => $marginInMillimeters,
             'margin_right' => $marginInMillimeters,
         ];
+        // Generate the filename based on the dorm's Form_number and updated_at timestamp
+        $filename = $gym->oop_number . '_' . $gym->updated_at->format('Y-m-d') . '_orderofpayment.pdf';
 
         $pdf = PDF::loadView('pdf.OrderofPaymentGym', $data)->setOptions($options);
 
-        return $pdf->stream();
+        return $pdf->stream($filename);
     }
 }

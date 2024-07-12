@@ -25,7 +25,7 @@ return new class extends Migration
             $table->string('company_name')->nullable();
             $table->string('contact_number')->nullable();
             $table->string('purpose')->nullable();
-            $table->string('or_number')->nullable();
+            // $table->string('or_number')->nullable();
             $table->integer('number_of_courts')->nullable();
             $table->date('or_date')->nullable();
             $table->string('status')->default('Pending')->nullable();
@@ -33,6 +33,7 @@ return new class extends Migration
             $table->decimal('total_price', 10, 2)->nullable();
             $table->string('form_group_number')->nullable();
             $table->string('receiver_name')->nullable();
+            $table->string('cashier_name')->nullable();
             $table->string('oop_number')->nullable();
             $table->timestamps();
 

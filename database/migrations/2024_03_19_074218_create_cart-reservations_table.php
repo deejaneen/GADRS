@@ -26,7 +26,7 @@ return new class extends Migration
             $table->string('contact_number')->nullable();
             $table->string('purpose')->nullable();
             $table->integer('number_of_courts')->nullable();
-            $table->string('or_number')->nullable();
+            // $table->string('or_number')->nullable();
             $table->date('or_date')->nullable();
             $table->string('status')->default('OnCart')->nullable();
             $table->decimal('price', 10, 2)->nullable()->default(600.00);

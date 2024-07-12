@@ -142,6 +142,7 @@
                     const nameRepresentative = document.getElementById('nameRepresentative').value;
                     const contactNumber = document.getElementById('contactNumber').value;
 
+                    const phoneNumberPattern = /^09\d{9}$/;
 
                     // Check if any field is empty
                     if (!companyName || !address || !nameRepresentative || !contactNumber) {
@@ -154,6 +155,22 @@
                         document.getElementById('contactNumber').placeholder = (!contactNumber) ?
                             "Please fill in Contact Number" : "";
                         return; // Prevent form submission
+                    }else{
+                        // Validate email
+                        const validateAndSetPlaceholder = (elementId, pattern, placeholderText) => {
+                                const element = document.getElementById(elementId);
+                                const value = element.value.trim();
+                                if (!pattern.test(value)) {
+                                    element.value = "";
+                                    element.placeholder = placeholderText;
+                                    return false; // Validation failed
+                                }
+                                return true; // Validation passed
+                            };
+
+                            if (!validateAndSetPlaceholder('contactNumber', phoneNumberPattern, 'Please enter a valid Philippine phone number (e.g., 09123456789)')) {
+                                return; // Prevent form submission
+                            }
                     }
 
                     // Set values of hidden input fields in the form

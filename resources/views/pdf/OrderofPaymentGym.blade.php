@@ -2289,7 +2289,7 @@
                 <p class="c1"><span class="c52">In the amount of</span></p>
             </td>
             <td class="c115" colspan="7" rowspan="1">
-                <p class="c48"><span class="c52">$ONETHOUSANDTWOHUNDREDPESOS</span></p>
+                <p class="c48"><span class="c52">{{ strtoupper($totalPriceSumToWords) }}</span></p>
             </td>
         </tr>
         <tr class="c79">
@@ -2315,7 +2315,7 @@
                 <p class="c1"><span class="c52">&#8369;</span></p>
             </td>
             <td class="c76" colspan="2" rowspan="1">
-                <p class="c48"><span class="c23 c62">{{ $gym->total_price }}</span></p>
+                <p class="c48"><span class="c23 c62">{{$totalPriceSum }}</span></p>
             </td>
         </tr>
         <tr class="c44">
@@ -2334,7 +2334,7 @@
         </tr>
         <tr class="c128">
             <td class="c41" colspan="9" rowspan="1">
-                <p class="c1 c4"><span class="c3"></span></p>
+                <p class="c1 c4"><span class="c3">{{ $distinctPurposes }}</span></p>
             </td>
         </tr>
         <tr class="c14">

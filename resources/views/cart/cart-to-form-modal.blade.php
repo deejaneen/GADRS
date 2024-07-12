@@ -30,7 +30,7 @@
                         </div>
                         <div class="col">
                             <label for="contactNumber" class="form-label">Contact Number</label>
-                            <input type="text" class="form-control" id="contactNumber" name="contactNumber" required>
+                            <input type="text" class="form-control" id="contactNumber" name="contactNumber" placeholder="(e.g., 09123456789)" required>
                         </div>
                         {{-- <div class="col">
                             <label for="purpose" class="form-label">Purpose</label>

@@ -78,7 +78,11 @@
                         $gym->status === 'Paid' || $gym->status === 'Reserved' ? 'status-paid' : (
                         $gym->status === 'Cancelled' || $gym->status === 'Unavailable' ? 'status-cancelled' : '')))
                     }}">
+                        @if ($gym->status === 'Received')
+                        For Payment
+                        @else
                         {{ $gym->status }}
+                        @endif
                     </td>
                     <td>
                         <a href="{{ route('cashier.editCashierGym', $gym->id) }}" class="btn btn-confirm-payment rounded-pill" id="gymReservationTableConfirmbtn">
@@ -86,8 +90,13 @@
                         </a>
 
                         <a href="{{ route('cashier.viewPDFGym', $gym->id) }}" target="_blank" class="btn btn-generate-pdf rounded-pill" id="receivingViewFormbtn">
-                            Generate PDF
+                            Generate PDF(GRF)
                         </a>
+
+                        <a href="{{ route('cashier.viewPDFOoP', $gym->id) }}" target="_blank" class="btn btn-generate-pdf rounded-pill" id="receivingViewFormbtn">
+                            Generate PDF(OoP)
+                        </a>
+
                         <!-- <button class="btn btn-primary btn-lg rounded-pill" id="gymReservationTableConfirmbtn"> Confirm Payment</button> -->
                     </td>
                 </tr>
@@ -138,14 +147,14 @@
                         {{ $dorm->status }}
                         @endif
                     </td>
-                       
+
                     </td>
                     <td>
                         <a href="{{ route('cashier.editCashierDorm', $dorm->id) }}" class="btn btn-confirm-payment rounded-pill" id="dormReservationTableConfirmbtn">
                             Confirm Payment
                         </a>
                         <a href="{{ route('cashier.viewPDFDorm', $dorm->id) }}" target="_blank" class="btn btn-generate-pdf rounded-pill" id="receivingViewFormbtn">
-                            Generate PDF
+                            Generate PDF(DRF)
                         </a>
                         <!-- <button class="btn btn-primary btn-lg rounded-pill" id="dormReservationTableConfirmbtn"> Confirm Payment</button> -->
                     </td>
@@ -185,7 +194,8 @@
 </div>
 @endsection
 <?php
-function formatTime($time) {
+function formatTime($time)
+{
     return \Carbon\Carbon::createFromFormat('H:i:s', $time)->format('g:i a');
 }
 ?>

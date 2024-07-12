@@ -43,11 +43,11 @@
                     <a href="{{ route('supply.editDorm', $dorm->id) }}" class="btn btn-assign-number rounded-pill" id="receivingAssignNumberbtn">
                         Assign Number
                     </a>
-                    <a href="{{ route('supply.viewDorm', $dorm->id) }}" class="btn btn-view-details rounded-pill" id="receivingViewFormbtn" >
+                    <a href="{{ route('supply.viewDorm', $dorm->id) }}" class="btn btn-view-details rounded-pill" id="receivingViewFormbtn">
                         View Details
                     </a>
-                    <a href="{{ route('supply.viewPDF', $dorm->id) }}" target="_blank" class="btn btn-generate-pdf rounded-pill" id="receivingViewFormbtn" >
-                       Generate PDF
+                    <a href="{{ route('supply.viewPDF', $dorm->id) }}" target="_blank" class="btn btn-generate-pdf rounded-pill" id="receivingViewFormbtn">
+                        Generate PDF(DRF)
                     </a>
                 </td>
             </tr>
@@ -58,7 +58,8 @@
 </div>
 @endsection
 <?php
-function formatTime($time) {
+function formatTime($time)
+{
     return \Carbon\Carbon::createFromFormat('H:i:s', $time)->format('g:i a');
 }
 ?>

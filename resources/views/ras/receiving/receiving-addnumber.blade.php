@@ -59,17 +59,13 @@
         </div>
 
         <div class="row mb-3">
-            <div class="col-4">
+            <!-- <div class="col-4">
                 <label for="or_number" class="form-label">OR Number</label>
                 <input type="text" class="form-control" id="or_number" value="{{ $gym->or_number }}" maxlength="7" name="or_number" required>
                 @error('or_number')
                 <span class="text-danger fs-6">{{ $message }}</span>
                 @enderror
-            </div>
-            <div class="col-4">
-                <input type="hidden" class="form-control" id="or_date" value="{{ \Carbon\Carbon::now()->toDateString() }}" name="or_date" required>
-            </div>
-
+            </div> -->
         </div>
 
         <hr>
@@ -85,6 +81,9 @@
                 <span class="text-danger fs-6">{{ $message }}</span>
                 @enderror
                 <span class="text-danger fs-6" id="oop_number_error"></span>
+            </div>
+            <div class="col-4">
+                <input type="hidden" class="form-control" id="or_date" value="{{ \Carbon\Carbon::now()->toDateString() }}" name="or_date" required>
             </div>
         </div>
         <hr>

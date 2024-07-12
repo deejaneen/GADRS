@@ -11,6 +11,11 @@ use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use \NumberFormatter;
+
+
+
+
 
 class CashierController extends Controller
 {
@@ -48,31 +53,78 @@ class CashierController extends Controller
         $validated = request()->validate([
             // 'price' => 'required|min:3|max:12',
             'status' => 'required',
+            'cashier_name' => 'required',
         ]);
 
-        // Update the gym reservation with the validated data
-        $gym->update($validated);
+        // Get all Gym reservations with the same form_group_number
+        $gymReservations = Gym::where('form_group_number', $gym->form_group_number)->get();
 
-        // Check if status is "Reserved"
-        if ($gym->status === 'Reserved') {
-            // Find overlapping reservations
-            $overlappingReservations = Gym::where('reservation_date', $gym->reservation_date)
-                ->where('reservation_time_start', '<', $gym->reservation_time_end)
-                ->where('reservation_time_end', '>', $gym->reservation_time_start)
-                ->where('id', '!=', $gym->id) // Ensure we don't update the current reservation
-                ->get();
+        if (count($gymReservations) > 1) {
+            // Get all Gym reservations with the same form_group_number
+            $gymReservations = Gym::where('form_group_number', $gym->form_group_number)->get();
 
-            // Update the status of overlapping reservations to "Cancelled"
-            foreach ($overlappingReservations as $reservation) {
-                $reservation->update(['status' => 'Cancelled']);
+            // Update each reservation
+            foreach ($gymReservations as $gymReservation) {
+                $gymReservation->update([
+                    'status' => $validated['status'],
+                    'cashier_name' => $validated['cashier_name'],
+                ]);
             }
+            
+            $gym->update($validated);
+            // Check if status is "Reserved"
+            if ($gym->status === 'Reserved') {
+                // Update each 
+                foreach ($gymReservations as $gymReservation) {
+                    // Find overlapping reservations
+                    $overlappingReservations = Gym::where('reservation_date', $gymReservation->reservation_date)
+                        ->where('status', '=', 'Received')
+                        ->where('reservation_time_start', '<', $gymReservation->reservation_time_end)
+                        ->where('reservation_time_end', '>', $gymReservation->reservation_time_start)
+                        ->where('id', '!=', $gymReservation->id) // Ensure we don't update the current reservation
+                        ->get();
 
-            // Redirect with success message
-            return redirect()->route('cashierpaid')->with('success', 'Payment confirmed successfully!');
+                    // Update the status of overlapping reservations to "Cancelled"
+                    foreach ($overlappingReservations as $reservation) {
+                        $reservation->update(['status' => 'Cancelled']);
+                    }
+                }
+                // Redirect with success message
+                return redirect()->route('cashierpaid')->with('success', 'Payment confirmed successfully!');
+            } else {
+                // Redirect back with appropriate success message
+                return redirect()->route('cashierforpayment')->with('success', 'Payment updated successfully, status is not Paid.');
+            }
         } else {
-            // Redirect back with appropriate success message
-            return redirect()->route('cashierforpayment')->with('success', 'Payment updated successfully, status is not Paid.');
+            // Handle case where there is only one or zero reservations (if needed)
+            $gym->update($validated);
+
+            // Check if status is "Reserved"
+            if ($gym->status === 'Reserved') {
+                // Find overlapping reservations
+                $overlappingReservations = Gym::where('reservation_date', $gym->reservation_date)
+                    ->where('status', '=', 'Received')
+                    ->where('reservation_time_start', '<', $gym->reservation_time_end)
+                    ->where('reservation_time_end', '>', $gym->reservation_time_start)
+                    ->where('id', '!=', $gym->id) // Ensure we don't update the current reservation
+                    ->get();
+
+                // Update the status of overlapping reservations to "Cancelled"
+                foreach ($overlappingReservations as $reservation) {
+                    $reservation->update(['status' => 'Cancelled']);
+                }
+                // Redirect with success message
+                return redirect()->route('cashierpaid')->with('success', 'Payment confirmed successfully!');
+            } else {
+                // Redirect back with appropriate success message
+                return redirect()->route('cashierforpayment')->with('success', 'Payment updated successfully, status is not Paid.');
+            }
         }
+
+        // Update the gym reservation with the validated data
+
+
+
     }
 
 
@@ -277,5 +329,60 @@ class CashierController extends Controller
 
 
         return redirect()->route('cashierprofile')->with('success', 'Password updated successfully.');
+    }
+
+    public function viewGymOrderofPaymentPDF(Gym $gym)
+    {
+        // Get all Gym reservations with the same form_group_number
+        $gymReservations = Gym::where('form_group_number', $gym->form_group_number)->get();
+
+
+        $formattedReservations = $gymReservations->map(function ($reservation) {
+            return date('F j, Y', strtotime($reservation->reservation_date)) .
+                ' (' . date('g:i A', strtotime($reservation->reservation_time_start)) .
+                ' - ' . date('g:i A', strtotime($reservation->reservation_time_end)) . ')';
+        });
+
+        $distinctPurposes = Gym::where('form_group_number', $gym->form_group_number)
+            ->distinct()
+            ->pluck('purpose')
+            ->implode(', ');
+
+        // Sum up all total_price values
+        $totalPriceSum = Gym::where('form_group_number', $gym->form_group_number)
+            ->sum('total_price');
+
+        $numberFormatter = new NumberFormatter("en", NumberFormatter::SPELLOUT);
+        $totalPriceSumToWords = $numberFormatter->format($totalPriceSum);
+
+
+        $reservationsString = $formattedReservations->implode(', ');
+
+        $data = [
+            'gym' => $gym,
+            'reservationsString' => $reservationsString,
+            'distinctPurposes' => $distinctPurposes,
+            'totalPriceSum' => $totalPriceSum,
+            'totalPriceSumToWords' => $totalPriceSumToWords,
+        ];
+        $marginInMillimeters = 0.5 * 25.4; // Convert inches to millimeters
+
+        // Pass options for paper size and margins
+        $options = [
+            'format' => [8.5, 13], // Set the paper size in inches
+            'margin_top' => $marginInMillimeters,
+            'margin_bottom' => $marginInMillimeters,
+            'margin_left' => $marginInMillimeters,
+            'margin_right' => $marginInMillimeters,
+        ];
+
+        // Generate the filename based on the dorm's Form_number and updated_at timestamp
+        // $filename = $gym->oop_number . '_' . $gym->updated_at->format('Y-m-d') . '_orderofpayment.pdf';
+
+        // $pdf = PDF::loadView('pdf.OrderofPaymentGym', $data)->setOptions($options);
+
+        return view('pdf.OrderofPaymentGym', $data);
+
+        // return $pdf->stream($filename);
     }
 }
