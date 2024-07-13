@@ -69,7 +69,7 @@
                     @enderror
                 </div>
                 <div class="inputBox email">
-                    <input type="email" value="{{ $user->email }}" name="email">
+                    <input type="email" value="{{ $user->email }}" name="email" disabled>
                     <span>Email</span>
                     @error('email')
                     <span class="text-danger fs-6">{{ $message }}</span>

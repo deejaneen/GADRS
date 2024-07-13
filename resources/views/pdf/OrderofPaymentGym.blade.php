@@ -2657,7 +2657,7 @@
                 <p class="c1 c4"><span class="c3"></span></p>
             </td>
             <td class="c89" colspan="3" rowspan="1">
-                <p class="c48"><span class="c23">{{ $gym->receiver_name }}</span></p>
+                <p class="c48"><span class="c23">{{ strtoupper($gym->receiver_name) }}</span></p>
             </td>
         </tr>
         <tr class="c14">
