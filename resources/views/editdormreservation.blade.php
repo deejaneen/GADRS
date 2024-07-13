@@ -4,7 +4,7 @@
 <div class="container">
     <div class="card" id="EditDormReservationCard">
         <h2>Edit Dorm Reservation</h2>
-        <form action="{{ route('dorm.update', $reservation->id) }}" method="POST">
+        <form id="editDormReservationForm" action="{{ route('dorm.update', $reservation->id) }}" method="POST">
             @csrf
             <div class="row mb-3">
                 <div class="form-group col-6">
@@ -31,7 +31,6 @@
                 </div>
             </div>
             <div class="row mb-3">
-               
                 <div class="form-group col-6">
                     <label for="total_price">Total Price</label>
                     <input type="text" class="form-control" id="total_price" name="total_price"
@@ -45,7 +44,7 @@
             </div>
           
             <button type="submit" class="btn btn-save-password-changes">Update Reservation</button>
-            <button class="btn btn-go-back" id="back-button">Back</button>
+            <button type="button" class="btn btn-go-back" id="back-button">Back</button>
         </form>
     </div>
 </div>
@@ -53,9 +52,23 @@
 
 @section('scripts')
     <script>
-        document.getElementById('back-button').addEventListener('click', function(event) {
-            event.preventDefault(); 
+        let isFormChanged = false;
+        const form = document.getElementById('editDormReservationForm');
+        const originalFormData = new FormData(form);
 
+        form.addEventListener('input', () => {
+            const currentFormData = new FormData(form);
+            isFormChanged = false;
+
+            for (const [key, value] of originalFormData.entries()) {
+                if (value !== currentFormData.get(key)) {
+                    isFormChanged = true;
+                    break;
+                }
+            }
+        });
+
+        function showConfirmationDialog(callback) {
             Swal.fire({
                 title: 'Are you sure?',
                 text: "Go back without saving?",
@@ -67,10 +80,42 @@
                 cancelButtonText: 'No, stay here'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    window.history.back(); 
+                    callback();
+                }
+            });
+        }
+
+        function handleBeforeUnload(event) {
+            if (isFormChanged) {
+                event.preventDefault();
+                event.returnValue = ''; // Prevent default confirmation dialog
+                showConfirmationDialog(() => {
+                    isFormChanged = false; // Reset form change tracker
+                    window.removeEventListener('beforeunload', handleBeforeUnload);
+                    window.history.back(); // Use history.back() to navigate
+                });
+            }
+        }
+
+        window.addEventListener('beforeunload', handleBeforeUnload);
+
+        document.getElementById('back-button').addEventListener('click', function() {
+            showConfirmationDialog(() => {
+                window.removeEventListener('beforeunload', handleBeforeUnload);
+                window.history.back();
+            });
+        });
+
+        document.querySelectorAll('a').forEach(anchor => {
+            anchor.addEventListener('click', function(event) {
+                if (isFormChanged) {
+                    event.preventDefault();
+                    showConfirmationDialog(() => {
+                        window.removeEventListener('beforeunload', handleBeforeUnload);
+                        window.location.href = anchor.href;
+                    });
                 }
             });
         });
     </script>
 @endsection
-

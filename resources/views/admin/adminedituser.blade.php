@@ -1,62 +1,7 @@
 @extends('layout.adminlayout')
 
 @section('admindashboard')
-<!-- <aside>
-    <div class="top">
-        <div class="logo">
-            <img src="{{ asset('images/COA CAR logo.png') }}" alt="">
-            <h2 class="primary-light">COA <span class="danger">CAR</span></h2>
-        </div>
-        <div class="close" id="close-btn">
-            <span class="ri-close-fill"></span>
-        </div>
 
-        <div class="sidebar">
-            <a href="{{ route('adminhome') }}">
-                <span class="ri-dashboard-line ">
-                    <h3>Dashboard</h3>
-                </span>
-            </a>
-            <a href="{{ route('adminusers') }}" class="active">
-                <span class="ri-team-line">
-                    <h3>Users</h3>
-                </span>
-            </a>
-            <a href="{{ route('adminreservations') }}">
-                <span class="ri-receipt-line">
-                    <h3>Reservations</h3>
-                    <span class="message-count">26</span>
-                </span>
-            </a>
-            <a href="{{ route('admingym') }}">
-                <span class="ri-basketball-fill">
-                    <h3>Gym</h3>
-                </span>
-            </a>
-            <a href="{{ route('admindorm') }}">
-                <span class="ri-home-3-line">
-                    <h3>Dorm</h3>
-                </span>
-
-            </a>
-            <a href="{{ route('adminprofile') }}">
-                <span class="ri-user-line">
-                    <h3>Change Password</h3>
-                </span>
-            </a>
-            <form action="{{ route('logout') }}" method="POST" id="logout-form-navbar">
-                @csrf
-
-                <button class="no-underline logout btn btn-danger btn-md" type="submit" id="logout-button">
-                    <span class="ri-logout-box-r-line">
-                        <h3>LOGOUT</h3>
-                    </span>
-                </button>
-            </form>
-        </div>
-    </div>
-</aside> -->
-{{-- -------------------------------END-OF-ASIDE-------------------- --}}
 <main>
     <h1 class="page-title">USER EDIT</h1>
 
@@ -66,13 +11,7 @@
             @method('put')
             <div class="modal-body">
                 <div class="row mb-3">
-                    {{-- <label for="firstNameEdit" class="form-label">Profile Picture will be here</label> --}}
-                    {{-- <input id="imageUpload" name="profile_image" type="file" class="form-control"
-                style="display: none;">
-            <div class="img-circle text-center" onclick="document.getElementById('imageUpload').click()">
-                <img id="previewImage" src="{{ $user->getImageURL() }}" alt="">
-                    <span class="ri-camera-line"></span>
-                </div> --}}
+                   
             </div>
             <div class="row mb-3">
                 <div class="col">
