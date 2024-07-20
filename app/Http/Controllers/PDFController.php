@@ -47,4 +47,5 @@ class PDFController extends Controller
 
         return $pdf->download('gym-reservation.pdf');
     }
+   
 }

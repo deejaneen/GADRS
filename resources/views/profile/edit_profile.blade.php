@@ -68,7 +68,7 @@
                     <span class="text-danger fs-6">{{ $message }}</span>
                     @enderror
                 </div>
-                <div class="inputBox email">
+                <div class="inputBox email disabled">
                     <input type="email" value="{{ $user->email }}" name="email" disabled>
                     <span>Email</span>
                     @error('email')

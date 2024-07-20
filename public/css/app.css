@@ -2171,6 +2171,10 @@ svg text.text-body  {
     background: var(--color-background) !important;
     color: var(--color-primary) !important;
 }
+
+.inputBox.email.disabled input{
+    background: var(--color-dark-variant);
+}
 @media (max-width: 1440px) {
 
     .nav-item.profile a .first-name,

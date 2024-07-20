@@ -1777,7 +1777,7 @@
         .c10 {
             background-color: #ffffff;
             max-width: 468pt;
-            padding: 63pt 72pt 72pt 72pt
+            padding: 12pt;
         }
 
         .c60 {
