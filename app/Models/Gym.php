@@ -25,9 +25,12 @@ class Gym extends Model
         'office_address',
         'reservation_number',
         'status',
-        'or_number',
+        // 'or_number',
         'or_date',
         'number_of_courts',
         'total_price',
+        'receiver_name',
+        'oop_number',
+        'cashier_name',
     ];
 }

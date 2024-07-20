@@ -69,8 +69,8 @@
     </div>
     <div class="row mb-3">
         <div class="col">
-            <label for="or_number" class="form-label">OR Number</label>
-            <input type="text" class="form-control" id="or_number" value="{{ $gym->or_number }}" name="or_number" disabled>
+            <label for="oop_number" class="form-label">OR Number</label>
+            <input type="text" class="form-control" id="oop_number" value="{{ $gym->oop_number }}" name="oop_number" disabled>
         </div>
         <div class="col">
             <label for="or_date" class="form-label">OR Date</label>
@@ -79,6 +79,12 @@
         <div class="col">
             <label for="reservation_number" class="form-label">Reservation Number</label>
             <input type="text" class="form-control" id="reservation_number" value="{{ $gym->reservation_number }}" name="reservation_number" disabled>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-3">
+            <label for="receiver_name" class="form-label">Receiving Personnel</label>
+            <input type="text" class="form-control" id="receiver_name" value="{{ $gym->receiver_name }}" name="receiver_name" disabled>
         </div>
     </div>
 

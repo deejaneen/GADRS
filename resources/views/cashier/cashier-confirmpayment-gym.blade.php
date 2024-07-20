@@ -53,8 +53,8 @@
             <input type="text" class="form-control" id="reservation_number" value="{{ $gym->reservation_number }}" name="reservation_number" disabled>
         </div>
         <div class="col">
-            <label for="or_number" class="form-label">OR Number</label>
-            <input type="text" class="form-control" id="or_number" value="{{ $gym->or_number }}" name="or_number" disabled>
+            <label for="oop_number" class="form-label">OR Number</label>
+            <input type="text" class="form-control" id="oop_number" value="{{ $gym->oop_number }}" name="oop_number" disabled>
         </div>
         <div class="col">
             <label for="or_date" class="form-label">OR Date</label>
@@ -83,6 +83,22 @@
                 @error('status')
                 <span class="text-danger fs-6">{{ $message }}</span>
                 @enderror
+            </div>
+            <div class="col-4">
+                @if(!$gym->cashier_name)
+                <label for="cashier_name" class="form-label">Cashier Name</label>
+                <input type="text" class="form-control" id="cashier_name" value="{{ $userDetails->first_name . ' ' . $userDetails->middle_name . ' ' . $userDetails->last_name }}" name="cashier_name" required>
+                @error('cashier_name')
+                <span class="text-danger fs-6">{{ $message }}</span>
+                @enderror
+                @else
+                <label for="cashier_name" class="form-label">Cashier Name</label>
+                <input type="text" class="form-control" id="cashier_name" value="{{ $gym->cashier_name }}" name="cashier_name" required>
+                @error('cashier_name')
+                <span class="text-danger fs-6">{{ $message }}</span>
+                @enderror
+                @endif
+
             </div>
 
         </div>

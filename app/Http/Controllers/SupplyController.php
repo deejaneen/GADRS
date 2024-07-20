@@ -35,12 +35,12 @@ class SupplyController extends Controller
 
     public function addFormNumber(Dorm $dorm)
     {
-
         if (!$dorm->Form_number) {
             // Validate input
             $validated = request()->validate([
                 'Form_number' => 'required|min:3|max:7|unique:dorm_reservations,Form_number,' . $dorm->id,
                 'status' => 'required',
+                'receiver_name' => 'required',
             ]);
         } else {
             $reservationsNotSimilarToOriginal = Dorm::where('Form_number', '!=', $dorm->Form_number)
@@ -60,6 +60,7 @@ class SupplyController extends Controller
                     },
                 ],
                 'status' => 'required',
+                'receiver_name' => 'required',
             ]);
         }
 

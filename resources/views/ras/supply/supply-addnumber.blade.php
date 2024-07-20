@@ -63,6 +63,25 @@
             </div>
 
         </div>
+        <hr>
+        <div class="row mb-3">
+            <div class="col-4">
+                @if(!$dorm->receiver_name)
+                <label for="receiver_name" class="form-label">Receiving Personnel</label>
+                <input type="text" class="form-control" id="receiver_name" value="{{ $userDetails->first_name . ' ' . $userDetails->middle_name . ' ' . $userDetails->last_name }}" name="receiver_name" required>
+                @error('receiver_name')
+                <span class="text-danger fs-6">{{ $message }}</span>
+                @enderror
+                @else
+                <label for="receiver_name" class="form-label">Receiving Personnel</label>
+                <input type="text" class="form-control" id="receiver_name" value="{{ $dorm->receiver_name }}" name="receiver_name" required>
+                @error('receiver_name')
+                <span class="text-danger fs-6">{{ $message }}</span>
+                @enderror
+                @endif
+
+            </div>
+        </div>
         <div>
             <button type="button" class="btn btn-confirm-payment-gym" id="formSubmitBtn">Add Form Number</button>
             <button class="btn btn-go-back" onclick="goBack()">Back</button>

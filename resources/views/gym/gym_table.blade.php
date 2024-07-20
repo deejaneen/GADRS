@@ -258,4 +258,3 @@
 </section>
 
 @include('gym.gym_reservation_modal')
-@include('cart_sidebar')

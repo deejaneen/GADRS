@@ -671,7 +671,7 @@
                 <p class="c1"><span class="c3">RESERVATION NUMBER</span></p>
             </td>
             <td class="c21" colspan="1" rowspan="1">
-                <p class="c1"><span class="c15 c47">{{ date('Y') }} - </span><span class="c15 c35">{{ $gym->reservation_number }}</span></p>
+                <p class="c1"><span class="c15 c47">{{ $gym->reservation_number }}</span></p>
 
             </td>
             <td class="c17" colspan="1" rowspan="1">
@@ -723,9 +723,9 @@
             <td class="c27" colspan="1" rowspan="3">
                 <p class="c1"><span class="c3">&nbsp; &nbsp; </span></p>
                 <p class="c1"><span class="c3">&nbsp; &nbsp; &nbsp; &nbsp; </span></p>
-                <p class="c1"><span class="c3">&nbsp; &nbsp; &nbsp; &nbsp;WITH LIGHTS</span><span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 13.00px; height: 13.07px;"><img alt="" src="images/image1.png" style="width: 13.00px; height: 13.07px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title=""></span></p>
+                <p class="c1"> <span class="c3">&nbsp; &nbsp; &nbsp;WITH LIGHTS&nbsp;</span> <span class="custom-checkbox"></span></p>
                 <p class="c1"><span class="c3">&nbsp; </span></p>
-                <p class="c1"><span class="c3">&nbsp; &nbsp; &nbsp; &nbsp;WITHOUT LIGHTS</span><span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 13.00px; height: 13.07px;"><img alt="" src="images/image1.png" style="width: 13.00px; height: 13.07px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title=""></span></p>
+                <p class="c1"> <span class="c3">&nbsp; &nbsp; &nbsp;WITHOUT LIGHTS&nbsp;</span> <span class="custom-checkbox"></span></p>
                 <p class="c1 c11"><span class="c3"></span></p>
                 <p class="c1 c11"><span class="c3"></span></p>
             </td>
@@ -816,7 +816,7 @@
     </table>
 
     <p class="c1 c11"><span class="c3"></span></p>
-    <p class="c1"><span class="c15">O.R. NO.: _____</span><span class="c26 c15">{{ $gym->or_number }}</span><span class="c15">______ &nbsp; &nbsp;O.R. DATE: ___</span><span class="c15 c26">{{ $gym->or_date }}</span><span class="c3">________</span></p>
+    <p class="c1"><span class="c15">O.R. NO.: _____</span><span class="c26 c15">{{ $gym->oop_number }}</span><span class="c15">______ &nbsp; &nbsp;O.R. DATE: ___</span><span class="c15 c26">{{ $gym->or_date }}</span><span class="c3">________</span></p>
     <p class="c1 c11 c28"><span class="c3"></span></p>
     <p class="c1 c11"><span class="c3"></span></p>
     <p class="c1"><span class="c3">I have read and agreed to the terms and conditions: </span></p>
@@ -835,7 +835,7 @@
     <p class="c1 c11"><span class="c3"></span></p>
     <p class="c1 c11"><span class="c3"></span></p>
     <p class="c1 c11"><span class="c3"></span></p>
-    <p class="c1"><span class="c3">JOJIE G. GAWON</span></p>
+    <p class="c1"><span class="c3">{{ strtoupper($gym->cashier_name) }}</span></p>
     <p class="c1"><span class="c3">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Cashier</span></p>
     <p class="c16 c11 c25"><span class="c37"></span></p>
 </body>

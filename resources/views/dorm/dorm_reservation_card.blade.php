@@ -34,6 +34,7 @@
                                 </div>
                             </div>
                             <!-- Check In, Check Out -->
+                            <hr>
                             <div class="row">
                                 <div class="col-md-6 time" style="text-align: center;">
                                     <h5>Check In</h5>
@@ -94,7 +95,7 @@
                                         onchange="updateCheckboxValue(this)" name="is_senior_or_pwd"> --}}
                                 </div>
                                 <div class="col-md-6">
-                                    <h5>Is the person staying at the reservation a child below 5 years old?</h5>
+                                    <h5>Will you be bringing a child under the age of five?</h5>
                                     <input type="checkbox" id="myCheckboxChildrenMale" name="is_child">
                                     {{-- <input type="checkbox" id="myCheckboxChildrenMale"
                                         onchange="updateCheckboxValue(this)" name="is_child"> --}}

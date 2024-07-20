@@ -119,6 +119,9 @@ class CartController extends Controller
                 }
 
                 $dormReservation->save();
+                
+                 //Delete the item from the user's cart.
+                 $dormCart->delete();
             }
 
             return redirect()->route('home')->with('success', 'Dorm Reservation added successfully!');
@@ -133,12 +136,6 @@ class CartController extends Controller
         try {
             $cartIds = json_decode($request->input('cart_ids_gym'));
 
-            // if (empty($cartIds)) {
-            //     return redirect()->back()->withErrors(['error' => 'No Items Selected']);
-            // }
-
-            // dd(count($cartIds));
-            // Check if the number of items exceeds five
             if (count($cartIds) > 8) {
                 return redirect()->back()->withErrors(['error' => 'The maximum items to be put into a form is limited to eight only.']);
             }
@@ -174,6 +171,9 @@ class CartController extends Controller
                     $gymReservation->status = 'Pending';
 
                     $gymReservation->save();
+
+                    //Delete the item from the user's cart.
+                    $gymCart->delete();
                 }
             }
 

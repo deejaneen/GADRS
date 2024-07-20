@@ -30,7 +30,7 @@
                         </div>
                         <div class="col">
                             <label for="contactNumber" class="form-label">Contact Number</label>
-                            <input type="text" class="form-control" id="contactNumber" name="contactNumber" required>
+                            <input type="text" class="form-control" id="contactNumber" name="contactNumber" placeholder="(e.g., 09123456789)" required>
                         </div>
                         {{-- <div class="col">
                             <label for="purpose" class="form-label">Purpose</label>
@@ -117,11 +117,11 @@
                         <div class="col">
                             <label for="contact_number_dorm" class="form-label">Contact Number</label>
                             <input type="text" class="form-control" id="contact_number_dorm"
-                                name="contact_number_dorm" required>
+                                name="contact_number_dorm" placeholder="(e.g., 09123456789)" required>
                         </div>
                         <div class="col">
                             <label for="email" class="form-label">Email Address</label>
-                            <input type="email" class="form-control" id="email" name="email" required>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="(e.g., example@email.com)" required>
                         </div>
                         <div class="col">
                             <label for="ei_number" class="form-label">Employee ID Number</label>
@@ -177,7 +177,7 @@
 
                         <div class="col">
                             <label for="ptn_contact" class="form-label">Contact Number</label>
-                            <input type="text" class="form-control" id="ptn_contact" name="ptn_contact" required>
+                            <input type="text" class="form-control" id="ptn_contact" name="ptn_contact" placeholder="(e.g., 09123456789)" required>
                         </div>
 
                         <div class="col">

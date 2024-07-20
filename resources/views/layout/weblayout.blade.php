@@ -109,6 +109,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     
+    @yield('scripts-profile')
     @yield('scripts')
     <script>
         const loaderContainer = document.querySelector('.loader-container')
@@ -146,9 +147,12 @@
                 }],
 
             });
+            
 
         });
+        
     </script>
+    
 
     <script>
         $(document).ready(function() {

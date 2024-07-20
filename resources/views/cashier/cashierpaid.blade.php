@@ -85,7 +85,10 @@
                     </td>
                     <td>
                         <a href="{{ route('cashier.viewPDFGym', $gym->id) }}" target="_blank" class="btn btn-generate-pdf rounded-pill" id="receivingViewFormbtn">
-                            View PDF
+                            Generate PDF(GRF)
+                        </a>
+                        <a href="{{ route('cashier.viewPDFOoP', $gym->id) }}" target="_blank" class="btn btn-generate-pdf rounded-pill" id="receivingViewFormbtn">
+                            Generate PDF(OoP)
                         </a>
                     </td>
                 </tr>
@@ -137,7 +140,7 @@
                         @endif
                     </td>
                     <td> <a href="{{ route('cashier.viewPDFDorm', $dorm->id) }}" target="_blank" class="btn btn-generate-pdf rounded-pill" id="receivingViewFormbtn">
-                            View PDF
+                            Generate PDF(DRF)
                         </a></td>
                 </tr>
                 @endforeach
@@ -175,7 +178,8 @@
 </div>
 @endsection
 <?php
-function formatTime($time) {
+function formatTime($time)
+{
     return \Carbon\Carbon::createFromFormat('H:i:s', $time)->format('g:i a');
 }
 ?>

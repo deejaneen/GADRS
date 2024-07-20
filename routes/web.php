@@ -126,6 +126,7 @@ Route::middleware(['auth', 'verified', 'checkRole:Cashier', 'preventCaching'])->
     Route::put('/cashier/dorm/confirm/{dorm}', [CashierController::class, 'confirmPaymentDorm'])->name('cashier.confirmPayDorm');
     Route::get('/cashier/dorm/{dorm}', [CashierController::class, 'editCashierDorm'])->name('cashier.editCashierDorm');
     Route::get('/cashier/gym/{gym}/pdf', [CashierController::class, 'viewGymPDFCashier'])->name('cashier.viewPDFGym');
+    Route::get('/cashier/gym/{gym}/oodpdf', [CashierController::class, 'viewGymOrderofPaymentPDF'])->name('cashier.viewPDFOoP');
     Route::get('/cashier/dorm/{dorm}/pdf', [CashierController::class, 'viewDormPDFCashier'])->name('cashier.viewPDFDorm');
     Route::get('/cashier/profile', [CashierController::class, 'profile'])->name('cashierprofile');
     Route::post('/cashier/profile/password', [CashierController::class, 'updatePassword'])->name('update_password_cashier');
@@ -139,6 +140,7 @@ Route::middleware(['auth', 'verified', 'checkRole:Receiving', 'preventCaching'])
     Route::get('/receiving/gym', [ReceivingController::class, 'receivingedit'])->name('receivingeditreservations');
     Route::get('/receiving/gym/{gym}', [ReceivingController::class, 'editGym'])->name('receiving.editGym');
     Route::get('/receiving/gym/{gym}/pdf', [ReceivingController::class, 'viewGymPDF'])->name('receiving.viewPDF');
+    Route::get('/receiving/gym/{gym}/oodpdf', [ReceivingController::class, 'viewGymOrderofPaymentPDF'])->name('receiving.viewPDFOoP');
     Route::put('/receiving/gym/addFormNumber/{gym}', [ReceivingController::class, 'addFormNumber'])->name('addFormNumberRec');
     Route::get('/receiving/gym/view/{gym}', [ReceivingController::class, 'viewGym'])->name('receiving.viewGym');
     Route::get('/receiving/profile', [ReceivingController::class, 'profile'])->name('receivingprofile');

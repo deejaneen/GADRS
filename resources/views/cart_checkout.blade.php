@@ -1,17 +1,10 @@
 @extends('layout.weblayout')
 
-{{-- @section('secondary_nav')
-    <nav class="navbar sticky-top bg-body-tertiary secondary_nav">
-        <div class="container-fluid">
-            <a class="navbar-brand" onclick="goBack()">
-                <i class="fa-solid fa-backward"> Back</i>
-            </a>
-        </div>
-    </nav>
-@endsection --}}
-
 @section('content')
-<div class="container py-4" >
+@include('cart.cart-to-form-modal')
+@include('cart.terms-and-condition-gym')
+@include('cart.terms-and-condition-dorm')
+<div class="container py-4">
     <!-- Toggle buttons -->
     <button class="btn btn-primary btn-lg rounded-pill toogle-btn" id="gymReservationsCartToggleBtn"> <span class="fa-solid fa-repeat"></span> Dorm Reservations
         Cart</button>
@@ -203,9 +196,7 @@
 </div>
 @endsection
 
-@include('cart.cart-to-form-modal')
-@include('cart.terms-and-condition-gym')
-@include('cart.terms-and-condition-dorm')
+
 @section('bottom_nav')
 <nav class="navbar fixed-bottom">
     <div class="container-fluid">

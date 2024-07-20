@@ -28,7 +28,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <p>Tues–Thurs: 6:00 AM–10:59 AM, 6:00 PM–9:00 PM</p>
+                        <p>Tues–Thurs: 6:00 AM–11:00 AM, 6:00 PM–9:00 PM</p>
                         <p>Mon, Sat, Sun: 6:00 AM–9:00 PM</p>
                     </div>
 

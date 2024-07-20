@@ -25,13 +25,16 @@ return new class extends Migration
             $table->string('company_name')->nullable();
             $table->string('contact_number')->nullable();
             $table->string('purpose')->nullable();
-            $table->string('or_number')->nullable();
+            // $table->string('or_number')->nullable();
             $table->integer('number_of_courts')->nullable();
             $table->date('or_date')->nullable();
             $table->string('status')->default('Pending')->nullable();
             $table->decimal('price', 10, 2)->nullable()->default(600.00);
             $table->decimal('total_price', 10, 2)->nullable();
             $table->string('form_group_number')->nullable();
+            $table->string('receiver_name')->nullable();
+            $table->string('cashier_name')->nullable();
+            $table->string('oop_number')->nullable();
             $table->timestamps();
 
             $table->foreign('form_number_id')->references('id')->on('form_numbers')->onDelete('set null');

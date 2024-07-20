@@ -1,6 +1,30 @@
 @extends('layout.weblayout')
 
+@section('scripts')
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const gymToggleBtn = document.getElementById('gymTableHistoryToggleBtn');
+        const dormToggleBtn = document.getElementById('dormTableHistoryToggleBtn');
+        const gymCard = document.getElementById('GymReservationsHistoryTableCard');
+        const dormCard = document.getElementById('DormReservationsHistoryTableCard');
 
+        gymToggleBtn.addEventListener('click', function() {
+            gymCard.style.display = 'block';
+            dormCard.style.display = 'none';
+            gymToggleBtn.style.display = 'none';
+            dormToggleBtn.style.display = 'block';
+        });
+
+        dormToggleBtn.addEventListener('click', function() {
+            dormCard.style.display = 'block';
+            gymCard.style.display = 'none';
+            dormToggleBtn.style.display = 'none';
+            gymToggleBtn.style.display = 'block';
+
+        });
+    });
+</script>
+@endsection
 @section('profileview')
 <div class="container py-4">
     <div class="profileview-container">
@@ -88,29 +112,4 @@
     </div>
 </div>
 
-@endsection
-@section('scripts')
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const gymToggleBtn = document.getElementById('gymTableHistoryToggleBtn');
-        const dormToggleBtn = document.getElementById('dormTableHistoryToggleBtn');
-        const gymCard = document.getElementById('GymReservationsHistoryTableCard');
-        const dormCard = document.getElementById('DormReservationsHistoryTableCard');
-
-        gymToggleBtn.addEventListener('click', function() {
-            gymCard.style.display = 'block';
-            dormCard.style.display = 'none';
-            gymToggleBtn.style.display = 'none';
-            dormToggleBtn.style.display = 'block';
-        });
-
-        dormToggleBtn.addEventListener('click', function() {
-            dormCard.style.display = 'block';
-            gymCard.style.display = 'none';
-            dormToggleBtn.style.display = 'none';
-            gymToggleBtn.style.display = 'block';
-
-        });
-    });
-</script>
 @endsection

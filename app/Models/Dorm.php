@@ -48,6 +48,8 @@ class Dorm extends Model
         'or_number',
         'or_date',
         'amount_paid',
+        'receiver_name',
+        'cashier_name',
     ];
 
     // protected static function boot()

@@ -45,7 +45,7 @@
                         View Details
                     </a>
                     <a href="{{ route('supply.viewPDF', $dorm->id) }}" target="_blank" class="btn btn-generate-pdf rounded-pill" id="receivingViewFormbtn">
-                       Generate PDF
+                        Generate PDF(DRF)
                     </a>
                 </td>
             </tr>
@@ -56,7 +56,8 @@
 </div>
 @endsection
 <?php
-function formatTime($time) {
+function formatTime($time)
+{
     return \Carbon\Carbon::createFromFormat('H:i:s', $time)->format('g:i a');
 }
 ?>

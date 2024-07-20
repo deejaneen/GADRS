@@ -6,7 +6,7 @@
     align-items: center;
     justify-content: center;" >
             <div class="reset-password-container">
-                <h3>We willl send a link to your email, use that link to reset password.</h3>
+                <h3>We will send a link to your email, use that link to reset password.</h3>
                 <form action="{{ route('forget.password.post') }}" method="POST">
                     @csrf
                     <div class="mb-3">

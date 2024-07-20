@@ -48,7 +48,10 @@
                         View Details
                     </a>
                     <a href="{{ route('receiving.viewPDF', $gym->id) }}" target="_blank" class="btn btn-generate-pdf rounded-pill" id="receivingViewFormbtn">
-                        Generate PDF
+                        Generate PDF(GRF)
+                    </a>
+                    <a href="{{ route('receiving.viewPDFOoP', $gym->id) }}" target="_blank" class="btn btn-generate-pdf rounded-pill" id="receivingViewFormbtn">
+                        Generate PDF(OoP)
                     </a>
                 </td>
             </tr>
@@ -58,7 +61,8 @@
 </div>
 @endsection
 <?php
-function formatTime($time) {
+function formatTime($time)
+{
     return \Carbon\Carbon::createFromFormat('H:i:s', $time)->format('g:i a');
 }
 ?>

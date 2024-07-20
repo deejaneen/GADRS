@@ -83,6 +83,12 @@
         </div>
     </div>
     <div class="row mb-3">
+        <div class="col-3">
+            <label for="receiver_name" class="form-label">Receiving Personnel</label>
+            <input type="text" class="form-control" id="receiver_name" value="{{ $dorm->receiver_name }}" name="receiver_name" disabled>
+        </div>
+    </div>
+    <div class="row mb-3">
         <div class="col">
             <button class="btn btn-go-back" onclick="goBack()">Back</button>
         </div>
