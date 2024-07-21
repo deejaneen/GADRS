@@ -18,7 +18,7 @@
             <img class="pillow2" src="{{ asset('images/pillow2.png') }}" alt="">
         </div>
 
-        <div class="banner-dorm-text">
+        <div class="banner-dorm-text" id="contentcontainer">
             <h1 class="banner-name ">DORM RESERVATION</h1>
             <a href="#reservation-section" class="btn btn-info btn-lg btn-block mt-2" data-mdb-ripple-init>Book Now</a>
         </div>

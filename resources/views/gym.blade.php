@@ -11,7 +11,7 @@
             <img class="basketball" src="{{ asset('images/Basketball.png') }}" alt="">
         </div>
 
-        <div class="banner-gym-text">
+        <div class="banner-gym-text" id="contentcontainer">
             <h1 class="banner-name">GYM RESERVATION</h1>
             <a href="#reservation-section" class="btn btn-info btn-lg btn-block mt-2" data-mdb-ripple-init>Book Now</a>
         </div>

@@ -1,7 +1,7 @@
 @extends('layout.weblayout')
 
 @section('profileview')
-    <div class="container py-4">
+    <div class="container py-4" id="contentcontainer">
             <div class="profileview-container">
                 @include('profile.leftcolumn_sidebar')
                 <div class="right-column profile" @readonly(true)>

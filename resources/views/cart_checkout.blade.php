@@ -4,7 +4,7 @@
 @include('cart.cart-to-form-modal')
 @include('cart.terms-and-condition-gym')
 @include('cart.terms-and-condition-dorm')
-<div class="container py-4">
+<div class="container py-4" id="contentcontainer">
     <!-- Toggle buttons -->
     <button class="btn btn-primary btn-lg rounded-pill toogle-btn" id="gymReservationsCartToggleBtn"> <span class="fa-solid fa-repeat"></span> Dorm Reservations
         Cart</button>
