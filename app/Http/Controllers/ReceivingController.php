@@ -196,10 +196,13 @@ class ReceivingController extends Controller
         $userDetails = User::select('first_name', 'middle_name', 'last_name')
             ->where('id', $gym->employee_id)
             ->first();
+        $receivingUser = User::select('first_name', 'middle_name', 'last_name')
+        ->where('id', Auth::id())
+        ->first();
         $reservationNumber = Str::afterLast($gym->reservation_number, '-');
         $oopNumber = Str::afterLast($gym->oop_number, '-');
         // You can return the modal content as a view
-        return view('ras.receiving.receiving-addnumber', compact('gym', 'userDetails', 'oopNumber', 'reservationNumber'));
+        return view('ras.receiving.receiving-addnumber', compact('gym', 'userDetails', 'oopNumber', 'reservationNumber', 'receivingUser'));
     }
 
     public function viewGym(Gym $gym)

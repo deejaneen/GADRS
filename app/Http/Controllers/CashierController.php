@@ -70,7 +70,7 @@ class CashierController extends Controller
                     'cashier_name' => $validated['cashier_name'],
                 ]);
             }
-            
+
             $gym->update($validated);
             // Check if status is "Reserved"
             if ($gym->status === 'Reserved') {
@@ -134,8 +134,11 @@ class CashierController extends Controller
         $userDetails = User::select('first_name', 'middle_name', 'last_name')
             ->where('id', $gym->employee_id)
             ->first();
+        $receivingUser = User::select('first_name', 'middle_name', 'last_name')
+            ->where('id', Auth::id())
+            ->first();
         // You can return the modal content as a view
-        return view('cashier.cashier-confirmpayment-gym', compact('gym', 'userDetails'));
+        return view('cashier.cashier-confirmpayment-gym', compact('gym', 'userDetails', 'receivingUser'));
     }
 
     public function editCashierDorm(Dorm $dorm)
