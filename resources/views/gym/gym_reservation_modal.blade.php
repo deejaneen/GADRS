@@ -49,7 +49,7 @@
                                 <option value="Badminton">Badminton</option>
                             </select>
                         </div>
-                        <div class="row mb-3">
+                        <div class="row mb-3" style="margin-left: 2px;">
                             <div class="col"></div>
                             <div class="col" id="number_of_courts_wrapper" style="display: none;">
                                 <label for="number_of_courts" class="form-label">Number of courts</label>

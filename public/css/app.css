@@ -1260,10 +1260,11 @@ b {
 
 /* Apply styles to valid or focused input and disabled input */
 .right-column .inputBox input:valid~span,
+.right-column .inputBox input:invalid~span,
 .right-column .inputBox input:focus~span,
 .right-column .inputBox input:disabled~span {
     color: var(--color-primary);
-    transform: translateX(10px) translateY(-7px);
+    transform: translateX(10px) translateY(-7px) !important;
     font-size: 0.65em;
     padding: 0 10px;
     background: var(--color-background);
@@ -1274,7 +1275,6 @@ b {
 
 .right-column .inputBox input:valid,
 .right-column .inputBox input:focus {
-
     border: 1px solid var(--color-primary);
 }
 

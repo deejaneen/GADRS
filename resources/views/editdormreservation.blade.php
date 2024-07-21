@@ -99,6 +99,10 @@
 
         window.addEventListener('beforeunload', handleBeforeUnload);
 
+        form.addEventListener('submit', function() {
+            window.removeEventListener('beforeunload', handleBeforeUnload);
+        });
+
         document.getElementById('back-button').addEventListener('click', function() {
             showConfirmationDialog(() => {
                 window.removeEventListener('beforeunload', handleBeforeUnload);
