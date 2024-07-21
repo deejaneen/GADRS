@@ -2121,7 +2121,6 @@ svg text.text-body  {
 }
 
 .actions-home{
-    display: flex;
     white-space: nowrap;
 }
 
@@ -2174,6 +2173,37 @@ svg text.text-body  {
 
 .inputBox.email.disabled input{
     background: var(--color-dark-variant);
+}
+.dropdown-container {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+.reservor-type {
+    position: relative;
+    width: 100%;
+}
+
+.form-select {
+    width: 100%;
+    padding-right: 30px; 
+}
+
+.dropdown-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-70%);
+    pointer-events: none; 
+}
+.dropdown-icon.dorm {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-30%);
+    transform: translateX(-250%);
+    color: var(--color-primary);
+    pointer-events: none; 
 }
 @media (max-width: 1440px) {
 

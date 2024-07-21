@@ -36,19 +36,26 @@
                     <div class="row mb-3">
                         <div class="col">
                             <label for="employeeType" class="form-label">Employee Type</label>
-                            <select class="form-select" id="employeeType" name="employee_type" required>
-                                <option value="COA Employee">COA Employee</option>
-                                <option value="Non-COA">Non-COA</option>
-                            </select>
+                            <div class="dropdown-container">
+                                <select class="form-select" id="employeeType" name="employee_type" required>
+                                    <option value="COA Employee">COA Employee</option>
+                                    <option value="Non-COA">Non-COA</option>
+                                </select>
+                                <i class="fas fa-chevron-down dropdown-icon"></i>
+                            </div>
                         </div>
                         <div class="col">
                             <label for="purpose" class="form-label">Purpose</label>
-                            <select class="form-select" id="purpose" name="purpose" required onchange="toggleNumberOfCourts()">
-                                <option value="Basketball">Basketball</option>
-                                <option value="Volleyball">Volleyball</option>
-                                <option value="Badminton">Badminton</option>
-                            </select>
+                            <div class="dropdown-container">
+                                <select class="form-select" id="purpose" name="purpose" required onchange="toggleNumberOfCourts()">
+                                    <option value="Basketball">Basketball</option>
+                                    <option value="Volleyball">Volleyball</option>
+                                    <option value="Badminton">Badminton</option>
+                                </select>
+                                <i class="fas fa-chevron-down dropdown-icon"></i>
+                            </div>
                         </div>
+                        
                         <div class="row mb-3" style="margin-left: 2px;">
                             <div class="col"></div>
                             <div class="col" id="number_of_courts_wrapper" style="display: none;">
