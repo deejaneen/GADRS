@@ -67,6 +67,7 @@
     @endif
     <div class="main-container">
         @include('admin.admin-sidebar')
+        <!-- @include('admin.admin_reservation_modals') -->
         @yield('admindashboard')
 
     </div>

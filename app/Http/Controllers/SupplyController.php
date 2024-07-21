@@ -84,8 +84,11 @@ class SupplyController extends Controller
         $userDetails = User::select('first_name', 'middle_name', 'last_name')
             ->where('id', $dorm->employee_id)
             ->first();
+        $receivingUser = User::select('first_name', 'middle_name', 'last_name')
+            ->where('id', Auth::id())
+            ->first();
         // You can return the modal content as a view
-        return view('ras.supply.supply-addnumber', compact('dorm', 'userDetails'));
+        return view('ras.supply.supply-addnumber', compact('dorm', 'userDetails', 'receivingUser'));
     }
 
     public function viewDorm(Dorm $dorm)

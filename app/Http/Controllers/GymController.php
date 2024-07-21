@@ -85,23 +85,48 @@ class GymController extends Controller
         return response()->json($reservations);
     }
 
-    public function updateGymReservation (Request $request, $id)
+    public function updateGymReservation(Request $request, $id)
     {
         $reservation = Gym::findOrFail($id);
+
+        // Extract input values from the request
+        $newReservationDate = $request->input('reservation_date');
+        $newStartTime = $request->input('reservation_time_start');
+        $newEndTime = $request->input('reservation_time_end');
+
+        // Query to check for overlaps
+        $overlappingReservations = Gym::where('id', '!=', $id) // Exclude the current reservation being updated
+            ->whereDate('reservation_date', $newReservationDate)
+            ->where(function ($query) use ($newStartTime, $newEndTime) {
+                $query->whereBetween('reservation_time_start', [$newStartTime, $newEndTime])
+                    ->orWhereBetween('reservation_time_end', [$newStartTime, $newEndTime])
+                    ->orWhere(function ($query) use ($newStartTime, $newEndTime) {
+                        $query->where('reservation_time_start', '<=', $newStartTime)
+                            ->where('reservation_time_end', '>=', $newEndTime);
+                    });
+            })
+            ->exists();
+
+        if ($overlappingReservations) {
+            return redirect()->back()->with('error', 'The reservation overlaps with an existing reservation.');
+        }
+
+        // Update the reservation if there are no overlaps
         $reservation->update($request->all());
 
         return redirect()->route('home')->with('success', 'Reservation updated successfully!');
     }
-    public function editGymReservation ($id)
+
+    public function editGymReservation($id)
     {
         $reservation = Gym::findOrFail($id);
         return view('editgymreservation', ['reservation' => $reservation]);
     }
-        public function destroyGymReservation ($id)
-        {
-            $gym = Gym::where('id', $id)->first();
-            $gym->delete();
+    public function destroyGymReservation($id)
+    {
+        $gym = Gym::where('id', $id)->first();
+        $gym->delete();
 
-            return redirect()->back()->with('success', 'Entry deleted successfully!');
-        }
+        return redirect()->back()->with('success', 'Entry deleted successfully!');
+    }
 }
