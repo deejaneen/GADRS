@@ -87,7 +87,7 @@
             <div class="col-4">
                 @if(!$gym->cashier_name)
                 <label for="cashier_name" class="form-label">Cashier Name</label>
-                <input type="text" class="form-control" id="cashier_name" value="{{ $userDetails->first_name . ' ' . $userDetails->middle_name . ' ' . $userDetails->last_name }}" name="cashier_name" required>
+                <input type="text" class="form-control" id="cashier_name" value="{{ $receivingUser->first_name . ' ' . $receivingUser->middle_name . ' ' . $receivingUser->last_name }}" name="cashier_name" required>
                 @error('cashier_name')
                 <span class="text-danger fs-6">{{ $message }}</span>
                 @enderror

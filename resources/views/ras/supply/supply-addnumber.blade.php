@@ -68,7 +68,7 @@
             <div class="col-4">
                 @if(!$dorm->receiver_name)
                 <label for="receiver_name" class="form-label">Receiving Personnel</label>
-                <input type="text" class="form-control" id="receiver_name" value="{{ $userDetails->first_name . ' ' . $userDetails->middle_name . ' ' . $userDetails->last_name }}" name="receiver_name" required>
+                <input type="text" class="form-control" id="receiver_name" value="{{ $receivingUser->first_name . ' ' . $receivingUser->middle_name . ' ' . $receivingUser->last_name }}" name="receiver_name" required>
                 @error('receiver_name')
                 <span class="text-danger fs-6">{{ $message }}</span>
                 @enderror
