@@ -8,14 +8,9 @@
     <title>{{ config('app.name') }}</title>
 
     <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.3.2/flatly/bootstrap.rtl.min.css" rel="stylesheet"
-        crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"
-        integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.3.2/flatly/bootstrap.rtl.min.css" rel="stylesheet" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@700&display=swap" rel="stylesheet">
@@ -23,9 +18,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/2.0.3/css/dataTables.dataTables.min.css">
@@ -38,37 +31,37 @@
     {{-- Navbar --}}
     @include('layout.websitenav')
     @include('pagepreloader')
-    
+
     @yield('secondary_nav')
     @if (session('success'))
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                Swal.fire({
-                    // position: "bottom-end",
-                    icon: "success",
-                    title: "{{ session('success') }}",
-                    showConfirmButton: false,
-                    timer: 1500,
-                    customClass: {
-                        popup: 'small-modal'
-                    }
-                });
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            Swal.fire({
+                // position: "bottom-end",
+                icon: "success",
+                title: "{{ session('success') }}",
+                showConfirmButton: false,
+                timer: 1500,
+                customClass: {
+                    popup: 'small-modal'
+                }
             });
-        </script>
+        });
+    </script>
     @endif
     @if (session('error'))
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: '{{ session('error') }}',
-                    customClass: {
-                        popup: 'small-modal'
-                    }
-                });
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: '{{ session('error') }}',
+                customClass: {
+                    popup: 'small-modal'
+                }
             });
-        </script>
+        });
+    </script>
     @endif
     @yield('banner')
     @yield('verify-email')
@@ -89,11 +82,8 @@
     </footer>
 
     {{-- Scripts --}}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"
-        integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
     </script>
     <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
@@ -108,7 +98,7 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    
+
     @yield('scripts-profile')
     @yield('scripts')
     <script>
@@ -147,20 +137,34 @@
                 }],
 
             });
-            
+
 
         });
-        
     </script>
-    
+
 
     <script>
         $(document).ready(function() {
             // Toggle button click event for Male Dorm
+            // Get the current card from the flash message
+            var currentCard = '{{ session('current_card') }}'; // Use Blade syntax to output the value
+
+            // Show/hide cards based on the current card
+            if (currentCard === 'maleCard') {
+                $('#maleCard').show();
+                $('#femaleCard').hide();
+            } else if (currentCard === 'femaleCard') {
+                $('#femaleCard').show();
+                $('#maleCard').hide();
+            } else {
+                // Default behavior if no current card is set
+                $('#maleCard').show();
+                $('#femaleCard').hide();
+            }
+
+            // Toggle button click event for Male Dorm
             $('#maleFemaleToggleBtn').click(function(e) {
                 e.preventDefault();
-
-                // Toggle between Male and Female cards for Male Dorm
                 $('#maleCard').toggle();
                 $('#femaleCard').toggle();
             });
@@ -168,8 +172,6 @@
             // Toggle button click event for Female Dorm
             $('#femaleMaleToggleBtn').click(function(e) {
                 e.preventDefault();
-
-                // Toggle between Male and Female cards for Female Dorm
                 $('#femaleCard').toggle();
                 $('#maleCard').toggle();
             });

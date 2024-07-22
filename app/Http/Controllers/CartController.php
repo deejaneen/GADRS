@@ -81,7 +81,7 @@ class CartController extends Controller
                         ->first();
 
                     if ($bed && $bed->availability < $dormCart->quantity) {
-                        Session::flash('error', 'Insufficient availability on ' . $date->format('Y-m-d'));
+                        Session::flash('error', 'Insufficient bed availability on ' . $date->format('Y-m-d'));
                         return redirect()->back();
                     }
                 }

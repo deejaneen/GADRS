@@ -94,21 +94,89 @@ class GymController extends Controller
         $newStartTime = $request->input('reservation_time_start');
         $newEndTime = $request->input('reservation_time_end');
 
-        // Query to check for overlaps
-        $overlappingReservations = Gym::where('id', '!=', $id) // Exclude the current reservation being updated
-            ->whereDate('reservation_date', $newReservationDate)
-            ->where(function ($query) use ($newStartTime, $newEndTime) {
-                $query->whereBetween('reservation_time_start', [$newStartTime, $newEndTime])
-                    ->orWhereBetween('reservation_time_end', [$newStartTime, $newEndTime])
-                    ->orWhere(function ($query) use ($newStartTime, $newEndTime) {
-                        $query->where('reservation_time_start', '<=', $newStartTime)
-                            ->where('reservation_time_end', '>=', $newEndTime);
+        // Check if the selected day and time fall within the allowed ranges
+        $dayOfWeek = date('N', strtotime($newReservationDate));
+        $startTime = strtotime($newStartTime);
+        $endTime = strtotime($newEndTime);
+
+        // Define allowed time ranges based on the day of the week
+        $allowedRanges = [
+            1 => [ // Monday
+                ['06:00', '11:00'],
+                ['18:00', '21:00'],
+            ],
+            2 => [ // Tuesday
+                ['06:00', '11:00'],
+                ['18:00', '21:00'],
+            ],
+            3 => [ // Wednesday
+                ['06:00', '11:00'],
+                ['18:00', '21:00'],
+            ],
+            4 => [ // Thursday
+                ['06:00', '11:00'],
+                ['18:00', '21:00'],
+            ],
+            5 => [ // Friday
+                ['06:00', '11:00'],
+                ['18:00', '21:00'],
+            ],
+            6 => [ // Saturday
+                ['06:00', '21:00'],
+            ],
+            7 => [ // Sunday
+                ['06:00', '21:00'],
+            ],
+        ];
+
+        // Check if the selected time falls within any of the allowed ranges
+        $isValidRange = false;
+        foreach ($allowedRanges[$dayOfWeek] as $range) {
+            $rangeStart = strtotime($range[0]);
+            $rangeEnd = strtotime($range[1]);
+            if ($startTime >= $rangeStart && $endTime <= $rangeEnd) {
+                $isValidRange = true;
+                break;
+            }
+        }
+
+        if (!$isValidRange) {
+            return redirect()->route('home')->with('error', 'The selected time slot is not allowed for the selected day.');
+        }
+
+         
+        // Check for overlapping reservations
+        $overlappingReservation = Gym::where('status', 'Reserved')
+            ->where('reservation_date',  $newReservationDate)
+            ->where(function ($query) use ($request) {
+                $query->where(function ($q) use ($request) {
+                    $q->whereBetween('reservation_time_start', [$request->input('reservation_time_start'),  $request->input('reservation_time_end')])
+                        ->orWhereBetween('reservation_time_end', [$request->input('reservation_time_start'),  $request->input('reservation_time_end')]);
+                })
+                    ->orWhere(function ($q) use ($request) {
+                        $q->where('reservation_time_start', '<=', $request->input('reservation_time_start'))
+                            ->where('reservation_time_end', '>=', $request->input('reservation_time_end'));
                     });
             })
             ->exists();
 
-        if ($overlappingReservations) {
-            return redirect()->back()->with('error', 'The reservation overlaps with an existing reservation.');
+    
+        if ($overlappingReservation) {
+            // Check if the start time is exactly the end time of an existing reservation
+            // Check if the start time is exactly the end time of an existing reservation
+            $overlappingEndTimeReservation = Gym::where('status', 'Reserved')
+                ->where('reservation_date',  $newReservationDate)
+                ->where('reservation_time_end', $newStartTime)
+                ->first();
+
+            if ($overlappingEndTimeReservation) {
+                $endTime = date('g:i A', strtotime($overlappingEndTimeReservation->reservation_time_end));
+                $message = 'The selected start time overlaps with the end time of an existing reservation ending at ' . $endTime . '. Please choose/adjust another start time.';
+                return redirect()->route('home')->with('error', $message);
+            }
+
+
+            return redirect()->route('home')->with('error', 'The selected time slot overlaps with an existing reservation. Please choose another time slot.');
         }
 
         // Update the reservation if there are no overlaps
