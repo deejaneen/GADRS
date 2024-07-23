@@ -2497,10 +2497,10 @@
                 <p class="c13"><span class="c1">{{ $dorm->purpose_of_stay }}</span></p>
             </td>
             <td class="c91" colspan="4" rowspan="1">
-                <p class="c13"><span class="c1">$IFSEMINARSPECIFY</span></p>
+                <p class="c13"><span class="c1"></span></p>
             </td>
             <td class="c105" colspan="2" rowspan="1">
-                <p class="c20 c134"><span class="c1">$TRAVELOROFFICEORDERNO</span></p>
+                <p class="c20 c134"><span class="c1"></span></p>
             </td>
         </tr>
         <tr class="c304">
@@ -2672,7 +2672,7 @@
                 <p class="c20"><span class="c1">AMOUNT TO BE PAID:</span></p>
             </td>
             <td class="c76" colspan="2" rowspan="1">
-                <p class="c20 c115"><span class="c1">{{ number_format($dorm->price * $numberOfDays, 2, '.', '') }}</span></p>
+                <p class="c20 c115"><span class="c1">{{ number_format($dorm->price * $numberOfDays * $dorm->quantity, 2, '.', '') }}</span></p>
             </td>
         </tr>
         <tr class="c50">
