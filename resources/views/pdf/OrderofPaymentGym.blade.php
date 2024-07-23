@@ -2289,7 +2289,7 @@
                 <p class="c1"><span class="c52">In the amount of</span></p>
             </td>
             <td class="c115" colspan="7" rowspan="1">
-                <p class="c48"><span class="c52">{{ strtoupper($totalPriceSumToWords) }}</span></p>
+                <p class="c48"><span class="c52">{{ strtoupper($totalPriceSumToWords) }} PESOS ONLY</span></p>
             </td>
         </tr>
         <tr class="c79">
@@ -2302,8 +2302,12 @@
             <td class="c69" colspan="1" rowspan="1">
                 <p class="c1 c4"><span class="c3"></span></p>
             </td>
+           
             <td class="c80" colspan="1" rowspan="1">
                 <p class="c1 c4"><span class="c3"></span></p>
+            </td>
+            <td class="c76" colspan="2" rowspan="1">
+                <p class="c48"><span class="c23 c62">{{$totalPriceSum }} Php</span></p>
             </td>
             <td class="c68" colspan="1" rowspan="1">
                 <p class="c1 c4"><span class="c3"></span></p>
@@ -2312,11 +2316,9 @@
                 <p class="c1 c4"><span class="c3"></span></p>
             </td>
             <td class="c58" colspan="1" rowspan="1">
-                <p class="c1"><span class="c52">&#8369;</span></p>
+                <p class="c1"><span class="c52"></span></p>
             </td>
-            <td class="c76" colspan="2" rowspan="1">
-                <p class="c48"><span class="c23 c62">{{$totalPriceSum }}</span></p>
-            </td>
+          
         </tr>
         <tr class="c44">
             <td class="c127" colspan="2" rowspan="1">
@@ -2333,8 +2335,8 @@
             </td>
         </tr>
         <tr class="c128">
-            <td class="c41" colspan="9" rowspan="1">
-                <p class="c1 c4"><span class="c3">{{ $distinctPurposes }}</span></p>
+            <td class="c115" colspan="9" rowspan="1">
+                <p class="c48"><span class="c52">{{ $distinctPurposes }}</span></p>
             </td>
         </tr>
         <tr class="c14">
@@ -2524,7 +2526,7 @@
                 <p class="c1 c4"><span class="c3"></span></p>
             </td>
             <td class="c121" colspan="3" rowspan="1">
-                <p class="c1"><span class="c23">&#8369; $1,200</span></p>
+                <p class="c1"><span class="c23">Php {{$totalPriceSum }}</span></p>
             </td>
         </tr>
         <tr class="c14">
@@ -2547,7 +2549,7 @@
                 <p class="c1 c4"><span class="c3"></span></p>
             </td>
             <td class="c39" colspan="3" rowspan="1">
-                <p class="c1"><span class="c52">&#8369;</span></p>
+                <p class="c1"><span class="c52"></span></p>
             </td>
         </tr>
         <tr class="c14">
@@ -2680,7 +2682,7 @@
                 <p class="c1 c4"><span class="c3"></span></p>
             </td>
             <td class="c89" colspan="3" rowspan="1">
-                <p class="c48"><span class="c23">$Staff - ATFD</span></p>
+                <p class="c48"><span class="c23">Staff - ATFD</span></p>
             </td>
         </tr>
     </table>
