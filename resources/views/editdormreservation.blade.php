@@ -37,6 +37,12 @@
                 </div>
             </div>
 
+            <div class="row mb-3">
+            <div class="form-group col">
+                    <input type="hidden" class="form-control" id="gender" name="gender" value="{{ $reservation->gender }}">
+                </div>
+            </div>
+
             <button type="submit" class="btn btn-save-password-changes">Update Reservation</button>
             <button type="button" class="btn btn-go-back" id="back-button">Back</button>
         </form>
@@ -100,7 +106,8 @@
     document.getElementById('back-button').addEventListener('click', function() {
         showConfirmationDialog(() => {
             window.removeEventListener('beforeunload', handleBeforeUnload);
-            window.history.back();
+            // window.history.back();
+            window.location.href = '{{ route("home") }}';
         });
     });
 
@@ -134,7 +141,7 @@
             }
 
             // Ensure end date is not before the start date
-            if (endDate < startDate) {
+            if (endDate <= startDate) {
                 endDateInput.value = '';
             }
         }

@@ -2137,6 +2137,8 @@ svg text.text-body  {
     box-shadow: var(--box-shadow);
 }
 
+#EditDormReservationCard input:read-only,
+#EditGymReservationCard input:read-only,
 #EditDormReservationCard input:disabled,
 #EditGymReservationCard input:disabled {
     background: var(--color-background);
