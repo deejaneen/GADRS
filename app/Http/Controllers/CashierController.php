@@ -60,9 +60,6 @@ class CashierController extends Controller
         $gymReservations = Gym::where('form_group_number', $gym->form_group_number)->get();
 
         if (count($gymReservations) > 1) {
-            // Get all Gym reservations with the same form_group_number
-            $gymReservations = Gym::where('form_group_number', $gym->form_group_number)->get();
-
             // Update each reservation
             foreach ($gymReservations as $gymReservation) {
                 $gymReservation->update([
@@ -72,13 +69,14 @@ class CashierController extends Controller
             }
 
             $gym->update($validated);
+
             // Check if status is "Reserved"
             if ($gym->status === 'Reserved') {
-                // Update each 
+                // Update each reservation to check for overlapping reservations
                 foreach ($gymReservations as $gymReservation) {
                     // Find overlapping reservations
                     $overlappingReservations = Gym::where('reservation_date', $gymReservation->reservation_date)
-                        ->where('status', '=', 'Received')
+                        ->whereIn('status', ['Received', 'Pending'])
                         ->where('reservation_time_start', '<', $gymReservation->reservation_time_end)
                         ->where('reservation_time_end', '>', $gymReservation->reservation_time_start)
                         ->where('id', '!=', $gymReservation->id) // Ensure we don't update the current reservation
@@ -103,7 +101,7 @@ class CashierController extends Controller
             if ($gym->status === 'Reserved') {
                 // Find overlapping reservations
                 $overlappingReservations = Gym::where('reservation_date', $gym->reservation_date)
-                    ->where('status', '=', 'Received')
+                    ->whereIn('status', ['Received', 'Pending'])
                     ->where('reservation_time_start', '<', $gym->reservation_time_end)
                     ->where('reservation_time_end', '>', $gym->reservation_time_start)
                     ->where('id', '!=', $gym->id) // Ensure we don't update the current reservation
@@ -120,11 +118,6 @@ class CashierController extends Controller
                 return redirect()->route('cashierforpayment')->with('success', 'Payment updated successfully, status is not Paid.');
             }
         }
-
-        // Update the gym reservation with the validated data
-
-
-
     }
 
 
@@ -380,12 +373,12 @@ class CashierController extends Controller
         ];
 
         // Generate the filename based on the dorm's Form_number and updated_at timestamp
-        // $filename = $gym->oop_number . '_' . $gym->updated_at->format('Y-m-d') . '_orderofpayment.pdf';
+        $filename = $gym->oop_number . '_' . $gym->updated_at->format('Y-m-d') . '_orderofpayment.pdf';
 
-        // $pdf = PDF::loadView('pdf.OrderofPaymentGym', $data)->setOptions($options);
+        $pdf = PDF::loadView('pdf.OrderofPaymentGym', $data)->setOptions($options);
 
-        return view('pdf.OrderofPaymentGym', $data);
+        // return view('pdf.OrderofPaymentGym', $data);
 
-        // return $pdf->stream($filename);
+        return $pdf->stream($filename);
     }
 }
