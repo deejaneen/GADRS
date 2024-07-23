@@ -145,6 +145,7 @@
 
     <script>
         $(document).ready(function() {
+            
             // Toggle button click event for Male Dorm
             // Get the current card from the flash message
             var currentCard = '{{ session('current_card') }}'; // Use Blade syntax to output the value

@@ -94,8 +94,9 @@ class DormController extends Controller
             }
         }
         $reservation->update($request->all());
+        $card = "dorm";
 
-        return redirect()->route('home')->with('success', 'Reservation updated successfully!');
+        return redirect()->route('home')->with('success', 'Reservation updated successfully!')->with('card', $card);
     }
     public function editDormReservation($id)
     {
@@ -106,7 +107,8 @@ class DormController extends Controller
     {
         $dorm = Dorm::where('id', $id)->first();
         $dorm->delete();
+        $card = "dorm";
 
-        return redirect()->back()->with('success', 'Entry deleted successfully!');
+        return redirect()->back()->with('success', 'Entry deleted successfully!')->with('card', $card);
     }
 }

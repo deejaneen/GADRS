@@ -141,7 +141,7 @@ class GymController extends Controller
         }
 
         if (!$isValidRange) {
-            return redirect()->route('home')->with('error', 'The selected time slot is not allowed for the selected day.');
+            return redirect()->back()->with('error', 'The selected time slot is not allowed for the selected day.');
         }
 
          
@@ -172,11 +172,11 @@ class GymController extends Controller
             if ($overlappingEndTimeReservation) {
                 $endTime = date('g:i A', strtotime($overlappingEndTimeReservation->reservation_time_end));
                 $message = 'The selected start time overlaps with the end time of an existing reservation ending at ' . $endTime . '. Please choose/adjust another start time.';
-                return redirect()->route('home')->with('error', $message);
+                return redirect()>back()->with('error', $message);
             }
 
 
-            return redirect()->route('home')->with('error', 'The selected time slot overlaps with an existing reservation. Please choose another time slot.');
+            return redirect()->back()->with('error', 'The selected time slot overlaps with an existing reservation. Please choose another time slot.');
         }
 
         // Update the reservation if there are no overlaps

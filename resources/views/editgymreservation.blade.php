@@ -1,6 +1,18 @@
 @extends('layout.weblayout')
 @section('scripts')
 <script>
+    document.getElementById('number_of_courts').addEventListener('input', function() {
+        var min = parseInt(this.min, 10);
+        var max = parseInt(this.max, 10);
+        var value = parseInt(this.value, 10);
+
+        if (value < min) {
+            this.value = min;
+        } else if (value > max) {
+            this.value = max;
+        }
+    });
+
     let isFormChanged = false;
     const form = document.getElementById('editReservationForm');
     const originalFormData = new FormData(form);
@@ -151,39 +163,39 @@
     }
 
     document.getElementById('reservation_time_start').addEventListener('change', calculateTotalPrice);
-        document.getElementById('reservation_time_end').addEventListener('change', calculateTotalPrice);
+    document.getElementById('reservation_time_end').addEventListener('change', calculateTotalPrice);
 
-        function calculateTotalPrice() {
-            let startTime = document.getElementById('reservation_time_start').value;
-            let endTime = document.getElementById('reservation_time_end').value;
-            const employeeType = document.getElementById('employee_type').value;
+    function calculateTotalPrice() {
+        let startTime = document.getElementById('reservation_time_start').value;
+        let endTime = document.getElementById('reservation_time_end').value;
+        const employeeType = document.getElementById('employee_type').value;
 
-            console.log('Start time:', startTime);
-            console.log('End time:', endTime);
+        console.log('Start time:', startTime);
+        console.log('End time:', endTime);
 
-            // Handle default time format with seconds
-            if (startTime.length === 8) {
-                startTime = startTime.substring(0, 5);
-            }
-            if (endTime.length === 8) {
-                endTime = endTime.substring(0, 5);
-            }
-
-            if (startTime && endTime) {
-                const start = new Date(`1970-01-01T${startTime}:00`);
-                const end = new Date(`1970-01-01T${endTime}:00`);
-
-                let hours = (end - start) / 1000 / 60 / 60;
-                if (hours < 0) {
-                    hours += 24; // handle overnight reservations
-                }
-
-                const pricePerHour = employeeType === 'COA Employee' ? 450 : 600;
-                const totalPrice = hours * pricePerHour;
-
-                document.getElementById('total_price').value = totalPrice.toFixed(2);
-            }
+        // Handle default time format with seconds
+        if (startTime.length === 8) {
+            startTime = startTime.substring(0, 5);
         }
+        if (endTime.length === 8) {
+            endTime = endTime.substring(0, 5);
+        }
+
+        if (startTime && endTime) {
+            const start = new Date(`1970-01-01T${startTime}:00`);
+            const end = new Date(`1970-01-01T${endTime}:00`);
+
+            let hours = (end - start) / 1000 / 60 / 60;
+            if (hours < 0) {
+                hours += 24; // handle overnight reservations
+            }
+
+            const pricePerHour = employeeType === 'COA Employee' ? 450 : 600;
+            const totalPrice = hours * pricePerHour;
+
+            document.getElementById('total_price').value = totalPrice.toFixed(2);
+        }
+    }
 </script>
 @endsection
 @section('content')
