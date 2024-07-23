@@ -9,6 +9,7 @@ use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 
 class SupplyController extends Controller
@@ -42,7 +43,7 @@ class SupplyController extends Controller
     if (!$dorm->Form_number) {
         // Validate input
         $validated = request()->validate([
-            'Form_number' => 'required|digits:3|unique:dorm_reservations,Form_number,' . $dorm->id,
+            'Form_number' => 'required|min:3|max:11|unique:dorm_reservations,Form_number,' . $dorm->id,
             'status' => 'required',
             'receiver_name' => 'required',
         ]);
@@ -56,7 +57,8 @@ class SupplyController extends Controller
         $validated = request()->validate([
             'Form_number' => [
                 'required',
-                'digits:3',
+                'min:3',
+                'max:11',
                 function ($attribute, $value, $fail) use ($reservationsNotSimilarToOriginal) {
                     foreach ($reservationsNotSimilarToOriginal as $reservation) {
                         if ($reservation->Form_number === $value) {
@@ -95,8 +97,9 @@ class SupplyController extends Controller
         $receivingUser = User::select('first_name', 'middle_name', 'last_name')
             ->where('id', Auth::id())
             ->first();
+         $formNumberInput = Str::afterLast($dorm->Form_number, '-');
         // You can return the modal content as a view
-        return view('ras.supply.supply-addnumber', compact('dorm', 'userDetails', 'receivingUser'));
+        return view('ras.supply.supply-addnumber', compact('dorm', 'userDetails', 'receivingUser', 'formNumberInput'));
     }
 
     public function viewDorm(Dorm $dorm)
