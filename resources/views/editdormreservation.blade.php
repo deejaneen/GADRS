@@ -19,12 +19,13 @@
             <div class="row mb-3">
                 <div class="form-group col-6">
                     <label for="reservation_start_time">Start Time</label>
-                    <input type="time" class="form-control" id="reservation_start_time" name="reservation_start_time" value="{{ $reservation->reservation_start_time }}" disabled>
+                    <input type="time" class="form-control" id="reservation_start_time" name="reservation_start_time" value="{{ date('H:i', strtotime($reservation->reservation_start_time)) }}" disabled>
                 </div>
                 <div class="form-group col-6">
                     <label for="reservation_end_time">End Time</label>
-                    <input type="time" class="form-control" id="reservation_end_time" name="reservation_end_time" value="{{ $reservation->reservation_end_time }}" disabled>
+                    <input type="time" class="form-control" id="reservation_end_time" name="reservation_end_time" value="{{ date('H:i', strtotime($reservation->reservation_end_time)) }}" disabled>
                 </div>
+              
             </div>
             <div class="row mb-3">
                 <div class="form-group col-6">

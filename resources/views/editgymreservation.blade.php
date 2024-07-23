@@ -213,11 +213,19 @@
             <div class="row mb-3">
                 <div class="form-group col-6">
                     <label for="reservation_time_start">Start Time</label>
-                    <input type="time" class="form-control" id="reservation_time_start" name="reservation_time_start" value="{{ $reservation->reservation_time_start }}" required min="06:00">
+                    <input type="time" class="form-control" id="reservation_time_start" name="reservation_time_start" value="{{ date('H:i', strtotime( $reservation->reservation_time_start)) }}" required min="06:00">
                 </div>
                 <div class="form-group col-6">
                     <label for="reservation_time_end">End Time</label>
-                    <input type="time" class="form-control" id="reservation_time_end" name="reservation_time_end" value="{{ $reservation->reservation_time_end }}" required max="21:00">
+                    <input type="time" class="form-control" id="reservation_time_end" name="reservation_time_end" value="{{ date('H:i', strtotime($reservation->reservation_end_time)) }}" required max="21:00">
+                </div>
+                <div style="color: var(--color-background)">
+
+                    Valid reservation times and dates: <span style="color: var(--color-orange)" >(Existing reservations may change the validity of these dates)</span>
+                    Tues–Thurs: 6:00 AM–11:00 AM, 6:00 PM–9:00 PM
+
+                    Mon, Sat, Sun: 6:00 AM–9:00 PM
+                    
                 </div>
             </div>
             <div class="row mb-3">
