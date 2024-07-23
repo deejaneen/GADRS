@@ -2103,7 +2103,11 @@
                 <p class="c1"><span class="c23">Date:</span></p>
             </td>
             <td class="c74" colspan="3" rowspan="1">
+                @if(!$gym->or_date)
+                    <p class="c48"><span class="c23 c62"></span></p>
+                @else
                 <p class="c48"><span class="c23 c62">{{ date('F j, Y', strtotime($gym->or_date)) }}</span></p>
+                @endif
             </td>
         </tr>
         <tr class="c18">
