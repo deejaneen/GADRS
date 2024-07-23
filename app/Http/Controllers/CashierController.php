@@ -208,6 +208,32 @@ class CashierController extends Controller
 
         // Check if status is "Reserved"
         if ($dorm->status === 'Reserved') {
+            // Calculate the total reservation days
+            $startDate = new \DateTime($dorm->reservation_start_date);
+            $endDate = new \DateTime($dorm->reservation_end_date);
+            $endDate->modify('+1 day'); // Include the end date in the range
+            $interval = \DateInterval::createFromDateString('1 day');
+            $dateRange = new \DatePeriod($startDate, $interval, $endDate);
+
+            // Get all rows with status of Pending and Received
+            $dormReservationsPendingAndReceived = Dorm::whereIn('status', ['Pending', 'Received'])->get();
+
+            // Check availability for each date in the reservation period
+            foreach ($dateRange as $date) {
+                $bed = DB::table('beds')
+                    ->where('date', $date->format('Y-m-d'))
+                    ->where('gender', $dorm->gender)
+                    ->first();
+
+                // Update the status to Cancelled for the reservations with insufficient availability
+                foreach ($dormReservationsPendingAndReceived as $reservation) {
+                    // Check if the bed availability is less than the quantity of reservations
+                    if ($bed && $bed->availability < $reservation->quantity) {
+                        $reservation->status = "Cancelled";
+                        $reservation->save();
+                    }
+                }
+            }
             // Redirect with success message
             return redirect()->route('cashierpaid')->with('success', 'Payment confirmed successfully!');
         } else {
