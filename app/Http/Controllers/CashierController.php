@@ -150,26 +150,27 @@ class CashierController extends Controller
 
     public function confirmPaymentDorm(Dorm $dorm)
     {
+        $currentYearMonth = date('Y-m');
 
         if (!$dorm->or_number) {
-            // Validate input
             $validated = request()->validate([
-                'or_number' => 'required|min:3|max:7|unique:dorm_reservations,or_number,' . $dorm->id,
+                'or_number' => 'required|min:3|max:11|unique:dorm_reservations,or_number,' . $dorm->id,
                 'amount_paid' => 'required|min:3|max:12',
                 'status' => 'required',
                 'or_date' => 'required|date',
             ]);
+            $validated['or_number'] = $currentYearMonth . '-' . $validated['or_number'];
         } else {
-            $reservationsNotSimilarToOriginal = Dorm::where('or_number', '!=', $dorm->or_number)
-                ->get();
+            $reservationsNotSimilarToOriginal = Dorm::where('or_number', '!=', $dorm->or_number)->get();
             $validated = request()->validate([
                 'or_number' => [
                     'required',
                     'min:3',
-                    'max:7',
-                    function ($attribute, $value, $fail) use ($reservationsNotSimilarToOriginal) {
+                    'max:11',
+                    function ($attribute, $value, $fail) use ($reservationsNotSimilarToOriginal, $currentYearMonth) {
+                        $valueWithDate = $currentYearMonth . '-' . $value;
                         foreach ($reservationsNotSimilarToOriginal as $reservation) {
-                            if ($reservation->or_number === $value) {
+                            if ($reservation->or_number === $valueWithDate) {
                                 $fail('The OR Number has already been taken.');
                             }
                         }
@@ -179,17 +180,16 @@ class CashierController extends Controller
                 'status' => 'required',
                 'or_date' => 'required|date',
             ]);
+            $validated['or_number'] = $currentYearMonth . '-' . $validated['or_number'];
         }
 
         if ($validated['status'] === 'Reserved') {
-            // Calculate the total reservation days
             $startDate = new \DateTime($dorm->reservation_start_date);
             $endDate = new \DateTime($dorm->reservation_end_date);
-            $endDate->modify('+1 day'); // Include the end date in the range
+            $endDate->modify('+1 day');
             $interval = \DateInterval::createFromDateString('1 day');
             $dateRange = new \DatePeriod($startDate, $interval, $endDate);
 
-            // Check availability for each date in the reservation period
             foreach ($dateRange as $date) {
                 $bed = DB::table('beds')
                     ->where('date', $date->format('Y-m-d'))
@@ -203,15 +203,11 @@ class CashierController extends Controller
             }
         }
 
-        // Update the user with the validated data
         $dorm->update($validated);
 
-        // Check if status is "Reserved"
         if ($dorm->status === 'Reserved') {
-            // Redirect with success message
             return redirect()->route('cashierpaid')->with('success', 'Payment confirmed successfully!');
         } else {
-            // Redirect back with appropriate success message
             return redirect()->route('cashierforpayment')->with('success', 'Payment updated successfully, status is not Paid.');
         }
     }

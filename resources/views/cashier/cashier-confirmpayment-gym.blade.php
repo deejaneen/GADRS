@@ -80,6 +80,7 @@
                     <option value="Received" {{ $gym->status === 'Received' ? 'selected' : '' }}>For Payment</option>
                     <option value="Reserved" {{ $gym->status === 'Reserved' ? 'selected' : '' }}>Paid</option>
                 </select>
+                <i class="fas fa-chevron-down dropdown-icon cashier-gym"></i>
                 @error('status')
                 <span class="text-danger fs-6">{{ $message }}</span>
                 @enderror

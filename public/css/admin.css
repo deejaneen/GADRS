@@ -893,6 +893,8 @@ div.dt-container .dt-paging .dt-paging-button.disabled {
 #reservation_number{
     width: calc(100%-80px);
 }
+.or_number_container,
+.form_number_container,
 .reservation_number_container{
     display: flex;
     align-items: center;
@@ -1163,4 +1165,30 @@ svg text.text-body {
 
 .status-cancelled {
     color: var(--color-danger) !important;
+}
+
+.dropdown-icon{
+    position: absolute;
+    transform: translateX(-100%);
+    pointer-events: none; 
+}
+.dropdown-icon.cashier-dorm {
+    right: 10px;
+    top: 75.5%;
+    color: var(--color-primary);
+}
+.dropdown-icon.cashier-gym {
+    left: 510px;
+    top: 82.5%;
+    color: var(--color-primary);
+}
+.dropdown-icon.receiving {
+    right: 550px;
+    top: 40%;
+    color: var(--color-primary);
+}
+.dropdown-icon.supply {
+    right: 550px;
+    top: 45%;
+    color: var(--color-primary);
 }

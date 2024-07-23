@@ -33,50 +33,58 @@ class SupplyController extends Controller
         return view('ras.supply.supply-dormreservations-received', ['dorms' => $dorms]);
     }
 
-    public function addFormNumber(Dorm $dorm)
-    {
-        if (!$dorm->Form_number) {
-            // Validate input
-            $validated = request()->validate([
-                'Form_number' => 'required|min:3|max:7|unique:dorm_reservations,Form_number,' . $dorm->id,
-                'status' => 'required',
-                'receiver_name' => 'required',
-            ]);
-        } else {
-            $reservationsNotSimilarToOriginal = Dorm::where('Form_number', '!=', $dorm->Form_number)
-                ->get();
+   public function addFormNumber(Dorm $dorm)
+{
+    $currentYear = date('Y');
+    $currentMonth = date('m');
+    $fixedYearMonth = $currentYear . '-' . $currentMonth . '-';
 
-            $validated = request()->validate([
-                'Form_number' => [
-                    'required',
-                    'min:3',
-                    'max:7',
-                    function ($attribute, $value, $fail) use ($reservationsNotSimilarToOriginal) {
-                        foreach ($reservationsNotSimilarToOriginal as $reservation) {
-                            if ($reservation->Form_number === $value) {
-                                $fail('The Form number has already been taken.');
-                            }
+    if (!$dorm->Form_number) {
+        // Validate input
+        $validated = request()->validate([
+            'Form_number' => 'required|digits:3|unique:dorm_reservations,Form_number,' . $dorm->id,
+            'status' => 'required',
+            'receiver_name' => 'required',
+        ]);
+
+        // Concatenate fixed year and month with form number
+        $validated['Form_number'] = $fixedYearMonth . $validated['Form_number'];
+    } else {
+        $reservationsNotSimilarToOriginal = Dorm::where('Form_number', '!=', $dorm->Form_number)
+            ->get();
+
+        $validated = request()->validate([
+            'Form_number' => [
+                'required',
+                'digits:3',
+                function ($attribute, $value, $fail) use ($reservationsNotSimilarToOriginal) {
+                    foreach ($reservationsNotSimilarToOriginal as $reservation) {
+                        if ($reservation->Form_number === $value) {
+                            $fail('The Form number has already been taken.');
                         }
-                    },
-                ],
-                'status' => 'required',
-                'receiver_name' => 'required',
-            ]);
-        }
+                    }
+                },
+            ],
+            'status' => 'required',
+            'receiver_name' => 'required',
+        ]);
 
-
-        // Update the user with the validated data
-        $dorm->update($validated);
-
-        // Check if status is "Received"
-        if ($dorm->status === 'Received') {
-            // Redirect with success message
-            return redirect()->route('supplyreservationsrd')->with('success', 'Form Number added successfully!');
-        } else {
-            // Redirect back with appropriate success message
-            return redirect()->route('supplyreservations')->with('success', 'Form Number updated successfully, status is not Received.');
-        }
+        // Concatenate fixed year and month with form number
+        $validated['Form_number'] = $fixedYearMonth . $validated['Form_number'];
     }
+
+    // Update the user with the validated data
+    $dorm->update($validated);
+
+    // Check if status is "Received"
+    if ($dorm->status === 'Received') {
+        // Redirect with success message
+        return redirect()->route('supplyreservationsrd')->with('success', 'Form Number added successfully!');
+    } else {
+        // Redirect back with appropriate success message
+        return redirect()->route('supplyreservations')->with('success', 'Form Number updated successfully, status is not Received.');
+    }
+}
 
 
     public function editDorm(Dorm $dorm)

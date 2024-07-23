@@ -20,10 +20,10 @@
 <div class="card" id="ReceivingPendingTableCard">
     <h2>User Details</h2>
     <div class="row mb-3">
-        <div class="col">
-            <label for="employee_id" class="form-label">User ID</label>
-            <input type="text" class="form-control" id="employee_id" value="{{ $gym->employee_id }}" name="employee_id" disabled>
-        </div>
+        {{-- <div class="col">
+            <label for="employee_id" class="form-label" hidden>User ID</label>
+            <input type="text" class="form-control" id="employee_id" value="{{ $gym->employee_id }}" name="employee_id" disabled hidden>
+        </div> --}}
         <div class="col">
             <label for="username" class="form-label">Username</label>
             <input type="text" class="form-control" id="username" value="{{ $userDetails->first_name . ' ' . $userDetails->middle_name . ' ' . $userDetails->last_name }}" name="username" disabled>
@@ -52,6 +52,7 @@
                     <option value="Received" {{ $gym->status === 'Received' ? 'selected' : '' }}>Received</option>
                     <option value="Pending" {{ $gym->status === 'Pending' ? 'selected' : '' }}>Pending</option>
                 </select>
+                <i class="fas fa-chevron-down dropdown-icon receiving"></i>
                 @error('status')
                 <span class="text-danger fs-6">{{ $message }}</span>
                 @enderror
