@@ -49,7 +49,7 @@ class SupplyController extends Controller
         ]);
 
         // Concatenate fixed year and month with form number
-        $validated['Form_number'] = $fixedYearMonth . $validated['Form_number'];
+        // $validated['Form_number'] = $fixedYearMonth . $validated['Form_number'];
     } else {
         $reservationsNotSimilarToOriginal = Dorm::where('Form_number', '!=', $dorm->Form_number)
             ->get();
@@ -72,7 +72,7 @@ class SupplyController extends Controller
         ]);
 
         // Concatenate fixed year and month with form number
-        $validated['Form_number'] = $fixedYearMonth . $validated['Form_number'];
+        // $validated['Form_number'] = $fixedYearMonth . $validated['Form_number'];
     }
 
     // Update the user with the validated data

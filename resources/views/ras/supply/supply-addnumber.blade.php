@@ -43,7 +43,7 @@
                 <label for="Form_number" class="form-label">Form Number</label>
                 <div class="form_number_container">
                     <input type="text" class="form-control fixed-year" id="fixed-year-form" value="" style="width:110px;" disabled>
-                    <input type="number" class="form-control" id="Form_number" value="{{$formNumberInput}}" name="Form_number" maxlength="3" required>
+                    <input type="number" class="form-control" id="Form_number" value="{{$formNumberInput}}" name="Form_number" required>
                 </div>
                 @error('Form_number')
                 <span class="text-danger fs-6">{{ $message }}</span>
