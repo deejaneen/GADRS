@@ -99,7 +99,7 @@ class ReceivingController extends Controller
         if (!$gym->reservation_number && !$gym->oop_number) {
             // Validate input when conditions are met
             $validated = request()->validate([
-                'reservation_number' => 'required|min:3|max:5|unique:gym-reservations,reservation_number,' . $gym->id,
+                'reservation_number' => 'required|min:3|max:11|unique:gym-reservations,reservation_number,' . $gym->id,
                 'status' => 'required',
                 'receiver_name' => 'required',
                 // 'or_number' => 'required|min:3|max:7|unique:gym-reservations,or_number,' . $gym->id,
@@ -116,7 +116,7 @@ class ReceivingController extends Controller
                 'reservation_number' => [
                     'required',
                     'min:3',
-                    'max:5',
+                    'max:11',
                     function ($attribute, $value, $fail) use ($reservationsNotSimilarToOriginal) {
                         foreach ($reservationsNotSimilarToOriginal as $reservation) {
                             if ($reservation->reservation_number === $value) {
@@ -142,7 +142,7 @@ class ReceivingController extends Controller
                 'oop_number' => [
                     'required',
                     'min:3',
-                    'max:5',
+                    'max:11',
                     function ($attribute, $value, $fail) use ($reservationsNotSimilarToOriginal) {
                         foreach ($reservationsNotSimilarToOriginal as $reservation) {
                             if ($reservation->oop_number === $value) {
