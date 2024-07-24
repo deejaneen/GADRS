@@ -11,6 +11,7 @@ use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 use \NumberFormatter;
 
 
@@ -142,10 +143,12 @@ class CashierController extends Controller
             ->select(DB::raw('DATEDIFF(reservation_end_date, reservation_start_date) + 1 as num_days'))
             ->first();
 
+        $orNumber = Str::afterLast($dorm->or_number, '-');
+
         // Handle if $numberOfDays is null (handle case where $dorm is not found or dates are not set)
         $numDays = $numberOfDays ? $numberOfDays->num_days : 0;
         // You can return the modal content as a view
-        return view('cashier.cashier-confirmpayment-dorm', compact('dorm', 'numDays'));
+        return view('cashier.cashier-confirmpayment-dorm', compact('dorm', 'numDays', 'orNumber'));
     }
 
     public function confirmPaymentDorm(Dorm $dorm)
@@ -159,7 +162,7 @@ class CashierController extends Controller
                 'status' => 'required',
                 'or_date' => 'required|date',
             ]);
-            $validated['or_number'] = $currentYearMonth . '-' . $validated['or_number'];
+            // $validated['or_number'] = $currentYearMonth . '-' . $validated['or_number'];
         } else {
             $reservationsNotSimilarToOriginal = Dorm::where('or_number', '!=', $dorm->or_number)->get();
             $validated = request()->validate([
@@ -180,7 +183,7 @@ class CashierController extends Controller
                 'status' => 'required',
                 'or_date' => 'required|date',
             ]);
-            $validated['or_number'] = $currentYearMonth . '-' . $validated['or_number'];
+            // $validated['or_number'] = $currentYearMonth . '-' . $validated['or_number'];
         }
 
         if ($validated['status'] === 'Reserved') {
