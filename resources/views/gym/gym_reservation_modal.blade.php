@@ -20,16 +20,22 @@
                         </div>
                         <div class="col">
                             <label for="startTime" class="form-label">Start Time</label>
-                            <input type="time" class="form-control" id="startTime" name="timepicker-am" required min="06:00">
+                            <input type="time" class="form-control" id="startTime" name="timepicker-am" required>
                         </div>
+                        <div id="timeWarning" class="alert alert-warning d-none" role="alert">
+                            Please select a time no earlier than 6:00 PM.
+                        </div>
+
                         <div class="col">
                             <label for="endTime" class="form-label">End Time</label>
-                            <input type="time" class="form-control" id="endTime" name="timepicker-pm" required max="21:00">
+                            <input type="time" class="form-control" id="endTime" name="timepicker-pm" required >
                         </div>
                     </div>
                     <div class="row">
-                        <p>Tues–Thurs: 6:00 AM–11:00 AM, 6:00 PM–9:00 PM</p>
-                        <p>Mon, Sat, Sun: 6:00 AM–9:00 PM</p>
+                        <p> Monday-Friday: 6:00 PM - 9:00 PM</p>
+                        <p> Saturday-Sunday: 6:00 AM – 9:00 PM</p>
+
+
                     </div>
 
 
@@ -47,7 +53,8 @@
                         <div class="col">
                             <label for="purpose" class="form-label">Purpose</label>
                             <div class="dropdown-container">
-                                <select class="form-select" id="purpose" name="purpose" required onchange="toggleNumberOfCourts()">
+                                <!-- <select class="form-select" id="purpose" name="purpose" required onchange="toggleNumberOfCourts()"> -->
+                                <select class="form-select" id="purpose" name="purpose" required>
                                     <option value="Basketball">Basketball</option>
                                     <option value="Volleyball">Volleyball</option>
                                     <option value="Badminton">Badminton</option>
@@ -55,14 +62,14 @@
                                 <i class="fas fa-chevron-down dropdown-icon"></i>
                             </div>
                         </div>
-                        
-                        <div class="row mb-3" style="margin-left: 2px;">
+
+                        <!-- <div class="row mb-3" style="margin-left: 2px;">
                             <div class="col"></div>
                             <div class="col" id="number_of_courts_wrapper" style="display: none;">
                                 <label for="number_of_courts" class="form-label">Number of courts</label>
                                 <input type="number" class="form-control" id="number_of_courts" name="number_of_courts" min="1" max="4" required>
                             </div>
-                        </div>
+                        </div> -->
 
                     </div>
                     <div class="row mb-3">
@@ -79,7 +86,7 @@
                             <input type="text" class="form-control" id="total_price" name="total_price" value="" required readonly>
                         </div>
                         <h4>PRICE</h4>
-                        <p>COA Employee: ₱450.00, Non COA: ₱600.00</p>
+                        <p>₱600.00</p>
                     </div>
                 </div>
                 <div class="modal-footer">

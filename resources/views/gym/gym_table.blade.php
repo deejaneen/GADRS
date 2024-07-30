@@ -1,5 +1,47 @@
 @section('scripts')
 <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const reservationDateInput = document.getElementById('reservationDate');
+        const startTimeInput = document.getElementById('startTime');
+        const endTimeInput = document.getElementById('endTime');
+
+        function updateTimeFieldsBasedOnDate() {
+            const selectedDate = new Date(reservationDateInput.value);
+            // console.log('Selected Date:', selectedDate); // Debugging line
+            const selectedDay = selectedDate.getDay();
+
+            if (selectedDay >= 1 && selectedDay <= 5) { // Monday to Friday
+                startTimeInput.setAttribute('min', '18:00');
+                endTimeInput.setAttribute('max', '21:00');
+                startTimeInput.value = '18:00'; // Set default start time to 6:00 PM
+            } else { // Saturday and Sunday
+                startTimeInput.setAttribute('min', '06:00');
+                endTimeInput.setAttribute('max', '21:00');
+                startTimeInput.value = '06:00'; // Set default start time to 6:00 AM
+            }
+        }
+
+        // Initialize date picker with jQuery UI
+        $("#reservationDate").datepicker({
+            dateFormat: 'yy-mm-dd', // Set the date format
+            minDate: 0, // Minimum selectable date (today)
+            onSelect: function(selectedDate) {
+                reservationDateInput.value = selectedDate;
+                updateTimeFieldsBasedOnDate();
+            }
+        });
+
+        // Add event listener to date input to handle manual changes
+        reservationDateInput.addEventListener('change', function() {
+            updateTimeFieldsBasedOnDate();
+        });
+
+        // Initialize the time fields based on the current date
+        updateTimeFieldsBasedOnDate();
+    });
+
+
+
     document.getElementById('startTime').addEventListener('input', calculateTotalPrice);
     document.getElementById('endTime').addEventListener('input', calculateTotalPrice);
     document.getElementById('employeeType').addEventListener('change', calculateTotalPrice);
@@ -18,7 +60,8 @@
                 hours += 24; // handle overnight reservations
             }
 
-            const pricePerHour = employeeType === 'COA Employee' ? 450 : 600;
+            // const pricePerHour = employeeType === 'COA Employee' ? 450 : 600;
+            const pricePerHour = 600;
             const totalPrice = hours * pricePerHour;
 
             document.getElementById('total_price').value = totalPrice.toFixed(2);
@@ -27,24 +70,24 @@
         }
     }
 
-    function toggleNumberOfCourts() {
-        var purpose = document.getElementById('purpose').value;
-        var numberOfCourtsWrapper = document.getElementById('number_of_courts_wrapper');
-        var numberOfCourtsInput = document.getElementById('number_of_courts');
+    // function toggleNumberOfCourts() {
+    //     var purpose = document.getElementById('purpose').value;
+    //     var numberOfCourtsWrapper = document.getElementById('number_of_courts_wrapper');
+    //     var numberOfCourtsInput = document.getElementById('number_of_courts');
 
-        if (purpose === 'Badminton') {
-            numberOfCourtsWrapper.style.display = 'block';
-            numberOfCourtsInput.required = true; // Add required attribute
-        } else {
-            numberOfCourtsWrapper.style.display = 'none';
-            numberOfCourtsInput.required = false; // Remove required attribute
-        }
-    }
+    //     if (purpose === 'Badminton') {
+    //         numberOfCourtsWrapper.style.display = 'block';
+    //         numberOfCourtsInput.required = true; // Add required attribute
+    //     } else {
+    //         numberOfCourtsWrapper.style.display = 'none';
+    //         numberOfCourtsInput.required = false; // Remove required attribute
+    //     }
+    // }
 
     // Ensure that the correct field visibility is set when the modal is opened
-    document.getElementById('gymReservationModal').addEventListener('shown.bs.modal', function() {
-        toggleNumberOfCourts();
-    });
+    // document.getElementById('gymReservationModal').addEventListener('shown.bs.modal', function() {
+    //     toggleNumberOfCourts();
+    // });
 
     // Function to reset the form
     // function resetForm() {
@@ -53,32 +96,50 @@
     // }
 
     // Ensure correct field visibility on initial load
-    document.addEventListener('DOMContentLoaded', function() {
-        toggleNumberOfCourts();
-    });
+    // document.addEventListener('DOMContentLoaded', function() {
+    //     toggleNumberOfCourts();
+    // });
 
     // Select the number of courts input field
-    var numberInput = document.getElementById('number_of_courts');
+    // var numberInput = document.getElementById('number_of_courts');
 
     // Add an event listener to listen for input changes
-    numberInput.addEventListener('input', function() {
-        var maxValue = parseInt(numberInput.getAttribute('max'));
-        var minValue = parseInt(numberInput.getAttribute('min'));
-        var currentValue = parseInt(numberInput.value);
+    // numberInput.addEventListener('input', function() {
+    //     var maxValue = parseInt(numberInput.getAttribute('max'));
+    //     var minValue = parseInt(numberInput.getAttribute('min'));
+    //     var currentValue = parseInt(numberInput.value);
 
-        // Ensure the value is within the allowed range
-        if (currentValue < minValue || isNaN(currentValue)) {
-            numberInput.value = minValue; // Set to minimum value if less than minimum or NaN
-        } else if (currentValue > maxValue) {
-            numberInput.value = maxValue; // Set to maximum value if greater than maximum
-        }
-    });
+    //     // Ensure the value is within the allowed range
+    //     if (currentValue < minValue || isNaN(currentValue)) {
+    //         numberInput.value = minValue; // Set to minimum value if less than minimum or NaN
+    //     } else if (currentValue > maxValue) {
+    //         numberInput.value = maxValue; // Set to maximum value if greater than maximum
+    //     }
+    // });
 </script>
 <script>
     $(document).ready(function() {
         const weekContainer = document.getElementById("week-container");
         const selectedDateInput = document.getElementById("reservationDate");
         const disabledDates = <?= json_encode($gymDateRestrictions) ?>;
+        const startTimeInput = document.getElementById('startTime');
+        const endTimeInput = document.getElementById('endTime');
+
+        function updateTimeFieldsBasedOnDate() {
+            const selectedDate = new Date(selectedDateInput.value);
+            // console.log('Selected Date:', selectedDate); // Debugging line
+            const selectedDay = selectedDate.getDay();
+
+            if (selectedDay >= 1 && selectedDay <= 5) { // Monday to Friday
+                startTimeInput.setAttribute('min', '18:00');
+                endTimeInput.setAttribute('max', '21:00');
+                startTimeInput.value = '18:00'; // Set default start time to 6:00 PM
+            } else { // Saturday and Sunday
+                startTimeInput.setAttribute('min', '06:00');
+                endTimeInput.setAttribute('max', '21:00');
+                startTimeInput.value = '06:00'; // Set default start time to 6:00 AM
+            }
+        }
 
         // Initialize date picker with disabled dates
         $("#datePicker").datepicker({
@@ -91,6 +152,7 @@
             onSelect: function(selectedDate) {
                 updateTable(selectedDate);
                 selectedDateInput.value = selectedDate;
+                updateTimeFieldsBasedOnDate();
             }
         });
     });
@@ -154,7 +216,7 @@
         var form = document.getElementById("gymReservationForm");
         if (form) {
             form.reset();
-            toggleNumberOfCourts();
+            // toggleNumberOfCourts();
         } else {
             console.error("Form not found.");
         }
@@ -162,11 +224,26 @@
 
     // Ensure start time is AM and end time is at least 2 hours ahead
     document.getElementById("startTime").addEventListener("change", function() {
-        this.value = this.value.replace(/^([0-9]|0[0-5]):([0-5][0-9])/, "06:00");
+        const reservationDateInput = document.getElementById('reservationDate');
+        const selectedDate = new Date(reservationDateInput.value);
+        const selectedDay = selectedDate.getDay();
+        let minStartTime = '06:00'; // Default start time for Saturday and Sunday
+
+        if (selectedDay >= 1 && selectedDay <= 5) { // Monday to Friday
+            minStartTime = '18:00';
+            this.value = minStartTime;
+        }
+
+        // Replace the value with the minimum start time if it is earlier than the allowed time
+        this.value = this.value.replace(/^([0-9]|0[0-5]):([0-5][0-9])/, function(match) {
+            return match < minStartTime ? minStartTime : match;
+        });
+
         validateDuration();
         // Update minimum value for end time
         updateMinEndTime();
     });
+
 
     document.getElementById("endTime").addEventListener("change", function() {
         if (this.value <= document.getElementById("startTime").value) {
@@ -233,7 +310,6 @@
             minDate: 0 // Minimum selectable date (today)
         });
     });
-
 </script>
 @endsection
 

@@ -58,7 +58,7 @@ class DormCartController extends Controller
         // Calculate the total reservation days
         $startDate = new \DateTime($validatedData['reservation_start_date']);
         $endDate = new \DateTime($validatedData['reservation_end_date']);
-        $endDate->modify('+1 day'); // Include the end date in the range
+        // $endDate->modify('+1 day'); // Include the end date in the range
         $interval = \DateInterval::createFromDateString('1 day');
         $dateRange = new \DatePeriod($startDate, $interval, $endDate);
 

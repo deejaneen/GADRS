@@ -1,17 +1,17 @@
 @extends('layout.weblayout')
 @section('scripts')
 <script>
-    document.getElementById('number_of_courts').addEventListener('input', function() {
-        var min = parseInt(this.min, 10);
-        var max = parseInt(this.max, 10);
-        var value = parseInt(this.value, 10);
+    // document.getElementById('number_of_courts').addEventListener('input', function() {
+    //     var min = parseInt(this.min, 10);
+    //     var max = parseInt(this.max, 10);
+    //     var value = parseInt(this.value, 10);
 
-        if (value < min) {
-            this.value = min;
-        } else if (value > max) {
-            this.value = max;
-        }
-    });
+    //     if (value < min) {
+    //         this.value = min;
+    //     } else if (value > max) {
+    //         this.value = max;
+    //     }
+    // });
 
     let isFormChanged = false;
     const form = document.getElementById('editReservationForm');
@@ -89,30 +89,30 @@
         document.getElementById('reservation_date').setAttribute('min', today);
     });
 
-    document.addEventListener('DOMContentLoaded', function() {
-        const purposeSelect = document.getElementById('purpose');
-        const numberOfCourtsWrapper = document.getElementById('number_of_courts_wrapper');
+    // document.addEventListener('DOMContentLoaded', function() {
+    //     const purposeSelect = document.getElementById('purpose');
+    //     const numberOfCourtsWrapper = document.getElementById('number_of_courts_wrapper');
 
-        function toggleNumberOfCourts() {
-            var purpose = document.getElementById('purpose').value;
-            var numberOfCourtsWrapper = document.getElementById('number_of_courts_wrapper');
-            var numberOfCourtsInput = document.getElementById('number_of_courts');
+    //     function toggleNumberOfCourts() {
+    //         var purpose = document.getElementById('purpose').value;
+    //         var numberOfCourtsWrapper = document.getElementById('number_of_courts_wrapper');
+    //         var numberOfCourtsInput = document.getElementById('number_of_courts');
 
-            if (purpose === 'Badminton') {
-                numberOfCourtsWrapper.style.display = 'block';
-                numberOfCourtsInput.required = true; // Add required attribute
-            } else {
-                numberOfCourtsWrapper.style.display = 'none';
-                numberOfCourtsInput.required = false; // Remove required attribute
-            }
-        }
+    //         if (purpose === 'Badminton') {
+    //             numberOfCourtsWrapper.style.display = 'block';
+    //             numberOfCourtsInput.required = true; // Add required attribute
+    //         } else {
+    //             numberOfCourtsWrapper.style.display = 'none';
+    //             numberOfCourtsInput.required = false; // Remove required attribute
+    //         }
+    //     }
 
-        // Initialize visibility on page load
-        toggleNumberOfCourts();
+    //     // Initialize visibility on page load
+    //     toggleNumberOfCourts();
 
-        // Add event listener for changes
-        purpose.addEventListener('change', toggleNumberOfCourts);
-    });
+    //     // Add event listener for changes
+    //     purpose.addEventListener('change', toggleNumberOfCourts);
+    // });
 
 
     // Ensure start time is AM and end time is at least 2 hours ahead
@@ -170,8 +170,8 @@
         let endTime = document.getElementById('reservation_time_end').value;
         const employeeType = document.getElementById('employee_type').value;
 
-        console.log('Start time:', startTime);
-        console.log('End time:', endTime);
+        // console.log('Start time:', startTime);
+        // console.log('End time:', endTime);
 
         // Handle default time format with seconds
         if (startTime.length === 8) {
@@ -217,14 +217,14 @@
                 </div>
                 <div class="form-group col-6">
                     <label for="reservation_time_end">End Time</label>
-                    <input type="time" class="form-control" id="reservation_time_end" name="reservation_time_end" value="{{ date('H:i', strtotime($reservation->reservation_end_time)) }}" required max="21:00">
+                    <input type="time" class="form-control" id="reservation_time_end" name="reservation_time_end" value="{{ date('H:i', strtotime($reservation->reservation_time_end)) }}" required max="21:00">
                 </div>
                 <div style="color: var(--color-background)">
 
                     Valid reservation times and dates: <span style="color: var(--color-orange)" >(Existing reservations may change the validity of these dates)</span>
-                    Tues–Thurs: 6:00 AM–11:00 AM, 6:00 PM–9:00 PM
+                    Monday-Friday: 6:00 PM - 9:00 PM
 
-                    Mon, Sat, Sun: 6:00 AM–9:00 PM
+                    Saturday-Sunday: 6:00 AM – 9:00 PM
                     
                 </div>
             </div>
@@ -243,10 +243,10 @@
                 </div>
             </div>
             <div class="row mb-3">
-                <div class="form-group col-6" id="number_of_courts_wrapper" style="display: none;">
+                <!-- <div class="form-group col-6" id="number_of_courts_wrapper" style="display: none;">
                     <label for="number_of_courts" class="form-label">Number of courts</label>
                     <input type="number" class="form-control" id="number_of_courts" name="number_of_courts" min="1" max="4" value="{{ $reservation->number_of_courts }}" required>
-                </div>
+                </div> -->
 
                 <div class="col">
                     <input type="hidden" class="form-control" id="employee_type" name="employee_type" value="{{ $reservation->employee_type }}">

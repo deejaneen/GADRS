@@ -113,10 +113,11 @@ class CartController extends Controller
                 $dormReservation->emergency_contact_number = $request->input('hidden_ptn_contact');
                 $dormReservation->home_address  = $request->input('hidden_ptn_home_address');
 
+                $dormReservation->status = 'Pending';
                 // Set status to 'Pending' for non-COA
-                if ($dormCart->occupant_type != 'Non COAn') {
-                    $dormReservation->status = 'Pending';
-                }
+                // if ($dormCart->occupant_type != 'Non COAn') {
+                //     $dormReservation->status = 'Pending';
+                // }
 
                 $dormReservation->save();
                 

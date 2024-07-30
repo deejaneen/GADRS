@@ -132,8 +132,7 @@
                 <hr>
                 <div class="text-center footer button">
                     <a class="btn btn-info btn-lg rounded btn-block mb-3 btn-clear male" data-mdb-ripple-init>Clear</a>
-                    <button type="submit" class="btn btn-info btn-lg rounded btn-block mb-3 btn-add">Add to
-                        cart</button>
+                    <button type="submit" class="btn btn-info btn-lg rounded btn-block mb-3 btn-add">Proceed to Reservation</button>
                 </div>
             </div>
 
@@ -333,7 +332,7 @@
                     gender: gender
                 },
                 success: function(response) {
-                    console.log("AJAX success (male):", response);
+                    // console.log("AJAX success (male):", response);
                     updateCheckOutManually(selectedDateDP);
                     $('#bedAvailabilityMale b').text(response.availableBeds + ' beds');
                     availabilityMale = response.availableBeds;
@@ -383,7 +382,7 @@
                     gender: gender
                 },
                 success: function(response) {
-                    console.log("AJAX success (female):", response);
+                    // console.log("AJAX success (female):", response);
                     updateCheckOutManually(selectedDateDP);
                     $('#bedAvailabilityFemale b').text(response.availableBeds + ' beds');
                     availabilityFemale = response.availableBeds;
@@ -496,7 +495,7 @@
         });
 
         function updateAvailableDatePickerManuallyMale(selectedDate) {
-            console.log("WOrking!");
+            // console.log("WOrking!");
             const gender = 'male';
             $.ajax({
                 url: '/check-bed-availability',
@@ -506,7 +505,7 @@
                     gender: gender
                 },
                 success: function(response) {
-                    console.log("AJAX success (male):", response);
+                    // console.log("AJAX success (male):", response);
                     $('#bedAvailabilityMale b').text(response.availableBeds + ' beds');
                     availabilityMale = response.availableBeds;
                     inputMale.max = availabilityMale; // Update max attribute dynamically
@@ -523,7 +522,7 @@
         }
 
         function updateAvailableDatePickerManuallyFemale(selectedDate) {
-            console.log("WOrking! FEmale!");
+            // console.log("WOrking! FEmale!");
             const gender = 'female';
             $.ajax({
                 url: '/check-bed-availability',
@@ -533,7 +532,7 @@
                     gender: gender
                 },
                 success: function(response) {
-                    console.log("AJAX success (female):", response);
+                    // console.log("AJAX success (female):", response);
                     $('#bedAvailabilityFemale b').text(response.availableBeds + ' beds');
                     availabilityFemale = response.availableBeds;
                     inputFemale.max =

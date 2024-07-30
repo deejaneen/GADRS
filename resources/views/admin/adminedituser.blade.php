@@ -40,7 +40,7 @@
                 <div class="row mb-3">
                     <div class="col">
                         <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email" name="email" value="{{ $user->email }}" disabled>
+                        <input type="email" class="form-control" id="email" name="email" value="{{ $user->email }}" readonly>
                         @error('email')
                         <span class="text-danger fs-6">{{ $message }}</span>
                         @enderror

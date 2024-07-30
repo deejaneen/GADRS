@@ -486,22 +486,22 @@
     });
 
     function resetFormGymCartModal() {
-        console.log("Resetting form...");
+        // console.log("Resetting form...");
         var form = document.getElementById("cartToFormModalGymForm");
         if (form) {
             form.reset(); // Reset the form
-            console.log("Form reset successfully.");
+            // console.log("Form reset successfully.");
         } else {
             console.error("Form not found.");
         }
     }
 
     function resetFormDormCartModal() {
-        console.log("Resetting form...");
+        // console.log("Resetting form...");
         var form = document.getElementById("cartToFormModalDormForm");
         if (form) {
             form.reset(); // Reset the form
-            console.log("Form reset successfully.");
+            // console.log("Form reset successfully.");
         } else {
             console.error("Form not found.");
         }
