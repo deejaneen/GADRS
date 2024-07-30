@@ -1,0 +1,234 @@
+
+.navbar.navbar-expand-lg {
+    display: flex;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    background: var(--color-primary);
+}
+
+.navbar .navbar-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+.navbar .navbar-nav .logout button,
+.navbar .navbar-nav a {
+    color: var(--color-background);
+    text-decoration: none;
+    font-size: 2rem;
+    /* margin: 0px 0px 0px 30px; */
+    transition: all .50s ease;
+    margin: 0 1rem;
+}
+
+.navbar .navbar-nav .logout button {
+    background: var(--color-primary);
+    border: none;
+    /* color: var(--color-background);
+    font-size: 2rem; */
+    margin: 0;
+    padding: 0;
+}
+
+.nav-item a.active {
+    color: var(--color-warning) !important;
+    transition: all .3s ease;
+}
+
+.navbar a.navbar-brand img {
+    height: 4rem;
+    width: 4rem;
+}
+
+.navbar a.navbar-brand {
+    display: flex;
+    align-items: center;
+    color: var(--color-background);
+    font-size: 2.5rem;
+    font-weight: 900;
+    letter-spacing: 6px;
+    text-decoration: none;
+    margin: 0;
+}
+
+.navbar .navbar-toggler {
+    background: var(--color-background) !important;
+}
+
+/* .navbar .main-login .navbar-nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+} */
+
+.navbar .main-login a {
+    color: var(--color-background);
+    text-decoration: none;
+    font-size: 2rem;
+    margin: 0px 0px 0px 30px;
+    transition: all .50s ease;
+}
+
+.nav-item a.login-active {
+    color: var(--color-warning) !important;
+    transition: all .3s ease;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+}
+
+.user i {
+    color: var(--color-warning);
+    font-size: 28px;
+    margin-right: 7px;
+}
+
+.no-underline {
+    text-decoration: none;
+}
+.cart-icon {
+    display: inline;
+}
+.cart-text {
+    display: none;
+}
+.profile-icon {
+    display: inline;
+}
+.profile-text {
+    display: inline;
+}
+.logout-icon {
+    display: inline;
+}
+.logout-text {
+    display: inline;
+}
+
+@media (min-width: 2000px) {
+
+    .nav-item.profile a .first-name,
+    .nav-item.logout button .logout-text {
+        display: none;
+    }
+
+    .nav-item.profile a i {
+        margin-bottom: 2px;
+    }
+
+    .navbar-nav .nav-item:not(.logout) i {
+        margin-right: 20px;
+    }
+}
+
+@media screen and (max-width: 1150px) {
+    .navbar .navbar-nav .logout button,
+    .navbar.navbar-expand-lg a {
+       font-size: 1.5rem;
+       margin: 0;
+    }
+
+    .navbar a.navbar-brand img {
+        height: 2rem;
+        width: 2rem;
+    }
+    .navbar .navbar-nav {
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+   
+    .navbar a.navbar-brand img {
+        height: 2rem;
+        width: 2rem;
+    }
+
+    .navbar a.navbar-brand {
+        display: flex;
+        align-items: center;
+        color: var(--color-background);
+        font-weight: 900;
+        padding-left: 1px;
+        text-decoration: none;
+    }
+
+    .navbar .main-login .navbar-nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .navbar {
+        display: flex;
+        background-color: var(--color-primary);
+        z-index: 3;
+    }
+
+    .main .navbar-nav .nav-item a {
+        color: var(--color-background);
+        transition: all .50s ease;
+        text-decoration: none;
+        letter-spacing: 0.04em;
+    }
+
+    .navbar a:hover {
+        color: var(--color-orange);
+    }
+
+    .navbar-collapse {
+        background: var(--color-primary);
+
+    }
+}
+
+@media screen and (max-width: 950px) {
+    .cart-icon {
+        display: none;
+    }
+    .cart-text {
+        display: inline;
+    }
+    .profile-icon {
+        display: none;
+    }
+    .profile-text {
+        display: inline;
+    }
+    .logout-icon {
+        display: none;
+    }
+    .logout-text {
+        display: inline;
+    }
+    .main .navbar-nav a {
+        margin: 0.5rem;
+    }
+    .main .navbar-nav {
+        margin: 0.5rem;
+    }
+}
+@media screen and (max-width: 650px) {
+    .cart-icon {
+        display: none;
+    }
+    .cart-text {
+        display: inline;
+    }
+    .profile-icon {
+        display: none;
+    }
+    .profile-text {
+        display: inline;
+    }
+    .logout-icon {
+        display: none;
+    }
+    .logout-text {
+        display: inline;
+        
+    }
+}

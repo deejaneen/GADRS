@@ -73,11 +73,11 @@
 
                     </div>
                     <div class="row mb-3">
-                        <div class="col-3">
+                        <div class="col-4">
                             <label for="hours" class="form-label">Hours</label>
                             <input type="text" class="form-control" id="hours" name="hours" value="" readonly>
                         </div>
-                        <div class="col-3">
+                        <div class="col-4">
                             <label for="price" class="form-label">Price per hour</label>
                             <input type="text" class="form-control" id="price" name="price" value="" readonly>
                         </div>
@@ -91,7 +91,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" onclick="resetForm()">Clear</button>
-                    <button type="submit" class="btn btn-primary">Add to Cart</button>
+                    <button type="submit" class="btn btn-primary">Add Reservation</button>
                 </div>
             </form>
         </div>

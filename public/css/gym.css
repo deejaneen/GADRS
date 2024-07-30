@@ -1,0 +1,384 @@
+.container-gym {
+    background-image: url("../images/gym.png");
+    width: 100%;
+    height: 55vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+}
+.volleyball {
+    position: absolute;
+    height: 350px;
+    width: auto;
+    z-index: 0;
+    left: 13%;
+    top: 15%;
+}
+
+.basketball {
+    height: 350px;
+    width: auto;
+    position: absolute;
+    right: 10%;
+    top: 12%;
+    z-index: 0;
+}
+
+.banner-gym-text {
+    text-align: center;
+    border-top: 3px solid var(--color-orange);
+    z-index: 1;
+}
+
+.banner-gym-text h1.banner-name {
+    font-size: 7rem;
+    color: var(--color-primary);
+
+    font-family: "IBM Plex Mono", sans-serif;
+    margin-top: 75px;
+}
+
+.banner-gym-text .btn {
+    color: var(--color-danger);
+    padding: 10px 15px;
+    border-width: 5px;
+    border-color: var(--color-warning) !important;
+    font-weight: 700;
+    background-color: var(--color-warning);
+    font-size: 1.8em;
+    text-decoration: none;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.banner-gym-text .btn:hover {
+    background-color: var(--color-primary);
+    color: var(--color-background);
+}
+
+.banner-gym-top {
+    position: absolute;
+    background: var(--color-danger);
+    height: 45%;
+    width: 100%;
+    z-index: -1;
+    transform: skewY(-3deg);
+    right: -1px;
+    transform-origin: -40% 0;
+    box-shadow: none;
+}
+
+.banner-gym-bottom {
+    position: absolute;
+    background: var(--color-warning);
+    height: 40%;
+    width: 100%;
+    z-index: -2;
+    transform: skewY(-3deg);
+    right: -1px;
+    transform-origin: 80% 0;
+    box-shadow: none;
+}
+
+.container-gym-table {
+    background-color: var(--color-primary);
+    position: relative;
+    height: fit-content;
+}
+
+.container-gym-table .btn-reservation-gym {
+    color: var(--color-primary);
+    background-color: var(--color-warning);
+    border: 3px solid var(--color-background);
+    border-radius: 18px;
+    font-size: 1.5em;
+    padding: 5px 15px;
+    margin: 0 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+    justify-content: flex-start;
+}
+
+.container-gym-table .btn-calendar-gym {
+    color: var(--color-background);
+    background-color: var(--color-primary);
+    border: 3px solid var(--color-background);
+    border-radius: 18px;
+    font-size: 1.5em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+    justify-content: flex-end;
+}
+
+.button-container {
+    display: flex;
+    grid-row-start: 1;
+    grid-column: 3 / span 2;
+    padding: 10px;
+    justify-content: flex-end;
+}
+
+.container-gym-table .btn-calendar-gym:valid {
+    color: var(--color-background);
+    background-color: var(--color-primary);
+    border: 3px solid var(--color-background);
+    border-radius: 18px;
+    font-size: 1.5em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+}
+
+.container-gym-table .btn-reservation-gym:hover {
+    color: var(--color-primary);
+    background-color: var(--color-warning);
+    border: 3px solid var(--color-orange);
+    border-radius: 18px;
+    font-size: 1.5em;
+    padding: 5px 15px;
+    margin: 0 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+}
+
+
+/* ======================= Gym Modal ======================= */
+.modal-content {
+    display: inline-block;
+    color: var(--color-primary) !important;
+    background: var(--color-background) !important;
+    font-size: 1.5em ;
+    padding: 1em;
+
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: none !important;
+}
+
+.modal-header .col-6.text-end {
+    display: flex;
+    justify-content: flex-end;
+    width: auto;
+}
+
+.modal-title {
+    margin: 0;
+}
+
+.btn-close {
+    margin-left: auto;
+}
+
+.modal-body input[type="date"],
+.modal-body input[type="time"],
+.modal-body input[type="text"],
+.modal-body input[type="number"],
+.modal-body input[type="email"],
+.modal-body select {
+    color: var(--color-primary);
+    background: var(--color-background);
+    border: 2px solid var(--color-primary);
+    border-radius: 5px;
+    padding: 5px;
+    width: 100%;
+    font-size: 1em;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+}
+
+.modal-body .row {
+    display: flex;
+}
+
+.modal-body .col {
+    flex: 1;
+}
+
+.modal-footer {
+    justify-content: center !important;
+    border-top: none !important;
+}
+
+.modal-footer .btn-primary {
+    background-color: var(--color-warning);
+    border-color: var(--color-warning);
+    font-size: 1em;
+}
+
+.modal-footer .btn-primary:hover {
+    color: var(--color-background);
+    background-color: var(--color-primary);
+    border: 1px solid var(--color-background);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.modal-footer .btn-secondary {
+    background-color: var(--color-orange);
+    border-color: var(--color-orange);
+    font-size: 1em;
+}
+
+.modal-footer .btn-secondary:hover {
+    color: var(--color-background);
+    background-color: var(--color-primary);
+    border: 1px solid var(--color-background);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+}
+
+/* Gym Table */
+.day-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color: var(--color-primary);
+    padding: 1%;
+    padding-top: 0%;
+    grid-row-start: 2;
+    grid-column: 2 / span 2;
+}
+
+.day-box {
+    flex: 1;
+    border: 3px solid var(--color-orange);
+    padding: 10px;
+    text-align: center;
+    margin: 10px;
+    background-color: var(--color-background);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+}
+
+.day-box h4 {
+    font-weight: 800;
+    color: var(--color-orange);
+    text-transform: uppercase;
+}
+
+#calendar_container .h1 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 800;
+    color: var(--color-background);
+    font-size: 5em;
+}
+
+.schedule {
+    border-top: 1px solid #ddd;
+    padding-top: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.day-box .hour.unreserved {
+    color: var(--color-primary);
+}
+
+.day-box .hour.reserved {
+    color: rgb(156, 2, 2);
+}
+
+#month-heading {
+    text-transform: uppercase;
+}
+
+.day-box ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.day-box li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-orange);
+    /* Adjust the color as needed */
+}
+
+.hour-divider {
+    width: 100%;
+    /* Adjust the width as needed */
+    border-top: 4px solid var(--color-orange);
+    margin: 10px 0;
+}
+@media (min-width: 2000px) {
+}
+
+@media screen and (max-width: 1150px) {
+    .volleyball {
+        display: none;
+    }
+    .basketball {
+        display: none;
+    }
+    .container-gym {
+        height: 30vh;
+    }
+    .banner-gym-text h1.banner-name {
+        font-size: 4rem;
+    }
+    
+    .banner-gym-text .btn {
+        font-size: 1em;
+    }
+    .banner-gym-text .btn:hover {
+        background-color: var(--color-primary);
+        color: var(--color-background);
+    }
+    .container-gym-table .btn-reservation-gym:hover,
+    .container-gym-table .btn-reservation-gym,
+    .container-gym-table .btn-calendar-gym:valid{
+        font-size: 1rem;
+    }
+    .container-gym-table {
+        width: 100%;
+    }
+    .row.mb-3 h4,
+    .modal-content {
+        font-size: 1em;
+    }
+    .day-box h4{
+        font-size: 1rem;
+    }
+    .day-box li{
+        font-size: 0.7rem;
+    }
+}
+
+@media screen and (max-width: 950px) {
+    .container-gym {
+        height: 30vh;
+    }
+    .banner-gym-text h1.banner-name {
+        font-size: 3rem;
+    }
+    .banner-gym-text h1.banner-name{
+        margin-top: 20px;
+    }
+    .banner-gym-text .btn {
+        font-size: 1em;
+    }
+    .banner-gym-text .btn:hover {
+        background-color: var(--color-primary);
+        color: var(--color-background);
+    }
+    .container-gym-table .btn-reservation-gym:hover,
+    .container-gym-table .btn-reservation-gym,
+    .container-gym-table .btn-calendar-gym:valid{
+        font-size: 0.7rem;
+    }
+    .container-gym-table {
+        width: 100%;
+    }
+    .row.mb-3 h4,
+    .modal-content {
+        font-size: 0.7em;
+    }
+    .day-box h4{
+        font-size: 0.7rem;
+    }
+    .day-box li{
+        font-size: 0.7rem;
+    }
+}
+@media screen and (max-width: 650px) {
+}
