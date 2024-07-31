@@ -1,14 +1,462 @@
+
+.container-dorm {
+    background-image: url("../images/dorm.png");
+    width: 100%;
+    height: 55vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+}
+.banner-dorm-text {
+    text-align: center;
+    border-top: 3px solid var(--color-orange);
+    z-index: 1;
+}
+
+.container .hero-section {
+    display: flex;
+    justify-content: center;
+}
+
+.banner-dorm-text h1.banner-name {
+    position: relative;
+    font-size: 7rem;
+    color: var(--color-background);
+    margin-top: 75px;
+    font-family: 'IBM Plex Mono', sans-serif;
+    z-index: 1;
+}
+
+.banner-dorm-text .btn {
+    color: var(--color-primary);
+    padding: 10px 15px;
+    border-width: 5px;
+    border-color: var(--color-warning) !important;
+    font-weight: 700;
+    background-color: var(--color-warning);
+    font-size: 1.8em;
+    text-decoration: none;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.banner-dorm-text .btn:hover {
+    background-color: var(--color-primary);
+    color: var(--color-warning);
+}
+.pillow1 {
+    position: absolute;
+    height: 350px;
+    width: auto;
+    z-index: 0;
+    left: 10%;
+}
+
+.pillow2 {
+    height: 400px;
+    width: auto;
+    position: absolute;
+    right: 12%;
+    top: 12%;
+    z-index: 0;
+}
+
+.container .row.date {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.col-md-6.time {
+    flex: 0 0 auto;
+}
+
+.dropdown-center.beds {
+    display: flex;
+    flex-direction: row;
+}
+
+.dropdown-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dropdown-center input {
+    margin: 0 5px;
+}
+
+.date-container {
+    text-align: center;
+}
+
+.date-container h5 {
+    margin-top: 20px;
+}
+
+.container .row.date .col-md-6.date,
+.container .row.date .col-md-6.availability {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container .card-body .btn-calendar-dorm {
+    color: var(--color-background);
+    background-color: var(--color-primary);
+    border: 3px solid var(--color-background);
+    border-radius: 18px;
+    font-size: 1.5em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+    width: fit-content;
+    margin: 20px auto;
+    margin-top: 10px;
+}
+
+.container .card-body {
+    width: 95%;
+    display: inline;
+    align-items: center;
+    justify-content: center;
+}
+
+.container .card-body .btn-calendar-dorm:hover {
+    border: 3px solid var(--color-warning);
+}
+
+.container .card-body .btn-calendar-dorm:valid {
+    color: var(--color-background);
+    background-color: var(--color-primary);
+    border: 3px solid var(--color-background);
+    border-radius: 18px;
+    font-size: 1.5em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+}
+
+.beds {
+    position: relative;
+}
+
+.container .card-body .btn-calendar-datetime-bednumber {
+    color: var(--color-background);
+    background-color: var(--color-primary);
+    border: 3px solid var(--color-background);
+    border-radius: 18px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+    width: 100px;
+    margin: 20px 20px;
+}
+
+.container .card-body .btn-calendar-datetime {
+    color: var(--color-primary);
+    background-color: var(--color-background);
+    border: 3px solid var(--color-primary);
+    border-radius: 18px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+    width: fit-content;
+    margin: 10px;
+    margin-top: 10px;
+    font-size: 0.8rem;
+}
+
+.container .card-body .btn-calendar-datetime:valid {
+    color: var(--color-background);
+    background-color: var(--color-primary);
+    border: 3px solid var(--color-background);
+    border-radius: 18px;
+    font-size: 1em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.date-container .availability h1 {
+    color: var(--color-background);
+    background-color: var(--color-primary);
+
+}
+
+.number-input-female .number-input-section,
+.number-input-section {
+    display: flex;
+    align-items: center;
+}
+
+.number-input-female .number-input-section input,
+.number-input-section input {
+    margin: 0 5px;
+}
+
+.number-input-female,
+.number-input {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.number-input-section span {
+    cursor: pointer;
+    border-radius: 50%;
+    color: var(--color-primary);
+    background: var(--color-background);
+    width: 25px;
+    height: 25px;
+    font-size: 1.2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 5px;
+}
+
+.alert-danger {
+    margin-top: 5px !important;
+    background: var(--color-primary) !important;
+    color: var(--color-background) !important;
+    border: 2px solid var(--color-danger) !important;
+}
+.number-input-female span:hover,
+.number-input span:hover {
+    background-color: var(--color-warning);
+    color: var(--color-primary);
+}
+
+.number-input-female .ri-subtract-fill,
+.number-input-female .ri-add-line,
+.number-input .ri-subtract-fill,
+.number-input .ri-add-line {
+    border-radius: 50%;
+    color: var(--color-primary);
+    background: var(--color-background);
+    width: 25px;
+    height: 25px;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2em;
+    display: flex;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.custom-dropdown-menu {
+    color: var(--color-primary);
+    background: var(--color-background);
+    font-size: 1em;
+}
+
+.custom-dropdown-item {
+    color: var(--color-primary);
+    font-size: 1em;
+}
+
+/*======================= DORM RESERVATION ==========================================*/
+
+.container .section .card {
+    color: var(--color-background);
+    background: var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container .section .card button {
+    color: var(--color-background);
+}
+
+.container .section .card button:hover {
+    color: var(--color-primary);
+    border: 1px solid var(--color-orange);
+    background: var(--color-background);
+    transition: all 300ms ease;
+}
+
+.container .section .card .card-body button {
+    color: var(--color-primary);
+    background: var(--color-background);
+    margin: 10px;
+}
+
+.container .section .card .card-body .dropdown-menu,
+.container .section .card .card-body .dropdown-menu a {
+    color: var(--color-primary);
+    background: var(--color-background);
+    width: 95%;
+}
+
+.container .section .card .card-body .dropdown-menu a:hover {
+    background: var(--color-background);
+    transform: translate(5px);
+    transition: all 300ms ease;
+    color: var(--color-orange);
+}
+
+.container .section .card .footer.button a {
+    padding: auto;
+}
+
+.container .section .card .footer.button a.btn-clear,
+.container .section .card .footer.button button.btn-add {
+    color: var(--color-primary);
+    transform: translate(-5px);
+    border: 3px solid var(--color-orange);
+}
+
+.container .section .card .footer.button a.btn-clear:hover,
+.container .section .card .footer.button button.btn-add:hover {
+    color: var(--color-background);
+    background-color: var(--color-primary);
+    border: 3px solid var(--color-background);
+    transform: translate(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+}
+
+.container .section .card .footer.button a.btn-clear {
+    background: var(--color-background);
+    color: var(--color-primary);
+}
+
+.container .section .card .footer.button button.btn-add {
+
+    background: var(--color-orange);
+
+}
+
+.container .section .card .row.dorm-align-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container .section .card .card-header .card-title {
+    font-size: 1.8em;
+}
+
+.col-md-5.carousel {
+    display: inline;
+    justify-content: flex-end;
+    margin-top: 5%;
+
+}
+
+.reservor {
+    display: inline-block;
+    justify-content: center;
+    text-align: center;
+}
+
+#occupant_type_male,
+#occupant_type_female {
+    margin-top: 20px;
+    background: var(--color-background);
+    color: var(--color-primary);
+    width: 80%;
+}
+
+#occupant_type_male select,
+#occupant_type_female select {
+    color: var(--color-primary);
+    background: var(--color-background);
+}
+
+.reservor-type {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-select option:hover {
+    background: var(--color-background);
+    font-size: 1em;
+}
+
+.dropdown-menu {
+    width: 100%;
+    text-align: center;
+}
+
+.row.discount {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.row.discount .col-md-6 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#dormCartReservationsTable {
+    width: 100%;
+    table-layout: auto;
+}
+
 @media (min-width: 2000px) {
 
 }
-
+@media screen and (max-width: 1300px) {
+    .pillow2 ,
+    .pillow1 {
+        display: none;
+    }
+  
+}
+@media screen and (max-width: 1250px) {
+    .dorm_reservation_section {
+        display: flex;
+        flex-direction: column;
+        display: inline-block;
+    }
+    .row {
+        display: inline-flex;
+      
+    }
+    .col-md-6,
+    .col-md-5,
+    .col-md-7{
+        flex: 1 ;
+        width: 100% !important;
+    }
+    .container .section .card .card-header .card-title {
+        font-size: 2rem;
+    }
+    #maleCard button,
+    #femaleCard button,
+    #maleCard a,
+    #femaleCard a {
+        font-size: 1rem;
+    }
+}
 @media screen and (max-width: 1150px) {
-    
+   
+    .container-dorm {
+        height: 30vh;
+    }
+    .banner-dorm-text h1.banner-name {
+        font-size: 4rem;
+        margin-top: 30px;
+    }
+    .banner-dorm-text .btn {
+        font-size: 1em;
+    }
+    .container-dorm-table {
+        width: 100%;
+    }
+ 
+    .container .section .card{
+        flex-direction: column;
+       
+    }
 }
 
 @media screen and (max-width: 950px) {
-
+    .banner-dorm-text h1.banner-name {
+        font-size: 3rem;
+        margin-top: 20px;
+    }
 }
+
 @media screen and (max-width: 650px) {
 
 }

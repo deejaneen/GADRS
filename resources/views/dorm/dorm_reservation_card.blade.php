@@ -107,14 +107,21 @@
                         <div class="col-md-5 carousel">
                             <div id="carouselMale" class="carousel slide">
                                 <div class="carousel-inner">
+                                    <div class="carousel-item">
+                                        <img src="{{asset('images/FPL06156.jpg')}}" class="d-block w-100" alt="...">
+                                    </div>
                                     <div class="carousel-item active">
-                                        <img src="https://justorganized.org/wp-content/uploads/2019/08/guys-dorm-room-1024x675.jpg" class="d-block w-100" alt="...">
+                                        <img src="{{asset('images/FPL06148.jpg')}}" class="d-block w-100" alt="...">
                                     </div>
                                     <div class="carousel-item">
-                                        <img src="https://justorganized.org/wp-content/uploads/2019/08/guys-dorm-room-1024x675.jpg" class="d-block w-100" alt="...">
+                                        <img src="{{asset('images/FPL06154.jpg')}}" class="d-block w-100" alt="...">
                                     </div>
                                     <div class="carousel-item">
-                                        <img src="https://justorganized.org/wp-content/uploads/2019/08/guys-dorm-room-1024x675.jpg" class="d-block w-100" alt="...">
+                                        <img src="{{asset('images/FPL06155.jpg')}}" class="d-block w-100" alt="...">
+                                    </div>
+                                  
+                                    <div class="carousel-item">
+                                        <img src="{{asset('images/FPL06165.jpg')}}" class="d-block w-100" alt="...">
                                     </div>
                                 </div>
                                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselMale" data-bs-slide="prev">
@@ -246,14 +253,21 @@
                         <div class="col-md-5 carousel">
                             <div id="carouselFemale" class="carousel slide">
                                 <div class="carousel-inner">
+                                    <div class="carousel-item">
+                                        <img src="{{asset('images/FPL06156.jpg')}}" class="d-block w-100" alt="...">
+                                    </div>
                                     <div class="carousel-item active">
-                                        <img src="https://justorganized.org/wp-content/uploads/2019/08/guys-dorm-room-1024x675.jpg" class="d-block w-100" alt="...">
+                                        <img src="{{asset('images/FPL06148.jpg')}}" class="d-block w-100" alt="...">
                                     </div>
                                     <div class="carousel-item">
-                                        <img src="https://justorganized.org/wp-content/uploads/2019/08/guys-dorm-room-1024x675.jpg" class="d-block w-100" alt="...">
+                                        <img src="{{asset('images/FPL06154.jpg')}}" class="d-block w-100" alt="...">
                                     </div>
                                     <div class="carousel-item">
-                                        <img src="https://justorganized.org/wp-content/uploads/2019/08/guys-dorm-room-1024x675.jpg" class="d-block w-100" alt="...">
+                                        <img src="{{asset('images/FPL06155.jpg')}}" class="d-block w-100" alt="...">
+                                    </div>
+                                  
+                                    <div class="carousel-item">
+                                        <img src="{{asset('images/FPL06165.jpg')}}" class="d-block w-100" alt="...">
                                     </div>
                                 </div>
                                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselFemale" data-bs-slide="prev">

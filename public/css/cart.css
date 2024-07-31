@@ -1,0 +1,191 @@
+
+/* =========================Cart Checkout ===================*/
+#gymReservationsCartCard,
+#dormReservationsCartCard {
+    border: 3px solid var(--color-primary);
+    margin-top: 20px;
+    background-color: var(--color-background);
+}
+
+#gymReservationsCartToggleBtn,
+#dormReservationsCartToggleBtn,
+#gymTableHistoryToggleBtn,
+#dormTableHistoryToggleBtn {
+    background: var(--color-primary);
+    color: var(--color-background);
+}
+
+.bg-body-tertiary {
+    background: var(--color-background) !important;
+    color: var(--color-primary) !important;
+}
+
+.secondary_nav {
+    background-color: var(--color-orange) !important;
+}
+
+.fixed-bottom {
+    position: fixed;
+    top: 90%;
+    width: 100%;
+    background-color: var(--color-primary);
+    color: var(--color-orange);
+    padding: 10px;
+    height: 10vh;
+    text-align: center;
+    border: none !important;
+}
+
+.fixed-bottom button {
+    background: var(--color-background);
+    color: var(--color-primary);
+}
+
+.fixed-bottom button:hover {
+    background: var(--color-orange);
+    color: var(--color-primary);
+}
+
+.vertical-line {
+    border-left: 5px solid #000000;
+    height: auto;
+    border-radius: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+ul {
+    list-style: none;
+}
+
+ul.list-unstyled {
+    padding-left: 0;
+}
+
+#dormCartReservationsTable_wrapper,
+#gymCartReservationsTable_wrapper {
+    font-size: 1.2em;
+}
+
+.delete-button:hover {
+    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+}
+.delete-button,
+.ri-delete-bin-line,
+.add-icon,
+.minus-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 60%;
+    border: 1px solid var(--color-danger);
+    background-color: var(--color-danger);
+    color: var(--color-background);
+    height: 2.4em;
+    width: 2.4em;
+    box-shadow: none;
+}
+
+.cart-checkout {
+    border: 7px solid #003049;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+}
+
+.col-2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#GymReservationsHistoryTableCard,
+#DormReservationsHistoryTableCard {
+    margin-top: 20px;
+    width: 100%;
+    border: 2px solid var(--color-primary);
+}
+
+.dt-layout-row {
+    width: 100%;
+}
+
+/* Cart Checkout End*/
+
+@media (min-width: 2000px) {
+
+}
+
+@media screen and (max-width: 1150px) {
+    #dormReservationsCartToggleBtn,
+    #gymReservationsCartToggleBtn {
+        font-size: 1rem;
+    }
+
+    .container {
+        max-width: 100% !important;
+    }
+    #dormReservationsCartCard td,
+    #gymReservationsCartCard td,
+    #dormReservationsCartCard th,
+    #gymReservationsCartCard th,
+    .dt-layout-row{
+        font-size: 1rem;
+    }
+    .delete-button,
+    .ri-delete-bin-line{
+        height: 1.5em;
+        width: 1.5em;
+        font-size: 1em;
+    }
+    .navbar.fixed-bottom label,
+    .navbar.fixed-bottom p
+    {        
+        font-size: 1rem;
+    
+    }
+    .navbar a.navbar-brand,
+    .navbar.fixed-bottom button{
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 950px) {
+    #dormReservationsCartCard td,
+    #gymReservationsCartCard td,
+    #dormReservationsCartCard th,
+    #gymReservationsCartCard th,
+    .dt-layout-row{
+        font-size: 0.7rem;
+    }
+    .navbar.fixed-bottom label,
+    .navbar.fixed-bottom p
+    {        
+        font-size: 0.7rem;
+    
+    }
+    .navbar a.navbar-brand,
+    .navbar.fixed-bottom button{
+        font-size: 1.5rem;
+    }
+
+}
+@media screen and (max-width: 650px) {
+    .navbar.fixed-bottom label,
+    .navbar.fixed-bottom p
+    {        
+        font-size: 0.7rem;
+    
+    }
+    .navbar a.navbar-brand,
+    .navbar.fixed-bottom button{
+        font-size: 1rem;
+    }
+    .container-fluid{
+        display: inline;
+        flex-direction: column;
+    }
+    .fixed-bottom{
+        top: 85%;
+        height: 15vh;
+    }
+}

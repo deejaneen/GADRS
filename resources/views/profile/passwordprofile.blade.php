@@ -5,7 +5,8 @@
       <div class="profileview-container">
         @include('profile.leftcolumn_sidebar')
         @auth
-            <form action="{{ route('update_password') }}" id="change_password_form" method="post">
+        <div class="container-change-password">
+             <form action="{{ route('update_password') }}" id="change_password_form" method="post">
                 @csrf
                 @method('post')
                 <div class="right-column password">
@@ -38,6 +39,8 @@
                     <button class="btn-save-password-changes btn btn-primary" type="submit">Save</button>
                 </div>
             </form>
+        </div>
+           
 
         @endauth
 
