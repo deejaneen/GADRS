@@ -10,9 +10,7 @@
 
                     </div>
                     <hr>
-                    <a href="{{ route('users.edit', $user->id) }}" class="btn btn-primary btn-edit-profile">
-                        <span class="ri-pencil-line"></span>Edit
-                    </a>
+                   
                     <div class="inputBox firstname">
                         <input type="text" value="{{ $user->first_name }}" disabled>
                         <span>First Name</span>
@@ -33,7 +31,9 @@
                         <input type="text" value="{{ $user->contact_number }}"disabled>
                         <span>Contact Number</span>
                     </div>
-
+                    <a href="{{ route('users.edit', $user->id) }}" class="btn btn-primary btn-edit-profile">
+                        <span class="ri-pencil-line"></span>Edit
+                    </a>
                 </div>
 
             </div>
