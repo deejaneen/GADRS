@@ -2,25 +2,7 @@
 
 @section('supplydashboard')
 @include('ras.supply.supply-sidebar')
-<!-- <div class="right">
-    <div class="top">
-        <button id="menu-btn">
-            <span class="ri-menu-line"></span>
-        </button>
-        <div class="profile">
-            <div class="info">
-                <p>Hey, <b>{{ Auth::user()->first_name }}</b></p>
-                <small class="text-muted">{{ Auth::user()->role }}</small>
-            </div>
-            <div class="profile-photo">
-                <img src="{{ asset('images/COA CAR logo.png') }}" alt="">
-            </div>
-        </div>
-    </div>
 
-    {{-- ------------------ END OF RECENT UPDATES ------------------ --}}
-
-</div> -->
 <div class="card" id="ReceivingPendingTableCard">
     <h2>User Details</h2>
     <div class="row mb-3">
@@ -57,11 +39,10 @@
             </div> -->
             <div class="col-4">
                 <label for="status" class="form-label">Status</label>
-                <select class="form-control" id="status" name="status" required>
+                <select class="form-select" id="status" name="status" required>
                     <option value="Received" {{ $dorm->status === 'Received' ? 'selected' : '' }}>Received</option>
                     <option value="Pending" {{ $dorm->status === 'Pending' ? 'selected' : '' }}>Pending</option>
                 </select>
-                <i class="fas fa-chevron-down dropdown-icon supply"></i>
                 @error('status')
                 <span class="text-danger fs-6">{{ $message }}</span>
                 @enderror

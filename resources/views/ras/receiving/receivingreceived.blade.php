@@ -45,6 +45,9 @@
                 </td>
 
                 <td class="buttons">
+                    <a href="{{ route('receiving.addORNumber', $gym->id) }}" class="btn btn-assign-number rounded-pill" id="receivingReceivedAssignNumberbtn">
+                        Update Status
+                    </a>
                     <a href="{{ route('receiving.viewGym', $gym->id) }}" class="btn btn-view-details rounded-pill" id="receivingViewFormbtn">
                         View Details
                     </a>

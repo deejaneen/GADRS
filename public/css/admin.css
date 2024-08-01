@@ -117,7 +117,21 @@ b {
 .warning {
     color: var(--color-warning);
 }
+.top .profile .role small{
+    color: var(--color-orange);
+}
+.top .profile .info b,
 
+.top .profile .info p{
+    color: var(--color-background);
+}
+.profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 1rem 0 1rem;
+}
 /* admin.css */
 .container {
     font-family: "Poppins", sans-serif;
@@ -208,6 +222,7 @@ aside h3 {
 }
 
 .sidebar a .ri-dashboard-line,
+.sidebar a .ri-receipt-fill,
 .sidebar a .ri-edit-2-line,
 .sidebar a .ri-time-line,
 .sidebar a .ri-folder-received-fill,

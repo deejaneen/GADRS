@@ -78,11 +78,10 @@
             </div> -->
             <div class="col-4">
                 <label for="status" class="form-label">Status</label>
-                <select class="form-control" id="status" name="status" required>
+                <select class="form-select" id="status" name="status" required>
                     <option value="Received" {{ $gym->status === 'Received' ? 'selected' : '' }}>For Payment</option>
                     <option value="Reserved" {{ $gym->status === 'Reserved' ? 'selected' : '' }}>Paid</option>
                 </select>
-                <i class="fas fa-chevron-down dropdown-icon cashier-gym"></i>
                 @error('status')
                 <span class="text-danger fs-6">{{ $message }}</span>
                 @enderror

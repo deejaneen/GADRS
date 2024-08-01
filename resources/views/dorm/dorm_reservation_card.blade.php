@@ -81,7 +81,6 @@
                                             <option value="COA">COA</option>
                                             <option value="Non COAn">Non COA</option>
                                         </select>
-                                        <i class="fas fa-chevron-down dropdown-icon dorm"></i>
                                         <input type="text" name="gender" value="Male" hidden>
                                     </div>
 
@@ -226,7 +225,6 @@
                                             <option value="COA">COA</option>
                                             <option value="Non COAn">Non COA</option>
                                         </select>
-                                        <i class="fas fa-chevron-down dropdown-icon dorm"></i>
                                         <input type="text" name="gender" value="Female" hidden>
                                     </div>
                                 </div>

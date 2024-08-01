@@ -33,6 +33,11 @@ class SupplyController extends Controller
         $dorms = Dorm::where('status', 'Received')->orderBy('created_at', 'DESC')->get();
         return view('ras.supply.supply-dormreservations-received', ['dorms' => $dorms]);
     }
+    public function supplyPaid()
+    {
+        $dorms = Dorm::where('status', 'Paid')->orderBy('created_at', 'DESC')->get();
+        return view('ras.supply.supplypaid', ['dorms' => $dorms]);
+    }
 
    public function addFormNumber(Dorm $dorm)
 {

@@ -47,7 +47,6 @@
                                     <option value="COA Employee">COA Employee</option>
                                     <option value="Non-COA">Non-COA</option>
                                 </select>
-                                <i class="fas fa-chevron-down dropdown-icon"></i>
                             </div>
                         </div>
                         <div class="col">
@@ -59,7 +58,6 @@
                                     <option value="Volleyball">Volleyball</option>
                                     <option value="Badminton">Badminton</option>
                                 </select>
-                                <i class="fas fa-chevron-down dropdown-icon"></i>
                             </div>
                         </div>
 

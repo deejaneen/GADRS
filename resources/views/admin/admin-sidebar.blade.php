@@ -4,6 +4,17 @@
                 <img src="{{ asset('images/COA CAR logo.png') }}" alt="">
                 <h2 class="primary-light">COA <span class="danger">CAR</span></h2>
             </div>
+            <div class="profile">
+                <div class="info">
+                    <p>Hey, <b>{{ Auth::user()->first_name }}</b></p>
+                </div>
+                <div class="role">
+                    <small class="">Admin</small>
+                </div>
+            </div>
+            <div class="close" id="close-btn">
+                <span class="ri-close-fill"></span>
+            </div>
             <div class="close" id="close-btn">
                 <span class="ri-close-fill"></span>
             </div>

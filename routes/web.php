@@ -137,8 +137,10 @@ Route::middleware(['auth', 'verified', 'checkRole:Receiving', 'preventCaching'])
     Route::get('/receiving/home', [ReceivingController::class, 'index'])->name('receivinghome');
     Route::get('/receiving/pending', [ReceivingController::class, 'receivingpending'])->name('receivingpending');
     Route::get('/receiving/received', [ReceivingController::class, 'receivingreceived'])->name('receivingreceived');
+    Route::get('/receiving/paid', [ReceivingController::class, 'receivingpaid'])->name('receivingpaid');
     Route::get('/receiving/gym', [ReceivingController::class, 'receivingedit'])->name('receivingeditreservations');
     Route::get('/receiving/gym/{gym}', [ReceivingController::class, 'editGym'])->name('receiving.editGym');
+    Route::get('/receiving/addornumber/{gym}', [ReceivingController::class, 'addORNumber'])->name('receiving.addORNumber');
     Route::get('/receiving/gym/{gym}/pdf', [ReceivingController::class, 'viewGymPDF'])->name('receiving.viewPDF');
     Route::get('/receiving/gym/{gym}/oodpdf', [ReceivingController::class, 'viewGymOrderofPaymentPDF'])->name('receiving.viewPDFOoP');
     Route::put('/receiving/gym/addFormNumber/{gym}', [ReceivingController::class, 'addFormNumber'])->name('addFormNumberRec');
@@ -152,6 +154,7 @@ Route::middleware(['auth', 'verified', 'checkRole:Receiving', 'preventCaching'])
 Route::middleware(['auth', 'verified', 'checkRole:Supply', 'preventCaching'])->group(function () {
     Route::get('/supply/home', [SupplyController::class, 'index'])->name('supplyhome');
     Route::get('/supply/reservations', [SupplyController::class, 'supplyReservations'])->name('supplyreservations');
+    Route::get('/supply/paid', [SupplyController::class, 'supplyPaid'])->name('supplypaid');
     Route::get('/supply/reservations/received', [SupplyController::class, 'supplyReservationsReceived'])->name('supplyreservationsrd');
     Route::get('/supply/dorm/{dorm}', [SupplyController::class, 'editDorm'])->name('supply.editDorm');
     Route::get('/supply/dorm/{dorm}/pdf', [SupplyController::class, 'viewDormPDF'])->name('supply.viewPDF');

@@ -2,10 +2,9 @@
 
 @section('receivingdashboard')
 <main>
-    <h1>Pending</h1>
+    <h1>Paid</h1>
 
 </main>
-
 <div class="card" id="ReceivingPendingTableCard">
     <div>
         <h2 class="card-header text-center home">Assign a Form Number</h2>
@@ -42,7 +41,7 @@
                 }}">{{ $gym->status }}</td>
                 <td class="buttons">
                     <a href="{{ route('receiving.editGym', $gym->id) }}" class="btn btn-assign-number rounded-pill" id="receivingAssignNumberbtn">
-                        Update Status
+                        Assign Number
                     </a>
                     <a href="{{ route('receiving.viewGym', $gym->id) }}" class="btn btn-view-details rounded-pill" id="receivingViewFormbtn">
                         View Details
@@ -60,9 +59,3 @@
     </table>
 </div>
 @endsection
-<?php
-function formatTime($time)
-{
-    return \Carbon\Carbon::createFromFormat('H:i:s', $time)->format('g:i a');
-}
-?>

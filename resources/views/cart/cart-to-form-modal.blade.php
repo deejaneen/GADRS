@@ -30,14 +30,6 @@
                             <label for="contactNumber" class="form-label">Contact Number</label>
                             <input type="text" class="form-control" id="contactNumber" name="contactNumber" placeholder="(e.g., 09123456789)" maxlength="11" required>
                         </div>
-                        {{-- <div class="col">
-                            <label for="purpose" class="form-label">Purpose</label>
-                            <select class="form-select" id="purpose" name="purpose" required>
-                                <option value="Basketball">Basketball</option>
-                                <option value="Volleyball">Volleyball</option>
-                                <option value="Badminton">Badminton</option>
-                            </select>
-                        </div> --}}
                     </div>
                 </div>
             </form>
@@ -100,14 +92,6 @@
                             <label for="position" class="form-label">Position</label>
                             <input type="text" class="form-control" id="position" name="position" required>
                         </div>
-                        {{-- <div class="col">
-                            <label for="purpose" class="form-label">Purpose</label>
-                            <select class="form-select" id="purpose" name="purpose" required>
-                                <option value="Basketball">Basketball</option>
-                                <option value="Volleyball">Volleyball</option>
-                                <option value="Badminton">Badminton</option>
-                            </select>
-                        </div> --}}
                     </div>
                     <div class="row mb-3">
                         <div class="col">

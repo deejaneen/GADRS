@@ -72,6 +72,21 @@ class ReceivingController extends Controller
             'gyms' => $gyms
         ]);
     }
+    public function receivingpaid()
+    {
+        $today = now()->startOfDay();
+        $gymsPaidCount  = Gym::where('status', 'Paid')
+            ->where('reservation_date', '>=', $today)
+            ->count();
+        $gyms = Gym::where('status', 'Paid')
+            ->where('reservation_date', '>=', $today)
+            ->get();
+
+        return view('ras.receiving.receivingpaid', [
+            'gymsPaidCount' => $gymsPaidCount,
+            'gyms' => $gyms
+        ]);
+    }
     public function receivingreceived()
     {
         $gymsPendingCount = Gym::where('status', 'Received')->count();
@@ -203,6 +218,11 @@ class ReceivingController extends Controller
         $oopNumber = Str::afterLast($gym->oop_number, '-');
         // You can return the modal content as a view
         return view('ras.receiving.receiving-addnumber', compact('gym', 'userDetails', 'oopNumber', 'reservationNumber', 'receivingUser'));
+    }
+    public function addORNumber(Gym $gym)
+    {
+       
+        return view('ras.receiving.receiving-add-or-number');
     }
 
     public function viewGym(Gym $gym)

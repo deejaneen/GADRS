@@ -67,18 +67,6 @@
         <button id="menu-btn">
             <span class="ri-menu-line"></span>
         </button>
-
-        @auth()
-        <div class="profile">
-            <div class="info">
-                <p>Hey, <b>{{ Auth::user()->first_name }}</b></p>
-                <small class="text-muted">{{ Auth::user()->role }}</small>
-            </div>
-            <div class="profile-photo">
-                <img src="{{ asset('images/COA CAR logo.png') }}" alt="">
-            </div>
-        </div>
-        @endauth
     </div>
 
     {{-- ------------------ END OF RECENT UPDATES ------------------ --}}

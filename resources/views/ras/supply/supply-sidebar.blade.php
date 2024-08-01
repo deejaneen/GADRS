@@ -4,6 +4,17 @@
             <img src="{{ asset('images/COA CAR logo.png') }}" alt="">
             <h2 class="primary-light">COA <span class="danger">CAR</span></h2>
         </div>
+        <div class="profile">
+            <div class="info">
+                <p>Hey, <b>{{ Auth::user()->first_name }}</b></p>
+            </div>
+            <div class="role">
+                <small class="">Dorm-in-charge</small>
+            </div>
+        </div>
+        <div class="close" id="close-btn">
+            <span class="ri-close-fill"></span>
+        </div>
         <div class="close" id="close-btn">
             <span class="ri-close-fill"></span>
         </div>
@@ -25,6 +36,14 @@
             <a href="{{ route('supplyreservationsrd') }}" class="sidebar-link">
                 <span class="ri-receipt-line">
                     <h3>Received</h3>
+                    @if($dormsReceivedCountView != 0)
+                    <span class="message-count">{{ $dormsReceivedCountView }}</span>
+                    @endif
+                </span>
+            </a>
+            <a href="{{ route('supplypaid') }}" class="sidebar-link">
+                <span class="ri-receipt-fill">
+                    <h3>Paid</h3>
                     @if($dormsReceivedCountView != 0)
                     <span class="message-count">{{ $dormsReceivedCountView }}</span>
                     @endif
