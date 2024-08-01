@@ -56,12 +56,12 @@
             <label for="purpose" class="form-label">Purpose</label>
             <input type="text" class="form-control" id="purpose" value="{{ $gym->purpose }}" name="purpose" disabled>
         </div>
-        @if($gym->purpose == 'Badminton')
+        <!-- @if($gym->purpose == 'Badminton')
         <div class="col">
             <label for="number_of_courts" class="form-label">Number of Courts</label>
             <input type="text" class="form-control" id="number_of_courts" value="{{ $gym->number_of_courts }}" name="number_of_courts" disabled>
         </div>
-        @endif
+        @endif -->
         <div class="col">
             <label for="price" class="form-label">Total Price</label>
             <input type="text" class="form-control" id="price" value="{{ $gym->total_price }}" name="price" disabled>

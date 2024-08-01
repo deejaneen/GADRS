@@ -32,12 +32,12 @@
             <label for="purpose" class="form-label">Purpose</label>
             <input type="text" class="form-control" id="purpose" value="{{ $gym->purpose }}" name="purpose" disabled>
         </div>
-        @if($gym->purpose == 'Badminton')
+        <!-- @if($gym->purpose == 'Badminton')
         <div class="col">
             <label for="number_of_courts" class="form-label">Number of Courts</label>
             <input type="text" class="form-control" id="number_of_courts" value="{{ $gym->number_of_courts }}" name="number_of_courts" disabled>
         </div>
-        @endif
+        @endif -->
         <div class="col">
             <label for="occupant_type" class="form-label">Occupant Type</label>
             <input type="text" class="form-control" id="occupant_type" value="{{ $gym->occupant_type }}" name="occupant_type" disabled>
@@ -52,20 +52,22 @@
             <label for="reservation_number" class="form-label">Reservation Number</label>
             <input type="text" class="form-control" id="reservation_number" value="{{ $gym->reservation_number }}" name="reservation_number" disabled>
         </div>
-        <div class="col">
-            <label for="oop_number" class="form-label">OR Number</label>
-            <input type="text" class="form-control" id="oop_number" value="{{ $gym->oop_number }}" name="oop_number" disabled>
-        </div>
-        <div class="col">
-            <label for="or_date" class="form-label">OR Date</label>
-            <input type="text" class="form-control" id="or_date" value="{{ $gym->or_date }}" name="or_date" disabled>
-        </div>
     </div>
     <hr>
     <h2>CONFIRM PAYMENT GYM</h2>
     <form id="addReservationNumberForm" method="post" action="{{ route('cashier.confirmPayGym', $gym->id) }}">
         @csrf
         @method('PUT')
+        <div class="row mb-3">
+            <div class="col-4">
+                <label for="oop_number" class="form-label">OR Number</label>
+                <input type="number" class="form-control" id="oop_number" value="{{ $gym->oop_number }}" name="oop_number" required>
+            </div>
+            <div class="col-4">
+                <label for="or_date" class="form-label">OR Date</label>
+                <input type="date" class="form-control" id="or_date" value="{{ $gym->or_date }}" name="or_date" required>
+            </div>
+        </div>
         <div class="row mb-3">
             <!-- <div class="col-4">
                 <label for="price " class="form-label">Price</label>
@@ -117,7 +119,53 @@
     function goBack() {
         window.history.back();
     }
+
     document.addEventListener('DOMContentLoaded', function() {
+
+        const orNumberInput = document.getElementById('oop_number');
+
+        // Restrict input to numbers only
+        orNumberInput.addEventListener('input', function(e) {
+            this.value = this.value.replace(/[^0-9]/g, ''); // Remove non-numeric characters
+        });
+
+        // Limit the length to 7 characters
+        orNumberInput.addEventListener('input', function() {
+            if (this.value.length > 7) {
+                this.value = this.value.slice(0, 7); // Truncate to 7 characters
+            }
+        });
+
+        // Optionally prevent pasting non-numeric characters
+        orNumberInput.addEventListener('paste', function(e) {
+            let pasteData = (e.clipboardData || window.clipboardData).getData('text');
+            if (!/^\d*$/.test(pasteData)) {
+                e.preventDefault();
+            }
+        });
+        // Function to format the date to YYYY-MM-DD
+        function formatDate(date) {
+            const d = new Date(date);
+            let month = '' + (d.getMonth() + 1);
+            let day = '' + d.getDate();
+            const year = d.getFullYear();
+
+            if (month.length < 2)
+                month = '0' + month;
+            if (day.length < 2)
+                day = '0' + day;
+
+            return [year, month, day].join('-');
+        }
+
+        // Get today's date in YYYY-MM-DD format
+        const today = formatDate(new Date());
+
+        // Set the min attribute of the date input to today's date
+        const orDateInput = document.getElementById('or_date');
+        if (orDateInput) {
+            orDateInput.setAttribute('min', today);
+        }
         // Add event listener to the click event of the logout button
         document.getElementById('formSubmitBtn').addEventListener('click', function(event) {
             event.preventDefault(); // Prevent the default action of following the link
