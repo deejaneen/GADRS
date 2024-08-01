@@ -75,10 +75,10 @@ class ReceivingController extends Controller
     public function receivingpaid()
     {
         $today = now()->startOfDay();
-        $gymsPaidCount  = Gym::where('status', 'Paid')
+        $gymsPaidCount  = Gym::where('status', 'Reserved')
             ->where('reservation_date', '>=', $today)
             ->count();
-        $gyms = Gym::where('status', 'Paid')
+        $gyms = Gym::where('status', 'Reserved')
             ->where('reservation_date', '>=', $today)
             ->get();
 
@@ -107,6 +107,10 @@ class ReceivingController extends Controller
     public function receivingedit()
     {
         return view('ras.receiving.receivingedit');
+    }
+    public function addFormNumberPaid(Gym $gym)
+    {
+        return view('ras.receiving.receiving-add-form-number');
     }
 
     public function addFormNumber(Gym $gym)

@@ -80,6 +80,7 @@
         $(document).ready(function() {
             $('#ReceivingPendingTable').DataTable();
             $('#ReceivingReceivedTable').DataTable();
+            $('#ReceivingPaidTable').DataTable();
 
 
         });

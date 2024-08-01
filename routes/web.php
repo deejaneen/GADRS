@@ -141,6 +141,7 @@ Route::middleware(['auth', 'verified', 'checkRole:Receiving', 'preventCaching'])
     Route::get('/receiving/gym', [ReceivingController::class, 'receivingedit'])->name('receivingeditreservations');
     Route::get('/receiving/gym/{gym}', [ReceivingController::class, 'editGym'])->name('receiving.editGym');
     Route::get('/receiving/addornumber/{gym}', [ReceivingController::class, 'addORNumber'])->name('receiving.addORNumber');
+    Route::get('/receiving/addnormnumberpaid/{gym}', [ReceivingController::class, 'addFormNumberPaid'])->name('receiving.addFormNumberPaid');
     Route::get('/receiving/gym/{gym}/pdf', [ReceivingController::class, 'viewGymPDF'])->name('receiving.viewPDF');
     Route::get('/receiving/gym/{gym}/oodpdf', [ReceivingController::class, 'viewGymOrderofPaymentPDF'])->name('receiving.viewPDFOoP');
     Route::put('/receiving/gym/addFormNumber/{gym}', [ReceivingController::class, 'addFormNumber'])->name('addFormNumberRec');

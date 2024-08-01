@@ -6,10 +6,6 @@
     <div class="card" id="ReceivingPendingTableCard">
         <h2>Reservation Details</h2>
         <div class="row mb-3">
-            {{-- <div class="col">
-            <label for="employee_id" class="form-label" hidden>User ID</label>
-            <input type="text" class="form-control" id="employee_id" value="{{ $gym->employee_id }}" name="employee_id" disabled hidden>
-        </div> --}}
             <div class="col">
                 <label for="username" class="form-label">Username</label>
                 <input type="text" class="form-control" id="username"

@@ -2,8 +2,7 @@
 
 @section('receivingdashboard')
 <main>
-    <h1>Pending</h1>
-
+    <h1  style="margin: 1rem 0;">Pending</h1>
 </main>
 
 <div class="card" id="ReceivingPendingTableCard">
@@ -37,7 +36,7 @@
                 <td class="{{ 
                     $gym->status === 'Pending' ? 'status-pending' : (
                     $gym->status === 'Received/For Payment' ? 'status-received' : (
-                    $gym->status === 'Paid/Reserved' ? 'status-paid' : (
+                    $gym->status === 'Reserved' ? 'status-paid' : (
                     $gym->status === 'Cancelled/Unavailable' ? 'status-cancelled' : '')))
                 }}">{{ $gym->status }}</td>
                 <td class="buttons">

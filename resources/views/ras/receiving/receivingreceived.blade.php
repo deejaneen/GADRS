@@ -2,7 +2,7 @@
 
 @section('receivingdashboard')
 <main>
-    <h1>Received</h1>
+    <h1 style="margin: 1rem 0;">Received</h1>
 
     
     </main>

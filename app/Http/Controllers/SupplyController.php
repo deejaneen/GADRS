@@ -35,7 +35,7 @@ class SupplyController extends Controller
     }
     public function supplyPaid()
     {
-        $dorms = Dorm::where('status', 'Paid')->orderBy('created_at', 'DESC')->get();
+        $dorms = Dorm::where('status', 'Reserved')->orderBy('created_at', 'DESC')->get();
         return view('ras.supply.supplypaid', ['dorms' => $dorms]);
     }
 

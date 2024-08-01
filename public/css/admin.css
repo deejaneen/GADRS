@@ -312,10 +312,7 @@ aside .sidebar .message-count {
 }
 
 /* ==============================MAIN=========================== */
-main {
-    margin-top: 1.4rem;
-    margin-left: 1.4rem;
-}
+
 
 main .date {
     display: inline-block;
@@ -671,6 +668,7 @@ main .recent-orders a {
 
 
 
+#ReceivingPaidTable th,
 #ReceivingPendingTable th,
 #AdminUserTable th,
 #AdminGymReservationTable th,
@@ -682,6 +680,7 @@ main .recent-orders a {
     font-size: 0.88em;
 }
 
+#ReceivingPaidTableCard,
 #ReceivingPendingTableCard,
 #AdminUserTableCard,
 #AdminGymReservationTableCard,
@@ -697,11 +696,10 @@ main .recent-orders a {
     transition: all 300ms ease;
 }
 
-#ReceivingPendingTableCard,
-#AdminDormReservationTableCard {
-    margin-top: 30px;
+.fullspan{
+    grid-column: 2/span 3;
 }
-
+#ReceivingPaidTableCard:hover,
 #ReceivingPendingTableCard:hover,
 #AdminDormReservationTableCard:hover,
 #AdminGymReservationTableCard:hover,
