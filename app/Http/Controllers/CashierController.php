@@ -51,11 +51,42 @@ class CashierController extends Controller
     public function confirmPaymentGym(Gym $gym)
     {
         // Validate input
-        $validated = request()->validate([
-            // 'price' => 'required|min:3|max:12',
-            'status' => 'required',
-            'cashier_name' => 'required',
-        ]);
+        if (!$gym->oop_number) {
+            // Validate input when conditions are met
+            $validated = request()->validate([
+                // 'price' => 'required|min:3|max:12',
+                'oop_number' => 'required|min:3|max:11|unique:gym-reservations,oop_number,' . $gym->id,
+                'or_date' => 'required|date',
+                'status' => 'required',
+                'cashier_name' => 'required',
+            ]);
+        } else {
+            // Validate input when conditions are not met
+            $reservationsNotSimilarToOriginal = Gym::where('form_group_number', '!=', $gym->form_group_number)
+                ->get();
+
+            $validated = request()->validate([
+              
+                'status' => 'required',
+                'cashier_name' => 'required',
+                'oop_number' => [
+                    'required',
+                    'min:3',
+                    'max:11',
+                    function ($attribute, $value, $fail) use ($reservationsNotSimilarToOriginal) {
+                        foreach ($reservationsNotSimilarToOriginal as $reservation) {
+                            if ($reservation->oop_number === $value) {
+                                $fail('The ' . $attribute . ' has already been taken.');
+                            }
+                        }
+                    },
+                ],
+                'or_date' => 'required|date',
+        
+            ]);
+        }
+
+       
 
         // Get all Gym reservations with the same form_group_number
         $gymReservations = Gym::where('form_group_number', $gym->form_group_number)->get();
@@ -66,6 +97,8 @@ class CashierController extends Controller
                 $gymReservation->update([
                     'status' => $validated['status'],
                     'cashier_name' => $validated['cashier_name'],
+                    'oop_number' => $validated['oop_number'],
+                    'or_date' => $validated['or_date']
                 ]);
             }
 
@@ -294,7 +327,7 @@ class CashierController extends Controller
                 $isVolleyball = true;
             } elseif ($reservation->purpose === "Badminton") {
                 $isBadminton = true;
-                $numberOfCourtsSeparate = $reservation->number_of_courts;
+                // $numberOfCourtsSeparate = $reservation->number_of_courts;
             }
         }
 
@@ -304,7 +337,7 @@ class CashierController extends Controller
             'isBasketball' => $isBasketball,
             'isVolleyball' => $isVolleyball,
             'isBadminton' => $isBadminton,
-            'numberOfCourtsSeparate' => $numberOfCourtsSeparate,
+            // 'numberOfCourtsSeparate' => $numberOfCourtsSeparate,
         ];
 
         $marginInMillimeters = 0.5 * 25.4; // Convert inches to millimeters

@@ -23,28 +23,35 @@ class AuthController extends Controller
     {
         // Validate the request data
         $validated = request()->validate([
-            'last_name' => 'required|min:3|max:40',
-            'first_name' => 'required|min:3|max:40',
-            'middle_name' => 'required|min:3|max:40',
+            'last_name' => 'required|min:3|max:30',
+            'first_name' => 'required|min:3|max:15',
+            'middle_name' => 'required|min:3|max:30',
             'email' => 'required|email|unique:users,email',
+            'contact_number' => [
+                'required',
+                'regex:/^09[0-9]{9}$/',
+                'unique:users,contact_number'
+            ],
             'password' => 'required|confirmed'
         ]);
-    
+
         // Create the user
         $user = User::create([
             'last_name' => $validated['last_name'],
             'first_name' => $validated['first_name'],
             'middle_name' => $validated['middle_name'],
             'email' => $validated['email'],
+            'contact_number' => $validated['contact_number'],
             'password' => Hash::make($validated['password']),
         ]);
-    
+
+
         // Fire the Registered event
         event(new Registered($user));
-    
+
         // Log in the user
         auth()->login($user);
-    
+
         // Redirect to verification notice
         return redirect()->route('verification.notice')->with('success', "Account created successfully! Please verify your email.");
     }

@@ -751,7 +751,6 @@
             <td class="c27" colspan="1" rowspan="1">
                 <p class="c1">
                     <span class="c3">
-                        {{ $gym->number_of_courts ? $gym->number_of_courts : ($numberOfCourtsSeparate ? $numberOfCourtsSeparate : '') }}
                     </span>
                 </p>
             </td>

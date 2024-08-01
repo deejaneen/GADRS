@@ -43,7 +43,7 @@ class SupplyController extends Controller
     if (!$dorm->Form_number) {
         // Validate input
         $validated = request()->validate([
-            'Form_number' => 'required|min:3|max:11|unique:dorm_reservations,Form_number,' . $dorm->id,
+            'Form_number' => 'required|min:3|max:7|unique:dorm_reservations,Form_number,' . $dorm->id,
             'status' => 'required',
             'receiver_name' => 'required',
         ]);
@@ -97,9 +97,9 @@ class SupplyController extends Controller
         $receivingUser = User::select('first_name', 'middle_name', 'last_name')
             ->where('id', Auth::id())
             ->first();
-         $formNumberInput = Str::afterLast($dorm->Form_number, '-');
+        //  $formNumberInput = Str::afterLast($dorm->Form_number, '-');
         // You can return the modal content as a view
-        return view('ras.supply.supply-addnumber', compact('dorm', 'userDetails', 'receivingUser', 'formNumberInput'));
+        return view('ras.supply.supply-addnumber', compact('dorm', 'userDetails', 'receivingUser'));
     }
 
     public function viewDorm(Dorm $dorm)

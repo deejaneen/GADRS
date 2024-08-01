@@ -231,7 +231,7 @@ class ReceivingController extends Controller
                 $isVolleyball = true;
             } elseif ($reservation->purpose === "Badminton") {
                 $isBadminton = true;
-                $numberOfCourtsSeparate = $reservation->number_of_courts;
+                // $numberOfCourtsSeparate = $reservation->number_of_courts;
             }
         }
 
@@ -241,7 +241,7 @@ class ReceivingController extends Controller
             'isBasketball' => $isBasketball,
             'isVolleyball' => $isVolleyball,
             'isBadminton' => $isBadminton,
-            'numberOfCourtsSeparate' => $numberOfCourtsSeparate,
+            // 'numberOfCourtsSeparate' => $numberOfCourtsSeparate,
         ];
         $marginInMillimeters = 0.5 * 25.4; // Convert inches to millimeters
 
