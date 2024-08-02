@@ -41,7 +41,7 @@
     </div>
 </aside> -->
 {{-- -------------------------------END-OF-ASIDE-------------------- --}}
-<main>
+<main class="fullspan">
     <h1>PAID RESERVATIONS</h1>
     <h1 class="page-title" style=" color: var(--color-orange);">GYM</h1>
 

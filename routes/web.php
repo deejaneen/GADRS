@@ -173,7 +173,7 @@ Route::get('/tite', function () {
     return view('pdf.OrderofPaymentGym');
 });
 Route::get('/tite1', function () {
-    return view('pdf.GymReservationFormSheet1');
+    return view('loginredesign');
 });
 
 Route::get("/forget-password", [ForgetPasswordManager::class, "forgetPassword"])->name("forget.password");
@@ -190,3 +190,4 @@ Route::post("/reset-password", [ForgetPasswordManager::class, "resetPasswordPost
 
 //     return 'Test email sent!';
 // });
+

@@ -42,7 +42,7 @@
         </div>
     </aside> -->
 {{-- -------------------------------END-OF-ASIDE-------------------- --}}
-<main>
+<main class="fullspan">
     <h1>RESERVATIONS AWAITING PAYMENT</h1>
     <h1 class="page-title" style="color: var(--color-orange);">GYM</h1>
 
@@ -169,17 +169,6 @@
 </main>
 
 {{-- ------------------END OF MAIN------------------ --}}
-<div class="right">
-    <div class="top">
-        <button id="menu-btn">
-            <span class="ri-menu-line"></span>
-        </button>
-    </div>
-    {{-- ------------------END OF TOP------------------ --}}
-
-    {{-- ------------------ END OF RECENT UPDATES ------------------ --}}
-
-</div>
 @endsection
 <?php
 function formatTime($time)

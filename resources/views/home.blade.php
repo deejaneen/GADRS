@@ -88,7 +88,17 @@
                                                         onclick="confirmDelete(event, {{ $gym->id }})">
                                                         Delete Reservation
                                                     </button>
+                                                @elseif ($gym->status === 'Received')
+                                                    <div style="display:flex; flex-direction:column;">
+                                                        <small>To settle payment please contact</small>
+                                                        <small><span
+                                                                style="color: var(--color-warning);">commissiononauditcar@gmail.com</span>
+                                                            or go</small>
+                                                        <small>to <span style="color: var(--color-warning);">COA CAR
+                                                                Cashier</span> for payment.</small>
+                                                    </div>
                                                 @endif
+
                                             </form>
                                         </td>
                                     </tr>
@@ -153,6 +163,15 @@
                                                     onclick="confirmDelete(event, {{ $dorm->id }})">
                                                     Delete Reservation
                                                 </button>
+                                            @elseif ($dorm->status === 'Received')
+                                                <div style="display:flex; flex-direction:column;">
+                                                    <small>To settle payment please contact</small>
+                                                    <small><span
+                                                            style="color: var(--color-warning);">commissiononauditcar@gmail.com</span>
+                                                        or go</small>
+                                                    <small>to <span style="color: var(--color-warning);">COA CAR
+                                                            Cashier</span> for payment.</small>
+                                                </div>
                                             @endif
                                         </form>
                                     </td>
@@ -180,7 +199,7 @@
 @section('scripts')
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            
+
             const gymToggleBtn = document.getElementById('gymTableToggleBtn');
             const dormToggleBtn = document.getElementById('dormTableToggleBtn');
             const gymCard = document.getElementById('GymReservationsTableCard');
