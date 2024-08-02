@@ -19,10 +19,15 @@ class SidebarComposer
 
         $gymsReceivedCountView = Gym::where('status', 'Received')->count();
         $dormsReceivedCountView = Dorm::where('status', 'Received')->count();
+       
         // $totalReceivedCount = $gymsReceivedCount + $dormsReceivedCount;
+        $gymsReservedCountView = Gym::where('status', 'Reserved')->count();
+        $dormsReservedCountView = Dorm::where('status', 'Reserved')->count();
 
         $view->with('gymsPendingCountView', $gymsPendingCountView)
             ->with('dormsPendingCountView', $dormsPendingCountView)
+            ->with('gymsReservedCountView', $gymsReservedCountView)
+            ->with('dormsReservedCountView', $dormsReservedCountView)
             ->with('dormsReceivedCountView', $dormsReceivedCountView)
             ->with('gymsReceivedCountView', $gymsReceivedCountView);
     }

@@ -4,7 +4,7 @@
 @include('ras.supply.supply-sidebar')
 
 <main>
-    <h1>Dashboard</h1>
+    <h1 style="margin: 1rem 0;">Dashboard</h1>
 
 
     <div class="insights">

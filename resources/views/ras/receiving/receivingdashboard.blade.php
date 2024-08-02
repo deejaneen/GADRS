@@ -3,7 +3,7 @@
 @section('receivingdashboard')
     <!-- @include('ras.receiving.receiving-side-bar') -->
     <main>
-        <h1>Dashboard</h1>
+        <h1 style="margin: 1rem 0;">Dashboard</h1>
 
 
         <div class="insights">
@@ -91,5 +91,5 @@
     });
 
     // Update placeholder with current month
-    document.getElementById('currentMonth').textContent = currentMonth;
+    // document.getElementById('currentMonth').textContent = currentMonth;
 </script>

@@ -43,8 +43,8 @@
             <a href="{{ route('receivingpaid') }}" class="sidebar-link">
                 <span class="ri-receipt-fill">
                     <h3>Paid</h3>
-                    @if ($gymsReceivedCountView != 0)
-                        <span class="message-count">{{ $gymsReceivedCountView }}</span>
+                    @if ($gymsReservedCountView != 0)
+                        <span class="message-count">{{ $gymsReservedCountView }}</span>
                     @endif
                 </span>
             </a>

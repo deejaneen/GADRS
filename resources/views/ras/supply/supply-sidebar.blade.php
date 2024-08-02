@@ -44,8 +44,8 @@
             <a href="{{ route('supplypaid') }}" class="sidebar-link">
                 <span class="ri-receipt-fill">
                     <h3>Paid</h3>
-                    @if($dormsReceivedCountView != 0)
-                    <span class="message-count">{{ $dormsReceivedCountView }}</span>
+                    @if($dormsReservedCountView != 0)
+                    <span class="message-count">{{ $dormsReservedCountView }}</span>
                     @endif
                 </span>
             </a>

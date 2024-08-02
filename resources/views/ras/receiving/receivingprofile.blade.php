@@ -3,7 +3,7 @@
 @section('receivingdashboard')
  
     <main>
-        <h1 class="page-title">CHANGE PASSWORD</h1>
+        <h1 class="page-title" style="margin: 1rem 0;">CHANGE PASSWORD</h1>
         <div class="card" id="AdminChangePasswordCard">
             <form action="{{ route('update_password_receiving') }}" id="change_password_cashier_form" method="post">
                 @csrf

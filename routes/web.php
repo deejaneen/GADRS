@@ -141,7 +141,7 @@ Route::middleware(['auth', 'verified', 'checkRole:Receiving', 'preventCaching'])
     Route::get('/receiving/gym', [ReceivingController::class, 'receivingedit'])->name('receivingeditreservations');
     Route::get('/receiving/gym/{gym}', [ReceivingController::class, 'editGym'])->name('receiving.editGym');
     Route::get('/receiving/addornumber/{gym}', [ReceivingController::class, 'addORNumber'])->name('receiving.addORNumber');
-    Route::get('/receiving/addnormnumberpaid/{gym}', [ReceivingController::class, 'addFormNumberPaid'])->name('receiving.addFormNumberPaid');
+    Route::get('/receiving/addformnumberpaid/{gym}', [ReceivingController::class, 'addFormNumberPaid'])->name('receiving.addFormNumberPaid');
     Route::get('/receiving/gym/{gym}/pdf', [ReceivingController::class, 'viewGymPDF'])->name('receiving.viewPDF');
     Route::get('/receiving/gym/{gym}/oodpdf', [ReceivingController::class, 'viewGymOrderofPaymentPDF'])->name('receiving.viewPDFOoP');
     Route::put('/receiving/gym/addFormNumber/{gym}', [ReceivingController::class, 'addFormNumber'])->name('addFormNumberRec');
@@ -158,6 +158,8 @@ Route::middleware(['auth', 'verified', 'checkRole:Supply', 'preventCaching'])->g
     Route::get('/supply/paid', [SupplyController::class, 'supplyPaid'])->name('supplypaid');
     Route::get('/supply/reservations/received', [SupplyController::class, 'supplyReservationsReceived'])->name('supplyreservationsrd');
     Route::get('/supply/dorm/{dorm}', [SupplyController::class, 'editDorm'])->name('supply.editDorm');
+    Route::get('/supply/addornumber/{dorm}', [SupplyController::class, 'addORNumber'])->name('supply.addORNumber');
+    Route::get('/supply/addformnumberpaid/{dorm}', [SupplyController::class, 'addFormNumberPaid'])->name('supply.addFormNumberPaid');
     Route::get('/supply/dorm/{dorm}/pdf', [SupplyController::class, 'viewDormPDF'])->name('supply.viewPDF');
     Route::put('/supply/dorm/addFormNumber/{dorm}', [SupplyController::class, 'addFormNumber'])->name('addFormNumber');
     Route::get('/supply/dorm/view/{dorm}', [SupplyController::class, 'viewDorm'])->name('supply.viewDorm');

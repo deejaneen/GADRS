@@ -104,7 +104,31 @@ class SupplyController extends Controller
             ->first();
         //  $formNumberInput = Str::afterLast($dorm->Form_number, '-');
         // You can return the modal content as a view
-        return view('ras.supply.supply-addnumber', compact('dorm', 'userDetails', 'receivingUser'));
+        return view('ras.supply.supply-updatestatuspending', compact('dorm', 'userDetails', 'receivingUser'));
+    }
+    public function addORNumber(Dorm $dorm)
+    {
+        $userDetails = User::select('first_name', 'middle_name', 'last_name')
+            ->where('id', $dorm->employee_id)
+            ->first();
+        $receivingUser = User::select('first_name', 'middle_name', 'last_name')
+            ->where('id', Auth::id())
+            ->first();
+        //  $formNumberInput = Str::afterLast($dorm->Form_number, '-');
+        // You can return the modal content as a view
+        return view('ras.supply.supply-add-or-number', compact('dorm', 'userDetails', 'receivingUser'));
+    }
+    public function addFormNumberPaid(Dorm $dorm)
+    {
+        $userDetails = User::select('first_name', 'middle_name', 'last_name')
+            ->where('id', $dorm->employee_id)
+            ->first();
+        $receivingUser = User::select('first_name', 'middle_name', 'last_name')
+            ->where('id', Auth::id())
+            ->first();
+        //  $formNumberInput = Str::afterLast($dorm->Form_number, '-');
+        // You can return the modal content as a view
+        return view('ras.supply.supply-add-form-number', compact('dorm', 'userDetails', 'receivingUser'));
     }
 
     public function viewDorm(Dorm $dorm)

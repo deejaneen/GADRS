@@ -70,10 +70,6 @@ h4 {
     font-size: 0.8rem !important;
 }
 
-small {
-    font-size: 0.77rem !important;
-}
-
 .profile-photo {
     width: 2.8rem;
     height: 2.8rem;
@@ -174,7 +170,6 @@ aside {
     background-color: var(--color-primary);
     overflow-y: auto;
     z-index: 1000;
-
 }
 
 aside .top {
@@ -198,7 +193,7 @@ aside .close {
 aside .sidebar {
     display: flex;
     flex-direction: column;
-    height: 86vh;
+    height: 75vh;
     position: relative;
     top: 3rem;
 }

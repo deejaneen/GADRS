@@ -2,6 +2,11 @@
 
 @section('supplydashboard')
 @include('ras.supply.supply-sidebar')
+<main>
+    <h1 style="margin: 1rem 0;">Pending</h1>
+
+</main>
+
 <div class="card" id="ReceivingPendingTableCard">
     <div>
         <h2 class="card-header text-center home">Dorm Pending Reservations</h2>
@@ -41,7 +46,7 @@
                 </td>
                 <td class="actions-column">
                     <a href="{{ route('supply.editDorm', $dorm->id) }}" class="btn btn-assign-number rounded-pill" id="receivingAssignNumberbtn">
-                        Assign Number
+                        Update Status
                     </a>
                     <a href="{{ route('supply.viewDorm', $dorm->id) }}" class="btn btn-view-details rounded-pill" id="receivingViewFormbtn">
                         View Details

@@ -35,7 +35,7 @@
                     <label for="status" class="form-label">Status</label>
                     <select class="form-select" id="status" name="status" required>
                         <option value="Received">Received</option>
-                        <option value="Pending">Paid</option>
+                        <option value="Paid">Paid</option>
                     </select>
                     @error('status')
                         <span class="text-danger fs-6">{{ $message }}</span>
