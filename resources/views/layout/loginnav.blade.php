@@ -8,7 +8,7 @@
             <div class="centered">
             </div>
             <div class="main-login">
-                <ul class="navbar-nav mx-auto">
+                {{-- <ul class="navbar-nav mx-auto">
                     @if (!Route::is('forget.password'))
                     <li class="nav-item">
                         <a href="{{ route('login') }}" class="{{ (Route::is('login')) ? 'login-active' : '' }}">LOGIN</a>
@@ -21,7 +21,7 @@
                         <a href="javascript:history.back()"><i class="fa-solid fa-arrow-left"></i> Back</a>
                     </li>
                     @endif
-                </ul>
+                </ul> --}}
             </div>
         </div>
     </div>
