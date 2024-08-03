@@ -12,7 +12,7 @@
         <h2 class="card-header text-center home">Dorm Pending Reservations</h2>
     </div>
 
-    <table class="table-home table-hover stripe" id="SupplyPendingTable" style="width: 100%">
+    <table class="table-home table-hover stripe" id="SupplyPendingTable" style="width: 100%" data-order=''>
         <thead>
             <tr>
                 <th scope="col">Form Number</th>

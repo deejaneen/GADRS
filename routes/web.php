@@ -141,7 +141,7 @@ Route::middleware(['auth', 'verified', 'checkRole:Receiving', 'preventCaching'])
     Route::get('/receiving/gym', [ReceivingController::class, 'receivingedit'])->name('receivingeditreservations');
     Route::get('/receiving/gym/{gym}', [ReceivingController::class, 'editGym'])->name('receiving.editGym');
     Route::get('/receiving/addornumber/{gym}', [ReceivingController::class, 'addORNumberView'])->name('receiving.addORNumberView');
-    Route::put('/receiving/addornumber/update/{gym}', [ReceivingController::class, 'addORNumber'])->name('addORNumber');
+    Route::put('/receiving/addornumber/update/{gym}', [ReceivingController::class, 'addORNumberGym'])->name('addORNumberGym');
     Route::get('/receiving/addformnumberpaid/{gym}', [ReceivingController::class, 'addFormNumberPaid'])->name('receiving.addFormNumberPaid');
     Route::get('/receiving/gym/{gym}/pdf', [ReceivingController::class, 'viewGymPDF'])->name('receiving.viewPDF');
     Route::get('/receiving/gym/{gym}/oodpdf', [ReceivingController::class, 'viewGymOrderofPaymentPDF'])->name('receiving.viewPDFOoP');
@@ -160,7 +160,9 @@ Route::middleware(['auth', 'verified', 'checkRole:Supply', 'preventCaching'])->g
     Route::get('/supply/paid', [SupplyController::class, 'supplyPaid'])->name('supplypaid');
     Route::get('/supply/reservations/received', [SupplyController::class, 'supplyReservationsReceived'])->name('supplyreservationsrd');
     Route::get('/supply/dorm/{dorm}', [SupplyController::class, 'editDorm'])->name('supply.editDorm');
-    Route::get('/supply/addornumber/{dorm}', [SupplyController::class, 'addORNumber'])->name('supply.addORNumber');
+    Route::get('/supply/addornumber/{dorm}', [SupplyController::class, 'addORNumberView'])->name('supply.addORNumberView');
+    Route::put('/supply/dorm/addorNumber/{dorm}', [SupplyController::class, 'addORNumber'])->name('addORNumber');
+    Route::put('/supply/changeStatus/{dorm}', [SupplyController::class, 'changeStatusToReceiveDorm'])->name('changeStatusDorm');
     Route::get('/supply/addformnumberpaid/{dorm}', [SupplyController::class, 'addFormNumberPaid'])->name('supply.addFormNumberPaid');
     Route::get('/supply/dorm/{dorm}/pdf', [SupplyController::class, 'viewDormPDF'])->name('supply.viewPDF');
     Route::put('/supply/dorm/addFormNumber/{dorm}', [SupplyController::class, 'addFormNumber'])->name('addFormNumber');

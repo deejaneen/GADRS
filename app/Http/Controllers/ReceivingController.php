@@ -229,8 +229,15 @@ class ReceivingController extends Controller
         return view('ras.receiving.receiving-add-or-number', compact('gym', 'userDetails', 'receivingUser'));
     }
 
-    public function addORNumber(Gym $gym)
+    public function addORNumberGym(Gym $gym)
     {
+        $messages = [
+            'oop_number.required' => 'The OR number field is required.',
+            'oop_number.min' => 'The OR number must be at least 3 characters.',
+            'oop_number.max' => 'The OR number may not be greater than 11 characters.',
+            'oop_number.unique' => 'The OR number has already been taken.',
+        ];
+
         if (!$gym->oop_number) {
             // Validate input when conditions are met
             $validated = request()->validate([
@@ -238,7 +245,7 @@ class ReceivingController extends Controller
                 'oop_number' => 'required|min:3|max:11|unique:gym-reservations,oop_number,' . $gym->id,
                 'or_date' => 'required|date',
                 'cashier_name' => 'required',
-            ]);
+            ], $messages);
         } else {
             // Validate input when conditions are not met
             $reservationsNotSimilarToOriginal = Gym::where('form_group_number', '!=', $gym->form_group_number)
@@ -260,7 +267,7 @@ class ReceivingController extends Controller
                 ],
                 'or_date' => 'required|date',
                 'cashier_name' => 'required',
-            ]);
+            ], $messages);
         }
 
         // Update the gym with the validated data
@@ -280,14 +287,59 @@ class ReceivingController extends Controller
             ]);
         }
 
-        // Check if status is "Received"
-        if ($gym->status === 'Reserved') {
-            // Redirect with success message
-            return redirect()->route('receivingpaid')->with('success', 'Items updated successfully!');
-        } else {
-            // Redirect back with appropriate success message
-            return redirect()->route('receivingreceived')->with('success', 'Items updated successfully, status is not Received.');
-        }
+
+         // Get all Gym reservations with the same form_group_number
+         $gymReservations = Gym::where('form_group_number', $gym->form_group_number)->get();
+
+         if (count($gymReservations) > 1) {
+             // Check if status is "Reserved"
+             if ($gym->status === 'Reserved') {
+                 // Update each reservation to check for overlapping reservations
+                 foreach ($gymReservations as $gymReservation) {
+                     // Find overlapping reservations
+                     $overlappingReservations = Gym::where('reservation_date', $gymReservation->reservation_date)
+                         ->whereIn('status', ['Received', 'Pending'])
+                         ->where('reservation_time_start', '<', $gymReservation->reservation_time_end)
+                         ->where('reservation_time_end', '>', $gymReservation->reservation_time_start)
+                         ->where('id', '!=', $gymReservation->id) // Ensure we don't update the current reservation
+                         ->get();
+ 
+                     // Update the status of overlapping reservations to "Cancelled"
+                     foreach ($overlappingReservations as $reservation) {
+                         $reservation->update(['status' => 'Cancelled']);
+                     }
+                 }
+                 // Redirect with success message
+                 return redirect()->route('receivingpaid')->with('success', 'Reservation updated successfully!');
+             } else {
+                 // Redirect back with appropriate success message
+                 return redirect()->route('receivingreceived')->with('success', 'Reservation updated successfully, status is not Paid.');
+             }
+         } else {
+             // Handle case where there is only one or zero reservations (if needed)
+             $gym->update($validated);
+ 
+             // Check if status is "Reserved"
+             if ($gym->status === 'Reserved') {
+                 // Find overlapping reservations
+                 $overlappingReservations = Gym::where('reservation_date', $gym->reservation_date)
+                     ->whereIn('status', ['Received', 'Pending'])
+                     ->where('reservation_time_start', '<', $gym->reservation_time_end)
+                     ->where('reservation_time_end', '>', $gym->reservation_time_start)
+                     ->where('id', '!=', $gym->id) // Ensure we don't update the current reservation
+                     ->get();
+ 
+                 // Update the status of overlapping reservations to "Cancelled"
+                 foreach ($overlappingReservations as $reservation) {
+                     $reservation->update(['status' => 'Cancelled']);
+                 }
+                 // Redirect with success message
+                 return redirect()->route('receivingpaid')->with('success', 'Reservation confirmed successfully!');
+             } else {
+                 // Redirect back with appropriate success message
+                 return redirect()->route('receivingreceived')->with('success', 'Reservation updated successfully, status is not Paid.');
+             }
+         }
     }
 
     public function viewGym(Gym $gym)

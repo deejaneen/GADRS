@@ -13,14 +13,14 @@
     </div>
     <hr>
     <h2>Gym Reservation Form</h2>
-    <form id="addORNumberForm" method="post" action="{{ route('addORNumber', $gym->id) }}">
+    <form id="addORNumberForm" method="post" action="{{ route('addORNumberGym', $gym->id) }}">
         @csrf
         @method('PUT')
         <div class="row mb-3">
             <div class="col-4">
                 {{-- Add if here --}}
                 <label for="receiver_name" class="form-label">Add OR Number</label>
-                <input type="text" class="form-control" id="oop_number" value="{{ $gym->oop_number }}" name="oop_number" required>
+                <input type="number" class="form-control" id="oop_number" value="{{ $gym->oop_number }}" name="oop_number" required>
                 @error('oop_number')
                 <span class="text-danger fs-6">{{ $message }}</span>
                 @enderror
@@ -43,7 +43,7 @@
             <div class="col-4">
                 @if(!$gym->cashier_name)
                 <label for="cashier_name" class="form-label">Cashier Name</label>
-                <input type="text" class="form-control" id="cashier_name" value="{{ $receivingUser->first_name . ' ' . $receivingUser->middle_name . ' ' . $receivingUser->last_name }}" name="cashier_name" required>
+                <input type="text" class="form-control" id="cashier_name" value="{{ $gym->receiver_name }}" name="cashier_name" required>
                 @error('cashier_name')
                 <span class="text-danger fs-6">{{ $message }}</span>
                 @enderror
@@ -70,6 +70,28 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
+
+        const orNumberInput = document.getElementById('oop_number');
+
+        // Restrict input to numbers only
+        orNumberInput.addEventListener('input', function(e) {
+            this.value = this.value.replace(/[^0-9]/g, ''); // Remove non-numeric characters
+        });
+
+        // Limit the length to 7 characters
+        orNumberInput.addEventListener('input', function() {
+            if (this.value.length > 7) {
+                this.value = this.value.slice(0, 7); // Truncate to 7 characters
+            }
+        });
+
+        // Optionally prevent pasting non-numeric characters
+        orNumberInput.addEventListener('paste', function(e) {
+            let pasteData = (e.clipboardData || window.clipboardData).getData('text');
+            if (!/^\d*$/.test(pasteData)) {
+                e.preventDefault();
+            }
+        });
 
         document.getElementById('formSubmitBtn').addEventListener('click', function(event) {
             event.preventDefault(); // Prevent the default form submission

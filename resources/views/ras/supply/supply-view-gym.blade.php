@@ -15,7 +15,7 @@
 </div>
 <div class="card" id="ReceivingPendingTableCard">
     <div class="row mb-3">
-     
+
         <div class="col">
             <label for="username" class="form-label">Username</label>
             <input type="text" class="form-control" id="username" value="{{ $userDetails->first_name . ' ' . $userDetails->middle_name . ' ' . $userDetails->last_name }}
@@ -75,8 +75,26 @@
     </div>
     <div class="row mb-3">
         <div class="col-3">
+            <label for="or_number" class="form-label">OR Number</label>
+            <input type="text" class="form-control" id="or_number" value="{{ $dorm->or_number }}" name="or_number" disabled>
+        </div>
+        <div class="col-3">
+            <label for="or_date" class="form-label">OR Date</label>
+            <input type="text" class="form-control" id="or_date" value="{{ $dorm->or_date }}" name="or_date" disabled>
+        </div>
+        <div class="col-3">
+            <label for="Form_number" class="form-label">Form Number</label>
+            <input type="text" class="form-control" id="Form_number" value="{{ $dorm->Form_number }}" name="Form_number" disabled>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-3">
             <label for="receiver_name" class="form-label">Receiving Personnel</label>
             <input type="text" class="form-control" id="receiver_name" value="{{ $dorm->receiver_name }}" name="receiver_name" disabled>
+        </div>
+        <div class="col-3">
+            <label for="cashier_name" class="form-label">Cashier</label>
+            <input type="text" class="form-control" id="cashier_name" value="{{ $dorm->cashier_name }}" name="cashier_name" disabled>
         </div>
     </div>
     <div class="row mb-3">

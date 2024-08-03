@@ -12,7 +12,7 @@
         <h2 class="card-header text-center home">Dorm Pending Reservations</h2>
     </div>
 
-    <table class="table-home table-hover stripe" id="SupplyPendingTable" style="width: 100%">
+    <table class="table-home table-hover stripe" id="SupplyPendingTable" style="width: 100%" data-order=''>
         <thead>
             <tr>
                 <th scope="col">Form Number</th>
@@ -45,9 +45,12 @@
                     {{ $dorm->status }}
                 </td>
                 <td class="actions-column">
+                    @if (!$dorm->Form_number)
                     <a href="{{ route('supply.addFormNumberPaid', $dorm->id) }}" class="btn btn-assign-number rounded-pill" id="receivingAssignNumberbtn">
                         Assign Number
                     </a>
+                    @endif
+                   
                     <a href="{{ route('supply.viewDorm', $dorm->id) }}" class="btn btn-view-details rounded-pill" id="receivingViewFormbtn">
                         View Details
                     </a>

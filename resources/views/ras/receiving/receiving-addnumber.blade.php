@@ -48,15 +48,17 @@
             @enderror
         </div>
     </div>
+    <div>
+        <p>Note: Reservations with similar form group number will automatically be configured as well.</p>
+    </div>
+    <hr>
 
     <div>
         <button type="button" class="btn btn-confirm-payment-gym" id="formSubmitBtn">Save</button>
         <a href="{{ route('receivingpending') }}" class="btn btn-go-back">Back</a>
     </div>
 </form>
-<div>
-    <p>Note: Reservations with similar form group number will automatically be configured as well.</p>
-</div>
+
 </div>
 @endsection
 

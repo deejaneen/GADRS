@@ -11,7 +11,7 @@
         <h2 class="card-header text-center home">Dorm Received Reservations</h2>
     </div>
 
-    <table class="table-home table-hover stripe" id="SupplyReceivedTable" style="width: 100%">
+    <table class="table-home table-hover stripe" id="SupplyReceivedTable" style="width: 100%" data-order=''>
         <thead>
             <tr>
                 <th scope="col">Form Number</th>
@@ -44,7 +44,7 @@
                     {{ $dorm->status }}
                 </td>
                 <td class="actions-column">
-                    <a href="{{ route('supply.addORNumber', $dorm->id) }}" class="btn btn-assign-number rounded-pill" id="receivingAssignNumberbtn">
+                    <a href="{{ route('supply.addORNumberView', $dorm->id) }}" class="btn btn-assign-number rounded-pill" id="receivingAssignNumberbtn">
                         Update Status
                     </a>
                     <a href="{{ route('supply.viewDorm', $dorm->id) }}" class="btn btn-view-details rounded-pill" id="receivingViewFormbtn" >

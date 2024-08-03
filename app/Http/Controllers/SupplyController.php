@@ -9,6 +9,7 @@ use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 
 
@@ -23,14 +24,24 @@ class SupplyController extends Controller
 
     public function supplyReservations()
     {
-        $dorms = Dorm::where('status', 'Pending')->orderBy('created_at', 'DESC')->get();
+        $today = now()->startOfDay();
+        $dorms = Dorm::where('status', 'Pending')
+            ->where('reservation_end_date', '>=', $today)
+            ->orderBy('created_at', 'desc')
+            ->get();
+        // $dorms = Dorm::where('status', 'Pending')->orderBy('created_at', 'DESC')->get();
         return view('ras.supply.supply-dorm-reservations', ['dorms' => $dorms]);
     }
 
 
     public function supplyReservationsReceived()
     {
-        $dorms = Dorm::where('status', 'Received')->orderBy('created_at', 'DESC')->get();
+        $today = now()->startOfDay();
+        $dorms = Dorm::where('status', 'Received')
+            ->where('reservation_end_date', '>=', $today)
+            ->orderBy('created_at', 'desc')
+            ->get();
+        // $dorms = Dorm::where('status', 'Received')->orderBy('created_at', 'DESC')->get();
         return view('ras.supply.supply-dormreservations-received', ['dorms' => $dorms]);
     }
     public function supplyPaid()
@@ -39,59 +50,51 @@ class SupplyController extends Controller
         return view('ras.supply.supplypaid', ['dorms' => $dorms]);
     }
 
-   public function addFormNumber(Dorm $dorm)
-{
-    $currentYear = date('Y');
-    $currentMonth = date('m');
-    $fixedYearMonth = $currentYear . '-' . $currentMonth . '-';
+    public function addFormNumber(Dorm $dorm)
+    {
+       
+        if (!$dorm->Form_number) {
+            // Validate input
+            $validated = request()->validate([
+                'Form_number' => 'required|min:3|max:11|unique:dorm_reservations,Form_number,' . $dorm->id,
+            ]);
 
-    if (!$dorm->Form_number) {
-        // Validate input
-        $validated = request()->validate([
-            'Form_number' => 'required|min:3|max:7|unique:dorm_reservations,Form_number,' . $dorm->id,
-            'status' => 'required',
-            'receiver_name' => 'required',
-        ]);
+            // Concatenate fixed year and month with form number
+            // $validated['Form_number'] = $fixedYearMonth . $validated['Form_number'];
+        } else {
+            $reservationsNotSimilarToOriginal = Dorm::where('Form_number', '!=', $dorm->Form_number)
+                ->get();
 
-        // Concatenate fixed year and month with form number
-        // $validated['Form_number'] = $fixedYearMonth . $validated['Form_number'];
-    } else {
-        $reservationsNotSimilarToOriginal = Dorm::where('Form_number', '!=', $dorm->Form_number)
-            ->get();
-
-        $validated = request()->validate([
-            'Form_number' => [
-                'required',
-                'min:3',
-                'max:11',
-                function ($attribute, $value, $fail) use ($reservationsNotSimilarToOriginal) {
-                    foreach ($reservationsNotSimilarToOriginal as $reservation) {
-                        if ($reservation->Form_number === $value) {
-                            $fail('The Form number has already been taken.');
+            $validated = request()->validate([
+                'Form_number' => [
+                    'required',
+                    'min:3',
+                    'max:11',
+                    function ($attribute, $value, $fail) use ($reservationsNotSimilarToOriginal) {
+                        foreach ($reservationsNotSimilarToOriginal as $reservation) {
+                            if ($reservation->Form_number === $value) {
+                                $fail('The Form number has already been taken.');
+                            }
                         }
-                    }
-                },
-            ],
-            'status' => 'required',
-            'receiver_name' => 'required',
-        ]);
+                    },
+                ],
+            ]);
 
-        // Concatenate fixed year and month with form number
-        // $validated['Form_number'] = $fixedYearMonth . $validated['Form_number'];
+            // Concatenate fixed year and month with form number
+            // $validated['Form_number'] = $fixedYearMonth . $validated['Form_number'];
+        }
+
+        // Update the user with the validated data
+        $dorm->update($validated);
+
+        if ($dorm->Form_number) {
+            // Redirect with success message
+            return redirect()->route('supplypaid')->with('success', 'Form Number added successfully!');
+        } else {
+            // Redirect back with appropriate success message
+            return redirect()->route('supplypaid')->with('success', 'Form Number not added.');
+        }
     }
-
-    // Update the user with the validated data
-    $dorm->update($validated);
-
-    // Check if status is "Received"
-    if ($dorm->status === 'Received') {
-        // Redirect with success message
-        return redirect()->route('supplyreservationsrd')->with('success', 'Form Number added successfully!');
-    } else {
-        // Redirect back with appropriate success message
-        return redirect()->route('supplyreservations')->with('success', 'Form Number updated successfully, status is not Received.');
-    }
-}
 
 
     public function editDorm(Dorm $dorm)
@@ -106,29 +109,142 @@ class SupplyController extends Controller
         // You can return the modal content as a view
         return view('ras.supply.supply-updatestatuspending', compact('dorm', 'userDetails', 'receivingUser'));
     }
-    public function addORNumber(Dorm $dorm)
+
+    public function changeStatusToReceiveDorm(Dorm $dorm)
+    {
+        $validated = request()->validate([
+            'status' => 'required',
+            'receiver_name' => 'required',
+        ]);
+
+        // Update the user with the validated data
+        $dorm->update($validated);
+
+        // Check if status is "Received"
+        if ($dorm->status === 'Received') {
+            // Redirect with success message
+            return redirect()->route('supplyreservationsrd')->with('success', 'Status changed successfully!');
+        } else {
+            // Redirect back with appropriate success message
+            return redirect()->route('supplyreservations')->with('success', 'Reservation is updated, status is not Received.');
+        }
+    }
+    public function addORNumberView(Dorm $dorm)
     {
         $userDetails = User::select('first_name', 'middle_name', 'last_name')
             ->where('id', $dorm->employee_id)
             ->first();
-        $receivingUser = User::select('first_name', 'middle_name', 'last_name')
-            ->where('id', Auth::id())
-            ->first();
+        // $receivingUser = User::select('first_name', 'middle_name', 'last_name')
+        //     ->where('id', Auth::id())
+        //     ->first();
         //  $formNumberInput = Str::afterLast($dorm->Form_number, '-');
         // You can return the modal content as a view
-        return view('ras.supply.supply-add-or-number', compact('dorm', 'userDetails', 'receivingUser'));
+        return view('ras.supply.supply-add-or-number', compact('dorm', 'userDetails'));
     }
+
+    public function addORNumber(Dorm $dorm)
+    {
+        $currentYearMonth = date('Y-m');
+
+        if (!$dorm->or_number) {
+            $validated = request()->validate([
+                'or_number' => 'required|min:3|max:11|unique:dorm_reservations,or_number,' . $dorm->id,
+                'amount_paid' => 'required|min:3|max:12',
+                'status' => 'required',
+                'or_date' => 'required|date',
+                'cashier_name' => 'required',
+            ]);
+            // $validated['or_number'] = $currentYearMonth . '-' . $validated['or_number'];
+        } else {
+            $reservationsNotSimilarToOriginal = Dorm::where('or_number', '!=', $dorm->or_number)->get();
+            $validated = request()->validate([
+                'or_number' => [
+                    'required',
+                    'min:3',
+                    'max:11',
+                    function ($attribute, $value, $fail) use ($reservationsNotSimilarToOriginal, $currentYearMonth) {
+                        $valueWithDate = $currentYearMonth . '-' . $value;
+                        foreach ($reservationsNotSimilarToOriginal as $reservation) {
+                            if ($reservation->or_number === $valueWithDate) {
+                                $fail('The OR Number has already been taken.');
+                            }
+                        }
+                    },
+                ],
+                'cashier_name' => 'required',
+                'amount_paid' => 'required|min:3|max:12',
+                'status' => 'required',
+                'or_date' => 'required|date',
+            ]);
+        }
+
+        if ($validated['status'] === 'Reserved') {
+            $startDate = new \DateTime($dorm->reservation_start_date);
+            $endDate = new \DateTime($dorm->reservation_end_date);
+            $endDate->modify('+1 day');
+            $interval = \DateInterval::createFromDateString('1 day');
+            $dateRange = new \DatePeriod($startDate, $interval, $endDate);
+
+            foreach ($dateRange as $date) {
+                $bed = DB::table('beds')
+                    ->where('date', $date->format('Y-m-d'))
+                    ->where('gender', $dorm->gender)
+                    ->first();
+
+                if ($bed && $bed->availability < $dorm->quantity) {
+                    Session::flash('error', 'Insufficient bed availability on ' . $date->format('Y-m-d'));
+                    return redirect()->back();
+                }
+            }
+        }
+
+        $dorm->update($validated);
+
+        if ($dorm->status === 'Reserved') {
+            // Calculate the total reservation days
+            $startDate = new \DateTime($dorm->reservation_start_date);
+            $endDate = new \DateTime($dorm->reservation_end_date);
+            $endDate->modify('+1 day'); // Include the end date in the range
+            $interval = \DateInterval::createFromDateString('1 day');
+            $dateRange = new \DatePeriod($startDate, $interval, $endDate);
+
+            // Get all rows with status of Pending and Received
+            $dormReservationsPendingAndReceived = Dorm::whereIn('status', ['Pending', 'Received'])->get();
+
+            // Check availability for each date in the reservation period
+            foreach ($dateRange as $date) {
+                $bed = DB::table('beds')
+                    ->where('date', $date->format('Y-m-d'))
+                    ->where('gender', $dorm->gender)
+                    ->first();
+
+                // Update the status to Cancelled for the reservations with insufficient availability
+                foreach ($dormReservationsPendingAndReceived as $reservation) {
+                    // Check if the bed availability is less than the quantity of reservations
+                    if ($bed && $bed->availability < $reservation->quantity) {
+                        $reservation->status = "Cancelled";
+                        $reservation->save();
+                    }
+                }
+            }
+            // Redirect with success message
+            return redirect()->route('supplypaid')->with('success', 'Reservation updated successfully!');
+        } else {
+            return redirect()->route('supplyreservationsrd')->with('success', 'Reservation updated successfully, status is not Paid.');
+        }
+    }
+
     public function addFormNumberPaid(Dorm $dorm)
     {
         $userDetails = User::select('first_name', 'middle_name', 'last_name')
             ->where('id', $dorm->employee_id)
             ->first();
-        $receivingUser = User::select('first_name', 'middle_name', 'last_name')
-            ->where('id', Auth::id())
-            ->first();
-        //  $formNumberInput = Str::afterLast($dorm->Form_number, '-');
+        // $receivingUser = User::select('first_name', 'middle_name', 'last_name')
+        //     ->where('id', Auth::id())
+        //     ->first();
+         $formNumberInput = Str::afterLast($dorm->Form_number, '-');
         // You can return the modal content as a view
-        return view('ras.supply.supply-add-form-number', compact('dorm', 'userDetails', 'receivingUser'));
+        return view('ras.supply.supply-add-form-number', compact('dorm', 'userDetails', 'formNumberInput'));
     }
 
     public function viewDorm(Dorm $dorm)
@@ -144,7 +260,7 @@ class SupplyController extends Controller
         // Calculate the number of days between reservation_start_date and reservation_end_date
         $numberOfDays = DB::table('dorm_reservations')
             ->where('id', $dorm->id) // Assuming 'id' is the primary key of 'dorm_reservations'
-            ->select(DB::raw('DATEDIFF(reservation_end_date, reservation_start_date) + 1 as num_days'))
+            ->select(DB::raw('DATEDIFF(reservation_end_date, reservation_start_date) as num_days'))
             ->first();
 
         // Handle if $numberOfDays is null (handle case where $dorm is not found or dates are not set)
