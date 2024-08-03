@@ -1,4 +1,4 @@
-.logincontainer{
+.logincontainer {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,14 +13,14 @@
     overflow: hidden;
     width: 768px;
     max-width: 100%;
-    min-height: 550px;
+    min-height: 750px;
     color: var(--color-primary);
 }
 .login-container p {
     font-size: 14px;
     line-height: 20px;
     letter-spacing: 0.3px;
-    margin: 1rem 0;  
+    margin: 1rem 0;
 }
 .login-container span {
     font-size: 12px;
@@ -49,7 +49,7 @@
     border-color: var(--color-background);
 }
 .login-container form .login,
-.login-container form .registration{
+.login-container form .registration {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -75,46 +75,55 @@
     width: 100%;
     outline: none;
 }
-.form-container{
+/* .login-container input.password-field {
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    white-space: nowrap;
+} */
+.form-container {
     position: absolute;
     top: 0;
     height: 100%;
     transition: all 0.6s ease-in-out;
 }
 .confirm-password-container,
-.password-container{
+.password-container {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
-.signupconfirmpassword,
-.signupshowpassword,
-.signinshowpassword {
+
+.password-container,
+.confirm-password-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.password-container input,
+.confirm-password-container input {
+    width: 100%;
+    padding-right: 2em; 
+    box-sizing: border-box;
+}
+.password-container .fa-eye,
+.confirm-password-container .fa-eye {
+    position: absolute;
+    right: 10px; 
     cursor: pointer;
-    color: var(--color-dark-variant);
+    color: #335e73;
 }
-.signinshowpassword{
-    position: absolute;
-    top: 48.5%;
-    right: 14%;
-}
-.signupshowpassword{
-    position: absolute;
-    top: 67.5%;
-    right: 14%;
-}
-.signupconfirmpassword{
-    position: absolute;
-    top: 77.5%;
-    right: 14%;
-}
-.sign-in{
+
+.sign-in {
     left: 0;
     width: 50%;
     z-index: 2;
 }
-.login-container.active .sign-in{
-   transform: translateX(100%); 
+.login-container.active .sign-in {
+    transform: translateX(100%);
 }
-.sign-up{
+.sign-up {
     left: 0;
     width: 50%;
     opacity: 0;
@@ -127,16 +136,17 @@
     z-index: 5;
     animation: move 0.6s;
 }
-@keyframes move 
-{
-    0%, 49.99%{
+@keyframes move {
+    0%,
+    49.99% {
         opacity: 0;
         z-index: 1;
-    }    
-    50%, 100%{
+    }
+    50%,
+    100% {
         opacity: 1;
         z-index: 5;
-    }    
+    }
 }
 /* .login {
     margin: 20px 0;
@@ -144,7 +154,7 @@
 .login a{
     margin: 20px 0;
 } */
- .toggle-container {
+.toggle-container {
     position: absolute;
     top: 0;
     left: 50%;
@@ -154,17 +164,17 @@
     transition: all 0.6s ease-in-out;
     border-radius: 150px 0 0 100px;
     z-index: 1000;
- }
+}
 
- .login-container.active .toggle-container{
+.login-container.active .toggle-container {
     transform: translateX(-100%);
     border-radius: 0 150px 100px 0;
- }
+}
 
- .toggle {
+.toggle {
     background-color: var(--color-primary);
     height: 100%;
-    background: linear-gradient(to right,#335e73, var(--color-primary));
+    background: linear-gradient(to right, #335e73, var(--color-primary));
     color: var(--color-background);
     position: relative;
     left: -100%;
@@ -172,13 +182,13 @@
     width: 200%;
     transform: translateX(0);
     transition: all 0.6s ease-in-out;
- }
+}
 
- .login-container.active .toggle{
+.login-container.active .toggle {
     transform: translateX(50%);
- }
+}
 
- .toggle-panel{
+.toggle-panel {
     position: absolute;
     width: 50%;
     height: 100%;
@@ -191,83 +201,80 @@
     top: 0;
     transform: translateX(0);
     transition: all 0.6s ease-in-out;
- }
+}
 
- .toggle-left {
+.toggle-left {
     transform: translateX(-200%);
- }
+}
 
- .login-container.active .toggle-left{
+.login-container.active .toggle-left {
     transform: translateX(0);
- }
- .toggle-right{
+}
+.toggle-right {
     right: 0;
     transform: translateX(0);
- }
+}
 
- .login-container.active .toggle-right{
+.login-container.active .toggle-right {
     transform: translateX(200%);
- }
- .signup-text {
+}
+.signup-text {
     display: none;
 }
 @media (min-width: 2000px) {
-
 }
 
 @media screen and (max-width: 1150px) {
-    
 }
 
 @media screen and (max-width: 950px) {
-
 }
 @media screen and (max-width: 650px) {
     /* .toggle-container{
         display: none;
     } */
-     .toggle-container{
+    .toggle-container {
         height: 15%;
-     }
-     .login-container.active .toggle-right{
+    }
+    .login-container.active .toggle-right {
         transform: translateX(100%);
-     }
-     .login-container.active .sign-up {
+    }
+    .login-container.active .sign-up {
         transform: translateX(0%);
-     }
-     .toggle-container p,
-     .toggle-container h1{
+    }
+    .toggle-container p,
+    .toggle-container h1 {
         display: none;
-     }
+    }
     .sign-up,
-    .sign-in{
+    .sign-in {
         width: 100%;
     }
     .login-container {
         width: 90%;
     }
-    .signup-text {
+    /* .signup-text {
         display: block;
     }
-    .signinshowpassword{
+    .signinshowpassword {
         position: absolute;
         top: 53%;
         right: 15%;
     }
-    .signupshowpassword{
+    .signupshowpassword {
         position: absolute;
         top: 69%;
         right: 14%;
     }
-    .signupconfirmpassword{
+    .signupconfirmpassword {
         position: absolute;
         top: 77.5%;
         right: 14%;
-    }
+    } */
     .login-container {
         height: 650px;
     }
-    .login-container form{
-       margin-top: 30px;
+    .login-container form {
+        margin-top: 30px;
     }
 }
