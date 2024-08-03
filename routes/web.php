@@ -140,11 +140,13 @@ Route::middleware(['auth', 'verified', 'checkRole:Receiving', 'preventCaching'])
     Route::get('/receiving/paid', [ReceivingController::class, 'receivingpaid'])->name('receivingpaid');
     Route::get('/receiving/gym', [ReceivingController::class, 'receivingedit'])->name('receivingeditreservations');
     Route::get('/receiving/gym/{gym}', [ReceivingController::class, 'editGym'])->name('receiving.editGym');
-    Route::get('/receiving/addornumber/{gym}', [ReceivingController::class, 'addORNumber'])->name('receiving.addORNumber');
+    Route::get('/receiving/addornumber/{gym}', [ReceivingController::class, 'addORNumberView'])->name('receiving.addORNumberView');
+    Route::put('/receiving/addornumber/update/{gym}', [ReceivingController::class, 'addORNumber'])->name('addORNumber');
     Route::get('/receiving/addformnumberpaid/{gym}', [ReceivingController::class, 'addFormNumberPaid'])->name('receiving.addFormNumberPaid');
     Route::get('/receiving/gym/{gym}/pdf', [ReceivingController::class, 'viewGymPDF'])->name('receiving.viewPDF');
     Route::get('/receiving/gym/{gym}/oodpdf', [ReceivingController::class, 'viewGymOrderofPaymentPDF'])->name('receiving.viewPDFOoP');
     Route::put('/receiving/gym/addFormNumber/{gym}', [ReceivingController::class, 'addFormNumber'])->name('addFormNumberRec');
+    Route::put('/receiving/gym/changeStatus/{gym}', [ReceivingController::class, 'changeStatusToReceiveGym'])->name('changeStatus');
     Route::get('/receiving/gym/view/{gym}', [ReceivingController::class, 'viewGym'])->name('receiving.viewGym');
     Route::get('/receiving/profile', [ReceivingController::class, 'profile'])->name('receivingprofile');
     Route::post('/receiving/profile/password', [ReceivingController::class, 'updatePassword'])->name('update_password_receiving');

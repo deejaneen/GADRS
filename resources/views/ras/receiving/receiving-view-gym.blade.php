@@ -77,6 +77,10 @@
             <label for="receiver_name" class="form-label">Receiving Personnel</label>
             <input type="text" class="form-control" id="receiver_name" value="{{ $gym->receiver_name }}" name="receiver_name" disabled>
         </div>
+        <div class="col-3">
+            <label for="cashier_name" class="form-label">Cashier</label>
+            <input type="text" class="form-control" id="cashier_name" value="{{ $gym->cashier_name }}" name="cashier_name" disabled>
+        </div>
     </div>
 
     <div class="row mb-3">

@@ -11,7 +11,7 @@
         <div>
             <h2 class="card-header text-center home">Assign a Form Number</h2>
         </div>
-        <table class="table-home table-hover stripe" id="ReceivingPaidTable" style="width: 100%">
+        <table class="table-home table-hover stripe" id="ReceivingPaidTable" style="width: 100%" data-order=''>
             <thead>
                 <tr>
                     <th scope="col">Reservation Number</th>
@@ -31,8 +31,6 @@
                     <td>{{ $gym->reservation_number }}</td>
                     <td>{{ $gym->form_group_number }}</td>
                     <td>{{ \Carbon\Carbon::parse($gym->reservation_date)->format('F j, Y') }}</td>
-                    {{-- <td>{{ formatTime($gym->reservation_time_start) }}</td> --}}
-                    {{-- <td>{{ formatTime($gym->reservation_time_end) }}</td> --}}
                     <td>{{ $gym->occupant_type }}</td>
                     <td>{{ $gym->total_price }}</td>
                     <td class="{{ 
@@ -42,9 +40,12 @@
                         $gym->status === 'Cancelled/Unavailable' ? 'status-cancelled' : '')))
                     }}">{{ $gym->status }}</td>
                     <td class="buttons">
+                        @if (!$gym->reservation_number)
                         <a href="{{ route('receiving.addFormNumberPaid', $gym->id) }}" class="btn btn-assign-number rounded-pill" id="receivingAssignNumberbtn">
                             Assign Number
                         </a>
+                        @endif
+                      
                         <a href="{{ route('receiving.viewGym', $gym->id) }}" class="btn btn-view-details rounded-pill" id="receivingViewFormbtn">
                             View Details
                         </a>

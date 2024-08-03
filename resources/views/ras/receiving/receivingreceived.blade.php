@@ -11,7 +11,7 @@
     <div>
         <h2 class="card-header text-center home">Gym Received Reservations</h2>
     </div>
-    <table class="table-home table-hover stripe" id="ReceivingPendingTable" style="width: 100%">
+    <table class="table-home table-hover stripe" id="ReceivingPendingTable" style="width: 100%" data-order=''>
         <thead>
             <tr>
                 <th scope="col">Form Number</th>
@@ -45,8 +45,8 @@
                 </td>
 
                 <td class="buttons">
-                    <a href="{{ route('receiving.addORNumber', $gym->id) }}" class="btn btn-assign-number rounded-pill" id="receivingReceivedAssignNumberbtn">
-                        Update Status
+                    <a href="{{ route('receiving.addORNumberView', $gym->id) }}" class="btn btn-assign-number rounded-pill" id="receivingReceivedAssignNumberbtn">
+                        Update OR
                     </a>
                     <a href="{{ route('receiving.viewGym', $gym->id) }}" class="btn btn-view-details rounded-pill" id="receivingViewFormbtn">
                         View Details

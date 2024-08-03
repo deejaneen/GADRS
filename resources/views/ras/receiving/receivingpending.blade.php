@@ -9,7 +9,7 @@
     <div>
         <h2 class="card-header text-center home">Assign a Form Number</h2>
     </div>
-    <table class="table-home table-hover stripe" id="ReceivingPendingTable" style="width: 100%">
+    <table class="table-home table-hover stripe" id="ReceivingPendingTable" style="width: 100%" data-order=''>
         <thead>
             <tr>
                 <th scope="col">Reservation Number</th>

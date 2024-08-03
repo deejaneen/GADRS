@@ -65,6 +65,7 @@ class ReceivingController extends Controller
             ->count();
         $gyms = Gym::where('status', 'Pending')
             ->where('reservation_date', '>=', $today)
+            ->orderBy('created_at', 'desc') // Order by creation date in descending order
             ->get();
 
         return view('ras.receiving.receivingpending', [
@@ -75,33 +76,27 @@ class ReceivingController extends Controller
     public function receivingpaid()
     {
         $today = now()->startOfDay();
-        $gymsPaidCount  = Gym::where('status', 'Reserved')
-            ->where('reservation_date', '>=', $today)
-            ->count();
         $gyms = Gym::where('status', 'Reserved')
             ->where('reservation_date', '>=', $today)
+            ->orderBy('created_at', 'desc') // Order by creation date in descending order
             ->get();
 
         return view('ras.receiving.receivingpaid', [
-            'gymsPaidCount' => $gymsPaidCount,
             'gyms' => $gyms
         ]);
     }
+
     public function receivingreceived()
     {
-        $gymsPendingCount = Gym::where('status', 'Received')->count();
-        $dormsPendingCount = Dorm::where('status', 'Received')->count();
 
-        $gyms = Gym::where('status', 'Received')->orderBy('created_at', 'DESC')->get();
-        $dorms = Dorm::where('status', 'Received')->orderBy('created_at', 'DESC')->get();
+        $today = now()->startOfDay();
+        $gyms = Gym::where('status', 'Received')
+            ->where('reservation_date', '>=', $today)
+            ->orderBy('created_at', 'desc') // Order by creation date in descending order
+            ->get();
 
-        $totalReservationCount = $gymsPendingCount + $dormsPendingCount;
         return view('ras.receiving.receivingreceived', [
-            'gymsPendingCount' => $gymsPendingCount,
-            'dormsPendingCount' => $dormsPendingCount,
-            'totalReservationCount' => $totalReservationCount,
-            'gyms' =>  $gyms,
-            'dorms' => $dorms,
+            'gyms' => $gyms
         ]);
     }
     public function receivingedit()
@@ -110,21 +105,53 @@ class ReceivingController extends Controller
     }
     public function addFormNumberPaid(Gym $gym)
     {
-        return view('ras.receiving.receiving-add-form-number');
+        $reservationNumber = Str::afterLast($gym->reservation_number, '-');
+        $userDetails = User::select('first_name', 'middle_name', 'last_name')
+            ->where('id', $gym->employee_id)
+            ->first();
+        return view('ras.receiving.receiving-add-form-number', compact('gym', 'userDetails', 'reservationNumber'));
     }
+
+    public function changeStatusToReceiveGym(Gym $gym)
+    {
+        $validated = request()->validate([
+            'status' => 'required',
+            'receiver_name' => 'required',
+        ]);
+
+        // Update the gym with the validated data
+        $gym->update($validated);
+
+        // Get all pending Gym reservations with the same form group number
+        $pendingGyms = Gym::where('status', 'Pending')
+            ->where('form_group_number', $gym->form_group_number)
+            ->get();
+
+        // Update each pending Gym reservation with the new reservation number, status, or_number, and or_date
+        foreach ($pendingGyms as $pendingGym) {
+            $pendingGym->update([
+                'status' => $validated['status'],
+                'receiver_name' => $validated['receiver_name'],
+            ]);
+        }
+
+        // Check if status is "Received"
+        if ($gym->status === 'Received') {
+            // Redirect with success message
+            return redirect()->route('receivingreceived')->with('success', 'Items updated successfully!');
+        } else {
+            // Redirect back with appropriate success message
+            return redirect()->route('receivingpending')->with('success', 'Items updated successfully, status is not Received.');
+        }
+    }
+
 
     public function addFormNumber(Gym $gym)
     {
-        if (!$gym->reservation_number && !$gym->oop_number) {
+        if (!$gym->reservation_number) {
             // Validate input when conditions are met
             $validated = request()->validate([
                 'reservation_number' => 'required|min:3|max:11|unique:gym-reservations,reservation_number,' . $gym->id,
-                'status' => 'required',
-                'receiver_name' => 'required',
-                // 'or_number' => 'required|min:3|max:7|unique:gym-reservations,or_number,' . $gym->id,
-                'oop_number' => 'required|min:3|max:11|unique:gym-reservations,oop_number,' . $gym->id,
-                'or_date' => 'required|date',
-                // 'reservation_date' => 'required|date',
             ]);
         } else {
             // Validate input when conditions are not met
@@ -144,34 +171,6 @@ class ReceivingController extends Controller
                         }
                     },
                 ],
-                'status' => 'required',
-                'receiver_name' => 'required',
-                // 'or_number' => [
-                //     'required',
-                //     'min:3',
-                //     'max:7',
-                //     function ($attribute, $value, $fail) use ($reservationsNotSimilarToOriginal) {
-                //         foreach ($reservationsNotSimilarToOriginal as $reservation) {
-                //             if ($reservation->or_number === $value) {
-                //                 $fail('The ' . $attribute . ' has already been taken.');
-                //             }
-                //         }
-                //     },
-                // ],
-                'oop_number' => [
-                    'required',
-                    'min:3',
-                    'max:11',
-                    function ($attribute, $value, $fail) use ($reservationsNotSimilarToOriginal) {
-                        foreach ($reservationsNotSimilarToOriginal as $reservation) {
-                            if ($reservation->oop_number === $value) {
-                                $fail('The ' . $attribute . ' has already been taken.');
-                            }
-                        }
-                    },
-                ],
-                'or_date' => 'required|date',
-                // 'reservation_date' => 'required|date',
             ]);
         }
 
@@ -179,7 +178,7 @@ class ReceivingController extends Controller
         $gym->update($validated);
 
         // Get all pending Gym reservations with the same form group number
-        $pendingGyms = Gym::where('status', 'Pending')
+        $pendingGyms = Gym::where('status', 'Reserved')
             ->where('form_group_number', $gym->form_group_number)
             ->get();
 
@@ -187,22 +186,16 @@ class ReceivingController extends Controller
         foreach ($pendingGyms as $pendingGym) {
             $pendingGym->update([
                 'reservation_number' => $validated['reservation_number'],
-                'status' => $validated['status'],
-                // 'or_number' => $validated['or_number'],
-                'or_date' => $validated['or_date'],
-                'oop_number' => $validated['oop_number'],
-                'receiver_name' => $validated['receiver_name'],
-                // 'reservation_date' => $validated['reservation_date'],
             ]);
         }
 
         // Check if status is "Received"
-        if ($gym->status === 'Received') {
+        if ($gym->reservation_number) {
             // Redirect with success message
-            return redirect()->route('receivingreceived')->with('success', 'Items updated successfully!');
+            return redirect()->route('receivingpaid')->with('success', 'Reservation Number updated successfully!');
         } else {
             // Redirect back with appropriate success message
-            return redirect()->route('receivingpending')->with('success', 'Items updated successfully, status is not Received.');
+            return redirect()->route('receivingpaid')->with('success', 'Reservation number remains empty.');
         }
 
         // Redirect back with success message
@@ -216,17 +209,85 @@ class ReceivingController extends Controller
             ->where('id', $gym->employee_id)
             ->first();
         $receivingUser = User::select('first_name', 'middle_name', 'last_name')
-        ->where('id', Auth::id())
-        ->first();
-        $reservationNumber = Str::afterLast($gym->reservation_number, '-');
-        $oopNumber = Str::afterLast($gym->oop_number, '-');
+            ->where('id', Auth::id())
+            ->first();
+        // $reservationNumber = Str::afterLast($gym->reservation_number, '-');
+        // $oopNumber = Str::afterLast($gym->oop_number, '-');
         // You can return the modal content as a view
-        return view('ras.receiving.receiving-addnumber', compact('gym', 'userDetails', 'oopNumber', 'reservationNumber', 'receivingUser'));
+        return view('ras.receiving.receiving-addnumber', compact('gym', 'userDetails', 'receivingUser'));
     }
+    public function addORNumberView(Gym $gym)
+    {
+        $userDetails = User::select('first_name', 'middle_name', 'last_name')
+            ->where('id', $gym->employee_id)
+            ->first();
+
+        $receivingUser = User::select('first_name', 'middle_name', 'last_name')
+            ->where('id', Auth::id())
+            ->first();
+
+        return view('ras.receiving.receiving-add-or-number', compact('gym', 'userDetails', 'receivingUser'));
+    }
+
     public function addORNumber(Gym $gym)
     {
-       
-        return view('ras.receiving.receiving-add-or-number');
+        if (!$gym->oop_number) {
+            // Validate input when conditions are met
+            $validated = request()->validate([
+                'status' => 'required',
+                'oop_number' => 'required|min:3|max:11|unique:gym-reservations,oop_number,' . $gym->id,
+                'or_date' => 'required|date',
+                'cashier_name' => 'required',
+            ]);
+        } else {
+            // Validate input when conditions are not met
+            $reservationsNotSimilarToOriginal = Gym::where('form_group_number', '!=', $gym->form_group_number)
+                ->get();
+
+            $validated = request()->validate([
+                'status' => 'required',
+                'oop_number' => [
+                    'required',
+                    'min:3',
+                    'max:11',
+                    function ($attribute, $value, $fail) use ($reservationsNotSimilarToOriginal) {
+                        foreach ($reservationsNotSimilarToOriginal as $reservation) {
+                            if ($reservation->oop_number === $value) {
+                                $fail('The ' . $attribute . ' has already been taken.');
+                            }
+                        }
+                    },
+                ],
+                'or_date' => 'required|date',
+                'cashier_name' => 'required',
+            ]);
+        }
+
+        // Update the gym with the validated data
+        $gym->update($validated);
+
+        // Get all pending Gym reservations with the same form group number
+        $pendingGyms = Gym::where('status', 'Received')
+            ->where('form_group_number', $gym->form_group_number)
+            ->get();
+
+        // Update each pending Gym reservation with the new reservation number, status, or_number, and or_date
+        foreach ($pendingGyms as $pendingGym) {
+            $pendingGym->update([
+                'status' => $validated['status'],
+                'or_date' => $validated['or_date'],
+                'oop_number' => $validated['oop_number'],
+            ]);
+        }
+
+        // Check if status is "Received"
+        if ($gym->status === 'Reserved') {
+            // Redirect with success message
+            return redirect()->route('receivingpaid')->with('success', 'Items updated successfully!');
+        } else {
+            // Redirect back with appropriate success message
+            return redirect()->route('receivingreceived')->with('success', 'Items updated successfully, status is not Received.');
+        }
     }
 
     public function viewGym(Gym $gym)
