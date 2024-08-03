@@ -58,15 +58,19 @@ class AuthController extends Controller
 
     public function authenticate()
     {
-        //validate
+        // Validate the login form input
         $validated = request()->validate([
-            'email' => 'required|email',
-            'password' => 'required|min:8'
+            'login_email' => 'required|email',
+            'login_password' => 'required|min:8'
         ]);
-
-        if (auth()->attempt($validated)) {
+    
+        // Attempt to log the user in using the provided email and password
+        if (auth()->attempt([
+            'email' => $validated['login_email'], 
+            'password' => $validated['login_password']
+        ])) {
             request()->session()->regenerate();
-
+    
             // Check user role and redirect accordingly
             if (auth()->user()->role === 'Admin') {
                 return redirect()->route('adminhome')->with('success', "Logged in successfully!");
@@ -80,12 +84,13 @@ class AuthController extends Controller
                 return redirect()->route('home')->with('success', "Logged in successfully!");
             }
         }
-
-        //redirect to login page with error message
+    
+        // Redirect to login page with error message
         return redirect()->route('login')->withErrors([
-            'email' => "No matching user found with the provided email and password"
+            'login_email' => "No matching user found with the provided email and password"
         ]);
     }
+    
 
     public function logout()
     {
