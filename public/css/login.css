@@ -44,6 +44,11 @@
     margin-top: 10px;
     cursor: pointer;
 }
+.login-container button.hidden:hover,
+.login-container button:hover {
+    background-color: #335e73;
+}
+
 .login-container button.hidden {
     background-color: transparent;
     border-color: var(--color-background);
