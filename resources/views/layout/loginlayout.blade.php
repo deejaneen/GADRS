@@ -43,14 +43,14 @@
     @include('pagepreloader')
 
     @yield('banner')
-
+    <div class="container">
+        @yield('content')
+    </div>
     <div class="logincontainer">
         @yield('loginform')
         @yield('registerform')
     </div>
-    <div class="container">
-        @yield('content')
-    </div>
+   
     
     {{-- Stylesheet for font from google fonts --}}
     <script>

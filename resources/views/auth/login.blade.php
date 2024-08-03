@@ -19,7 +19,7 @@
                         @enderror
                         <i class="fa-solid fa-eye show-password signinshowpassword"></i>
                     </div>
-                    <a href="{{ route('forget.password') }}">Forgot Password?</a>
+                    <a href="{{route("forget.password")}}">Forgot Password?</a>
                     <button type="submit" name="submit" value="submit">Sign In</button>
                     <input type="hidden" name="formType" value="login">
                 </div>
