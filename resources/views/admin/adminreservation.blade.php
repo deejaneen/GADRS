@@ -56,6 +56,51 @@
             </div>
         </div>
     </aside> -->
+    <div class="right">
+        <div class="top">
+            <button id="menu-btn">
+                <span class="ri-menu-line"></span>
+            </button>
+        </div>
+    
+        {{-- ------------------ END OF RECENT UPDATES ------------------ --}}
+        <div class="sales-analytics">
+            <h2>Add Reservation Dates</h2>
+            <div class="item add-product" class="right" data-bs-toggle="modal" data-bs-target="#addRestrictedDateModalGym">
+                <div class="icon">
+                    <span class="ri-add-line"></span>
+                </div>
+                <div>
+                    <div class="info">
+                        <h3>ADD NEW DATE RESTRICTIONS</h3>
+                    </div>
+                </div>
+            </div>
+            {{-- <div class="item add-product">
+                    <div class="icon">
+                        <span class="ri-add-line"></span>
+                    </div>
+                    <div class="right">
+                        <div class="info">
+                            <h3>ADD NEW DORM DATE ONLY</h3>
+                            <span class="ri-hotel-bed-fill"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="item add-product">
+                    <div class="icon">
+                        <span class="ri-add-line"></span>
+                    </div>
+                    <div class="right">
+                        <div class="info">
+                            <h3>ADD DATE FOR BOTH</h3>
+                            <span class="ri-basketball-fill"></span>
+                            <span class="ri-hotel-bed-fill"></span>
+                        </div>
+                    </div>
+                </div> --}}
+        </div>
+    </div>
 {{-- -------------------------------END-OF-ASIDE-------------------- --}}
 <main>
     <h1 class="page-title">RESERVATIONS DATES THAT CANNOT BE BOOKED</h1>
@@ -132,51 +177,7 @@
 </main>
 
 {{-- ------------------END OF MAIN------------------ --}}
-<div class="right">
-    <div class="top">
-        <button id="menu-btn">
-            <span class="ri-menu-line"></span>
-        </button>
-    </div>
 
-    {{-- ------------------ END OF RECENT UPDATES ------------------ --}}
-    <div class="sales-analytics">
-        <h2>Add Reservation Dates</h2>
-        <div class="item add-product" class="right" data-bs-toggle="modal" data-bs-target="#addRestrictedDateModalGym">
-            <div class="icon">
-                <span class="ri-add-line"></span>
-            </div>
-            <div>
-                <div class="info">
-                    <h3>ADD NEW DATE RESTRICTIONS</h3>
-                </div>
-            </div>
-        </div>
-        {{-- <div class="item add-product">
-                <div class="icon">
-                    <span class="ri-add-line"></span>
-                </div>
-                <div class="right">
-                    <div class="info">
-                        <h3>ADD NEW DORM DATE ONLY</h3>
-                        <span class="ri-hotel-bed-fill"></span>
-                    </div>
-                </div>
-            </div>
-            <div class="item add-product">
-                <div class="icon">
-                    <span class="ri-add-line"></span>
-                </div>
-                <div class="right">
-                    <div class="info">
-                        <h3>ADD DATE FOR BOTH</h3>
-                        <span class="ri-basketball-fill"></span>
-                        <span class="ri-hotel-bed-fill"></span>
-                    </div>
-                </div>
-            </div> --}}
-    </div>
-</div>
 
 <script>
     function confirmDeleteDorm(form) {
