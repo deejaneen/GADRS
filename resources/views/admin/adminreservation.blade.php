@@ -170,7 +170,7 @@
             <div class="col-6">
                 <div class="card" id="AdminDormNewAvailableReservationTableCard">
                     <div>
-                        <h2 class="card-header text-center home">Added Gym Dates For Reservation</h2>
+                        <h2 class="card-header text-center home">Added Dorm Dates For Reservation</h2>
                     </div>
                     <table class="table-home table-hover stripe" id="AdminDormNewAvailableReservationTable" style="width: 100%">
                         <thead>
