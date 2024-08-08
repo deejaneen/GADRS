@@ -89,8 +89,10 @@
     <script>
         $(document).ready(function() {
             $('#AdminUserTable').DataTable();
-            $('#AdminGymReservationTable').DataTable();
-            $('#AdminDormReservationTable').DataTable();
+            $('#AdminGymRestrictReservationTable').DataTable();
+            $('#AdminDormRestrictReservationTable').DataTable();
+            $('#AdminGymNewAvailableReservationTable').DataTable();
+            $('#AdminDormNewAvailableReservationTable').DataTable();
             $('#DormReservationTable').DataTable();
             $('#DormReservationCartTable').DataTable();
             $('#GymReservationTable').DataTable();

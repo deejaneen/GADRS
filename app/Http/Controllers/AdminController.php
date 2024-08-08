@@ -207,8 +207,19 @@ class AdminController extends Controller
 
         return redirect()->back()->with('success', 'Date deleted successfully!');
     }
+    public function destroyAddedDateReservation($id)
+    {
+        $dateRestriction = DateRestriction::where('id', $id)->first();
+        $dateRestriction->delete();
+
+        return redirect()->back()->with('success', 'Date deleted successfully!');
+    }
 
 
+    public function storeNewDate(Request $request)
+    {
+         return view('admin.adddatereservation');
+    }
     public function storeDateRestriction(Request $request)
     {
         // Validate the incoming request data

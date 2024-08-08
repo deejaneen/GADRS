@@ -588,14 +588,18 @@ main .recent-orders a {
 }
 
 /*======================== SALES ANALYTICS ==================*/
+
+.sales-analytics,
 .right .sales-analytics {
     margin-top: 2rem;
 }
 
+.sales-analytics h2,
 .right .sales-analytics h2 {
     mask-border: 0.8rem;
 }
 
+.sales-analytics .item,
 .right .sales-analytics .item {
     background-color: var(--color-background);
     display: flex;
@@ -608,10 +612,12 @@ main .recent-orders a {
     transition: all 300ms ease;
 }
 
+.sales-analytics .item:hover,
 .right .sales-analytics .item:hover {
     box-shadow: none;
 }
 
+.sales-analytics .item .right,
 .right .sales-analytics .item .right {
     display: flex;
     justify-content: space-between;
@@ -628,14 +634,17 @@ main .recent-orders a {
     display: flex;
 }
 
+.sales-analytics .item.offline .icon,
 .right .sales-analytics .item.offline .icon {
     background-color: var(--color-danger);
 }
 
+.sales-analytics .item.customers .icon,
 .right .sales-analytics .item.customers .icon {
     background-color: var(--color-success);
 }
 
+.sales-analytics .add-product,
 .right .sales-analytics .add-product {
     background-color: transparent;
     border: 2px dashed var(--color-primary);
@@ -644,12 +653,14 @@ main .recent-orders a {
     align-items: center;
 }
 
+.sales-analytics .add-product div,
 .right .sales-analytics .add-product div {
     display: flex;
     align-items: center;
     gap: 0.6rem;
 }
 
+.sales-analytics .add-product div h3,
 .right .sales-analytics .add-product div h3 {
     font-weight: 600;
 }
@@ -661,8 +672,10 @@ main .recent-orders a {
 #ReceivingPaidTable th,
 #ReceivingPendingTable th,
 #AdminUserTable th,
-#AdminGymReservationTable th,
-#AdminDormReservationTable th,
+#AdminGymRestrictReservationTable th,
+#AdminDormRestrictReservationTable th,
+#AdminGymNewAvailableReservationTable th,
+#AdminDormNewAvailableReservationTable th,
 #GymReservationTable th,
 #GymReservationCartTable th,
 #DormReservationTable th,
@@ -673,8 +686,10 @@ main .recent-orders a {
 #ReceivingPaidTableCard,
 #ReceivingPendingTableCard,
 #AdminUserTableCard,
-#AdminGymReservationTableCard,
-#AdminDormReservationTableCard,
+#AdminGymRestrictReservationTableCard,
+#AdminDormRestrictReservationTableCard,
+#AdminGymNewAvailableReservationTableCard,
+#AdminDormNewAvailableReservationTableCard,
 #GymReservationTableCard,
 #GymReservationCartTableCard,
 #DormReservationTableCard,
@@ -691,8 +706,10 @@ main .recent-orders a {
 }
 #ReceivingPaidTableCard:hover,
 #ReceivingPendingTableCard:hover,
-#AdminDormReservationTableCard:hover,
-#AdminGymReservationTableCard:hover,
+#AdminGymRestrictReservationTableCard:hover,
+#AdminDormRestrictReservationTableCard:hover,
+#AdminGymNewAvailableReservationTableCard:hover,
+#AdminDormNewAvailableReservationTableCard:hover
 #AdminUserTableCard:hover,
 #GymReservationTableCard:hover,
 #GymReservationCartTableCard:hover,
@@ -1203,13 +1220,13 @@ svg text.text-body {
         -webkit-overflow-scrolling: touch;
         font-size: 0.7rem;
     }
-    .adminuser{
+    .adminuser {
         display: flex;
         justify-content: flex-start;
         align-items: flex-start;
         flex-direction: column;
     }
-    .main-container{
+    .main-container {
         grid-template-columns: 250px auto;
         width: 100%;
         /* overflow-x: auto; */
@@ -1221,7 +1238,7 @@ svg text.text-body {
     .right {
         grid-column: 2;
     }
-    #AdminUserTableCard{
+    #AdminUserTableCard {
     }
     #ReceivingPaidTableCard span,
     #ReceivingPendingTableCard span,
@@ -1240,10 +1257,10 @@ svg text.text-body {
     #GymReservationTableCard label,
     #GymReservationCartTableCard label,
     #DormReservationTableCard label,
-    #DormReservationCartTableCard label,   
+    #DormReservationCartTableCard label,
     .dt-info,
     .dt-input,
-    .dt-paging-button {   
+    .dt-paging-button {
         font-size: 0.7rem;
     }
     .dt-layout-cell {

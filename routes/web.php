@@ -110,6 +110,7 @@ Route::middleware(['auth', 'verified', 'checkRole:Admin', 'preventCaching'])->gr
     Route::get('/admin/dorm', [AdminController::class, 'dorm'])->name('admindorm');
     Route::get('/admin/profile', [AdminController::class, 'profile'])->name('adminprofile');
     Route::post('/admin/reservations/restriction', [AdminController::class, 'storeDateRestriction'])->name('admin.addrestriction');
+    Route::post('/admin/reservations/adddatereservation', [AdminController::class, 'storeNewDate'])->name('admin.adddatereservation');
     Route::put('/admin/users/{user}', [AdminController::class, 'updateUser'])->name('admin.updateUser');
     Route::get('/admin/users/editUser/{user}', [AdminController::class, 'editUser'])->name('admin.editUser');
     Route::post('/admin/users/createUser', [AdminController::class, 'storeUser'])->name('admin.createUser');
