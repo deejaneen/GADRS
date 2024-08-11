@@ -80,7 +80,8 @@
                             <label for="type" class="form-label">Type</label>
                             <select class="form-select" id="type" name="type" required>
                                 <option value="Gym">Gym</option>
-                                <option value="Dorm">Dorm</option>
+                                {{-- <option value="Dorm">Dorm</option> --}}
+
                             </select>
                         </div>
                     </div>

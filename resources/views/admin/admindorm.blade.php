@@ -60,7 +60,7 @@
 </aside> -->
 {{-- -------------------------------END-OF-ASIDE-------------------- --}}
 <main>
-    <h1 class="page-title">DORM</h1>
+    <h1 class="page-title mt-3">DORM</h1>
 
 
 

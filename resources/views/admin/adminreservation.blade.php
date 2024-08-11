@@ -167,7 +167,7 @@
                 </table>
             </div>
         </div>
-        <div class="col-6">
+        {{-- <div class="col-6">
             <div class="card" id="AdminDormNewAvailableReservationTableCard">
                 <div>
                     <h2 class="card-header text-center home">Added Dorm Dates For Reservation</h2>
@@ -205,7 +205,7 @@
                         @endforeach
                     </tbody>
                 </table>
-            </div>
+            </div> --}}
         </div>
     </div>
 

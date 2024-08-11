@@ -3,8 +3,8 @@
 
 
 @section('admindashboard')
-    <main>
-        <h1 class="page-title">Gym</h1>
+    <main class="">
+        <h1 class="page-title mt-3">GYM</h1>
 
 
 
