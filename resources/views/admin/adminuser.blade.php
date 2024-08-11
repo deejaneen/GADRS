@@ -2,32 +2,25 @@
 
     @section('admindashboard')
     @include('admin.admin-add-user-modal')
-    <div class="right">
-        <div class="top">
-            <button id="menu-btn">
-                <span class="ri-menu-line"></span>
-            </button>
-        </div>
-
-        {{-- ------------------ END OF RECENT UPDATES ------------------ --}}
-        <div class="sales-analytics">
-            <h2>Create New User</h2>
-
-            <div class="item add-product" data-bs-toggle="modal" data-bs-target="#addUserAdminModal">
-                <div class="icon">
-                    <span class="ri-add-line"></span>
-                </div>
-                <div class="right">
-                    <div class="info">
-                        <h3>ADD NEW USER</h3>
+   
+    <main class="adminuser fullspan ">
+        <div class="row mb-3">
+            <div class="col-3 mb-3">
+                <div class="sales-analytics">
+                    <h2>Add New User</h2>
+                    <div class="item add-product" class="right" data-bs-toggle="modal" data-bs-target="#addUserAdminModal">
+                    <div class="icon">
+                        <span class="ri-add-line"></span>
                     </div>
-
+                    <div class="right">
+                        <div class="info">
+                            <h3>ADD NEW USER</h3>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <main class="adminuser">
-        <h1 class="page-title">USERS</h1>
+        <h1 class="page-title " >USERS</h1>
 
         <div class="card" id="AdminUserTableCard">
             <div>
