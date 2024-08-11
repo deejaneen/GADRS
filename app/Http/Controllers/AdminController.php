@@ -160,9 +160,7 @@ class AdminController extends Controller
         return view('admin.adminprofile');
     }
 
-    public function showUser()
-    {
-    }
+    public function showUser() {}
 
     public function storeUser()
     {
@@ -212,11 +210,33 @@ class AdminController extends Controller
 
         return redirect()->back()->with('success', 'Date deleted successfully!');
     }
+
     public function destroyAddedDateReservation($id)
     {
-        $dateRestriction = DateAddition::where('id', $id)->first();
-        $dateRestriction->delete();
+        // Find the DateAddition record by ID
+        $dateAddition = DateAddition::where('id', $id)->first();
 
+        // Extract the added_date
+        $date = $dateAddition->added_date;
+
+        // dd($date);
+
+        // Perform the Eloquent query to find Gym reservations on the same date
+        // and within the time range of 6:00 AM to less than 6:00 PM
+        $gymReservation = Gym::whereDate('reservation_date', $date)
+            ->whereTime('reservation_time_start', '>=', '06:00:00')
+            ->whereTime('reservation_time_end', '<', '18:00:00')
+            ->first();
+
+        if ($gymReservation) {
+            // Redirect back with a success message
+            return redirect()->back()->with('error', 'There is an existing registration with this date, so it cannot be deleted!');
+        }
+
+        // Delete the DateAddition record
+        $dateAddition->delete();
+
+        // Redirect back with a success message
         return redirect()->back()->with('success', 'Date deleted successfully!');
     }
 
@@ -239,10 +259,17 @@ class AdminController extends Controller
                 ->where('restricted_date', $validatedData['dateRestriction'])
                 ->first();
 
+            $existingRecordDateAddition = DateAddition::where('type', $validatedData['type'])
+                ->where('added_date', $validatedData['dateRestriction'])
+                ->first();
+
             // If a record already exists, display error message
             if ($existingRecord) {
                 return redirect()->back()->with('error', 'Date Restriction already exists for the specified type and date.');
+            }elseif ($existingRecordDateAddition) {
+                return redirect()->back()->with('error', 'Date chosen exists in the addition table/list. Delete the item first.');
             }
+
 
             // Check for existing reservations based on the type
             if ($validatedData['type'] === 'Gym') {
@@ -300,7 +327,7 @@ class AdminController extends Controller
 
             // If a record already exists, display error message
             if ($existingRecord) {
-                return redirect()->back()->with('error', 'Date chosen exists in the restriction table/list.');
+                return redirect()->back()->with('error', 'Date chosen exists in the restriction table/list. Delete the item first.');
             } elseif ($existingRecordDateAddition) {
                 return redirect()->back()->with('error', 'Date selected already exists for the specified type and date.');
             }
@@ -325,7 +352,7 @@ class AdminController extends Controller
             }
 
             // Store the date restriction in the database
-            $dateAddition= new DateAddition();
+            $dateAddition = new DateAddition();
             $dateAddition->added_date = $validatedData['date_addition'];
             $dateAddition->description = $request->details;
             $dateAddition->type = $validatedData['type'];

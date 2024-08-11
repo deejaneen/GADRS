@@ -5,36 +5,41 @@
         const reservationDateInput = document.getElementById('reservationDate');
         const startTimeInput = document.getElementById('startTime');
         const endTimeInput = document.getElementById('endTime');
+        const disabledDates = <?= json_encode($gymDateRestrictions) ?>;
 
         function updateTimeFieldsBasedOnDate() {
             const selectedDateStr = reservationDateInput.value; // Get the selected date as a string
             const selectedDate = new Date(selectedDateStr);
             const selectedDay = selectedDate.getDay();
 
-            // Check if the selected date is in gymDateAdditions
-            if (gymDateAdditions.includes(selectedDateStr)) {
-                startTimeInput.setAttribute('min', '06:00');
-                endTimeInput.setAttribute('max', '21:00');
-                startTimeInput.value = '06:00'; // Set default start time to 6:00 AM
-            } else if (selectedDay >= 1 && selectedDay <= 5) { // Monday to Friday
-                startTimeInput.setAttribute('min', '18:00');
-                endTimeInput.setAttribute('max', '21:00');
-                startTimeInput.value = '18:00'; // Set default start time to 6:00 PM
-            } else { // Saturday and Sunday
-                startTimeInput.setAttribute('min', '06:00');
-                endTimeInput.setAttribute('max', '21:00');
-                startTimeInput.value = '06:00'; // Set default start time to 6:00 AM
+            let minTime = '06:00';
+            let maxTime = '21:00';
+            let defaultStartTime = '06:00';
+
+            if (!gymDateAdditions.includes(selectedDateStr) && selectedDay >= 1 && selectedDay <= 5) { // Monday to Friday
+                minTime = '18:00';
+                defaultStartTime = '18:00';
             }
+
+            startTimeInput.setAttribute('min', minTime);
+            endTimeInput.setAttribute('max', maxTime);
+            startTimeInput.value = defaultStartTime; // Set the default start time
+            changeMaxTime();
         }
 
 
         // Initialize date picker with jQuery UI
         $("#reservationDate").datepicker({
             dateFormat: 'yy-mm-dd', // Set the date format
+            beforeShowDay: function(date) {
+                var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
+                return [disabledDates.indexOf(string) == -1];
+            },
             minDate: 0, // Minimum selectable date (today)
             onSelect: function(selectedDate) {
                 reservationDateInput.value = selectedDate;
                 updateTimeFieldsBasedOnDate();
+                calculateTotalPrice();
             }
         });
 
@@ -51,7 +56,11 @@
 
     document.getElementById('startTime').addEventListener('input', calculateTotalPrice);
     document.getElementById('endTime').addEventListener('input', calculateTotalPrice);
-    document.getElementById('employeeType').addEventListener('change', calculateTotalPrice);
+    document.getElementById('employeeType').addEventListener('change', function() {
+        changeMaxTime();
+        calculateTotalPrice();
+    });
+
 
     function calculateTotalPrice() {
         const startTime = document.getElementById('startTime').value;
@@ -77,14 +86,27 @@
         }
     }
 
-</script>
-<script>
+    function changeMaxTime() {
+        const employeeType = document.getElementById('employeeType').value;
+        const endTimeInput = document.getElementById('endTime');
+
+        if (employeeType === "Non-COA") {
+            endTimeInput.value = '20:00'; // Set default value to 8:00 PM
+            endTimeInput.setAttribute('max', '20:00'); // Set max time to 8:00 PM
+        } else {
+            endTimeInput.value = '21:00'; // Set default value to 9:00 PM
+            endTimeInput.setAttribute('max', '21:00'); // Set max time to 9:00 PM
+        }
+    }
+
     $(document).ready(function() {
         const weekContainer = document.getElementById("week-container");
         const selectedDateInput = document.getElementById("reservationDate");
         const disabledDates = <?= json_encode($gymDateRestrictions) ?>;
         const startTimeInput = document.getElementById('startTime');
         const endTimeInput = document.getElementById('endTime');
+        const userType = document.getElementById('employeeType').value;
+
 
 
         function updateTimeFieldsBasedOnDate() {
@@ -92,20 +114,20 @@
             const selectedDate = new Date(selectedDateStr);
             const selectedDay = selectedDate.getDay();
 
-            // Check if the selected date is in gymDateAdditions
-            if (gymDateAdditions.includes(selectedDateStr)) {
-                startTimeInput.setAttribute('min', '06:00');
-                endTimeInput.setAttribute('max', '21:00');
-                startTimeInput.value = '06:00'; // Set default start time to 6:00 AM
-            } else if (selectedDay >= 1 && selectedDay <= 5) { // Monday to Friday
-                startTimeInput.setAttribute('min', '18:00');
-                endTimeInput.setAttribute('max', '21:00');
-                startTimeInput.value = '18:00'; // Set default start time to 6:00 PM
-            } else { // Saturday and Sunday
-                startTimeInput.setAttribute('min', '06:00');
-                endTimeInput.setAttribute('max', '21:00');
-                startTimeInput.value = '06:00'; // Set default start time to 6:00 AM
+            let minTime = '06:00';
+            let maxTime = userType === "Non-COA" ? '20:00' : '21:00';
+            let defaultStartTime = '06:00';
+
+            if (!gymDateAdditions.includes(selectedDateStr) && selectedDay >= 1 && selectedDay <= 5) { // Monday to Friday
+                minTime = '18:00';
+                defaultStartTime = '18:00';
             }
+
+            startTimeInput.setAttribute('min', minTime);
+            endTimeInput.setAttribute('max', maxTime);
+            startTimeInput.value = defaultStartTime; // Set the default start time
+            endTimeInput.value = maxTime;
+            changeMaxTime();
         }
 
         // Initialize date picker with disabled dates
@@ -120,8 +142,13 @@
                 updateTable(selectedDate);
                 selectedDateInput.value = selectedDate;
                 updateTimeFieldsBasedOnDate();
+                calculateTotalPrice();
             }
         });
+
+
+
+
     });
 
     // Function to format date in desired format
@@ -250,22 +277,6 @@
             }
         }
     }
-
-    $(document).ready(function() {
-        const datePicker = $("#datePicker");
-        const reservationDate = $("#reservationDate");
-        const disabledDates = <?= json_encode($gymDateRestrictions) ?>;
-
-        // Initialize date picker with disabled dates
-        datePicker.add(reservationDate).datepicker({
-            dateFormat: 'yy-mm-dd', // Set the date format
-            beforeShowDay: function(date) {
-                var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
-                return [disabledDates.indexOf(string) == -1];
-            },
-            minDate: 0 // Minimum selectable date (today)
-        });
-    });
 </script>
 @endsection
 

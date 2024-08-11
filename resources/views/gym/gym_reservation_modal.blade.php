@@ -48,6 +48,7 @@
                                     <option value="Non-COA">Non-COA</option>
                                 </select>
                             </div>
+                            <p>Non-COA max end time is 8:00 PM, COA employee is 9:00 PM.</p>
                         </div>
                         <div class="col">
                             <label for="purpose" class="form-label">Purpose</label>
