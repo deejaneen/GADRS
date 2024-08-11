@@ -1,16 +1,22 @@
 @section('scripts')
 <script>
+    const gymDateAdditions = @json($gymDateAdditions); // Convert PHP array to JavaScript array
     document.addEventListener('DOMContentLoaded', function() {
         const reservationDateInput = document.getElementById('reservationDate');
         const startTimeInput = document.getElementById('startTime');
         const endTimeInput = document.getElementById('endTime');
 
         function updateTimeFieldsBasedOnDate() {
-            const selectedDate = new Date(reservationDateInput.value);
-            // console.log('Selected Date:', selectedDate); // Debugging line
+            const selectedDateStr = reservationDateInput.value; // Get the selected date as a string
+            const selectedDate = new Date(selectedDateStr);
             const selectedDay = selectedDate.getDay();
 
-            if (selectedDay >= 1 && selectedDay <= 5) { // Monday to Friday
+            // Check if the selected date is in gymDateAdditions
+            if (gymDateAdditions.includes(selectedDateStr)) {
+                startTimeInput.setAttribute('min', '06:00');
+                endTimeInput.setAttribute('max', '21:00');
+                startTimeInput.value = '06:00'; // Set default start time to 6:00 AM
+            } else if (selectedDay >= 1 && selectedDay <= 5) { // Monday to Friday
                 startTimeInput.setAttribute('min', '18:00');
                 endTimeInput.setAttribute('max', '21:00');
                 startTimeInput.value = '18:00'; // Set default start time to 6:00 PM
@@ -20,6 +26,7 @@
                 startTimeInput.value = '06:00'; // Set default start time to 6:00 AM
             }
         }
+
 
         // Initialize date picker with jQuery UI
         $("#reservationDate").datepicker({
@@ -70,52 +77,6 @@
         }
     }
 
-    // function toggleNumberOfCourts() {
-    //     var purpose = document.getElementById('purpose').value;
-    //     var numberOfCourtsWrapper = document.getElementById('number_of_courts_wrapper');
-    //     var numberOfCourtsInput = document.getElementById('number_of_courts');
-
-    //     if (purpose === 'Badminton') {
-    //         numberOfCourtsWrapper.style.display = 'block';
-    //         numberOfCourtsInput.required = true; // Add required attribute
-    //     } else {
-    //         numberOfCourtsWrapper.style.display = 'none';
-    //         numberOfCourtsInput.required = false; // Remove required attribute
-    //     }
-    // }
-
-    // Ensure that the correct field visibility is set when the modal is opened
-    // document.getElementById('gymReservationModal').addEventListener('shown.bs.modal', function() {
-    //     toggleNumberOfCourts();
-    // });
-
-    // Function to reset the form
-    // function resetForm() {
-    //     document.getElementById('gymReservationForm').reset();
-
-    // }
-
-    // Ensure correct field visibility on initial load
-    // document.addEventListener('DOMContentLoaded', function() {
-    //     toggleNumberOfCourts();
-    // });
-
-    // Select the number of courts input field
-    // var numberInput = document.getElementById('number_of_courts');
-
-    // Add an event listener to listen for input changes
-    // numberInput.addEventListener('input', function() {
-    //     var maxValue = parseInt(numberInput.getAttribute('max'));
-    //     var minValue = parseInt(numberInput.getAttribute('min'));
-    //     var currentValue = parseInt(numberInput.value);
-
-    //     // Ensure the value is within the allowed range
-    //     if (currentValue < minValue || isNaN(currentValue)) {
-    //         numberInput.value = minValue; // Set to minimum value if less than minimum or NaN
-    //     } else if (currentValue > maxValue) {
-    //         numberInput.value = maxValue; // Set to maximum value if greater than maximum
-    //     }
-    // });
 </script>
 <script>
     $(document).ready(function() {
@@ -125,12 +86,18 @@
         const startTimeInput = document.getElementById('startTime');
         const endTimeInput = document.getElementById('endTime');
 
+
         function updateTimeFieldsBasedOnDate() {
-            const selectedDate = new Date(selectedDateInput.value);
-            // console.log('Selected Date:', selectedDate); // Debugging line
+            const selectedDateStr = selectedDateInput.value; // Get the selected date as a string
+            const selectedDate = new Date(selectedDateStr);
             const selectedDay = selectedDate.getDay();
 
-            if (selectedDay >= 1 && selectedDay <= 5) { // Monday to Friday
+            // Check if the selected date is in gymDateAdditions
+            if (gymDateAdditions.includes(selectedDateStr)) {
+                startTimeInput.setAttribute('min', '06:00');
+                endTimeInput.setAttribute('max', '21:00');
+                startTimeInput.value = '06:00'; // Set default start time to 6:00 AM
+            } else if (selectedDay >= 1 && selectedDay <= 5) { // Monday to Friday
                 startTimeInput.setAttribute('min', '18:00');
                 endTimeInput.setAttribute('max', '21:00');
                 startTimeInput.value = '18:00'; // Set default start time to 6:00 PM
@@ -283,17 +250,6 @@
             }
         }
     }
-
-    // document.addEventListener("DOMContentLoaded", function() {
-    //     const datePicker = document.getElementById("datePicker");
-    //     const disabledDates = @json($gymDateRestrictions);
-
-    //     // Initialize date picker with disabled dates
-    //     const datePickerInstance = flatpickr(datePicker, {
-    //         disable: disabledDates,
-    //         minDate: "today"
-    //     });
-    // });
 
     $(document).ready(function() {
         const datePicker = $("#datePicker");

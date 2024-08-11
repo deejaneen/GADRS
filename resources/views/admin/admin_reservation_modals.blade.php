@@ -64,9 +64,9 @@
                 <div class="modal-body">
                     <div class="row mb-3">
                         <div class="col">
-                            <label for="dateRestriction" class="form-label">Date to be Added to Available Reservations</label>
-                            <input type="date" class="form-control" id="dateRestriction" name="dateRestriction"
-                                min="{{ date('Y-m-d') }}" required>
+                            <label for="date_addition" class="form-label">Date to be Added to Available Reservations</label>
+                            <input type="date" class="form-control" id="date_addition" name="date_addition"
+                                min="{{ date('Y-m-d') }}" required onchange="checkWeekend(this)">
                         </div>
                     </div>
                     <div class="row mb-3">
@@ -87,8 +87,8 @@
                 </div>
             </form>
             <div class="modal-footer">
-                <button type="button" class="btn btn-clear-reservation-modal" onclick="resetFormGymModal()">Clear</button>
-                <button type="button" class="btn btn-submit-reservation-modal" onclick="confirmation()">Submit</button>
+                <button type="button" class="btn btn-clear-reservation-modal" onclick="resetFormAddDate()">Clear</button>
+                <button type="button" class="btn btn-submit-reservation-modal" onclick="confirmationAdd()">Submit</button>
             </div>
         </div>
     </div>
@@ -117,6 +117,48 @@
             form.reset(); // Reset the form
         } else {
             console.error("Form not found.");
+        }
+    }
+
+    function confirmationAdd() {
+        Swal.fire({
+            title: "Are you sure you want to add this date?",
+            showDenyButton: true,
+            confirmButtonText: "Yes",
+            denyButtonText: "No",
+            customClass: {
+                popup: 'small-modal'
+            }
+        }).then((result) => {
+            if (result.isConfirmed) {
+                document.getElementById("addAvailableDateModalGymForm").submit();
+            }
+        });
+    }
+
+    function resetFormAddDate() {
+        var form = document.getElementById("addAvailableDateModalGymForm");
+        if (form) {
+            form.reset(); // Reset the form
+        } else {
+            console.error("Form not found.");
+        }
+    }
+
+    function checkWeekend(input) {
+        const selectedDate = new Date(input.value);
+        const day = selectedDate.getUTCDay(); // Get the day of the week (0: Sunday, 6: Saturday)
+
+        if (day === 0 || day === 6) {
+            Swal.fire({
+                icon: 'warning',
+                title: 'Invalid Date',
+                text: 'Weekends are not allowed. Please select a weekday.',
+                customClass: {
+                    popup: 'small-modal'
+                }
+            });
+            input.value = ""; // Reset the input value
         }
     }
 </script>

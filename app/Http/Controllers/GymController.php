@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DateAddition;
 use App\Models\DateRestriction;
 use App\Models\Gym;
 use App\Models\GymCart;
@@ -20,8 +21,9 @@ class GymController extends Controller
         $gymcarts = GymCart::orderBy('created_at', 'DESC');
         // Modify how you fetch the data, ensuring you only retrieve the date strings
         $gymDateRestrictions = DateRestriction::where('type', 'Gym')->pluck('restricted_date')->toArray();
+        $gymDateAdditions = DateAddition::where('type', 'Gym')->pluck('added_date')->toArray();
 
-        return view('gym', ['gymcarts' => $gymcarts, 'gymDateRestrictions' => $gymDateRestrictions]);
+        return view('gym', ['gymcarts' => $gymcarts, 'gymDateRestrictions' => $gymDateRestrictions, 'gymDateAdditions' => $gymDateAdditions]);
     }
 
     /**
@@ -35,9 +37,7 @@ class GymController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
-    {
-    }
+    public function store(Request $request) {}
 
     /**
      * Display the specified resource.
@@ -140,11 +140,13 @@ class GymController extends Controller
             }
         }
 
-        if (!$isValidRange) {
+        $gymDateAdditionsCheck = DateAddition::where('added_date', $newReservationDate)->first();
+
+        if (!$isValidRange && !$gymDateAdditionsCheck ) {
             return redirect()->back()->with('error', 'The selected time slot is not allowed for the selected day.');
         }
 
-         
+
         // Check for overlapping reservations
         $overlappingReservation = Gym::where('status', 'Reserved')
             ->where('reservation_date',  $newReservationDate)
@@ -160,7 +162,7 @@ class GymController extends Controller
             })
             ->exists();
 
-    
+
         if ($overlappingReservation) {
             // Check if the start time is exactly the end time of an existing reservation
             // Check if the start time is exactly the end time of an existing reservation
@@ -172,7 +174,7 @@ class GymController extends Controller
             if ($overlappingEndTimeReservation) {
                 $endTime = date('g:i A', strtotime($overlappingEndTimeReservation->reservation_time_end));
                 $message = 'The selected start time overlaps with the end time of an existing reservation ending at ' . $endTime . '. Please choose/adjust another start time.';
-                return redirect()>back()->with('error', $message);
+                return redirect() > back()->with('error', $message);
             }
 
 

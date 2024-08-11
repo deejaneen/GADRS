@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DateAddition;
 use App\Models\Gym;
 use App\Models\GymCart;
 use Illuminate\Http\Request;
@@ -119,7 +120,9 @@ class GymCartController extends Controller
             }
         }
 
-        if (!$isValidRange) {
+        $gymDateAdditionsCheck = DateAddition::where('added_date', $validatedData['selectedDateText'])->first();
+
+        if (!$isValidRange && !$gymDateAdditionsCheck) {
             return redirect()->route('gym')->with('error', 'The selected time slot is not allowed for the selected day.');
         }
 

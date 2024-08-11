@@ -221,11 +221,14 @@
                 </div>
                 <div style="color: var(--color-background)">
 
-                    Valid reservation times and dates: <span style="color: var(--color-orange)" >(Existing reservations may change the validity of these dates)</span>
-                    Monday-Friday: 6:00 PM - 9:00 PM
+                    Valid reservation times and dates: <span style="color: var(--color-orange)">(Existing reservations may change the validity of these dates)</span>
 
-                    Saturday-Sunday: 6:00 AM – 9:00 PM
-                    
+
+                </div>
+                <div style="color: var(--color-background)">
+                    Monday-Friday: 6:00 PM - 9:00 PM,
+                    Saturday-Sunday: 6:00 AM – 9:00 PM(Including Holidays, if permitted)
+
                 </div>
             </div>
             <div class="row mb-3">

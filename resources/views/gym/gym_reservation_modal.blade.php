@@ -33,7 +33,7 @@
                     </div>
                     <div class="row">
                         <p> Monday-Friday: 6:00 PM - 9:00 PM</p>
-                        <p> Saturday-Sunday: 6:00 AM – 9:00 PM</p>
+                        <p> Saturday-Sunday: 6:00 AM – 9:00 PM(Including Holidays, if permitted)</p>
 
 
                     </div>

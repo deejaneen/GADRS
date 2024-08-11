@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DateAddition;
 use App\Models\DateRestriction;
 use App\Models\DormCart;
 use App\Models\Gym;
@@ -89,10 +90,14 @@ class AdminController extends Controller
     {
         $gymDateRestrictions = DateRestriction::where('type', 'Gym')->get();
         $dormDateRestrictions = DateRestriction::where('type', 'Dorm')->get();
+        $gymDateAdditions = DateAddition::where('type', 'Gym')->get();
+        $dormDateAdditions = DateAddition::where('type', 'Dorm')->get();
 
         return view('admin.adminreservation', [
             'gymDateRestrictions' => $gymDateRestrictions,
-            'dormDateRestrictions' => $dormDateRestrictions
+            'dormDateRestrictions' => $dormDateRestrictions,
+            'gymDateAdditions' => $gymDateAdditions,
+            'dormDateAdditions' => $dormDateAdditions,
         ]);
     }
     public function gym()
@@ -209,7 +214,7 @@ class AdminController extends Controller
     }
     public function destroyAddedDateReservation($id)
     {
-        $dateRestriction = DateRestriction::where('id', $id)->first();
+        $dateRestriction = DateAddition::where('id', $id)->first();
         $dateRestriction->delete();
 
         return redirect()->back()->with('success', 'Date deleted successfully!');
@@ -218,7 +223,7 @@ class AdminController extends Controller
 
     public function storeNewDate(Request $request)
     {
-         return view('admin.adddatereservation');
+        return view('admin.adddatereservation');
     }
     public function storeDateRestriction(Request $request)
     {
@@ -270,6 +275,67 @@ class AdminController extends Controller
         } catch (\Exception $e) {
             // If an error occurs during the storing process, redirect back with error message
             return redirect()->back()->with('error', 'Date Restriction was not successful');
+        }
+    }
+
+    public function storeDateAdditions(Request $request)
+    {
+
+        // Validate the incoming request data
+        $validatedData = $request->validate([
+            'date_addition' => 'required|date',
+            'type' => 'required', // Add validation for 'type'
+        ]);
+
+        try {
+            // Check if a record with the same type and date restriction already exists
+            $existingRecord = DateRestriction::where('type', $validatedData['type'])
+                ->where('restricted_date', $validatedData['date_addition'])
+                ->first();
+            // Check if a record with the same type and date restriction already exists
+            $existingRecordDateAddition = DateAddition::where('type', $validatedData['type'])
+                ->where('added_date', $validatedData['date_addition'])
+                ->first();
+
+
+            // If a record already exists, display error message
+            if ($existingRecord) {
+                return redirect()->back()->with('error', 'Date chosen exists in the restriction table/list.');
+            } elseif ($existingRecordDateAddition) {
+                return redirect()->back()->with('error', 'Date selected already exists for the specified type and date.');
+            }
+
+            // Check for existing reservations based on the type
+            if ($validatedData['type'] === 'Gym') {
+                $checkDate = Gym::where('reservation_date', $validatedData['date_addition'])
+                    ->whereIn('status', ['Reserved', 'Received'])
+                    ->exists();
+            } elseif ($validatedData['type'] === 'Dorm') {
+                $checkDate = Dorm::where('reservation_start_date', '<=', $validatedData['date_addition'])
+                    ->where('reservation_end_date', '>=', $validatedData['date_addition'])
+                    ->whereIn('status', ['Reserved', 'Received'])
+                    ->exists();
+            } else {
+                return redirect()->back()->with('error', 'Invalid type specified.');
+            }
+
+            // If there are existing reservations, redirect with error message
+            if ($checkDate) {
+                return redirect()->back()->with('error', 'Date overlaps with existing reservations.');
+            }
+
+            // Store the date restriction in the database
+            $dateAddition= new DateAddition();
+            $dateAddition->added_date = $validatedData['date_addition'];
+            $dateAddition->description = $request->details;
+            $dateAddition->type = $validatedData['type'];
+            $dateAddition->save();
+
+            // If storing is successful, redirect back with success message
+            return redirect()->back()->with('success', 'Date added successfully!');
+        } catch (\Exception $e) {
+            // If an error occurs during the storing process, redirect back with error message
+            return redirect()->back()->with('error', 'Date Addition was not successful');
         }
     }
 
