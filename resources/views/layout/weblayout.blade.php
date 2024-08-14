@@ -14,6 +14,22 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/dorm.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/cart.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/profile.css') }}">
+
+    <link rel="preload" href="{{ asset('images/Volleyball.png') }}" as="image">
+    <link rel="preload" href="{{ asset('images/Basketball.png') }}" as="image">
+    <link rel="preload" href="{{ asset('images/dorm.png') }}" as="image">
+    <link rel="preload" href="{{ asset('images/gym.png') }}" as="image">
+    <link rel="preload" href="{{ asset('images/home.png') }}" as="image">
+    <link rel="preload" href="{{ asset('images/pillow2.png') }}" as="image">
+    <link rel="preload" href="{{ asset('images/FPL06156.jpg') }}" as="image">
+    <link rel="preload" href="{{ asset('images/FPL06148.jpg') }}" as="image">
+    <link rel="preload" href="{{ asset('images/FPL06154.jpg') }}" as="image">
+    <link rel="preload" href="{{ asset('images/FPL06155.jpg') }}" as="image">
+    <link rel="preload" href="{{ asset('images/FPL06165.jpg') }}" as="image">
+    
+
+
+
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.3.2/flatly/bootstrap.rtl.min.css" rel="stylesheet" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
