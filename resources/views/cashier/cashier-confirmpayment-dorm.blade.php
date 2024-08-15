@@ -92,6 +92,23 @@
             </div>
 
         </div>
+        <div class="row mb-3">
+            <div class="col-4">
+                @if(!$dorm->cashier_name)
+                <label for="cashier_name" class="form-label">Cashier Name</label>
+                <input type="text" class="form-control" id="cashier_name" value="{{ $receivingUser->first_name . ' ' . $receivingUser->middle_name . ' ' . $receivingUser->last_name }}" name="cashier_name" required>
+                @error('cashier_name')
+                <span class="text-danger fs-6">{{ $message }}</span>
+                @enderror
+                @else
+                <label for="cashier_name" class="form-label">Cashier Name</label>
+                <input type="text" class="form-control" id="cashier_name" value="{{ $dorm->cashier_name }}" name="cashier_name" required>
+                @error('cashier_name')
+                <span class="text-danger fs-6">{{ $message }}</span>
+                @enderror
+                @endif
+            </div>
+        </div>
         <div class="row">
             <div class="col-4">
                 <input type="hidden" class="form-control" id="or_date" value="{{ \Carbon\Carbon::now()->toDateString() }}" name="or_date" required>

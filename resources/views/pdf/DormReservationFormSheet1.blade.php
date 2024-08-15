@@ -2727,7 +2727,7 @@
         </tr>
         <tr class="c117">
             <td class="c151" colspan="4" rowspan="1">
-                <p class="c81"><span class="c12 c1 c61">JOJIE G. GAWON</span></p>
+                <p class="c81"><span class="c12 c1 c61">{{ $dorm->cashier_name }}</span></p>
             </td>
             <td class="c157" colspan="5" rowspan="1">
                 <p class="c20"><span class="c32">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; During weekends and holidays, the

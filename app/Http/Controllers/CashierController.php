@@ -66,7 +66,7 @@ class CashierController extends Controller
                 ->get();
 
             $validated = request()->validate([
-              
+
                 'status' => 'required',
                 'cashier_name' => 'required',
                 'oop_number' => [
@@ -82,11 +82,11 @@ class CashierController extends Controller
                     },
                 ],
                 'or_date' => 'required|date',
-        
+
             ]);
         }
 
-       
+
 
         // Get all Gym reservations with the same form_group_number
         $gymReservations = Gym::where('form_group_number', $gym->form_group_number)->get();
@@ -170,6 +170,9 @@ class CashierController extends Controller
 
     public function editCashierDorm(Dorm $dorm)
     {
+        $receivingUser = User::select('first_name', 'middle_name', 'last_name')
+            ->where('id', Auth::id())
+            ->first();
         // Calculate the number of days between reservation_start_date and reservation_end_date
         $numberOfDays = DB::table('dorm_reservations')
             ->where('id', $dorm->id) // Assuming 'id' is the primary key of 'dorm_reservations'
@@ -181,7 +184,7 @@ class CashierController extends Controller
         // Handle if $numberOfDays is null (handle case where $dorm is not found or dates are not set)
         $numDays = $numberOfDays ? $numberOfDays->num_days : 0;
         // You can return the modal content as a view
-        return view('cashier.cashier-confirmpayment-dorm', compact('dorm', 'numDays', 'orNumber'));
+        return view('cashier.cashier-confirmpayment-dorm', compact('dorm', 'numDays', 'orNumber', 'receivingUser'));
     }
 
     public function confirmPaymentDorm(Dorm $dorm)
@@ -194,6 +197,7 @@ class CashierController extends Controller
                 'amount_paid' => 'required|min:3|max:12',
                 'status' => 'required',
                 'or_date' => 'required|date',
+                'cashier_name' => 'required',
             ]);
             // $validated['or_number'] = $currentYearMonth . '-' . $validated['or_number'];
         } else {
@@ -215,6 +219,7 @@ class CashierController extends Controller
                 'amount_paid' => 'required|min:3|max:12',
                 'status' => 'required',
                 'or_date' => 'required|date',
+                'cashier_name' => 'required',
             ]);
             // $validated['or_number'] = $currentYearMonth . '-' . $validated['or_number'];
         }
