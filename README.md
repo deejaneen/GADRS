@@ -11,8 +11,7 @@ You can view the live application at [https://gadrs.deeja.dev/](https://gadrs.de
 3. [Roles and Functionalities](#roles-and-functionalities)
 4. [Installation](#installation)
 5. [Contact Information](#contact-information)
-6. [License](#license)
-
+   
 ## Features
 - **Role-based Access Control**: Different functionalities for Admin, Guest, Receiving, Supply, and Cashier roles.
 - **Reservation Management**: Manage and track gym and dorm reservations, including date restrictions and capacity handling.
@@ -90,6 +89,3 @@ For any queries or support, feel free to contact me at:
 - **Email**: [tomeldendjaninetara@gmail.com](mailto:tomeldendjaninetara@gmail.com)
 - **LinkedIn**: [linkedin.com/in/dttomelden/](https://www.linkedin.com/in/dttomelden/)
 - **GitHub**: [github.com/deejaneen](https://github.com/deejaneen)
-
-## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
