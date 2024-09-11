@@ -5,6 +5,7 @@
     left: 0px;
     top: 0px;
     background: var(--color-primary);
+    z-index: 999;
 }
 
 .navbar .navbar-nav {

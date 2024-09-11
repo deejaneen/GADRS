@@ -70,7 +70,7 @@
                                                         : ($gym->status === 'Cancelled' || $gym->status === 'Unavailable'
                                                             ? 'status-cancelled'
                                                             : ''))) }}">
-                                            {{ $gym->status }}
+                                            {{ $gym->status === 'Received' ? 'For Payment' : ($gym->status === 'Paid' ? 'Reserved' : $gym->status) }}
                                         </td>
                                         <td class="actions-home">
                                             <form class="delete-form-gym" id="guestGymIdDelete_{{ $gym->id }}"
@@ -145,7 +145,7 @@
                                                     : ($dorm->status === 'Cancelled' || $dorm->status === 'Unavailable'
                                                         ? 'status-cancelled'
                                                         : ''))) }}">
-                                        {{ $dorm->status }}
+                                         {{ $dorm->status === 'Received' ? 'For Payment' : ($dorm->status === 'Paid' ? 'Reserved' : $dorm->status) }}
                                     </td>
                                     <td class="actions-home">
                                         <form class="delete-form-dorm" id="guestDormIdDelete_{{ $dorm->id }}"
